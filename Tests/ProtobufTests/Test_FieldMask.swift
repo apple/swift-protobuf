@@ -1,0 +1,97 @@
+// Test/Sources/TestSuite/Test_FieldMask.swift - Exercise well-known FieldMask type
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// The FieldMask type is a new standard message type in proto3.  It has a
+/// specialized JSON coding.
+///
+// -----------------------------------------------------------------------------
+
+// TODO: We should have utility functions for applying a mask to an arbitrary
+// message, intersecting two masks, etc.
+
+import XCTest
+import Protobuf
+
+class Test_FieldMask: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = Google_Protobuf_FieldMask
+
+    func testJSON() {
+        assertJSONEncode("\"foo\"") { (o: inout MessageTestType) in
+            o.paths = ["foo"]
+        }
+        assertJSONEncode("\"foo,fooBar\"") { (o: inout MessageTestType) in
+            o.paths = ["foo", "foo_bar"]
+        }
+        assertJSONDecodeSucceeds("\"foo\"") { $0.paths == ["foo"] }
+        assertJSONDecodeFails("foo")
+        assertJSONDecodeFails("\"foo,\"")
+        assertJSONDecodeFails("\"foo\",\"bar\"")
+        assertJSONDecodeFails("\",foo\"")
+        assertJSONDecodeFails("\"foo,,bar\"")
+        assertJSONDecodeFails("\"foo,bar")
+        assertJSONDecodeFails("foo,bar\"")
+    }
+
+    func testProtobuf() {
+        assertEncode([10, 3, 102, 111, 111]) { (o: inout MessageTestType) in
+            o.paths = ["foo"]
+        }
+    }
+
+    func testDebugDescription() {
+        var m = Google_Protobuf_FieldMask()
+        m.paths = ["foo", "bar"]
+        XCTAssertEqual(m.debugDescription, "Google_Protobuf_FieldMask(paths:[\"foo\",\"bar\"])")
+    }
+
+    func testConvenienceInits() {
+        var m = Google_Protobuf_FieldMask()
+        m.paths = ["foo", "bar"]
+
+        let m1 = Google_Protobuf_FieldMask(protoPaths: "foo", "bar")
+        let m2 = Google_Protobuf_FieldMask(protoPaths: ["foo", "bar"])
+
+        var other = Google_Protobuf_FieldMask()
+        other.paths = ["foo", "bar", "baz"]
+
+        XCTAssertEqual(m, m1)
+        XCTAssertEqual(m, m2)
+        XCTAssertEqual(m1, m2)
+
+        XCTAssertNotEqual(m, other)
+        XCTAssertNotEqual(m1, other)
+        XCTAssertNotEqual(m2, other)
+    }
+
+    // Make sure field mask works correctly when stored in a field
+    func testJSON_field() throws {
+        do {
+            let valid = try Conformance_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,barBaz\"}")
+            XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
+        } catch {
+            XCTFail("Should have decoded correctly")
+        }
+
+        XCTAssertThrowsError(try Conformance_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
+    }
+
+    func testSerializationFailure() {
+        // If the proto fieldname can't be converted to a JSON field name,
+        // then JSON serialization should fail:
+        let m1 = Google_Protobuf_FieldMask(protoPaths: "foo_3_bar")
+        XCTAssertThrowsError(try m1.serializeJSON())
+        let m2 = Google_Protobuf_FieldMask(protoPaths: "foo__bar")
+        XCTAssertThrowsError(try m2.serializeJSON())
+        let m3 = Google_Protobuf_FieldMask(protoPaths: "fooBar")
+        XCTAssertThrowsError(try m3.serializeJSON())
+    }
+}

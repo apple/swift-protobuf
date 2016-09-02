@@ -1,0 +1,648 @@
+import XCTest
+@testable import ProtobufTestSuite
+
+private func run_test(test:() -> ()) throws {
+    test()
+}
+
+private func run_test(test:() throws -> ()) throws {
+    try test()
+}
+
+
+
+extension Test_AllTypes {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEncoding_unknown", {try run_test(test:($0 as! Test_AllTypes).testEncoding_unknown)}),
+            ("testEncoding_optionalInt32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalInt32)}),
+            ("testEncoding_optionalInt64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalInt64)}),
+            ("testEncoding_optionalUint32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalUint32)}),
+            ("testEncoding_optionalUint64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalUint64)}),
+            ("testEncoding_optionalSint32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalSint32)}),
+            ("testEncoding_optionalSint64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalSint64)}),
+            ("testEncoding_optionalFixed32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalFixed32)}),
+            ("testEncoding_optionalFixed64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalFixed64)}),
+            ("testEncoding_optionalSfixed32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalSfixed32)}),
+            ("testEncoding_optionalSfixed64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalSfixed64)}),
+            ("testEncoding_optionalFloat", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalFloat)}),
+            ("testEncoding_optionalDouble", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalDouble)}),
+            ("testEncoding_optionalBool", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalBool)}),
+            ("testEncoding_optionalString", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalString)}),
+            ("testEncoding_optionalGroup", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalGroup)}),
+            ("testEncoding_optionalBytes", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalBytes)}),
+            ("testEncoding_optionalNestedMessage", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalNestedMessage)}),
+            ("testEncoding_optionalForeignMessage", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalForeignMessage)}),
+            ("testEncoding_optionalImportMessage", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalImportMessage)}),
+            ("testEncoding_optionalNestedEnum", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalNestedEnum)}),
+            ("testEncoding_optionalForeignEnum", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalForeignEnum)}),
+            ("testEncoding_optionalImportEnum", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalImportEnum)}),
+            ("testEncoding_optionalStringPiece", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalStringPiece)}),
+            ("testEncoding_optionalCord", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalCord)}),
+            ("testEncoding_optionalPublicImportMessage", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalPublicImportMessage)}),
+            ("testEncoding_optionalLazyMessage", {try run_test(test:($0 as! Test_AllTypes).testEncoding_optionalLazyMessage)}),
+            ("testEncoding_repeatedInt32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedInt32)}),
+            ("testEncoding_repeatedInt64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedInt64)}),
+            ("testEncoding_repeatedUint32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedUint32)}),
+            ("testEncoding_repeatedUint64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedUint64)}),
+            ("testEncoding_repeatedSint32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedSint32)}),
+            ("testEncoding_repeatedSint64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedSint64)}),
+            ("testEncoding_repeatedFixed32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedFixed32)}),
+            ("testEncoding_repeatedFixed64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedFixed64)}),
+            ("testEncoding_repeatedSfixed32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedSfixed32)}),
+            ("testEncoding_repeatedSfixed64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedSfixed64)}),
+            ("testEncoding_repeatedFloat", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedFloat)}),
+            ("testEncoding_repeatedDouble", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedDouble)}),
+            ("testEncoding_repeatedBool", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedBool)}),
+            ("testEncoding_repeatedString", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedString)}),
+            ("testEncoding_repeatedBytes", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedBytes)}),
+            ("testEncoding_repeatedGroup", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedGroup)}),
+            ("testEncoding_repeatedNestedMessage", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedNestedMessage)}),
+            ("testEncoding_repeatedNestedEnum", {try run_test(test:($0 as! Test_AllTypes).testEncoding_repeatedNestedEnum)}),
+            ("testEncoding_defaultInt32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultInt32)}),
+            ("testEncoding_defaultInt64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultInt64)}),
+            ("testEncoding_defaultUint32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultUint32)}),
+            ("testEncoding_defaultUint64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultUint64)}),
+            ("testEncoding_defaultSint32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultSint32)}),
+            ("testEncoding_defaultSint64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultSint64)}),
+            ("testEncoding_defaultFixed32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultFixed32)}),
+            ("testEncoding_defaultFixed64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultFixed64)}),
+            ("testEncoding_defaultSfixed32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultSfixed32)}),
+            ("testEncoding_defaultSfixed64", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultSfixed64)}),
+            ("testEncoding_defaultFloat", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultFloat)}),
+            ("testEncoding_defaultDouble", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultDouble)}),
+            ("testEncoding_defaultBool", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultBool)}),
+            ("testEncoding_defaultString", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultString)}),
+            ("testEncoding_defaultBytes", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultBytes)}),
+            ("testEncoding_defaultNestedEnum", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultNestedEnum)}),
+            ("testEncoding_defaultForeignEnum", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultForeignEnum)}),
+            ("testEncoding_defaultImportEnum", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultImportEnum)}),
+            ("testEncoding_defaultStringPiece", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultStringPiece)}),
+            ("testEncoding_defaultCord", {try run_test(test:($0 as! Test_AllTypes).testEncoding_defaultCord)}),
+            ("testEncoding_oneofUint32", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofUint32)}),
+            ("testEncoding_oneofNestedMessage", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofNestedMessage)}),
+            ("testEncoding_oneofNestedMessage1", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofNestedMessage1)}),
+            ("testEncoding_oneofNestedMessage2", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofNestedMessage2)}),
+            ("testEncoding_oneofNestedMessage9", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofNestedMessage9)}),
+            ("testEncoding_oneofString", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofString)}),
+            ("testEncoding_oneofBytes", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes)}),
+            ("testEncoding_oneofBytes2", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes2)}),
+            ("testEncoding_oneofBytes3", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes3)}),
+            ("testEncoding_oneofBytes4", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes4)}),
+            ("testEncoding_oneofBytes5", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes5)}),
+            ("testEncoding_oneofBytes_failures", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes_failures)}),
+            ("testEncoding_oneofBytes_debugDescription", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes_debugDescription)}),
+            ("test_reflection", {try run_test(test:($0 as! Test_AllTypes).test_reflection)}),
+            ("testDebugDescription", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription)}),
+            ("testDebugDescription2", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription2)}),
+            ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription3)}),
+            ("testDebugDescription4", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription4)})        ]
+    }
+}
+
+extension Test_AllTypes_Proto3 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEncoding_singleInt32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleInt32)}),
+            ("testEncoding_singleInt64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleInt64)}),
+            ("testEncoding_singleUint32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleUint32)}),
+            ("testEncoding_singleUint64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleUint64)}),
+            ("testEncoding_singleSint32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleSint32)}),
+            ("testEncoding_singleSint64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleSint64)}),
+            ("testEncoding_singleFixed32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleFixed32)}),
+            ("testEncoding_singleFixed64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleFixed64)}),
+            ("testEncoding_singleSfixed32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleSfixed32)}),
+            ("testEncoding_singleSfixed64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleSfixed64)}),
+            ("testEncoding_singleFloat", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleFloat)}),
+            ("testEncoding_singleDouble", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleDouble)}),
+            ("testEncoding_singleBool", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleBool)}),
+            ("testEncoding_singleString", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleString)}),
+            ("testEncoding_singleBytes", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleBytes)}),
+            ("testEncoding_singleNestedMessage", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleNestedMessage)}),
+            ("testEncoding_singleForeignMessage", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleForeignMessage)}),
+            ("testEncoding_singleImportMessage", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleImportMessage)}),
+            ("testEncoding_singleNestedEnum", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleNestedEnum)}),
+            ("testEncoding_singleForeignEnum", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleForeignEnum)}),
+            ("testEncoding_singleImportEnum", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singleImportEnum)}),
+            ("testEncoding_singlePublicImportMessage", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_singlePublicImportMessage)}),
+            ("testEncoding_repeatedInt32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedInt32)}),
+            ("testEncoding_repeatedInt64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedInt64)}),
+            ("testEncoding_repeatedUint32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedUint32)}),
+            ("testEncoding_repeatedUint64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedUint64)}),
+            ("testEncoding_repeatedSint32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedSint32)}),
+            ("testEncoding_repeatedSint64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedSint64)}),
+            ("testEncoding_repeatedFixed32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedFixed32)}),
+            ("testEncoding_repeatedFixed64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedFixed64)}),
+            ("testEncoding_repeatedSfixed32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedSfixed32)}),
+            ("testEncoding_repeatedSfixed64", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedSfixed64)}),
+            ("testEncoding_repeatedFloat", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedFloat)}),
+            ("testEncoding_repeatedDouble", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedDouble)}),
+            ("testEncoding_repeatedBool", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedBool)}),
+            ("testEncoding_repeatedString", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedString)}),
+            ("testEncoding_repeatedBytes", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedBytes)}),
+            ("testEncoding_repeatedNestedMessage", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedNestedMessage)}),
+            ("testEncoding_repeatedNestedEnum", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_repeatedNestedEnum)}),
+            ("testEncoding_oneofUint32", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofUint32)}),
+            ("testEncoding_oneofNestedMessage", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofNestedMessage)}),
+            ("testEncoding_oneofNestedMessage1", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofNestedMessage1)}),
+            ("testEncoding_oneofNestedMessage2", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofNestedMessage2)}),
+            ("testEncoding_oneofNestedMessage9", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofNestedMessage9)}),
+            ("testEncoding_oneofString", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofString)}),
+            ("testEncoding_oneofBytes", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes)}),
+            ("testEncoding_oneofBytes2", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes2)}),
+            ("testEncoding_oneofBytes3", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes3)}),
+            ("testEncoding_oneofBytes4", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes4)}),
+            ("testEncoding_oneofBytes5", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes5)}),
+            ("testEncoding_oneofBytes_failures", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes_failures)}),
+            ("testEncoding_oneofBytes_debugDescription", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes_debugDescription)}),
+            ("test_reflection", {try run_test(test:($0 as! Test_AllTypes_Proto3).test_reflection)}),
+            ("testDebugDescription", {try run_test(test:($0 as! Test_AllTypes_Proto3).testDebugDescription)}),
+            ("testDebugDescription2", {try run_test(test:($0 as! Test_AllTypes_Proto3).testDebugDescription2)}),
+            ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes_Proto3).testDebugDescription3)})        ]
+    }
+}
+
+extension Test_Any {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_Any", {try run_test(test:($0 as! Test_Any).test_Any)}),
+            ("test_Any_different_prefix", {try run_test(test:($0 as! Test_Any).test_Any_different_prefix)}),
+            ("test_Any_noprefix", {try run_test(test:($0 as! Test_Any).test_Any_noprefix)}),
+            ("test_Any_shortesttype", {try run_test(test:($0 as! Test_Any).test_Any_shortesttype)}),
+            ("test_Any_UserMessage", {try run_test(test:($0 as! Test_Any).test_Any_UserMessage)}),
+            ("test_Any_UnknownUserMessage_JSON", {try run_test(test:($0 as! Test_Any).test_Any_UnknownUserMessage_JSON)}),
+            ("test_Any_UnknownUserMessage_protobuf", {try run_test(test:($0 as! Test_Any).test_Any_UnknownUserMessage_protobuf)}),
+            ("test_Any_Any", {try run_test(test:($0 as! Test_Any).test_Any_Any)}),
+            ("test_Any_Duration_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Duration_JSON_roundtrip)}),
+            ("test_Any_Duration_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Duration_transcode)}),
+            ("test_Any_FieldMask_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_FieldMask_JSON_roundtrip)}),
+            ("test_Any_FieldMask_transcode", {try run_test(test:($0 as! Test_Any).test_Any_FieldMask_transcode)}),
+            ("test_Any_Int32Value_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Int32Value_JSON_roundtrip)}),
+            ("test_Any_Int32Value_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Int32Value_transcode)}),
+            ("test_Any_Struct_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Struct_JSON_roundtrip)}),
+            ("test_Any_Struct_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Struct_transcode)}),
+            ("test_Any_Timestamp_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Timestamp_JSON_roundtrip)}),
+            ("test_Any_Timestamp_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Timestamp_transcode)}),
+            ("test_Any_ListValue_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_ListValue_JSON_roundtrip)}),
+            ("test_Any_ListValue_transcode", {try run_test(test:($0 as! Test_Any).test_Any_ListValue_transcode)}),
+            ("test_Any_Value_struct_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Value_struct_JSON_roundtrip)}),
+            ("test_Any_Value_struct_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Value_struct_transcode)}),
+            ("test_Any_Value_int_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Value_int_JSON_roundtrip)}),
+            ("test_Any_Value_int_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Value_int_transcode)}),
+            ("test_Any_Value_string_JSON_roundtrip", {try run_test(test:($0 as! Test_Any).test_Any_Value_string_JSON_roundtrip)}),
+            ("test_Any_Value_string_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Value_string_transcode)})        ]
+    }
+}
+
+extension Test_Api {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testExists", {try run_test(test:($0 as! Test_Api).testExists)}),
+            ("testInitializer", {try run_test(test:($0 as! Test_Api).testInitializer)})        ]
+    }
+}
+
+extension Test_Conformance {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testFieldNaming", {try run_test(test:($0 as! Test_Conformance).testFieldNaming)}),
+            ("testFieldNaming_protoNames", {try run_test(test:($0 as! Test_Conformance).testFieldNaming_protoNames)}),
+            ("testFieldNaming_escapeInName", {try run_test(test:($0 as! Test_Conformance).testFieldNaming_escapeInName)}),
+            ("testInt32_min_roundtrip", {try run_test(test:($0 as! Test_Conformance).testInt32_min_roundtrip)}),
+            ("testInt32_toosmall", {try run_test(test:($0 as! Test_Conformance).testInt32_toosmall)}),
+            ("testRepeatedBoolWrapper", {try run_test(test:($0 as! Test_Conformance).testRepeatedBoolWrapper)}),
+            ("testString_badUnicodeEscape", {try run_test(test:($0 as! Test_Conformance).testString_badUnicodeEscape)}),
+            ("testString_surrogates", {try run_test(test:($0 as! Test_Conformance).testString_surrogates)})        ]
+    }
+}
+
+extension Test_Descriptor {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testExists", {try run_test(test:($0 as! Test_Descriptor).testExists)})        ]
+    }
+}
+
+extension Test_Duration {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testJSON_encode", {try run_test(test:($0 as! Test_Duration).testJSON_encode)}),
+            ("testJSON_decode", {try run_test(test:($0 as! Test_Duration).testJSON_decode)}),
+            ("testSerializationFailure", {try run_test(test:($0 as! Test_Duration).testSerializationFailure)}),
+            ("testJSON_durationField", {try run_test(test:($0 as! Test_Duration).testJSON_durationField)}),
+            ("testFieldMember", {try run_test(test:($0 as! Test_Duration).testFieldMember)}),
+            ("testTranscode", {try run_test(test:($0 as! Test_Duration).testTranscode)}),
+            ("testConformance", {try run_test(test:($0 as! Test_Duration).testConformance)}),
+            ("testBasicArithmetic", {try run_test(test:($0 as! Test_Duration).testBasicArithmetic)}),
+            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Duration).testArithmeticNormalizes)}),
+            ("testFloatLiteralConvertible", {try run_test(test:($0 as! Test_Duration).testFloatLiteralConvertible)})        ]
+    }
+}
+
+extension Test_Empty {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testExists", {try run_test(test:($0 as! Test_Empty).testExists)})        ]
+    }
+}
+
+extension Test_Enum {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEqual", {try run_test(test:($0 as! Test_Enum).testEqual)}),
+            ("testJSONsingular", {try run_test(test:($0 as! Test_Enum).testJSONsingular)}),
+            ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum).testJSONrepeated)}),
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum).testEnumPrefix)})        ]
+    }
+}
+
+extension Test_Enum_Proto2 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEqual", {try run_test(test:($0 as! Test_Enum_Proto2).testEqual)}),
+            ("testUnknownIgnored", {try run_test(test:($0 as! Test_Enum_Proto2).testUnknownIgnored)}),
+            ("testJSONsingular", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONsingular)}),
+            ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONrepeated)}),
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum_Proto2).testEnumPrefix)})        ]
+    }
+}
+
+extension Test_Extensions {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_optionalInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_optionalInt32Extension)}),
+            ("test_optionalInt32Extension_JSON", {try run_test(test:($0 as! Test_Extensions).test_optionalInt32Extension_JSON)}),
+            ("test_extensionMessageSpecificity", {try run_test(test:($0 as! Test_Extensions).test_extensionMessageSpecificity)}),
+            ("test_optionalStringExtension", {try run_test(test:($0 as! Test_Extensions).test_optionalStringExtension)}),
+            ("test_repeatedInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_repeatedInt32Extension)}),
+            ("test_defaultInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_defaultInt32Extension)}),
+            ("test_reflection", {try run_test(test:($0 as! Test_Extensions).test_reflection)}),
+            ("test_groupExtension", {try run_test(test:($0 as! Test_Extensions).test_groupExtension)}),
+            ("test_groupExtension_JSON", {try run_test(test:($0 as! Test_Extensions).test_groupExtension_JSON)}),
+            ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)}),
+            ("test_repeatedGroupExtension_JSON", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension_JSON)})        ]
+    }
+}
+
+extension Test_ExtremeDefaultValues {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_escapedBytes", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_escapedBytes)}),
+            ("test_largeUint32", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_largeUint32)}),
+            ("test_largeUint64", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_largeUint64)}),
+            ("test_smallInt32", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_smallInt32)}),
+            ("test_smallInt64", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_smallInt64)}),
+            ("test_reallySmallInt32", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_reallySmallInt32)}),
+            ("test_reallySmallInt64", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_reallySmallInt64)}),
+            ("test_utf8String", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_utf8String)}),
+            ("test_zeroFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_zeroFloat)}),
+            ("test_oneFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_oneFloat)}),
+            ("test_smallFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_smallFloat)}),
+            ("test_negativeOneFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_negativeOneFloat)}),
+            ("test_negativeFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_negativeFloat)}),
+            ("test_largeFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_largeFloat)}),
+            ("test_smallNegativeFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_smallNegativeFloat)}),
+            ("test_infDouble", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_infDouble)}),
+            ("test_negInfDouble", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_negInfDouble)}),
+            ("test_nanDouble", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_nanDouble)}),
+            ("test_infFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_infFloat)}),
+            ("test_negInfFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_negInfFloat)}),
+            ("test_nanFloat", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_nanFloat)}),
+            ("test_cppTrigraph", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_cppTrigraph)}),
+            ("test_stringWithZero", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_stringWithZero)}),
+            ("test_bytesWithZero", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_bytesWithZero)}),
+            ("test_stringPieceWithZero", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_stringPieceWithZero)}),
+            ("test_cordWithZero", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_cordWithZero)}),
+            ("test_replacementString", {try run_test(test:($0 as! Test_ExtremeDefaultValues).test_replacementString)})        ]
+    }
+}
+
+extension Test_FieldMask {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testJSON", {try run_test(test:($0 as! Test_FieldMask).testJSON)}),
+            ("testProtobuf", {try run_test(test:($0 as! Test_FieldMask).testProtobuf)}),
+            ("testDebugDescription", {try run_test(test:($0 as! Test_FieldMask).testDebugDescription)}),
+            ("testConvenienceInits", {try run_test(test:($0 as! Test_FieldMask).testConvenienceInits)}),
+            ("testJSON_field", {try run_test(test:($0 as! Test_FieldMask).testJSON_field)}),
+            ("testSerializationFailure", {try run_test(test:($0 as! Test_FieldMask).testSerializationFailure)})        ]
+    }
+}
+
+extension Test_FieldOrdering {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_FieldOrdering", {try run_test(test:($0 as! Test_FieldOrdering).test_FieldOrdering)})        ]
+    }
+}
+
+extension Test_JSON {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testMultipleFields", {try run_test(test:($0 as! Test_JSON).testMultipleFields)}),
+            ("testSingleInt32", {try run_test(test:($0 as! Test_JSON).testSingleInt32)}),
+            ("testSingleUInt32", {try run_test(test:($0 as! Test_JSON).testSingleUInt32)}),
+            ("testSingleInt64", {try run_test(test:($0 as! Test_JSON).testSingleInt64)}),
+            ("testSingleDouble", {try run_test(test:($0 as! Test_JSON).testSingleDouble)}),
+            ("testSingleFloat", {try run_test(test:($0 as! Test_JSON).testSingleFloat)}),
+            ("testSingleDouble_NaN", {try run_test(test:($0 as! Test_JSON).testSingleDouble_NaN)}),
+            ("testSingleBool", {try run_test(test:($0 as! Test_JSON).testSingleBool)}),
+            ("testSingleString", {try run_test(test:($0 as! Test_JSON).testSingleString)}),
+            ("testSingleBytes", {try run_test(test:($0 as! Test_JSON).testSingleBytes)}),
+            ("testSingleBytes2", {try run_test(test:($0 as! Test_JSON).testSingleBytes2)}),
+            ("testSingleNestedMessage", {try run_test(test:($0 as! Test_JSON).testSingleNestedMessage)}),
+            ("testSingleNestedEnum", {try run_test(test:($0 as! Test_JSON).testSingleNestedEnum)}),
+            ("testRepeatedInt32", {try run_test(test:($0 as! Test_JSON).testRepeatedInt32)}),
+            ("testRepeatedNestedMessage", {try run_test(test:($0 as! Test_JSON).testRepeatedNestedMessage)}),
+            ("testOneof", {try run_test(test:($0 as! Test_JSON).testOneof)})        ]
+    }
+}
+
+extension Test_JSONPacked {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testPackedInt32", {try run_test(test:($0 as! Test_JSONPacked).testPackedInt32)})        ]
+    }
+}
+
+extension Test_JSONUnpacked {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testPackedInt32", {try run_test(test:($0 as! Test_JSONUnpacked).testPackedInt32)})        ]
+    }
+}
+
+extension Test_JSON_Conformance {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testNullSupport_regularTypes", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_regularTypes)}),
+            ("testNullSupport_wellKnownTypes", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_wellKnownTypes)}),
+            ("testNullSupport_Value", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_Value)}),
+            ("testNullSupport_Repeated", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_Repeated)}),
+            ("testNullSupport_RepeatedValue", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_RepeatedValue)}),
+            ("testNullConformance", {try run_test(test:($0 as! Test_JSON_Conformance).testNullConformance)}),
+            ("testValueList", {try run_test(test:($0 as! Test_JSON_Conformance).testValueList)})        ]
+    }
+}
+
+extension Test_JSON_Group {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testOptionalGroup", {try run_test(test:($0 as! Test_JSON_Group).testOptionalGroup)}),
+            ("testRepeatedGroup", {try run_test(test:($0 as! Test_JSON_Group).testRepeatedGroup)})        ]
+    }
+}
+
+extension Test_Scanner {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testWellFormed", {try run_test(test:($0 as! Test_Scanner).testWellFormed)}),
+            ("testString", {try run_test(test:($0 as! Test_Scanner).testString)}),
+            ("testBrokenString", {try run_test(test:($0 as! Test_Scanner).testBrokenString)}),
+            ("testSingleTokens", {try run_test(test:($0 as! Test_Scanner).testSingleTokens)}),
+            ("testInvalidTokens", {try run_test(test:($0 as! Test_Scanner).testInvalidTokens)})        ]
+    }
+}
+
+extension Test_Map {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_mapInt32Int32", {try run_test(test:($0 as! Test_Map).test_mapInt32Int32)}),
+            ("test_mapInt64Int64", {try run_test(test:($0 as! Test_Map).test_mapInt64Int64)}),
+            ("test_mapUint64Uint64", {try run_test(test:($0 as! Test_Map).test_mapUint64Uint64)}),
+            ("test_mapSint32Sint32", {try run_test(test:($0 as! Test_Map).test_mapSint32Sint32)}),
+            ("test_mapSint64Sint64", {try run_test(test:($0 as! Test_Map).test_mapSint64Sint64)}),
+            ("test_mapFixed32Fixed32", {try run_test(test:($0 as! Test_Map).test_mapFixed32Fixed32)}),
+            ("test_mapFixed64Fixed64", {try run_test(test:($0 as! Test_Map).test_mapFixed64Fixed64)}),
+            ("test_mapSfixed32Sfixed32", {try run_test(test:($0 as! Test_Map).test_mapSfixed32Sfixed32)}),
+            ("test_mapSfixed64Sfixed64", {try run_test(test:($0 as! Test_Map).test_mapSfixed64Sfixed64)}),
+            ("test_mapInt32Float", {try run_test(test:($0 as! Test_Map).test_mapInt32Float)}),
+            ("test_mapInt32Double", {try run_test(test:($0 as! Test_Map).test_mapInt32Double)}),
+            ("test_mapBoolBool", {try run_test(test:($0 as! Test_Map).test_mapBoolBool)}),
+            ("test_mapStringString", {try run_test(test:($0 as! Test_Map).test_mapStringString)}),
+            ("test_mapInt32Bytes", {try run_test(test:($0 as! Test_Map).test_mapInt32Bytes)}),
+            ("test_mapInt32Enum", {try run_test(test:($0 as! Test_Map).test_mapInt32Enum)}),
+            ("test_mapInt32ForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapInt32ForeignMessage)}),
+            ("test_mapStringForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapStringForeignMessage)})        ]
+    }
+}
+
+extension Test_Map_JSON {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testMapInt32Int32", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Int32)}),
+            ("testMapStringString", {try run_test(test:($0 as! Test_Map_JSON).testMapStringString)}),
+            ("testMapInt32Bytes", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Bytes)}),
+            ("testMapInt32Message", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Message)}),
+            ("test_mapBoolBool", {try run_test(test:($0 as! Test_Map_JSON).test_mapBoolBool)})        ]
+    }
+}
+
+extension Test_Packed {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEncoding_packedInt32", {try run_test(test:($0 as! Test_Packed).testEncoding_packedInt32)}),
+            ("testEncoding_packedInt64", {try run_test(test:($0 as! Test_Packed).testEncoding_packedInt64)}),
+            ("testEncoding_packedUint32", {try run_test(test:($0 as! Test_Packed).testEncoding_packedUint32)}),
+            ("testEncoding_packedUint64", {try run_test(test:($0 as! Test_Packed).testEncoding_packedUint64)}),
+            ("testEncoding_packedSint32", {try run_test(test:($0 as! Test_Packed).testEncoding_packedSint32)}),
+            ("testEncoding_packedSint64", {try run_test(test:($0 as! Test_Packed).testEncoding_packedSint64)}),
+            ("testEncoding_packedFixed32", {try run_test(test:($0 as! Test_Packed).testEncoding_packedFixed32)}),
+            ("testEncoding_packedFixed64", {try run_test(test:($0 as! Test_Packed).testEncoding_packedFixed64)}),
+            ("testEncoding_packedSfixed32", {try run_test(test:($0 as! Test_Packed).testEncoding_packedSfixed32)}),
+            ("testEncoding_packedSfixed64", {try run_test(test:($0 as! Test_Packed).testEncoding_packedSfixed64)}),
+            ("testEncoding_packedFloat", {try run_test(test:($0 as! Test_Packed).testEncoding_packedFloat)}),
+            ("testEncoding_packedDouble", {try run_test(test:($0 as! Test_Packed).testEncoding_packedDouble)}),
+            ("testEncoding_packedBool", {try run_test(test:($0 as! Test_Packed).testEncoding_packedBool)}),
+            ("testEncoding_packedEnum", {try run_test(test:($0 as! Test_Packed).testEncoding_packedEnum)})        ]
+    }
+}
+
+extension Test_ParsingMerge {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_Merge", {try run_test(test:($0 as! Test_ParsingMerge).test_Merge)})        ]
+    }
+}
+
+extension Test_Performance {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testSingularSerialize", {try run_test(test:($0 as! Test_Performance).testSingularSerialize)})        ]
+    }
+}
+
+extension Test_ReallyLargeTagNumber {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_ReallyLargeTagNumber", {try run_test(test:($0 as! Test_ReallyLargeTagNumber).test_ReallyLargeTagNumber)})        ]
+    }
+}
+
+extension Test_RecursiveMap {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_RecursiveMap", {try run_test(test:($0 as! Test_RecursiveMap).test_RecursiveMap)})        ]
+    }
+}
+
+extension Test_Required {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_bare", {try run_test(test:($0 as! Test_Required).test_bare)}),
+            ("test_requiredInt32", {try run_test(test:($0 as! Test_Required).test_requiredInt32)}),
+            ("test_requiredFloat", {try run_test(test:($0 as! Test_Required).test_requiredFloat)}),
+            ("test_requiredString", {try run_test(test:($0 as! Test_Required).test_requiredString)})        ]
+    }
+}
+
+extension Test_SmallRequired {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testRequiredInt32", {try run_test(test:($0 as! Test_SmallRequired).testRequiredInt32)}),
+            ("testRequiredFloat", {try run_test(test:($0 as! Test_SmallRequired).testRequiredFloat)}),
+            ("testRequiredBool", {try run_test(test:($0 as! Test_SmallRequired).testRequiredBool)}),
+            ("testRequiredString", {try run_test(test:($0 as! Test_SmallRequired).testRequiredString)}),
+            ("testRequiredBytes", {try run_test(test:($0 as! Test_SmallRequired).testRequiredBytes)}),
+            ("testRequiredNestedEnum", {try run_test(test:($0 as! Test_SmallRequired).testRequiredNestedEnum)})        ]
+    }
+}
+
+extension Test_Reserved {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Reserved).testEnumPrefix)})        ]
+    }
+}
+
+extension Test_Struct {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testStruct_pbencode", {try run_test(test:($0 as! Test_Struct).testStruct_pbencode)}),
+            ("testStruct_pbdecode", {try run_test(test:($0 as! Test_Struct).testStruct_pbdecode)}),
+            ("test_JSON", {try run_test(test:($0 as! Test_Struct).test_JSON)}),
+            ("test_JSON_field", {try run_test(test:($0 as! Test_Struct).test_JSON_field)}),
+            ("test_equality", {try run_test(test:($0 as! Test_Struct).test_equality)})        ]
+    }
+}
+
+extension Test_JSON_ListValue {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testProtobuf", {try run_test(test:($0 as! Test_JSON_ListValue).testProtobuf)}),
+            ("testJSON", {try run_test(test:($0 as! Test_JSON_ListValue).testJSON)}),
+            ("test_equality", {try run_test(test:($0 as! Test_JSON_ListValue).test_equality)})        ]
+    }
+}
+
+extension Test_JSON_Value {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testValue_default", {try run_test(test:($0 as! Test_JSON_Value).testValue_default)}),
+            ("testValue_null", {try run_test(test:($0 as! Test_JSON_Value).testValue_null)}),
+            ("testValue_number", {try run_test(test:($0 as! Test_JSON_Value).testValue_number)}),
+            ("testValue_string", {try run_test(test:($0 as! Test_JSON_Value).testValue_string)}),
+            ("testValue_bool", {try run_test(test:($0 as! Test_JSON_Value).testValue_bool)}),
+            ("testValue_struct", {try run_test(test:($0 as! Test_JSON_Value).testValue_struct)}),
+            ("testValue_list", {try run_test(test:($0 as! Test_JSON_Value).testValue_list)}),
+            ("testValue_complex", {try run_test(test:($0 as! Test_JSON_Value).testValue_complex)}),
+            ("testStruct_conformance", {try run_test(test:($0 as! Test_JSON_Value).testStruct_conformance)}),
+            ("testStruct_null", {try run_test(test:($0 as! Test_JSON_Value).testStruct_null)})        ]
+    }
+}
+
+extension Test_Timestamp {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testJSON", {try run_test(test:($0 as! Test_Timestamp).testJSON)}),
+            ("testJSON_range", {try run_test(test:($0 as! Test_Timestamp).testJSON_range)}),
+            ("testJSON_timezones", {try run_test(test:($0 as! Test_Timestamp).testJSON_timezones)}),
+            ("testJSON_timestampField", {try run_test(test:($0 as! Test_Timestamp).testJSON_timestampField)}),
+            ("testJSON_conformance", {try run_test(test:($0 as! Test_Timestamp).testJSON_conformance)}),
+            ("testSerializationFailure", {try run_test(test:($0 as! Test_Timestamp).testSerializationFailure)}),
+            ("testBasicArithmetic", {try run_test(test:($0 as! Test_Timestamp).testBasicArithmetic)}),
+            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Timestamp).testArithmeticNormalizes)})        ]
+    }
+}
+
+extension Test_Type {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testExists", {try run_test(test:($0 as! Test_Type).testExists)})        ]
+    }
+}
+
+extension Test_Unknown_proto2 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testBinaryPB", {try run_test(test:($0 as! Test_Unknown_proto2).testBinaryPB)}),
+            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto2).testJSON)})        ]
+    }
+}
+
+extension Test_Unknown_proto3 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testBinaryPB", {try run_test(test:($0 as! Test_Unknown_proto3).testBinaryPB)}),
+            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto3).testJSON)})        ]
+    }
+}
+
+extension Test_Wrappers {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testDoubleValue", {try run_test(test:($0 as! Test_Wrappers).testDoubleValue)}),
+            ("testFloatValue", {try run_test(test:($0 as! Test_Wrappers).testFloatValue)}),
+            ("testInt64Value", {try run_test(test:($0 as! Test_Wrappers).testInt64Value)}),
+            ("testUInt64Value", {try run_test(test:($0 as! Test_Wrappers).testUInt64Value)}),
+            ("testInt32Value", {try run_test(test:($0 as! Test_Wrappers).testInt32Value)}),
+            ("testUInt32Value", {try run_test(test:($0 as! Test_Wrappers).testUInt32Value)}),
+            ("testBoolValue", {try run_test(test:($0 as! Test_Wrappers).testBoolValue)}),
+            ("testStringValue", {try run_test(test:($0 as! Test_Wrappers).testStringValue)}),
+            ("testBytesValue", {try run_test(test:($0 as! Test_Wrappers).testBytesValue)})
+        ]
+    }
+}
+
+XCTMain(
+    [
+        (testCaseClass: Test_AllTypes.self, allTests: Test_AllTypes.allTests),
+        (testCaseClass: Test_AllTypes_Proto3.self, allTests: Test_AllTypes_Proto3.allTests),
+        (testCaseClass: Test_Any.self, allTests: Test_Any.allTests),
+        (testCaseClass: Test_Api.self, allTests: Test_Api.allTests),
+        (testCaseClass: Test_Conformance.self, allTests: Test_Conformance.allTests),
+        (testCaseClass: Test_Descriptor.self, allTests: Test_Descriptor.allTests),
+        (testCaseClass: Test_Duration.self, allTests: Test_Duration.allTests),
+        (testCaseClass: Test_Empty.self, allTests: Test_Empty.allTests),
+        (testCaseClass: Test_Enum.self, allTests: Test_Enum.allTests),
+        (testCaseClass: Test_Enum_Proto2.self, allTests: Test_Enum_Proto2.allTests),
+        (testCaseClass: Test_Extensions.self, allTests: Test_Extensions.allTests),
+        (testCaseClass: Test_ExtremeDefaultValues.self, allTests: Test_ExtremeDefaultValues.allTests),
+        (testCaseClass: Test_FieldMask.self, allTests: Test_FieldMask.allTests),
+        (testCaseClass: Test_FieldOrdering.self, allTests: Test_FieldOrdering.allTests),
+        (testCaseClass: Test_JSON.self, allTests: Test_JSON.allTests),
+        (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
+        (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),
+        (testCaseClass: Test_JSON_Conformance.self, allTests: Test_JSON_Conformance.allTests),
+        (testCaseClass: Test_JSON_Group.self, allTests: Test_JSON_Group.allTests),
+        (testCaseClass: Test_Scanner.self, allTests: Test_Scanner.allTests),
+        (testCaseClass: Test_Map.self, allTests: Test_Map.allTests),
+        (testCaseClass: Test_Map_JSON.self, allTests: Test_Map_JSON.allTests),
+        (testCaseClass: Test_Packed.self, allTests: Test_Packed.allTests),
+        (testCaseClass: Test_ParsingMerge.self, allTests: Test_ParsingMerge.allTests),
+        (testCaseClass: Test_Performance.self, allTests: Test_Performance.allTests),
+        (testCaseClass: Test_ReallyLargeTagNumber.self, allTests: Test_ReallyLargeTagNumber.allTests),
+        (testCaseClass: Test_RecursiveMap.self, allTests: Test_RecursiveMap.allTests),
+        (testCaseClass: Test_Required.self, allTests: Test_Required.allTests),
+        (testCaseClass: Test_SmallRequired.self, allTests: Test_SmallRequired.allTests),
+        (testCaseClass: Test_Reserved.self, allTests: Test_Reserved.allTests),
+        (testCaseClass: Test_Struct.self, allTests: Test_Struct.allTests),
+        (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
+        (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
+        (testCaseClass: Test_Timestamp.self, allTests: Test_Timestamp.allTests),
+        (testCaseClass: Test_Type.self, allTests: Test_Type.allTests),
+        (testCaseClass: Test_Unknown_proto2.self, allTests: Test_Unknown_proto2.allTests),
+        (testCaseClass: Test_Unknown_proto3.self, allTests: Test_Unknown_proto3.allTests),
+        (testCaseClass: Test_Wrappers.self, allTests: Test_Wrappers.allTests)
+    ]
+)
