@@ -6,6 +6,43 @@
  *
  */
 
+//  Protocol Buffers - Google's data interchange format
+//  Copyright 2008 Google Inc.  All rights reserved.
+//  https://developers.google.com/protocol-buffers/
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are
+//  met:
+// 
+//      * Redistributions of source code must retain the above copyright
+//  notice, this list of conditions and the following disclaimer.
+//      * Redistributions in binary form must reproduce the above
+//  copyright notice, this list of conditions and the following disclaimer
+//  in the documentation and/or other materials provided with the
+//  distribution.
+//      * Neither the name of Google Inc. nor the names of its
+//  contributors may be used to endorse or promote products derived from
+//  this software without specific prior written permission.
+// 
+//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//  Author: kenton@google.com (Kenton Varda)
+//   Based on original Protocol Buffers design by
+//   Sanjay Ghemawat, Jeff Dean, and others.
+// 
+//  The messages in this file describe the definitions found in .proto files.
+//  A valid .proto file can be translated directly to a FileDescriptorProto
+//  without any other information (e.g. without reading its imports).
+
 import Protobuf
 
 
@@ -2139,6 +2176,36 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
   }
 }
 
+//  ===================================================================
+//  Options
+//  Each of the definitions above may have "options" attached.  These are
+//  just annotations which may cause code to be generated slightly differently
+//  or may contain hints for code that manipulates protocol messages.
+// 
+//  Clients may define custom options as extensions of the *Options messages.
+//  These extensions may not yet be known at parsing time, so the parser cannot
+//  store the values in them.  Instead it stores them in a field in the *Options
+//  message called uninterpreted_option. This field must have the same name
+//  across all *Options messages. We then use this field to populate the
+//  extensions when we build a descriptor, at which point all protos have been
+//  parsed and so all extensions are known.
+// 
+//  Extension numbers for custom options may be chosen as follows:
+//  * For options which will only be used within a single application or
+//    organization, or for experimental options, use field numbers 50000
+//    through 99999.  It is up to you to ensure that you do not use the
+//    same number for multiple options.
+//  * For options which will be published and used publicly by multiple
+//    independent entities, e-mail protobuf-global-extension-registry@google.com
+//    to reserve extension numbers. Simply provide your project name (e.g.
+//    Objective-C plugin) and your project website (if available) -- there's no
+//    need to explain how you intend to use them. Usually you only need one
+//    extension number. You can declare multiple options with only one extension
+//    number by putting them in a sub-message. See the Custom Options section of
+//    the docs for examples:
+//    https://developers.google.com/protocol-buffers/docs/proto#options
+//    If this turns out to be popular, a web service will be set up
+//    to automatically assign option numbers.
 public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_FileOptions"}
   public var protoMessageName: String {return "FileOptions"}
@@ -3399,6 +3466,11 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
 
   var unknown = ProtobufUnknownStorage()
 
+  //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
+  //    framework.  We apologize for hoarding these numbers to ourselves, but
+  //    we were already using them long before we decided to release Protocol
+  //    Buffers.
+
   ///   Is this service deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the service, or it will be completely ignored; in the very least,
@@ -3493,6 +3565,11 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
   ]}
 
   var unknown = ProtobufUnknownStorage()
+
+  //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
+  //    framework.  We apologize for hoarding these numbers to ourselves, but
+  //    we were already using them long before we decided to release Protocol
+  //    Buffers.
 
   ///   Is this method deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
@@ -3780,6 +3857,9 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
     return true
   }
 }
+
+//  ===================================================================
+//  Optional source code info
 
 ///   Encapsulates information about the original source file from which a
 ///   FileDescriptorProto was generated.
