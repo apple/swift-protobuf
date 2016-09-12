@@ -15,6 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import Swift
 
 public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
@@ -60,14 +61,14 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
     }
 
     mutating public func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        let t = try value.serializeProtobuf()
+        let t = try value.serializeProtobufBytes()
         encoder.startField(tagType: protoFieldNumber * 8 + M.protobufWireType())
         encoder.putBytesValue(value: t)
     }
 
     mutating public func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
-            let t = try v.serializeProtobuf()
+            let t = try v.serializeProtobufBytes()
             encoder.startField(tagType: protoFieldNumber * 8 + M.protobufWireType())
             encoder.putBytesValue(value: t)
         }
@@ -216,5 +217,11 @@ public struct ProtobufBinaryEncoder {
     mutating func putBytesValue(value: [UInt8]) {
         putVarInt(value: value.count)
         buffer.append(contentsOf: value)
+    }
+
+    mutating func putBytesValue(value: Data) {
+        let bytes = [UInt8](value)
+        putVarInt(value: bytes.count)
+        buffer.append(contentsOf: bytes)
     }
 }

@@ -617,6 +617,10 @@ public extension ProtobufBytes {
         encoder.putBytesValue(value: value)
     }
 
+    public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Data) {
+        encoder.putBytesValue(value: [UInt8](value))
+    }
+
     public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [UInt8]?) throws -> Bool {
         value = [UInt8](buffer)
         return true
@@ -676,20 +680,23 @@ extension ProtobufEnum where RawValue == Int {
 
 public protocol ProtobufBinaryMessageBase: ProtobufMessageBase {
     // Serialize to protobuf
-    func serializeProtobuf() throws -> [UInt8]
+    func serializeProtobuf() throws -> Data
+    func serializeProtobufBytes() throws -> [UInt8]
     // Decode from protobuf
-#if !os(Linux)
     init(protobuf: Data) throws
     init(protobuf: Data, extensions: ProtobufExtensionSet?) throws
-#endif
-    init(protobuf: [UInt8]) throws
-    init(protobuf: [UInt8], extensions: ProtobufExtensionSet?) throws
+    init(protobufBytes: [UInt8]) throws
+    init(protobufBytes: [UInt8], extensions: ProtobufExtensionSet?) throws
     init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws
     init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws
 }
 
 public extension ProtobufBinaryMessageBase {
-    func serializeProtobuf() throws -> [UInt8] {
+    func serializeProtobuf() throws -> Data {
+        let bytes = try serializeProtobufBytes()
+        return Data(bytes)
+    }
+    func serializeProtobufBytes() throws -> [UInt8] {
         return try ProtobufBinaryEncodingVisitor(message: self).buffer
     }
 
@@ -707,22 +714,20 @@ public extension ProtobufMessage {
         assert(handled)
     }
 
-#if !os(Linux)
     init(protobuf: Data) throws {
-        try self.init(protobuf: protobuf, extensions: nil)
+        try self.init(protobufBytes: [UInt8](protobuf), extensions: nil)
     }
 
     init(protobuf: Data, extensions: ProtobufExtensionSet? = nil) throws {
-        try self.init(protobuf: [UInt8](protobuf), extensions: extensions)
+        try self.init(protobufBytes: [UInt8](protobuf), extensions: extensions)
     }
-#endif
 
-    init(protobuf: [UInt8]) throws {
-        try self.init(protobuf: protobuf, extensions: nil)
+    init(protobufBytes: [UInt8]) throws {
+        try self.init(protobufBytes: protobufBytes, extensions: nil)
     }
-    init(protobuf: [UInt8], extensions: ProtobufExtensionSet? = nil) throws {
+    init(protobufBytes: [UInt8], extensions: ProtobufExtensionSet? = nil) throws {
         self.init()
-        try protobuf.withUnsafeBufferPointer { (bp) in
+        try protobufBytes.withUnsafeBufferPointer { (bp) in
             var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: bp, extensions: extensions)
             try protobufDecoder.decodeFullObject(message: &self)
         }

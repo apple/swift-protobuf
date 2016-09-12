@@ -46,7 +46,7 @@ class Test_Performance: XCTestCase {
         self.measure {
             do {
                 for _ in 0..<100000 {
-                    let _ = try m.serializeProtobuf()
+                    let _ = try m.serializeProtobufBytes()
                 }
             } catch {
             }

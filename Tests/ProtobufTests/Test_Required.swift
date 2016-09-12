@@ -123,7 +123,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
         // Because we always encode required fields, we get a non-trivial
         // output even for a bare object.
         let o = MessageTestType()
-        XCTAssertEqual(try o.serializeProtobuf(), expected)
+        XCTAssertEqual(try o.serializeProtobufBytes(), expected)
         XCTAssertEqual(try o.serializeJSON(), expectedJSON)
     }
 

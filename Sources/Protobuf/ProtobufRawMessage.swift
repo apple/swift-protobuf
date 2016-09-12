@@ -66,7 +66,7 @@ public struct ProtobufRawMessage {
         }
     }
 
-    // TODO: serializeProtobuf()
+    // TODO: serializeProtobuf(), serializeProtobufBytes()
 
     /// Get the contents of this field as a UInt64
     /// Returns nil if the field doesn't exist or it's contents cannot be expressed as a UInt64

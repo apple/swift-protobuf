@@ -25,7 +25,7 @@ class Test_JSON_Conformance: XCTestCase {
             XCTAssert(decoded.isEmpty, "Decoded object should be empty \(decoded)", file: file, line: line)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{}", file: file, line: line)
-            let protobuf = try decoded.serializeProtobuf()
+            let protobuf = try decoded.serializeProtobufBytes()
             XCTAssertEqual(protobuf, [], file: file, line: line)
         } catch let e {
             XCTFail("Decode failed with error \(e)", file: file, line: line)
@@ -95,7 +95,7 @@ class Test_JSON_Conformance: XCTestCase {
             XCTAssertFalse(decoded.isEmpty)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"optionalValue\":null}")
-            let protobuf = try decoded.serializeProtobuf()
+            let protobuf = try decoded.serializeProtobufBytes()
             XCTAssertEqual(protobuf, [146, 19, 2, 8, 0])
         } catch {
             XCTFail("Decode failed with error: \(valueNull)")
@@ -124,7 +124,7 @@ class Test_JSON_Conformance: XCTestCase {
             XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), Google_Protobuf_Value()])
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"repeatedValue\":[1,null]}")
-            let protobuf = try decoded.serializeProtobuf()
+            let protobuf = try decoded.serializeProtobufBytes()
             XCTAssertEqual(protobuf, [226, 19, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 226, 19, 2, 8, 0])
         } catch {
             XCTFail("Decode failed with error: \(repeatedValueWithNull)")

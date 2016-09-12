@@ -30,7 +30,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializeProtobuf()
-            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            XCTAssert(Data(bytes: expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(protobuf: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -44,7 +44,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
     func assertDecodeSucceeds(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
-            let decoded = try MessageTestType(protobuf: bytes, extensions: extensions)
+            let decoded = try MessageTestType(protobuf: Data(bytes: bytes), extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             let encoded = try decoded.serializeProtobuf()
@@ -62,7 +62,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
     func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(protobuf: bytes, extensions: extensions)
+            let _ = try MessageTestType(protobuf: Data(bytes: bytes), extensions: extensions)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch {
             // Yay!  It failed!
@@ -160,7 +160,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         assertDecodeFails([15, 0])
 
         // Decoded extension should correctly compare to a manually-set extension
-        let m1 = try ProtobufUnittest_TestAllExtensions(protobuf: [8, 17], extensions: extensions)
+        let m1 = try ProtobufUnittest_TestAllExtensions(protobuf: Data(bytes: [8, 17]), extensions: extensions)
         var m2 = ProtobufUnittest_TestAllExtensions()
         m2.optionalInt32Extension = 17
         XCTAssertEqual(m1, m2)
@@ -190,11 +190,11 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         extensions.insert(ProtobufUnittest_TestFieldOrderings_myExtensionInt)
 
         // This should decode with optionalSint32Extension
-        let m1 = try ProtobufUnittest_TestAllExtensions(protobuf: [40, 1], extensions: extensions)
+        let m1 = try ProtobufUnittest_TestAllExtensions(protobuf: Data(bytes: [40, 1]), extensions: extensions)
         XCTAssertEqual(m1.optionalSint32Extension, -1)
 
         // This should decode with myExtensionInt
-        let m2 = try ProtobufUnittest_TestFieldOrderings(protobuf: [40, 1], extensions: extensions)
+        let m2 = try ProtobufUnittest_TestFieldOrderings(protobuf: Data(bytes: [40, 1]), extensions: extensions)
         XCTAssertEqual(m2.myExtensionInt, 1)
     }
 
@@ -233,16 +233,16 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
     func test_defaultInt32Extension() throws {
         var m = ProtobufUnittest_TestAllExtensions()
         XCTAssertEqual(m.defaultInt32Extension, 41)
-        XCTAssertEqual(try m.serializeProtobuf(), [])
+        XCTAssertEqual(try m.serializeProtobufBytes(), [])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions()")
         m.defaultInt32Extension = 100
-        XCTAssertEqual(try m.serializeProtobuf(), [232, 3, 100])
+        XCTAssertEqual(try m.serializeProtobufBytes(), [232, 3, 100])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(defaultInt32Extension:100)")
         m.defaultInt32Extension = nil
-        XCTAssertEqual(try m.serializeProtobuf(), [])
+        XCTAssertEqual(try m.serializeProtobufBytes(), [])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions()")
         m.defaultInt32Extension = 41 // Default value
-        XCTAssertEqual(try m.serializeProtobuf(), [232, 3, 41])
+        XCTAssertEqual(try m.serializeProtobufBytes(), [232, 3, 41])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(defaultInt32Extension:41)")
 
         assertEncode([232, 3, 17]) { (o: inout MessageTestType) in

@@ -42,21 +42,21 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     // Binary PB coding drops unknown fields for proto3
     // (but not proto2; see Test_Unknown_proto2)
     func testBinaryPB() {
-        func assertIgnores(_ protobuf: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        func assertIgnores(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
-                let empty = try Proto3ArenaUnittest_TestEmptyMessage(protobuf: protobuf)
+                let empty = try Proto3ArenaUnittest_TestEmptyMessage(protobuf: Data(bytes: protobufBytes))
                 do {
                     let pb = try empty.serializeProtobuf()
-                    XCTAssertEqual([], pb, file: file, line: line)
+                    XCTAssertEqual(Data(), pb, file: file, line: line)
                 } catch {
                     XCTFail("Recoding empty failed", file: file, line: line)
                 }
             } catch {
-                XCTFail("Decoding threw error \(protobuf)", file: file, line: line)
+                XCTFail("Decoding threw error \(protobufBytes)", file: file, line: line)
             }
         }
-        func assertFails(_ protobuf: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try Proto3ArenaUnittest_TestEmptyMessage(protobuf: protobuf), file: file, line: line)
+        func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+            XCTAssertThrowsError(try Proto3ArenaUnittest_TestEmptyMessage(protobuf: Data(bytes: protobufBytes)), file: file, line: line)
         }
         // Well-formed input should ignore the field on decode, recode without it
         // Malformed input should fail to decode

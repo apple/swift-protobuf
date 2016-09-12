@@ -126,21 +126,21 @@ class Test_Duration: XCTestCase, PBTestHelpers {
         let parsedMax = try Conformance_TestAllTypes(json: jsonMax)
         XCTAssertEqual(parsedMax.optionalDuration.seconds, 315576000000)
         XCTAssertEqual(parsedMax.optionalDuration.nanos, 999999999)
-        XCTAssertEqual(try parsedMax.serializeProtobuf(), [234, 18, 13, 8, 128, 188, 174, 206, 151, 9, 16, 255, 147, 235, 220, 3])
+        XCTAssertEqual(try parsedMax.serializeProtobuf(), Data(bytes:[234, 18, 13, 8, 128, 188, 174, 206, 151, 9, 16, 255, 147, 235, 220, 3]))
         let jsonMin = "{\"optionalDuration\": \"-315576000000.999999999s\"}"
         let parsedMin = try Conformance_TestAllTypes(json: jsonMin)
         XCTAssertEqual(parsedMin.optionalDuration.seconds, -315576000000)
         XCTAssertEqual(parsedMin.optionalDuration.nanos, -999999999)
-        XCTAssertEqual(try parsedMin.serializeProtobuf(), [234, 18, 22, 8, 128, 196, 209, 177, 232, 246, 255, 255, 255, 1, 16, 129, 236, 148, 163, 252, 255, 255, 255, 255, 1])
+        XCTAssertEqual(try parsedMin.serializeProtobuf(), Data(bytes:[234, 18, 22, 8, 128, 196, 209, 177, 232, 246, 255, 255, 255, 1, 16, 129, 236, 148, 163, 252, 255, 255, 255, 255, 1]))
     }
 
     func testConformance() throws {
-        let tooSmall = try Conformance_TestAllTypes(protobuf: [234, 18, 11, 8, 255, 195, 209, 177, 232, 246, 255, 255, 255, 1])
+        let tooSmall = try Conformance_TestAllTypes(protobuf: Data(bytes: [234, 18, 11, 8, 255, 195, 209, 177, 232, 246, 255, 255, 255, 1]))
         XCTAssertEqual(tooSmall.optionalDuration.seconds, -315576000001)
         XCTAssertEqual(tooSmall.optionalDuration.nanos, 0)
         XCTAssertThrowsError(try tooSmall.serializeJSON())
 
-        let tooBig = try Conformance_TestAllTypes(protobuf: [234, 18, 7, 8, 129, 188, 174, 206, 151, 9])
+        let tooBig = try Conformance_TestAllTypes(protobuf: Data(bytes: [234, 18, 7, 8, 129, 188, 174, 206, 151, 9]))
         XCTAssertEqual(tooBig.optionalDuration.seconds, 315576000001)
         XCTAssertEqual(tooBig.optionalDuration.nanos, 0)
         XCTAssertThrowsError(try tooBig.serializeJSON())
@@ -196,7 +196,7 @@ class Test_Duration: XCTestCase, PBTestHelpers {
 
         var c = Conformance_TestAllTypes()
         c.optionalDuration = 100.000000001
-        XCTAssertEqual([234, 18, 4, 8, 100, 16, 1], try c.serializeProtobuf())
+        XCTAssertEqual(Data(bytes: [234, 18, 4, 8, 100, 16, 1]), try c.serializeProtobuf())
         XCTAssertEqual("{\"optionalDuration\":\"100.000000001s\"}", try c.serializeJSON())
     }
 

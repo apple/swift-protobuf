@@ -28,9 +28,9 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
         do {
             // Make sure unknown fields are preserved by empty message decode/encode
-            let empty = try ProtobufUnittest_TestEmptyMessage(protobuf: bytes)
+            let empty = try ProtobufUnittest_TestEmptyMessage(protobufBytes: bytes)
             do {
-                let newBytes = try empty.serializeProtobuf()
+                let newBytes = try empty.serializeProtobufBytes()
                 XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match", file: file, line: line)
             } catch let e {
                 XCTFail("Reserializing empty threw an error \(e)", file: file, line: line)
@@ -145,7 +145,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleUint32 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleUint32 = 1
         XCTAssertNotEqual(a, b)
@@ -189,7 +189,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleUint64 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleUint64 = 1
         XCTAssertNotEqual(a, b)
@@ -312,7 +312,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleFixed32 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleFixed32 = 1
         XCTAssertNotEqual(a, b)
@@ -361,7 +361,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleFixed64 = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleFixed64 = 1
         XCTAssertNotEqual(a, b)
@@ -494,7 +494,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleFloat = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleFloat = 1
         XCTAssertNotEqual(a, b)
@@ -538,7 +538,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleDouble = 0
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleDouble = 1
         XCTAssertNotEqual(a, b)
@@ -575,7 +575,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleBool = false
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleBool = true
         XCTAssertNotEqual(a, b)
@@ -615,7 +615,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleString = ""
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleString = "a"
         XCTAssertNotEqual(a, b)
@@ -654,7 +654,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         var a = empty
         a.singleBytes = []
         XCTAssertEqual(a, empty)
-        XCTAssertEqual(try a.serializeProtobuf(), [])
+        XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
         b.singleBytes = [1]
         XCTAssertNotEqual(a, b)

@@ -30,7 +30,7 @@ class Test_Wrappers: XCTestCase {
         m.value = 1.0
         XCTAssertEqual("1", try m.serializeJSON())
         XCTAssertNotEqual(m, try Google_Protobuf_DoubleValue(json:"null"))
-        XCTAssertEqual([9,0,0,0,0,0,0,240,63], try m.serializeProtobuf())
+        XCTAssertEqual([9,0,0,0,0,0,0,240,63], try m.serializeProtobufBytes())
 
         // Check that we can rely on object equality
         var m2 = Google_Protobuf_DoubleValue(1.0)
@@ -46,7 +46,7 @@ class Test_Wrappers: XCTestCase {
         // Use object equality to verify decode
         XCTAssertEqual(m, try Google_Protobuf_DoubleValue(json:"1.0"))
         XCTAssertEqual(m2, try Google_Protobuf_DoubleValue(json:"2"))
-        XCTAssertEqual(m, try Google_Protobuf_DoubleValue(protobuf: [9,0,0,0,0,0,0,240,63]))
+        XCTAssertEqual(m, try Google_Protobuf_DoubleValue(protobuf: Data(bytes: [9,0,0,0,0,0,0,240,63])))
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_DoubleValue(json:"1.0").hashValue)
@@ -63,7 +63,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_FloatValue(json:"null"))
         m.value = 1.0
         XCTAssertEqual("1", try m.serializeJSON())
-        XCTAssertEqual([13,0,0,128,63], try m.serializeProtobuf())
+        XCTAssertEqual([13,0,0,128,63], try m.serializeProtobufBytes())
 
         // Check that we can rely on object equality
         var m2 = Google_Protobuf_FloatValue(1.0)
@@ -77,7 +77,7 @@ class Test_Wrappers: XCTestCase {
         // Use object equality to verify decode
         XCTAssertEqual(m, try Google_Protobuf_FloatValue(json:"1.0"))
         XCTAssertEqual(m2, try Google_Protobuf_FloatValue(json:"2"))
-        XCTAssertEqual(m, try Google_Protobuf_FloatValue(protobuf: [13,0,0,128,63]))
+        XCTAssertEqual(m, try Google_Protobuf_FloatValue(protobuf: Data(bytes: [13,0,0,128,63])))
 
         XCTAssertThrowsError(try Google_Protobuf_FloatValue(json:"-3.502823e+38"))
         XCTAssertThrowsError(try Google_Protobuf_FloatValue(json:"3.502823e+38"))
@@ -101,7 +101,7 @@ class Test_Wrappers: XCTestCase {
         m.value = 777
         let j2 = try m.serializeJSON()
         XCTAssertEqual("\"777\"", j2)
-        XCTAssertEqual([8,137,6], try m.serializeProtobuf())
+        XCTAssertEqual([8,137,6], try m.serializeProtobufBytes())
         // TODO: More
 
         // hash
@@ -115,7 +115,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_UInt64Value(json: "null"))
         m.value = 777
         XCTAssertEqual("\"777\"", try m.serializeJSON())
-        XCTAssertEqual([8,137,6], try m.serializeProtobuf())
+        XCTAssertEqual([8,137,6], try m.serializeProtobufBytes())
         // TODO: More
 
         // hash
@@ -129,7 +129,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_Int32Value(json: "null"))
         m.value = 777
         XCTAssertEqual("777", try m.serializeJSON())
-        XCTAssertEqual([8,137,6], try m.serializeProtobuf())
+        XCTAssertEqual([8,137,6], try m.serializeProtobufBytes())
         // TODO: More
 
         // hash
@@ -143,7 +143,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_UInt32Value(json: "null"))
         m.value = 777
         XCTAssertEqual("777", try m.serializeJSON())
-        XCTAssertEqual([8,137,6], try m.serializeProtobuf())
+        XCTAssertEqual([8,137,6], try m.serializeProtobufBytes())
         // TODO: More
 
         // hash
@@ -157,7 +157,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_BoolValue(json: "null"))
         m.value = true
         XCTAssertEqual("true", try m.serializeJSON())
-        XCTAssertEqual([8,1], try m.serializeProtobuf())
+        XCTAssertEqual([8,1], try m.serializeProtobufBytes())
         // TODO: More
 
         // hash
@@ -171,7 +171,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_StringValue(json: "null"))
         m.value = "abc"
         XCTAssertEqual("\"abc\"", try m.serializeJSON())
-        XCTAssertEqual([10,3,97,98,99], try m.serializeProtobuf())
+        XCTAssertEqual([10,3,97,98,99], try m.serializeProtobufBytes())
         // TODO: More
         XCTAssertThrowsError(try Google_Protobuf_StringValue(json: "\"\\UABCD\""))
         XCTAssertEqual(try Google_Protobuf_StringValue(json: "\"\\uABCD\""), Google_Protobuf_StringValue("\u{ABCD}"))
@@ -188,7 +188,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_BytesValue(json: "null"))
         m.value = [0, 1, 2]
         XCTAssertEqual("\"AAEC\"", try m.serializeJSON())
-        XCTAssertEqual([10,3,0,1,2], try m.serializeProtobuf())
+        XCTAssertEqual([10,3,0,1,2], try m.serializeProtobufBytes())
         // TODO: More
 
         // hash

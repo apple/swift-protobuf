@@ -146,7 +146,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 return value
             } else if let message = _message {
                 do {
-                    return try message.serializeProtobuf()
+                    return try message.serializeProtobufBytes()
                 } catch {
                     return nil
                 }
@@ -157,7 +157,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[encodedTypeName] {
                     do {
                         let m = try messageType.init(any: self)
-                        return try m.serializeProtobuf()
+                        return try m.serializeProtobufBytes()
                     } catch {
                         return nil
                     }
@@ -166,7 +166,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 if let messageType = Google_Protobuf_Any.knownTypes[encodedTypeName] {
                     do {
                         let m = try messageType.init(any: self)
-                        return try m.serializeProtobuf()
+                        return try m.serializeProtobufBytes()
                     } catch {
                         return nil
                     }
@@ -174,7 +174,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 // TODO: Google spec requires a lot more work in the general case:
                 // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
                 // let type = Google_Protobuf_Type(protobuf: encodedType)
-                // return ProtobufDynamic(type: type, any: self)?.serializeProtobuf()
+                // return ProtobufDynamic(type: type, any: self)?.serializeProtobufBytes()
 
                 // See the comments in serializeJSON() above for more discussion of what would be needed to fully implement this.
                 return nil
@@ -294,7 +294,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         }
         var protobuf: [UInt8]?
         if let message = _message {
-            protobuf = try message.serializeProtobuf()
+            protobuf = try message.serializeProtobufBytes()
         } else if let value = _value {
             protobuf = value
         }

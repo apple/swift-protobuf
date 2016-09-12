@@ -180,7 +180,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         let nullFromLiteral: Google_Protobuf_Value = nil
         let null = Google_Protobuf_Value(nullValue: ())
         XCTAssertEqual("null", try null.serializeJSON())
-        XCTAssertEqual([8, 0], try null.serializeProtobuf())
+        XCTAssertEqual([8, 0], try null.serializeProtobufBytes())
         XCTAssertEqual(nullFromLiteral, null)
         XCTAssertNotEqual(nullFromLiteral, Google_Protobuf_Value(numberValue: 1))
         assertJSONDecodeSucceeds("null") {$0.nullValue == .nullValue}
@@ -190,7 +190,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         do {
             let m1 = try Conformance_TestAllTypes(json: "{\"optionalValue\": null}")
             XCTAssertEqual(try m1.serializeJSON(), "{\"optionalValue\":null}")
-            XCTAssertEqual(try m1.serializeProtobuf(), [146, 19, 2, 8, 0])
+            XCTAssertEqual(try m1.serializeProtobufBytes(), [146, 19, 2, 8, 0])
         } catch {
             XCTFail()
         }
@@ -205,7 +205,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         XCTAssertEqual(oneFromIntegerLiteral, oneFromFloatLiteral)
         XCTAssertNotEqual(oneFromIntegerLiteral, twoFromFloatLiteral)
         XCTAssertEqual("1", try oneFromIntegerLiteral.serializeJSON())
-        XCTAssertEqual([17, 0, 0, 0, 0, 0, 0, 240, 63], try oneFromIntegerLiteral.serializeProtobuf())
+        XCTAssertEqual([17, 0, 0, 0, 0, 0, 0, 240, 63], try oneFromIntegerLiteral.serializeProtobufBytes())
         assertJSONEncode("3.25") {(o: inout MessageTestType) in
             o.numberValue = 3.25
         }
@@ -248,7 +248,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         }
 
         // PB serialization
-        XCTAssertEqual([26, 3, 97, 34, 98], try Google_Protobuf_Value(stringValue: "a\"b").serializeProtobuf())
+        XCTAssertEqual([26, 3, 97, 34, 98], try Google_Protobuf_Value(stringValue: "a\"b").serializeProtobufBytes())
 
         XCTAssertEqual(fromStringLiteral.debugDescription, "Google_Protobuf_Value(stringValue:\"abcd\")")
     }

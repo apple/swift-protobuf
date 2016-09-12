@@ -24,6 +24,6 @@ class Test_Empty: XCTestCase, PBTestHelpers {
 
     func testExists() throws {
         let e = Google_Protobuf_Empty()
-        XCTAssertEqual([], try e.serializeProtobuf())
+        XCTAssertEqual(Data(), try e.serializeProtobuf())
     }
 }

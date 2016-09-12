@@ -33,7 +33,7 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializeProtobuf()
-            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            XCTAssert(Data(bytes: expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(protobuf: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -47,7 +47,7 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
 
     func baseAssertDecodeSucceeds(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
-            let decoded = try MessageTestType(protobuf: bytes)
+            let decoded = try MessageTestType(protobuf: Data(bytes: bytes))
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
@@ -73,7 +73,7 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
 
     func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(protobuf: bytes)
+            let _ = try MessageTestType(protobuf: Data(bytes: bytes))
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch {
             // Yay!  It failed!

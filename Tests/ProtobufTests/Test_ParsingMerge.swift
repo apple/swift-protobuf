@@ -59,13 +59,13 @@ class Test_ParsingMerge: XCTestCase {
             let encoded = try m.serializeProtobuf()
             do {
                 let decoded = try ProtobufUnittest_TestParsingMerge(protobuf: encoded)
-                
+
                 // requiredAllTypes <== merge of field1
                 let field1 = decoded.requiredAllTypes
                 XCTAssertEqual(field1.optionalInt32, 2)
                 XCTAssertEqual(field1.optionalInt64, 3)
                 XCTAssertEqual(field1.optionalString, "abc")
-                
+
                 // optionalAllTypes <== merge of field2
                 if let field2 = decoded.optionalAllTypes {
                     XCTAssertEqual(field2.optionalInt32, 2)
@@ -82,7 +82,7 @@ class Test_ParsingMerge: XCTestCase {
                     XCTAssertEqual(group1.optionalGroupAllTypes?.optionalString, "abc")
                     XCTAssertEqual(group1.optionalGroupAllTypes?.optionalInt64, 3)
                 }
-                
+
                 // repeatedGroup <== no merge from repeated group2
                 XCTAssertEqual(decoded.repeatedGroup.count, 2)
                 XCTAssertEqual(decoded.repeatedGroup[0].repeatedGroupAllTypes, t1)
