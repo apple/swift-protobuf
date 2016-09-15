@@ -15,6 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 class Test_Packed: XCTestCase, PBTestHelpers {

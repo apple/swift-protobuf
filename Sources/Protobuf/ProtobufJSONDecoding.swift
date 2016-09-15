@@ -26,6 +26,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import Swift
 
 private func fromHexDigit(_ c: Character?) -> UInt32? {
@@ -858,7 +859,7 @@ private func normalizeIntString(_ s: String) -> [Character]? {
     return number
 }
 
-private func decodeBytes(_ s: String) -> [UInt8]? {
+private func decodeBytes(_ s: String) -> Data? {
     var out = [UInt8]()
     let digits = s.utf8
     var n = 0
@@ -889,7 +890,7 @@ private func decodeBytes(_ s: String) -> [UInt8]? {
     if bits != 0 {
         return nil
     }
-    return out
+    return Data(bytes: out)
 }
 
 
@@ -1000,7 +1001,7 @@ public enum ProtobufJSONToken: Equatable, ProtobufFieldDecoder {
         }
     }
 
-    var asBytes: [UInt8]? {
+    var asBytes: Data? {
         switch self {
         case .string(let s): return decodeBytes(s)
         default: return nil

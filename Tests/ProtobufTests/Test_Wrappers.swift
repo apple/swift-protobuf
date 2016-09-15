@@ -15,7 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-
+import Foundation
 import XCTest
 import Protobuf
 
@@ -186,7 +186,7 @@ class Test_Wrappers: XCTestCase {
         var m = Google_Protobuf_BytesValue()
         XCTAssertEqual("null", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_BytesValue(json: "null"))
-        m.value = [0, 1, 2]
+        m.value = Data(bytes: [0, 1, 2])
         XCTAssertEqual("\"AAEC\"", try m.serializeJSON())
         XCTAssertEqual([10,3,0,1,2], try m.serializeProtobufBytes())
         // TODO: More

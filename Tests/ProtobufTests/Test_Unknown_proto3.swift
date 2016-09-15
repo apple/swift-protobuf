@@ -14,6 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 // Note: This uses the 'Proto3Arena' version of the empty message.

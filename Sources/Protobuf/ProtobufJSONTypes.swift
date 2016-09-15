@@ -15,6 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import Swift
 
 public protocol ProtobufJSONCodableType: ProtobufTypePropertiesBase {
@@ -680,11 +681,11 @@ public extension ProtobufBytes {
         }
     }
 
-    public static func serializeJSONValue(encoder: inout ProtobufJSONEncoder, value: [UInt8]) {
+    public static func serializeJSONValue(encoder: inout ProtobufJSONEncoder, value: Data) {
         encoder.putBytesValue(value: value)
     }
 
-    public static func decodeJSONMapFieldValue(jsonDecoder: inout ProtobufJSONDecoder) throws -> [UInt8]? {
+    public static func decodeJSONMapFieldValue(jsonDecoder: inout ProtobufJSONDecoder) throws -> Data? {
         if let token = try jsonDecoder.nextToken() {
             switch token {
             case .string(_):

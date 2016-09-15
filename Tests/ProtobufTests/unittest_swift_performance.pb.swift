@@ -36,6 +36,7 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import Foundation
 import Protobuf
 
 
@@ -128,7 +129,7 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = ""
-    var _optionalBytes: [UInt8] = []
+    var _optionalBytes: Data = Data()
     var _repeatedRecursiveMessage: [Swift_Performance_TestAllTypes] = []
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
@@ -144,7 +145,7 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _mapStringMessage: Dictionary<String,Swift_Performance_TestAllTypes> = [:]
 
     init() {}
@@ -233,7 +234,7 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
       if _optionalString != "" {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14, protoFieldName: "optional_string", jsonFieldName: "optionalString", swiftFieldName: "optionalString")
       }
-      if _optionalBytes != [] {
+      if _optionalBytes != Data() {
         try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15, protoFieldName: "optional_bytes", jsonFieldName: "optionalBytes", swiftFieldName: "optionalBytes")
       }
       if !_repeatedRecursiveMessage.isEmpty {
@@ -304,7 +305,7 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
       if _optionalDouble != 0 {return false}
       if _optionalBool != false {return false}
       if _optionalString != "" {return false}
-      if _optionalBytes != [] {return false}
+      if _optionalBytes != Data() {return false}
       if !_repeatedRecursiveMessage.isEmpty {return false}
       if !_repeatedInt32.isEmpty {return false}
       if !_repeatedInt64.isEmpty {return false}
@@ -472,8 +473,8 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: [UInt8] {
-    get {return _storage?._optionalBytes ?? []}
+  public var optionalBytes: Data {
+    get {return _storage?._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
@@ -553,7 +554,7 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -580,7 +581,7 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
     optionalDouble: Double? = nil,
     optionalBool: Bool? = nil,
     optionalString: String? = nil,
-    optionalBytes: [UInt8]? = nil,
+    optionalBytes: Data? = nil,
     repeatedRecursiveMessage: [Swift_Performance_TestAllTypes] = [],
     repeatedInt32: [Int32] = [],
     repeatedInt64: [Int64] = [],
@@ -596,7 +597,7 @@ public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     mapStringMessage: Dictionary<String,Swift_Performance_TestAllTypes> = [:])
   {
     let storage = _uniqueStorage()

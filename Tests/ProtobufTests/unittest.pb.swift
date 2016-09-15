@@ -41,6 +41,7 @@
 // 
 //  A proto file we will use for unit testing.
 
+import Foundation
 import Protobuf
 
 
@@ -510,7 +511,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     var _optionalDouble: Double? = nil
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
-    var _optionalBytes: [UInt8]? = nil
+    var _optionalBytes: Data? = nil
     var _optionalGroup: ProtobufUnittest_TestAllTypes.OptionalGroup? = nil
     var _optionalNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: ProtobufUnittest_ForeignMessage? = nil
@@ -536,7 +537,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _repeatedGroup: [ProtobufUnittest_TestAllTypes.RepeatedGroup] = []
     var _repeatedNestedMessage: [ProtobufUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [ProtobufUnittest_ForeignMessage] = []
@@ -561,7 +562,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     var _defaultDouble: Double? = nil
     var _defaultBool: Bool? = nil
     var _defaultString: String? = nil
-    var _defaultBytes: [UInt8]? = nil
+    var _defaultBytes: Data? = nil
     var _defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum? = nil
     var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
     var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
@@ -941,7 +942,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
       if _defaultDouble != nil && _defaultDouble! != 52000 {return false}
       if _defaultBool != nil && _defaultBool! != true {return false}
       if _defaultString != nil && _defaultString! != "hello" {return false}
-      if _defaultBytes != nil && _defaultBytes! != [119, 111, 114, 108, 100] {return false}
+      if _defaultBytes != nil && _defaultBytes! != Data(bytes: [119, 111, 114, 108, 100]) {return false}
       if _defaultNestedEnum != nil && _defaultNestedEnum! != ProtobufUnittest_TestAllTypes.NestedEnum.bar {return false}
       if _defaultForeignEnum != nil && _defaultForeignEnum! != ProtobufUnittest_ForeignEnum.foreignBar {return false}
       if _defaultImportEnum != nil && _defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar {return false}
@@ -1018,7 +1019,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
       if (((_defaultDouble != nil && _defaultDouble! != 52000) || (other._defaultDouble != nil && other._defaultDouble! != 52000)) && (_defaultDouble == nil || other._defaultDouble == nil || _defaultDouble! != other._defaultDouble!)) {return false}
       if (((_defaultBool != nil && _defaultBool! != true) || (other._defaultBool != nil && other._defaultBool! != true)) && (_defaultBool == nil || other._defaultBool == nil || _defaultBool! != other._defaultBool!)) {return false}
       if (((_defaultString != nil && _defaultString! != "hello") || (other._defaultString != nil && other._defaultString! != "hello")) && (_defaultString == nil || other._defaultString == nil || _defaultString! != other._defaultString!)) {return false}
-      if (((_defaultBytes != nil && _defaultBytes! != [119, 111, 114, 108, 100]) || (other._defaultBytes != nil && other._defaultBytes! != [119, 111, 114, 108, 100])) && (_defaultBytes == nil || other._defaultBytes == nil || _defaultBytes! != other._defaultBytes!)) {return false}
+      if (((_defaultBytes != nil && _defaultBytes! != Data(bytes: [119, 111, 114, 108, 100])) || (other._defaultBytes != nil && other._defaultBytes! != Data(bytes: [119, 111, 114, 108, 100]))) && (_defaultBytes == nil || other._defaultBytes == nil || _defaultBytes! != other._defaultBytes!)) {return false}
       if (((_defaultNestedEnum != nil && _defaultNestedEnum! != ProtobufUnittest_TestAllTypes.NestedEnum.bar) || (other._defaultNestedEnum != nil && other._defaultNestedEnum! != ProtobufUnittest_TestAllTypes.NestedEnum.bar)) && (_defaultNestedEnum == nil || other._defaultNestedEnum == nil || _defaultNestedEnum! != other._defaultNestedEnum!)) {return false}
       if (((_defaultForeignEnum != nil && _defaultForeignEnum! != ProtobufUnittest_ForeignEnum.foreignBar) || (other._defaultForeignEnum != nil && other._defaultForeignEnum! != ProtobufUnittest_ForeignEnum.foreignBar)) && (_defaultForeignEnum == nil || other._defaultForeignEnum == nil || _defaultForeignEnum! != other._defaultForeignEnum!)) {return false}
       if (((_defaultImportEnum != nil && _defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar) || (other._defaultImportEnum != nil && other._defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar)) && (_defaultImportEnum == nil || other._defaultImportEnum == nil || _defaultImportEnum! != other._defaultImportEnum!)) {return false}
@@ -1114,7 +1115,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes([UInt8])
+    case oneofBytes(Data)
     case None
 
     public init(nilLiteral: ()) {
@@ -1150,7 +1151,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
           self = .oneofString(value)
         }
       case 114:
-        var value: [UInt8]?
+        var value: Data?
         handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &value)
         if let value = value, handled {
           self = .oneofBytes(value)
@@ -1520,7 +1521,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: [UInt8]? {
+  public var optionalBytes: Data? {
     get {return _storage?._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -1652,7 +1653,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1778,8 +1779,8 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._defaultString = newValue}
   }
 
-  public var defaultBytes: [UInt8]? {
-    get {return _storage?._defaultBytes ?? [119, 111, 114, 108, 100]}
+  public var defaultBytes: Data? {
+    get {return _storage?._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
 
@@ -1862,7 +1863,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: [UInt8]? {
+  public var oneofBytes: Data? {
     get {
       if let storage = _storage {
         if case .oneofBytes(let v) = storage._oneofField {
@@ -1903,7 +1904,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     optionalDouble: Double? = nil,
     optionalBool: Bool? = nil,
     optionalString: String? = nil,
-    optionalBytes: [UInt8]? = nil,
+    optionalBytes: Data? = nil,
     optionalGroup: ProtobufUnittest_TestAllTypes.OptionalGroup? = nil,
     optionalNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil,
     optionalForeignMessage: ProtobufUnittest_ForeignMessage? = nil,
@@ -1929,7 +1930,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     repeatedGroup: [ProtobufUnittest_TestAllTypes.RepeatedGroup] = [],
     repeatedNestedMessage: [ProtobufUnittest_TestAllTypes.NestedMessage] = [],
     repeatedForeignMessage: [ProtobufUnittest_ForeignMessage] = [],
@@ -1954,7 +1955,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     defaultDouble: Double? = nil,
     defaultBool: Bool? = nil,
     defaultString: String? = nil,
-    defaultBytes: [UInt8]? = nil,
+    defaultBytes: Data? = nil,
     defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum? = nil,
     defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil,
     defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil,
@@ -1963,7 +1964,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     oneofUint32: UInt32? = nil,
     oneofNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil,
     oneofString: String? = nil,
-    oneofBytes: [UInt8]? = nil)
+    oneofBytes: Data? = nil)
   {
     let storage = _uniqueStorage()
     storage._optionalInt32 = optionalInt32
@@ -5329,7 +5330,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestExtremeDefaultValues
     var unknown = ProtobufUnknownStorage()
-    var _escapedBytes: [UInt8]? = nil
+    var _escapedBytes: Data? = nil
     var _largeUint32: UInt32? = nil
     var _largeUint64: UInt64? = nil
     var _smallInt32: Int32? = nil
@@ -5352,7 +5353,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
     var _nanFloat: Float? = nil
     var _cppTrigraph: String? = nil
     var _stringWithZero: String? = nil
-    var _bytesWithZero: [UInt8]? = nil
+    var _bytesWithZero: Data? = nil
     var _stringPieceWithZero: String? = nil
     var _cordWithZero: String? = nil
     var _replacementString: String? = nil
@@ -5485,7 +5486,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
     }
 
     var isEmpty: Bool {
-      if _escapedBytes != nil && _escapedBytes! != [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254] {return false}
+      if _escapedBytes != nil && _escapedBytes! != Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]) {return false}
       if _largeUint32 != nil && _largeUint32! != 4294967295 {return false}
       if _largeUint64 != nil && _largeUint64! != 18446744073709551615 {return false}
       if _smallInt32 != nil && _smallInt32! != -2147483647 {return false}
@@ -5508,7 +5509,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
       if _nanFloat != nil && _nanFloat! != Float.nan {return false}
       if _cppTrigraph != nil && _cppTrigraph! != "? ? ?? ?? ??? ??/ ??-" {return false}
       if _stringWithZero != nil && _stringWithZero! != "hel\0lo" {return false}
-      if _bytesWithZero != nil && _bytesWithZero! != [119, 111, 114, 0, 108, 100] {return false}
+      if _bytesWithZero != nil && _bytesWithZero! != Data(bytes: [119, 111, 114, 0, 108, 100]) {return false}
       if _stringPieceWithZero != nil && _stringPieceWithZero! != "ab\0c" {return false}
       if _cordWithZero != nil && _cordWithZero! != "12\03" {return false}
       if _replacementString != nil && _replacementString! != "${unknown}" {return false}
@@ -5517,7 +5518,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_escapedBytes != nil && _escapedBytes! != [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]) || (other._escapedBytes != nil && other._escapedBytes! != [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])) && (_escapedBytes == nil || other._escapedBytes == nil || _escapedBytes! != other._escapedBytes!)) {return false}
+      if (((_escapedBytes != nil && _escapedBytes! != Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])) || (other._escapedBytes != nil && other._escapedBytes! != Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]))) && (_escapedBytes == nil || other._escapedBytes == nil || _escapedBytes! != other._escapedBytes!)) {return false}
       if (((_largeUint32 != nil && _largeUint32! != 4294967295) || (other._largeUint32 != nil && other._largeUint32! != 4294967295)) && (_largeUint32 == nil || other._largeUint32 == nil || _largeUint32! != other._largeUint32!)) {return false}
       if (((_largeUint64 != nil && _largeUint64! != 18446744073709551615) || (other._largeUint64 != nil && other._largeUint64! != 18446744073709551615)) && (_largeUint64 == nil || other._largeUint64 == nil || _largeUint64! != other._largeUint64!)) {return false}
       if (((_smallInt32 != nil && _smallInt32! != -2147483647) || (other._smallInt32 != nil && other._smallInt32! != -2147483647)) && (_smallInt32 == nil || other._smallInt32 == nil || _smallInt32! != other._smallInt32!)) {return false}
@@ -5540,7 +5541,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
       if (((_nanFloat != nil && _nanFloat! != Float.nan) || (other._nanFloat != nil && other._nanFloat! != Float.nan)) && (_nanFloat == nil || other._nanFloat == nil || _nanFloat! != other._nanFloat!)) {return false}
       if (((_cppTrigraph != nil && _cppTrigraph! != "? ? ?? ?? ??? ??/ ??-") || (other._cppTrigraph != nil && other._cppTrigraph! != "? ? ?? ?? ??? ??/ ??-")) && (_cppTrigraph == nil || other._cppTrigraph == nil || _cppTrigraph! != other._cppTrigraph!)) {return false}
       if (((_stringWithZero != nil && _stringWithZero! != "hel\0lo") || (other._stringWithZero != nil && other._stringWithZero! != "hel\0lo")) && (_stringWithZero == nil || other._stringWithZero == nil || _stringWithZero! != other._stringWithZero!)) {return false}
-      if (((_bytesWithZero != nil && _bytesWithZero! != [119, 111, 114, 0, 108, 100]) || (other._bytesWithZero != nil && other._bytesWithZero! != [119, 111, 114, 0, 108, 100])) && (_bytesWithZero == nil || other._bytesWithZero == nil || _bytesWithZero! != other._bytesWithZero!)) {return false}
+      if (((_bytesWithZero != nil && _bytesWithZero! != Data(bytes: [119, 111, 114, 0, 108, 100])) || (other._bytesWithZero != nil && other._bytesWithZero! != Data(bytes: [119, 111, 114, 0, 108, 100]))) && (_bytesWithZero == nil || other._bytesWithZero == nil || _bytesWithZero! != other._bytesWithZero!)) {return false}
       if (((_stringPieceWithZero != nil && _stringPieceWithZero! != "ab\0c") || (other._stringPieceWithZero != nil && other._stringPieceWithZero! != "ab\0c")) && (_stringPieceWithZero == nil || other._stringPieceWithZero == nil || _stringPieceWithZero! != other._stringPieceWithZero!)) {return false}
       if (((_cordWithZero != nil && _cordWithZero! != "12\03") || (other._cordWithZero != nil && other._cordWithZero! != "12\03")) && (_cordWithZero == nil || other._cordWithZero == nil || _cordWithZero! != other._cordWithZero!)) {return false}
       if (((_replacementString != nil && _replacementString! != "${unknown}") || (other._replacementString != nil && other._replacementString! != "${unknown}")) && (_replacementString == nil || other._replacementString == nil || _replacementString! != other._replacementString!)) {return false}
@@ -5584,8 +5585,8 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
 
   private var _storage: _StorageClass?
 
-  public var escapedBytes: [UInt8]? {
-    get {return _storage?._escapedBytes ?? [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]}
+  public var escapedBytes: Data? {
+    get {return _storage?._escapedBytes ?? Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])}
     set {_uniqueStorage()._escapedBytes = newValue}
   }
 
@@ -5711,8 +5712,8 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
     set {_uniqueStorage()._stringWithZero = newValue}
   }
 
-  public var bytesWithZero: [UInt8]? {
-    get {return _storage?._bytesWithZero ?? [119, 111, 114, 0, 108, 100]}
+  public var bytesWithZero: Data? {
+    get {return _storage?._bytesWithZero ?? Data(bytes: [119, 111, 114, 0, 108, 100])}
     set {_uniqueStorage()._bytesWithZero = newValue}
   }
 
@@ -5733,7 +5734,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
 
   public init() {}
 
-  public init(escapedBytes: [UInt8]? = nil,
+  public init(escapedBytes: Data? = nil,
     largeUint32: UInt32? = nil,
     largeUint64: UInt64? = nil,
     smallInt32: Int32? = nil,
@@ -5756,7 +5757,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
     nanFloat: Float? = nil,
     cppTrigraph: String? = nil,
     stringWithZero: String? = nil,
-    bytesWithZero: [UInt8]? = nil,
+    bytesWithZero: Data? = nil,
     stringPieceWithZero: String? = nil,
     cordWithZero: String? = nil,
     replacementString: String? = nil)
@@ -6007,11 +6008,11 @@ public struct ProtobufUnittest_OneBytes: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public var data: [UInt8]? = nil
+  public var data: Data? = nil
 
   public init() {}
 
-  public init(data: [UInt8]? = nil)
+  public init(data: Data? = nil)
   {
     self.data = data
   }
@@ -6063,11 +6064,11 @@ public struct ProtobufUnittest_MoreBytes: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public var data: [[UInt8]] = []
+  public var data: [Data] = []
 
   public init() {}
 
-  public init(data: [[UInt8]] = [])
+  public init(data: [Data] = [])
   {
     if !data.isEmpty {
       self.data = data
@@ -7080,7 +7081,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     case fooString(String)
     case fooCord(String)
     case fooStringPiece(String)
-    case fooBytes([UInt8])
+    case fooBytes(Data)
     case fooEnum(ProtobufUnittest_TestOneof2.NestedEnum)
     case fooMessage(ProtobufUnittest_TestOneof2.NestedMessage)
     case fooGroup(ProtobufUnittest_TestOneof2.FooGroup)
@@ -7126,7 +7127,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
           self = .fooStringPiece(value)
         }
       case 5:
-        var value: [UInt8]?
+        var value: Data?
         handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &value)
         if let value = value, handled {
           self = .fooBytes(value)
@@ -7213,7 +7214,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     case barString(String)
     case barCord(String)
     case barStringPiece(String)
-    case barBytes([UInt8])
+    case barBytes(Data)
     case barEnum(ProtobufUnittest_TestOneof2.NestedEnum)
     case None
 
@@ -7256,7 +7257,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
           self = .barStringPiece(value)
         }
       case 16:
-        var value: [UInt8]?
+        var value: Data?
         handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &value)
         if let value = value, handled {
           self = .barBytes(value)
@@ -7598,7 +7599,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     }
   }
 
-  public var fooBytes: [UInt8]? {
+  public var fooBytes: Data? {
     get {
       if let storage = _storage {
         if case .fooBytes(let v) = storage._foo {
@@ -7760,7 +7761,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     }
   }
 
-  public var barBytes: [UInt8]? {
+  public var barBytes: Data? {
     get {
       if let storage = _storage {
         if case .barBytes(let v) = storage._bar {
@@ -7826,7 +7827,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     fooString: String? = nil,
     fooCord: String? = nil,
     fooStringPiece: String? = nil,
-    fooBytes: [UInt8]? = nil,
+    fooBytes: Data? = nil,
     fooEnum: ProtobufUnittest_TestOneof2.NestedEnum? = nil,
     fooMessage: ProtobufUnittest_TestOneof2.NestedMessage? = nil,
     fooGroup: ProtobufUnittest_TestOneof2.FooGroup? = nil,
@@ -7835,7 +7836,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     barString: String? = nil,
     barCord: String? = nil,
     barStringPiece: String? = nil,
-    barBytes: [UInt8]? = nil,
+    barBytes: Data? = nil,
     barEnum: ProtobufUnittest_TestOneof2.NestedEnum? = nil,
     bazInt: Int32? = nil,
     bazString: String? = nil)
@@ -10244,7 +10245,7 @@ let ProtobufUnittest_TestAllExtensions_defaultBoolExtension = ProtobufGenericMes
 
 let ProtobufUnittest_TestAllExtensions_defaultStringExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_TestAllExtensions>(protoFieldNumber: 74, protoFieldName: "default_string_extension", jsonFieldName: "defaultStringExtension", swiftFieldName: "defaultStringExtension", defaultValue: "hello")
 
-let ProtobufUnittest_TestAllExtensions_defaultBytesExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufBytes>, ProtobufUnittest_TestAllExtensions>(protoFieldNumber: 75, protoFieldName: "default_bytes_extension", jsonFieldName: "defaultBytesExtension", swiftFieldName: "defaultBytesExtension", defaultValue: [119, 111, 114, 108, 100])
+let ProtobufUnittest_TestAllExtensions_defaultBytesExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufBytes>, ProtobufUnittest_TestAllExtensions>(protoFieldNumber: 75, protoFieldName: "default_bytes_extension", jsonFieldName: "defaultBytesExtension", swiftFieldName: "defaultBytesExtension", defaultValue: Data(bytes: [119, 111, 114, 108, 100]))
 
 let ProtobufUnittest_TestAllExtensions_defaultNestedEnumExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufUnittest_TestAllTypes.NestedEnum>, ProtobufUnittest_TestAllExtensions>(protoFieldNumber: 81, protoFieldName: "default_nested_enum_extension", jsonFieldName: "defaultNestedEnumExtension", swiftFieldName: "defaultNestedEnumExtension", defaultValue: ProtobufUnittest_TestAllTypes.NestedEnum.bar)
 
@@ -10532,7 +10533,7 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalBytesExtension: [UInt8]? {
+  var optionalBytesExtension: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension, value: newValue)}
   }
@@ -10715,7 +10716,7 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedBytesExtension: [[UInt8]] {
+  var repeatedBytesExtension: [Data] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension, value: newValue)}
   }
@@ -10891,7 +10892,7 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultBytesExtension: [UInt8]? {
+  var defaultBytesExtension: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension, value: newValue)}
   }
@@ -10955,7 +10956,7 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var oneofBytesExtension: [UInt8]? {
+  var oneofBytesExtension: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension, value: newValue)}
   }

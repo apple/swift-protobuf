@@ -37,6 +37,7 @@
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //  Author: liujisi@google.com (Pherl Liu)
 
+import Foundation
 import Protobuf
 
 

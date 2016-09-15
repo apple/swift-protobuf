@@ -42,6 +42,7 @@
 //  This file is similar to unittest_mset_wire_format.proto, but does not
 //  have a TestMessageSet, so it can be downgraded to proto1.
 
+import Foundation
 import Protobuf
 
 
@@ -315,12 +316,12 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 
     public var typeId: Int32 = 0
 
-    public var message: [UInt8] = []
+    public var message: Data = Data()
 
     public init() {}
 
     public init(typeId: Int32 = 0,
-      message: [UInt8] = [])
+      message: Data = Data())
     {
       self.typeId = typeId
       self.message = message
@@ -349,7 +350,7 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 
     public var _protoc_generated_isEmpty: Bool {
       if typeId != 0 {return false}
-      if message != [] {return false}
+      if message != Data() {return false}
       if !unknown.isEmpty {return false}
       return true
     }

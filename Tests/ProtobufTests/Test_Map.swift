@@ -14,6 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 
@@ -147,10 +148,10 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
     func test_mapInt32Bytes() {
         assertMapEncode([[122, 5, 8, 1, 18, 1, 1], [122, 5, 8, 2, 18, 1, 2]]) {(o: inout MessageTestType) in
-            o.mapInt32Bytes = [1: [1], 2: [2]]
+            o.mapInt32Bytes = [1: Data(bytes: [1]), 2: Data(bytes: [2])]
         }
         assertDecodeSucceeds([122, 7, 8, 9, 18, 3, 1, 2, 3]) {
-            $0.mapInt32Bytes == [9: [1, 2, 3]]
+            $0.mapInt32Bytes == [9: Data(bytes: [1, 2, 3])]
         }
         assertDecodeSucceeds([]) {
             $0.mapInt32Bytes == [:]

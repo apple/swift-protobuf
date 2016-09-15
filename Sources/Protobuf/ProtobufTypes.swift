@@ -17,6 +17,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import Swift
 
 ///
@@ -32,18 +33,21 @@ import Swift
 /// various coding/decoding functions to provide type-specific
 /// information.
 ///
+/// The types defined here are extended in ProtobufBinaryTypes.swift
+/// with serialization support for binary protobuf encoding, and in
+/// ProtobufJSONTypes.swift with serialization support for JSON encoding.
+///
 public protocol ProtobufTypePropertiesBase {
     // Default here is appropriate for enums and messages
     // Other types will override this
     associatedtype BaseType = Self
 
     /// Hash the provided value
-    /// In particular, [UInt8] is not Hashable, so we can't just
-    /// use .hashValue everywhere.
+    /// TODO: Can we just replace this with .hashValue everywhere?
     static func hash(value: BaseType) -> Int
 
-    /// In Swift 3, [UInt8] isn't Equatable, so I've added this method
-    /// to provide a consistent way to compute equality.
+    /// Test if two values are equal
+    /// TODO: Can we just replace this with == everywhere?
     static func isEqual(_ lhs: BaseType, _ rhs: BaseType) -> Bool
 }
 
@@ -77,7 +81,6 @@ public protocol ProtobufMapValueType: ProtobufTypeProperties {
 ///
 public struct ProtobufFloat: ProtobufTypeProperties, ProtobufMapValueType {
     public typealias BaseType = Float
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -85,7 +88,6 @@ public struct ProtobufFloat: ProtobufTypeProperties, ProtobufMapValueType {
 ///
 public struct ProtobufDouble: ProtobufTypeProperties, ProtobufMapValueType {
     public typealias BaseType = Double
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -93,7 +95,6 @@ public struct ProtobufDouble: ProtobufTypeProperties, ProtobufMapValueType {
 ///
 public struct ProtobufInt32: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = Int32
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -102,7 +103,6 @@ public struct ProtobufInt32: ProtobufTypeProperties, ProtobufMapKeyType, Protobu
 
 public struct ProtobufInt64: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = Int64
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -110,7 +110,6 @@ public struct ProtobufInt64: ProtobufTypeProperties, ProtobufMapKeyType, Protobu
 ///
 public struct ProtobufUInt32: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = UInt32
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -119,7 +118,6 @@ public struct ProtobufUInt32: ProtobufTypeProperties, ProtobufMapKeyType, Protob
 
 public struct ProtobufUInt64: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = UInt64
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -127,7 +125,6 @@ public struct ProtobufUInt64: ProtobufTypeProperties, ProtobufMapKeyType, Protob
 ///
 public struct ProtobufSInt32: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = Int32
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -136,7 +133,6 @@ public struct ProtobufSInt32: ProtobufTypeProperties, ProtobufMapKeyType, Protob
 
 public struct ProtobufSInt64: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = Int64
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -144,7 +140,6 @@ public struct ProtobufSInt64: ProtobufTypeProperties, ProtobufMapKeyType, Protob
 ///
 public struct ProtobufFixed32: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = UInt32
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -152,7 +147,6 @@ public struct ProtobufFixed32: ProtobufTypeProperties, ProtobufMapKeyType, Proto
 ///
 public struct ProtobufFixed64: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = UInt64
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -160,7 +154,6 @@ public struct ProtobufFixed64: ProtobufTypeProperties, ProtobufMapKeyType, Proto
 ///
 public struct ProtobufSFixed32: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = Int32
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 ///
@@ -168,7 +161,6 @@ public struct ProtobufSFixed32: ProtobufTypeProperties, ProtobufMapKeyType, Prot
 ///
 public struct ProtobufSFixed64: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = Int64
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 //
@@ -176,7 +168,6 @@ public struct ProtobufSFixed64: ProtobufTypeProperties, ProtobufMapKeyType, Prot
 //
 public struct ProtobufBool: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = Bool
-    public static func describe(value: BaseType) -> String {return value.description}
 }
 
 //
@@ -184,28 +175,19 @@ public struct ProtobufBool: ProtobufTypeProperties, ProtobufMapKeyType, Protobuf
 //
 public struct ProtobufString: ProtobufTypeProperties, ProtobufMapKeyType, ProtobufMapValueType {
     public typealias BaseType = String
-    public static func describe(value: BaseType) -> String {return value.debugDescription}
 }
 
 //
 // ========== Bytes ==========
 //
 public struct ProtobufBytes: ProtobufTypeProperties, ProtobufMapValueType {
-    public typealias BaseType = [UInt8]
-
-    public static func hash(value: BaseType) -> Int {return ProtobufHash(bytes: value)}
-    public static func describe(value: BaseType) -> String {return value.debugDescription}
-
-    // Note:  [UInt8] isn't Equatable, so we can't rely on the default implementation above
-    // But there is an == overload, so this same definition works here.
-    public static func isEqual(_ lhs: BaseType, _ rhs: BaseType) -> Bool {return lhs == rhs}
+    public typealias BaseType = Data
 }
 
 //
 // ========== Enum ==========
 //
 extension ProtobufEnum where RawValue == Int {
-    public static func describe(value: Self) -> String {return String(reflecting: value)}
 }
 
 //

@@ -29,6 +29,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 class Test_Required: XCTestCase, PBTestHelpers {
@@ -208,8 +209,8 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
 
     func testRequiredBytes() {
         assertDecodeSucceeds([42, 1, 1]) {
-            let val: [UInt8] = $0.requiredBytes  // Verify non-optional
-            return val == [1]
+            let val: Data = $0.requiredBytes  // Verify non-optional
+            return val == Data(bytes: [1])
         }
     }
     

@@ -613,21 +613,18 @@ public extension ProtobufString {
 ///
 public extension ProtobufBytes {
     public static func protobufWireType() -> Int { return 2 }
-    public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: [UInt8]) {
-        encoder.putBytesValue(value: value)
-    }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Data) {
         encoder.putBytesValue(value: [UInt8](value))
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [UInt8]?) throws -> Bool {
-        value = [UInt8](buffer)
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout Data?) throws -> Bool {
+        value = Data(bytes: [UInt8](buffer))
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [[UInt8]]) throws -> Bool {
-        value.append([UInt8](buffer))
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Data]) throws -> Bool {
+        value.append(Data(bytes: [UInt8](buffer)))
         return true
     }
 }

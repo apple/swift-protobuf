@@ -36,6 +36,7 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import Foundation
 import Protobuf
 
 
@@ -246,7 +247,7 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
   ]}
 
   public enum OneOf_Payload: ExpressibleByNilLiteral, ProtobufOneofEnum {
-    case protobufPayload([UInt8])
+    case protobufPayload(Data)
     case jsonPayload(String)
     case None
 
@@ -265,7 +266,7 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
       let handled: Bool
       switch protoFieldNumber {
       case 1:
-        var value = [UInt8]()
+        var value = Data()
         handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .protobufPayload(value)
       case 2:
@@ -297,7 +298,7 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
     public var isEmpty: Bool {return self == .None}
   }
 
-  public var protobufPayload: [UInt8]? {
+  public var protobufPayload: Data? {
     get {
       if case .protobufPayload(let v) = payload {
         return v
@@ -336,7 +337,7 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(protobufPayload: [UInt8]? = nil,
+  public init(protobufPayload: Data? = nil,
     jsonPayload: String? = nil,
     requestedOutputFormat: Conformance_WireFormat? = nil)
   {
@@ -409,7 +410,7 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
     case parseError(String)
     case serializeError(String)
     case runtimeError(String)
-    case protobufPayload([UInt8])
+    case protobufPayload(Data)
     case jsonPayload(String)
     case skipped(String)
     case None
@@ -437,7 +438,7 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
         handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .runtimeError(value)
       case 3:
-        var value = [UInt8]()
+        var value = Data()
         handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .protobufPayload(value)
       case 4:
@@ -556,7 +557,7 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
   ///   If the input was successfully parsed and the requested output was
   ///   protobuf, serialize it to protobuf and set it in this field.
-  public var protobufPayload: [UInt8]? {
+  public var protobufPayload: Data? {
     get {
       if case .protobufPayload(let v) = result {
         return v
@@ -613,7 +614,7 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
   public init(parseError: String? = nil,
     serializeError: String? = nil,
     runtimeError: String? = nil,
-    protobufPayload: [UInt8]? = nil,
+    protobufPayload: Data? = nil,
     jsonPayload: String? = nil,
     skipped: String? = nil)
   {
@@ -906,7 +907,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = ""
-    var _optionalBytes: [UInt8] = []
+    var _optionalBytes: Data = Data()
     var _optionalNestedMessage: Conformance_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Conformance_ForeignMessage? = nil
     var _optionalNestedEnum: Conformance_TestAllTypes.NestedEnum = Conformance_TestAllTypes.NestedEnum.foo
@@ -928,7 +929,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Conformance_ForeignMessage] = []
     var _repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] = []
@@ -949,7 +950,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapStringBytes: Dictionary<String,[UInt8]> = [:]
+    var _mapStringBytes: Dictionary<String,Data> = [:]
     var _mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> = [:]
     var _mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> = [:]
     var _mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> = [:]
@@ -1158,7 +1159,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       if _optionalString != "" {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14, protoFieldName: "optional_string", jsonFieldName: "optionalString", swiftFieldName: "optionalString")
       }
-      if _optionalBytes != [] {
+      if _optionalBytes != Data() {
         try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15, protoFieldName: "optional_bytes", jsonFieldName: "optionalBytes", swiftFieldName: "optionalBytes")
       }
       if let v = _optionalNestedMessage {
@@ -1446,7 +1447,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       if _optionalDouble != 0 {return false}
       if _optionalBool != false {return false}
       if _optionalString != "" {return false}
-      if _optionalBytes != [] {return false}
+      if _optionalBytes != Data() {return false}
       if _optionalNestedMessage != nil {return false}
       if _optionalForeignMessage != nil {return false}
       if _optionalNestedEnum != Conformance_TestAllTypes.NestedEnum.foo {return false}
@@ -1766,7 +1767,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Conformance_TestAllTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes([UInt8])
+    case oneofBytes(Data)
     case None
 
     public init(nilLiteral: ()) {
@@ -1798,7 +1799,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
         handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .oneofString(value)
       case 114:
-        var value = [UInt8]()
+        var value = Data()
         handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
       default:
@@ -2115,8 +2116,8 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: [UInt8] {
-    get {return _storage?._optionalBytes ?? []}
+  public var optionalBytes: Data {
+    get {return _storage?._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
@@ -2226,7 +2227,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -2332,7 +2333,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapStringBytes: Dictionary<String,[UInt8]> {
+  public var mapStringBytes: Dictionary<String,Data> {
     get {return _storage?._mapStringBytes ?? [:]}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
@@ -2411,7 +2412,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: [UInt8]? {
+  public var oneofBytes: Data? {
     get {
       if let storage = _storage {
         if case .oneofBytes(let v) = storage._oneofField {
@@ -2664,7 +2665,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     optionalDouble: Double? = nil,
     optionalBool: Bool? = nil,
     optionalString: String? = nil,
-    optionalBytes: [UInt8]? = nil,
+    optionalBytes: Data? = nil,
     optionalNestedMessage: Conformance_TestAllTypes.NestedMessage? = nil,
     optionalForeignMessage: Conformance_ForeignMessage? = nil,
     optionalNestedEnum: Conformance_TestAllTypes.NestedEnum? = nil,
@@ -2686,7 +2687,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] = [],
     repeatedForeignMessage: [Conformance_ForeignMessage] = [],
     repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] = [],
@@ -2707,7 +2708,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     mapInt32Double: Dictionary<Int32,Double> = [:],
     mapBoolBool: Dictionary<Bool,Bool> = [:],
     mapStringString: Dictionary<String,String> = [:],
-    mapStringBytes: Dictionary<String,[UInt8]> = [:],
+    mapStringBytes: Dictionary<String,Data> = [:],
     mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> = [:],
     mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> = [:],
     mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> = [:],
@@ -2715,7 +2716,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     oneofUint32: UInt32? = nil,
     oneofNestedMessage: Conformance_TestAllTypes.NestedMessage? = nil,
     oneofString: String? = nil,
-    oneofBytes: [UInt8]? = nil,
+    oneofBytes: Data? = nil,
     optionalBoolWrapper: Google_Protobuf_BoolValue? = nil,
     optionalInt32Wrapper: Google_Protobuf_Int32Value? = nil,
     optionalInt64Wrapper: Google_Protobuf_Int64Value? = nil,

@@ -15,6 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 // TODO: Extend these with some of the sample data from the benchmarks folder.
@@ -41,7 +42,7 @@ class Test_Performance: XCTestCase {
         m.optionalDouble = 777.777
         m.optionalBool = true
         m.optionalString = "abcdefghijklmnopqrstuvwxyz"
-        m.optionalBytes = Array<UInt8>(repeating:255, count:255)
+        m.optionalBytes = Data(bytes: Array<UInt8>(repeating:255, count:255))
 
         self.measure {
             do {

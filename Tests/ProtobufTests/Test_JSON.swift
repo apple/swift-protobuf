@@ -16,6 +16,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 import Protobuf
 
@@ -85,7 +86,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.singleDouble = 12
             o.singleBool = true
             o.singleString = "abc"
-            o.singleBytes = [65, 66]
+            o.singleBytes = Data(bytes: [65, 66])
             var nested = MessageTestType.NestedMessage()
             nested.bb = 7
             o.singleNestedMessage = nested
@@ -115,7 +116,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.repeatedDouble = [23, 24]
             o.repeatedBool = [true, false]
             o.repeatedString = ["abc", "def"]
-            o.repeatedBytes = [[], [65, 66]]
+            o.repeatedBytes = [Data(), Data(bytes: [65, 66])]
             var nested2 = nested
             nested2.bb = -7
             o.repeatedNestedMessage = [nested, nested2]
@@ -408,55 +409,55 @@ class Test_JSON: XCTestCase, PBTestHelpers {
     func testSingleBytes() throws {
         // Empty bytes is default, so proto3 omits it
         var a = MessageTestType()
-        a.singleBytes = []
+        a.singleBytes = Data()
         XCTAssertEqual(try a.serializeJSON(), "{}")
 
         assertJSONEncode("{\"singleBytes\":\"AA==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [0]
+            o.singleBytes = Data(bytes: [0])
         }
         assertJSONEncode("{\"singleBytes\":\"AAA=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [0, 0]
+            o.singleBytes = Data(bytes: [0, 0])
         }
         assertJSONEncode("{\"singleBytes\":\"AAAA\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [0, 0, 0]
+            o.singleBytes = Data(bytes: [0, 0, 0])
         }
         assertJSONEncode("{\"singleBytes\":\"/w==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [255]
+            o.singleBytes = Data(bytes: [255])
         }
         assertJSONEncode("{\"singleBytes\":\"//8=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [255, 255]
+            o.singleBytes = Data(bytes: [255, 255])
         }
         assertJSONEncode("{\"singleBytes\":\"////\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [255, 255, 255]
+            o.singleBytes = Data(bytes: [255, 255, 255])
         }
         assertJSONEncode("{\"singleBytes\":\"QQ==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [65]
+            o.singleBytes = Data(bytes: [65])
         }
         assertJSONDecodeFails("{\"singleBytes\":\"QQ=\"}")
         assertJSONDecodeFails("{\"singleBytes\":\"QQ\"}")
         assertJSONEncode("{\"singleBytes\":\"QUI=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [65, 66]
+            o.singleBytes = Data(bytes: [65, 66])
         }
         assertJSONDecodeFails("{\"singleBytes\":\"QUI\"}")
         assertJSONEncode("{\"singleBytes\":\"QUJD\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [65, 66, 67]
+            o.singleBytes = Data(bytes: [65, 66, 67])
         }
         assertJSONEncode("{\"singleBytes\":\"QUJDRA==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [65, 66, 67, 68]
+            o.singleBytes = Data(bytes: [65, 66, 67, 68])
         }
         assertJSONDecodeFails("{\"singleBytes\":\"QUJDRA=\"}")
         assertJSONDecodeFails("{\"singleBytes\":\"QUJDRA\"}")
         assertJSONEncode("{\"singleBytes\":\"QUJDREU=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [65, 66, 67, 68, 69]
+            o.singleBytes = Data(bytes: [65, 66, 67, 68, 69])
         }
         assertJSONDecodeFails("{\"singleBytes\":\"QUJDREU\"}")
         assertJSONEncode("{\"singleBytes\":\"QUJDREVG\"}") {(o: inout MessageTestType) in
-            o.singleBytes = [65, 66, 67, 68, 69, 70]
+            o.singleBytes = Data(bytes: [65, 66, 67, 68, 69, 70])
         }
     }
     func testSingleBytes2() {
         assertJSONDecodeSucceeds("{\"singleBytes\":\"QUJD\"}") {
-            $0.singleBytes == [65, 66, 67]
+            $0.singleBytes == Data(bytes: [65, 66, 67])
         }
     }
 

@@ -17,6 +17,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
@@ -624,13 +625,13 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_singleBytes() {
-        assertEncode([122, 1, 1]) {(o: inout MessageTestType) in o.singleBytes = [1]}
-        assertEncode([122, 2, 1, 2]) {(o: inout MessageTestType) in o.singleBytes = [1, 2]}
+        assertEncode([122, 1, 1]) {(o: inout MessageTestType) in o.singleBytes = Data(bytes: [1])}
+        assertEncode([122, 2, 1, 2]) {(o: inout MessageTestType) in o.singleBytes = Data(bytes: [1, 2])}
         assertDecodeSucceeds([122, 4, 0, 1, 2, 255]) {(o: MessageTestType) in
-            let t: [UInt8] = o.singleBytes // Verify non-optional
-            return t == [0, 1, 2, 255]
+            let t = o.singleBytes // Verify non-optional
+            return t == Data(bytes: [0, 1, 2, 255])
         }
-        assertDebugDescription("Proto3TestAllTypes(singleBytes:[1, 2, 3])") {(o: inout MessageTestType) in o.singleBytes = [1, 2, 3]}
+        assertDebugDescription("Proto3TestAllTypes(singleBytes:3 bytes)") {(o: inout MessageTestType) in o.singleBytes = Data(bytes: [1, 2, 3])}
         assertDecodeFails([122])
         assertDecodeFails([122, 1])
         assertDecodeFails([122, 2, 0])
@@ -652,13 +653,13 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
 
         let empty = MessageTestType()
         var a = empty
-        a.singleBytes = []
+        a.singleBytes = Data()
         XCTAssertEqual(a, empty)
         XCTAssertEqual(try a.serializeProtobufBytes(), [])
         var b = empty
-        b.singleBytes = [1]
+        b.singleBytes = Data(bytes: [1])
         XCTAssertNotEqual(a, b)
-        b.singleBytes = []
+        b.singleBytes = Data()
         XCTAssertEqual(a, b)
     }
 
@@ -1125,11 +1126,11 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedBytes() {
-        assertEncode([234, 2, 1, 1, 234, 2, 0, 234, 2, 1, 2]) {(o: inout MessageTestType) in o.repeatedBytes = [[1], [], [2]]}
+        assertEncode([234, 2, 1, 1, 234, 2, 0, 234, 2, 1, 2]) {(o: inout MessageTestType) in o.repeatedBytes = [Data(bytes: [1]), Data(), Data(bytes: [2])]}
         assertDecodeSucceeds([234, 2, 4, 0, 1, 2, 255, 234, 2, 0]) {
             let ref: [[UInt8]] = [[0, 1, 2, 255], []]
             for (a,b) in zip($0.repeatedBytes, ref) {
-                if a != b { return false }
+                if a != Data(bytes: b) { return false }
             }
             return true
         }
@@ -1301,11 +1302,11 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_oneofBytes() {
-        assertEncode([146, 7, 1, 1]) {(o: inout MessageTestType) in o.oneofBytes = [1]}
+        assertEncode([146, 7, 1, 1]) {(o: inout MessageTestType) in o.oneofBytes = Data(bytes: [1])}
     }
     func testEncoding_oneofBytes2() {
         assertDecodeSucceeds([146, 7, 1, 1]) {(o: MessageTestType) in
-            let expectedB: [UInt8] = [1]
+            let expectedB = Data(bytes: [1])
             let expectedS: String? = nil
             if let b = o.oneofBytes {
                 let s = o.oneofString
@@ -1316,7 +1317,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
     func testEncoding_oneofBytes3() {
         assertDecodeSucceeds([146, 7, 0]) {(o: MessageTestType) in
-            let expectedB: [UInt8] = []
+            let expectedB = Data()
             if let b = o.oneofBytes {
                 let s = o.oneofString
                 return b == expectedB && s == nil
@@ -1326,7 +1327,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
     func testEncoding_oneofBytes4() {
         assertDecodeSucceeds([138, 7, 1, 97, 146, 7, 0]) {(o: MessageTestType) in
-            let expectedB: [UInt8] = []
+            let expectedB = Data()
             if let b = o.oneofBytes {
                 let s = o.oneofString
                 return b == expectedB && s == nil
@@ -1361,11 +1362,11 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
 
     func testEncoding_oneofBytes_debugDescription() {
         var m = MessageTestType()
-        m.oneofBytes = [1, 2, 3]
+        m.oneofBytes = Data(bytes: [1, 2, 3])
 
-        XCTAssertEqual(m.debugDescription, "Proto3TestAllTypes(oneofBytes:[1, 2, 3])");
+        XCTAssertEqual(m.debugDescription, "Proto3TestAllTypes(oneofBytes:3 bytes)");
         var m2 = MessageTestType()
-        m2.oneofBytes = [4, 5, 6]
+        m2.oneofBytes = Data(bytes: [4, 5, 6])
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
     }
 

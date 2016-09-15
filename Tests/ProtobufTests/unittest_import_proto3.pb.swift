@@ -41,6 +41,7 @@
 // 
 //  A proto file which is imported by unittest_proto3.proto to test importing.
 
+import Foundation
 import Protobuf
 
 

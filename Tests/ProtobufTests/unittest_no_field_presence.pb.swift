@@ -37,6 +37,7 @@
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //  A proto file used to test a message type with no explicit field presence.
 
+import Foundation
 import Protobuf
 
 
@@ -251,7 +252,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = ""
-    var _optionalBytes: [UInt8] = []
+    var _optionalBytes: Data = Data()
     var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
     var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil
@@ -274,7 +275,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] = []
     var _repeatedProto2Message: [ProtobufUnittest_TestAllTypes] = []
@@ -387,7 +388,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
       if _optionalString != "" {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14, protoFieldName: "optional_string", jsonFieldName: "optionalString", swiftFieldName: "optionalString")
       }
-      if _optionalBytes != [] {
+      if _optionalBytes != Data() {
         try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15, protoFieldName: "optional_bytes", jsonFieldName: "optionalBytes", swiftFieldName: "optionalBytes")
       }
       if let v = _optionalNestedMessage {
@@ -501,7 +502,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
       if _optionalDouble != 0 {return false}
       if _optionalBool != false {return false}
       if _optionalString != "" {return false}
-      if _optionalBytes != [] {return false}
+      if _optionalBytes != Data() {return false}
       if _optionalNestedMessage != nil {return false}
       if _optionalForeignMessage != nil {return false}
       if _optionalProto2Message != nil {return false}
@@ -921,8 +922,8 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: [UInt8] {
-    get {return _storage?._optionalBytes ?? []}
+  public var optionalBytes: Data {
+    get {return _storage?._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
@@ -1040,7 +1041,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1180,7 +1181,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     optionalDouble: Double? = nil,
     optionalBool: Bool? = nil,
     optionalString: String? = nil,
-    optionalBytes: [UInt8]? = nil,
+    optionalBytes: Data? = nil,
     optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil,
     optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil,
     optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil,
@@ -1203,7 +1204,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = [],
     repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] = [],
     repeatedProto2Message: [ProtobufUnittest_TestAllTypes] = [],

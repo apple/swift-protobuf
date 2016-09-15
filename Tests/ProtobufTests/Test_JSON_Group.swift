@@ -19,6 +19,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 class Test_JSON_Group: XCTestCase, PBTestHelpers {

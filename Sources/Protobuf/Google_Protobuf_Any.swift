@@ -17,6 +17,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import Swift
 
 fileprivate func typeName(fromURL s: String) -> String {
@@ -140,13 +141,13 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
     public var typeURL: String?
 
     ///   Must be valid serialized data of the above specified type.
-    public var value: [UInt8]? {
+    public var value: Data? {
         get {
             if let value = _value {
                 return value
             } else if let message = _message {
                 do {
-                    return try message.serializeProtobufBytes()
+                    return try message.serializeProtobuf()
                 } catch {
                     return nil
                 }
@@ -157,7 +158,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[encodedTypeName] {
                     do {
                         let m = try messageType.init(any: self)
-                        return try m.serializeProtobufBytes()
+                        return try m.serializeProtobuf()
                     } catch {
                         return nil
                     }
@@ -166,7 +167,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 if let messageType = Google_Protobuf_Any.knownTypes[encodedTypeName] {
                     do {
                         let m = try messageType.init(any: self)
-                        return try m.serializeProtobufBytes()
+                        return try m.serializeProtobuf()
                     } catch {
                         return nil
                     }
@@ -174,7 +175,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 // TODO: Google spec requires a lot more work in the general case:
                 // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
                 // let type = Google_Protobuf_Type(protobuf: encodedType)
-                // return ProtobufDynamic(type: type, any: self)?.serializeProtobufBytes()
+                // return ProtobufDynamic(type: type, any: self)?.serializeProtobuf()
 
                 // See the comments in serializeJSON() above for more discussion of what would be needed to fully implement this.
                 return nil
@@ -188,7 +189,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
             _jsonFields = nil
         }
     }
-    private var _value: [UInt8]?
+    private var _value: Data?
 
     private var _message: ProtobufMessage?
     private var _jsonFields: [String:[ProtobufJSONToken]]?
@@ -218,7 +219,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         let messageTypeName = typeName(fromMessage: m)
         knownTypes[messageTypeName] = messageType
     }
-    
+
     public init() {}
 
     public init(message: ProtobufMessage) {
@@ -233,7 +234,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         default: return false
         }
     }
-    
+
     public mutating func decodeFromJSONObject(jsonDecoder: inout ProtobufJSONDecoder) throws {
         var key = ""
         var state = ProtobufJSONDecoder.ObjectParseState.expectFirstKey
@@ -292,15 +293,16 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         if encodedType != messageType {
             throw ProtobufDecodingError.malformedAnyField
         }
-        var protobuf: [UInt8]?
+        var protobuf: Data?
         if let message = _message {
-            protobuf = try message.serializeProtobufBytes()
+            protobuf = try message.serializeProtobuf()
         } else if let value = _value {
             protobuf = value
         }
         if let protobuf = protobuf {
             // Decode protobuf from the stored bytes
-            try protobuf.withUnsafeBufferPointer { (bp) in
+            try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
+                let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
                 var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: bp)
                 try protobufDecoder.decodeFullObject(message: &target)
             }
@@ -368,7 +370,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
                 hash = (hash &* 16777619) ^ t.hashValue
             }
             if let v = _value {
-                hash = (hash &* 16777619) ^ ProtobufHash(bytes: v)
+                hash = (hash &* 16777619) ^ v.hashValue
             }
             if let m = _message {
                 hash = (hash &* 16777619) ^ m.hashValue

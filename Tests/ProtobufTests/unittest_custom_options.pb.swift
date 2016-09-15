@@ -41,6 +41,7 @@
 // 
 //  A proto file used to test the "custom options" feature of google.protobuf.
 
+import Foundation
 import Protobuf
 
 
@@ -2432,7 +2433,7 @@ extension Google_Protobuf_MessageOptions {
 }
 
 extension Google_Protobuf_MessageOptions {
-  var bytesOpt: [UInt8]? {
+  var bytesOpt: Data? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt, value: newValue)}
   }

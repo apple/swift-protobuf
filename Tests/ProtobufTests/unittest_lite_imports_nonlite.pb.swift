@@ -39,6 +39,7 @@
 // 
 //  Tests that a "lite" message can import a regular message.
 
+import Foundation
 import Protobuf
 
 

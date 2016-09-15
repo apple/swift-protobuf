@@ -14,6 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import Swift
 
 public struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
@@ -248,7 +249,7 @@ public struct ProtobufJSONEncoder {
         }
         append(text: "\"")
     }
-    mutating func putBytesValue(value: [UInt8]) {
+    mutating func putBytesValue(value: Data) {
         var out: String = ""
         if value.count > 0 {
             let digits: [Character] = ["A", "B", "C", "D", "E", "F",

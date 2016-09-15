@@ -17,6 +17,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 import Protobuf
 
@@ -37,7 +38,7 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(decoded.anyValue.typeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
         let decoded_value = decoded.anyValue.value
         if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, [8, 7])
+            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
         }
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
@@ -71,7 +72,7 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(decoded.anyValue.typeURL, "X/Y/protobuf_unittest.TestAllTypes")
         let decoded_value = decoded.anyValue.value
         if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, [8, 7])
+            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
         }
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
@@ -105,7 +106,7 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(decoded.anyValue.typeURL, "/protobuf_unittest.TestAllTypes")
         let decoded_value = decoded.anyValue.value
         if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, [8, 7])
+            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
         }
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
@@ -136,7 +137,7 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(decoded.anyValue.typeURL, "protobuf_unittest.TestAllTypes")
         let decoded_value = decoded.anyValue.value
         if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, [8, 7])
+            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
         }
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
@@ -167,7 +168,7 @@ class Test_Any: XCTestCase {
             let decoded_value = decoded.anyValue.value
             XCTAssertNotNil(decoded_value)
             if let decoded_value = decoded_value {
-                XCTAssertEqual([8, 7], decoded_value)
+                XCTAssertEqual(Data(bytes: [8, 7]), decoded_value)
             }
             XCTAssertEqual(decoded.int32Value, 12)
             XCTAssertNotNil(decoded.anyValue)
@@ -219,7 +220,7 @@ class Test_Any: XCTestCase {
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertEqual(anyValue.value!, [8, 7])
+        XCTAssertEqual(anyValue.value!, Data(bytes: [8, 7]))
 
         // Protobuf-to-JSON transcoding fails
         XCTAssertThrowsError(try decoded.serializeJSON())

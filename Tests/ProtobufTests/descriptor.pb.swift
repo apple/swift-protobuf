@@ -43,6 +43,7 @@
 //  A valid .proto file can be translated directly to a FileDescriptorProto
 //  without any other information (e.g. without reading its imports).
 
+import Foundation
 import Protobuf
 
 
@@ -3763,7 +3764,7 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
 
   public var doubleValue: Double? = nil
 
-  public var stringValue: [UInt8]? = nil
+  public var stringValue: Data? = nil
 
   public var aggregateValue: String? = nil
 
@@ -3774,7 +3775,7 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
     positiveIntValue: UInt64? = nil,
     negativeIntValue: Int64? = nil,
     doubleValue: Double? = nil,
-    stringValue: [UInt8]? = nil,
+    stringValue: Data? = nil,
     aggregateValue: String? = nil)
   {
     if !name.isEmpty {

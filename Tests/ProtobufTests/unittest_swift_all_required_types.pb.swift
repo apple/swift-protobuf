@@ -38,6 +38,7 @@
 
 ///   An addition to unittest.proto
 
+import Foundation
 import Protobuf
 
 
@@ -167,7 +168,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     var _requiredDouble: Double = 0
     var _requiredBool: Bool = false
     var _requiredString: String = ""
-    var _requiredBytes: [UInt8] = []
+    var _requiredBytes: Data = Data()
     var _requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil
     var _requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
     var _requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil
@@ -193,7 +194,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     var _defaultDouble: Double = 52000
     var _defaultBool: Bool = true
     var _defaultString: String = "hello"
-    var _defaultBytes: [UInt8] = [119, 111, 114, 108, 100]
+    var _defaultBytes: Data = Data(bytes: [119, 111, 114, 108, 100])
     var _defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum = ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar
     var _defaultForeignEnum: ProtobufUnittest_ForeignEnum = ProtobufUnittest_ForeignEnum.foreignBar
     var _defaultImportEnum: ProtobufUnittestImport_ImportEnum = ProtobufUnittestImport_ImportEnum.importBar
@@ -342,7 +343,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
       if _requiredDouble != 0 {return false}
       if _requiredBool != false {return false}
       if _requiredString != "" {return false}
-      if _requiredBytes != [] {return false}
+      if _requiredBytes != Data() {return false}
       if _requiredGroup != nil {return false}
       if _requiredNestedMessage != nil {return false}
       if _requiredForeignMessage != nil {return false}
@@ -368,7 +369,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
       if _defaultDouble != 52000 {return false}
       if _defaultBool != true {return false}
       if _defaultString != "hello" {return false}
-      if _defaultBytes != [119, 111, 114, 108, 100] {return false}
+      if _defaultBytes != Data(bytes: [119, 111, 114, 108, 100]) {return false}
       if _defaultNestedEnum != ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar {return false}
       if _defaultForeignEnum != ProtobufUnittest_ForeignEnum.foreignBar {return false}
       if _defaultImportEnum != ProtobufUnittestImport_ImportEnum.importBar {return false}
@@ -491,7 +492,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllRequiredTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes([UInt8])
+    case oneofBytes(Data)
     case None
 
     public init(nilLiteral: ()) {
@@ -527,7 +528,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
           self = .oneofString(value)
         }
       case 114:
-        var value: [UInt8]?
+        var value: Data?
         handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &value)
         if let value = value, handled {
           self = .oneofBytes(value)
@@ -837,8 +838,8 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._requiredString = newValue}
   }
 
-  public var requiredBytes: [UInt8] {
-    get {return _storage?._requiredBytes ?? []}
+  public var requiredBytes: Data {
+    get {return _storage?._requiredBytes ?? Data()}
     set {_uniqueStorage()._requiredBytes = newValue}
   }
 
@@ -969,8 +970,8 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._defaultString = newValue}
   }
 
-  public var defaultBytes: [UInt8] {
-    get {return _storage?._defaultBytes ?? [119, 111, 114, 108, 100]}
+  public var defaultBytes: Data {
+    get {return _storage?._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
 
@@ -1053,7 +1054,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: [UInt8]? {
+  public var oneofBytes: Data? {
     get {
       if let storage = _storage {
         if case .oneofBytes(let v) = storage._oneofField {
@@ -1094,7 +1095,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     requiredDouble: Double = 0,
     requiredBool: Bool = false,
     requiredString: String = "",
-    requiredBytes: [UInt8] = [],
+    requiredBytes: Data = Data(),
     requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil,
     requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil,
     requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil,
@@ -1120,7 +1121,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     defaultDouble: Double = 52000,
     defaultBool: Bool = true,
     defaultString: String = "hello",
-    defaultBytes: [UInt8] = [119, 111, 114, 108, 100],
+    defaultBytes: Data = Data(bytes: [119, 111, 114, 108, 100]),
     defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum = ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar,
     defaultForeignEnum: ProtobufUnittest_ForeignEnum = ProtobufUnittest_ForeignEnum.foreignBar,
     defaultImportEnum: ProtobufUnittestImport_ImportEnum = ProtobufUnittestImport_ImportEnum.importBar,
@@ -1129,7 +1130,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     oneofUint32: UInt32? = nil,
     oneofNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil,
     oneofString: String? = nil,
-    oneofBytes: [UInt8]? = nil)
+    oneofBytes: Data? = nil)
   {
     let storage = _uniqueStorage()
     storage._requiredInt32 = requiredInt32
@@ -1320,7 +1321,7 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
 
   public var requiredString: String = ""
 
-  public var requiredBytes: [UInt8] = []
+  public var requiredBytes: Data = Data()
 
   public var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum = ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo
 
@@ -1330,7 +1331,7 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
     requiredFloat: Float = 0,
     requiredBool: Bool = false,
     requiredString: String = "",
-    requiredBytes: [UInt8] = [],
+    requiredBytes: Data = Data(),
     requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum = ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo)
   {
     self.requiredInt32 = requiredInt32
@@ -1375,7 +1376,7 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
     if requiredFloat != 0 {return false}
     if requiredBool != false {return false}
     if requiredString != "" {return false}
-    if requiredBytes != [] {return false}
+    if requiredBytes != Data() {return false}
     if requiredNestedEnum != ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo {return false}
     if !unknown.isEmpty {return false}
     return true

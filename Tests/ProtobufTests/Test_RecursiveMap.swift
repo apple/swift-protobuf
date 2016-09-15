@@ -14,6 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 class Test_RecursiveMap: XCTestCase {

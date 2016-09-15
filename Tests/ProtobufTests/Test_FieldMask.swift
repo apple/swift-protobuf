@@ -18,6 +18,7 @@
 // TODO: We should have utility functions for applying a mask to an arbitrary
 // message, intersecting two masks, etc.
 
+import Foundation
 import XCTest
 import Protobuf
 

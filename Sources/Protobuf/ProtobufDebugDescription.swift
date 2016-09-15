@@ -59,7 +59,7 @@ public struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
         description.append(swiftFieldName + ":" + String(reflecting: value))
     }
-    
+
     mutating public func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)

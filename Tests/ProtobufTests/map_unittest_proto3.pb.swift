@@ -43,6 +43,7 @@
 ///   The TestRequiredMessageMap message has been removed as there are no
 ///   required fields in proto3.
 
+import Foundation
 import Protobuf
 
 
@@ -190,7 +191,7 @@ public struct Proto3TestMap: ProtobufGeneratedMessage {
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
     var _mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
 
@@ -413,7 +414,7 @@ public struct Proto3TestMap: ProtobufGeneratedMessage {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
+  public var mapInt32Bytes: Dictionary<Int32,Data> {
     get {return _storage?._mapInt32Bytes ?? [:]}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -444,7 +445,7 @@ public struct Proto3TestMap: ProtobufGeneratedMessage {
     mapInt32Double: Dictionary<Int32,Double> = [:],
     mapBoolBool: Dictionary<Bool,Bool> = [:],
     mapStringString: Dictionary<String,String> = [:],
-    mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:],
+    mapInt32Bytes: Dictionary<Int32,Data> = [:],
     mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:],
     mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:])
   {

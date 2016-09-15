@@ -39,6 +39,7 @@
 // 
 //  This is like unittest.proto but with optimize_for = LITE_RUNTIME.
 
+import Foundation
 import Protobuf
 
 
@@ -437,7 +438,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     var _optionalDouble: Double? = nil
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
-    var _optionalBytes: [UInt8]? = nil
+    var _optionalBytes: Data? = nil
     var _optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup? = nil
     var _optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
     var _optionalForeignMessage: ProtobufUnittest_ForeignMessageLite? = nil
@@ -463,7 +464,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] = []
     var _repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] = []
     var _repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] = []
@@ -488,7 +489,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     var _defaultDouble: Double? = nil
     var _defaultBool: Bool? = nil
     var _defaultString: String? = nil
-    var _defaultBytes: [UInt8]? = nil
+    var _defaultBytes: Data? = nil
     var _defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum? = nil
     var _defaultForeignEnum: ProtobufUnittest_ForeignEnumLite? = nil
     var _defaultImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil
@@ -868,7 +869,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
       if _defaultDouble != nil && _defaultDouble! != 52000 {return false}
       if _defaultBool != nil && _defaultBool! != true {return false}
       if _defaultString != nil && _defaultString! != "hello" {return false}
-      if _defaultBytes != nil && _defaultBytes! != [119, 111, 114, 108, 100] {return false}
+      if _defaultBytes != nil && _defaultBytes! != Data(bytes: [119, 111, 114, 108, 100]) {return false}
       if _defaultNestedEnum != nil && _defaultNestedEnum! != ProtobufUnittest_TestAllTypesLite.NestedEnum.bar {return false}
       if _defaultForeignEnum != nil && _defaultForeignEnum! != ProtobufUnittest_ForeignEnumLite.foreignLiteBar {return false}
       if _defaultImportEnum != nil && _defaultImportEnum! != ProtobufUnittestImport_ImportEnumLite.importLiteBar {return false}
@@ -945,7 +946,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
       if (((_defaultDouble != nil && _defaultDouble! != 52000) || (other._defaultDouble != nil && other._defaultDouble! != 52000)) && (_defaultDouble == nil || other._defaultDouble == nil || _defaultDouble! != other._defaultDouble!)) {return false}
       if (((_defaultBool != nil && _defaultBool! != true) || (other._defaultBool != nil && other._defaultBool! != true)) && (_defaultBool == nil || other._defaultBool == nil || _defaultBool! != other._defaultBool!)) {return false}
       if (((_defaultString != nil && _defaultString! != "hello") || (other._defaultString != nil && other._defaultString! != "hello")) && (_defaultString == nil || other._defaultString == nil || _defaultString! != other._defaultString!)) {return false}
-      if (((_defaultBytes != nil && _defaultBytes! != [119, 111, 114, 108, 100]) || (other._defaultBytes != nil && other._defaultBytes! != [119, 111, 114, 108, 100])) && (_defaultBytes == nil || other._defaultBytes == nil || _defaultBytes! != other._defaultBytes!)) {return false}
+      if (((_defaultBytes != nil && _defaultBytes! != Data(bytes: [119, 111, 114, 108, 100])) || (other._defaultBytes != nil && other._defaultBytes! != Data(bytes: [119, 111, 114, 108, 100]))) && (_defaultBytes == nil || other._defaultBytes == nil || _defaultBytes! != other._defaultBytes!)) {return false}
       if (((_defaultNestedEnum != nil && _defaultNestedEnum! != ProtobufUnittest_TestAllTypesLite.NestedEnum.bar) || (other._defaultNestedEnum != nil && other._defaultNestedEnum! != ProtobufUnittest_TestAllTypesLite.NestedEnum.bar)) && (_defaultNestedEnum == nil || other._defaultNestedEnum == nil || _defaultNestedEnum! != other._defaultNestedEnum!)) {return false}
       if (((_defaultForeignEnum != nil && _defaultForeignEnum! != ProtobufUnittest_ForeignEnumLite.foreignLiteBar) || (other._defaultForeignEnum != nil && other._defaultForeignEnum! != ProtobufUnittest_ForeignEnumLite.foreignLiteBar)) && (_defaultForeignEnum == nil || other._defaultForeignEnum == nil || _defaultForeignEnum! != other._defaultForeignEnum!)) {return false}
       if (((_defaultImportEnum != nil && _defaultImportEnum! != ProtobufUnittestImport_ImportEnumLite.importLiteBar) || (other._defaultImportEnum != nil && other._defaultImportEnum! != ProtobufUnittestImport_ImportEnumLite.importLiteBar)) && (_defaultImportEnum == nil || other._defaultImportEnum == nil || _defaultImportEnum! != other._defaultImportEnum!)) {return false}
@@ -1041,7 +1042,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
     case oneofString(String)
-    case oneofBytes([UInt8])
+    case oneofBytes(Data)
     case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
     case None
 
@@ -1078,7 +1079,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
           self = .oneofString(value)
         }
       case 114:
-        var value: [UInt8]?
+        var value: Data?
         handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &value)
         if let value = value, handled {
           self = .oneofBytes(value)
@@ -1457,7 +1458,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: [UInt8]? {
+  public var optionalBytes: Data? {
     get {return _storage?._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -1589,7 +1590,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1715,8 +1716,8 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     set {_uniqueStorage()._defaultString = newValue}
   }
 
-  public var defaultBytes: [UInt8]? {
-    get {return _storage?._defaultBytes ?? [119, 111, 114, 108, 100]}
+  public var defaultBytes: Data? {
+    get {return _storage?._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
 
@@ -1799,7 +1800,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: [UInt8]? {
+  public var oneofBytes: Data? {
     get {
       if let storage = _storage {
         if case .oneofBytes(let v) = storage._oneofField {
@@ -1858,7 +1859,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     optionalDouble: Double? = nil,
     optionalBool: Bool? = nil,
     optionalString: String? = nil,
-    optionalBytes: [UInt8]? = nil,
+    optionalBytes: Data? = nil,
     optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup? = nil,
     optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil,
     optionalForeignMessage: ProtobufUnittest_ForeignMessageLite? = nil,
@@ -1884,7 +1885,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] = [],
     repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] = [],
     repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] = [],
@@ -1909,7 +1910,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     defaultDouble: Double? = nil,
     defaultBool: Bool? = nil,
     defaultString: String? = nil,
-    defaultBytes: [UInt8]? = nil,
+    defaultBytes: Data? = nil,
     defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum? = nil,
     defaultForeignEnum: ProtobufUnittest_ForeignEnumLite? = nil,
     defaultImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil,
@@ -1918,7 +1919,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     oneofUint32: UInt32? = nil,
     oneofNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil,
     oneofString: String? = nil,
-    oneofBytes: [UInt8]? = nil,
+    oneofBytes: Data? = nil,
     oneofLazyNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil)
   {
     let storage = _uniqueStorage()
@@ -3628,7 +3629,7 @@ let ProtobufUnittest_TestAllExtensionsLite_defaultBoolExtensionLite = ProtobufGe
 
 let ProtobufUnittest_TestAllExtensionsLite_defaultStringExtensionLite = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(protoFieldNumber: 74, protoFieldName: "default_string_extension_lite", jsonFieldName: "defaultStringExtensionLite", swiftFieldName: "defaultStringExtensionLite", defaultValue: "hello")
 
-let ProtobufUnittest_TestAllExtensionsLite_defaultBytesExtensionLite = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(protoFieldNumber: 75, protoFieldName: "default_bytes_extension_lite", jsonFieldName: "defaultBytesExtensionLite", swiftFieldName: "defaultBytesExtensionLite", defaultValue: [119, 111, 114, 108, 100])
+let ProtobufUnittest_TestAllExtensionsLite_defaultBytesExtensionLite = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(protoFieldNumber: 75, protoFieldName: "default_bytes_extension_lite", jsonFieldName: "defaultBytesExtensionLite", swiftFieldName: "defaultBytesExtensionLite", defaultValue: Data(bytes: [119, 111, 114, 108, 100]))
 
 let ProtobufUnittest_TestAllExtensionsLite_defaultNestedEnumExtensionLite = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufUnittest_TestAllTypesLite.NestedEnum>, ProtobufUnittest_TestAllExtensionsLite>(protoFieldNumber: 81, protoFieldName: "default_nested_enum_extension_lite", jsonFieldName: "defaultNestedEnumExtensionLite", swiftFieldName: "defaultNestedEnumExtensionLite", defaultValue: ProtobufUnittest_TestAllTypesLite.NestedEnum.bar)
 
@@ -3810,7 +3811,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  var optionalBytesExtensionLite: [UInt8]? {
+  var optionalBytesExtensionLite: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_optionalBytesExtensionLite)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_optionalBytesExtensionLite, value: newValue)}
   }
@@ -3993,7 +3994,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  var repeatedBytesExtensionLite: [[UInt8]] {
+  var repeatedBytesExtensionLite: [Data] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_repeatedBytesExtensionLite)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_repeatedBytesExtensionLite, value: newValue)}
   }
@@ -4169,7 +4170,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  var defaultBytesExtensionLite: [UInt8]? {
+  var defaultBytesExtensionLite: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_defaultBytesExtensionLite)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_defaultBytesExtensionLite, value: newValue)}
   }
@@ -4233,7 +4234,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  var oneofBytesExtensionLite: [UInt8]? {
+  var oneofBytesExtensionLite: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_oneofBytesExtensionLite)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensionsLite_oneofBytesExtensionLite, value: newValue)}
   }

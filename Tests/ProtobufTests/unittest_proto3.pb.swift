@@ -41,6 +41,7 @@
 // 
 //  A proto file we will use for unit testing.
 
+import Foundation
 import Protobuf
 
 
@@ -486,7 +487,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     var _singleDouble: Double = 0
     var _singleBool: Bool = false
     var _singleString: String = ""
-    var _singleBytes: [UInt8] = []
+    var _singleBytes: Data = Data()
     var _singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil
     var _singleForeignMessage: Proto3ForeignMessage? = nil
     var _singleImportMessage: Proto3ImportMessage? = nil
@@ -508,7 +509,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto3ForeignMessage] = []
     var _repeatedImportMessage: [Proto3ImportMessage] = []
@@ -618,7 +619,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
       if _singleString != "" {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: _singleString, protoFieldNumber: 14, protoFieldName: "single_string", jsonFieldName: "singleString", swiftFieldName: "singleString")
       }
-      if _singleBytes != [] {
+      if _singleBytes != Data() {
         try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _singleBytes, protoFieldNumber: 15, protoFieldName: "single_bytes", jsonFieldName: "singleBytes", swiftFieldName: "singleBytes")
       }
       if let v = _singleNestedMessage {
@@ -726,7 +727,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
       if _singleDouble != 0 {return false}
       if _singleBool != false {return false}
       if _singleString != "" {return false}
-      if _singleBytes != [] {return false}
+      if _singleBytes != Data() {return false}
       if _singleNestedMessage != nil {return false}
       if _singleForeignMessage != nil {return false}
       if _singleImportMessage != nil {return false}
@@ -866,7 +867,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3TestAllTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes([UInt8])
+    case oneofBytes(Data)
     case None
 
     public init(nilLiteral: ()) {
@@ -898,7 +899,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
         handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .oneofString(value)
       case 114:
-        var value = [UInt8]()
+        var value = Data()
         handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
       default:
@@ -1159,8 +1160,8 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._singleString = newValue}
   }
 
-  public var singleBytes: [UInt8] {
-    get {return _storage?._singleBytes ?? []}
+  public var singleBytes: Data {
+    get {return _storage?._singleBytes ?? Data()}
     set {_uniqueStorage()._singleBytes = newValue}
   }
 
@@ -1271,7 +1272,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1366,7 +1367,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: [UInt8]? {
+  public var oneofBytes: Data? {
     get {
       if let storage = _storage {
         if case .oneofBytes(let v) = storage._oneofField {
@@ -1407,7 +1408,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     singleDouble: Double? = nil,
     singleBool: Bool? = nil,
     singleString: String? = nil,
-    singleBytes: [UInt8]? = nil,
+    singleBytes: Data? = nil,
     singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil,
     singleForeignMessage: Proto3ForeignMessage? = nil,
     singleImportMessage: Proto3ImportMessage? = nil,
@@ -1429,7 +1430,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] = [],
     repeatedForeignMessage: [Proto3ForeignMessage] = [],
     repeatedImportMessage: [Proto3ImportMessage] = [],
@@ -1440,7 +1441,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     oneofUint32: UInt32? = nil,
     oneofNestedMessage: Proto3TestAllTypes.NestedMessage? = nil,
     oneofString: String? = nil,
-    oneofBytes: [UInt8]? = nil)
+    oneofBytes: Data? = nil)
   {
     let storage = _uniqueStorage()
     if let v = singleInt32 {
@@ -2977,11 +2978,11 @@ public struct Proto3OneBytes: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
-  public var data: [UInt8] = []
+  public var data: Data = Data()
 
   public init() {}
 
-  public init(data: [UInt8]? = nil)
+  public init(data: Data? = nil)
   {
     if let v = data {
       self.data = v
@@ -2999,13 +3000,13 @@ public struct Proto3OneBytes: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if data != [] {
+    if data != Data() {
       try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: data, protoFieldNumber: 1, protoFieldName: "data", jsonFieldName: "data", swiftFieldName: "data")
     }
   }
 
   public var _protoc_generated_isEmpty: Bool {
-    if data != [] {return false}
+    if data != Data() {return false}
     return true
   }
 
@@ -3026,11 +3027,11 @@ public struct Proto3MoreBytes: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
-  public var data: [UInt8] = []
+  public var data: Data = Data()
 
   public init() {}
 
-  public init(data: [UInt8]? = nil)
+  public init(data: Data? = nil)
   {
     if let v = data {
       self.data = v
@@ -3048,13 +3049,13 @@ public struct Proto3MoreBytes: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if data != [] {
+    if data != Data() {
       try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: data, protoFieldNumber: 1, protoFieldName: "data", jsonFieldName: "data", swiftFieldName: "data")
     }
   }
 
   public var _protoc_generated_isEmpty: Bool {
-    if data != [] {return false}
+    if data != Data() {return false}
     return true
   }
 

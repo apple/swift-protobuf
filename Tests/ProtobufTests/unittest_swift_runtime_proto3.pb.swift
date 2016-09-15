@@ -35,6 +35,7 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import Foundation
 import Protobuf
 
 
@@ -203,7 +204,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = ""
-    var _optionalBytes: [UInt8] = []
+    var _optionalBytes: Data = Data()
     var _optionalMessage: ProtobufUnittest_Message3? = nil
     var _optionalEnum: ProtobufUnittest_Message3.Enum = ProtobufUnittest_Message3.Enum.foo
     var _repeatedInt32: [Int32] = []
@@ -220,7 +221,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _repeatedMessage: [ProtobufUnittest_Message3] = []
     var _repeatedEnum: [ProtobufUnittest_Message3.Enum] = []
     var _o = ProtobufUnittest_Message3.OneOf_O()
@@ -238,9 +239,9 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapStringBytes: Dictionary<String,[UInt8]> = [:]
+    var _mapStringBytes: Dictionary<String,Data> = [:]
     var _mapStringMessage: Dictionary<String,ProtobufUnittest_Message3> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message3.Enum> = [:]
     var _mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message3> = [:]
 
@@ -353,7 +354,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
       if _optionalString != "" {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14, protoFieldName: "optional_string", jsonFieldName: "optionalString", swiftFieldName: "optionalString")
       }
-      if _optionalBytes != [] {
+      if _optionalBytes != Data() {
         try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15, protoFieldName: "optional_bytes", jsonFieldName: "optionalBytes", swiftFieldName: "optionalBytes")
       }
       if let v = _optionalMessage {
@@ -488,7 +489,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
       if _optionalDouble != 0 {return false}
       if _optionalBool != false {return false}
       if _optionalString != "" {return false}
-      if _optionalBytes != [] {return false}
+      if _optionalBytes != Data() {return false}
       if _optionalMessage != nil {return false}
       if _optionalEnum != ProtobufUnittest_Message3.Enum.foo {return false}
       if !_repeatedInt32.isEmpty {return false}
@@ -666,7 +667,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     case oneofDouble(Double)
     case oneofBool(Bool)
     case oneofString(String)
-    case oneofBytes([UInt8])
+    case oneofBytes(Data)
     case oneofMessage(ProtobufUnittest_Message3)
     case oneofEnum(ProtobufUnittest_Message3.Enum)
     case None
@@ -742,7 +743,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
         handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .oneofString(value)
       case 65:
-        var value = [UInt8]()
+        var value = Data()
         handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
       case 68:
@@ -1002,8 +1003,8 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: [UInt8] {
-    get {return _storage?._optionalBytes ?? []}
+  public var optionalBytes: Data {
+    get {return _storage?._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
@@ -1088,7 +1089,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1356,7 +1357,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: [UInt8]? {
+  public var oneofBytes: Data? {
     get {
       if let storage = _storage {
         if case .oneofBytes(let v) = storage._o {
@@ -1482,7 +1483,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapStringBytes: Dictionary<String,[UInt8]> {
+  public var mapStringBytes: Dictionary<String,Data> {
     get {return _storage?._mapStringBytes ?? [:]}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
@@ -1492,7 +1493,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     set {_uniqueStorage()._mapStringMessage = newValue}
   }
 
-  public var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
+  public var mapInt32Bytes: Dictionary<Int32,Data> {
     get {return _storage?._mapInt32Bytes ?? [:]}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -1530,7 +1531,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     optionalDouble: Double? = nil,
     optionalBool: Bool? = nil,
     optionalString: String? = nil,
-    optionalBytes: [UInt8]? = nil,
+    optionalBytes: Data? = nil,
     optionalMessage: ProtobufUnittest_Message3? = nil,
     optionalEnum: ProtobufUnittest_Message3.Enum? = nil,
     repeatedInt32: [Int32] = [],
@@ -1547,7 +1548,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     repeatedMessage: [ProtobufUnittest_Message3] = [],
     repeatedEnum: [ProtobufUnittest_Message3.Enum] = [],
     oneofInt32: Int32? = nil,
@@ -1564,7 +1565,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     oneofDouble: Double? = nil,
     oneofBool: Bool? = nil,
     oneofString: String? = nil,
-    oneofBytes: [UInt8]? = nil,
+    oneofBytes: Data? = nil,
     oneofMessage: ProtobufUnittest_Message3? = nil,
     oneofEnum: ProtobufUnittest_Message3.Enum? = nil,
     mapInt32Int32: Dictionary<Int32,Int32> = [:],
@@ -1581,9 +1582,9 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     mapInt32Double: Dictionary<Int32,Double> = [:],
     mapBoolBool: Dictionary<Bool,Bool> = [:],
     mapStringString: Dictionary<String,String> = [:],
-    mapStringBytes: Dictionary<String,[UInt8]> = [:],
+    mapStringBytes: Dictionary<String,Data> = [:],
     mapStringMessage: Dictionary<String,ProtobufUnittest_Message3> = [:],
-    mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:],
+    mapInt32Bytes: Dictionary<Int32,Data> = [:],
     mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message3.Enum> = [:],
     mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message3> = [:])
   {

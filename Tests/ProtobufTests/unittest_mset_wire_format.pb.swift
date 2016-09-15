@@ -41,6 +41,7 @@
 // 
 //  This file contains messages for testing message_set_wire_format.
 
+import Foundation
 import Protobuf
 
 

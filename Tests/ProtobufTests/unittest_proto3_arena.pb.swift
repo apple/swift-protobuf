@@ -36,6 +36,7 @@
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import Foundation
 import Protobuf
 
 
@@ -260,7 +261,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = ""
-    var _optionalBytes: [UInt8] = []
+    var _optionalBytes: Data = Data()
     var _optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage? = nil
     var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
@@ -284,7 +285,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [[UInt8]] = []
+    var _repeatedBytes: [Data] = []
     var _repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto3ArenaUnittest_ForeignMessage] = []
     var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
@@ -398,7 +399,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
       if _optionalString != "" {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14, protoFieldName: "optional_string", jsonFieldName: "optionalString", swiftFieldName: "optionalString")
       }
-      if _optionalBytes != [] {
+      if _optionalBytes != Data() {
         try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15, protoFieldName: "optional_bytes", jsonFieldName: "optionalBytes", swiftFieldName: "optionalBytes")
       }
       if let v = _optionalNestedMessage {
@@ -515,7 +516,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
       if _optionalDouble != 0 {return false}
       if _optionalBool != false {return false}
       if _optionalString != "" {return false}
-      if _optionalBytes != [] {return false}
+      if _optionalBytes != Data() {return false}
       if _optionalNestedMessage != nil {return false}
       if _optionalForeignMessage != nil {return false}
       if _optionalImportMessage != nil {return false}
@@ -664,7 +665,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3ArenaUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes([UInt8])
+    case oneofBytes(Data)
     case None
 
     public init(nilLiteral: ()) {
@@ -696,7 +697,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
         handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .oneofString(value)
       case 114:
-        var value = [UInt8]()
+        var value = Data()
         handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
       default:
@@ -957,8 +958,8 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: [UInt8] {
-    get {return _storage?._optionalBytes ?? []}
+  public var optionalBytes: Data {
+    get {return _storage?._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
@@ -1087,7 +1088,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [[UInt8]] {
+  public var repeatedBytes: [Data] {
     get {return _storage?._repeatedBytes ?? []}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1194,7 +1195,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: [UInt8]? {
+  public var oneofBytes: Data? {
     get {
       if let storage = _storage {
         if case .oneofBytes(let v) = storage._oneofField {
@@ -1235,7 +1236,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     optionalDouble: Double? = nil,
     optionalBool: Bool? = nil,
     optionalString: String? = nil,
-    optionalBytes: [UInt8]? = nil,
+    optionalBytes: Data? = nil,
     optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil,
     optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage? = nil,
     optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil,
@@ -1259,7 +1260,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     repeatedDouble: [Double] = [],
     repeatedBool: [Bool] = [],
     repeatedString: [String] = [],
-    repeatedBytes: [[UInt8]] = [],
+    repeatedBytes: [Data] = [],
     repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] = [],
     repeatedForeignMessage: [Proto3ArenaUnittest_ForeignMessage] = [],
     repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = [],
@@ -1271,7 +1272,7 @@ public struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage {
     oneofUint32: UInt32? = nil,
     oneofNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil,
     oneofString: String? = nil,
-    oneofBytes: [UInt8]? = nil)
+    oneofBytes: Data? = nil)
   {
     let storage = _uniqueStorage()
     if let v = optionalInt32 {

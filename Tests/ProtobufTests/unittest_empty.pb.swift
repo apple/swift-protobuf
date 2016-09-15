@@ -42,5 +42,6 @@
 //  This file intentionally left blank.  (At one point this wouldn't compile
 //  correctly.)
 
+import Foundation
 import Protobuf
 

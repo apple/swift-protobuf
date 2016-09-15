@@ -16,6 +16,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 class Test_Enum: XCTestCase, PBTestHelpers {

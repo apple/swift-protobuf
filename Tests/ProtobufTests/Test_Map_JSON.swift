@@ -16,6 +16,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
 
 
@@ -56,9 +57,9 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
 
     func testMapInt32Bytes() {
         assertJSONEncode("{\"mapInt32Bytes\":{\"1\":\"\"}}") {(o: inout MessageTestType) in
-            o.mapInt32Bytes = [1:[]]
+            o.mapInt32Bytes = [1:Data()]
         }
-        assertJSONDecodeSucceeds("{\"mapInt32Bytes\":{\"1\":\"\", \"2\":\"QUI=\", \"3\": \"AAA=\"}}") {$0.mapInt32Bytes == [1:[], 2: [65, 66], 3: [0,0]]}
+        assertJSONDecodeSucceeds("{\"mapInt32Bytes\":{\"1\":\"\", \"2\":\"QUI=\", \"3\": \"AAA=\"}}") {$0.mapInt32Bytes == [1:Data(), 2: Data(bytes: [65, 66]), 3: Data(bytes: [0,0])]}
     }
 
     func testMapInt32Message() {
