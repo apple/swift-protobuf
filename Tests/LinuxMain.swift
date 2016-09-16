@@ -1,5 +1,5 @@
 import XCTest
-@testable import ProtobufTestSuite
+@testable import ProtobufTests
 
 private func run_test(test:() -> ()) throws {
     test()
