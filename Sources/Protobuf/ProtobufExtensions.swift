@@ -162,6 +162,12 @@ public struct ProtobufExtensionSet: CustomDebugStringConvertible, ExpressibleByA
         self[e.messageType, e.protoFieldNumber] = e
     }
 
+    public mutating func insert(contentsOf: [Element]) {
+        for e in contentsOf {
+            insert(e)
+        }
+    }
+
     public var debugDescription: String {
         var names = [String]()
         for (_, list) in fields {
@@ -173,18 +179,14 @@ public struct ProtobufExtensionSet: CustomDebugStringConvertible, ExpressibleByA
         return "ProtobufExtensionSet(\(d))"
     }
 
-    public mutating func unionInPlace(_ contentsOf: ProtobufExtensionSet) {
-        for (_, list) in contentsOf.fields {
+    public mutating func union(_ other: ProtobufExtensionSet) -> ProtobufExtensionSet {
+        var out = self
+        for (_, list) in other.fields {
             for (_, e) in list {
-                insert(e)
+                out.insert(e)
             }
         }
-    }
-
-    public mutating func insert(contentsOf: [Element]) {
-        for e in contentsOf {
-            insert(e)
-        }
+        return out
     }
 }
 
