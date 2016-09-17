@@ -2356,7 +2356,11 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   named by java_outer_classname.  However, the outer class will still be
   ///   generated to contain the file's getDescriptor() method as well as any
   ///   top-level extensions defined in the file.
-  public var javaMultipleFiles: Bool? = nil
+  private var _javaMultipleFiles: Bool? = nil
+  public var javaMultipleFiles: Bool? {
+    get {return _javaMultipleFiles ?? false}
+    set {_javaMultipleFiles = newValue}
+  }
 
   ///   If set true, then the Java code generator will generate equals() and
   ///   hashCode() methods for all messages defined in the .proto file.
@@ -2370,7 +2374,11 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   the generated methods compute their results based on field values rather
   ///   than object identity. (Implementations should not assume that hashcodes
   ///   will be consistent across runtimes or versions of the protocol compiler.)
-  public var javaGenerateEqualsAndHash: Bool? = nil
+  private var _javaGenerateEqualsAndHash: Bool? = nil
+  public var javaGenerateEqualsAndHash: Bool? {
+    get {return _javaGenerateEqualsAndHash ?? false}
+    set {_javaGenerateEqualsAndHash = newValue}
+  }
 
   ///   If set true, then the Java2 code generator will generate code that
   ///   throws an exception whenever an attempt is made to assign a non-UTF-8
@@ -2378,9 +2386,17 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   Message reflection will do the same.
   ///   However, an extension field still accepts non-UTF-8 byte sequences.
   ///   This option has no effect on when used with the lite runtime.
-  public var javaStringCheckUtf8: Bool? = nil
+  private var _javaStringCheckUtf8: Bool? = nil
+  public var javaStringCheckUtf8: Bool? {
+    get {return _javaStringCheckUtf8 ?? false}
+    set {_javaStringCheckUtf8 = newValue}
+  }
 
-  public var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? = nil
+  private var _optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? = nil
+  public var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? {
+    get {return _optimizeFor ?? Google_Protobuf_FileOptions.OptimizeMode.speed}
+    set {_optimizeFor = newValue}
+  }
 
   ///   Sets the Go package where structs generated from this .proto will be
   ///   placed. If omitted, the Go package will be derived from the following:
@@ -2399,21 +2415,41 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   that generate code specific to your particular RPC system.  Therefore,
   ///   these default to false.  Old code which depends on generic services should
   ///   explicitly set them to true.
-  public var ccGenericServices: Bool? = nil
+  private var _ccGenericServices: Bool? = nil
+  public var ccGenericServices: Bool? {
+    get {return _ccGenericServices ?? false}
+    set {_ccGenericServices = newValue}
+  }
 
-  public var javaGenericServices: Bool? = nil
+  private var _javaGenericServices: Bool? = nil
+  public var javaGenericServices: Bool? {
+    get {return _javaGenericServices ?? false}
+    set {_javaGenericServices = newValue}
+  }
 
-  public var pyGenericServices: Bool? = nil
+  private var _pyGenericServices: Bool? = nil
+  public var pyGenericServices: Bool? {
+    get {return _pyGenericServices ?? false}
+    set {_pyGenericServices = newValue}
+  }
 
   ///   Is this file deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for everything in the file, or it will be completely ignored; in the very
   ///   least, this is a formalization for deprecating files.
-  public var deprecated: Bool? = nil
+  private var _deprecated: Bool? = nil
+  public var deprecated: Bool? {
+    get {return _deprecated ?? false}
+    set {_deprecated = newValue}
+  }
 
   ///   Enables the use of arenas for the proto messages in this file. This applies
   ///   only to generated classes for C++.
-  public var ccEnableArenas: Bool? = nil
+  private var _ccEnableArenas: Bool? = nil
+  public var ccEnableArenas: Bool? {
+    get {return _ccEnableArenas ?? false}
+    set {_ccEnableArenas = newValue}
+  }
 
   ///   Sets the objective c class prefix which is prepended to all objective c
   ///   generated classes from this .proto. There is no default.
@@ -2653,18 +2689,30 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   ///  
   ///   Because this is an option, the above two restrictions are not enforced by
   ///   the protocol compiler.
-  public var messageSetWireFormat: Bool? = nil
+  private var _messageSetWireFormat: Bool? = nil
+  public var messageSetWireFormat: Bool? {
+    get {return _messageSetWireFormat ?? false}
+    set {_messageSetWireFormat = newValue}
+  }
 
   ///   Disables the generation of the standard "descriptor()" accessor, which can
   ///   conflict with a field of the same name.  This is meant to make migration
   ///   from proto1 easier; new code should avoid fields named "descriptor".
-  public var noStandardDescriptorAccessor: Bool? = nil
+  private var _noStandardDescriptorAccessor: Bool? = nil
+  public var noStandardDescriptorAccessor: Bool? {
+    get {return _noStandardDescriptorAccessor ?? false}
+    set {_noStandardDescriptorAccessor = newValue}
+  }
 
   ///   Is this message deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the message, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating messages.
-  public var deprecated: Bool? = nil
+  private var _deprecated: Bool? = nil
+  public var deprecated: Bool? {
+    get {return _deprecated ?? false}
+    set {_deprecated = newValue}
+  }
 
   ///   Whether the message is an automatically generated map entry type for the
   ///   maps field.
@@ -2996,7 +3044,11 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   representation of the field than it normally would.  See the specific
   ///   options below.  This option is not yet implemented in the open source
   ///   release -- sorry, we'll try to include it in a future version!
-  public var ctype: Google_Protobuf_FieldOptions.CType? = nil
+  private var _ctype: Google_Protobuf_FieldOptions.CType? = nil
+  public var ctype: Google_Protobuf_FieldOptions.CType? {
+    get {return _ctype ?? Google_Protobuf_FieldOptions.CType.string}
+    set {_ctype = newValue}
+  }
 
   ///   The packed option can be enabled for repeated primitive fields to enable
   ///   a more efficient representation on the wire. Rather than repeatedly
@@ -3014,7 +3066,11 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   JavaScript code to use the JavaScript "number" type instead of strings.
   ///   This option is an enum to permit additional types to be added,
   ///   e.g. goog.math.Integer.
-  public var jstype: Google_Protobuf_FieldOptions.JSType? = nil
+  private var _jstype: Google_Protobuf_FieldOptions.JSType? = nil
+  public var jstype: Google_Protobuf_FieldOptions.JSType? {
+    get {return _jstype ?? Google_Protobuf_FieldOptions.JSType.jsNormal}
+    set {_jstype = newValue}
+  }
 
   ///   Should this field be parsed lazily?  Lazy applies only to message-type
   ///   fields.  It means that when the outer message is initially parsed, the
@@ -3044,16 +3100,28 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   implementation must either *always* check its required fields, or *never*
   ///   check its required fields, regardless of whether or not the message has
   ///   been parsed.
-  public var lazy: Bool? = nil
+  private var _lazy: Bool? = nil
+  public var lazy: Bool? {
+    get {return _lazy ?? false}
+    set {_lazy = newValue}
+  }
 
   ///   Is this field deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for accessors, or it will be completely ignored; in the very least, this
   ///   is a formalization for deprecating fields.
-  public var deprecated: Bool? = nil
+  private var _deprecated: Bool? = nil
+  public var deprecated: Bool? {
+    get {return _deprecated ?? false}
+    set {_deprecated = newValue}
+  }
 
   ///   For Google-internal migration only. Do not use.
-  public var weak: Bool? = nil
+  private var _weak: Bool? = nil
+  public var weak: Bool? {
+    get {return _weak ?? false}
+    set {_weak = newValue}
+  }
 
   ///   The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -3273,7 +3341,11 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the enum, or it will be completely ignored; in the very least, this
   ///   is a formalization for deprecating enums.
-  public var deprecated: Bool? = nil
+  private var _deprecated: Bool? = nil
+  public var deprecated: Bool? {
+    get {return _deprecated ?? false}
+    set {_deprecated = newValue}
+  }
 
   ///   The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -3376,7 +3448,11 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the enum value, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating enum values.
-  public var deprecated: Bool? = nil
+  private var _deprecated: Bool? = nil
+  public var deprecated: Bool? {
+    get {return _deprecated ?? false}
+    set {_deprecated = newValue}
+  }
 
   ///   The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -3476,7 +3552,11 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the service, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating services.
-  public var deprecated: Bool? = nil
+  private var _deprecated: Bool? = nil
+  public var deprecated: Bool? {
+    get {return _deprecated ?? false}
+    set {_deprecated = newValue}
+  }
 
   ///   The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -3576,7 +3656,11 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the method, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating methods.
-  public var deprecated: Bool? = nil
+  private var _deprecated: Bool? = nil
+  public var deprecated: Bool? {
+    get {return _deprecated ?? false}
+    set {_deprecated = newValue}
+  }
 
   ///   The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []

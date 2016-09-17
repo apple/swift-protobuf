@@ -3381,7 +3381,11 @@ public struct ProtobufUnittest_V1MessageLite: ProtobufGeneratedMessage {
 
   public var intField: Int32 = 0
 
-  public var enumField: ProtobufUnittest_V1EnumLite? = nil
+  private var _enumField: ProtobufUnittest_V1EnumLite? = nil
+  public var enumField: ProtobufUnittest_V1EnumLite? {
+    get {return _enumField ?? ProtobufUnittest_V1EnumLite.v1First}
+    set {_enumField = newValue}
+  }
 
   public init() {}
 
@@ -3447,7 +3451,11 @@ public struct ProtobufUnittest_V2MessageLite: ProtobufGeneratedMessage {
 
   public var intField: Int32 = 0
 
-  public var enumField: ProtobufUnittest_V2EnumLite? = nil
+  private var _enumField: ProtobufUnittest_V2EnumLite? = nil
+  public var enumField: ProtobufUnittest_V2EnumLite? {
+    get {return _enumField ?? ProtobufUnittest_V2EnumLite.v2First}
+    set {_enumField = newValue}
+  }
 
   public init() {}
 

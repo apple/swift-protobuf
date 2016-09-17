@@ -9888,7 +9888,11 @@ public struct ProtobufUnittest_TestCommentInjectionMessage: ProtobufGeneratedMes
   var unknown = ProtobufUnknownStorage()
 
   ///   */ <- This should not close the generated doc comment
-  public var a: String? = nil
+  private var _a: String? = nil
+  public var a: String? {
+    get {return _a ?? "*/ <- Neither should this."}
+    set {_a = newValue}
+  }
 
   public init() {}
 

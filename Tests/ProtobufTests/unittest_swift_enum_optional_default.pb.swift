@@ -301,7 +301,11 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
 
     }
 
-    public var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
+    private var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
+    public var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? {
+      get {return _optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo}
+      set {_optionalEnum = newValue}
+    }
 
     public init() {}
 
