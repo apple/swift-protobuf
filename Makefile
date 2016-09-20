@@ -1,3 +1,14 @@
+#
+# Key targets in this makefile:
+#
+# make build
+#   Build the runtime library
+# make test
+#   Build the library and test suite, run the test suite
+# make regenerate
+#   Recompile all the necessary protos
+#   (requires protoc and protoc-gen-swift in path)
+#
 
 # How to run a 'swift' executable that supports the 'swift build', 'swift test', etc commands.
 SWIFT=swift
