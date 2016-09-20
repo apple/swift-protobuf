@@ -40,7 +40,8 @@ option cc_enable_arenas = true;
 option csharp_namespace = "Google.Protobuf.TestProtos";
 
 // Disambiguate from map_unittest.proto messages
-option swift_prefix = "Proto3";
+import "swift-options.proto";
+option (apple_swift_prefix) = "Proto3";
 
 import "google/protobuf/unittest_proto3.proto";
 

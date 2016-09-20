@@ -134,21 +134,21 @@ private struct ProtobufFieldWireType2: ProtobufBinaryFieldDecoder {
 
     mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
         var v = value ?? M()
-        var subDecoder = ProtobufBinaryDecoder(protobufPointer: buffer)
+        var subDecoder = ProtobufBinaryDecoder(protobufPointer: buffer, extensions: scanner.extensions)
         try subDecoder.decodeFullObject(message: &v)
         value = v
         return true
     }
 
     mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws -> Bool {
-        value.append(try M(protobufBuffer: buffer))
+        value.append(try M(protobufBuffer: buffer, extensions: scanner.extensions))
         return true
     }
 
     mutating func decodeMapField<KeyType: ProtobufTypeProperties, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws -> Bool where KeyType: ProtobufMapKeyType, KeyType.BaseType: Hashable {
         var k: KeyType.BaseType?
         var v: ValueType.BaseType?
-        var subdecoder = ProtobufBinaryDecoder(protobufPointer: buffer)
+        var subdecoder = ProtobufBinaryDecoder(protobufPointer: buffer, extensions: scanner.extensions)
         try subdecoder.decodeFullObject {(decoder: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool in
             switch protoFieldNumber {
             case 1:
