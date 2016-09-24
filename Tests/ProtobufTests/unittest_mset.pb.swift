@@ -409,20 +409,20 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 }
 
 extension Proto2WireformatUnittest_TestMessageSet {
-  var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1? {
+  public var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension, value: newValue)}
   }
 }
 
 extension Proto2WireformatUnittest_TestMessageSet {
-  var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2? {
+  public var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension, value: newValue)}
   }
 }
 
-let ProtobufUnittest_UnittestMset_Extensions: ProtobufExtensionSet = [
+public let ProtobufUnittest_UnittestMset_Extensions: ProtobufExtensionSet = [
   ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension
 ]

@@ -224,20 +224,20 @@ let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<Prot
 let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c", defaultValue: nil)
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var b: String? {
+  public var b: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var c: ProtobufUnittest_Extend_C? {
+  public var c: ProtobufUnittest_Extend_C? {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c, value: newValue)}
   }
 }
 
-let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: ProtobufExtensionSet = [
+public let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: ProtobufExtensionSet = [
   ProtobufUnittest_Extend_Foo_Bar_Baz_b,
   ProtobufUnittest_Extend_Foo_Bar_Baz_c
 ]

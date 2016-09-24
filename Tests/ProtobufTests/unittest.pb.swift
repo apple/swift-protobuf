@@ -10344,7 +10344,7 @@ public func ==(lhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField, rhs: Protobu
 extension ProtobufUnittest_TestAllExtensions {
   ///   Check for bug where string extensions declared in tested scope did not
   ///   compile.
-  var ProtobufUnittest_TestNestedExtension_test: String? {
+  public var ProtobufUnittest_TestNestedExtension_test: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_test)}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_test, value: newValue)}
   }
@@ -10353,21 +10353,21 @@ extension ProtobufUnittest_TestAllExtensions {
 extension ProtobufUnittest_TestAllExtensions {
   ///   Used to test if generated extension name is correct when there are
   ///   underscores.
-  var ProtobufUnittest_TestNestedExtension_nestedStringExtension: String? {
+  public var ProtobufUnittest_TestNestedExtension_nestedStringExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_nestedStringExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_nestedStringExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var ProtobufUnittest_TestRequired_single: ProtobufUnittest_TestRequired? {
+  public var ProtobufUnittest_TestRequired_single: ProtobufUnittest_TestRequired? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_single)}
     set {setExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_single, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var ProtobufUnittest_TestRequired_multi: [ProtobufUnittest_TestRequired] {
+  public var ProtobufUnittest_TestRequired_multi: [ProtobufUnittest_TestRequired] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_multi)}
     set {setExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_multi, value: newValue)}
   }
@@ -10424,14 +10424,14 @@ public func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufU
 }
 
 extension ProtobufUnittest_TestParsingMerge {
-  var ProtobufUnittest_TestParsingMerge_optionalExt: ProtobufUnittest_TestAllTypes? {
+  public var ProtobufUnittest_TestParsingMerge_optionalExt: ProtobufUnittest_TestAllTypes? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_optionalExt)}
     set {setExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_optionalExt, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestParsingMerge {
-  var ProtobufUnittest_TestParsingMerge_repeatedExt: [ProtobufUnittest_TestAllTypes] {
+  public var ProtobufUnittest_TestParsingMerge_repeatedExt: [ProtobufUnittest_TestAllTypes] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_repeatedExt)}
     set {setExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_repeatedExt, value: newValue)}
   }
@@ -10439,182 +10439,182 @@ extension ProtobufUnittest_TestParsingMerge {
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   Singular
-  var optionalInt32Extension: Int32? {
+  public var optionalInt32Extension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalInt64Extension: Int64? {
+  public var optionalInt64Extension: Int64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalUint32Extension: UInt32? {
+  public var optionalUint32Extension: UInt32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalUint64Extension: UInt64? {
+  public var optionalUint64Extension: UInt64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalSint32Extension: Int32? {
+  public var optionalSint32Extension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalSint64Extension: Int64? {
+  public var optionalSint64Extension: Int64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalFixed32Extension: UInt32? {
+  public var optionalFixed32Extension: UInt32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalFixed64Extension: UInt64? {
+  public var optionalFixed64Extension: UInt64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalSfixed32Extension: Int32? {
+  public var optionalSfixed32Extension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalSfixed64Extension: Int64? {
+  public var optionalSfixed64Extension: Int64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalFloatExtension: Float? {
+  public var optionalFloatExtension: Float? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFloatExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalDoubleExtension: Double? {
+  public var optionalDoubleExtension: Double? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalDoubleExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalBoolExtension: Bool? {
+  public var optionalBoolExtension: Bool? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBoolExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalStringExtension: String? {
+  public var optionalStringExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalBytesExtension: Data? {
+  public var optionalBytesExtension: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalGroupExtension: ProtobufUnittest_OptionalGroup_extension? {
+  public var optionalGroupExtension: ProtobufUnittest_OptionalGroup_extension? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalGroupExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalGroupExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage? {
+  public var optionalNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalForeignMessageExtension: ProtobufUnittest_ForeignMessage? {
+  public var optionalForeignMessageExtension: ProtobufUnittest_ForeignMessage? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalImportMessageExtension: ProtobufUnittestImport_ImportMessage? {
+  public var optionalImportMessageExtension: ProtobufUnittestImport_ImportMessage? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum? {
+  public var optionalNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalForeignEnumExtension: ProtobufUnittest_ForeignEnum? {
+  public var optionalForeignEnumExtension: ProtobufUnittest_ForeignEnum? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalImportEnumExtension: ProtobufUnittestImport_ImportEnum? {
+  public var optionalImportEnumExtension: ProtobufUnittestImport_ImportEnum? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalStringPieceExtension: String? {
+  public var optionalStringPieceExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringPieceExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringPieceExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalCordExtension: String? {
+  public var optionalCordExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalCordExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalCordExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalPublicImportMessageExtension: ProtobufUnittestImport_PublicImportMessage? {
+  public var optionalPublicImportMessageExtension: ProtobufUnittestImport_PublicImportMessage? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalPublicImportMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalPublicImportMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var optionalLazyMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage? {
+  public var optionalLazyMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalLazyMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalLazyMessageExtension, value: newValue)}
   }
@@ -10622,175 +10622,175 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   Repeated
-  var repeatedInt32Extension: [Int32] {
+  public var repeatedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedInt64Extension: [Int64] {
+  public var repeatedInt64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedUint32Extension: [UInt32] {
+  public var repeatedUint32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedUint64Extension: [UInt64] {
+  public var repeatedUint64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedSint32Extension: [Int32] {
+  public var repeatedSint32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedSint64Extension: [Int64] {
+  public var repeatedSint64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedFixed32Extension: [UInt32] {
+  public var repeatedFixed32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedFixed64Extension: [UInt64] {
+  public var repeatedFixed64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedSfixed32Extension: [Int32] {
+  public var repeatedSfixed32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedSfixed64Extension: [Int64] {
+  public var repeatedSfixed64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedFloatExtension: [Float] {
+  public var repeatedFloatExtension: [Float] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFloatExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedDoubleExtension: [Double] {
+  public var repeatedDoubleExtension: [Double] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedDoubleExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedBoolExtension: [Bool] {
+  public var repeatedBoolExtension: [Bool] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBoolExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedStringExtension: [String] {
+  public var repeatedStringExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedBytesExtension: [Data] {
+  public var repeatedBytesExtension: [Data] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedGroupExtension: [ProtobufUnittest_RepeatedGroup_extension] {
+  public var repeatedGroupExtension: [ProtobufUnittest_RepeatedGroup_extension] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedGroupExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedGroupExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedNestedMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
+  public var repeatedNestedMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedForeignMessageExtension: [ProtobufUnittest_ForeignMessage] {
+  public var repeatedForeignMessageExtension: [ProtobufUnittest_ForeignMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedImportMessageExtension: [ProtobufUnittestImport_ImportMessage] {
+  public var repeatedImportMessageExtension: [ProtobufUnittestImport_ImportMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedNestedEnumExtension: [ProtobufUnittest_TestAllTypes.NestedEnum] {
+  public var repeatedNestedEnumExtension: [ProtobufUnittest_TestAllTypes.NestedEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedForeignEnumExtension: [ProtobufUnittest_ForeignEnum] {
+  public var repeatedForeignEnumExtension: [ProtobufUnittest_ForeignEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedImportEnumExtension: [ProtobufUnittestImport_ImportEnum] {
+  public var repeatedImportEnumExtension: [ProtobufUnittestImport_ImportEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedStringPieceExtension: [String] {
+  public var repeatedStringPieceExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringPieceExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringPieceExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedCordExtension: [String] {
+  public var repeatedCordExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedCordExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedCordExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var repeatedLazyMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
+  public var repeatedLazyMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedLazyMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedLazyMessageExtension, value: newValue)}
   }
@@ -10798,140 +10798,140 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   Singular with defaults
-  var defaultInt32Extension: Int32? {
+  public var defaultInt32Extension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultInt64Extension: Int64? {
+  public var defaultInt64Extension: Int64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultUint32Extension: UInt32? {
+  public var defaultUint32Extension: UInt32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultUint64Extension: UInt64? {
+  public var defaultUint64Extension: UInt64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultSint32Extension: Int32? {
+  public var defaultSint32Extension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultSint64Extension: Int64? {
+  public var defaultSint64Extension: Int64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultFixed32Extension: UInt32? {
+  public var defaultFixed32Extension: UInt32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultFixed64Extension: UInt64? {
+  public var defaultFixed64Extension: UInt64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultSfixed32Extension: Int32? {
+  public var defaultSfixed32Extension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultSfixed64Extension: Int64? {
+  public var defaultSfixed64Extension: Int64? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultFloatExtension: Float? {
+  public var defaultFloatExtension: Float? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFloatExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultDoubleExtension: Double? {
+  public var defaultDoubleExtension: Double? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultDoubleExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultBoolExtension: Bool? {
+  public var defaultBoolExtension: Bool? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBoolExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultStringExtension: String? {
+  public var defaultStringExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultBytesExtension: Data? {
+  public var defaultBytesExtension: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum? {
+  public var defaultNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultNestedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultNestedEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultForeignEnumExtension: ProtobufUnittest_ForeignEnum? {
+  public var defaultForeignEnumExtension: ProtobufUnittest_ForeignEnum? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultForeignEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultForeignEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultImportEnumExtension: ProtobufUnittestImport_ImportEnum? {
+  public var defaultImportEnumExtension: ProtobufUnittestImport_ImportEnum? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultImportEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultImportEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultStringPieceExtension: String? {
+  public var defaultStringPieceExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringPieceExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringPieceExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var defaultCordExtension: String? {
+  public var defaultCordExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultCordExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultCordExtension, value: newValue)}
   }
@@ -10939,244 +10939,244 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   For oneof test
-  var oneofUint32Extension: UInt32? {
+  public var oneofUint32Extension: UInt32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofUint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var oneofNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage? {
+  public var oneofNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofNestedMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofNestedMessageExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var oneofStringExtension: String? {
+  public var oneofStringExtension: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofStringExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofStringExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  var oneofBytesExtension: Data? {
+  public var oneofBytesExtension: Data? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestFieldOrderings {
-  var myExtensionString: String? {
+  public var myExtensionString: String? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionString)}
     set {setExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionString, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestFieldOrderings {
-  var myExtensionInt: Int32? {
+  public var myExtensionInt: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionInt)}
     set {setExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionInt, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedInt32Extension: [Int32] {
+  public var packedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedInt64Extension: [Int64] {
+  public var packedInt64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedUint32Extension: [UInt32] {
+  public var packedUint32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedUint64Extension: [UInt64] {
+  public var packedUint64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedSint32Extension: [Int32] {
+  public var packedSint32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedSint64Extension: [Int64] {
+  public var packedSint64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedFixed32Extension: [UInt32] {
+  public var packedFixed32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedFixed64Extension: [UInt64] {
+  public var packedFixed64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedSfixed32Extension: [Int32] {
+  public var packedSfixed32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedSfixed64Extension: [Int64] {
+  public var packedSfixed64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedFloatExtension: [Float] {
+  public var packedFloatExtension: [Float] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFloatExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedDoubleExtension: [Double] {
+  public var packedDoubleExtension: [Double] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedDoubleExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedBoolExtension: [Bool] {
+  public var packedBoolExtension: [Bool] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedBoolExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  var packedEnumExtension: [ProtobufUnittest_ForeignEnum] {
+  public var packedEnumExtension: [ProtobufUnittest_ForeignEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedEnumExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedInt32Extension: [Int32] {
+  public var unpackedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedInt64Extension: [Int64] {
+  public var unpackedInt64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedUint32Extension: [UInt32] {
+  public var unpackedUint32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedUint64Extension: [UInt64] {
+  public var unpackedUint64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedSint32Extension: [Int32] {
+  public var unpackedSint32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedSint64Extension: [Int64] {
+  public var unpackedSint64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedFixed32Extension: [UInt32] {
+  public var unpackedFixed32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedFixed64Extension: [UInt64] {
+  public var unpackedFixed64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedSfixed32Extension: [Int32] {
+  public var unpackedSfixed32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed32Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedSfixed64Extension: [Int64] {
+  public var unpackedSfixed64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed64Extension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedFloatExtension: [Float] {
+  public var unpackedFloatExtension: [Float] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFloatExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedDoubleExtension: [Double] {
+  public var unpackedDoubleExtension: [Double] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedDoubleExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedBoolExtension: [Bool] {
+  public var unpackedBoolExtension: [Bool] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedBoolExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  var unpackedEnumExtension: [ProtobufUnittest_ForeignEnum] {
+  public var unpackedEnumExtension: [ProtobufUnittest_ForeignEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedEnumExtension, value: newValue)}
   }
 }
 
-let ProtobufUnittest_Unittest_Extensions: ProtobufExtensionSet = [
+public let ProtobufUnittest_Unittest_Extensions: ProtobufExtensionSet = [
   ProtobufUnittest_TestAllExtensions_optionalInt32Extension,
   ProtobufUnittest_TestAllExtensions_optionalInt64Extension,
   ProtobufUnittest_TestAllExtensions_optionalUint32Extension,

@@ -475,20 +475,20 @@ public func ==(lhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options, rhs: Swift_
 }
 
 extension Swift_Protobuf_TestFieldOrderings {
-  var myExtensionString: String? {
+  public var myExtensionString: String? {
     get {return getExtensionValue(ext: Swift_Protobuf_TestFieldOrderings_myExtensionString)}
     set {setExtensionValue(ext: Swift_Protobuf_TestFieldOrderings_myExtensionString, value: newValue)}
   }
 }
 
 extension Swift_Protobuf_TestFieldOrderings {
-  var myExtensionInt: Int32? {
+  public var myExtensionInt: Int32? {
     get {return getExtensionValue(ext: Swift_Protobuf_TestFieldOrderings_myExtensionInt)}
     set {setExtensionValue(ext: Swift_Protobuf_TestFieldOrderings_myExtensionInt, value: newValue)}
   }
 }
 
-let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: ProtobufExtensionSet = [
+public let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: ProtobufExtensionSet = [
   Swift_Protobuf_TestFieldOrderings_myExtensionString,
   Swift_Protobuf_TestFieldOrderings_myExtensionInt
 ]

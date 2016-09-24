@@ -13,12 +13,12 @@ import Protobuf
 let Google_Protobuf_FileOptions_appleSwiftPrefix = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, Google_Protobuf_FileOptions>(protoFieldNumber: 50138, protoFieldName: "apple_swift_prefix", jsonFieldName: "appleSwiftPrefix", swiftFieldName: "appleSwiftPrefix", defaultValue: nil)
 
 extension Google_Protobuf_FileOptions {
-  var appleSwiftPrefix: String? {
+  public var appleSwiftPrefix: String? {
     get {return getExtensionValue(ext: Google_Protobuf_FileOptions_appleSwiftPrefix)}
     set {setExtensionValue(ext: Google_Protobuf_FileOptions_appleSwiftPrefix, value: newValue)}
   }
 }
 
-let SwiftOptions_Extensions: ProtobufExtensionSet = [
+public let SwiftOptions_Extensions: ProtobufExtensionSet = [
   Google_Protobuf_FileOptions_appleSwiftPrefix
 ]

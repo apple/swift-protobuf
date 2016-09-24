@@ -185,12 +185,12 @@ public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGenerat
 let Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(protoFieldNumber: 1000, protoFieldName: "test_extension", jsonFieldName: "testExtension", swiftFieldName: "testExtension", defaultValue: nil)
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
-  var testExtension: Int32? {
+  public var testExtension: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension)}
     set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension, value: newValue)}
   }
 }
 
-let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: ProtobufExtensionSet = [
+public let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: ProtobufExtensionSet = [
   Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension
 ]

@@ -290,20 +290,20 @@ let SwiftTestGroupExtensions_extensionGroup = ProtobufGenericMessageExtension<Pr
 let SwiftTestGroupExtensions_repeatedExtensionGroup = ProtobufGenericMessageExtension<ProtobufRepeatedGroupField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 3, protoFieldName: "repeatedextensiongroup", jsonFieldName: "repeatedextensiongroup", swiftFieldName: "repeatedExtensionGroup", defaultValue: [])
 
 extension SwiftTestGroupExtensions {
-  var extensionGroup: ExtensionGroup? {
+  public var extensionGroup: ExtensionGroup? {
     get {return getExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup)}
     set {setExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup, value: newValue)}
   }
 }
 
 extension SwiftTestGroupExtensions {
-  var repeatedExtensionGroup: [RepeatedExtensionGroup] {
+  public var repeatedExtensionGroup: [RepeatedExtensionGroup] {
     get {return getExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup)}
     set {setExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup, value: newValue)}
   }
 }
 
-let UnittestSwiftGroups_Extensions: ProtobufExtensionSet = [
+public let UnittestSwiftGroups_Extensions: ProtobufExtensionSet = [
   SwiftTestGroupExtensions_extensionGroup,
   SwiftTestGroupExtensions_repeatedExtensionGroup
 ]

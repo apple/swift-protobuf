@@ -480,20 +480,20 @@ public func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: Protob
 }
 
 extension ProtobufUnittest_TestOptimizedForSize {
-  var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32? {
+  public var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_TestOptimizedForSize {
-  var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize? {
+  public var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize? {
     get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2)}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2, value: newValue)}
   }
 }
 
-let ProtobufUnittest_UnittestOptimizeFor_Extensions: ProtobufExtensionSet = [
+public let ProtobufUnittest_UnittestOptimizeFor_Extensions: ProtobufExtensionSet = [
   ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension,
   ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2
 ]

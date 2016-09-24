@@ -2242,49 +2242,49 @@ public func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof,
 }
 
 extension Google_Protobuf_MessageOptions {
-  var ProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? {
+  public var ProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.Google_Protobuf_MessageOptions_complexOpt4)}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.Google_Protobuf_MessageOptions_complexOpt4, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_AggregateMessageSet {
-  var ProtobufUnittest_AggregateMessageSetElement_messageSetExtension: ProtobufUnittest_AggregateMessageSetElement? {
+  public var ProtobufUnittest_AggregateMessageSetElement_messageSetExtension: ProtobufUnittest_AggregateMessageSetElement? {
     get {return getExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.ProtobufUnittest_AggregateMessageSet_messageSetExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.ProtobufUnittest_AggregateMessageSet_messageSetExtension, value: newValue)}
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  var ProtobufUnittest_Aggregate_nested: ProtobufUnittest_Aggregate? {
+  public var ProtobufUnittest_Aggregate_nested: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.Google_Protobuf_FileOptions_nested)}
     set {setExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.Google_Protobuf_FileOptions_nested, value: newValue)}
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  var ProtobufUnittest_NestedOptionType_nestedExtension: Int32? {
+  public var ProtobufUnittest_NestedOptionType_nestedExtension: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.Google_Protobuf_FileOptions_nestedExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.Google_Protobuf_FileOptions_nestedExtension, value: newValue)}
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  var fileOpt1: UInt64? {
+  public var fileOpt1: UInt64? {
     get {return getExtensionValue(ext: Google_Protobuf_FileOptions_fileOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_FileOptions_fileOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var messageOpt1: Int32? {
+  public var messageOpt1: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_messageOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_messageOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_FieldOptions {
-  var fieldOpt1: UInt64? {
+  public var fieldOpt1: UInt64? {
     get {return getExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt1, value: newValue)}
   }
@@ -2293,279 +2293,279 @@ extension Google_Protobuf_FieldOptions {
 extension Google_Protobuf_FieldOptions {
   ///   This is useful for testing that we correctly register default values for
   ///   extension options.
-  var fieldOpt2: Int32? {
+  public var fieldOpt2: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt2)}
     set {setExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt2, value: newValue)}
   }
 }
 
 extension Google_Protobuf_OneofOptions {
-  var oneofOpt1: Int32? {
+  public var oneofOpt1: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_OneofOptions_oneofOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_OneofOptions_oneofOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_EnumOptions {
-  var enumOpt1: Int32? {
+  public var enumOpt1: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_EnumOptions_enumOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_EnumOptions_enumOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_EnumValueOptions {
-  var enumValueOpt1: Int32? {
+  public var enumValueOpt1: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumValueOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumValueOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_ServiceOptions {
-  var serviceOpt1: Int64? {
+  public var serviceOpt1: Int64? {
     get {return getExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MethodOptions {
-  var methodOpt1: ProtobufUnittest_MethodOpt1? {
+  public var methodOpt1: ProtobufUnittest_MethodOpt1? {
     get {return getExtensionValue(ext: Google_Protobuf_MethodOptions_methodOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_MethodOptions_methodOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var boolOpt: Bool? {
+  public var boolOpt: Bool? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_boolOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_boolOpt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var int32Opt: Int32? {
+  public var int32Opt: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_int32Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_int32Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var int64Opt: Int64? {
+  public var int64Opt: Int64? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_int64Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_int64Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var uint32Opt: UInt32? {
+  public var uint32Opt: UInt32? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_uint32Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_uint32Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var uint64Opt: UInt64? {
+  public var uint64Opt: UInt64? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_uint64Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_uint64Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var sint32Opt: Int32? {
+  public var sint32Opt: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sint32Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sint32Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var sint64Opt: Int64? {
+  public var sint64Opt: Int64? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sint64Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sint64Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var fixed32Opt: UInt32? {
+  public var fixed32Opt: UInt32? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_fixed32Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_fixed32Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var fixed64Opt: UInt64? {
+  public var fixed64Opt: UInt64? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_fixed64Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_fixed64Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var sfixed32Opt: Int32? {
+  public var sfixed32Opt: Int32? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed32Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed32Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var sfixed64Opt: Int64? {
+  public var sfixed64Opt: Int64? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed64Opt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed64Opt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var floatOpt: Float? {
+  public var floatOpt: Float? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_floatOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_floatOpt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var doubleOpt: Double? {
+  public var doubleOpt: Double? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_doubleOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_doubleOpt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var stringOpt: String? {
+  public var stringOpt: String? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_stringOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_stringOpt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var bytesOpt: Data? {
+  public var bytesOpt: Data? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var enumOpt: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType? {
+  public var enumOpt: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_enumOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_enumOpt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var messageTypeOpt: ProtobufUnittest_DummyMessageInvalidAsOptionType? {
+  public var messageTypeOpt: ProtobufUnittest_DummyMessageInvalidAsOptionType? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_messageTypeOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_messageTypeOpt, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType1 {
-  var quux: Int32? {
+  public var quux: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_quux)}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_quux, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType1 {
-  var corge: ProtobufUnittest_ComplexOptionType3? {
+  public var corge: ProtobufUnittest_ComplexOptionType3? {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_corge)}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_corge, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType2 {
-  var grault: Int32? {
+  public var grault: Int32? {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_grault)}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_grault, value: newValue)}
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType2 {
-  var garply: ProtobufUnittest_ComplexOptionType1? {
+  public var garply: ProtobufUnittest_ComplexOptionType1? {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_garply)}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_garply, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var complexOpt1: ProtobufUnittest_ComplexOptionType1? {
+  public var complexOpt1: ProtobufUnittest_ComplexOptionType1? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt1)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt1, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var complexOpt2: ProtobufUnittest_ComplexOptionType2? {
+  public var complexOpt2: ProtobufUnittest_ComplexOptionType2? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt2)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt2, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var complexOpt3: ProtobufUnittest_ComplexOptionType3? {
+  public var complexOpt3: ProtobufUnittest_ComplexOptionType3? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt3)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt3, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var complexOpt6: ProtobufUnittest_ComplexOpt6? {
+  public var complexOpt6: ProtobufUnittest_ComplexOpt6? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt6)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt6, value: newValue)}
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  var fileopt: ProtobufUnittest_Aggregate? {
+  public var fileopt: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: Google_Protobuf_FileOptions_fileopt)}
     set {setExtensionValue(ext: Google_Protobuf_FileOptions_fileopt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var msgopt: ProtobufUnittest_Aggregate? {
+  public var msgopt: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_msgopt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_msgopt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_FieldOptions {
-  var fieldopt: ProtobufUnittest_Aggregate? {
+  public var fieldopt: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: Google_Protobuf_FieldOptions_fieldopt)}
     set {setExtensionValue(ext: Google_Protobuf_FieldOptions_fieldopt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_EnumOptions {
-  var enumopt: ProtobufUnittest_Aggregate? {
+  public var enumopt: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: Google_Protobuf_EnumOptions_enumopt)}
     set {setExtensionValue(ext: Google_Protobuf_EnumOptions_enumopt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_EnumValueOptions {
-  var enumvalopt: ProtobufUnittest_Aggregate? {
+  public var enumvalopt: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumvalopt)}
     set {setExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumvalopt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_ServiceOptions {
-  var serviceopt: ProtobufUnittest_Aggregate? {
+  public var serviceopt: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceopt)}
     set {setExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceopt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MethodOptions {
-  var methodopt: ProtobufUnittest_Aggregate? {
+  public var methodopt: ProtobufUnittest_Aggregate? {
     get {return getExtensionValue(ext: Google_Protobuf_MethodOptions_methodopt)}
     set {setExtensionValue(ext: Google_Protobuf_MethodOptions_methodopt, value: newValue)}
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var requiredEnumOpt: ProtobufUnittest_OldOptionType? {
+  public var requiredEnumOpt: ProtobufUnittest_OldOptionType? {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_requiredEnumOpt)}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_requiredEnumOpt, value: newValue)}
   }
 }
 
-let ProtobufUnittest_UnittestCustomOptions_Extensions: ProtobufExtensionSet = [
+public let ProtobufUnittest_UnittestCustomOptions_Extensions: ProtobufExtensionSet = [
   Google_Protobuf_FileOptions_fileOpt1,
   Google_Protobuf_MessageOptions_messageOpt1,
   Google_Protobuf_FieldOptions_fieldOpt1,

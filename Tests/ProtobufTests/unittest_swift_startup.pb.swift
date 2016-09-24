@@ -137,7 +137,7 @@ let ProtobufObjcUnittest_TestObjCStartupMessage_optionalInt32Extension = Protobu
 let ProtobufObjcUnittest_TestObjCStartupMessage_repeatedInt32Extension = ProtobufGenericMessageExtension<ProtobufRepeatedField<ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(protoFieldNumber: 2, protoFieldName: "repeated_int32_extension", jsonFieldName: "repeatedInt32Extension", swiftFieldName: "repeatedInt32Extension", defaultValue: [])
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
-  var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String? {
+  public var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String? {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.ProtobufObjcUnittest_TestObjCStartupMessage_nestedStringExtension)}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.ProtobufObjcUnittest_TestObjCStartupMessage_nestedStringExtension, value: newValue)}
   }
@@ -145,20 +145,20 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   ///   Singular
-  var optionalInt32Extension: Int32? {
+  public var optionalInt32Extension: Int32? {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupMessage_optionalInt32Extension)}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupMessage_optionalInt32Extension, value: newValue)}
   }
 }
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
-  var repeatedInt32Extension: [Int32] {
+  public var repeatedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupMessage_repeatedInt32Extension)}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupMessage_repeatedInt32Extension, value: newValue)}
   }
 }
 
-let ProtobufObjcUnittest_UnittestSwiftStartup_Extensions: ProtobufExtensionSet = [
+public let ProtobufObjcUnittest_UnittestSwiftStartup_Extensions: ProtobufExtensionSet = [
   ProtobufObjcUnittest_TestObjCStartupMessage_optionalInt32Extension,
   ProtobufObjcUnittest_TestObjCStartupMessage_repeatedInt32Extension,
   ProtobufObjcUnittest_TestObjCStartupNested.Extensions.ProtobufObjcUnittest_TestObjCStartupMessage_nestedStringExtension
