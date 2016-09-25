@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '2.0'
 
   s.source_files = 'Sources/**/*.swift'
+  s.module_name = 'Protobuf'
 end
