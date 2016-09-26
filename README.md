@@ -20,7 +20,7 @@ For more information about Swift Protobuf, please look at:
 
 If you are using the Swift Package Manager, this only requires adding one dependency to your Package.swift file:
 
-```
+```swift
 dependencies: [
   .Package(url: "https://github.com/apple/swift-protobuf-runtime.git",
            Version(0,9,12))
