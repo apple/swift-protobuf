@@ -66,7 +66,7 @@ all: build
 # This also rebuilds LinuxMain.swift to include all of the test cases
 # (The awk script is very fast, so re-running it on every build is reasonable.)
 build:
-	${AWK} -f CollectTests.awk Tests/ProtobufTests/Test_*.swift > Tests/LinuxMain.swift
+	${AWK} -f CollectTests.awk Tests/SwiftProtobufTests/Test_*.swift > Tests/LinuxMain.swift
 	${SWIFT} build
 
 check test: build
@@ -91,8 +91,8 @@ regenerate: regenerate-library-protos regenerate-test-protos
 regenerate-library-protos:
 	for t in ${GOOGLE_LIBRARY_PROTOS}; do \
 		echo google/protobuf/$$t.proto; \
-		${PROTOC} --swift_out=Sources/Protobuf -I Protos Protos/google/protobuf/$$t.proto; \
-		sed -i~ -e 's/^import Protobuf$$//' Sources/Protobuf/$$t.pb.swift; \
+		${PROTOC} --swift_out=Sources/SwiftProtobuf -I Protos Protos/google/protobuf/$$t.proto; \
+		sed -i~ -e 's/^import SwiftProtobuf$$//' -e 's/^import Protobuf$$//' Sources/SwiftProtobuf/$$t.pb.swift; \
 	done
 
 # Rebuild just the protos used by the test suite
@@ -102,14 +102,14 @@ regenerate-test-protos: regenerate-test-protos-google regenerate-test-protos-loc
 regenerate-test-protos-google:
 	for t in ${GOOGLE_TEST_PROTOS}; do \
 		echo google/protobuf/$$t.proto; \
-		${PROTOC} --swift_out=Tests/ProtobufTests -I Protos Protos/google/protobuf/$$t.proto; \
+		${PROTOC} --swift_out=Tests/SwiftProtobufTests -I Protos Protos/google/protobuf/$$t.proto; \
 	done; \
 	echo conformance/conformance.proto; \
-	${PROTOC} --swift_out=Tests/ProtobufTests -I Protos/conformance -I Protos Protos/conformance/conformance.proto; \
+	${PROTOC} --swift_out=Tests/SwiftProtobufTests -I Protos/conformance -I Protos Protos/conformance/conformance.proto; \
 
 # Rebuild just the protos used by the test suite that come from local sources
 regenerate-test-protos-local:
 	for t in Protos/*.proto; do \
 		echo $$t; \
-		${PROTOC} --swift_out=Tests/ProtobufTests -IProtos $$t; \
+		${PROTOC} --swift_out=Tests/SwiftProtobufTests -IProtos $$t; \
 	done
