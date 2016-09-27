@@ -49,7 +49,7 @@ If you are using Xcode, then you should:
 If you're using CocoaPods, add this to your `Podfile`:
 
 ~~~ruby
-pod 'SwiftProtobufRuntime', git: 'https://github.com/apple/swift-protobuf-runtime.git'
+pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf-runtime.git'
 ~~~
 
 And run `pod install`.
