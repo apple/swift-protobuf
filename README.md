@@ -15,9 +15,9 @@ add this library to your project.
 ## Documentation
 
 More information is available in the associated documentation:
- * [Documentation/PLUGIN.md] documents the protoc plugin
- * [Documentation/API.md] documents the API you should use
- * [Documentation/GENERATED_CODE.md] documents the structure of the generated code
+ * [PLUGIN.md](Documentation/PLUGIN.md) documents the protoc plugin
+ * [API.md](Documentation/API.md) documents the API you should use
+ * [GENERATED_CODE.md](Documentation/GENERATED_CODE.md) documents the structure of the generated code
 
 ## Using the library with `swift build`
 
