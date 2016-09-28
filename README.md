@@ -44,6 +44,18 @@ If you are using Xcode, then you should:
 * Add the Swift source files generated from your protos directly to your project
 * Add the Protobuf target from the Xcode project in this package to your project.
 
+## Using the library with CocoaPods
+
+If you're using CocoaPods, add this to your `Podfile`:
+
+~~~ruby
+pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf-runtime.git'
+~~~
+
+And run `pod install`.
+
+(Swift 3 frameworks require CocoaPods 1.1 or newer)
+
 ## Report any issues
 
 If you run into problems, please send us a detailed report.  At a minimum, please include:
