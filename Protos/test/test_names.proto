@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package swift.protobuf.test;
+
+message NamesTest {
+        int32 http_request = 1;
+        int32 url = 3;
+        int32 a_b_c = 6;
+}
+
+message NamesTest2 {
+        int32 HTTPRequest = 2;
+        int32 URL = 4;
+}
+
+message NamesTest3 {
+        int32 Url = 5;
+}

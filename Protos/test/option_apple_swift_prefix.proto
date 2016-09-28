@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package wrong.name.here;
+
+import "swift-options.proto";
+option (apple_swift_prefix) = "Test";
+
+message Foo {
+}

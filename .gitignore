@@ -3,3 +3,5 @@
 /Packages
 *~
 xcuserdata
+/_test
+protoc-gen-swift

@@ -446,10 +446,6 @@ message MessageOptions {
   // parser.
   optional bool map_entry = 7;
 
-  // Used by the Swift backend.  Append the specified protocols to the
-  // message struct definition.
-  optional string swift_additional_protocols = 8;
-
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
 

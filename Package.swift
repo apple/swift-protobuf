@@ -1,5 +1,9 @@
 import PackageDescription
 
 let package = Package(
-        name: "SwiftProtobufRuntime"
+        name: "SwiftProtobuf",
+        targets: [
+            Target(name: "PluginLibrary", dependencies: ["SwiftProtobuf"]),
+            Target(name: "protoc-gen-swift", dependencies: ["PluginLibrary", "SwiftProtobuf"]),
+        ]
 )
