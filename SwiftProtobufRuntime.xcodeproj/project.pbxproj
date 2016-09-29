@@ -43,7 +43,7 @@
 		9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		9C2F239D1D7780D1008524F2 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
-		9C8CDA171D7A288E00E207CA /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_iOS" /* Protobuf.framework */; };
+		9C8CDA171D7A288E00E207CA /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */; };
 		9C8CDA1D1D7A28F600E207CA /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
 		9C8CDA1E1D7A28F600E207CA /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
 		9C8CDA1F1D7A28F600E207CA /* descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F23781D778003008524F2 /* descriptor.pb.swift */; };
@@ -122,7 +122,7 @@
 		9C8CDA681D7A28F600E207CA /* unittest_swift_runtime_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */; };
 		9C8CDA691D7A28F600E207CA /* unittest_swift_startup.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift */; };
 		9C8CDA6A1D7A28F600E207CA /* unittest_well_known_types.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift */; };
-		_LinkFileRef_Protobuf_via_ProtobufTestSuite /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_macOS" /* Protobuf.framework */; };
+		_LinkFileRef_Protobuf_via_ProtobufTestSuite /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift */; };
@@ -372,10 +372,10 @@
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_runtime_proto3.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_startup.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_well_known_types.pb.swift; sourceTree = "<group>"; };
-		"_____Product_ProtobufTestSuite_iOS" /* ProtobufTestSuite_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtobufTestSuite_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		"_____Product_ProtobufTestSuite_macOS" /* ProtobufTestSuite_macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ProtobufTestSuite_macOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		"_____Product_Protobuf_iOS" /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"_____Product_Protobuf_macOS" /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTestSuite_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTestSuite_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTestSuite_macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftProtobufTestSuite_macOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,7 +383,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C8CDA171D7A288E00E207CA /* Protobuf.framework in Frameworks */,
+				9C8CDA171D7A288E00E207CA /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +391,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				_LinkFileRef_Protobuf_via_ProtobufTestSuite /* Protobuf.framework in Frameworks */,
+				_LinkFileRef_Protobuf_via_ProtobufTestSuite /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,10 +412,10 @@
 		"____Products_" /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"_____Product_Protobuf_macOS" /* Protobuf.framework */,
-				"_____Product_ProtobufTestSuite_macOS" /* ProtobufTestSuite_macOS.xctest */,
-				"_____Product_Protobuf_iOS" /* Protobuf.framework */,
-				"_____Product_ProtobufTestSuite_iOS" /* ProtobufTestSuite_iOS.xctest */,
+				"_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */,
+				"_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTestSuite_macOS.xctest */,
+				"_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */,
+				"_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTestSuite_iOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -433,12 +433,12 @@
 		"_____Sources_" /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				"_______Group_Protobuf" /* Protobuf */,
+				"_______Group_Protobuf" /* SwiftProtobuf */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
 		};
-		"_______Group_Protobuf" /* Protobuf */ = {
+		"_______Group_Protobuf" /* SwiftProtobuf */ = {
 			isa = PBXGroup;
 			children = (
 				__PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */,
@@ -477,11 +477,11 @@
 				__PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */,
 			);
-			name = Protobuf;
-			path = Sources/Protobuf;
+			name = SwiftProtobuf;
+			path = Sources/SwiftProtobuf;
 			sourceTree = "<group>";
 		};
-		"_______Group_ProtobufTestSuite" /* ProtobufTestSuite */ = {
+		"_______Group_ProtobufTestSuite" /* SwiftProtobufTests */ = {
 			isa = PBXGroup;
 			children = (
 				__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */,
@@ -563,14 +563,14 @@
 				__PBXFileRef_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift */,
 			);
-			name = ProtobufTestSuite;
-			path = Tests/ProtobufTests;
+			name = SwiftProtobufTests;
+			path = Tests/SwiftProtobufTests;
 			sourceTree = "<group>";
 		};
 		"_______Tests_" /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				"_______Group_ProtobufTestSuite" /* ProtobufTestSuite */,
+				"_______Group_ProtobufTestSuite" /* SwiftProtobufTests */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -578,9 +578,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9C8CDA111D7A288E00E207CA /* ProtobufTestSuite_iOS */ = {
+		9C8CDA111D7A288E00E207CA /* SwiftProtobufTestSuite_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C8CDA1A1D7A288E00E207CA /* Build configuration list for PBXNativeTarget "ProtobufTestSuite_iOS" */;
+			buildConfigurationList = 9C8CDA1A1D7A288E00E207CA /* Build configuration list for PBXNativeTarget "SwiftProtobufTestSuite_iOS" */;
 			buildPhases = (
 				9C8CDA0E1D7A288E00E207CA /* Sources */,
 				9C8CDA0F1D7A288E00E207CA /* Frameworks */,
@@ -590,14 +590,14 @@
 			dependencies = (
 				9C8CDA191D7A288E00E207CA /* PBXTargetDependency */,
 			);
-			name = ProtobufTestSuite_iOS;
+			name = SwiftProtobufTestSuite_iOS;
 			productName = ProtobufTestSuite_iOS;
-			productReference = "_____Product_ProtobufTestSuite_iOS" /* ProtobufTestSuite_iOS.xctest */;
+			productReference = "_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTestSuite_iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BD12FD351D767BA0001815C7 /* Protobuf_iOS */ = {
+		BD12FD351D767BA0001815C7 /* SwiftProtobuf_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD12FD3D1D767BA1001815C7 /* Build configuration list for PBXNativeTarget "Protobuf_iOS" */;
+			buildConfigurationList = BD12FD3D1D767BA1001815C7 /* Build configuration list for PBXNativeTarget "SwiftProtobuf_iOS" */;
 			buildPhases = (
 				BD12FD311D767BA0001815C7 /* Sources */,
 			);
@@ -605,14 +605,14 @@
 			);
 			dependencies = (
 			);
-			name = Protobuf_iOS;
+			name = SwiftProtobuf_iOS;
 			productName = Protobuf_iOS;
-			productReference = "_____Product_Protobuf_iOS" /* Protobuf.framework */;
+			productReference = "_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"______Target_Protobuf" /* Protobuf_macOS */ = {
+		"______Target_Protobuf" /* SwiftProtobuf_macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = "_______Confs_Protobuf" /* Build configuration list for PBXNativeTarget "Protobuf_macOS" */;
+			buildConfigurationList = "_______Confs_Protobuf" /* Build configuration list for PBXNativeTarget "SwiftProtobuf_macOS" */;
 			buildPhases = (
 				CompilePhase_Protobuf /* Sources */,
 			);
@@ -620,14 +620,14 @@
 			);
 			dependencies = (
 			);
-			name = Protobuf_macOS;
+			name = SwiftProtobuf_macOS;
 			productName = Protobuf;
-			productReference = "_____Product_Protobuf_macOS" /* Protobuf.framework */;
+			productReference = "_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"______Target_ProtobufTestSuite" /* ProtobufTestSuite_macOS */ = {
+		"______Target_ProtobufTestSuite" /* SwiftProtobufTestSuite_macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = "_______Confs_ProtobufTestSuite" /* Build configuration list for PBXNativeTarget "ProtobufTestSuite_macOS" */;
+			buildConfigurationList = "_______Confs_ProtobufTestSuite" /* Build configuration list for PBXNativeTarget "SwiftProtobufTestSuite_macOS" */;
 			buildPhases = (
 				CompilePhase_ProtobufTestSuite /* Sources */,
 				"___LinkPhase_ProtobufTestSuite" /* Frameworks */,
@@ -637,9 +637,9 @@
 			dependencies = (
 				__Dependency_Protobuf /* PBXTargetDependency */,
 			);
-			name = ProtobufTestSuite_macOS;
+			name = SwiftProtobufTestSuite_macOS;
 			productName = ProtobufTestSuite;
-			productReference = "_____Product_ProtobufTestSuite_macOS" /* ProtobufTestSuite_macOS.xctest */;
+			productReference = "_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTestSuite_macOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -673,10 +673,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"______Target_Protobuf" /* Protobuf_macOS */,
-				"______Target_ProtobufTestSuite" /* ProtobufTestSuite_macOS */,
-				BD12FD351D767BA0001815C7 /* Protobuf_iOS */,
-				9C8CDA111D7A288E00E207CA /* ProtobufTestSuite_iOS */,
+				"______Target_Protobuf" /* SwiftProtobuf_macOS */,
+				"______Target_ProtobufTestSuite" /* SwiftProtobufTestSuite_macOS */,
+				BD12FD351D767BA0001815C7 /* SwiftProtobuf_iOS */,
+				9C8CDA111D7A288E00E207CA /* SwiftProtobufTestSuite_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -941,12 +941,12 @@
 /* Begin PBXTargetDependency section */
 		9C8CDA191D7A288E00E207CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD12FD351D767BA0001815C7 /* Protobuf_iOS */;
+			target = BD12FD351D767BA0001815C7 /* SwiftProtobuf_iOS */;
 			targetProxy = 9C8CDA181D7A288E00E207CA /* PBXContainerItemProxy */;
 		};
 		__Dependency_Protobuf /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "______Target_Protobuf" /* Protobuf_macOS */;
+			target = "______Target_Protobuf" /* SwiftProtobuf_macOS */;
 			targetProxy = 9CAEA5251D25B35600EB832A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1107,8 +1107,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.Protobuf-iOS.SwiftProtobufRuntime";
-				PRODUCT_MODULE_NAME = Protobuf;
-				PRODUCT_NAME = Protobuf;
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -1169,8 +1169,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.Protobuf-iOS.SwiftProtobufRuntime";
-				PRODUCT_MODULE_NAME = Protobuf;
-				PRODUCT_NAME = Protobuf;
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -1192,8 +1192,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufRuntime;
-				PRODUCT_MODULE_NAME = Protobuf;
-				PRODUCT_NAME = Protobuf;
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
 				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Release;
@@ -1218,8 +1218,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufRuntime;
-				PRODUCT_MODULE_NAME = Protobuf;
-				PRODUCT_NAME = Protobuf;
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1260,7 +1260,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9C8CDA1A1D7A288E00E207CA /* Build configuration list for PBXNativeTarget "ProtobufTestSuite_iOS" */ = {
+		9C8CDA1A1D7A288E00E207CA /* Build configuration list for PBXNativeTarget "SwiftProtobufTestSuite_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C8CDA1B1D7A288E00E207CA /* Debug */,
@@ -1269,7 +1269,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		BD12FD3D1D767BA1001815C7 /* Build configuration list for PBXNativeTarget "Protobuf_iOS" */ = {
+		BD12FD3D1D767BA1001815C7 /* Build configuration list for PBXNativeTarget "SwiftProtobuf_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD12FD3B1D767BA1001815C7 /* Debug */,
@@ -1287,7 +1287,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		"_______Confs_Protobuf" /* Build configuration list for PBXNativeTarget "Protobuf_macOS" */ = {
+		"_______Confs_Protobuf" /* Build configuration list for PBXNativeTarget "SwiftProtobuf_macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				"___DebugConf_Protobuf" /* Debug */,
@@ -1296,7 +1296,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		"_______Confs_ProtobufTestSuite" /* Build configuration list for PBXNativeTarget "ProtobufTestSuite_macOS" */ = {
+		"_______Confs_ProtobufTestSuite" /* Build configuration list for PBXNativeTarget "SwiftProtobufTestSuite_macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				"___DebugConf_ProtobufTestSuite" /* Debug */,

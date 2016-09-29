@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "______Target_Protobuf"
-               BuildableName = "Protobuf.framework"
-               BlueprintName = "Protobuf_macOS"
+               BuildableName = "SwiftProtobuf.framework"
+               BlueprintName = "SwiftProtobuf_macOS"
                ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "______Target_ProtobufTestSuite"
-               BuildableName = "ProtobufTestSuite_macOS.xctest"
-               BlueprintName = "ProtobufTestSuite_macOS"
+               BuildableName = "SwiftProtobufTestSuite_macOS.xctest"
+               BlueprintName = "SwiftProtobufTestSuite_macOS"
                ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "______Target_Protobuf"
-            BuildableName = "Protobuf.framework"
-            BlueprintName = "Protobuf_macOS"
+            BuildableName = "SwiftProtobuf.framework"
+            BlueprintName = "SwiftProtobuf_macOS"
             ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
