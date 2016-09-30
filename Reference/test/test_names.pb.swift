@@ -72,13 +72,6 @@ public struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if httpRequest != 0 {return false}
-    if url != 0 {return false}
-    if aBC != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest) -> Bool {
     if httpRequest != other.httpRequest {return false}
     if url != other.url {return false}
@@ -137,12 +130,6 @@ public struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if httprequest != 0 {return false}
-    if url != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest2) -> Bool {
     if httprequest != other.httprequest {return false}
     if url != other.url {return false}
@@ -186,11 +173,6 @@ public struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage {
     if url != 0 {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 5, protoFieldName: "Url", jsonFieldName: "url", swiftFieldName: "url")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if url != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest3) -> Bool {

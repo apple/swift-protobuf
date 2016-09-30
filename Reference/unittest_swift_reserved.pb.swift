@@ -222,11 +222,6 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
       if unknown != other.unknown {return false}
       return true
@@ -250,11 +245,6 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       unknown.traverse(visitor: &visitor)
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if !unknown.isEmpty {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.TypeMessage) -> Bool {
@@ -282,11 +272,6 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqualMessage) -> Bool {
       if unknown != other.unknown {return false}
       return true
@@ -301,11 +286,6 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {

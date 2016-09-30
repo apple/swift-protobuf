@@ -166,12 +166,6 @@ public struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if d != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessageLite) -> Bool {
     if ((d != nil || other.d != nil) && (d == nil || other.d == nil || d! != other.d!)) {return false}
     if unknown != other.unknown {return false}

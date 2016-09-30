@@ -83,12 +83,6 @@ public struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if d != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_NestedMessage) -> Bool {
     if ((d != nil || other.d != nil) && (d == nil || other.d == nil || d! != other.d!)) {return false}
     if unknown != other.unknown {return false}
@@ -151,13 +145,6 @@ public struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage {
       try visitor.visitRepeatedMessageField(value: repeatedImportNoArenaMessage, protoFieldNumber: 2, protoFieldName: "repeated_import_no_arena_message", jsonFieldName: "repeatedImportNoArenaMessage", swiftFieldName: "repeatedImportNoArenaMessage")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !repeatedNestedMessage.isEmpty {return false}
-    if !repeatedImportNoArenaMessage.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_ArenaMessage) -> Bool {

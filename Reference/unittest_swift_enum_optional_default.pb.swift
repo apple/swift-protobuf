@@ -81,15 +81,8 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
         unknown.traverse(visitor: &visitor)
       }
 
-      var isEmpty: Bool {
-        if _message != nil {return false}
-        if _optionalEnum != nil && _optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo {return false}
-        if !unknown.isEmpty {return false}
-        return true
-      }
-
       func isEqualTo(other: _StorageClass) -> Bool {
-        if (((_message != nil && !_message!.isEmpty) || (other._message != nil && !other._message!.isEmpty)) && (_message == nil || other._message == nil || _message! != other._message!)) {return false}
+        if ((_message != nil || other._message != nil) && (_message == nil || other._message == nil || _message! != other._message!)) {return false}
         if (((_optionalEnum != nil && _optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo) || (other._optionalEnum != nil && other._optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo)) && (_optionalEnum == nil || other._optionalEnum == nil || _optionalEnum! != other._optionalEnum!)) {return false}
         if unknown != other.unknown {return false}
         return true
@@ -104,7 +97,7 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
       }
     }
 
-    private var _storage: _StorageClass?
+    private var _storage = _StorageClass()
 
     public enum Enum: ProtobufEnum {
       public typealias RawValue = Int
@@ -173,12 +166,12 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     ///   The circular reference here forces the generator to
     ///   implement heap-backed storage.
     public var message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? {
-      get {return _storage?._message}
+      get {return _storage._message}
       set {_uniqueStorage()._message = newValue}
     }
 
     public var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? {
-      get {return _storage?._optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo}
+      get {return _storage._optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo}
       set {_uniqueStorage()._optionalEnum = newValue}
     }
 
@@ -197,30 +190,18 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try _storage?.traverse(visitor: &visitor)
+      try _storage.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
-      if let s = _storage {
-        if let os = other._storage {
-          return s === os || s.isEqualTo(other: os)
-        }
-        return isEmpty // empty storage == nil storage
-      } else if let os = other._storage {
-        return os.isEmpty // nil storage == empty storage
-      }
-      return true // Both nil, both empty
+      return _storage === other._storage || _storage.isEqualTo(other: other._storage)
     }
 
     private mutating func _uniqueStorage() -> _StorageClass {
-      if _storage == nil {
-        _storage = _StorageClass()
-      } else if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage!.copy()
+      if !isKnownUniquelyReferenced(&_storage) {
+        _storage = _storage.copy()
       }
-      return _storage!
+      return _storage
     }
   }
 
@@ -335,12 +316,6 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if optionalEnum != nil && optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
       if (((optionalEnum != nil && optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo) || (other.optionalEnum != nil && other.optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo)) && (optionalEnum == nil || other.optionalEnum == nil || optionalEnum! != other.optionalEnum!)) {return false}
       if unknown != other.unknown {return false}
@@ -356,11 +331,6 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault) -> Bool {

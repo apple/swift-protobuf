@@ -26,8 +26,6 @@ public struct TestFoo: ProtobufGeneratedMessage {
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
 
-  public let _protoc_generated_isEmpty: Bool = true
-
   public func _protoc_generated_isEqualTo(other: TestFoo) -> Bool {
     return true
   }

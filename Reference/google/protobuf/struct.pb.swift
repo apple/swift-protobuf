@@ -161,11 +161,6 @@ public struct Google_Protobuf_Struct: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !fields.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
     if fields != other.fields {return false}
     return true
@@ -220,11 +215,6 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
       try _kind.traverse(visitor: &visitor, start: 1, end: 7)
     }
 
-    var isEmpty: Bool {
-      if !_kind.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _kind != other._kind {return false}
       return true
@@ -237,7 +227,7 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_Kind: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case nullValue(Google_Protobuf_NullValue)
@@ -327,17 +317,13 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   ///   Represents a null value.
   public var nullValue: Google_Protobuf_NullValue? {
     get {
-      if let storage = _storage {
-        if case .nullValue(let v) = storage._kind {
-          return v
-        }
+      if case .nullValue(let v) = _storage._kind {
+        return v
       }
       return nil
     }
@@ -353,10 +339,8 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   ///   Represents a double value.
   public var numberValue: Double? {
     get {
-      if let storage = _storage {
-        if case .numberValue(let v) = storage._kind {
-          return v
-        }
+      if case .numberValue(let v) = _storage._kind {
+        return v
       }
       return nil
     }
@@ -372,10 +356,8 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   ///   Represents a string value.
   public var stringValue: String? {
     get {
-      if let storage = _storage {
-        if case .stringValue(let v) = storage._kind {
-          return v
-        }
+      if case .stringValue(let v) = _storage._kind {
+        return v
       }
       return nil
     }
@@ -391,10 +373,8 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   ///   Represents a boolean value.
   public var boolValue: Bool? {
     get {
-      if let storage = _storage {
-        if case .boolValue(let v) = storage._kind {
-          return v
-        }
+      if case .boolValue(let v) = _storage._kind {
+        return v
       }
       return nil
     }
@@ -410,10 +390,8 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   ///   Represents a structured value.
   public var structValue: Google_Protobuf_Struct? {
     get {
-      if let storage = _storage {
-        if case .structValue(let v) = storage._kind {
-          return v
-        }
+      if case .structValue(let v) = _storage._kind {
+        return v
       }
       return nil
     }
@@ -429,10 +407,8 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   ///   Represents a repeated `Value`.
   public var listValue: Google_Protobuf_ListValue? {
     get {
-      if let storage = _storage {
-        if case .listValue(let v) = storage._kind {
-          return v
-        }
+      if case .listValue(let v) = _storage._kind {
+        return v
       }
       return nil
     }
@@ -446,7 +422,7 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   }
 
   public var _kind: OneOf_Kind {
-    get {return _storage?._kind ?? .None}
+    get {return _storage._kind}
     set {
       _uniqueStorage()._kind = newValue
     }
@@ -487,30 +463,18 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -554,11 +518,6 @@ public struct Google_Protobuf_ListValue: ProtobufGeneratedMessage {
     if !values.isEmpty {
       try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1, protoFieldName: "values", jsonFieldName: "values", swiftFieldName: "values")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !values.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {

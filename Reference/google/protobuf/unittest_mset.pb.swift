@@ -85,14 +85,8 @@ public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _messageSet != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_messageSet != nil && !_messageSet!.isEmpty) || (other._messageSet != nil && !other._messageSet!.isEmpty)) && (_messageSet == nil || other._messageSet == nil || _messageSet! != other._messageSet!)) {return false}
+      if ((_messageSet != nil || other._messageSet != nil) && (_messageSet == nil || other._messageSet == nil || _messageSet! != other._messageSet!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -105,10 +99,10 @@ public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var messageSet: Proto2WireformatUnittest_TestMessageSet? {
-    get {return _storage?._messageSet}
+    get {return _storage._messageSet}
     set {_uniqueStorage()._messageSet = newValue}
   }
 
@@ -125,30 +119,18 @@ public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -198,12 +180,6 @@ public struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessag
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 15, protoFieldName: "i", jsonFieldName: "i", swiftFieldName: "i")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if i != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
@@ -259,12 +235,6 @@ public struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessag
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 25, protoFieldName: "str", jsonFieldName: "str", swiftFieldName: "str")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if str != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
@@ -348,13 +318,6 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if typeId != 0 {return false}
-      if message != Data() {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
       if typeId != other.typeId {return false}
       if message != other.message {return false}
@@ -393,12 +356,6 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
       try visitor.visitRepeatedGroupField(value: item, protoFieldNumber: 1, protoFieldName: "item", jsonFieldName: "item", swiftFieldName: "item")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !item.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {

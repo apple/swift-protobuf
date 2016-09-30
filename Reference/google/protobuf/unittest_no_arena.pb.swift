@@ -672,83 +672,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _optionalInt32 != nil {return false}
-      if _optionalInt64 != nil {return false}
-      if _optionalUint32 != nil {return false}
-      if _optionalUint64 != nil {return false}
-      if _optionalSint32 != nil {return false}
-      if _optionalSint64 != nil {return false}
-      if _optionalFixed32 != nil {return false}
-      if _optionalFixed64 != nil {return false}
-      if _optionalSfixed32 != nil {return false}
-      if _optionalSfixed64 != nil {return false}
-      if _optionalFloat != nil {return false}
-      if _optionalDouble != nil {return false}
-      if _optionalBool != nil {return false}
-      if _optionalString != nil {return false}
-      if _optionalBytes != nil {return false}
-      if _optionalGroup != nil {return false}
-      if _optionalNestedMessage != nil {return false}
-      if _optionalForeignMessage != nil {return false}
-      if _optionalImportMessage != nil {return false}
-      if _optionalNestedEnum != nil {return false}
-      if _optionalForeignEnum != nil {return false}
-      if _optionalImportEnum != nil {return false}
-      if _optionalStringPiece != nil {return false}
-      if _optionalCord != nil {return false}
-      if _optionalPublicImportMessage != nil {return false}
-      if _optionalMessage != nil {return false}
-      if !_repeatedInt32.isEmpty {return false}
-      if !_repeatedInt64.isEmpty {return false}
-      if !_repeatedUint32.isEmpty {return false}
-      if !_repeatedUint64.isEmpty {return false}
-      if !_repeatedSint32.isEmpty {return false}
-      if !_repeatedSint64.isEmpty {return false}
-      if !_repeatedFixed32.isEmpty {return false}
-      if !_repeatedFixed64.isEmpty {return false}
-      if !_repeatedSfixed32.isEmpty {return false}
-      if !_repeatedSfixed64.isEmpty {return false}
-      if !_repeatedFloat.isEmpty {return false}
-      if !_repeatedDouble.isEmpty {return false}
-      if !_repeatedBool.isEmpty {return false}
-      if !_repeatedString.isEmpty {return false}
-      if !_repeatedBytes.isEmpty {return false}
-      if !_repeatedGroup.isEmpty {return false}
-      if !_repeatedNestedMessage.isEmpty {return false}
-      if !_repeatedForeignMessage.isEmpty {return false}
-      if !_repeatedImportMessage.isEmpty {return false}
-      if !_repeatedNestedEnum.isEmpty {return false}
-      if !_repeatedForeignEnum.isEmpty {return false}
-      if !_repeatedImportEnum.isEmpty {return false}
-      if !_repeatedStringPiece.isEmpty {return false}
-      if !_repeatedCord.isEmpty {return false}
-      if !_repeatedLazyMessage.isEmpty {return false}
-      if _defaultInt32 != nil && _defaultInt32! != 41 {return false}
-      if _defaultInt64 != nil && _defaultInt64! != 42 {return false}
-      if _defaultUint32 != nil && _defaultUint32! != 43 {return false}
-      if _defaultUint64 != nil && _defaultUint64! != 44 {return false}
-      if _defaultSint32 != nil && _defaultSint32! != -45 {return false}
-      if _defaultSint64 != nil && _defaultSint64! != 46 {return false}
-      if _defaultFixed32 != nil && _defaultFixed32! != 47 {return false}
-      if _defaultFixed64 != nil && _defaultFixed64! != 48 {return false}
-      if _defaultSfixed32 != nil && _defaultSfixed32! != 49 {return false}
-      if _defaultSfixed64 != nil && _defaultSfixed64! != -50 {return false}
-      if _defaultFloat != nil && _defaultFloat! != 51.5 {return false}
-      if _defaultDouble != nil && _defaultDouble! != 52000 {return false}
-      if _defaultBool != nil && _defaultBool! != true {return false}
-      if _defaultString != nil && _defaultString! != "hello" {return false}
-      if _defaultBytes != nil && _defaultBytes! != Data(bytes: [119, 111, 114, 108, 100]) {return false}
-      if _defaultNestedEnum != nil && _defaultNestedEnum! != ProtobufUnittestNoArena_TestAllTypes.NestedEnum.bar {return false}
-      if _defaultForeignEnum != nil && _defaultForeignEnum! != ProtobufUnittestNoArena_ForeignEnum.foreignBar {return false}
-      if _defaultImportEnum != nil && _defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar {return false}
-      if _defaultStringPiece != nil && _defaultStringPiece! != "abc" {return false}
-      if _defaultCord != nil && _defaultCord! != "123" {return false}
-      if !_oneofField.isEmpty {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_optionalInt32 != nil || other._optionalInt32 != nil) && (_optionalInt32 == nil || other._optionalInt32 == nil || _optionalInt32! != other._optionalInt32!)) {return false}
       if ((_optionalInt64 != nil || other._optionalInt64 != nil) && (_optionalInt64 == nil || other._optionalInt64 == nil || _optionalInt64! != other._optionalInt64!)) {return false}
@@ -765,17 +688,17 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
       if ((_optionalBool != nil || other._optionalBool != nil) && (_optionalBool == nil || other._optionalBool == nil || _optionalBool! != other._optionalBool!)) {return false}
       if ((_optionalString != nil || other._optionalString != nil) && (_optionalString == nil || other._optionalString == nil || _optionalString! != other._optionalString!)) {return false}
       if ((_optionalBytes != nil || other._optionalBytes != nil) && (_optionalBytes == nil || other._optionalBytes == nil || _optionalBytes! != other._optionalBytes!)) {return false}
-      if (((_optionalGroup != nil && !_optionalGroup!.isEmpty) || (other._optionalGroup != nil && !other._optionalGroup!.isEmpty)) && (_optionalGroup == nil || other._optionalGroup == nil || _optionalGroup! != other._optionalGroup!)) {return false}
-      if (((_optionalNestedMessage != nil && !_optionalNestedMessage!.isEmpty) || (other._optionalNestedMessage != nil && !other._optionalNestedMessage!.isEmpty)) && (_optionalNestedMessage == nil || other._optionalNestedMessage == nil || _optionalNestedMessage! != other._optionalNestedMessage!)) {return false}
-      if (((_optionalForeignMessage != nil && !_optionalForeignMessage!.isEmpty) || (other._optionalForeignMessage != nil && !other._optionalForeignMessage!.isEmpty)) && (_optionalForeignMessage == nil || other._optionalForeignMessage == nil || _optionalForeignMessage! != other._optionalForeignMessage!)) {return false}
-      if (((_optionalImportMessage != nil && !_optionalImportMessage!.isEmpty) || (other._optionalImportMessage != nil && !other._optionalImportMessage!.isEmpty)) && (_optionalImportMessage == nil || other._optionalImportMessage == nil || _optionalImportMessage! != other._optionalImportMessage!)) {return false}
+      if ((_optionalGroup != nil || other._optionalGroup != nil) && (_optionalGroup == nil || other._optionalGroup == nil || _optionalGroup! != other._optionalGroup!)) {return false}
+      if ((_optionalNestedMessage != nil || other._optionalNestedMessage != nil) && (_optionalNestedMessage == nil || other._optionalNestedMessage == nil || _optionalNestedMessage! != other._optionalNestedMessage!)) {return false}
+      if ((_optionalForeignMessage != nil || other._optionalForeignMessage != nil) && (_optionalForeignMessage == nil || other._optionalForeignMessage == nil || _optionalForeignMessage! != other._optionalForeignMessage!)) {return false}
+      if ((_optionalImportMessage != nil || other._optionalImportMessage != nil) && (_optionalImportMessage == nil || other._optionalImportMessage == nil || _optionalImportMessage! != other._optionalImportMessage!)) {return false}
       if ((_optionalNestedEnum != nil || other._optionalNestedEnum != nil) && (_optionalNestedEnum == nil || other._optionalNestedEnum == nil || _optionalNestedEnum! != other._optionalNestedEnum!)) {return false}
       if ((_optionalForeignEnum != nil || other._optionalForeignEnum != nil) && (_optionalForeignEnum == nil || other._optionalForeignEnum == nil || _optionalForeignEnum! != other._optionalForeignEnum!)) {return false}
       if ((_optionalImportEnum != nil || other._optionalImportEnum != nil) && (_optionalImportEnum == nil || other._optionalImportEnum == nil || _optionalImportEnum! != other._optionalImportEnum!)) {return false}
       if ((_optionalStringPiece != nil || other._optionalStringPiece != nil) && (_optionalStringPiece == nil || other._optionalStringPiece == nil || _optionalStringPiece! != other._optionalStringPiece!)) {return false}
       if ((_optionalCord != nil || other._optionalCord != nil) && (_optionalCord == nil || other._optionalCord == nil || _optionalCord! != other._optionalCord!)) {return false}
-      if (((_optionalPublicImportMessage != nil && !_optionalPublicImportMessage!.isEmpty) || (other._optionalPublicImportMessage != nil && !other._optionalPublicImportMessage!.isEmpty)) && (_optionalPublicImportMessage == nil || other._optionalPublicImportMessage == nil || _optionalPublicImportMessage! != other._optionalPublicImportMessage!)) {return false}
-      if (((_optionalMessage != nil && !_optionalMessage!.isEmpty) || (other._optionalMessage != nil && !other._optionalMessage!.isEmpty)) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
+      if ((_optionalPublicImportMessage != nil || other._optionalPublicImportMessage != nil) && (_optionalPublicImportMessage == nil || other._optionalPublicImportMessage == nil || _optionalPublicImportMessage! != other._optionalPublicImportMessage!)) {return false}
+      if ((_optionalMessage != nil || other._optionalMessage != nil) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
       if _repeatedInt32 != other._repeatedInt32 {return false}
       if _repeatedInt64 != other._repeatedInt64 {return false}
       if _repeatedUint32 != other._repeatedUint32 {return false}
@@ -905,7 +828,7 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
@@ -992,8 +915,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public enum NestedEnum: ProtobufEnum {
@@ -1132,12 +1053,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if bb != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.NestedMessage) -> Bool {
       if ((bb != nil || other.bb != nil) && (bb == nil || other.bb == nil || bb! != other.bb!)) {return false}
       if unknown != other.unknown {return false}
@@ -1186,12 +1101,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 17, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
       unknown.traverse(visitor: &visitor)
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup) -> Bool {
@@ -1244,12 +1153,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup) -> Bool {
       if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
       if unknown != other.unknown {return false}
@@ -1259,369 +1162,367 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
   ///   Singular
   public var optionalInt32: Int32? {
-    get {return _storage?._optionalInt32}
+    get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
   public var optionalInt64: Int64? {
-    get {return _storage?._optionalInt64}
+    get {return _storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
   public var optionalUint32: UInt32? {
-    get {return _storage?._optionalUint32}
+    get {return _storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
   public var optionalUint64: UInt64? {
-    get {return _storage?._optionalUint64}
+    get {return _storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
   public var optionalSint32: Int32? {
-    get {return _storage?._optionalSint32}
+    get {return _storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
   public var optionalSint64: Int64? {
-    get {return _storage?._optionalSint64}
+    get {return _storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
   public var optionalFixed32: UInt32? {
-    get {return _storage?._optionalFixed32}
+    get {return _storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
   public var optionalFixed64: UInt64? {
-    get {return _storage?._optionalFixed64}
+    get {return _storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
   public var optionalSfixed32: Int32? {
-    get {return _storage?._optionalSfixed32}
+    get {return _storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
   public var optionalSfixed64: Int64? {
-    get {return _storage?._optionalSfixed64}
+    get {return _storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
   public var optionalFloat: Float? {
-    get {return _storage?._optionalFloat}
+    get {return _storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
   public var optionalDouble: Double? {
-    get {return _storage?._optionalDouble}
+    get {return _storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
   public var optionalBool: Bool? {
-    get {return _storage?._optionalBool}
+    get {return _storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
   public var optionalString: String? {
-    get {return _storage?._optionalString}
+    get {return _storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
   public var optionalBytes: Data? {
-    get {return _storage?._optionalBytes}
+    get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
   public var optionalGroup: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup? {
-    get {return _storage?._optionalGroup}
+    get {return _storage._optionalGroup}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
 
   public var optionalNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
-    get {return _storage?._optionalNestedMessage}
+    get {return _storage._optionalNestedMessage}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
 
   public var optionalForeignMessage: ProtobufUnittestNoArena_ForeignMessage? {
-    get {return _storage?._optionalForeignMessage}
+    get {return _storage._optionalForeignMessage}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
 
   public var optionalImportMessage: ProtobufUnittestImport_ImportMessage? {
-    get {return _storage?._optionalImportMessage}
+    get {return _storage._optionalImportMessage}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
 
   public var optionalNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum? {
-    get {return _storage?._optionalNestedEnum}
+    get {return _storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
   public var optionalForeignEnum: ProtobufUnittestNoArena_ForeignEnum? {
-    get {return _storage?._optionalForeignEnum}
+    get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
   public var optionalImportEnum: ProtobufUnittestImport_ImportEnum? {
-    get {return _storage?._optionalImportEnum}
+    get {return _storage._optionalImportEnum}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
 
   public var optionalStringPiece: String? {
-    get {return _storage?._optionalStringPiece}
+    get {return _storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
 
   public var optionalCord: String? {
-    get {return _storage?._optionalCord}
+    get {return _storage._optionalCord}
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
   ///   Defined in unittest_import_public.proto
   public var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? {
-    get {return _storage?._optionalPublicImportMessage}
+    get {return _storage._optionalPublicImportMessage}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
 
   public var optionalMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
-    get {return _storage?._optionalMessage}
+    get {return _storage._optionalMessage}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
 
   ///   Repeated
   public var repeatedInt32: [Int32] {
-    get {return _storage?._repeatedInt32 ?? []}
+    get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   public var repeatedInt64: [Int64] {
-    get {return _storage?._repeatedInt64 ?? []}
+    get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   public var repeatedUint32: [UInt32] {
-    get {return _storage?._repeatedUint32 ?? []}
+    get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   public var repeatedUint64: [UInt64] {
-    get {return _storage?._repeatedUint64 ?? []}
+    get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   public var repeatedSint32: [Int32] {
-    get {return _storage?._repeatedSint32 ?? []}
+    get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   public var repeatedSint64: [Int64] {
-    get {return _storage?._repeatedSint64 ?? []}
+    get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   public var repeatedFixed32: [UInt32] {
-    get {return _storage?._repeatedFixed32 ?? []}
+    get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   public var repeatedFixed64: [UInt64] {
-    get {return _storage?._repeatedFixed64 ?? []}
+    get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   public var repeatedSfixed32: [Int32] {
-    get {return _storage?._repeatedSfixed32 ?? []}
+    get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   public var repeatedSfixed64: [Int64] {
-    get {return _storage?._repeatedSfixed64 ?? []}
+    get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   public var repeatedFloat: [Float] {
-    get {return _storage?._repeatedFloat ?? []}
+    get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   public var repeatedDouble: [Double] {
-    get {return _storage?._repeatedDouble ?? []}
+    get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   public var repeatedBool: [Bool] {
-    get {return _storage?._repeatedBool ?? []}
+    get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   public var repeatedString: [String] {
-    get {return _storage?._repeatedString ?? []}
+    get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   public var repeatedBytes: [Data] {
-    get {return _storage?._repeatedBytes ?? []}
+    get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   public var repeatedGroup: [ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup] {
-    get {return _storage?._repeatedGroup ?? []}
+    get {return _storage._repeatedGroup}
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
   public var repeatedNestedMessage: [ProtobufUnittestNoArena_TestAllTypes.NestedMessage] {
-    get {return _storage?._repeatedNestedMessage ?? []}
+    get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
   public var repeatedForeignMessage: [ProtobufUnittestNoArena_ForeignMessage] {
-    get {return _storage?._repeatedForeignMessage ?? []}
+    get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
   public var repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] {
-    get {return _storage?._repeatedImportMessage ?? []}
+    get {return _storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
 
   public var repeatedNestedEnum: [ProtobufUnittestNoArena_TestAllTypes.NestedEnum] {
-    get {return _storage?._repeatedNestedEnum ?? []}
+    get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
   public var repeatedForeignEnum: [ProtobufUnittestNoArena_ForeignEnum] {
-    get {return _storage?._repeatedForeignEnum ?? []}
+    get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
   public var repeatedImportEnum: [ProtobufUnittestImport_ImportEnum] {
-    get {return _storage?._repeatedImportEnum ?? []}
+    get {return _storage._repeatedImportEnum}
     set {_uniqueStorage()._repeatedImportEnum = newValue}
   }
 
   public var repeatedStringPiece: [String] {
-    get {return _storage?._repeatedStringPiece ?? []}
+    get {return _storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
   public var repeatedCord: [String] {
-    get {return _storage?._repeatedCord ?? []}
+    get {return _storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
   public var repeatedLazyMessage: [ProtobufUnittestNoArena_TestAllTypes.NestedMessage] {
-    get {return _storage?._repeatedLazyMessage ?? []}
+    get {return _storage._repeatedLazyMessage}
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
   ///   Singular with defaults
   public var defaultInt32: Int32? {
-    get {return _storage?._defaultInt32 ?? 41}
+    get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
   }
 
   public var defaultInt64: Int64? {
-    get {return _storage?._defaultInt64 ?? 42}
+    get {return _storage._defaultInt64 ?? 42}
     set {_uniqueStorage()._defaultInt64 = newValue}
   }
 
   public var defaultUint32: UInt32? {
-    get {return _storage?._defaultUint32 ?? 43}
+    get {return _storage._defaultUint32 ?? 43}
     set {_uniqueStorage()._defaultUint32 = newValue}
   }
 
   public var defaultUint64: UInt64? {
-    get {return _storage?._defaultUint64 ?? 44}
+    get {return _storage._defaultUint64 ?? 44}
     set {_uniqueStorage()._defaultUint64 = newValue}
   }
 
   public var defaultSint32: Int32? {
-    get {return _storage?._defaultSint32 ?? -45}
+    get {return _storage._defaultSint32 ?? -45}
     set {_uniqueStorage()._defaultSint32 = newValue}
   }
 
   public var defaultSint64: Int64? {
-    get {return _storage?._defaultSint64 ?? 46}
+    get {return _storage._defaultSint64 ?? 46}
     set {_uniqueStorage()._defaultSint64 = newValue}
   }
 
   public var defaultFixed32: UInt32? {
-    get {return _storage?._defaultFixed32 ?? 47}
+    get {return _storage._defaultFixed32 ?? 47}
     set {_uniqueStorage()._defaultFixed32 = newValue}
   }
 
   public var defaultFixed64: UInt64? {
-    get {return _storage?._defaultFixed64 ?? 48}
+    get {return _storage._defaultFixed64 ?? 48}
     set {_uniqueStorage()._defaultFixed64 = newValue}
   }
 
   public var defaultSfixed32: Int32? {
-    get {return _storage?._defaultSfixed32 ?? 49}
+    get {return _storage._defaultSfixed32 ?? 49}
     set {_uniqueStorage()._defaultSfixed32 = newValue}
   }
 
   public var defaultSfixed64: Int64? {
-    get {return _storage?._defaultSfixed64 ?? -50}
+    get {return _storage._defaultSfixed64 ?? -50}
     set {_uniqueStorage()._defaultSfixed64 = newValue}
   }
 
   public var defaultFloat: Float? {
-    get {return _storage?._defaultFloat ?? 51.5}
+    get {return _storage._defaultFloat ?? 51.5}
     set {_uniqueStorage()._defaultFloat = newValue}
   }
 
   public var defaultDouble: Double? {
-    get {return _storage?._defaultDouble ?? 52000}
+    get {return _storage._defaultDouble ?? 52000}
     set {_uniqueStorage()._defaultDouble = newValue}
   }
 
   public var defaultBool: Bool? {
-    get {return _storage?._defaultBool ?? true}
+    get {return _storage._defaultBool ?? true}
     set {_uniqueStorage()._defaultBool = newValue}
   }
 
   public var defaultString: String? {
-    get {return _storage?._defaultString ?? "hello"}
+    get {return _storage._defaultString ?? "hello"}
     set {_uniqueStorage()._defaultString = newValue}
   }
 
   public var defaultBytes: Data? {
-    get {return _storage?._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
+    get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
 
   public var defaultNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum? {
-    get {return _storage?._defaultNestedEnum ?? ProtobufUnittestNoArena_TestAllTypes.NestedEnum.bar}
+    get {return _storage._defaultNestedEnum ?? ProtobufUnittestNoArena_TestAllTypes.NestedEnum.bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
 
   public var defaultForeignEnum: ProtobufUnittestNoArena_ForeignEnum? {
-    get {return _storage?._defaultForeignEnum ?? ProtobufUnittestNoArena_ForeignEnum.foreignBar}
+    get {return _storage._defaultForeignEnum ?? ProtobufUnittestNoArena_ForeignEnum.foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
 
   public var defaultImportEnum: ProtobufUnittestImport_ImportEnum? {
-    get {return _storage?._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
+    get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
 
   public var defaultStringPiece: String? {
-    get {return _storage?._defaultStringPiece ?? "abc"}
+    get {return _storage._defaultStringPiece ?? "abc"}
     set {_uniqueStorage()._defaultStringPiece = newValue}
   }
 
   public var defaultCord: String? {
-    get {return _storage?._defaultCord ?? "123"}
+    get {return _storage._defaultCord ?? "123"}
     set {_uniqueStorage()._defaultCord = newValue}
   }
 
   public var oneofUint32: UInt32? {
     get {
-      if let storage = _storage {
-        if case .oneofUint32(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofUint32(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1636,10 +1537,8 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
     get {
-      if let storage = _storage {
-        if case .oneofNestedMessage(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofNestedMessage(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1654,10 +1553,8 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofString: String? {
     get {
-      if let storage = _storage {
-        if case .oneofString(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofString(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1672,10 +1569,8 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofBytes: Data? {
     get {
-      if let storage = _storage {
-        if case .oneofBytes(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofBytes(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1690,10 +1585,8 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
   public var lazyOneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
     get {
-      if let storage = _storage {
-        if case .lazyOneofNestedMessage(let v) = storage._oneofField {
-          return v
-        }
+      if case .lazyOneofNestedMessage(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1707,7 +1600,7 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
   }
 
   public var _oneofField: OneOf_OneofField {
-    get {return _storage?._oneofField ?? .None}
+    get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
     }
@@ -1936,30 +1829,18 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2008,12 +1889,6 @@ public struct ProtobufUnittestNoArena_ForeignMessage: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if c != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessage) -> Bool {
     if ((c != nil || other.c != nil) && (c == nil || other.c == nil || c! != other.c!)) {return false}
     if unknown != other.unknown {return false}
@@ -2060,14 +1935,8 @@ public struct ProtobufUnittestNoArena_TestNoArenaMessage: ProtobufGeneratedMessa
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _arenaMessage != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_arenaMessage != nil && !_arenaMessage!.isEmpty) || (other._arenaMessage != nil && !other._arenaMessage!.isEmpty)) && (_arenaMessage == nil || other._arenaMessage == nil || _arenaMessage! != other._arenaMessage!)) {return false}
+      if ((_arenaMessage != nil || other._arenaMessage != nil) && (_arenaMessage == nil || other._arenaMessage == nil || _arenaMessage! != other._arenaMessage!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -2080,10 +1949,10 @@ public struct ProtobufUnittestNoArena_TestNoArenaMessage: ProtobufGeneratedMessa
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var arenaMessage: Proto2ArenaUnittest_ArenaMessage? {
-    get {return _storage?._arenaMessage}
+    get {return _storage._arenaMessage}
     set {_uniqueStorage()._arenaMessage = newValue}
   }
 
@@ -2100,30 +1969,18 @@ public struct ProtobufUnittestNoArena_TestNoArenaMessage: ProtobufGeneratedMessa
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestNoArenaMessage) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
