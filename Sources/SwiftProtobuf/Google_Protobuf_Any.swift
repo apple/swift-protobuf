@@ -356,13 +356,6 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         throw ProtobufDecodingError.malformedAnyField
     }
 
-    public var isEmpty: Bool {
-        return (typeURL == nil
-            && _value == nil
-            && _message == nil
-            && (_jsonFields == nil || _jsonFields!.count == 0))
-    }
-
     public var hashValue: Int {
         get {
             var hash: Int = 0
@@ -462,7 +455,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         if ((typeURL != nil && typeURL != "") || (other.typeURL != nil && other.typeURL != "")) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
             return false
         }
-        if ((_value != nil && !_value!.isEmpty) || (other._value != nil && !other._value!.isEmpty)) && (_value == nil || other._value == nil || _value! != other._value!) {
+        if (_value != nil || other._value != nil) && (_value == nil || other._value == nil || _value! != other._value!) {
             return false
         }
         return true

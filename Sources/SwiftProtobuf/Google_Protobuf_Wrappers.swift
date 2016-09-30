@@ -26,7 +26,6 @@ public protocol Google_Protobuf_Wrapper: ProtobufAbstractMessage, Hashable, Cust
 public extension Google_Protobuf_Wrapper {
     var protoPackageName: String {return "google.protobuf"}
     var swiftClassName: String {return "Google_Protobuf_" + protoMessageName}
-    var isEmpty: Bool {return (value == nil)}
     var jsonFieldNames: [String:Int] {return ["value":1]}
     var protoFieldNames: [String:Int] {return ["value":1]}
 
