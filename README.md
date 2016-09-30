@@ -65,7 +65,7 @@ protoc-gen-swift 0.9.23
 And then add a dependency to your Package.swift file.  Adjust the `Version()` here to match the `protoc-gen-swift` version you checked above:
 ``` swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf-runtime.git", Version(0,9,23))
+        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,23))
 ]
 ```
 
