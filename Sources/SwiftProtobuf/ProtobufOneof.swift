@@ -20,7 +20,6 @@ public protocol ProtobufOneofEnum: Equatable {
     init()
     func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws
     mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool
-    var isEmpty: Bool { get }
 }
 
 // TODO: This is a transition aid, remove this in August 2016.

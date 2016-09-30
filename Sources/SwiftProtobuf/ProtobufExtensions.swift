@@ -201,14 +201,6 @@ public struct ProtobufExtensionFieldValueSet: Equatable, Sequence {
     public func makeIterator() -> Iterator {
         return values.makeIterator()
     }
-    public var isEmpty: Bool {
-        for (_, value) in values {
-            if !value.isEmpty {
-                return false
-            }
-        }
-        return true
-    }
 
     public var hashValue: Int {
         var hash: Int = 0
@@ -245,11 +237,8 @@ public func ==(lhs: ProtobufExtensionFieldValueSet, rhs: ProtobufExtensionFieldV
             return false
         }
     }
-    for (index, r) in rhs.values {
-        if let _ = lhs.values[index] {
-            // already checked above
-        } else if !r.isEmpty {
-            // in r but not l:  okay if r is empty
+    for (index, _) in rhs.values {
+        if lhs.values[index] == nil {
             return false
         }
     }

@@ -29,7 +29,6 @@ private let i_16777619 = Int(16777619)
 //
 public protocol ProtobufExtensionField: CustomDebugStringConvertible {
     init(protobufExtension: ProtobufMessageExtension)
-    var isEmpty: Bool { get }
     var hashValue: Int { get }
     func isEqual(other: ProtobufExtensionField) -> Bool
 
@@ -69,8 +68,6 @@ public struct ProtobufOptionalField<T: ProtobufTypeProperties>: ProtobufTypedExt
     public init(protobufExtension: ProtobufMessageExtension) {
         self.protobufExtension = protobufExtension
     }
-
-    public var isEmpty: Bool {return value == nil}
 
     public var debugDescription: String {
         get {
@@ -127,12 +124,10 @@ public struct ProtobufRepeatedField<T: ProtobufTypeProperties>: ProtobufTypedExt
     public typealias ValueType = [BaseType]
     public var value = ValueType()
     public var protobufExtension: ProtobufMessageExtension
-    
+
     public init(protobufExtension: ProtobufMessageExtension) {
         self.protobufExtension = protobufExtension
     }
-
-    public var isEmpty: Bool { return value.count == 0 }
 
     public var hashValue: Int {
         get {
@@ -188,12 +183,10 @@ public struct ProtobufPackedField<T: ProtobufTypeProperties>: ProtobufTypedExten
     public typealias ValueType = [BaseType]
     public var value = ValueType()
     public var protobufExtension: ProtobufMessageExtension
-    
+
     public init(protobufExtension: ProtobufMessageExtension) {
         self.protobufExtension = protobufExtension
     }
-
-    public var isEmpty: Bool { return value.count == 0 }
 
     public var hashValue: Int {
         get {
@@ -204,7 +197,7 @@ public struct ProtobufPackedField<T: ProtobufTypeProperties>: ProtobufTypedExten
             return hash
         }
     }
-    
+
     public func isEqual(other: ProtobufExtensionField) -> Bool {
         let o = other as! ProtobufPackedField<T>
         return self == o
@@ -245,13 +238,9 @@ public struct ProtobufOptionalMessageField<M: ProtobufAbstractMessage>: Protobuf
     public typealias ValueType = BaseType?
     public var value: ValueType
     public var protobufExtension: ProtobufMessageExtension
-    
+
     public init(protobufExtension: ProtobufMessageExtension) {
         self.protobufExtension = protobufExtension
-    }
-
-    public var isEmpty: Bool {
-        return value?.isEmpty ?? true
     }
 
     public var debugDescription: String {
@@ -300,13 +289,9 @@ public struct ProtobufRepeatedMessageField<M: ProtobufAbstractMessage>: Protobuf
     public typealias ValueType = [BaseType]
     public var value = ValueType()
     public var protobufExtension: ProtobufMessageExtension
-    
+
     public init(protobufExtension: ProtobufMessageExtension) {
         self.protobufExtension = protobufExtension
-    }
-
-    public var isEmpty: Bool {
-        return value.count == 0
     }
 
     public var hashValue: Int {
@@ -367,7 +352,6 @@ public struct ProtobufOptionalGroupField<G: ProtobufGroup & Hashable>: ProtobufT
         self.protobufExtension = protobufExtension
     }
 
-    public var isEmpty: Bool {return value == nil}
     public var hashValue: Int {return value?.hashValue ?? 0}
 
     public var debugDescription: String { get {return value?.debugDescription ?? ""} }
@@ -406,12 +390,11 @@ public struct ProtobufRepeatedGroupField<G: ProtobufGroup & Hashable>: ProtobufT
     public typealias ValueType = [BaseType]
     public var value = [G]()
     public var protobufExtension: ProtobufMessageExtension
-    
+
     public init(protobufExtension: ProtobufMessageExtension) {
         self.protobufExtension = protobufExtension
     }
 
-    public var isEmpty: Bool {return value.count == 0}
     public var hashValue: Int {
         get {
             var hash = i_2166136261

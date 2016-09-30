@@ -34,10 +34,6 @@ public struct ProtobufUnknownStorage: Equatable {
     public func traverse(visitor: inout ProtobufVisitor) {
         visitor.visitUnknown(bytes: data)
     }
-
-    public var isEmpty: Bool {
-        get {return data.isEmpty}
-    }
 }
 
 public func ==(lhs: ProtobufUnknownStorage, rhs: ProtobufUnknownStorage) -> Bool {
