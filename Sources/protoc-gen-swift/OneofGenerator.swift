@@ -131,10 +131,6 @@ class OneofGenerator {
         p.outdent()
         p.print("}\n")
 
-        // isEmpty support
-        p.print("\n")
-        p.print("public var isEmpty: Bool {return self == .None}\n")
-
         p.outdent()
         p.print("}\n")
     }
@@ -143,7 +139,7 @@ class OneofGenerator {
         p.print("\n")
         p.print("public var \(descriptor.swiftStorageFieldName): \(swiftRelativeName) {\n")
         p.indent()
-        p.print("get {return _storage?.\(descriptor.swiftStorageFieldName) ?? .None}\n")
+        p.print("get {return _storage.\(descriptor.swiftStorageFieldName)}\n")
         p.print("set {\n")
         p.indent()
         p.print("_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue\n")
