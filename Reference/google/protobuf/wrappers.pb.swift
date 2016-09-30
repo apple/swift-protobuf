@@ -86,11 +86,6 @@ public struct Google_Protobuf_DoubleValue: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if value != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_DoubleValue) -> Bool {
     if value != other.value {return false}
     return true
@@ -137,11 +132,6 @@ public struct Google_Protobuf_FloatValue: ProtobufGeneratedMessage {
     if value != 0 {
       try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if value != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FloatValue) -> Bool {
@@ -192,11 +182,6 @@ public struct Google_Protobuf_Int64Value: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if value != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Int64Value) -> Bool {
     if value != other.value {return false}
     return true
@@ -243,11 +228,6 @@ public struct Google_Protobuf_UInt64Value: ProtobufGeneratedMessage {
     if value != 0 {
       try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if value != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_UInt64Value) -> Bool {
@@ -298,11 +278,6 @@ public struct Google_Protobuf_Int32Value: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if value != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Int32Value) -> Bool {
     if value != other.value {return false}
     return true
@@ -349,11 +324,6 @@ public struct Google_Protobuf_UInt32Value: ProtobufGeneratedMessage {
     if value != 0 {
       try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if value != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_UInt32Value) -> Bool {
@@ -404,11 +374,6 @@ public struct Google_Protobuf_BoolValue: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if value != false {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_BoolValue) -> Bool {
     if value != other.value {return false}
     return true
@@ -457,11 +422,6 @@ public struct Google_Protobuf_StringValue: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if value != "" {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_StringValue) -> Bool {
     if value != other.value {return false}
     return true
@@ -508,11 +468,6 @@ public struct Google_Protobuf_BytesValue: ProtobufGeneratedMessage {
     if value != Data() {
       try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if value != Data() {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_BytesValue) -> Bool {

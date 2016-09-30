@@ -72,7 +72,6 @@ public protocol ProtobufMessageBase: CustomDebugStringConvertible, ProtobufTrave
     // They are implemented in the protocol, not in the generated structs,
     // so can be overridden in user code by defining custom extensions to
     // the generated struct.
-    var isEmpty: Bool { get }
     var hashValue: Int { get }
     var debugDescription: String { get }
     var customMirror: Mirror { get }
@@ -145,7 +144,6 @@ public protocol ProtobufGeneratedMessage: ProtobufAbstractMessage {
     mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool
     func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws
     func _protoc_generated_isEqualTo(other: Self) -> Bool
-    var _protoc_generated_isEmpty: Bool { get }
 }
 
 public extension ProtobufGeneratedMessage {
@@ -153,13 +151,14 @@ public extension ProtobufGeneratedMessage {
     public func traverse(visitor: inout ProtobufVisitor) throws {
         try _protoc_generated_traverse(visitor: &visitor)
     }
+
     mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         return try _protoc_generated_decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
     }
+
     func isEqualTo(other: Self) -> Bool {
         return _protoc_generated_isEqualTo(other: other)
     }
-    var isEmpty: Bool { get { return _protoc_generated_isEmpty } }
 }
 
 // TODO: This is a transition aid, remove this in August 2016.

@@ -181,12 +181,6 @@ public struct Google_Protobuf_Any: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if typeURL != "" {return false}
-    if value != Data() {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
     if typeURL != other.typeURL {return false}
     if value != other.value {return false}

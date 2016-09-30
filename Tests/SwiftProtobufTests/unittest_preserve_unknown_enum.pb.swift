@@ -285,8 +285,6 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public var e: Proto3PreserveUnknownEnumUnittest_MyEnum = Proto3PreserveUnknownEnumUnittest_MyEnum.foo
@@ -392,15 +390,6 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
     try o.traverse(visitor: &visitor, start: 5, end: 7)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if e != Proto3PreserveUnknownEnumUnittest_MyEnum.foo {return false}
-    if !repeatedE.isEmpty {return false}
-    if !repeatedPackedE.isEmpty {return false}
-    if !repeatedPackedUnexpectedE.isEmpty {return false}
-    if !o.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessage) -> Bool {
     if e != other.e {return false}
     if repeatedE != other.repeatedE {return false}
@@ -480,8 +469,6 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGene
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
@@ -584,15 +571,6 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGene
       try visitor.visitPackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: repeatedPackedUnexpectedE, protoFieldNumber: 4, protoFieldName: "repeated_packed_unexpected_e", jsonFieldName: "repeatedPackedUnexpectedE", swiftFieldName: "repeatedPackedUnexpectedE")
     }
     try o.traverse(visitor: &visitor, start: 5, end: 7)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if e != Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo {return false}
-    if !repeatedE.isEmpty {return false}
-    if !repeatedPackedE.isEmpty {return false}
-    if !repeatedPackedUnexpectedE.isEmpty {return false}
-    if !o.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra) -> Bool {

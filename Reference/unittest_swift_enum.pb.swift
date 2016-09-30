@@ -203,11 +203,6 @@ public struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftEnumTest) -> Bool {
     if unknown != other.unknown {return false}
     return true

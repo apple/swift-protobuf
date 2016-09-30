@@ -245,32 +245,6 @@ class StorageClassGenerator {
         p.outdent()
         p.print("}\n")
 
-        // isEmpty helper
-        p.print("\n")
-        p.print("var isEmpty: Bool {\n")
-        p.indent()
-        oneofHandled.removeAll(keepingCapacity: true)
-        for f in fields {
-            if let o = f.oneof {
-                if !oneofHandled.contains(f.descriptor.oneofIndex!) {
-                    p.print("if !\(o.swiftStorageFieldName).isEmpty {return false}\n")
-                    oneofHandled.insert(f.descriptor.oneofIndex!)
-                }
-            } else {
-                let test = f.isNotEmptyTest()
-                p.print("if \(test) {return false}\n")
-            }
-        }
-        if !isProto3 {
-            p.print("if !unknown.isEmpty {return false}\n")
-        }
-        if isExtensible {
-            p.print("if !extensionFieldValues.isEmpty {return false}\n")
-        }
-        p.print("return true\n")
-        p.outdent()
-        p.print("}\n")
-
         // isEqual helper
         p.print("\n")
         p.print("func isEqualTo(other: _StorageClass) -> Bool {\n")
@@ -475,7 +449,7 @@ class MessageGenerator {
             // Storage class, if needed
             storage.generateNested(printer: &p)
             p.print("\n")
-            p.print("private var _storage: _StorageClass?\n")
+            p.print("private var _storage = _StorageClass()\n")
         }
 
         if storage == nil && !file.isProto3 {
@@ -682,12 +656,7 @@ class MessageGenerator {
         p.print("public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {\n")
         p.indent()
         if storage != nil {
-            let hasRequired = descriptor.field.contains {$0.label == .required}
-            if hasRequired {
-                p.print("try (_storage ?? _StorageClass()).traverse(visitor: &visitor)\n")
-            } else {
-                p.print("try _storage?.traverse(visitor: &visitor)\n")
-            }
+            p.print("try _storage.traverse(visitor: &visitor)\n")
         } else {
             var ranges = descriptor.extensionRange.makeIterator()
             var nextRange = ranges.next()
@@ -729,47 +698,6 @@ class MessageGenerator {
         p.outdent()
         p.print("}\n")
 
-        // isEmpty property
-        p.print("\n")
-        if fields.isEmpty && isProto3 {
-            p.print("public let _protoc_generated_isEmpty: Bool = true\n")
-        } else if storage != nil {
-            p.print("public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}\n")
-        } else {
-            p.print("public var _protoc_generated_isEmpty: Bool {\n")
-            p.indent()
-            var oneofHandled = Set<Int32>()
-            for f in fields {
-                if let o = f.oneof {
-                    if !oneofHandled.contains(f.descriptor.oneofIndex!) {
-                        p.print("if !\(o.swiftFieldName).isEmpty {return false}\n")
-                        oneofHandled.insert(f.descriptor.oneofIndex!)
-                    }
-                } else if f.isRepeated {
-                    p.print("if !\(f.swiftName).isEmpty {return false}\n")
-                } else if isProto3 {
-                    p.print("if \(f.swiftName) != \(f.swiftDefaultValue) {return false}\n")
-                } else if f.isOptional {
-                    if let def = f.swiftProto2DefaultValue {
-                        p.print("if \(f.swiftName) != nil && \(f.swiftName)! != \(def) {return false}\n")
-                    } else {
-                        p.print("if \(f.swiftName) != nil {return false}\n")
-                    }
-                } else {
-                    p.print("if \(f.swiftName) != \(f.swiftDefaultValue) {return false}\n")
-                }
-            }
-            if !file.isProto3 {
-                p.print("if !unknown.isEmpty {return false}\n")
-            }
-            if isExtensible {
-                p.print("if !extensionFieldValues.isEmpty {return false}\n")
-            }
-            p.print("return true\n")
-            p.outdent()
-            p.print("}\n")
-        }
-
         // isEqualTo method
         p.print("\n")
         p.print("public func _protoc_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
@@ -784,15 +712,7 @@ class MessageGenerator {
             p.print("return true\n")
         } else {
             if storage != nil {
-                p.print("if let s = _storage {\n")
-                p.print("  if let os = other._storage {\n")
-                p.print("    return s === os || s.isEqualTo(other: os)\n")
-                p.print("  }\n")
-                p.print("  return isEmpty // empty storage == nil storage\n")
-                p.print("} else if let os = other._storage {\n")
-                p.print("  return os.isEmpty // nil storage == empty storage\n")
-                p.print("}\n")
-                p.print("return true // Both nil, both empty\n")
+                p.print("return _storage === other._storage || _storage.isEqualTo(other: other._storage)\n")
             } else {
                 var oneofHandled = Set<Int32>()
                 for f in fields {
@@ -822,12 +742,10 @@ class MessageGenerator {
         if storage != nil {
             p.print("\n")
             p.print("private mutating func _uniqueStorage() -> _StorageClass {\n")
-            p.print("  if _storage == nil {\n")
-            p.print("    _storage = _StorageClass()\n")
-            p.print("  } else if !isKnownUniquelyReferenced(&_storage) {\n")
-            p.print("    _storage = _storage!.copy()\n")
+            p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
+            p.print("    _storage = _storage.copy()\n")
             p.print("  }\n")
-            p.print("  return _storage!\n")
+            p.print("  return _storage\n")
             p.print("}\n")
         }
 
@@ -840,7 +758,7 @@ class MessageGenerator {
                 p.print("}\n")
                 p.print("\n")
                 p.print("public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
-                p.print("  return _storage?.getExtensionValue(ext: ext) ?? ext.defaultValue\n")
+                p.print("  return _storage.getExtensionValue(ext: ext)\n")
                 p.print("}\n")
             } else {
                 p.print("\n")

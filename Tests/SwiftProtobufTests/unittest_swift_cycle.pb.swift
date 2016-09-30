@@ -98,18 +98,10 @@ public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _aFoo != nil {return false}
-      if _aBar != nil {return false}
-      if _aBaz != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_aFoo != nil && !_aFoo!.isEmpty) || (other._aFoo != nil && !other._aFoo!.isEmpty)) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
-      if (((_aBar != nil && !_aBar!.isEmpty) || (other._aBar != nil && !other._aBar!.isEmpty)) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
-      if (((_aBaz != nil && !_aBaz!.isEmpty) || (other._aBaz != nil && !other._aBaz!.isEmpty)) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
+      if ((_aFoo != nil || other._aFoo != nil) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
+      if ((_aBar != nil || other._aBar != nil) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
+      if ((_aBaz != nil || other._aBaz != nil) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -124,20 +116,20 @@ public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var aFoo: ProtobufUnittest_CycleFoo? {
-    get {return _storage?._aFoo}
+    get {return _storage._aFoo}
     set {_uniqueStorage()._aFoo = newValue}
   }
 
   public var aBar: ProtobufUnittest_CycleBar? {
-    get {return _storage?._aBar}
+    get {return _storage._aBar}
     set {_uniqueStorage()._aBar = newValue}
   }
 
   public var aBaz: ProtobufUnittest_CycleBaz? {
-    get {return _storage?._aBaz}
+    get {return _storage._aBaz}
     set {_uniqueStorage()._aBaz = newValue}
   }
 
@@ -158,30 +150,18 @@ public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -238,18 +218,10 @@ public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _aBar != nil {return false}
-      if _aBaz != nil {return false}
-      if _aFoo != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_aBar != nil && !_aBar!.isEmpty) || (other._aBar != nil && !other._aBar!.isEmpty)) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
-      if (((_aBaz != nil && !_aBaz!.isEmpty) || (other._aBaz != nil && !other._aBaz!.isEmpty)) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
-      if (((_aFoo != nil && !_aFoo!.isEmpty) || (other._aFoo != nil && !other._aFoo!.isEmpty)) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
+      if ((_aBar != nil || other._aBar != nil) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
+      if ((_aBaz != nil || other._aBaz != nil) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
+      if ((_aFoo != nil || other._aFoo != nil) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -264,20 +236,20 @@ public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var aBar: ProtobufUnittest_CycleBar? {
-    get {return _storage?._aBar}
+    get {return _storage._aBar}
     set {_uniqueStorage()._aBar = newValue}
   }
 
   public var aBaz: ProtobufUnittest_CycleBaz? {
-    get {return _storage?._aBaz}
+    get {return _storage._aBaz}
     set {_uniqueStorage()._aBaz = newValue}
   }
 
   public var aFoo: ProtobufUnittest_CycleFoo? {
-    get {return _storage?._aFoo}
+    get {return _storage._aFoo}
     set {_uniqueStorage()._aFoo = newValue}
   }
 
@@ -298,30 +270,18 @@ public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -378,18 +338,10 @@ public struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _aBaz != nil {return false}
-      if _aFoo != nil {return false}
-      if _aBar != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_aBaz != nil && !_aBaz!.isEmpty) || (other._aBaz != nil && !other._aBaz!.isEmpty)) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
-      if (((_aFoo != nil && !_aFoo!.isEmpty) || (other._aFoo != nil && !other._aFoo!.isEmpty)) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
-      if (((_aBar != nil && !_aBar!.isEmpty) || (other._aBar != nil && !other._aBar!.isEmpty)) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
+      if ((_aBaz != nil || other._aBaz != nil) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
+      if ((_aFoo != nil || other._aFoo != nil) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
+      if ((_aBar != nil || other._aBar != nil) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -404,20 +356,20 @@ public struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var aBaz: ProtobufUnittest_CycleBaz? {
-    get {return _storage?._aBaz}
+    get {return _storage._aBaz}
     set {_uniqueStorage()._aBaz = newValue}
   }
 
   public var aFoo: ProtobufUnittest_CycleFoo? {
-    get {return _storage?._aFoo}
+    get {return _storage._aFoo}
     set {_uniqueStorage()._aFoo = newValue}
   }
 
   public var aBar: ProtobufUnittest_CycleBar? {
-    get {return _storage?._aBar}
+    get {return _storage._aBar}
     set {_uniqueStorage()._aBar = newValue}
   }
 
@@ -438,29 +390,17 @@ public struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }

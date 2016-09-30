@@ -265,13 +265,6 @@ public struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !knownMapField.isEmpty {return false}
-    if !unknownMapField.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
     if knownMapField != other.knownMapField {return false}
     if unknownMapField != other.unknownMapField {return false}
@@ -337,13 +330,6 @@ public struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !knownMapField.isEmpty {return false}
-    if !unknownMapField.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
     if knownMapField != other.knownMapField {return false}
     if unknownMapField != other.unknownMapField {return false}
@@ -395,12 +381,6 @@ public struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, protoFieldNumber: 1, protoFieldName: "import_enum_amp", jsonFieldName: "importEnumAmp", swiftFieldName: "importEnumAmp")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !importEnumAmp.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {

@@ -26,7 +26,6 @@ public protocol ProtobufGroupBase: CustomDebugStringConvertible, ProtobufTravers
 
     mutating func decodeFromJSONObject(jsonDecoder: inout ProtobufJSONDecoder) throws
 
-    var isEmpty: Bool { get }
     var swiftClassName: String { get }
 }
 
@@ -56,7 +55,6 @@ public protocol ProtobufGeneratedGroup: ProtobufGroup {
     // customize the behavior.
     mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool
     func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws
-    var _protoc_generated_isEmpty: Bool { get }
     func _protoc_generated_isEqualTo(other: Self) -> Bool
 }
 
@@ -70,7 +68,6 @@ public extension ProtobufGeneratedGroup {
         return try _protoc_generated_decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
     }
 
-    var isEmpty: Bool { get { return _protoc_generated_isEmpty } }
     func isEqualTo(other: Self) -> Bool {
         return _protoc_generated_isEqualTo(other: other)
     }

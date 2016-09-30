@@ -94,12 +94,6 @@ public struct Google_Protobuf_FileDescriptorSet: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !file.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FileDescriptorSet) -> Bool {
     if file != other.file {return false}
     if unknown != other.unknown {return false}
@@ -224,23 +218,6 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if _package != nil {return false}
-      if !_dependency.isEmpty {return false}
-      if !_publicDependency.isEmpty {return false}
-      if !_weakDependency.isEmpty {return false}
-      if !_messageType.isEmpty {return false}
-      if !_enumType.isEmpty {return false}
-      if !_service.isEmpty {return false}
-      if !_extension_p.isEmpty {return false}
-      if _options != nil {return false}
-      if _sourceCodeInfo != nil {return false}
-      if _syntax != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
       if ((_package != nil || other._package != nil) && (_package == nil || other._package == nil || _package! != other._package!)) {return false}
@@ -251,8 +228,8 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
       if _enumType != other._enumType {return false}
       if _service != other._service {return false}
       if _extension_p != other._extension_p {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
-      if (((_sourceCodeInfo != nil && !_sourceCodeInfo!.isEmpty) || (other._sourceCodeInfo != nil && !other._sourceCodeInfo!.isEmpty)) && (_sourceCodeInfo == nil || other._sourceCodeInfo == nil || _sourceCodeInfo! != other._sourceCodeInfo!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_sourceCodeInfo != nil || other._sourceCodeInfo != nil) && (_sourceCodeInfo == nil || other._sourceCodeInfo == nil || _sourceCodeInfo! != other._sourceCodeInfo!)) {return false}
       if ((_syntax != nil || other._syntax != nil) && (_syntax == nil || other._syntax == nil || _syntax! != other._syntax!)) {return false}
       if unknown != other.unknown {return false}
       return true
@@ -277,62 +254,62 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   ///   file name, relative to root of source tree
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   e.g. "foo", "foo.bar", etc.
   public var package: String? {
-    get {return _storage?._package}
+    get {return _storage._package}
     set {_uniqueStorage()._package = newValue}
   }
 
   ///   Names of files imported by this file.
   public var dependency: [String] {
-    get {return _storage?._dependency ?? []}
+    get {return _storage._dependency}
     set {_uniqueStorage()._dependency = newValue}
   }
 
   ///   Indexes of the public imported files in the dependency list above.
   public var publicDependency: [Int32] {
-    get {return _storage?._publicDependency ?? []}
+    get {return _storage._publicDependency}
     set {_uniqueStorage()._publicDependency = newValue}
   }
 
   ///   Indexes of the weak imported files in the dependency list.
   ///   For Google-internal migration only. Do not use.
   public var weakDependency: [Int32] {
-    get {return _storage?._weakDependency ?? []}
+    get {return _storage._weakDependency}
     set {_uniqueStorage()._weakDependency = newValue}
   }
 
   ///   All top-level definitions in this file.
   public var messageType: [Google_Protobuf_DescriptorProto] {
-    get {return _storage?._messageType ?? []}
+    get {return _storage._messageType}
     set {_uniqueStorage()._messageType = newValue}
   }
 
   public var enumType: [Google_Protobuf_EnumDescriptorProto] {
-    get {return _storage?._enumType ?? []}
+    get {return _storage._enumType}
     set {_uniqueStorage()._enumType = newValue}
   }
 
   public var service: [Google_Protobuf_ServiceDescriptorProto] {
-    get {return _storage?._service ?? []}
+    get {return _storage._service}
     set {_uniqueStorage()._service = newValue}
   }
 
   public var extension_p: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage?._extension_p ?? []}
+    get {return _storage._extension_p}
     set {_uniqueStorage()._extension_p = newValue}
   }
 
   public var options: Google_Protobuf_FileOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
@@ -341,14 +318,14 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
   ///   functionality of the descriptors -- the information is needed only by
   ///   development tools.
   public var sourceCodeInfo: Google_Protobuf_SourceCodeInfo? {
-    get {return _storage?._sourceCodeInfo}
+    get {return _storage._sourceCodeInfo}
     set {_uniqueStorage()._sourceCodeInfo = newValue}
   }
 
   ///   The syntax of the proto file.
   ///   The supported values are "proto2" and "proto3".
   public var syntax: String? {
-    get {return _storage?._syntax}
+    get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
   }
 
@@ -401,30 +378,18 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FileDescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -531,21 +496,6 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if !_field.isEmpty {return false}
-      if !_extension_p.isEmpty {return false}
-      if !_nestedType.isEmpty {return false}
-      if !_enumType.isEmpty {return false}
-      if !_extensionRange.isEmpty {return false}
-      if !_oneofDecl.isEmpty {return false}
-      if _options != nil {return false}
-      if !_reservedRange.isEmpty {return false}
-      if !_reservedName.isEmpty {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
       if _field != other._field {return false}
@@ -554,7 +504,7 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
       if _enumType != other._enumType {return false}
       if _extensionRange != other._extensionRange {return false}
       if _oneofDecl != other._oneofDecl {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if _reservedRange != other._reservedRange {return false}
       if _reservedName != other._reservedName {return false}
       if unknown != other.unknown {return false}
@@ -578,7 +528,7 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public struct ExtensionRange: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Google_Protobuf_DescriptorProto.ExtensionRange"}
@@ -631,13 +581,6 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 2, protoFieldName: "end", jsonFieldName: "end", swiftFieldName: "end")
       }
       unknown.traverse(visitor: &visitor)
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if start != nil {return false}
-      if end != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
@@ -706,13 +649,6 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if start != nil {return false}
-      if end != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
       if ((start != nil || other.start != nil) && (start == nil || other.start == nil || start! != other.start!)) {return false}
       if ((end != nil || other.end != nil) && (end == nil || other.end == nil || end! != other.end!)) {return false}
@@ -722,54 +658,54 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
   }
 
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   public var field: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage?._field ?? []}
+    get {return _storage._field}
     set {_uniqueStorage()._field = newValue}
   }
 
   public var extension_p: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage?._extension_p ?? []}
+    get {return _storage._extension_p}
     set {_uniqueStorage()._extension_p = newValue}
   }
 
   public var nestedType: [Google_Protobuf_DescriptorProto] {
-    get {return _storage?._nestedType ?? []}
+    get {return _storage._nestedType}
     set {_uniqueStorage()._nestedType = newValue}
   }
 
   public var enumType: [Google_Protobuf_EnumDescriptorProto] {
-    get {return _storage?._enumType ?? []}
+    get {return _storage._enumType}
     set {_uniqueStorage()._enumType = newValue}
   }
 
   public var extensionRange: [Google_Protobuf_DescriptorProto.ExtensionRange] {
-    get {return _storage?._extensionRange ?? []}
+    get {return _storage._extensionRange}
     set {_uniqueStorage()._extensionRange = newValue}
   }
 
   public var oneofDecl: [Google_Protobuf_OneofDescriptorProto] {
-    get {return _storage?._oneofDecl ?? []}
+    get {return _storage._oneofDecl}
     set {_uniqueStorage()._oneofDecl = newValue}
   }
 
   public var options: Google_Protobuf_MessageOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
   public var reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] {
-    get {return _storage?._reservedRange ?? []}
+    get {return _storage._reservedRange}
     set {_uniqueStorage()._reservedRange = newValue}
   }
 
   ///   Reserved field names, which may not be used by fields in the same message.
   ///   A given name may only be reserved once.
   public var reservedName: [String] {
-    get {return _storage?._reservedName ?? []}
+    get {return _storage._reservedName}
     set {_uniqueStorage()._reservedName = newValue}
   }
 
@@ -820,30 +756,18 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -950,21 +874,6 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if _number != nil {return false}
-      if _label != nil {return false}
-      if _type != nil {return false}
-      if _typeName != nil {return false}
-      if _extendee != nil {return false}
-      if _defaultValue != nil {return false}
-      if _oneofIndex != nil {return false}
-      if _jsonName != nil {return false}
-      if _options != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
       if ((_number != nil || other._number != nil) && (_number == nil || other._number == nil || _number! != other._number!)) {return false}
@@ -975,7 +884,7 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
       if ((_defaultValue != nil || other._defaultValue != nil) && (_defaultValue == nil || other._defaultValue == nil || _defaultValue! != other._defaultValue!)) {return false}
       if ((_oneofIndex != nil || other._oneofIndex != nil) && (_oneofIndex == nil || other._oneofIndex == nil || _oneofIndex! != other._oneofIndex!)) {return false}
       if ((_jsonName != nil || other._jsonName != nil) && (_jsonName == nil || other._jsonName == nil || _jsonName! != other._jsonName!)) {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -997,7 +906,7 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum TypeEnum: ProtobufEnum {
     public typealias RawValue = Int
@@ -1303,24 +1212,24 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   }
 
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   public var number: Int32? {
-    get {return _storage?._number}
+    get {return _storage._number}
     set {_uniqueStorage()._number = newValue}
   }
 
   public var label: Google_Protobuf_FieldDescriptorProto.Label? {
-    get {return _storage?._label}
+    get {return _storage._label}
     set {_uniqueStorage()._label = newValue}
   }
 
   ///   If type_name is set, this need not be set.  If both this and type_name
   ///   are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
   public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum? {
-    get {return _storage?._type}
+    get {return _storage._type}
     set {_uniqueStorage()._type = newValue}
   }
 
@@ -1330,14 +1239,14 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   ///   message are searched, then within the parent, on up to the root
   ///   namespace).
   public var typeName: String? {
-    get {return _storage?._typeName}
+    get {return _storage._typeName}
     set {_uniqueStorage()._typeName = newValue}
   }
 
   ///   For extensions, this is the name of the type being extended.  It is
   ///   resolved in the same manner as type_name.
   public var extendee: String? {
-    get {return _storage?._extendee}
+    get {return _storage._extendee}
     set {_uniqueStorage()._extendee = newValue}
   }
 
@@ -1347,14 +1256,14 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   ///   For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
   ///   TODO(kenton):  Base-64 encode?
   public var defaultValue: String? {
-    get {return _storage?._defaultValue}
+    get {return _storage._defaultValue}
     set {_uniqueStorage()._defaultValue = newValue}
   }
 
   ///   If set, gives the index of a oneof in the containing type's oneof_decl
   ///   list.  This field is a member of that oneof.
   public var oneofIndex: Int32? {
-    get {return _storage?._oneofIndex}
+    get {return _storage._oneofIndex}
     set {_uniqueStorage()._oneofIndex = newValue}
   }
 
@@ -1363,12 +1272,12 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   ///   will be used. Otherwise, it's deduced from the field's name by converting
   ///   it to camelCase.
   public var jsonName: String? {
-    get {return _storage?._jsonName}
+    get {return _storage._jsonName}
     set {_uniqueStorage()._jsonName = newValue}
   }
 
   public var options: Google_Protobuf_FieldOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
@@ -1403,30 +1312,18 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldDescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1477,16 +1374,9 @@ public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if _options != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1500,15 +1390,15 @@ public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   public var options: Google_Protobuf_OneofOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
@@ -1527,30 +1417,18 @@ public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_OneofDescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1608,18 +1486,10 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if !_value.isEmpty {return false}
-      if _options != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
       if _value != other._value {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1634,20 +1504,20 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   public var value: [Google_Protobuf_EnumValueDescriptorProto] {
-    get {return _storage?._value ?? []}
+    get {return _storage._value}
     set {_uniqueStorage()._value = newValue}
   }
 
   public var options: Google_Protobuf_EnumOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
@@ -1670,30 +1540,18 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1751,18 +1609,10 @@ public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if _number != nil {return false}
-      if _options != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
       if ((_number != nil || other._number != nil) && (_number == nil || other._number == nil || _number! != other._number!)) {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1777,20 +1627,20 @@ public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   public var number: Int32? {
-    get {return _storage?._number}
+    get {return _storage._number}
     set {_uniqueStorage()._number = newValue}
   }
 
   public var options: Google_Protobuf_EnumValueOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
@@ -1811,30 +1661,18 @@ public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1892,18 +1730,10 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if !_method.isEmpty {return false}
-      if _options != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
       if _method != other._method {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1918,20 +1748,20 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   public var method: [Google_Protobuf_MethodDescriptorProto] {
-    get {return _storage?._method ?? []}
+    get {return _storage._method}
     set {_uniqueStorage()._method = newValue}
   }
 
   public var options: Google_Protobuf_ServiceOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
@@ -1954,30 +1784,18 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_ServiceDescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2056,22 +1874,11 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _name != nil {return false}
-      if _inputType != nil {return false}
-      if _outputType != nil {return false}
-      if _options != nil {return false}
-      if _clientStreaming != nil && _clientStreaming! != false {return false}
-      if _serverStreaming != nil && _serverStreaming! != false {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
       if ((_inputType != nil || other._inputType != nil) && (_inputType == nil || other._inputType == nil || _inputType! != other._inputType!)) {return false}
       if ((_outputType != nil || other._outputType != nil) && (_outputType == nil || other._outputType == nil || _outputType! != other._outputType!)) {return false}
-      if (((_options != nil && !_options!.isEmpty) || (other._options != nil && !other._options!.isEmpty)) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if (((_clientStreaming != nil && _clientStreaming! != false) || (other._clientStreaming != nil && other._clientStreaming! != false)) && (_clientStreaming == nil || other._clientStreaming == nil || _clientStreaming! != other._clientStreaming!)) {return false}
       if (((_serverStreaming != nil && _serverStreaming! != false) || (other._serverStreaming != nil && other._serverStreaming! != false)) && (_serverStreaming == nil || other._serverStreaming == nil || _serverStreaming! != other._serverStreaming!)) {return false}
       if unknown != other.unknown {return false}
@@ -2091,39 +1898,39 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var name: String? {
-    get {return _storage?._name}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   Input and output type names.  These are resolved in the same way as
   ///   FieldDescriptorProto.type_name, but must refer to a message type.
   public var inputType: String? {
-    get {return _storage?._inputType}
+    get {return _storage._inputType}
     set {_uniqueStorage()._inputType = newValue}
   }
 
   public var outputType: String? {
-    get {return _storage?._outputType}
+    get {return _storage._outputType}
     set {_uniqueStorage()._outputType = newValue}
   }
 
   public var options: Google_Protobuf_MethodOptions? {
-    get {return _storage?._options}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
   ///   Identifies if client streams multiple client messages
   public var clientStreaming: Bool? {
-    get {return _storage?._clientStreaming ?? false}
+    get {return _storage._clientStreaming ?? false}
     set {_uniqueStorage()._clientStreaming = newValue}
   }
 
   ///   Identifies if server streams multiple server messages
   public var serverStreaming: Bool? {
-    get {return _storage?._serverStreaming ?? false}
+    get {return _storage._serverStreaming ?? false}
     set {_uniqueStorage()._serverStreaming = newValue}
   }
 
@@ -2150,30 +1957,18 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodDescriptorProto) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2590,28 +2385,6 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if javaPackage != nil {return false}
-    if javaOuterClassname != nil {return false}
-    if javaMultipleFiles != nil && javaMultipleFiles! != false {return false}
-    if javaGenerateEqualsAndHash != nil && javaGenerateEqualsAndHash! != false {return false}
-    if javaStringCheckUtf8 != nil && javaStringCheckUtf8! != false {return false}
-    if optimizeFor != nil && optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed {return false}
-    if goPackage != nil {return false}
-    if ccGenericServices != nil && ccGenericServices! != false {return false}
-    if javaGenericServices != nil && javaGenericServices! != false {return false}
-    if pyGenericServices != nil && pyGenericServices! != false {return false}
-    if deprecated != nil && deprecated! != false {return false}
-    if ccEnableArenas != nil && ccEnableArenas! != false {return false}
-    if objcClassPrefix != nil {return false}
-    if csharpNamespace != nil {return false}
-    if swiftPrefix != nil {return false}
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
     if ((javaPackage != nil || other.javaPackage != nil) && (javaPackage == nil || other.javaPackage == nil || javaPackage! != other.javaPackage!)) {return false}
     if ((javaOuterClassname != nil || other.javaOuterClassname != nil) && (javaOuterClassname == nil || other.javaOuterClassname == nil || javaOuterClassname! != other.javaOuterClassname!)) {return false}
@@ -2795,17 +2568,6 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
     }
     try extensionFieldValues.traverse(visitor: &visitor, start: 1000, end: 536870912)
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if messageSetWireFormat != nil && messageSetWireFormat! != false {return false}
-    if noStandardDescriptorAccessor != nil && noStandardDescriptorAccessor! != false {return false}
-    if deprecated != nil && deprecated! != false {return false}
-    if mapEntry != nil {return false}
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MessageOptions) -> Bool {
@@ -3183,19 +2945,6 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if ctype != nil && ctype! != Google_Protobuf_FieldOptions.CType.string {return false}
-    if packed != nil {return false}
-    if jstype != nil && jstype! != Google_Protobuf_FieldOptions.JSType.jsNormal {return false}
-    if lazy != nil && lazy! != false {return false}
-    if deprecated != nil && deprecated! != false {return false}
-    if weak != nil && weak! != false {return false}
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldOptions) -> Bool {
     if (((ctype != nil && ctype! != Google_Protobuf_FieldOptions.CType.string) || (other.ctype != nil && other.ctype! != Google_Protobuf_FieldOptions.CType.string)) && (ctype == nil || other.ctype == nil || ctype! != other.ctype!)) {return false}
     if ((packed != nil || other.packed != nil) && (packed == nil || other.packed == nil || packed! != other.packed!)) {return false}
@@ -3272,13 +3021,6 @@ public struct Google_Protobuf_OneofOptions: ProtobufGeneratedMessage, ProtobufEx
     }
     try extensionFieldValues.traverse(visitor: &visitor, start: 1000, end: 536870912)
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_OneofOptions) -> Bool {
@@ -3383,15 +3125,6 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if allowAlias != nil {return false}
-    if deprecated != nil && deprecated! != false {return false}
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumOptions) -> Bool {
     if ((allowAlias != nil || other.allowAlias != nil) && (allowAlias == nil || other.allowAlias == nil || allowAlias! != other.allowAlias!)) {return false}
     if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
@@ -3482,14 +3215,6 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
     }
     try extensionFieldValues.traverse(visitor: &visitor, start: 1000, end: 536870912)
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if deprecated != nil && deprecated! != false {return false}
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValueOptions) -> Bool {
@@ -3588,14 +3313,6 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if deprecated != nil && deprecated! != false {return false}
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_ServiceOptions) -> Bool {
     if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
@@ -3690,14 +3407,6 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
     }
     try extensionFieldValues.traverse(visitor: &visitor, start: 1000, end: 536870912)
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if deprecated != nil && deprecated! != false {return false}
-    if !uninterpretedOption.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodOptions) -> Bool {
@@ -3807,13 +3516,6 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if namePart != "" {return false}
-      if isExtension != false {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
       if namePart != other.namePart {return false}
       if isExtension != other.isExtension {return false}
@@ -3902,18 +3604,6 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 8, protoFieldName: "aggregate_value", jsonFieldName: "aggregateValue", swiftFieldName: "aggregateValue")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !name.isEmpty {return false}
-    if identifierValue != nil {return false}
-    if positiveIntValue != nil {return false}
-    if negativeIntValue != nil {return false}
-    if doubleValue != nil {return false}
-    if stringValue != nil {return false}
-    if aggregateValue != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption) -> Bool {
@@ -4111,16 +3801,6 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if !path.isEmpty {return false}
-      if !span.isEmpty {return false}
-      if leadingComments != nil {return false}
-      if trailingComments != nil {return false}
-      if !leadingDetachedComments.isEmpty {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
       if path != other.path {return false}
       if span != other.span {return false}
@@ -4205,12 +3885,6 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
       try visitor.visitRepeatedMessageField(value: location, protoFieldNumber: 1, protoFieldName: "location", jsonFieldName: "location", swiftFieldName: "location")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !location.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo) -> Bool {
@@ -4319,15 +3993,6 @@ public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if !path.isEmpty {return false}
-      if sourceFile != nil {return false}
-      if begin != nil {return false}
-      if end != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
       if path != other.path {return false}
       if ((sourceFile != nil || other.sourceFile != nil) && (sourceFile == nil || other.sourceFile == nil || sourceFile! != other.sourceFile!)) {return false}
@@ -4370,12 +4035,6 @@ public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
       try visitor.visitRepeatedMessageField(value: annotation, protoFieldNumber: 1, protoFieldName: "annotation", jsonFieldName: "annotation", swiftFieldName: "annotation")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !annotation.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo) -> Bool {

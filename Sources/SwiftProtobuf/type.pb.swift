@@ -190,16 +190,6 @@ public struct Google_Protobuf_Type: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _name != "" {return false}
-      if !_fields.isEmpty {return false}
-      if !_oneofs.isEmpty {return false}
-      if !_options.isEmpty {return false}
-      if _sourceContext != nil {return false}
-      if _syntax != Google_Protobuf_Syntax.proto2 {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _fields != other._fields {return false}
@@ -222,41 +212,41 @@ public struct Google_Protobuf_Type: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   ///   The fully qualified message name.
   public var name: String {
-    get {return _storage?._name ?? ""}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   The list of fields.
   public var fields: [Google_Protobuf_Field] {
-    get {return _storage?._fields ?? []}
+    get {return _storage._fields}
     set {_uniqueStorage()._fields = newValue}
   }
 
   ///   The list of types appearing in `oneof` definitions in this type.
   public var oneofs: [String] {
-    get {return _storage?._oneofs ?? []}
+    get {return _storage._oneofs}
     set {_uniqueStorage()._oneofs = newValue}
   }
 
   ///   The protocol buffer options.
   public var options: [Google_Protobuf_Option] {
-    get {return _storage?._options ?? []}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
   ///   The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get {return _storage?._sourceContext ?? Google_Protobuf_SourceContext()}
+    get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
 
   ///   The source syntax.
   public var syntax: Google_Protobuf_Syntax {
-    get {return _storage?._syntax ?? Google_Protobuf_Syntax.proto2}
+    get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
   }
 
@@ -293,30 +283,18 @@ public struct Google_Protobuf_Type: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -831,20 +809,6 @@ public struct Google_Protobuf_Field: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if kind != Google_Protobuf_Field.Kind.typeUnknown {return false}
-    if cardinality != Google_Protobuf_Field.Cardinality.unknown {return false}
-    if number != 0 {return false}
-    if name != "" {return false}
-    if typeURL != "" {return false}
-    if oneofIndex != 0 {return false}
-    if packed != false {return false}
-    if !options.isEmpty {return false}
-    if jsonName != "" {return false}
-    if defaultValue != "" {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Field) -> Bool {
     if kind != other.kind {return false}
     if cardinality != other.cardinality {return false}
@@ -922,15 +886,6 @@ public struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _name != "" {return false}
-      if !_enumvalue.isEmpty {return false}
-      if !_options.isEmpty {return false}
-      if _sourceContext != nil {return false}
-      if _syntax != Google_Protobuf_Syntax.proto2 {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _enumvalue != other._enumvalue {return false}
@@ -951,35 +906,35 @@ public struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   ///   Enum type name.
   public var name: String {
-    get {return _storage?._name ?? ""}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   Enum value definitions.
   public var enumvalue: [Google_Protobuf_EnumValue] {
-    get {return _storage?._enumvalue ?? []}
+    get {return _storage._enumvalue}
     set {_uniqueStorage()._enumvalue = newValue}
   }
 
   ///   Protocol buffer options.
   public var options: [Google_Protobuf_Option] {
-    get {return _storage?._options ?? []}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
   ///   The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get {return _storage?._sourceContext ?? Google_Protobuf_SourceContext()}
+    get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
 
   ///   The source syntax.
   public var syntax: Google_Protobuf_Syntax {
-    get {return _storage?._syntax ?? Google_Protobuf_Syntax.proto2}
+    get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
   }
 
@@ -1012,30 +967,18 @@ public struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1105,13 +1048,6 @@ public struct Google_Protobuf_EnumValue: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if name != "" {return false}
-    if number != 0 {return false}
-    if !options.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValue) -> Bool {
     if name != other.name {return false}
     if number != other.number {return false}
@@ -1162,12 +1098,6 @@ public struct Google_Protobuf_Option: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _name != "" {return false}
-      if _value != nil {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _value != other._value {return false}
@@ -1182,17 +1112,17 @@ public struct Google_Protobuf_Option: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   ///   The option's name. For example, `"java_package"`.
   public var name: String {
-    get {return _storage?._name ?? ""}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   The option's value. For example, `"com.google.protobuf"`.
   public var value: Google_Protobuf_Any {
-    get {return _storage?._value ?? Google_Protobuf_Any()}
+    get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
   }
 
@@ -1213,29 +1143,17 @@ public struct Google_Protobuf_Option: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }

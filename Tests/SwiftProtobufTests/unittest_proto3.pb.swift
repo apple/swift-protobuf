@@ -712,55 +712,6 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
       try _oneofField.traverse(visitor: &visitor, start: 111, end: 115)
     }
 
-    var isEmpty: Bool {
-      if _singleInt32 != 0 {return false}
-      if _singleInt64 != 0 {return false}
-      if _singleUint32 != 0 {return false}
-      if _singleUint64 != 0 {return false}
-      if _singleSint32 != 0 {return false}
-      if _singleSint64 != 0 {return false}
-      if _singleFixed32 != 0 {return false}
-      if _singleFixed64 != 0 {return false}
-      if _singleSfixed32 != 0 {return false}
-      if _singleSfixed64 != 0 {return false}
-      if _singleFloat != 0 {return false}
-      if _singleDouble != 0 {return false}
-      if _singleBool != false {return false}
-      if _singleString != "" {return false}
-      if _singleBytes != Data() {return false}
-      if _singleNestedMessage != nil {return false}
-      if _singleForeignMessage != nil {return false}
-      if _singleImportMessage != nil {return false}
-      if _singleNestedEnum != Proto3TestAllTypes.NestedEnum.nestedEnumUnspecified {return false}
-      if _singleForeignEnum != Proto3ForeignEnum.foreignUnspecified {return false}
-      if _singleImportEnum != Proto3ImportEnum.importEnumUnspecified {return false}
-      if _singlePublicImportMessage != nil {return false}
-      if !_repeatedInt32.isEmpty {return false}
-      if !_repeatedInt64.isEmpty {return false}
-      if !_repeatedUint32.isEmpty {return false}
-      if !_repeatedUint64.isEmpty {return false}
-      if !_repeatedSint32.isEmpty {return false}
-      if !_repeatedSint64.isEmpty {return false}
-      if !_repeatedFixed32.isEmpty {return false}
-      if !_repeatedFixed64.isEmpty {return false}
-      if !_repeatedSfixed32.isEmpty {return false}
-      if !_repeatedSfixed64.isEmpty {return false}
-      if !_repeatedFloat.isEmpty {return false}
-      if !_repeatedDouble.isEmpty {return false}
-      if !_repeatedBool.isEmpty {return false}
-      if !_repeatedString.isEmpty {return false}
-      if !_repeatedBytes.isEmpty {return false}
-      if !_repeatedNestedMessage.isEmpty {return false}
-      if !_repeatedForeignMessage.isEmpty {return false}
-      if !_repeatedImportMessage.isEmpty {return false}
-      if !_repeatedNestedEnum.isEmpty {return false}
-      if !_repeatedForeignEnum.isEmpty {return false}
-      if !_repeatedImportEnum.isEmpty {return false}
-      if !_repeatedPublicImportMessage.isEmpty {return false}
-      if !_oneofField.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _singleInt32 != other._singleInt32 {return false}
       if _singleInt64 != other._singleInt64 {return false}
@@ -861,7 +812,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
@@ -931,8 +882,6 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public enum NestedEnum: ProtobufEnum {
@@ -1078,11 +1027,6 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if bb != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Proto3TestAllTypes.NestedMessage) -> Bool {
       if bb != other.bb {return false}
       return true
@@ -1091,234 +1035,232 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   ///   Singular
   public var singleInt32: Int32 {
-    get {return _storage?._singleInt32 ?? 0}
+    get {return _storage._singleInt32}
     set {_uniqueStorage()._singleInt32 = newValue}
   }
 
   public var singleInt64: Int64 {
-    get {return _storage?._singleInt64 ?? 0}
+    get {return _storage._singleInt64}
     set {_uniqueStorage()._singleInt64 = newValue}
   }
 
   public var singleUint32: UInt32 {
-    get {return _storage?._singleUint32 ?? 0}
+    get {return _storage._singleUint32}
     set {_uniqueStorage()._singleUint32 = newValue}
   }
 
   public var singleUint64: UInt64 {
-    get {return _storage?._singleUint64 ?? 0}
+    get {return _storage._singleUint64}
     set {_uniqueStorage()._singleUint64 = newValue}
   }
 
   public var singleSint32: Int32 {
-    get {return _storage?._singleSint32 ?? 0}
+    get {return _storage._singleSint32}
     set {_uniqueStorage()._singleSint32 = newValue}
   }
 
   public var singleSint64: Int64 {
-    get {return _storage?._singleSint64 ?? 0}
+    get {return _storage._singleSint64}
     set {_uniqueStorage()._singleSint64 = newValue}
   }
 
   public var singleFixed32: UInt32 {
-    get {return _storage?._singleFixed32 ?? 0}
+    get {return _storage._singleFixed32}
     set {_uniqueStorage()._singleFixed32 = newValue}
   }
 
   public var singleFixed64: UInt64 {
-    get {return _storage?._singleFixed64 ?? 0}
+    get {return _storage._singleFixed64}
     set {_uniqueStorage()._singleFixed64 = newValue}
   }
 
   public var singleSfixed32: Int32 {
-    get {return _storage?._singleSfixed32 ?? 0}
+    get {return _storage._singleSfixed32}
     set {_uniqueStorage()._singleSfixed32 = newValue}
   }
 
   public var singleSfixed64: Int64 {
-    get {return _storage?._singleSfixed64 ?? 0}
+    get {return _storage._singleSfixed64}
     set {_uniqueStorage()._singleSfixed64 = newValue}
   }
 
   public var singleFloat: Float {
-    get {return _storage?._singleFloat ?? 0}
+    get {return _storage._singleFloat}
     set {_uniqueStorage()._singleFloat = newValue}
   }
 
   public var singleDouble: Double {
-    get {return _storage?._singleDouble ?? 0}
+    get {return _storage._singleDouble}
     set {_uniqueStorage()._singleDouble = newValue}
   }
 
   public var singleBool: Bool {
-    get {return _storage?._singleBool ?? false}
+    get {return _storage._singleBool}
     set {_uniqueStorage()._singleBool = newValue}
   }
 
   public var singleString: String {
-    get {return _storage?._singleString ?? ""}
+    get {return _storage._singleString}
     set {_uniqueStorage()._singleString = newValue}
   }
 
   public var singleBytes: Data {
-    get {return _storage?._singleBytes ?? Data()}
+    get {return _storage._singleBytes}
     set {_uniqueStorage()._singleBytes = newValue}
   }
 
   public var singleNestedMessage: Proto3TestAllTypes.NestedMessage {
-    get {return _storage?._singleNestedMessage ?? Proto3TestAllTypes.NestedMessage()}
+    get {return _storage._singleNestedMessage ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
   }
 
   public var singleForeignMessage: Proto3ForeignMessage {
-    get {return _storage?._singleForeignMessage ?? Proto3ForeignMessage()}
+    get {return _storage._singleForeignMessage ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._singleForeignMessage = newValue}
   }
 
   public var singleImportMessage: Proto3ImportMessage {
-    get {return _storage?._singleImportMessage ?? Proto3ImportMessage()}
+    get {return _storage._singleImportMessage ?? Proto3ImportMessage()}
     set {_uniqueStorage()._singleImportMessage = newValue}
   }
 
   public var singleNestedEnum: Proto3TestAllTypes.NestedEnum {
-    get {return _storage?._singleNestedEnum ?? Proto3TestAllTypes.NestedEnum.nestedEnumUnspecified}
+    get {return _storage._singleNestedEnum}
     set {_uniqueStorage()._singleNestedEnum = newValue}
   }
 
   public var singleForeignEnum: Proto3ForeignEnum {
-    get {return _storage?._singleForeignEnum ?? Proto3ForeignEnum.foreignUnspecified}
+    get {return _storage._singleForeignEnum}
     set {_uniqueStorage()._singleForeignEnum = newValue}
   }
 
   public var singleImportEnum: Proto3ImportEnum {
-    get {return _storage?._singleImportEnum ?? Proto3ImportEnum.importEnumUnspecified}
+    get {return _storage._singleImportEnum}
     set {_uniqueStorage()._singleImportEnum = newValue}
   }
 
   ///   Defined in unittest_import_public.proto
   public var singlePublicImportMessage: Proto3PublicImportMessage {
-    get {return _storage?._singlePublicImportMessage ?? Proto3PublicImportMessage()}
+    get {return _storage._singlePublicImportMessage ?? Proto3PublicImportMessage()}
     set {_uniqueStorage()._singlePublicImportMessage = newValue}
   }
 
   ///   Repeated
   public var repeatedInt32: [Int32] {
-    get {return _storage?._repeatedInt32 ?? []}
+    get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   public var repeatedInt64: [Int64] {
-    get {return _storage?._repeatedInt64 ?? []}
+    get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   public var repeatedUint32: [UInt32] {
-    get {return _storage?._repeatedUint32 ?? []}
+    get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   public var repeatedUint64: [UInt64] {
-    get {return _storage?._repeatedUint64 ?? []}
+    get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   public var repeatedSint32: [Int32] {
-    get {return _storage?._repeatedSint32 ?? []}
+    get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   public var repeatedSint64: [Int64] {
-    get {return _storage?._repeatedSint64 ?? []}
+    get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   public var repeatedFixed32: [UInt32] {
-    get {return _storage?._repeatedFixed32 ?? []}
+    get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   public var repeatedFixed64: [UInt64] {
-    get {return _storage?._repeatedFixed64 ?? []}
+    get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   public var repeatedSfixed32: [Int32] {
-    get {return _storage?._repeatedSfixed32 ?? []}
+    get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   public var repeatedSfixed64: [Int64] {
-    get {return _storage?._repeatedSfixed64 ?? []}
+    get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   public var repeatedFloat: [Float] {
-    get {return _storage?._repeatedFloat ?? []}
+    get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   public var repeatedDouble: [Double] {
-    get {return _storage?._repeatedDouble ?? []}
+    get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   public var repeatedBool: [Bool] {
-    get {return _storage?._repeatedBool ?? []}
+    get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   public var repeatedString: [String] {
-    get {return _storage?._repeatedString ?? []}
+    get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   public var repeatedBytes: [Data] {
-    get {return _storage?._repeatedBytes ?? []}
+    get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   public var repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] {
-    get {return _storage?._repeatedNestedMessage ?? []}
+    get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
   public var repeatedForeignMessage: [Proto3ForeignMessage] {
-    get {return _storage?._repeatedForeignMessage ?? []}
+    get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
   public var repeatedImportMessage: [Proto3ImportMessage] {
-    get {return _storage?._repeatedImportMessage ?? []}
+    get {return _storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
 
   public var repeatedNestedEnum: [Proto3TestAllTypes.NestedEnum] {
-    get {return _storage?._repeatedNestedEnum ?? []}
+    get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
   public var repeatedForeignEnum: [Proto3ForeignEnum] {
-    get {return _storage?._repeatedForeignEnum ?? []}
+    get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
   public var repeatedImportEnum: [Proto3ImportEnum] {
-    get {return _storage?._repeatedImportEnum ?? []}
+    get {return _storage._repeatedImportEnum}
     set {_uniqueStorage()._repeatedImportEnum = newValue}
   }
 
   ///   Defined in unittest_import_public.proto
   public var repeatedPublicImportMessage: [Proto3PublicImportMessage] {
-    get {return _storage?._repeatedPublicImportMessage ?? []}
+    get {return _storage._repeatedPublicImportMessage}
     set {_uniqueStorage()._repeatedPublicImportMessage = newValue}
   }
 
   public var oneofUint32: UInt32? {
     get {
-      if let storage = _storage {
-        if case .oneofUint32(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofUint32(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1333,10 +1275,8 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofNestedMessage: Proto3TestAllTypes.NestedMessage? {
     get {
-      if let storage = _storage {
-        if case .oneofNestedMessage(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofNestedMessage(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1351,10 +1291,8 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofString: String? {
     get {
-      if let storage = _storage {
-        if case .oneofString(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofString(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1369,10 +1307,8 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofBytes: Data? {
     get {
-      if let storage = _storage {
-        if case .oneofBytes(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofBytes(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -1386,7 +1322,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
   }
 
   public var _oneofField: OneOf_OneofField {
-    get {return _storage?._oneofField ?? .None}
+    get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
     }
@@ -1587,30 +1523,18 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestAllTypes) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1662,13 +1586,6 @@ public struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _child != nil {return false}
-      if _payload != nil {return false}
-      if !_repeatedChild.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _child != other._child {return false}
       if _payload != other._payload {return false}
@@ -1685,20 +1602,20 @@ public struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var child: Proto3NestedTestAllTypes {
-    get {return _storage?._child ?? Proto3NestedTestAllTypes()}
+    get {return _storage._child ?? Proto3NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
 
   public var payload: Proto3TestAllTypes {
-    get {return _storage?._payload ?? Proto3TestAllTypes()}
+    get {return _storage._payload ?? Proto3TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
   }
 
   public var repeatedChild: [Proto3NestedTestAllTypes] {
-    get {return _storage?._repeatedChild ?? []}
+    get {return _storage._repeatedChild}
     set {_uniqueStorage()._repeatedChild = newValue}
   }
 
@@ -1721,30 +1638,18 @@ public struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3NestedTestAllTypes) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1784,11 +1689,6 @@ public struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
     if deprecatedInt32 != 0 {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: deprecatedInt32, protoFieldNumber: 1, protoFieldName: "deprecated_int32", jsonFieldName: "deprecatedInt32", swiftFieldName: "deprecatedInt32")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if deprecatedInt32 != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3TestDeprecatedFields) -> Bool {
@@ -1837,11 +1737,6 @@ public struct Proto3ForeignMessage: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if c != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3ForeignMessage) -> Bool {
     if c != other.c {return false}
     return true
@@ -1863,8 +1758,6 @@ public struct Proto3TestReservedFields: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
-
-  public let _protoc_generated_isEmpty: Bool = true
 
   public func _protoc_generated_isEqualTo(other: Proto3TestReservedFields) -> Bool {
     return true
@@ -1905,11 +1798,6 @@ public struct Proto3TestForeignNested: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _foreignNested != nil {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _foreignNested != other._foreignNested {return false}
       return true
@@ -1922,10 +1810,10 @@ public struct Proto3TestForeignNested: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var foreignNested: Proto3TestAllTypes.NestedMessage {
-    get {return _storage?._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
+    get {return _storage._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._foreignNested = newValue}
   }
 
@@ -1942,30 +1830,18 @@ public struct Proto3TestForeignNested: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestForeignNested) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2022,12 +1898,6 @@ public struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if a != 0 {return false}
-    if bb != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3TestReallyLargeTagNumber) -> Bool {
     if a != other.a {return false}
     if bb != other.bb {return false}
@@ -2075,12 +1945,6 @@ public struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _a != nil {return false}
-      if _i != 0 {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _a != other._a {return false}
       if _i != other._i {return false}
@@ -2095,15 +1959,15 @@ public struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var a: Proto3TestRecursiveMessage {
-    get {return _storage?._a ?? Proto3TestRecursiveMessage()}
+    get {return _storage._a ?? Proto3TestRecursiveMessage()}
     set {_uniqueStorage()._a = newValue}
   }
 
   public var i: Int32 {
-    get {return _storage?._i ?? 0}
+    get {return _storage._i}
     set {_uniqueStorage()._i = newValue}
   }
 
@@ -2124,30 +1988,18 @@ public struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestRecursiveMessage) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2185,11 +2037,6 @@ public struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _bb != nil {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _bb != other._bb {return false}
       return true
@@ -2202,10 +2049,10 @@ public struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var bb: Proto3TestMutualRecursionB {
-    get {return _storage?._bb ?? Proto3TestMutualRecursionB()}
+    get {return _storage._bb ?? Proto3TestMutualRecursionB()}
     set {_uniqueStorage()._bb = newValue}
   }
 
@@ -2222,30 +2069,18 @@ public struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestMutualRecursionA) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2289,12 +2124,6 @@ public struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _a != nil {return false}
-      if _optionalInt32 != 0 {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _a != other._a {return false}
       if _optionalInt32 != other._optionalInt32 {return false}
@@ -2309,15 +2138,15 @@ public struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var a: Proto3TestMutualRecursionA {
-    get {return _storage?._a ?? Proto3TestMutualRecursionA()}
+    get {return _storage._a ?? Proto3TestMutualRecursionA()}
     set {_uniqueStorage()._a = newValue}
   }
 
   public var optionalInt32: Int32 {
-    get {return _storage?._optionalInt32 ?? 0}
+    get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
@@ -2338,30 +2167,18 @@ public struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestMutualRecursionB) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2449,18 +2266,6 @@ public struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _primitiveField != 0 {return false}
-      if _stringField != "" {return false}
-      if _enumField != Proto3ForeignEnum.foreignUnspecified {return false}
-      if _messageField != nil {return false}
-      if !_repeatedPrimitiveField.isEmpty {return false}
-      if !_repeatedStringField.isEmpty {return false}
-      if !_repeatedEnumField.isEmpty {return false}
-      if !_repeatedMessageField.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _primitiveField != other._primitiveField {return false}
       if _stringField != other._stringField {return false}
@@ -2487,45 +2292,45 @@ public struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var primitiveField: Int32 {
-    get {return _storage?._primitiveField ?? 0}
+    get {return _storage._primitiveField}
     set {_uniqueStorage()._primitiveField = newValue}
   }
 
   public var stringField: String {
-    get {return _storage?._stringField ?? ""}
+    get {return _storage._stringField}
     set {_uniqueStorage()._stringField = newValue}
   }
 
   public var enumField: Proto3ForeignEnum {
-    get {return _storage?._enumField ?? Proto3ForeignEnum.foreignUnspecified}
+    get {return _storage._enumField}
     set {_uniqueStorage()._enumField = newValue}
   }
 
   public var messageField: Proto3ForeignMessage {
-    get {return _storage?._messageField ?? Proto3ForeignMessage()}
+    get {return _storage._messageField ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._messageField = newValue}
   }
 
   public var repeatedPrimitiveField: [Int32] {
-    get {return _storage?._repeatedPrimitiveField ?? []}
+    get {return _storage._repeatedPrimitiveField}
     set {_uniqueStorage()._repeatedPrimitiveField = newValue}
   }
 
   public var repeatedStringField: [String] {
-    get {return _storage?._repeatedStringField ?? []}
+    get {return _storage._repeatedStringField}
     set {_uniqueStorage()._repeatedStringField = newValue}
   }
 
   public var repeatedEnumField: [Proto3ForeignEnum] {
-    get {return _storage?._repeatedEnumField ?? []}
+    get {return _storage._repeatedEnumField}
     set {_uniqueStorage()._repeatedEnumField = newValue}
   }
 
   public var repeatedMessageField: [Proto3ForeignMessage] {
-    get {return _storage?._repeatedMessageField ?? []}
+    get {return _storage._repeatedMessageField}
     set {_uniqueStorage()._repeatedMessageField = newValue}
   }
 
@@ -2570,30 +2375,18 @@ public struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestCamelCaseFieldNames) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2653,14 +2446,6 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _myString != "" {return false}
-      if _myInt != 0 {return false}
-      if _myFloat != 0 {return false}
-      if _singleNestedMessage != nil {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _myString != other._myString {return false}
       if _myInt != other._myInt {return false}
@@ -2679,7 +2464,7 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Proto3TestFieldOrderings.NestedMessage"}
@@ -2734,12 +2519,6 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if oo != 0 {return false}
-      if bb != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Proto3TestFieldOrderings.NestedMessage) -> Bool {
       if oo != other.oo {return false}
       if bb != other.bb {return false}
@@ -2748,22 +2527,22 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
   }
 
   public var myString: String {
-    get {return _storage?._myString ?? ""}
+    get {return _storage._myString}
     set {_uniqueStorage()._myString = newValue}
   }
 
   public var myInt: Int64 {
-    get {return _storage?._myInt ?? 0}
+    get {return _storage._myInt}
     set {_uniqueStorage()._myInt = newValue}
   }
 
   public var myFloat: Float {
-    get {return _storage?._myFloat ?? 0}
+    get {return _storage._myFloat}
     set {_uniqueStorage()._myFloat = newValue}
   }
 
   public var singleNestedMessage: Proto3TestFieldOrderings.NestedMessage {
-    get {return _storage?._singleNestedMessage ?? Proto3TestFieldOrderings.NestedMessage()}
+    get {return _storage._singleNestedMessage ?? Proto3TestFieldOrderings.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
   }
 
@@ -2792,30 +2571,18 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestFieldOrderings) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -2855,11 +2622,6 @@ public struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
     if sparseEnum != Proto3TestSparseEnum.testSparseEnumUnspecified {
       try visitor.visitSingularField(fieldType: Proto3TestSparseEnum.self, value: sparseEnum, protoFieldNumber: 1, protoFieldName: "sparse_enum", jsonFieldName: "sparseEnum", swiftFieldName: "sparseEnum")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if sparseEnum != Proto3TestSparseEnum.testSparseEnumUnspecified {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3SparseEnumMessage) -> Bool {
@@ -2907,11 +2669,6 @@ public struct Proto3OneString: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if data != "" {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3OneString) -> Bool {
     if data != other.data {return false}
     return true
@@ -2954,11 +2711,6 @@ public struct Proto3MoreString: ProtobufGeneratedMessage {
     if !data.isEmpty {
       try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: data, protoFieldNumber: 1, protoFieldName: "data", jsonFieldName: "data", swiftFieldName: "data")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !data.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3MoreString) -> Bool {
@@ -3005,11 +2757,6 @@ public struct Proto3OneBytes: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if data != Data() {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3OneBytes) -> Bool {
     if data != other.data {return false}
     return true
@@ -3052,11 +2799,6 @@ public struct Proto3MoreBytes: ProtobufGeneratedMessage {
     if data != Data() {
       try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: data, protoFieldNumber: 1, protoFieldName: "data", jsonFieldName: "data", swiftFieldName: "data")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if data != Data() {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3MoreBytes) -> Bool {
@@ -3104,11 +2846,6 @@ public struct Proto3Int32Message: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if data != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3Int32Message) -> Bool {
     if data != other.data {return false}
     return true
@@ -3151,11 +2888,6 @@ public struct Proto3Uint32Message: ProtobufGeneratedMessage {
     if data != 0 {
       try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: data, protoFieldNumber: 1, protoFieldName: "data", jsonFieldName: "data", swiftFieldName: "data")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if data != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3Uint32Message) -> Bool {
@@ -3202,11 +2934,6 @@ public struct Proto3Int64Message: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if data != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3Int64Message) -> Bool {
     if data != other.data {return false}
     return true
@@ -3249,11 +2976,6 @@ public struct Proto3Uint64Message: ProtobufGeneratedMessage {
     if data != 0 {
       try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: data, protoFieldNumber: 1, protoFieldName: "data", jsonFieldName: "data", swiftFieldName: "data")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if data != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3Uint64Message) -> Bool {
@@ -3300,11 +3022,6 @@ public struct Proto3BoolMessage: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if data != false {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3BoolMessage) -> Bool {
     if data != other.data {return false}
     return true
@@ -3348,11 +3065,6 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
       try _foo.traverse(visitor: &visitor, start: 1, end: 4)
     }
 
-    var isEmpty: Bool {
-      if !_foo.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _foo != other._foo {return false}
       return true
@@ -3365,7 +3077,7 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case fooInt(Int32)
@@ -3426,16 +3138,12 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public var fooInt: Int32? {
     get {
-      if let storage = _storage {
-        if case .fooInt(let v) = storage._foo {
-          return v
-        }
+      if case .fooInt(let v) = _storage._foo {
+        return v
       }
       return nil
     }
@@ -3450,10 +3158,8 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
 
   public var fooString: String? {
     get {
-      if let storage = _storage {
-        if case .fooString(let v) = storage._foo {
-          return v
-        }
+      if case .fooString(let v) = _storage._foo {
+        return v
       }
       return nil
     }
@@ -3468,10 +3174,8 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
 
   public var fooMessage: Proto3TestAllTypes? {
     get {
-      if let storage = _storage {
-        if case .fooMessage(let v) = storage._foo {
-          return v
-        }
+      if case .fooMessage(let v) = _storage._foo {
+        return v
       }
       return nil
     }
@@ -3485,7 +3189,7 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
   }
 
   public var _foo: OneOf_Foo {
-    get {return _storage?._foo ?? .None}
+    get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
     }
@@ -3514,30 +3218,18 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto3TestOneof) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -3734,24 +3426,6 @@ public struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
     if !packedEnum.isEmpty {
       try visitor.visitPackedField(fieldType: Proto3ForeignEnum.self, value: packedEnum, protoFieldNumber: 103, protoFieldName: "packed_enum", jsonFieldName: "packedEnum", swiftFieldName: "packedEnum")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !packedInt32.isEmpty {return false}
-    if !packedInt64.isEmpty {return false}
-    if !packedUint32.isEmpty {return false}
-    if !packedUint64.isEmpty {return false}
-    if !packedSint32.isEmpty {return false}
-    if !packedSint64.isEmpty {return false}
-    if !packedFixed32.isEmpty {return false}
-    if !packedFixed64.isEmpty {return false}
-    if !packedSfixed32.isEmpty {return false}
-    if !packedSfixed64.isEmpty {return false}
-    if !packedFloat.isEmpty {return false}
-    if !packedDouble.isEmpty {return false}
-    if !packedBool.isEmpty {return false}
-    if !packedEnum.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3TestPackedTypes) -> Bool {
@@ -3969,24 +3643,6 @@ public struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unpackedInt32.isEmpty {return false}
-    if !unpackedInt64.isEmpty {return false}
-    if !unpackedUint32.isEmpty {return false}
-    if !unpackedUint64.isEmpty {return false}
-    if !unpackedSint32.isEmpty {return false}
-    if !unpackedSint64.isEmpty {return false}
-    if !unpackedFixed32.isEmpty {return false}
-    if !unpackedFixed64.isEmpty {return false}
-    if !unpackedSfixed32.isEmpty {return false}
-    if !unpackedSfixed64.isEmpty {return false}
-    if !unpackedFloat.isEmpty {return false}
-    if !unpackedDouble.isEmpty {return false}
-    if !unpackedBool.isEmpty {return false}
-    if !unpackedEnum.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3TestUnpackedTypes) -> Bool {
     if unpackedInt32 != other.unpackedInt32 {return false}
     if unpackedInt64 != other.unpackedInt64 {return false}
@@ -4110,16 +3766,6 @@ public struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessag
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !repeatedFixed32.isEmpty {return false}
-    if !repeatedInt32.isEmpty {return false}
-    if !repeatedFixed64.isEmpty {return false}
-    if !repeatedInt64.isEmpty {return false}
-    if !repeatedFloat.isEmpty {return false}
-    if !repeatedUint64.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3TestRepeatedScalarDifferentTagSizes) -> Bool {
     if repeatedFixed32 != other.repeatedFixed32 {return false}
     if repeatedInt32 != other.repeatedInt32 {return false}
@@ -4170,11 +3816,6 @@ public struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if a != "" {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3TestCommentInjectionMessage) -> Bool {
     if a != other.a {return false}
     return true
@@ -4198,8 +3839,6 @@ public struct Proto3FooRequest: ProtobufGeneratedMessage {
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
 
-  public let _protoc_generated_isEmpty: Bool = true
-
   public func _protoc_generated_isEqualTo(other: Proto3FooRequest) -> Bool {
     return true
   }
@@ -4220,8 +3859,6 @@ public struct Proto3FooResponse: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
-
-  public let _protoc_generated_isEmpty: Bool = true
 
   public func _protoc_generated_isEqualTo(other: Proto3FooResponse) -> Bool {
     return true
@@ -4244,8 +3881,6 @@ public struct Proto3FooClientMessage: ProtobufGeneratedMessage {
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
 
-  public let _protoc_generated_isEmpty: Bool = true
-
   public func _protoc_generated_isEqualTo(other: Proto3FooClientMessage) -> Bool {
     return true
   }
@@ -4266,8 +3901,6 @@ public struct Proto3FooServerMessage: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
-
-  public let _protoc_generated_isEmpty: Bool = true
 
   public func _protoc_generated_isEqualTo(other: Proto3FooServerMessage) -> Bool {
     return true
@@ -4290,8 +3923,6 @@ public struct Proto3BarRequest: ProtobufGeneratedMessage {
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
 
-  public let _protoc_generated_isEmpty: Bool = true
-
   public func _protoc_generated_isEqualTo(other: Proto3BarRequest) -> Bool {
     return true
   }
@@ -4312,8 +3943,6 @@ public struct Proto3BarResponse: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
-
-  public let _protoc_generated_isEmpty: Bool = true
 
   public func _protoc_generated_isEqualTo(other: Proto3BarResponse) -> Bool {
     return true

@@ -195,8 +195,6 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public var e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
@@ -303,16 +301,6 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
     }
     try o.traverse(visitor: &visitor, start: 5, end: 7)
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if e != nil {return false}
-    if !repeatedE.isEmpty {return false}
-    if !repeatedPackedE.isEmpty {return false}
-    if !repeatedPackedUnexpectedE.isEmpty {return false}
-    if !o.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {

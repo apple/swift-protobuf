@@ -70,12 +70,6 @@ public struct ProtobufObjcUnittest_TestObjCStartupMessage: ProtobufGeneratedMess
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufObjcUnittest_TestObjCStartupMessage) -> Bool {
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -118,11 +112,6 @@ public struct ProtobufObjcUnittest_TestObjCStartupNested: ProtobufGeneratedMessa
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufObjcUnittest_TestObjCStartupNested) -> Bool {

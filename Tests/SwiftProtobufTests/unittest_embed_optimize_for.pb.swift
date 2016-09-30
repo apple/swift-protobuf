@@ -91,15 +91,8 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _optionalMessage != nil {return false}
-      if !_repeatedMessage.isEmpty {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_optionalMessage != nil && !_optionalMessage!.isEmpty) || (other._optionalMessage != nil && !other._optionalMessage!.isEmpty)) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
+      if ((_optionalMessage != nil || other._optionalMessage != nil) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
       if _repeatedMessage != other._repeatedMessage {return false}
       if unknown != other.unknown {return false}
       return true
@@ -114,17 +107,17 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
   ///   one optimized for speed works.
   public var optionalMessage: ProtobufUnittest_TestOptimizedForSize? {
-    get {return _storage?._optionalMessage}
+    get {return _storage._optionalMessage}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
 
   public var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
-    get {return _storage?._repeatedMessage ?? []}
+    get {return _storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
@@ -145,29 +138,17 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }

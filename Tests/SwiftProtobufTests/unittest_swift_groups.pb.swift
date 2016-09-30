@@ -89,13 +89,6 @@ public struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtens
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if a != nil {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
     if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
     if unknown != other.unknown {return false}
@@ -160,12 +153,6 @@ public struct ExtensionGroup: ProtobufGeneratedGroup {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if a != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ExtensionGroup) -> Bool {
     if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
     if unknown != other.unknown {return false}
@@ -216,12 +203,6 @@ public struct RepeatedExtensionGroup: ProtobufGeneratedGroup {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if a != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: RepeatedExtensionGroup) -> Bool {
     if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
     if unknown != other.unknown {return false}
@@ -270,12 +251,6 @@ public struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if a != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: SwiftTestGroupUnextended) -> Bool {

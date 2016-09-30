@@ -87,13 +87,6 @@ public struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _int32Value != 0 {return false}
-      if _anyValue != nil {return false}
-      if !_repeatedAnyValue.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _int32Value != other._int32Value {return false}
       if _anyValue != other._anyValue {return false}
@@ -110,20 +103,20 @@ public struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var int32Value: Int32 {
-    get {return _storage?._int32Value ?? 0}
+    get {return _storage._int32Value}
     set {_uniqueStorage()._int32Value = newValue}
   }
 
   public var anyValue: Google_Protobuf_Any {
-    get {return _storage?._anyValue ?? Google_Protobuf_Any()}
+    get {return _storage._anyValue ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyValue = newValue}
   }
 
   public var repeatedAnyValue: [Google_Protobuf_Any] {
-    get {return _storage?._repeatedAnyValue ?? []}
+    get {return _storage._repeatedAnyValue}
     set {_uniqueStorage()._repeatedAnyValue = newValue}
   }
 
@@ -148,29 +141,17 @@ public struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }

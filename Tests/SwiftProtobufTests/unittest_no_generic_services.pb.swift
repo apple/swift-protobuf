@@ -154,13 +154,6 @@ public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGenerat
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if a != nil {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_NoGenericServicesTest_TestMessage) -> Bool {
     if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
     if unknown != other.unknown {return false}

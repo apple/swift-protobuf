@@ -496,67 +496,6 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _optionalInt32 != nil {return false}
-      if _optionalInt64 != nil {return false}
-      if _optionalUint32 != nil {return false}
-      if _optionalUint64 != nil {return false}
-      if _optionalSint32 != nil {return false}
-      if _optionalSint64 != nil {return false}
-      if _optionalFixed32 != nil {return false}
-      if _optionalFixed64 != nil {return false}
-      if _optionalSfixed32 != nil {return false}
-      if _optionalSfixed64 != nil {return false}
-      if _optionalFloat != nil {return false}
-      if _optionalDouble != nil {return false}
-      if _optionalBool != nil {return false}
-      if _optionalString != nil {return false}
-      if _optionalBytes != nil {return false}
-      if _optionalGroup != nil {return false}
-      if _optionalMessage != nil {return false}
-      if _optionalEnum != nil {return false}
-      if !_repeatedInt32.isEmpty {return false}
-      if !_repeatedInt64.isEmpty {return false}
-      if !_repeatedUint32.isEmpty {return false}
-      if !_repeatedUint64.isEmpty {return false}
-      if !_repeatedSint32.isEmpty {return false}
-      if !_repeatedSint64.isEmpty {return false}
-      if !_repeatedFixed32.isEmpty {return false}
-      if !_repeatedFixed64.isEmpty {return false}
-      if !_repeatedSfixed32.isEmpty {return false}
-      if !_repeatedSfixed64.isEmpty {return false}
-      if !_repeatedFloat.isEmpty {return false}
-      if !_repeatedDouble.isEmpty {return false}
-      if !_repeatedBool.isEmpty {return false}
-      if !_repeatedString.isEmpty {return false}
-      if !_repeatedBytes.isEmpty {return false}
-      if !_repeatedGroup.isEmpty {return false}
-      if !_repeatedMessage.isEmpty {return false}
-      if !_repeatedEnum.isEmpty {return false}
-      if !_o.isEmpty {return false}
-      if !_mapInt32Int32.isEmpty {return false}
-      if !_mapInt64Int64.isEmpty {return false}
-      if !_mapUint32Uint32.isEmpty {return false}
-      if !_mapUint64Uint64.isEmpty {return false}
-      if !_mapSint32Sint32.isEmpty {return false}
-      if !_mapSint64Sint64.isEmpty {return false}
-      if !_mapFixed32Fixed32.isEmpty {return false}
-      if !_mapFixed64Fixed64.isEmpty {return false}
-      if !_mapSfixed32Sfixed32.isEmpty {return false}
-      if !_mapSfixed64Sfixed64.isEmpty {return false}
-      if !_mapInt32Float.isEmpty {return false}
-      if !_mapInt32Double.isEmpty {return false}
-      if !_mapBoolBool.isEmpty {return false}
-      if !_mapStringString.isEmpty {return false}
-      if !_mapStringBytes.isEmpty {return false}
-      if !_mapStringMessage.isEmpty {return false}
-      if !_mapInt32Bytes.isEmpty {return false}
-      if !_mapInt32Enum.isEmpty {return false}
-      if !_mapInt32Message.isEmpty {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_optionalInt32 != nil || other._optionalInt32 != nil) && (_optionalInt32 == nil || other._optionalInt32 == nil || _optionalInt32! != other._optionalInt32!)) {return false}
       if ((_optionalInt64 != nil || other._optionalInt64 != nil) && (_optionalInt64 == nil || other._optionalInt64 == nil || _optionalInt64! != other._optionalInt64!)) {return false}
@@ -573,8 +512,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
       if ((_optionalBool != nil || other._optionalBool != nil) && (_optionalBool == nil || other._optionalBool == nil || _optionalBool! != other._optionalBool!)) {return false}
       if ((_optionalString != nil || other._optionalString != nil) && (_optionalString == nil || other._optionalString == nil || _optionalString! != other._optionalString!)) {return false}
       if ((_optionalBytes != nil || other._optionalBytes != nil) && (_optionalBytes == nil || other._optionalBytes == nil || _optionalBytes! != other._optionalBytes!)) {return false}
-      if (((_optionalGroup != nil && !_optionalGroup!.isEmpty) || (other._optionalGroup != nil && !other._optionalGroup!.isEmpty)) && (_optionalGroup == nil || other._optionalGroup == nil || _optionalGroup! != other._optionalGroup!)) {return false}
-      if (((_optionalMessage != nil && !_optionalMessage!.isEmpty) || (other._optionalMessage != nil && !other._optionalMessage!.isEmpty)) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
+      if ((_optionalGroup != nil || other._optionalGroup != nil) && (_optionalGroup == nil || other._optionalGroup == nil || _optionalGroup! != other._optionalGroup!)) {return false}
+      if ((_optionalMessage != nil || other._optionalMessage != nil) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
       if ((_optionalEnum != nil || other._optionalEnum != nil) && (_optionalEnum == nil || other._optionalEnum == nil || _optionalEnum! != other._optionalEnum!)) {return false}
       if _repeatedInt32 != other._repeatedInt32 {return false}
       if _repeatedInt64 != other._repeatedInt64 {return false}
@@ -681,7 +620,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofInt32(Int32)
@@ -911,8 +850,6 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public enum Enum: ProtobufEnum {
@@ -1046,12 +983,6 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OptionalGroup) -> Bool {
       if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
       if unknown != other.unknown {return false}
@@ -1100,12 +1031,6 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 47, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
       unknown.traverse(visitor: &visitor)
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.RepeatedGroup) -> Bool {
@@ -1168,13 +1093,6 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != nil {return false}
-      if b != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OneofGroup) -> Bool {
       if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
       if ((b != nil || other.b != nil) && (b == nil || other.b == nil || b! != other.b!)) {return false}
@@ -1184,191 +1102,189 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
   }
 
   public var optionalInt32: Int32? {
-    get {return _storage?._optionalInt32}
+    get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
   public var optionalInt64: Int64? {
-    get {return _storage?._optionalInt64}
+    get {return _storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
   public var optionalUint32: UInt32? {
-    get {return _storage?._optionalUint32}
+    get {return _storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
   public var optionalUint64: UInt64? {
-    get {return _storage?._optionalUint64}
+    get {return _storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
   public var optionalSint32: Int32? {
-    get {return _storage?._optionalSint32}
+    get {return _storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
   public var optionalSint64: Int64? {
-    get {return _storage?._optionalSint64}
+    get {return _storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
   public var optionalFixed32: UInt32? {
-    get {return _storage?._optionalFixed32}
+    get {return _storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
   public var optionalFixed64: UInt64? {
-    get {return _storage?._optionalFixed64}
+    get {return _storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
   public var optionalSfixed32: Int32? {
-    get {return _storage?._optionalSfixed32}
+    get {return _storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
   public var optionalSfixed64: Int64? {
-    get {return _storage?._optionalSfixed64}
+    get {return _storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
   public var optionalFloat: Float? {
-    get {return _storage?._optionalFloat}
+    get {return _storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
   public var optionalDouble: Double? {
-    get {return _storage?._optionalDouble}
+    get {return _storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
   public var optionalBool: Bool? {
-    get {return _storage?._optionalBool}
+    get {return _storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
   public var optionalString: String? {
-    get {return _storage?._optionalString}
+    get {return _storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
   public var optionalBytes: Data? {
-    get {return _storage?._optionalBytes}
+    get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
   public var optionalGroup: ProtobufUnittest_Message2.OptionalGroup? {
-    get {return _storage?._optionalGroup}
+    get {return _storage._optionalGroup}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
 
   public var optionalMessage: ProtobufUnittest_Message2? {
-    get {return _storage?._optionalMessage}
+    get {return _storage._optionalMessage}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
 
   public var optionalEnum: ProtobufUnittest_Message2.Enum? {
-    get {return _storage?._optionalEnum}
+    get {return _storage._optionalEnum}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
 
   public var repeatedInt32: [Int32] {
-    get {return _storage?._repeatedInt32 ?? []}
+    get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   public var repeatedInt64: [Int64] {
-    get {return _storage?._repeatedInt64 ?? []}
+    get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   public var repeatedUint32: [UInt32] {
-    get {return _storage?._repeatedUint32 ?? []}
+    get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   public var repeatedUint64: [UInt64] {
-    get {return _storage?._repeatedUint64 ?? []}
+    get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   public var repeatedSint32: [Int32] {
-    get {return _storage?._repeatedSint32 ?? []}
+    get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   public var repeatedSint64: [Int64] {
-    get {return _storage?._repeatedSint64 ?? []}
+    get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   public var repeatedFixed32: [UInt32] {
-    get {return _storage?._repeatedFixed32 ?? []}
+    get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   public var repeatedFixed64: [UInt64] {
-    get {return _storage?._repeatedFixed64 ?? []}
+    get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   public var repeatedSfixed32: [Int32] {
-    get {return _storage?._repeatedSfixed32 ?? []}
+    get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   public var repeatedSfixed64: [Int64] {
-    get {return _storage?._repeatedSfixed64 ?? []}
+    get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   public var repeatedFloat: [Float] {
-    get {return _storage?._repeatedFloat ?? []}
+    get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   public var repeatedDouble: [Double] {
-    get {return _storage?._repeatedDouble ?? []}
+    get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   public var repeatedBool: [Bool] {
-    get {return _storage?._repeatedBool ?? []}
+    get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   public var repeatedString: [String] {
-    get {return _storage?._repeatedString ?? []}
+    get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   public var repeatedBytes: [Data] {
-    get {return _storage?._repeatedBytes ?? []}
+    get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   public var repeatedGroup: [ProtobufUnittest_Message2.RepeatedGroup] {
-    get {return _storage?._repeatedGroup ?? []}
+    get {return _storage._repeatedGroup}
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
   public var repeatedMessage: [ProtobufUnittest_Message2] {
-    get {return _storage?._repeatedMessage ?? []}
+    get {return _storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
   public var repeatedEnum: [ProtobufUnittest_Message2.Enum] {
-    get {return _storage?._repeatedEnum ?? []}
+    get {return _storage._repeatedEnum}
     set {_uniqueStorage()._repeatedEnum = newValue}
   }
 
   public var oneofInt32: Int32? {
     get {
-      if let storage = _storage {
-        if case .oneofInt32(let v) = storage._o {
-          return v
-        }
+      if case .oneofInt32(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1383,10 +1299,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofInt64: Int64? {
     get {
-      if let storage = _storage {
-        if case .oneofInt64(let v) = storage._o {
-          return v
-        }
+      if case .oneofInt64(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1401,10 +1315,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofUint32: UInt32? {
     get {
-      if let storage = _storage {
-        if case .oneofUint32(let v) = storage._o {
-          return v
-        }
+      if case .oneofUint32(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1419,10 +1331,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofUint64: UInt64? {
     get {
-      if let storage = _storage {
-        if case .oneofUint64(let v) = storage._o {
-          return v
-        }
+      if case .oneofUint64(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1437,10 +1347,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofSint32: Int32? {
     get {
-      if let storage = _storage {
-        if case .oneofSint32(let v) = storage._o {
-          return v
-        }
+      if case .oneofSint32(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1455,10 +1363,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofSint64: Int64? {
     get {
-      if let storage = _storage {
-        if case .oneofSint64(let v) = storage._o {
-          return v
-        }
+      if case .oneofSint64(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1473,10 +1379,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofFixed32: UInt32? {
     get {
-      if let storage = _storage {
-        if case .oneofFixed32(let v) = storage._o {
-          return v
-        }
+      if case .oneofFixed32(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1491,10 +1395,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofFixed64: UInt64? {
     get {
-      if let storage = _storage {
-        if case .oneofFixed64(let v) = storage._o {
-          return v
-        }
+      if case .oneofFixed64(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1509,10 +1411,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofSfixed32: Int32? {
     get {
-      if let storage = _storage {
-        if case .oneofSfixed32(let v) = storage._o {
-          return v
-        }
+      if case .oneofSfixed32(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1527,10 +1427,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofSfixed64: Int64? {
     get {
-      if let storage = _storage {
-        if case .oneofSfixed64(let v) = storage._o {
-          return v
-        }
+      if case .oneofSfixed64(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1545,10 +1443,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofFloat: Float? {
     get {
-      if let storage = _storage {
-        if case .oneofFloat(let v) = storage._o {
-          return v
-        }
+      if case .oneofFloat(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1563,10 +1459,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofDouble: Double? {
     get {
-      if let storage = _storage {
-        if case .oneofDouble(let v) = storage._o {
-          return v
-        }
+      if case .oneofDouble(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1581,10 +1475,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofBool: Bool? {
     get {
-      if let storage = _storage {
-        if case .oneofBool(let v) = storage._o {
-          return v
-        }
+      if case .oneofBool(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1599,10 +1491,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofString: String? {
     get {
-      if let storage = _storage {
-        if case .oneofString(let v) = storage._o {
-          return v
-        }
+      if case .oneofString(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1617,10 +1507,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofBytes: Data? {
     get {
-      if let storage = _storage {
-        if case .oneofBytes(let v) = storage._o {
-          return v
-        }
+      if case .oneofBytes(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1635,10 +1523,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofGroup: ProtobufUnittest_Message2.OneofGroup? {
     get {
-      if let storage = _storage {
-        if case .oneofGroup(let v) = storage._o {
-          return v
-        }
+      if case .oneofGroup(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1653,10 +1539,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofMessage: ProtobufUnittest_Message2? {
     get {
-      if let storage = _storage {
-        if case .oneofMessage(let v) = storage._o {
-          return v
-        }
+      if case .oneofMessage(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1671,10 +1555,8 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   public var oneofEnum: ProtobufUnittest_Message2.Enum? {
     get {
-      if let storage = _storage {
-        if case .oneofEnum(let v) = storage._o {
-          return v
-        }
+      if case .oneofEnum(let v) = _storage._o {
+        return v
       }
       return nil
     }
@@ -1689,102 +1571,102 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   ///   Some token map cases, too many combinations to list them all.
   public var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapInt32Int32 ?? [:]}
+    get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   public var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapInt64Int64 ?? [:]}
+    get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapUint32Uint32 ?? [:]}
+    get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapUint64Uint64 ?? [:]}
+    get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   public var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSint32Sint32 ?? [:]}
+    get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   public var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSint64Sint64 ?? [:]}
+    get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapFixed32Fixed32 ?? [:]}
+    get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapFixed64Fixed64 ?? [:]}
+    get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSfixed32Sfixed32 ?? [:]}
+    get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSfixed64Sfixed64 ?? [:]}
+    get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   public var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage?._mapInt32Float ?? [:]}
+    get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   public var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage?._mapInt32Double ?? [:]}
+    get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   public var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage?._mapBoolBool ?? [:]}
+    get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   public var mapStringString: Dictionary<String,String> {
-    get {return _storage?._mapStringString ?? [:]}
+    get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   public var mapStringBytes: Dictionary<String,Data> {
-    get {return _storage?._mapStringBytes ?? [:]}
+    get {return _storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
   public var mapStringMessage: Dictionary<String,ProtobufUnittest_Message2> {
-    get {return _storage?._mapStringMessage ?? [:]}
+    get {return _storage._mapStringMessage}
     set {_uniqueStorage()._mapStringMessage = newValue}
   }
 
   public var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage?._mapInt32Bytes ?? [:]}
+    get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   public var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message2.Enum> {
-    get {return _storage?._mapInt32Enum ?? [:]}
+    get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
   public var mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message2> {
-    get {return _storage?._mapInt32Message ?? [:]}
+    get {return _storage._mapInt32Message}
     set {_uniqueStorage()._mapInt32Message = newValue}
   }
 
   public var _o: OneOf_O {
-    get {return _storage?._o ?? .None}
+    get {return _storage._o}
     set {
       _uniqueStorage()._o = newValue
     }
@@ -2057,30 +1939,18 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 

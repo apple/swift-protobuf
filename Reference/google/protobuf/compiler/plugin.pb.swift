@@ -138,14 +138,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !fileToGenerate.isEmpty {return false}
-    if parameter != nil {return false}
-    if !protoFile.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if fileToGenerate != other.fileToGenerate {return false}
     if ((parameter != nil || other.parameter != nil) && (parameter == nil || other.parameter == nil || parameter! != other.parameter!)) {return false}
@@ -284,14 +276,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if name != nil {return false}
-      if insertionPoint != nil {return false}
-      if content != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
       if ((name != nil || other.name != nil) && (name == nil || other.name == nil || name! != other.name!)) {return false}
       if ((insertionPoint != nil || other.insertionPoint != nil) && (insertionPoint == nil || other.insertionPoint == nil || insertionPoint! != other.insertionPoint!)) {return false}
@@ -347,13 +331,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
       try visitor.visitRepeatedMessageField(value: file, protoFieldNumber: 15, protoFieldName: "file", jsonFieldName: "file", swiftFieldName: "file")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if error != nil {return false}
-    if !file.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {

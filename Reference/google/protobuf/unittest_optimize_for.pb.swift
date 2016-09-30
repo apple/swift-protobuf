@@ -105,18 +105,9 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _i != nil {return false}
-      if _msg != nil {return false}
-      if !_foo.isEmpty {return false}
-      if !unknown.isEmpty {return false}
-      if !extensionFieldValues.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_i != nil || other._i != nil) && (_i == nil || other._i == nil || _i! != other._i!)) {return false}
-      if (((_msg != nil && !_msg!.isEmpty) || (other._msg != nil && !other._msg!.isEmpty)) && (_msg == nil || other._msg == nil || _msg! != other._msg!)) {return false}
+      if ((_msg != nil || other._msg != nil) && (_msg == nil || other._msg == nil || _msg! != other._msg!)) {return false}
       if _foo != other._foo {return false}
       if unknown != other.unknown {return false}
       if extensionFieldValues != other.extensionFieldValues {return false}
@@ -134,7 +125,7 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case integerField(Int32)
@@ -188,8 +179,6 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   struct Extensions {
@@ -200,21 +189,19 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
   }
 
   public var i: Int32? {
-    get {return _storage?._i}
+    get {return _storage._i}
     set {_uniqueStorage()._i = newValue}
   }
 
   public var msg: ProtobufUnittest_ForeignMessage? {
-    get {return _storage?._msg}
+    get {return _storage._msg}
     set {_uniqueStorage()._msg = newValue}
   }
 
   public var integerField: Int32? {
     get {
-      if let storage = _storage {
-        if case .integerField(let v) = storage._foo {
-          return v
-        }
+      if case .integerField(let v) = _storage._foo {
+        return v
       }
       return nil
     }
@@ -229,10 +216,8 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
 
   public var stringField: String? {
     get {
-      if let storage = _storage {
-        if case .stringField(let v) = storage._foo {
-          return v
-        }
+      if case .stringField(let v) = _storage._foo {
+        return v
       }
       return nil
     }
@@ -246,7 +231,7 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
   }
 
   public var _foo: OneOf_Foo {
-    get {return _storage?._foo ?? .None}
+    get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
     }
@@ -275,30 +260,18 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptimizedForSize) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 
   public mutating func setExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_TestOptimizedForSize>, value: F.ValueType) {
@@ -306,7 +279,7 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
   }
 
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> F.ValueType {
-    return _storage?.getExtensionValue(ext: ext) ?? ext.defaultValue
+    return _storage.getExtensionValue(ext: ext)
   }
 }
 
@@ -349,12 +322,6 @@ public struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMe
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: x, protoFieldNumber: 1, protoFieldName: "x", jsonFieldName: "x", swiftFieldName: "x")
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if x != 0 {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOptimizedForSize) -> Bool {
@@ -403,14 +370,8 @@ public struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMe
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _o != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_o != nil && !_o!.isEmpty) || (other._o != nil && !other._o!.isEmpty)) && (_o == nil || other._o == nil || _o! != other._o!)) {return false}
+      if ((_o != nil || other._o != nil) && (_o == nil || other._o == nil || _o! != other._o!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -423,10 +384,10 @@ public struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMe
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var o: ProtobufUnittest_TestRequiredOptimizedForSize? {
-    get {return _storage?._o}
+    get {return _storage._o}
     set {_uniqueStorage()._o = newValue}
   }
 
@@ -443,30 +404,18 @@ public struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMe
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptionalOptimizedForSize) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 

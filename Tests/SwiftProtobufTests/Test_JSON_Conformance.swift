@@ -23,7 +23,7 @@ class Test_JSON_Conformance: XCTestCase {
     func assertEmptyDecode(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) -> () {
         do {
             let decoded = try Conformance_TestAllTypes(json: json)
-            XCTAssert(decoded.isEmpty, "Decoded object should be empty \(decoded)", file: file, line: line)
+            XCTAssertEqual(decoded, Conformance_TestAllTypes(), "Decoded object should be equal to empty object: \(decoded)", file: file, line: line)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{}", file: file, line: line)
             let protobuf = try decoded.serializeProtobufBytes()
@@ -38,7 +38,6 @@ class Test_JSON_Conformance: XCTestCase {
         // 'null' for (almost) any field behaves as though the field had been omitted
         // (But see 'Value' below)
         assertEmptyDecode("{\"optionalInt32\": null}")
-        /*
         assertEmptyDecode("{\"optionalInt64\": null}")
         assertEmptyDecode("{\"optionalUint32\": null}")
         assertEmptyDecode("{\"optionalUint64\": null}")
@@ -59,9 +58,8 @@ class Test_JSON_Conformance: XCTestCase {
         assertEmptyDecode("{\"mapInt32Int32\": null}")
         assertEmptyDecode("{\"mapBoolBool\": null}")
         assertEmptyDecode("{\"mapStringNestedMessage\": null}")
- */
     }
-    
+
     func testNullSupport_wellKnownTypes() throws {
         // Including well-known types
         // (But see 'Value' below)
@@ -87,13 +85,13 @@ class Test_JSON_Conformance: XCTestCase {
         assertEmptyDecode("{\"repeatedStringWrapper\": null}")
         assertEmptyDecode("{\"repeatedBytesWrapper\": null}")
     }
-    
+
     func testNullSupport_Value() throws {
         // BUT: Value fields treat null as a regular value
         let valueNull = "{\"optionalValue\": null}"
         do {
             let decoded = try Conformance_TestAllTypes(json: valueNull)
-            XCTAssertFalse(decoded.isEmpty)
+            XCTAssertNotEqual(decoded, Conformance_TestAllTypes())
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"optionalValue\":null}")
             let protobuf = try decoded.serializeProtobufBytes()
@@ -121,7 +119,7 @@ class Test_JSON_Conformance: XCTestCase {
         let repeatedValueWithNull = "{\"repeatedValue\": [1, null]}"
         do {
             let decoded = try Conformance_TestAllTypes(json: repeatedValueWithNull)
-            XCTAssertFalse(decoded.isEmpty)
+            XCTAssertNotEqual(decoded, Conformance_TestAllTypes())
             XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), Google_Protobuf_Value()])
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"repeatedValue\":[1,null]}")

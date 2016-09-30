@@ -294,8 +294,6 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public var protobufPayload: Data? {
@@ -369,12 +367,6 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
       try visitor.visitSingularField(fieldType: Conformance_WireFormat.self, value: requestedOutputFormat, protoFieldNumber: 3, protoFieldName: "requested_output_format", jsonFieldName: "requestedOutputFormat", swiftFieldName: "requestedOutputFormat")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !payload.isEmpty {return false}
-    if requestedOutputFormat != Conformance_WireFormat.unspecified {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
@@ -490,8 +482,6 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   ///   This string should be set to indicate parsing failed.  The string can
@@ -651,11 +641,6 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     try result.traverse(visitor: &visitor, start: 1, end: 7)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !result.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
@@ -1432,115 +1417,6 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _optionalInt32 != 0 {return false}
-      if _optionalInt64 != 0 {return false}
-      if _optionalUint32 != 0 {return false}
-      if _optionalUint64 != 0 {return false}
-      if _optionalSint32 != 0 {return false}
-      if _optionalSint64 != 0 {return false}
-      if _optionalFixed32 != 0 {return false}
-      if _optionalFixed64 != 0 {return false}
-      if _optionalSfixed32 != 0 {return false}
-      if _optionalSfixed64 != 0 {return false}
-      if _optionalFloat != 0 {return false}
-      if _optionalDouble != 0 {return false}
-      if _optionalBool != false {return false}
-      if _optionalString != "" {return false}
-      if _optionalBytes != Data() {return false}
-      if _optionalNestedMessage != nil {return false}
-      if _optionalForeignMessage != nil {return false}
-      if _optionalNestedEnum != Conformance_TestAllTypes.NestedEnum.foo {return false}
-      if _optionalForeignEnum != Conformance_ForeignEnum.foreignFoo {return false}
-      if _optionalStringPiece != "" {return false}
-      if _optionalCord != "" {return false}
-      if _recursiveMessage != nil {return false}
-      if !_repeatedInt32.isEmpty {return false}
-      if !_repeatedInt64.isEmpty {return false}
-      if !_repeatedUint32.isEmpty {return false}
-      if !_repeatedUint64.isEmpty {return false}
-      if !_repeatedSint32.isEmpty {return false}
-      if !_repeatedSint64.isEmpty {return false}
-      if !_repeatedFixed32.isEmpty {return false}
-      if !_repeatedFixed64.isEmpty {return false}
-      if !_repeatedSfixed32.isEmpty {return false}
-      if !_repeatedSfixed64.isEmpty {return false}
-      if !_repeatedFloat.isEmpty {return false}
-      if !_repeatedDouble.isEmpty {return false}
-      if !_repeatedBool.isEmpty {return false}
-      if !_repeatedString.isEmpty {return false}
-      if !_repeatedBytes.isEmpty {return false}
-      if !_repeatedNestedMessage.isEmpty {return false}
-      if !_repeatedForeignMessage.isEmpty {return false}
-      if !_repeatedNestedEnum.isEmpty {return false}
-      if !_repeatedForeignEnum.isEmpty {return false}
-      if !_repeatedStringPiece.isEmpty {return false}
-      if !_repeatedCord.isEmpty {return false}
-      if !_mapInt32Int32.isEmpty {return false}
-      if !_mapInt64Int64.isEmpty {return false}
-      if !_mapUint32Uint32.isEmpty {return false}
-      if !_mapUint64Uint64.isEmpty {return false}
-      if !_mapSint32Sint32.isEmpty {return false}
-      if !_mapSint64Sint64.isEmpty {return false}
-      if !_mapFixed32Fixed32.isEmpty {return false}
-      if !_mapFixed64Fixed64.isEmpty {return false}
-      if !_mapSfixed32Sfixed32.isEmpty {return false}
-      if !_mapSfixed64Sfixed64.isEmpty {return false}
-      if !_mapInt32Float.isEmpty {return false}
-      if !_mapInt32Double.isEmpty {return false}
-      if !_mapBoolBool.isEmpty {return false}
-      if !_mapStringString.isEmpty {return false}
-      if !_mapStringBytes.isEmpty {return false}
-      if !_mapStringNestedMessage.isEmpty {return false}
-      if !_mapStringForeignMessage.isEmpty {return false}
-      if !_mapStringNestedEnum.isEmpty {return false}
-      if !_mapStringForeignEnum.isEmpty {return false}
-      if !_oneofField.isEmpty {return false}
-      if _optionalBoolWrapper != nil {return false}
-      if _optionalInt32Wrapper != nil {return false}
-      if _optionalInt64Wrapper != nil {return false}
-      if _optionalUint32Wrapper != nil {return false}
-      if _optionalUint64Wrapper != nil {return false}
-      if _optionalFloatWrapper != nil {return false}
-      if _optionalDoubleWrapper != nil {return false}
-      if _optionalStringWrapper != nil {return false}
-      if _optionalBytesWrapper != nil {return false}
-      if !_repeatedBoolWrapper.isEmpty {return false}
-      if !_repeatedInt32Wrapper.isEmpty {return false}
-      if !_repeatedInt64Wrapper.isEmpty {return false}
-      if !_repeatedUint32Wrapper.isEmpty {return false}
-      if !_repeatedUint64Wrapper.isEmpty {return false}
-      if !_repeatedFloatWrapper.isEmpty {return false}
-      if !_repeatedDoubleWrapper.isEmpty {return false}
-      if !_repeatedStringWrapper.isEmpty {return false}
-      if !_repeatedBytesWrapper.isEmpty {return false}
-      if _optionalDuration != nil {return false}
-      if _optionalTimestamp != nil {return false}
-      if _optionalFieldMask != nil {return false}
-      if _optionalStruct != nil {return false}
-      if _optionalAny != nil {return false}
-      if _optionalValue != nil {return false}
-      if !_repeatedDuration.isEmpty {return false}
-      if !_repeatedTimestamp.isEmpty {return false}
-      if !_repeatedFieldmask.isEmpty {return false}
-      if !_repeatedStruct.isEmpty {return false}
-      if !_repeatedAny.isEmpty {return false}
-      if !_repeatedValue.isEmpty {return false}
-      if _fieldname1 != 0 {return false}
-      if _fieldName2 != 0 {return false}
-      if _fieldName3 != 0 {return false}
-      if _field_Name4_ != 0 {return false}
-      if _field0Name5 != 0 {return false}
-      if _field0Name6 != 0 {return false}
-      if _fieldName7 != 0 {return false}
-      if _fieldName8 != 0 {return false}
-      if _fieldName9 != 0 {return false}
-      if _fieldName10 != 0 {return false}
-      if _fieldName11 != 0 {return false}
-      if _fieldName12 != 0 {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _optionalInt32 != other._optionalInt32 {return false}
       if _optionalInt64 != other._optionalInt64 {return false}
@@ -1761,7 +1637,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
@@ -1831,8 +1707,6 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public enum NestedEnum: ProtobufEnum {
@@ -1969,12 +1843,6 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
         }
       }
 
-      var isEmpty: Bool {
-        if _a != 0 {return false}
-        if _corecursive != nil {return false}
-        return true
-      }
-
       func isEqualTo(other: _StorageClass) -> Bool {
         if _a != other._a {return false}
         if _corecursive != other._corecursive {return false}
@@ -1989,15 +1857,15 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    private var _storage: _StorageClass?
+    private var _storage = _StorageClass()
 
     public var a: Int32 {
-      get {return _storage?._a ?? 0}
+      get {return _storage._a}
       set {_uniqueStorage()._a = newValue}
     }
 
     public var corecursive: Conformance_TestAllTypes {
-      get {return _storage?._corecursive ?? Conformance_TestAllTypes()}
+      get {return _storage._corecursive ?? Conformance_TestAllTypes()}
       set {_uniqueStorage()._corecursive = newValue}
     }
 
@@ -2018,352 +1886,338 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try _storage?.traverse(visitor: &visitor)
+      try _storage.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
     public func _protoc_generated_isEqualTo(other: Conformance_TestAllTypes.NestedMessage) -> Bool {
-      if let s = _storage {
-        if let os = other._storage {
-          return s === os || s.isEqualTo(other: os)
-        }
-        return isEmpty // empty storage == nil storage
-      } else if let os = other._storage {
-        return os.isEmpty // nil storage == empty storage
-      }
-      return true // Both nil, both empty
+      return _storage === other._storage || _storage.isEqualTo(other: other._storage)
     }
 
     private mutating func _uniqueStorage() -> _StorageClass {
-      if _storage == nil {
-        _storage = _StorageClass()
-      } else if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage!.copy()
+      if !isKnownUniquelyReferenced(&_storage) {
+        _storage = _storage.copy()
       }
-      return _storage!
+      return _storage
     }
   }
 
   ///   Singular
   public var optionalInt32: Int32 {
-    get {return _storage?._optionalInt32 ?? 0}
+    get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
   public var optionalInt64: Int64 {
-    get {return _storage?._optionalInt64 ?? 0}
+    get {return _storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
   public var optionalUint32: UInt32 {
-    get {return _storage?._optionalUint32 ?? 0}
+    get {return _storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
   public var optionalUint64: UInt64 {
-    get {return _storage?._optionalUint64 ?? 0}
+    get {return _storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
   public var optionalSint32: Int32 {
-    get {return _storage?._optionalSint32 ?? 0}
+    get {return _storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
   public var optionalSint64: Int64 {
-    get {return _storage?._optionalSint64 ?? 0}
+    get {return _storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
   public var optionalFixed32: UInt32 {
-    get {return _storage?._optionalFixed32 ?? 0}
+    get {return _storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
   public var optionalFixed64: UInt64 {
-    get {return _storage?._optionalFixed64 ?? 0}
+    get {return _storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
   public var optionalSfixed32: Int32 {
-    get {return _storage?._optionalSfixed32 ?? 0}
+    get {return _storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
   public var optionalSfixed64: Int64 {
-    get {return _storage?._optionalSfixed64 ?? 0}
+    get {return _storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
   public var optionalFloat: Float {
-    get {return _storage?._optionalFloat ?? 0}
+    get {return _storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
   public var optionalDouble: Double {
-    get {return _storage?._optionalDouble ?? 0}
+    get {return _storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
   public var optionalBool: Bool {
-    get {return _storage?._optionalBool ?? false}
+    get {return _storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
   public var optionalString: String {
-    get {return _storage?._optionalString ?? ""}
+    get {return _storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
   public var optionalBytes: Data {
-    get {return _storage?._optionalBytes ?? Data()}
+    get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
   public var optionalNestedMessage: Conformance_TestAllTypes.NestedMessage {
-    get {return _storage?._optionalNestedMessage ?? Conformance_TestAllTypes.NestedMessage()}
+    get {return _storage._optionalNestedMessage ?? Conformance_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
 
   public var optionalForeignMessage: Conformance_ForeignMessage {
-    get {return _storage?._optionalForeignMessage ?? Conformance_ForeignMessage()}
+    get {return _storage._optionalForeignMessage ?? Conformance_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
 
   public var optionalNestedEnum: Conformance_TestAllTypes.NestedEnum {
-    get {return _storage?._optionalNestedEnum ?? Conformance_TestAllTypes.NestedEnum.foo}
+    get {return _storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
   public var optionalForeignEnum: Conformance_ForeignEnum {
-    get {return _storage?._optionalForeignEnum ?? Conformance_ForeignEnum.foreignFoo}
+    get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
   public var optionalStringPiece: String {
-    get {return _storage?._optionalStringPiece ?? ""}
+    get {return _storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
 
   public var optionalCord: String {
-    get {return _storage?._optionalCord ?? ""}
+    get {return _storage._optionalCord}
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
   public var recursiveMessage: Conformance_TestAllTypes {
-    get {return _storage?._recursiveMessage ?? Conformance_TestAllTypes()}
+    get {return _storage._recursiveMessage ?? Conformance_TestAllTypes()}
     set {_uniqueStorage()._recursiveMessage = newValue}
   }
 
   ///   Repeated
   public var repeatedInt32: [Int32] {
-    get {return _storage?._repeatedInt32 ?? []}
+    get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   public var repeatedInt64: [Int64] {
-    get {return _storage?._repeatedInt64 ?? []}
+    get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   public var repeatedUint32: [UInt32] {
-    get {return _storage?._repeatedUint32 ?? []}
+    get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   public var repeatedUint64: [UInt64] {
-    get {return _storage?._repeatedUint64 ?? []}
+    get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   public var repeatedSint32: [Int32] {
-    get {return _storage?._repeatedSint32 ?? []}
+    get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   public var repeatedSint64: [Int64] {
-    get {return _storage?._repeatedSint64 ?? []}
+    get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   public var repeatedFixed32: [UInt32] {
-    get {return _storage?._repeatedFixed32 ?? []}
+    get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   public var repeatedFixed64: [UInt64] {
-    get {return _storage?._repeatedFixed64 ?? []}
+    get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   public var repeatedSfixed32: [Int32] {
-    get {return _storage?._repeatedSfixed32 ?? []}
+    get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   public var repeatedSfixed64: [Int64] {
-    get {return _storage?._repeatedSfixed64 ?? []}
+    get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   public var repeatedFloat: [Float] {
-    get {return _storage?._repeatedFloat ?? []}
+    get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   public var repeatedDouble: [Double] {
-    get {return _storage?._repeatedDouble ?? []}
+    get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   public var repeatedBool: [Bool] {
-    get {return _storage?._repeatedBool ?? []}
+    get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   public var repeatedString: [String] {
-    get {return _storage?._repeatedString ?? []}
+    get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   public var repeatedBytes: [Data] {
-    get {return _storage?._repeatedBytes ?? []}
+    get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   public var repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] {
-    get {return _storage?._repeatedNestedMessage ?? []}
+    get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
   public var repeatedForeignMessage: [Conformance_ForeignMessage] {
-    get {return _storage?._repeatedForeignMessage ?? []}
+    get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
   public var repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] {
-    get {return _storage?._repeatedNestedEnum ?? []}
+    get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
   public var repeatedForeignEnum: [Conformance_ForeignEnum] {
-    get {return _storage?._repeatedForeignEnum ?? []}
+    get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
   public var repeatedStringPiece: [String] {
-    get {return _storage?._repeatedStringPiece ?? []}
+    get {return _storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
   public var repeatedCord: [String] {
-    get {return _storage?._repeatedCord ?? []}
+    get {return _storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
   ///   Map
   public var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapInt32Int32 ?? [:]}
+    get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   public var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapInt64Int64 ?? [:]}
+    get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapUint32Uint32 ?? [:]}
+    get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapUint64Uint64 ?? [:]}
+    get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   public var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSint32Sint32 ?? [:]}
+    get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   public var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSint64Sint64 ?? [:]}
+    get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapFixed32Fixed32 ?? [:]}
+    get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapFixed64Fixed64 ?? [:]}
+    get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSfixed32Sfixed32 ?? [:]}
+    get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSfixed64Sfixed64 ?? [:]}
+    get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   public var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage?._mapInt32Float ?? [:]}
+    get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   public var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage?._mapInt32Double ?? [:]}
+    get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   public var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage?._mapBoolBool ?? [:]}
+    get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   public var mapStringString: Dictionary<String,String> {
-    get {return _storage?._mapStringString ?? [:]}
+    get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   public var mapStringBytes: Dictionary<String,Data> {
-    get {return _storage?._mapStringBytes ?? [:]}
+    get {return _storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
   public var mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> {
-    get {return _storage?._mapStringNestedMessage ?? [:]}
+    get {return _storage._mapStringNestedMessage}
     set {_uniqueStorage()._mapStringNestedMessage = newValue}
   }
 
   public var mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> {
-    get {return _storage?._mapStringForeignMessage ?? [:]}
+    get {return _storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
   public var mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> {
-    get {return _storage?._mapStringNestedEnum ?? [:]}
+    get {return _storage._mapStringNestedEnum}
     set {_uniqueStorage()._mapStringNestedEnum = newValue}
   }
 
   public var mapStringForeignEnum: Dictionary<String,Conformance_ForeignEnum> {
-    get {return _storage?._mapStringForeignEnum ?? [:]}
+    get {return _storage._mapStringForeignEnum}
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
 
   public var oneofUint32: UInt32? {
     get {
-      if let storage = _storage {
-        if case .oneofUint32(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofUint32(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -2378,10 +2232,8 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofNestedMessage: Conformance_TestAllTypes.NestedMessage? {
     get {
-      if let storage = _storage {
-        if case .oneofNestedMessage(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofNestedMessage(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -2396,10 +2248,8 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofString: String? {
     get {
-      if let storage = _storage {
-        if case .oneofString(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofString(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -2414,10 +2264,8 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   public var oneofBytes: Data? {
     get {
-      if let storage = _storage {
-        if case .oneofBytes(let v) = storage._oneofField {
-          return v
-        }
+      if case .oneofBytes(let v) = _storage._oneofField {
+        return v
       }
       return nil
     }
@@ -2432,218 +2280,218 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   ///   Well-known types
   public var optionalBoolWrapper: Google_Protobuf_BoolValue {
-    get {return _storage?._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
+    get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
   }
 
   public var optionalInt32Wrapper: Google_Protobuf_Int32Value {
-    get {return _storage?._optionalInt32Wrapper ?? Google_Protobuf_Int32Value()}
+    get {return _storage._optionalInt32Wrapper ?? Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._optionalInt32Wrapper = newValue}
   }
 
   public var optionalInt64Wrapper: Google_Protobuf_Int64Value {
-    get {return _storage?._optionalInt64Wrapper ?? Google_Protobuf_Int64Value()}
+    get {return _storage._optionalInt64Wrapper ?? Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._optionalInt64Wrapper = newValue}
   }
 
   public var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
-    get {return _storage?._optionalUint32Wrapper ?? Google_Protobuf_UInt32Value()}
+    get {return _storage._optionalUint32Wrapper ?? Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._optionalUint32Wrapper = newValue}
   }
 
   public var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
-    get {return _storage?._optionalUint64Wrapper ?? Google_Protobuf_UInt64Value()}
+    get {return _storage._optionalUint64Wrapper ?? Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._optionalUint64Wrapper = newValue}
   }
 
   public var optionalFloatWrapper: Google_Protobuf_FloatValue {
-    get {return _storage?._optionalFloatWrapper ?? Google_Protobuf_FloatValue()}
+    get {return _storage._optionalFloatWrapper ?? Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._optionalFloatWrapper = newValue}
   }
 
   public var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
-    get {return _storage?._optionalDoubleWrapper ?? Google_Protobuf_DoubleValue()}
+    get {return _storage._optionalDoubleWrapper ?? Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._optionalDoubleWrapper = newValue}
   }
 
   public var optionalStringWrapper: Google_Protobuf_StringValue {
-    get {return _storage?._optionalStringWrapper ?? Google_Protobuf_StringValue()}
+    get {return _storage._optionalStringWrapper ?? Google_Protobuf_StringValue()}
     set {_uniqueStorage()._optionalStringWrapper = newValue}
   }
 
   public var optionalBytesWrapper: Google_Protobuf_BytesValue {
-    get {return _storage?._optionalBytesWrapper ?? Google_Protobuf_BytesValue()}
+    get {return _storage._optionalBytesWrapper ?? Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._optionalBytesWrapper = newValue}
   }
 
   public var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
-    get {return _storage?._repeatedBoolWrapper ?? []}
+    get {return _storage._repeatedBoolWrapper}
     set {_uniqueStorage()._repeatedBoolWrapper = newValue}
   }
 
   public var repeatedInt32Wrapper: [Google_Protobuf_Int32Value] {
-    get {return _storage?._repeatedInt32Wrapper ?? []}
+    get {return _storage._repeatedInt32Wrapper}
     set {_uniqueStorage()._repeatedInt32Wrapper = newValue}
   }
 
   public var repeatedInt64Wrapper: [Google_Protobuf_Int64Value] {
-    get {return _storage?._repeatedInt64Wrapper ?? []}
+    get {return _storage._repeatedInt64Wrapper}
     set {_uniqueStorage()._repeatedInt64Wrapper = newValue}
   }
 
   public var repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] {
-    get {return _storage?._repeatedUint32Wrapper ?? []}
+    get {return _storage._repeatedUint32Wrapper}
     set {_uniqueStorage()._repeatedUint32Wrapper = newValue}
   }
 
   public var repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] {
-    get {return _storage?._repeatedUint64Wrapper ?? []}
+    get {return _storage._repeatedUint64Wrapper}
     set {_uniqueStorage()._repeatedUint64Wrapper = newValue}
   }
 
   public var repeatedFloatWrapper: [Google_Protobuf_FloatValue] {
-    get {return _storage?._repeatedFloatWrapper ?? []}
+    get {return _storage._repeatedFloatWrapper}
     set {_uniqueStorage()._repeatedFloatWrapper = newValue}
   }
 
   public var repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] {
-    get {return _storage?._repeatedDoubleWrapper ?? []}
+    get {return _storage._repeatedDoubleWrapper}
     set {_uniqueStorage()._repeatedDoubleWrapper = newValue}
   }
 
   public var repeatedStringWrapper: [Google_Protobuf_StringValue] {
-    get {return _storage?._repeatedStringWrapper ?? []}
+    get {return _storage._repeatedStringWrapper}
     set {_uniqueStorage()._repeatedStringWrapper = newValue}
   }
 
   public var repeatedBytesWrapper: [Google_Protobuf_BytesValue] {
-    get {return _storage?._repeatedBytesWrapper ?? []}
+    get {return _storage._repeatedBytesWrapper}
     set {_uniqueStorage()._repeatedBytesWrapper = newValue}
   }
 
   public var optionalDuration: Google_Protobuf_Duration {
-    get {return _storage?._optionalDuration ?? Google_Protobuf_Duration()}
+    get {return _storage._optionalDuration ?? Google_Protobuf_Duration()}
     set {_uniqueStorage()._optionalDuration = newValue}
   }
 
   public var optionalTimestamp: Google_Protobuf_Timestamp {
-    get {return _storage?._optionalTimestamp ?? Google_Protobuf_Timestamp()}
+    get {return _storage._optionalTimestamp ?? Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._optionalTimestamp = newValue}
   }
 
   public var optionalFieldMask: Google_Protobuf_FieldMask {
-    get {return _storage?._optionalFieldMask ?? Google_Protobuf_FieldMask()}
+    get {return _storage._optionalFieldMask ?? Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._optionalFieldMask = newValue}
   }
 
   public var optionalStruct: Google_Protobuf_Struct {
-    get {return _storage?._optionalStruct ?? Google_Protobuf_Struct()}
+    get {return _storage._optionalStruct ?? Google_Protobuf_Struct()}
     set {_uniqueStorage()._optionalStruct = newValue}
   }
 
   public var optionalAny: Google_Protobuf_Any {
-    get {return _storage?._optionalAny ?? Google_Protobuf_Any()}
+    get {return _storage._optionalAny ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._optionalAny = newValue}
   }
 
   public var optionalValue: Google_Protobuf_Value {
-    get {return _storage?._optionalValue ?? Google_Protobuf_Value()}
+    get {return _storage._optionalValue ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._optionalValue = newValue}
   }
 
   public var repeatedDuration: [Google_Protobuf_Duration] {
-    get {return _storage?._repeatedDuration ?? []}
+    get {return _storage._repeatedDuration}
     set {_uniqueStorage()._repeatedDuration = newValue}
   }
 
   public var repeatedTimestamp: [Google_Protobuf_Timestamp] {
-    get {return _storage?._repeatedTimestamp ?? []}
+    get {return _storage._repeatedTimestamp}
     set {_uniqueStorage()._repeatedTimestamp = newValue}
   }
 
   public var repeatedFieldmask: [Google_Protobuf_FieldMask] {
-    get {return _storage?._repeatedFieldmask ?? []}
+    get {return _storage._repeatedFieldmask}
     set {_uniqueStorage()._repeatedFieldmask = newValue}
   }
 
   public var repeatedStruct: [Google_Protobuf_Struct] {
-    get {return _storage?._repeatedStruct ?? []}
+    get {return _storage._repeatedStruct}
     set {_uniqueStorage()._repeatedStruct = newValue}
   }
 
   public var repeatedAny: [Google_Protobuf_Any] {
-    get {return _storage?._repeatedAny ?? []}
+    get {return _storage._repeatedAny}
     set {_uniqueStorage()._repeatedAny = newValue}
   }
 
   public var repeatedValue: [Google_Protobuf_Value] {
-    get {return _storage?._repeatedValue ?? []}
+    get {return _storage._repeatedValue}
     set {_uniqueStorage()._repeatedValue = newValue}
   }
 
   ///   Test field-name-to-JSON-name convention.
   public var fieldname1: Int32 {
-    get {return _storage?._fieldname1 ?? 0}
+    get {return _storage._fieldname1}
     set {_uniqueStorage()._fieldname1 = newValue}
   }
 
   public var fieldName2: Int32 {
-    get {return _storage?._fieldName2 ?? 0}
+    get {return _storage._fieldName2}
     set {_uniqueStorage()._fieldName2 = newValue}
   }
 
   public var fieldName3: Int32 {
-    get {return _storage?._fieldName3 ?? 0}
+    get {return _storage._fieldName3}
     set {_uniqueStorage()._fieldName3 = newValue}
   }
 
   public var field_Name4_: Int32 {
-    get {return _storage?._field_Name4_ ?? 0}
+    get {return _storage._field_Name4_}
     set {_uniqueStorage()._field_Name4_ = newValue}
   }
 
   public var field0Name5: Int32 {
-    get {return _storage?._field0Name5 ?? 0}
+    get {return _storage._field0Name5}
     set {_uniqueStorage()._field0Name5 = newValue}
   }
 
   public var field0Name6: Int32 {
-    get {return _storage?._field0Name6 ?? 0}
+    get {return _storage._field0Name6}
     set {_uniqueStorage()._field0Name6 = newValue}
   }
 
   public var fieldName7: Int32 {
-    get {return _storage?._fieldName7 ?? 0}
+    get {return _storage._fieldName7}
     set {_uniqueStorage()._fieldName7 = newValue}
   }
 
   public var fieldName8: Int32 {
-    get {return _storage?._fieldName8 ?? 0}
+    get {return _storage._fieldName8}
     set {_uniqueStorage()._fieldName8 = newValue}
   }
 
   public var fieldName9: Int32 {
-    get {return _storage?._fieldName9 ?? 0}
+    get {return _storage._fieldName9}
     set {_uniqueStorage()._fieldName9 = newValue}
   }
 
   public var fieldName10: Int32 {
-    get {return _storage?._fieldName10 ?? 0}
+    get {return _storage._fieldName10}
     set {_uniqueStorage()._fieldName10 = newValue}
   }
 
   public var fieldName11: Int32 {
-    get {return _storage?._fieldName11 ?? 0}
+    get {return _storage._fieldName11}
     set {_uniqueStorage()._fieldName11 = newValue}
   }
 
   public var fieldName12: Int32 {
-    get {return _storage?._fieldName12 ?? 0}
+    get {return _storage._fieldName12}
     set {_uniqueStorage()._fieldName12 = newValue}
   }
 
   public var _oneofField: OneOf_OneofField {
-    get {return _storage?._oneofField ?? .None}
+    get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
     }
@@ -3056,30 +2904,18 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Conformance_TestAllTypes) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -3119,11 +2955,6 @@ public struct Conformance_ForeignMessage: ProtobufGeneratedMessage {
     if c != 0 {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: c, protoFieldNumber: 1, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if c != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Conformance_ForeignMessage) -> Bool {

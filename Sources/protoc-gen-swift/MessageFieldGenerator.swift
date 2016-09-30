@@ -331,7 +331,7 @@ struct MessageFieldGenerator {
         if isProto3 || isRepeated || !isOptional {
             return "\(name) != other.\(name)"
         } else if isGroup || isMessage {
-            return "(((\(name) != nil && !\(name)!.isEmpty) || (other.\(name) != nil && !other.\(name)!.isEmpty)) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
+            return "((\(name) != nil || other.\(name) != nil) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
         } else if let def = swiftProto2DefaultValue {
             return "(((\(name) != nil && \(name)! != \(def)) || (other.\(name) != nil && other.\(name)! != \(def))) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
         } else {
@@ -395,13 +395,9 @@ struct MessageFieldGenerator {
         if let oneof = oneof {
             p.print("get {\n")
             p.indent()
-            p.print("if let storage = _storage {\n")
-            p.indent()
-            p.print("if case .\(swiftName)(let v) = storage.\(oneof.swiftStorageFieldName) {\n")
+            p.print("if case .\(swiftName)(let v) = _storage.\(oneof.swiftStorageFieldName) {\n")
             p.indent()
             p.print("return v\n")
-            p.outdent()
-            p.print("}\n")
             p.outdent()
             p.print("}\n")
             p.print("return nil\n")
@@ -422,20 +418,18 @@ struct MessageFieldGenerator {
             p.print("}\n")
         } else {
             let defaultClause: String
-            if isRequired {
+            if isMap || isRepeated {
+                defaultClause = ""
+            } else if (isMessage || isGroup) && (isProto3 || isRequired) {
                 defaultClause = " ?? " + swiftDefaultValue
-            } else if isMap {
-                defaultClause = " ?? [:]"
-            } else if isRepeated {
-                defaultClause = " ?? []"
+            } else if isRequired {
+                defaultClause = ""
             } else if let d = swiftProto2DefaultValue {
                 defaultClause = " ?? " + d
-            } else if isProto3 {
-                defaultClause = " ?? " + swiftDefaultValue
             } else {
                 defaultClause = ""
             }
-            p.print("get {return _storage?.\(swiftStorageName)\(defaultClause)}\n")
+            p.print("get {return _storage.\(swiftStorageName)\(defaultClause)}\n")
             p.print("set {_uniqueStorage().\(swiftStorageName) = newValue}\n")
         }
         p.outdent()
@@ -444,22 +438,6 @@ struct MessageFieldGenerator {
 
     func generateDecodeFieldCase(printer p: inout CodePrinter, prefix: String = "") {
         p.print("case \(number): handled = try setter.\(swiftDecoderMethod)(fieldType: \(traitsType).self, value: &\(prefix)\(swiftName))\n")
-    }
-
-    func isNotEmptyTest() -> String {
-        if isRepeated {
-            return "!\(swiftStorageName).isEmpty"
-        } else if isProto3 {
-            return "\(swiftStorageName) != \(swiftStorageDefaultValue)"
-        } else if isOptional {
-            if let def = swiftProto2DefaultValue {
-                return "\(swiftStorageName) != nil && \(swiftStorageName)! != \(def)"
-            } else {
-                return "\(swiftStorageName) != nil"
-            }
-        } else {
-            return "\(swiftStorageName) != \(swiftStorageDefaultValue)"
-        }
     }
 
     func generateTraverse(printer p: inout CodePrinter, prefix: String = "") {

@@ -3235,217 +3235,6 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _string != 0 {return false}
-      if _int != 0 {return false}
-      if _double != 0 {return false}
-      if _float != 0 {return false}
-      if _uint != 0 {return false}
-      if _hashValue_p != 0 {return false}
-      if _description_p != 0 {return false}
-      if _debugDescription_p != 0 {return false}
-      if _swift != 0 {return false}
-      if _unrecognized != 0 {return false}
-      if _class_p != 0 {return false}
-      if _deinit_p != 0 {return false}
-      if _enum_p != 0 {return false}
-      if _extension_p != 0 {return false}
-      if _func_p != 0 {return false}
-      if _import_p != 0 {return false}
-      if _init_p != 0 {return false}
-      if _inout_p != 0 {return false}
-      if _internal_p != 0 {return false}
-      if _let_p != 0 {return false}
-      if _operator_p != 0 {return false}
-      if _private_p != 0 {return false}
-      if _protocol_p != 0 {return false}
-      if _public_p != 0 {return false}
-      if _static_p != 0 {return false}
-      if _struct_p != 0 {return false}
-      if _subscript_p != 0 {return false}
-      if _typealias_p != 0 {return false}
-      if _var_p != 0 {return false}
-      if _break_p != 0 {return false}
-      if _case_p != 0 {return false}
-      if _continue_p != 0 {return false}
-      if _default_p != 0 {return false}
-      if _defer_p != 0 {return false}
-      if _do_p != 0 {return false}
-      if _else_p != 0 {return false}
-      if _fallthrough_p != 0 {return false}
-      if _for_p != 0 {return false}
-      if _guard_p != 0 {return false}
-      if _if_p != 0 {return false}
-      if _in_p != 0 {return false}
-      if _repeat_p != 0 {return false}
-      if _return_p != 0 {return false}
-      if _switch_p != 0 {return false}
-      if _where_p != 0 {return false}
-      if _while_p != 0 {return false}
-      if _as_p != 0 {return false}
-      if _catch_p != 0 {return false}
-      if _dynamicType_p != 0 {return false}
-      if _false_p != 0 {return false}
-      if _is_p != 0 {return false}
-      if _nil_p != 0 {return false}
-      if _rethrows_p != 0 {return false}
-      if _super_p != 0 {return false}
-      if _self_p != 0 {return false}
-      if _throw_p != 0 {return false}
-      if _throws_p != 0 {return false}
-      if _true_p != 0 {return false}
-      if _try_p != 0 {return false}
-      if __Column__ != 0 {return false}
-      if __File__ != 0 {return false}
-      if __Function__ != 0 {return false}
-      if __Line__ != 0 {return false}
-      if ____ != 0 {return false}
-      if _associativity != 0 {return false}
-      if _convenience != 0 {return false}
-      if _dynamic != 0 {return false}
-      if _didSet != 0 {return false}
-      if _final != 0 {return false}
-      if _get != 0 {return false}
-      if _infix != 0 {return false}
-      if _indirect != 0 {return false}
-      if _lazy != 0 {return false}
-      if _left != 0 {return false}
-      if _mutating != 0 {return false}
-      if _none != 0 {return false}
-      if _nonmutating != 0 {return false}
-      if _optional != 0 {return false}
-      if _override != 0 {return false}
-      if _postfix != 0 {return false}
-      if _precedence != 0 {return false}
-      if _prefix != 0 {return false}
-      if _required != 0 {return false}
-      if _right != 0 {return false}
-      if _set != 0 {return false}
-      if _type != 0 {return false}
-      if _unowned != 0 {return false}
-      if _weak != 0 {return false}
-      if _willSet != 0 {return false}
-      if _id != 0 {return false}
-      if _cmd != 0 {return false}
-      if _out != 0 {return false}
-      if _bycopy != 0 {return false}
-      if _byref != 0 {return false}
-      if _oneway != 0 {return false}
-      if _and != 0 {return false}
-      if _andEq != 0 {return false}
-      if _alignas != 0 {return false}
-      if _alignof != 0 {return false}
-      if _asm != 0 {return false}
-      if _auto != 0 {return false}
-      if _bitand != 0 {return false}
-      if _bitor != 0 {return false}
-      if _bool != 0 {return false}
-      if _char != 0 {return false}
-      if _char16T != 0 {return false}
-      if _char32T != 0 {return false}
-      if _compl != 0 {return false}
-      if _const != 0 {return false}
-      if _constexpr != 0 {return false}
-      if _constCast != 0 {return false}
-      if _decltype != 0 {return false}
-      if _delete != 0 {return false}
-      if _dynamicCast != 0 {return false}
-      if _explicit != 0 {return false}
-      if _export != 0 {return false}
-      if _extern != 0 {return false}
-      if _friend != 0 {return false}
-      if _goto != 0 {return false}
-      if _inline != 0 {return false}
-      if _long != 0 {return false}
-      if _mutable != 0 {return false}
-      if _namespace != 0 {return false}
-      if _new != 0 {return false}
-      if _noexcept != 0 {return false}
-      if _not != 0 {return false}
-      if _notEq != 0 {return false}
-      if _nullptr != 0 {return false}
-      if _or != 0 {return false}
-      if _orEq != 0 {return false}
-      if _protected != 0 {return false}
-      if _register != 0 {return false}
-      if _reinterpretCast != 0 {return false}
-      if _short != 0 {return false}
-      if _signed != 0 {return false}
-      if _sizeof != 0 {return false}
-      if _staticAssert != 0 {return false}
-      if _staticCast != 0 {return false}
-      if _template != 0 {return false}
-      if _this != 0 {return false}
-      if _threadLocal != 0 {return false}
-      if _typedef != 0 {return false}
-      if _typeid != 0 {return false}
-      if _typename != 0 {return false}
-      if _union != 0 {return false}
-      if _unsigned != 0 {return false}
-      if _using != 0 {return false}
-      if _virtual != 0 {return false}
-      if _void != 0 {return false}
-      if _volatile != 0 {return false}
-      if _wcharT != 0 {return false}
-      if _xor != 0 {return false}
-      if _xorEq != 0 {return false}
-      if _restrict != 0 {return false}
-      if _category != 0 {return false}
-      if _ivar != 0 {return false}
-      if _method != 0 {return false}
-      if _finalize != 0 {return false}
-      if _hash != 0 {return false}
-      if _dealloc != 0 {return false}
-      if _superclass != 0 {return false}
-      if _retain != 0 {return false}
-      if _release != 0 {return false}
-      if _autorelease != 0 {return false}
-      if _retainCount != 0 {return false}
-      if _zone != 0 {return false}
-      if _isProxy != 0 {return false}
-      if _copy != 0 {return false}
-      if _mutableCopy != 0 {return false}
-      if _classForCoder != 0 {return false}
-      if _clear != 0 {return false}
-      if _data != 0 {return false}
-      if _delimitedData != 0 {return false}
-      if _descriptor != 0 {return false}
-      if _extensionRegistry != 0 {return false}
-      if _extensionsCurrentlySet != 0 {return false}
-      if _isInitialized != 0 {return false}
-      if _serializedSize != 0 {return false}
-      if _sortedExtensionsInUse != 0 {return false}
-      if _unknownFields != 0 {return false}
-      if _fixed != 0 {return false}
-      if _fract != 0 {return false}
-      if _size != 0 {return false}
-      if _logicalAddress != 0 {return false}
-      if _physicalAddress != 0 {return false}
-      if _byteCount != 0 {return false}
-      if _byteOffset != 0 {return false}
-      if _duration != 0 {return false}
-      if _absoluteTime != 0 {return false}
-      if _optionBits != 0 {return false}
-      if _itemCount != 0 {return false}
-      if _pbversion != 0 {return false}
-      if _scriptCode != 0 {return false}
-      if _langCode != 0 {return false}
-      if _regionCode != 0 {return false}
-      if _ostype != 0 {return false}
-      if _processSerialNumber != 0 {return false}
-      if _point != 0 {return false}
-      if _rect != 0 {return false}
-      if _fixedPoint != 0 {return false}
-      if _fixedRect != 0 {return false}
-      if _style != 0 {return false}
-      if _styleParameter != 0 {return false}
-      if _styleField != 0 {return false}
-      if _timeScale != 0 {return false}
-      if _timeBase != 0 {return false}
-      if _timeRecord != 0 {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _string != other._string {return false}
       if _int != other._int {return false}
@@ -3870,1040 +3659,1040 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var string: Int32 {
-    get {return _storage?._string ?? 0}
+    get {return _storage._string}
     set {_uniqueStorage()._string = newValue}
   }
 
   public var int: Int32 {
-    get {return _storage?._int ?? 0}
+    get {return _storage._int}
     set {_uniqueStorage()._int = newValue}
   }
 
   public var double: Int32 {
-    get {return _storage?._double ?? 0}
+    get {return _storage._double}
     set {_uniqueStorage()._double = newValue}
   }
 
   public var float: Int32 {
-    get {return _storage?._float ?? 0}
+    get {return _storage._float}
     set {_uniqueStorage()._float = newValue}
   }
 
   public var uint: Int32 {
-    get {return _storage?._uint ?? 0}
+    get {return _storage._uint}
     set {_uniqueStorage()._uint = newValue}
   }
 
   public var hashValue_p: Int32 {
-    get {return _storage?._hashValue_p ?? 0}
+    get {return _storage._hashValue_p}
     set {_uniqueStorage()._hashValue_p = newValue}
   }
 
   public var description_p: Int32 {
-    get {return _storage?._description_p ?? 0}
+    get {return _storage._description_p}
     set {_uniqueStorage()._description_p = newValue}
   }
 
   public var debugDescription_p: Int32 {
-    get {return _storage?._debugDescription_p ?? 0}
+    get {return _storage._debugDescription_p}
     set {_uniqueStorage()._debugDescription_p = newValue}
   }
 
   public var swift: Int32 {
-    get {return _storage?._swift ?? 0}
+    get {return _storage._swift}
     set {_uniqueStorage()._swift = newValue}
   }
 
   public var unrecognized: Int32 {
-    get {return _storage?._unrecognized ?? 0}
+    get {return _storage._unrecognized}
     set {_uniqueStorage()._unrecognized = newValue}
   }
 
   public var class_p: Int32 {
-    get {return _storage?._class_p ?? 0}
+    get {return _storage._class_p}
     set {_uniqueStorage()._class_p = newValue}
   }
 
   public var deinit_p: Int32 {
-    get {return _storage?._deinit_p ?? 0}
+    get {return _storage._deinit_p}
     set {_uniqueStorage()._deinit_p = newValue}
   }
 
   public var enum_p: Int32 {
-    get {return _storage?._enum_p ?? 0}
+    get {return _storage._enum_p}
     set {_uniqueStorage()._enum_p = newValue}
   }
 
   public var extension_p: Int32 {
-    get {return _storage?._extension_p ?? 0}
+    get {return _storage._extension_p}
     set {_uniqueStorage()._extension_p = newValue}
   }
 
   public var func_p: Int32 {
-    get {return _storage?._func_p ?? 0}
+    get {return _storage._func_p}
     set {_uniqueStorage()._func_p = newValue}
   }
 
   public var import_p: Int32 {
-    get {return _storage?._import_p ?? 0}
+    get {return _storage._import_p}
     set {_uniqueStorage()._import_p = newValue}
   }
 
   public var init_p: Int32 {
-    get {return _storage?._init_p ?? 0}
+    get {return _storage._init_p}
     set {_uniqueStorage()._init_p = newValue}
   }
 
   public var inout_p: Int32 {
-    get {return _storage?._inout_p ?? 0}
+    get {return _storage._inout_p}
     set {_uniqueStorage()._inout_p = newValue}
   }
 
   public var internal_p: Int32 {
-    get {return _storage?._internal_p ?? 0}
+    get {return _storage._internal_p}
     set {_uniqueStorage()._internal_p = newValue}
   }
 
   public var let_p: Int32 {
-    get {return _storage?._let_p ?? 0}
+    get {return _storage._let_p}
     set {_uniqueStorage()._let_p = newValue}
   }
 
   public var operator_p: Int32 {
-    get {return _storage?._operator_p ?? 0}
+    get {return _storage._operator_p}
     set {_uniqueStorage()._operator_p = newValue}
   }
 
   public var private_p: Int32 {
-    get {return _storage?._private_p ?? 0}
+    get {return _storage._private_p}
     set {_uniqueStorage()._private_p = newValue}
   }
 
   public var protocol_p: Int32 {
-    get {return _storage?._protocol_p ?? 0}
+    get {return _storage._protocol_p}
     set {_uniqueStorage()._protocol_p = newValue}
   }
 
   public var public_p: Int32 {
-    get {return _storage?._public_p ?? 0}
+    get {return _storage._public_p}
     set {_uniqueStorage()._public_p = newValue}
   }
 
   public var static_p: Int32 {
-    get {return _storage?._static_p ?? 0}
+    get {return _storage._static_p}
     set {_uniqueStorage()._static_p = newValue}
   }
 
   public var struct_p: Int32 {
-    get {return _storage?._struct_p ?? 0}
+    get {return _storage._struct_p}
     set {_uniqueStorage()._struct_p = newValue}
   }
 
   public var subscript_p: Int32 {
-    get {return _storage?._subscript_p ?? 0}
+    get {return _storage._subscript_p}
     set {_uniqueStorage()._subscript_p = newValue}
   }
 
   public var typealias_p: Int32 {
-    get {return _storage?._typealias_p ?? 0}
+    get {return _storage._typealias_p}
     set {_uniqueStorage()._typealias_p = newValue}
   }
 
   public var var_p: Int32 {
-    get {return _storage?._var_p ?? 0}
+    get {return _storage._var_p}
     set {_uniqueStorage()._var_p = newValue}
   }
 
   public var break_p: Int32 {
-    get {return _storage?._break_p ?? 0}
+    get {return _storage._break_p}
     set {_uniqueStorage()._break_p = newValue}
   }
 
   public var case_p: Int32 {
-    get {return _storage?._case_p ?? 0}
+    get {return _storage._case_p}
     set {_uniqueStorage()._case_p = newValue}
   }
 
   public var continue_p: Int32 {
-    get {return _storage?._continue_p ?? 0}
+    get {return _storage._continue_p}
     set {_uniqueStorage()._continue_p = newValue}
   }
 
   public var default_p: Int32 {
-    get {return _storage?._default_p ?? 0}
+    get {return _storage._default_p}
     set {_uniqueStorage()._default_p = newValue}
   }
 
   public var defer_p: Int32 {
-    get {return _storage?._defer_p ?? 0}
+    get {return _storage._defer_p}
     set {_uniqueStorage()._defer_p = newValue}
   }
 
   public var do_p: Int32 {
-    get {return _storage?._do_p ?? 0}
+    get {return _storage._do_p}
     set {_uniqueStorage()._do_p = newValue}
   }
 
   public var else_p: Int32 {
-    get {return _storage?._else_p ?? 0}
+    get {return _storage._else_p}
     set {_uniqueStorage()._else_p = newValue}
   }
 
   public var fallthrough_p: Int32 {
-    get {return _storage?._fallthrough_p ?? 0}
+    get {return _storage._fallthrough_p}
     set {_uniqueStorage()._fallthrough_p = newValue}
   }
 
   public var for_p: Int32 {
-    get {return _storage?._for_p ?? 0}
+    get {return _storage._for_p}
     set {_uniqueStorage()._for_p = newValue}
   }
 
   public var guard_p: Int32 {
-    get {return _storage?._guard_p ?? 0}
+    get {return _storage._guard_p}
     set {_uniqueStorage()._guard_p = newValue}
   }
 
   public var if_p: Int32 {
-    get {return _storage?._if_p ?? 0}
+    get {return _storage._if_p}
     set {_uniqueStorage()._if_p = newValue}
   }
 
   public var in_p: Int32 {
-    get {return _storage?._in_p ?? 0}
+    get {return _storage._in_p}
     set {_uniqueStorage()._in_p = newValue}
   }
 
   public var repeat_p: Int32 {
-    get {return _storage?._repeat_p ?? 0}
+    get {return _storage._repeat_p}
     set {_uniqueStorage()._repeat_p = newValue}
   }
 
   public var return_p: Int32 {
-    get {return _storage?._return_p ?? 0}
+    get {return _storage._return_p}
     set {_uniqueStorage()._return_p = newValue}
   }
 
   public var switch_p: Int32 {
-    get {return _storage?._switch_p ?? 0}
+    get {return _storage._switch_p}
     set {_uniqueStorage()._switch_p = newValue}
   }
 
   public var where_p: Int32 {
-    get {return _storage?._where_p ?? 0}
+    get {return _storage._where_p}
     set {_uniqueStorage()._where_p = newValue}
   }
 
   public var while_p: Int32 {
-    get {return _storage?._while_p ?? 0}
+    get {return _storage._while_p}
     set {_uniqueStorage()._while_p = newValue}
   }
 
   public var as_p: Int32 {
-    get {return _storage?._as_p ?? 0}
+    get {return _storage._as_p}
     set {_uniqueStorage()._as_p = newValue}
   }
 
   public var catch_p: Int32 {
-    get {return _storage?._catch_p ?? 0}
+    get {return _storage._catch_p}
     set {_uniqueStorage()._catch_p = newValue}
   }
 
   public var dynamicType_p: Int32 {
-    get {return _storage?._dynamicType_p ?? 0}
+    get {return _storage._dynamicType_p}
     set {_uniqueStorage()._dynamicType_p = newValue}
   }
 
   public var false_p: Int32 {
-    get {return _storage?._false_p ?? 0}
+    get {return _storage._false_p}
     set {_uniqueStorage()._false_p = newValue}
   }
 
   public var is_p: Int32 {
-    get {return _storage?._is_p ?? 0}
+    get {return _storage._is_p}
     set {_uniqueStorage()._is_p = newValue}
   }
 
   public var nil_p: Int32 {
-    get {return _storage?._nil_p ?? 0}
+    get {return _storage._nil_p}
     set {_uniqueStorage()._nil_p = newValue}
   }
 
   public var rethrows_p: Int32 {
-    get {return _storage?._rethrows_p ?? 0}
+    get {return _storage._rethrows_p}
     set {_uniqueStorage()._rethrows_p = newValue}
   }
 
   public var super_p: Int32 {
-    get {return _storage?._super_p ?? 0}
+    get {return _storage._super_p}
     set {_uniqueStorage()._super_p = newValue}
   }
 
   public var self_p: Int32 {
-    get {return _storage?._self_p ?? 0}
+    get {return _storage._self_p}
     set {_uniqueStorage()._self_p = newValue}
   }
 
   public var throw_p: Int32 {
-    get {return _storage?._throw_p ?? 0}
+    get {return _storage._throw_p}
     set {_uniqueStorage()._throw_p = newValue}
   }
 
   public var throws_p: Int32 {
-    get {return _storage?._throws_p ?? 0}
+    get {return _storage._throws_p}
     set {_uniqueStorage()._throws_p = newValue}
   }
 
   public var true_p: Int32 {
-    get {return _storage?._true_p ?? 0}
+    get {return _storage._true_p}
     set {_uniqueStorage()._true_p = newValue}
   }
 
   public var try_p: Int32 {
-    get {return _storage?._try_p ?? 0}
+    get {return _storage._try_p}
     set {_uniqueStorage()._try_p = newValue}
   }
 
   public var _Column__: Int32 {
-    get {return _storage?.__Column__ ?? 0}
+    get {return _storage.__Column__}
     set {_uniqueStorage().__Column__ = newValue}
   }
 
   public var _File__: Int32 {
-    get {return _storage?.__File__ ?? 0}
+    get {return _storage.__File__}
     set {_uniqueStorage().__File__ = newValue}
   }
 
   public var _Function__: Int32 {
-    get {return _storage?.__Function__ ?? 0}
+    get {return _storage.__Function__}
     set {_uniqueStorage().__Function__ = newValue}
   }
 
   public var _Line__: Int32 {
-    get {return _storage?.__Line__ ?? 0}
+    get {return _storage.__Line__}
     set {_uniqueStorage().__Line__ = newValue}
   }
 
   public var ___: Int32 {
-    get {return _storage?.____ ?? 0}
+    get {return _storage.____}
     set {_uniqueStorage().____ = newValue}
   }
 
   public var associativity: Int32 {
-    get {return _storage?._associativity ?? 0}
+    get {return _storage._associativity}
     set {_uniqueStorage()._associativity = newValue}
   }
 
   public var convenience: Int32 {
-    get {return _storage?._convenience ?? 0}
+    get {return _storage._convenience}
     set {_uniqueStorage()._convenience = newValue}
   }
 
   public var dynamic: Int32 {
-    get {return _storage?._dynamic ?? 0}
+    get {return _storage._dynamic}
     set {_uniqueStorage()._dynamic = newValue}
   }
 
   public var didSet: Int32 {
-    get {return _storage?._didSet ?? 0}
+    get {return _storage._didSet}
     set {_uniqueStorage()._didSet = newValue}
   }
 
   public var final: Int32 {
-    get {return _storage?._final ?? 0}
+    get {return _storage._final}
     set {_uniqueStorage()._final = newValue}
   }
 
   public var get: Int32 {
-    get {return _storage?._get ?? 0}
+    get {return _storage._get}
     set {_uniqueStorage()._get = newValue}
   }
 
   public var infix: Int32 {
-    get {return _storage?._infix ?? 0}
+    get {return _storage._infix}
     set {_uniqueStorage()._infix = newValue}
   }
 
   public var indirect: Int32 {
-    get {return _storage?._indirect ?? 0}
+    get {return _storage._indirect}
     set {_uniqueStorage()._indirect = newValue}
   }
 
   public var lazy: Int32 {
-    get {return _storage?._lazy ?? 0}
+    get {return _storage._lazy}
     set {_uniqueStorage()._lazy = newValue}
   }
 
   public var left: Int32 {
-    get {return _storage?._left ?? 0}
+    get {return _storage._left}
     set {_uniqueStorage()._left = newValue}
   }
 
   public var mutating: Int32 {
-    get {return _storage?._mutating ?? 0}
+    get {return _storage._mutating}
     set {_uniqueStorage()._mutating = newValue}
   }
 
   public var none: Int32 {
-    get {return _storage?._none ?? 0}
+    get {return _storage._none}
     set {_uniqueStorage()._none = newValue}
   }
 
   public var nonmutating: Int32 {
-    get {return _storage?._nonmutating ?? 0}
+    get {return _storage._nonmutating}
     set {_uniqueStorage()._nonmutating = newValue}
   }
 
   public var optional: Int32 {
-    get {return _storage?._optional ?? 0}
+    get {return _storage._optional}
     set {_uniqueStorage()._optional = newValue}
   }
 
   public var override: Int32 {
-    get {return _storage?._override ?? 0}
+    get {return _storage._override}
     set {_uniqueStorage()._override = newValue}
   }
 
   public var postfix: Int32 {
-    get {return _storage?._postfix ?? 0}
+    get {return _storage._postfix}
     set {_uniqueStorage()._postfix = newValue}
   }
 
   public var precedence: Int32 {
-    get {return _storage?._precedence ?? 0}
+    get {return _storage._precedence}
     set {_uniqueStorage()._precedence = newValue}
   }
 
   public var prefix: Int32 {
-    get {return _storage?._prefix ?? 0}
+    get {return _storage._prefix}
     set {_uniqueStorage()._prefix = newValue}
   }
 
   public var required: Int32 {
-    get {return _storage?._required ?? 0}
+    get {return _storage._required}
     set {_uniqueStorage()._required = newValue}
   }
 
   public var right: Int32 {
-    get {return _storage?._right ?? 0}
+    get {return _storage._right}
     set {_uniqueStorage()._right = newValue}
   }
 
   public var set: Int32 {
-    get {return _storage?._set ?? 0}
+    get {return _storage._set}
     set {_uniqueStorage()._set = newValue}
   }
 
   public var type: Int32 {
-    get {return _storage?._type ?? 0}
+    get {return _storage._type}
     set {_uniqueStorage()._type = newValue}
   }
 
   public var unowned: Int32 {
-    get {return _storage?._unowned ?? 0}
+    get {return _storage._unowned}
     set {_uniqueStorage()._unowned = newValue}
   }
 
   public var weak: Int32 {
-    get {return _storage?._weak ?? 0}
+    get {return _storage._weak}
     set {_uniqueStorage()._weak = newValue}
   }
 
   public var willSet: Int32 {
-    get {return _storage?._willSet ?? 0}
+    get {return _storage._willSet}
     set {_uniqueStorage()._willSet = newValue}
   }
 
   public var id: Int32 {
-    get {return _storage?._id ?? 0}
+    get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
   public var cmd: Int32 {
-    get {return _storage?._cmd ?? 0}
+    get {return _storage._cmd}
     set {_uniqueStorage()._cmd = newValue}
   }
 
   public var out: Int32 {
-    get {return _storage?._out ?? 0}
+    get {return _storage._out}
     set {_uniqueStorage()._out = newValue}
   }
 
   public var bycopy: Int32 {
-    get {return _storage?._bycopy ?? 0}
+    get {return _storage._bycopy}
     set {_uniqueStorage()._bycopy = newValue}
   }
 
   public var byref: Int32 {
-    get {return _storage?._byref ?? 0}
+    get {return _storage._byref}
     set {_uniqueStorage()._byref = newValue}
   }
 
   public var oneway: Int32 {
-    get {return _storage?._oneway ?? 0}
+    get {return _storage._oneway}
     set {_uniqueStorage()._oneway = newValue}
   }
 
   public var and: Int32 {
-    get {return _storage?._and ?? 0}
+    get {return _storage._and}
     set {_uniqueStorage()._and = newValue}
   }
 
   public var andEq: Int32 {
-    get {return _storage?._andEq ?? 0}
+    get {return _storage._andEq}
     set {_uniqueStorage()._andEq = newValue}
   }
 
   public var alignas: Int32 {
-    get {return _storage?._alignas ?? 0}
+    get {return _storage._alignas}
     set {_uniqueStorage()._alignas = newValue}
   }
 
   public var alignof: Int32 {
-    get {return _storage?._alignof ?? 0}
+    get {return _storage._alignof}
     set {_uniqueStorage()._alignof = newValue}
   }
 
   public var asm: Int32 {
-    get {return _storage?._asm ?? 0}
+    get {return _storage._asm}
     set {_uniqueStorage()._asm = newValue}
   }
 
   public var auto: Int32 {
-    get {return _storage?._auto ?? 0}
+    get {return _storage._auto}
     set {_uniqueStorage()._auto = newValue}
   }
 
   public var bitand: Int32 {
-    get {return _storage?._bitand ?? 0}
+    get {return _storage._bitand}
     set {_uniqueStorage()._bitand = newValue}
   }
 
   public var bitor: Int32 {
-    get {return _storage?._bitor ?? 0}
+    get {return _storage._bitor}
     set {_uniqueStorage()._bitor = newValue}
   }
 
   public var bool: Int32 {
-    get {return _storage?._bool ?? 0}
+    get {return _storage._bool}
     set {_uniqueStorage()._bool = newValue}
   }
 
   public var char: Int32 {
-    get {return _storage?._char ?? 0}
+    get {return _storage._char}
     set {_uniqueStorage()._char = newValue}
   }
 
   public var char16T: Int32 {
-    get {return _storage?._char16T ?? 0}
+    get {return _storage._char16T}
     set {_uniqueStorage()._char16T = newValue}
   }
 
   public var char32T: Int32 {
-    get {return _storage?._char32T ?? 0}
+    get {return _storage._char32T}
     set {_uniqueStorage()._char32T = newValue}
   }
 
   public var compl: Int32 {
-    get {return _storage?._compl ?? 0}
+    get {return _storage._compl}
     set {_uniqueStorage()._compl = newValue}
   }
 
   public var const: Int32 {
-    get {return _storage?._const ?? 0}
+    get {return _storage._const}
     set {_uniqueStorage()._const = newValue}
   }
 
   public var constexpr: Int32 {
-    get {return _storage?._constexpr ?? 0}
+    get {return _storage._constexpr}
     set {_uniqueStorage()._constexpr = newValue}
   }
 
   public var constCast: Int32 {
-    get {return _storage?._constCast ?? 0}
+    get {return _storage._constCast}
     set {_uniqueStorage()._constCast = newValue}
   }
 
   public var decltype: Int32 {
-    get {return _storage?._decltype ?? 0}
+    get {return _storage._decltype}
     set {_uniqueStorage()._decltype = newValue}
   }
 
   public var delete: Int32 {
-    get {return _storage?._delete ?? 0}
+    get {return _storage._delete}
     set {_uniqueStorage()._delete = newValue}
   }
 
   public var dynamicCast: Int32 {
-    get {return _storage?._dynamicCast ?? 0}
+    get {return _storage._dynamicCast}
     set {_uniqueStorage()._dynamicCast = newValue}
   }
 
   public var explicit: Int32 {
-    get {return _storage?._explicit ?? 0}
+    get {return _storage._explicit}
     set {_uniqueStorage()._explicit = newValue}
   }
 
   public var export: Int32 {
-    get {return _storage?._export ?? 0}
+    get {return _storage._export}
     set {_uniqueStorage()._export = newValue}
   }
 
   public var extern: Int32 {
-    get {return _storage?._extern ?? 0}
+    get {return _storage._extern}
     set {_uniqueStorage()._extern = newValue}
   }
 
   public var friend: Int32 {
-    get {return _storage?._friend ?? 0}
+    get {return _storage._friend}
     set {_uniqueStorage()._friend = newValue}
   }
 
   public var goto: Int32 {
-    get {return _storage?._goto ?? 0}
+    get {return _storage._goto}
     set {_uniqueStorage()._goto = newValue}
   }
 
   public var inline: Int32 {
-    get {return _storage?._inline ?? 0}
+    get {return _storage._inline}
     set {_uniqueStorage()._inline = newValue}
   }
 
   public var long: Int32 {
-    get {return _storage?._long ?? 0}
+    get {return _storage._long}
     set {_uniqueStorage()._long = newValue}
   }
 
   public var mutable: Int32 {
-    get {return _storage?._mutable ?? 0}
+    get {return _storage._mutable}
     set {_uniqueStorage()._mutable = newValue}
   }
 
   public var namespace: Int32 {
-    get {return _storage?._namespace ?? 0}
+    get {return _storage._namespace}
     set {_uniqueStorage()._namespace = newValue}
   }
 
   public var new: Int32 {
-    get {return _storage?._new ?? 0}
+    get {return _storage._new}
     set {_uniqueStorage()._new = newValue}
   }
 
   public var noexcept: Int32 {
-    get {return _storage?._noexcept ?? 0}
+    get {return _storage._noexcept}
     set {_uniqueStorage()._noexcept = newValue}
   }
 
   public var not: Int32 {
-    get {return _storage?._not ?? 0}
+    get {return _storage._not}
     set {_uniqueStorage()._not = newValue}
   }
 
   public var notEq: Int32 {
-    get {return _storage?._notEq ?? 0}
+    get {return _storage._notEq}
     set {_uniqueStorage()._notEq = newValue}
   }
 
   public var nullptr: Int32 {
-    get {return _storage?._nullptr ?? 0}
+    get {return _storage._nullptr}
     set {_uniqueStorage()._nullptr = newValue}
   }
 
   public var or: Int32 {
-    get {return _storage?._or ?? 0}
+    get {return _storage._or}
     set {_uniqueStorage()._or = newValue}
   }
 
   public var orEq: Int32 {
-    get {return _storage?._orEq ?? 0}
+    get {return _storage._orEq}
     set {_uniqueStorage()._orEq = newValue}
   }
 
   public var protected: Int32 {
-    get {return _storage?._protected ?? 0}
+    get {return _storage._protected}
     set {_uniqueStorage()._protected = newValue}
   }
 
   public var register: Int32 {
-    get {return _storage?._register ?? 0}
+    get {return _storage._register}
     set {_uniqueStorage()._register = newValue}
   }
 
   public var reinterpretCast: Int32 {
-    get {return _storage?._reinterpretCast ?? 0}
+    get {return _storage._reinterpretCast}
     set {_uniqueStorage()._reinterpretCast = newValue}
   }
 
   public var short: Int32 {
-    get {return _storage?._short ?? 0}
+    get {return _storage._short}
     set {_uniqueStorage()._short = newValue}
   }
 
   public var signed: Int32 {
-    get {return _storage?._signed ?? 0}
+    get {return _storage._signed}
     set {_uniqueStorage()._signed = newValue}
   }
 
   public var sizeof: Int32 {
-    get {return _storage?._sizeof ?? 0}
+    get {return _storage._sizeof}
     set {_uniqueStorage()._sizeof = newValue}
   }
 
   public var staticAssert: Int32 {
-    get {return _storage?._staticAssert ?? 0}
+    get {return _storage._staticAssert}
     set {_uniqueStorage()._staticAssert = newValue}
   }
 
   public var staticCast: Int32 {
-    get {return _storage?._staticCast ?? 0}
+    get {return _storage._staticCast}
     set {_uniqueStorage()._staticCast = newValue}
   }
 
   public var template: Int32 {
-    get {return _storage?._template ?? 0}
+    get {return _storage._template}
     set {_uniqueStorage()._template = newValue}
   }
 
   public var this: Int32 {
-    get {return _storage?._this ?? 0}
+    get {return _storage._this}
     set {_uniqueStorage()._this = newValue}
   }
 
   public var threadLocal: Int32 {
-    get {return _storage?._threadLocal ?? 0}
+    get {return _storage._threadLocal}
     set {_uniqueStorage()._threadLocal = newValue}
   }
 
   public var typedef: Int32 {
-    get {return _storage?._typedef ?? 0}
+    get {return _storage._typedef}
     set {_uniqueStorage()._typedef = newValue}
   }
 
   public var typeid: Int32 {
-    get {return _storage?._typeid ?? 0}
+    get {return _storage._typeid}
     set {_uniqueStorage()._typeid = newValue}
   }
 
   public var typename: Int32 {
-    get {return _storage?._typename ?? 0}
+    get {return _storage._typename}
     set {_uniqueStorage()._typename = newValue}
   }
 
   public var union: Int32 {
-    get {return _storage?._union ?? 0}
+    get {return _storage._union}
     set {_uniqueStorage()._union = newValue}
   }
 
   public var unsigned: Int32 {
-    get {return _storage?._unsigned ?? 0}
+    get {return _storage._unsigned}
     set {_uniqueStorage()._unsigned = newValue}
   }
 
   public var using: Int32 {
-    get {return _storage?._using ?? 0}
+    get {return _storage._using}
     set {_uniqueStorage()._using = newValue}
   }
 
   public var virtual: Int32 {
-    get {return _storage?._virtual ?? 0}
+    get {return _storage._virtual}
     set {_uniqueStorage()._virtual = newValue}
   }
 
   public var void: Int32 {
-    get {return _storage?._void ?? 0}
+    get {return _storage._void}
     set {_uniqueStorage()._void = newValue}
   }
 
   public var volatile: Int32 {
-    get {return _storage?._volatile ?? 0}
+    get {return _storage._volatile}
     set {_uniqueStorage()._volatile = newValue}
   }
 
   public var wcharT: Int32 {
-    get {return _storage?._wcharT ?? 0}
+    get {return _storage._wcharT}
     set {_uniqueStorage()._wcharT = newValue}
   }
 
   public var xor: Int32 {
-    get {return _storage?._xor ?? 0}
+    get {return _storage._xor}
     set {_uniqueStorage()._xor = newValue}
   }
 
   public var xorEq: Int32 {
-    get {return _storage?._xorEq ?? 0}
+    get {return _storage._xorEq}
     set {_uniqueStorage()._xorEq = newValue}
   }
 
   public var restrict: Int32 {
-    get {return _storage?._restrict ?? 0}
+    get {return _storage._restrict}
     set {_uniqueStorage()._restrict = newValue}
   }
 
   public var category: Int32 {
-    get {return _storage?._category ?? 0}
+    get {return _storage._category}
     set {_uniqueStorage()._category = newValue}
   }
 
   public var ivar: Int32 {
-    get {return _storage?._ivar ?? 0}
+    get {return _storage._ivar}
     set {_uniqueStorage()._ivar = newValue}
   }
 
   public var method: Int32 {
-    get {return _storage?._method ?? 0}
+    get {return _storage._method}
     set {_uniqueStorage()._method = newValue}
   }
 
   public var finalize: Int32 {
-    get {return _storage?._finalize ?? 0}
+    get {return _storage._finalize}
     set {_uniqueStorage()._finalize = newValue}
   }
 
   public var hash: Int32 {
-    get {return _storage?._hash ?? 0}
+    get {return _storage._hash}
     set {_uniqueStorage()._hash = newValue}
   }
 
   public var dealloc: Int32 {
-    get {return _storage?._dealloc ?? 0}
+    get {return _storage._dealloc}
     set {_uniqueStorage()._dealloc = newValue}
   }
 
   public var superclass: Int32 {
-    get {return _storage?._superclass ?? 0}
+    get {return _storage._superclass}
     set {_uniqueStorage()._superclass = newValue}
   }
 
   public var retain: Int32 {
-    get {return _storage?._retain ?? 0}
+    get {return _storage._retain}
     set {_uniqueStorage()._retain = newValue}
   }
 
   public var release: Int32 {
-    get {return _storage?._release ?? 0}
+    get {return _storage._release}
     set {_uniqueStorage()._release = newValue}
   }
 
   public var autorelease: Int32 {
-    get {return _storage?._autorelease ?? 0}
+    get {return _storage._autorelease}
     set {_uniqueStorage()._autorelease = newValue}
   }
 
   public var retainCount: Int32 {
-    get {return _storage?._retainCount ?? 0}
+    get {return _storage._retainCount}
     set {_uniqueStorage()._retainCount = newValue}
   }
 
   public var zone: Int32 {
-    get {return _storage?._zone ?? 0}
+    get {return _storage._zone}
     set {_uniqueStorage()._zone = newValue}
   }
 
   public var isProxy: Int32 {
-    get {return _storage?._isProxy ?? 0}
+    get {return _storage._isProxy}
     set {_uniqueStorage()._isProxy = newValue}
   }
 
   public var copy: Int32 {
-    get {return _storage?._copy ?? 0}
+    get {return _storage._copy}
     set {_uniqueStorage()._copy = newValue}
   }
 
   public var mutableCopy: Int32 {
-    get {return _storage?._mutableCopy ?? 0}
+    get {return _storage._mutableCopy}
     set {_uniqueStorage()._mutableCopy = newValue}
   }
 
   public var classForCoder: Int32 {
-    get {return _storage?._classForCoder ?? 0}
+    get {return _storage._classForCoder}
     set {_uniqueStorage()._classForCoder = newValue}
   }
 
   public var clear: Int32 {
-    get {return _storage?._clear ?? 0}
+    get {return _storage._clear}
     set {_uniqueStorage()._clear = newValue}
   }
 
   public var data: Int32 {
-    get {return _storage?._data ?? 0}
+    get {return _storage._data}
     set {_uniqueStorage()._data = newValue}
   }
 
   public var delimitedData: Int32 {
-    get {return _storage?._delimitedData ?? 0}
+    get {return _storage._delimitedData}
     set {_uniqueStorage()._delimitedData = newValue}
   }
 
   public var descriptor: Int32 {
-    get {return _storage?._descriptor ?? 0}
+    get {return _storage._descriptor}
     set {_uniqueStorage()._descriptor = newValue}
   }
 
   public var extensionRegistry: Int32 {
-    get {return _storage?._extensionRegistry ?? 0}
+    get {return _storage._extensionRegistry}
     set {_uniqueStorage()._extensionRegistry = newValue}
   }
 
   public var extensionsCurrentlySet: Int32 {
-    get {return _storage?._extensionsCurrentlySet ?? 0}
+    get {return _storage._extensionsCurrentlySet}
     set {_uniqueStorage()._extensionsCurrentlySet = newValue}
   }
 
   public var isInitialized: Int32 {
-    get {return _storage?._isInitialized ?? 0}
+    get {return _storage._isInitialized}
     set {_uniqueStorage()._isInitialized = newValue}
   }
 
   public var serializedSize: Int32 {
-    get {return _storage?._serializedSize ?? 0}
+    get {return _storage._serializedSize}
     set {_uniqueStorage()._serializedSize = newValue}
   }
 
   public var sortedExtensionsInUse: Int32 {
-    get {return _storage?._sortedExtensionsInUse ?? 0}
+    get {return _storage._sortedExtensionsInUse}
     set {_uniqueStorage()._sortedExtensionsInUse = newValue}
   }
 
   public var unknownFields: Int32 {
-    get {return _storage?._unknownFields ?? 0}
+    get {return _storage._unknownFields}
     set {_uniqueStorage()._unknownFields = newValue}
   }
 
   public var fixed: Int32 {
-    get {return _storage?._fixed ?? 0}
+    get {return _storage._fixed}
     set {_uniqueStorage()._fixed = newValue}
   }
 
   public var fract: Int32 {
-    get {return _storage?._fract ?? 0}
+    get {return _storage._fract}
     set {_uniqueStorage()._fract = newValue}
   }
 
   public var size: Int32 {
-    get {return _storage?._size ?? 0}
+    get {return _storage._size}
     set {_uniqueStorage()._size = newValue}
   }
 
   public var logicalAddress: Int32 {
-    get {return _storage?._logicalAddress ?? 0}
+    get {return _storage._logicalAddress}
     set {_uniqueStorage()._logicalAddress = newValue}
   }
 
   public var physicalAddress: Int32 {
-    get {return _storage?._physicalAddress ?? 0}
+    get {return _storage._physicalAddress}
     set {_uniqueStorage()._physicalAddress = newValue}
   }
 
   public var byteCount: Int32 {
-    get {return _storage?._byteCount ?? 0}
+    get {return _storage._byteCount}
     set {_uniqueStorage()._byteCount = newValue}
   }
 
   public var byteOffset: Int32 {
-    get {return _storage?._byteOffset ?? 0}
+    get {return _storage._byteOffset}
     set {_uniqueStorage()._byteOffset = newValue}
   }
 
   public var duration: Int32 {
-    get {return _storage?._duration ?? 0}
+    get {return _storage._duration}
     set {_uniqueStorage()._duration = newValue}
   }
 
   public var absoluteTime: Int32 {
-    get {return _storage?._absoluteTime ?? 0}
+    get {return _storage._absoluteTime}
     set {_uniqueStorage()._absoluteTime = newValue}
   }
 
   public var optionBits: Int32 {
-    get {return _storage?._optionBits ?? 0}
+    get {return _storage._optionBits}
     set {_uniqueStorage()._optionBits = newValue}
   }
 
   public var itemCount: Int32 {
-    get {return _storage?._itemCount ?? 0}
+    get {return _storage._itemCount}
     set {_uniqueStorage()._itemCount = newValue}
   }
 
   public var pbversion: Int32 {
-    get {return _storage?._pbversion ?? 0}
+    get {return _storage._pbversion}
     set {_uniqueStorage()._pbversion = newValue}
   }
 
   public var scriptCode: Int32 {
-    get {return _storage?._scriptCode ?? 0}
+    get {return _storage._scriptCode}
     set {_uniqueStorage()._scriptCode = newValue}
   }
 
   public var langCode: Int32 {
-    get {return _storage?._langCode ?? 0}
+    get {return _storage._langCode}
     set {_uniqueStorage()._langCode = newValue}
   }
 
   public var regionCode: Int32 {
-    get {return _storage?._regionCode ?? 0}
+    get {return _storage._regionCode}
     set {_uniqueStorage()._regionCode = newValue}
   }
 
   public var ostype: Int32 {
-    get {return _storage?._ostype ?? 0}
+    get {return _storage._ostype}
     set {_uniqueStorage()._ostype = newValue}
   }
 
   public var processSerialNumber: Int32 {
-    get {return _storage?._processSerialNumber ?? 0}
+    get {return _storage._processSerialNumber}
     set {_uniqueStorage()._processSerialNumber = newValue}
   }
 
   public var point: Int32 {
-    get {return _storage?._point ?? 0}
+    get {return _storage._point}
     set {_uniqueStorage()._point = newValue}
   }
 
   public var rect: Int32 {
-    get {return _storage?._rect ?? 0}
+    get {return _storage._rect}
     set {_uniqueStorage()._rect = newValue}
   }
 
   public var fixedPoint: Int32 {
-    get {return _storage?._fixedPoint ?? 0}
+    get {return _storage._fixedPoint}
     set {_uniqueStorage()._fixedPoint = newValue}
   }
 
   public var fixedRect: Int32 {
-    get {return _storage?._fixedRect ?? 0}
+    get {return _storage._fixedRect}
     set {_uniqueStorage()._fixedRect = newValue}
   }
 
   public var style: Int32 {
-    get {return _storage?._style ?? 0}
+    get {return _storage._style}
     set {_uniqueStorage()._style = newValue}
   }
 
   public var styleParameter: Int32 {
-    get {return _storage?._styleParameter ?? 0}
+    get {return _storage._styleParameter}
     set {_uniqueStorage()._styleParameter = newValue}
   }
 
   public var styleField: Int32 {
-    get {return _storage?._styleField ?? 0}
+    get {return _storage._styleField}
     set {_uniqueStorage()._styleField = newValue}
   }
 
   public var timeScale: Int32 {
-    get {return _storage?._timeScale ?? 0}
+    get {return _storage._timeScale}
     set {_uniqueStorage()._timeScale = newValue}
   }
 
   public var timeBase: Int32 {
-    get {return _storage?._timeBase ?? 0}
+    get {return _storage._timeBase}
     set {_uniqueStorage()._timeBase = newValue}
   }
 
   public var timeRecord: Int32 {
-    get {return _storage?._timeRecord ?? 0}
+    get {return _storage._timeRecord}
     set {_uniqueStorage()._timeRecord = newValue}
   }
 
@@ -5746,30 +5535,18 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -5818,11 +5595,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StringMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -5865,11 +5637,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProtocolMessage) -> Bool {
@@ -5916,11 +5683,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.IntMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -5963,11 +5725,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.DoubleMessage) -> Bool {
@@ -6014,11 +5771,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FloatMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6061,11 +5813,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UIntMessage) -> Bool {
@@ -6112,11 +5859,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hashValueMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6159,11 +5901,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptionMessage) -> Bool {
@@ -6210,11 +5947,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.debugDescriptionMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6257,11 +5989,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
@@ -6308,11 +6035,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UNRECOGNIZED) -> Bool {
       if a != other.a {return false}
       return true
@@ -6355,11 +6077,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classMessage) -> Bool {
@@ -6406,11 +6123,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deinitMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6453,11 +6165,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.enumMessage) -> Bool {
@@ -6504,11 +6211,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6551,11 +6253,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.funcMessage) -> Bool {
@@ -6602,11 +6299,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.importMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6649,11 +6341,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.initMessage) -> Bool {
@@ -6700,11 +6387,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inoutMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6747,11 +6429,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.internalMessage) -> Bool {
@@ -6798,11 +6475,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.letMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6845,11 +6517,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.operatorMessage) -> Bool {
@@ -6896,11 +6563,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.privateMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -6943,11 +6605,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protocolMessage) -> Bool {
@@ -6994,11 +6651,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.publicMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7041,11 +6693,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.staticMessage) -> Bool {
@@ -7092,11 +6739,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.structMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7139,11 +6781,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.subscriptMessage) -> Bool {
@@ -7190,11 +6827,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typealiasMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7237,11 +6869,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.varMessage) -> Bool {
@@ -7288,11 +6915,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.breakMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7335,11 +6957,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.caseMessage) -> Bool {
@@ -7386,11 +7003,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.continueMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7433,11 +7045,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.defaultMessage) -> Bool {
@@ -7484,11 +7091,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deferMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7531,11 +7133,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.doMessage) -> Bool {
@@ -7582,11 +7179,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.elseMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7629,11 +7221,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.fallthroughMessage) -> Bool {
@@ -7680,11 +7267,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.forMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7727,11 +7309,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.guardMessage) -> Bool {
@@ -7778,11 +7355,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ifMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7825,11 +7397,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inMessage) -> Bool {
@@ -7876,11 +7443,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.repeatMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -7923,11 +7485,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.returnMessage) -> Bool {
@@ -7974,11 +7531,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.switchMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8021,11 +7573,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whereMessage) -> Bool {
@@ -8072,11 +7619,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whileMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8119,11 +7661,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asMessage) -> Bool {
@@ -8170,11 +7707,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.catchMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8217,11 +7749,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamicTypeMessage) -> Bool {
@@ -8268,11 +7795,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.falseMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8315,11 +7837,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isMessage) -> Bool {
@@ -8366,11 +7883,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nilMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8413,11 +7925,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.rethrowsMessage) -> Bool {
@@ -8464,11 +7971,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8511,11 +8013,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.selfMessage) -> Bool {
@@ -8562,11 +8059,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8609,11 +8101,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwsMessage) -> Bool {
@@ -8660,11 +8147,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.trueMessage) -> Bool {
       if a != other.a {return false}
       return true
@@ -8707,11 +8189,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.tryMessage) -> Bool {
@@ -8758,11 +8235,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__COLUMN__Message) -> Bool {
       if a != other.a {return false}
       return true
@@ -8805,11 +8277,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FILE__Message) -> Bool {
@@ -8856,11 +8323,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FUNCTION__Message) -> Bool {
       if a != other.a {return false}
       return true
@@ -8903,11 +8365,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__LINE__Message) -> Bool {
@@ -8954,11 +8411,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._Message) -> Bool {
       if a != other.a {return false}
       return true
@@ -9001,11 +8453,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__Message) -> Bool {
@@ -9052,11 +8499,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.associativity) -> Bool {
       if a != other.a {return false}
       return true
@@ -9099,11 +8541,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.convenience) -> Bool {
@@ -9150,11 +8587,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic) -> Bool {
       if a != other.a {return false}
       return true
@@ -9197,11 +8629,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.didSet) -> Bool {
@@ -9248,11 +8675,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.final) -> Bool {
       if a != other.a {return false}
       return true
@@ -9295,11 +8717,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.get) -> Bool {
@@ -9346,11 +8763,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.infix) -> Bool {
       if a != other.a {return false}
       return true
@@ -9393,11 +8805,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.indirect) -> Bool {
@@ -9444,11 +8851,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.lazy) -> Bool {
       if a != other.a {return false}
       return true
@@ -9491,11 +8893,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.left) -> Bool {
@@ -9542,11 +8939,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutating) -> Bool {
       if a != other.a {return false}
       return true
@@ -9589,11 +8981,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.none) -> Bool {
@@ -9640,11 +9027,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nonmutating) -> Bool {
       if a != other.a {return false}
       return true
@@ -9687,11 +9069,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.optional) -> Bool {
@@ -9738,11 +9115,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.override) -> Bool {
       if a != other.a {return false}
       return true
@@ -9785,11 +9157,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.postfix) -> Bool {
@@ -9836,11 +9203,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.precedence) -> Bool {
       if a != other.a {return false}
       return true
@@ -9883,11 +9245,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.prefix) -> Bool {
@@ -9934,11 +9291,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.required) -> Bool {
       if a != other.a {return false}
       return true
@@ -9981,11 +9333,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.right) -> Bool {
@@ -10032,11 +9379,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.set) -> Bool {
       if a != other.a {return false}
       return true
@@ -10079,11 +9421,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TypeMessage) -> Bool {
@@ -10130,11 +9467,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unowned) -> Bool {
       if a != other.a {return false}
       return true
@@ -10177,11 +9509,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.weak) -> Bool {
@@ -10228,11 +9555,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.willSet) -> Bool {
       if a != other.a {return false}
       return true
@@ -10275,11 +9597,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.id) -> Bool {
@@ -10326,11 +9643,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._cmd) -> Bool {
       if a != other.a {return false}
       return true
@@ -10373,11 +9685,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.out) -> Bool {
@@ -10424,11 +9731,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bycopy) -> Bool {
       if a != other.a {return false}
       return true
@@ -10471,11 +9773,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.byref) -> Bool {
@@ -10522,11 +9819,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.oneway) -> Bool {
       if a != other.a {return false}
       return true
@@ -10569,11 +9861,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and) -> Bool {
@@ -10620,11 +9907,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and_eq) -> Bool {
       if a != other.a {return false}
       return true
@@ -10667,11 +9949,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignas) -> Bool {
@@ -10718,11 +9995,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignof) -> Bool {
       if a != other.a {return false}
       return true
@@ -10765,11 +10037,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asm) -> Bool {
@@ -10816,11 +10083,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.auto) -> Bool {
       if a != other.a {return false}
       return true
@@ -10863,11 +10125,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitand) -> Bool {
@@ -10914,11 +10171,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitor) -> Bool {
       if a != other.a {return false}
       return true
@@ -10961,11 +10213,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bool) -> Bool {
@@ -11012,11 +10259,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char) -> Bool {
       if a != other.a {return false}
       return true
@@ -11059,11 +10301,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char16_t) -> Bool {
@@ -11110,11 +10347,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char32_t) -> Bool {
       if a != other.a {return false}
       return true
@@ -11157,11 +10389,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.compl) -> Bool {
@@ -11208,11 +10435,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const) -> Bool {
       if a != other.a {return false}
       return true
@@ -11255,11 +10477,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.constexpr) -> Bool {
@@ -11306,11 +10523,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const_cast) -> Bool {
       if a != other.a {return false}
       return true
@@ -11353,11 +10565,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.decltype) -> Bool {
@@ -11404,11 +10611,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delete) -> Bool {
       if a != other.a {return false}
       return true
@@ -11451,11 +10653,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic_cast) -> Bool {
@@ -11502,11 +10699,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.explicit) -> Bool {
       if a != other.a {return false}
       return true
@@ -11549,11 +10741,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.export) -> Bool {
@@ -11600,11 +10787,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extern) -> Bool {
       if a != other.a {return false}
       return true
@@ -11647,11 +10829,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.friend) -> Bool {
@@ -11698,11 +10875,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.goto) -> Bool {
       if a != other.a {return false}
       return true
@@ -11745,11 +10917,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inline) -> Bool {
@@ -11796,11 +10963,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.long) -> Bool {
       if a != other.a {return false}
       return true
@@ -11843,11 +11005,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutable) -> Bool {
@@ -11894,11 +11051,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.namespace) -> Bool {
       if a != other.a {return false}
       return true
@@ -11941,11 +11093,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.new) -> Bool {
@@ -11992,11 +11139,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.noexcept) -> Bool {
       if a != other.a {return false}
       return true
@@ -12039,11 +11181,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not) -> Bool {
@@ -12090,11 +11227,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not_eq) -> Bool {
       if a != other.a {return false}
       return true
@@ -12137,11 +11269,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nullptr) -> Bool {
@@ -12188,11 +11315,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or) -> Bool {
       if a != other.a {return false}
       return true
@@ -12235,11 +11357,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or_eq) -> Bool {
@@ -12286,11 +11403,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protected) -> Bool {
       if a != other.a {return false}
       return true
@@ -12333,11 +11445,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.register) -> Bool {
@@ -12384,11 +11491,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.reinterpret_cast) -> Bool {
       if a != other.a {return false}
       return true
@@ -12431,11 +11533,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.short) -> Bool {
@@ -12482,11 +11579,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.signed) -> Bool {
       if a != other.a {return false}
       return true
@@ -12529,11 +11621,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sizeof) -> Bool {
@@ -12580,11 +11667,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_assert) -> Bool {
       if a != other.a {return false}
       return true
@@ -12627,11 +11709,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_cast) -> Bool {
@@ -12678,11 +11755,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.template) -> Bool {
       if a != other.a {return false}
       return true
@@ -12725,11 +11797,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.this) -> Bool {
@@ -12776,11 +11843,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.thread_local) -> Bool {
       if a != other.a {return false}
       return true
@@ -12823,11 +11885,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typedef) -> Bool {
@@ -12874,11 +11931,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typeid) -> Bool {
       if a != other.a {return false}
       return true
@@ -12921,11 +11973,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typename) -> Bool {
@@ -12972,11 +12019,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.union) -> Bool {
       if a != other.a {return false}
       return true
@@ -13019,11 +12061,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unsigned) -> Bool {
@@ -13070,11 +12107,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.using) -> Bool {
       if a != other.a {return false}
       return true
@@ -13117,11 +12149,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.virtual) -> Bool {
@@ -13168,11 +12195,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.void) -> Bool {
       if a != other.a {return false}
       return true
@@ -13215,11 +12237,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.volatile) -> Bool {
@@ -13266,11 +12283,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.wchar_t) -> Bool {
       if a != other.a {return false}
       return true
@@ -13313,11 +12325,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor) -> Bool {
@@ -13364,11 +12371,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor_eq) -> Bool {
       if a != other.a {return false}
       return true
@@ -13411,11 +12413,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.restrict) -> Bool {
@@ -13462,11 +12459,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Category) -> Bool {
       if a != other.a {return false}
       return true
@@ -13509,11 +12501,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Ivar) -> Bool {
@@ -13560,11 +12547,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Method) -> Bool {
       if a != other.a {return false}
       return true
@@ -13607,11 +12589,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.finalize) -> Bool {
@@ -13658,11 +12635,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hash) -> Bool {
       if a != other.a {return false}
       return true
@@ -13705,11 +12677,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dealloc) -> Bool {
@@ -13756,11 +12723,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superclass) -> Bool {
       if a != other.a {return false}
       return true
@@ -13803,11 +12765,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retain) -> Bool {
@@ -13854,11 +12811,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.release) -> Bool {
       if a != other.a {return false}
       return true
@@ -13901,11 +12853,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.autorelease) -> Bool {
@@ -13952,11 +12899,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retainCount) -> Bool {
       if a != other.a {return false}
       return true
@@ -13999,11 +12941,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.zone) -> Bool {
@@ -14050,11 +12987,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isProxy) -> Bool {
       if a != other.a {return false}
       return true
@@ -14097,11 +13029,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.copy) -> Bool {
@@ -14148,11 +13075,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutableCopy) -> Bool {
       if a != other.a {return false}
       return true
@@ -14195,11 +13117,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classForCoder) -> Bool {
@@ -14246,11 +13163,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.clear) -> Bool {
       if a != other.a {return false}
       return true
@@ -14293,11 +13205,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.data) -> Bool {
@@ -14344,11 +13251,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delimitedData) -> Bool {
       if a != other.a {return false}
       return true
@@ -14391,11 +13293,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptor) -> Bool {
@@ -14442,11 +13339,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionRegistry) -> Bool {
       if a != other.a {return false}
       return true
@@ -14489,11 +13381,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet) -> Bool {
@@ -14540,11 +13427,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitialized) -> Bool {
       if a != other.a {return false}
       return true
@@ -14587,11 +13469,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedSize) -> Bool {
@@ -14638,11 +13515,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse) -> Bool {
       if a != other.a {return false}
       return true
@@ -14685,11 +13557,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFields) -> Bool {
@@ -14736,11 +13603,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fixed) -> Bool {
       if a != other.a {return false}
       return true
@@ -14783,11 +13645,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fract) -> Bool {
@@ -14834,11 +13691,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Size) -> Bool {
       if a != other.a {return false}
       return true
@@ -14881,11 +13733,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LogicalAddress) -> Bool {
@@ -14932,11 +13779,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PhysicalAddress) -> Bool {
       if a != other.a {return false}
       return true
@@ -14979,11 +13821,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteCount) -> Bool {
@@ -15030,11 +13867,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteOffset) -> Bool {
       if a != other.a {return false}
       return true
@@ -15077,11 +13909,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Duration) -> Bool {
@@ -15128,11 +13955,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.AbsoluteTime) -> Bool {
       if a != other.a {return false}
       return true
@@ -15175,11 +13997,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OptionBits) -> Bool {
@@ -15226,11 +14043,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ItemCount) -> Bool {
       if a != other.a {return false}
       return true
@@ -15273,11 +14085,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PBVersion) -> Bool {
@@ -15324,11 +14131,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ScriptCode) -> Bool {
       if a != other.a {return false}
       return true
@@ -15371,11 +14173,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LangCode) -> Bool {
@@ -15422,11 +14219,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.RegionCode) -> Bool {
       if a != other.a {return false}
       return true
@@ -15469,11 +14261,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OSType) -> Bool {
@@ -15520,11 +14307,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProcessSerialNumber) -> Bool {
       if a != other.a {return false}
       return true
@@ -15567,11 +14349,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Point) -> Bool {
@@ -15618,11 +14395,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Rect) -> Bool {
       if a != other.a {return false}
       return true
@@ -15665,11 +14437,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedPoint) -> Bool {
@@ -15716,11 +14483,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedRect) -> Bool {
       if a != other.a {return false}
       return true
@@ -15763,11 +14525,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Style) -> Bool {
@@ -15814,11 +14571,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleParameter) -> Bool {
       if a != other.a {return false}
       return true
@@ -15861,11 +14613,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleField) -> Bool {
@@ -15912,11 +14659,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeScale) -> Bool {
       if a != other.a {return false}
       return true
@@ -15959,11 +14701,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       if a != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
-    }
-
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
     }
 
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeBase) -> Bool {
@@ -16010,11 +14747,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
       }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if a != 0 {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeRecord) -> Bool {
       if a != other.a {return false}
       return true
@@ -16029,8 +14761,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
-
-  public let _protoc_generated_isEmpty: Bool = true
 
   public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames) -> Bool {
     return true
@@ -30264,8 +28994,6 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
-
-  public let _protoc_generated_isEmpty: Bool = true
 
   public func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_EnumNames) -> Bool {
     return true

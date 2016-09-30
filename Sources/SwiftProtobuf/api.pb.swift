@@ -116,17 +116,6 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _name != "" {return false}
-      if !_methods.isEmpty {return false}
-      if !_options.isEmpty {return false}
-      if _version != "" {return false}
-      if _sourceContext != nil {return false}
-      if !_mixins.isEmpty {return false}
-      if _syntax != Google_Protobuf_Syntax.proto2 {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _methods != other._methods {return false}
@@ -151,24 +140,24 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   ///   The fully qualified name of this api, including package name
   ///   followed by the api's simple name.
   public var name: String {
-    get {return _storage?._name ?? ""}
+    get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   The methods of this api, in unspecified order.
   public var methods: [Google_Protobuf_Method] {
-    get {return _storage?._methods ?? []}
+    get {return _storage._methods}
     set {_uniqueStorage()._methods = newValue}
   }
 
   ///   Any metadata attached to the API.
   public var options: [Google_Protobuf_Option] {
-    get {return _storage?._options ?? []}
+    get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
@@ -193,26 +182,26 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
   ///   be omitted. Zero major versions must only be used for
   ///   experimental, none-GA apis.
   public var version: String {
-    get {return _storage?._version ?? ""}
+    get {return _storage._version}
     set {_uniqueStorage()._version = newValue}
   }
 
   ///   Source context for the protocol buffer service represented by this
   ///   message.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get {return _storage?._sourceContext ?? Google_Protobuf_SourceContext()}
+    get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
 
   ///   Included APIs. See [Mixin][].
   public var mixins: [Google_Protobuf_Mixin] {
-    get {return _storage?._mixins ?? []}
+    get {return _storage._mixins}
     set {_uniqueStorage()._mixins = newValue}
   }
 
   ///   The source syntax of the service.
   public var syntax: Google_Protobuf_Syntax {
-    get {return _storage?._syntax ?? Google_Protobuf_Syntax.proto2}
+    get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
   }
 
@@ -253,30 +242,18 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -396,17 +373,6 @@ public struct Google_Protobuf_Method: ProtobufGeneratedMessage {
     if syntax != Google_Protobuf_Syntax.proto2 {
       try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: syntax, protoFieldNumber: 7, protoFieldName: "syntax", jsonFieldName: "syntax", swiftFieldName: "syntax")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if name != "" {return false}
-    if requestTypeURL != "" {return false}
-    if requestStreaming != false {return false}
-    if responseTypeURL != "" {return false}
-    if responseStreaming != false {return false}
-    if !options.isEmpty {return false}
-    if syntax != Google_Protobuf_Syntax.proto2 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Method) -> Bool {
@@ -549,12 +515,6 @@ public struct Google_Protobuf_Mixin: ProtobufGeneratedMessage {
     if root != "" {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: root, protoFieldNumber: 2, protoFieldName: "root", jsonFieldName: "root", swiftFieldName: "root")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if name != "" {return false}
-    if root != "" {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Mixin) -> Bool {

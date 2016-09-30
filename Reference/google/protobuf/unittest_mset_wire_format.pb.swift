@@ -76,12 +76,6 @@ public struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage,
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto2WireformatUnittest_TestMessageSet) -> Bool {
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -141,14 +135,8 @@ public struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: Protob
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _messageSet != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_messageSet != nil && !_messageSet!.isEmpty) || (other._messageSet != nil && !other._messageSet!.isEmpty)) && (_messageSet == nil || other._messageSet == nil || _messageSet! != other._messageSet!)) {return false}
+      if ((_messageSet != nil || other._messageSet != nil) && (_messageSet == nil || other._messageSet == nil || _messageSet! != other._messageSet!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -161,10 +149,10 @@ public struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: Protob
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var messageSet: Proto2WireformatUnittest_TestMessageSet? {
-    get {return _storage?._messageSet}
+    get {return _storage._messageSet}
     set {_uniqueStorage()._messageSet = newValue}
   }
 
@@ -181,29 +169,17 @@ public struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: Protob
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Proto2WireformatUnittest_TestMessageSetWireFormatContainer) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }

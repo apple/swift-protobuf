@@ -107,23 +107,12 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _myString != nil {return false}
-      if _myInt != nil {return false}
-      if _myFloat != nil {return false}
-      if !_options.isEmpty {return false}
-      if _optionalNestedMessage != nil {return false}
-      if !unknown.isEmpty {return false}
-      if !extensionFieldValues.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_myString != nil || other._myString != nil) && (_myString == nil || other._myString == nil || _myString! != other._myString!)) {return false}
       if ((_myInt != nil || other._myInt != nil) && (_myInt == nil || other._myInt == nil || _myInt! != other._myInt!)) {return false}
       if ((_myFloat != nil || other._myFloat != nil) && (_myFloat == nil || other._myFloat == nil || _myFloat! != other._myFloat!)) {return false}
       if _options != other._options {return false}
-      if (((_optionalNestedMessage != nil && !_optionalNestedMessage!.isEmpty) || (other._optionalNestedMessage != nil && !other._optionalNestedMessage!.isEmpty)) && (_optionalNestedMessage == nil || other._optionalNestedMessage == nil || _optionalNestedMessage! != other._optionalNestedMessage!)) {return false}
+      if ((_optionalNestedMessage != nil || other._optionalNestedMessage != nil) && (_optionalNestedMessage == nil || other._optionalNestedMessage == nil || _optionalNestedMessage! != other._optionalNestedMessage!)) {return false}
       if unknown != other.unknown {return false}
       if extensionFieldValues != other.extensionFieldValues {return false}
       return true
@@ -142,7 +131,7 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public enum OneOf_Options: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofInt64(Int64)
@@ -218,8 +207,6 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public struct NestedMessage: ProtobufGeneratedMessage {
@@ -275,13 +262,6 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if oo != nil {return false}
-      if bb != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
       if ((oo != nil || other.oo != nil) && (oo == nil || other.oo == nil || oo! != other.oo!)) {return false}
       if ((bb != nil || other.bb != nil) && (bb == nil || other.bb == nil || bb! != other.bb!)) {return false}
@@ -291,26 +271,24 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
   }
 
   public var myString: String? {
-    get {return _storage?._myString}
+    get {return _storage._myString}
     set {_uniqueStorage()._myString = newValue}
   }
 
   public var myInt: Int64? {
-    get {return _storage?._myInt}
+    get {return _storage._myInt}
     set {_uniqueStorage()._myInt = newValue}
   }
 
   public var myFloat: Float? {
-    get {return _storage?._myFloat}
+    get {return _storage._myFloat}
     set {_uniqueStorage()._myFloat = newValue}
   }
 
   public var oneofInt64: Int64? {
     get {
-      if let storage = _storage {
-        if case .oneofInt64(let v) = storage._options {
-          return v
-        }
+      if case .oneofInt64(let v) = _storage._options {
+        return v
       }
       return nil
     }
@@ -325,10 +303,8 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
 
   public var oneofBool: Bool? {
     get {
-      if let storage = _storage {
-        if case .oneofBool(let v) = storage._options {
-          return v
-        }
+      if case .oneofBool(let v) = _storage._options {
+        return v
       }
       return nil
     }
@@ -343,10 +319,8 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
 
   public var oneofString: String? {
     get {
-      if let storage = _storage {
-        if case .oneofString(let v) = storage._options {
-          return v
-        }
+      if case .oneofString(let v) = _storage._options {
+        return v
       }
       return nil
     }
@@ -361,10 +335,8 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
 
   public var oneofInt32: Int32? {
     get {
-      if let storage = _storage {
-        if case .oneofInt32(let v) = storage._options {
-          return v
-        }
+      if case .oneofInt32(let v) = _storage._options {
+        return v
       }
       return nil
     }
@@ -378,12 +350,12 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
   }
 
   public var optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? {
-    get {return _storage?._optionalNestedMessage}
+    get {return _storage._optionalNestedMessage}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
 
   public var _options: OneOf_Options {
-    get {return _storage?._options ?? .None}
+    get {return _storage._options}
     set {
       _uniqueStorage()._options = newValue
     }
@@ -424,30 +396,18 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 
   public mutating func setExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Swift_Protobuf_TestFieldOrderings>, value: F.ValueType) {
@@ -455,7 +415,7 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
   }
 
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Swift_Protobuf_TestFieldOrderings>) -> F.ValueType {
-    return _storage?.getExtensionValue(ext: ext) ?? ext.defaultValue
+    return _storage.getExtensionValue(ext: ext)
   }
 }
 

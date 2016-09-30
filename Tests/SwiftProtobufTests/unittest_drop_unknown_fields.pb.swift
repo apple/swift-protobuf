@@ -174,12 +174,6 @@ public struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if int32Value != 0 {return false}
-    if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
     if int32Value != other.int32Value {return false}
     if enumValue != other.enumValue {return false}
@@ -339,13 +333,6 @@ public struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMes
     if extraInt32Value != 0 {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: extraInt32Value, protoFieldNumber: 3, protoFieldName: "extra_int32_value", jsonFieldName: "extraInt32Value", swiftFieldName: "extraInt32Value")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if int32Value != 0 {return false}
-    if enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {return false}
-    if extraInt32Value != 0 {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {

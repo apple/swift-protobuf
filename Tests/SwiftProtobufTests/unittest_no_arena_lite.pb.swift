@@ -83,12 +83,6 @@ public struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessa
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if c != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {
     if ((c != nil || other.c != nil) && (c == nil || other.c == nil || c! != other.c!)) {return false}
     if unknown != other.unknown {return false}

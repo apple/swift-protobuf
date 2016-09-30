@@ -277,28 +277,6 @@ public struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if !_mapInt32Int32.isEmpty {return false}
-      if !_mapInt64Int64.isEmpty {return false}
-      if !_mapUint32Uint32.isEmpty {return false}
-      if !_mapUint64Uint64.isEmpty {return false}
-      if !_mapSint32Sint32.isEmpty {return false}
-      if !_mapSint64Sint64.isEmpty {return false}
-      if !_mapFixed32Fixed32.isEmpty {return false}
-      if !_mapFixed64Fixed64.isEmpty {return false}
-      if !_mapSfixed32Sfixed32.isEmpty {return false}
-      if !_mapSfixed64Sfixed64.isEmpty {return false}
-      if !_mapInt32Float.isEmpty {return false}
-      if !_mapInt32Double.isEmpty {return false}
-      if !_mapBoolBool.isEmpty {return false}
-      if !_mapStringString.isEmpty {return false}
-      if !_mapInt32Bytes.isEmpty {return false}
-      if !_mapInt32Enum.isEmpty {return false}
-      if !_mapInt32ForeignMessage.isEmpty {return false}
-      if !_mapStringForeignMessage.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _mapInt32Int32 != other._mapInt32Int32 {return false}
       if _mapInt64Int64 != other._mapInt64Int64 {return false}
@@ -345,95 +323,95 @@ public struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapInt32Int32 ?? [:]}
+    get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   public var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapInt64Int64 ?? [:]}
+    get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapUint32Uint32 ?? [:]}
+    get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapUint64Uint64 ?? [:]}
+    get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   public var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSint32Sint32 ?? [:]}
+    get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   public var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSint64Sint64 ?? [:]}
+    get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapFixed32Fixed32 ?? [:]}
+    get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapFixed64Fixed64 ?? [:]}
+    get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSfixed32Sfixed32 ?? [:]}
+    get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSfixed64Sfixed64 ?? [:]}
+    get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   public var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage?._mapInt32Float ?? [:]}
+    get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   public var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage?._mapInt32Double ?? [:]}
+    get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   public var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage?._mapBoolBool ?? [:]}
+    get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   public var mapStringString: Dictionary<String,String> {
-    get {return _storage?._mapStringString ?? [:]}
+    get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   public var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage?._mapInt32Bytes ?? [:]}
+    get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   public var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> {
-    get {return _storage?._mapInt32Enum ?? [:]}
+    get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
   public var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> {
-    get {return _storage?._mapInt32ForeignMessage ?? [:]}
+    get {return _storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
   public var mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> {
-    get {return _storage?._mapStringForeignMessage ?? [:]}
+    get {return _storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
@@ -520,30 +498,18 @@ public struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMap) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -580,11 +546,6 @@ public struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if _testMap != nil {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _testMap != other._testMap {return false}
       return true
@@ -597,10 +558,10 @@ public struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var testMap: ProtobufUnittest_TestMap {
-    get {return _storage?._testMap ?? ProtobufUnittest_TestMap()}
+    get {return _storage._testMap ?? ProtobufUnittest_TestMap()}
     set {_uniqueStorage()._testMap = newValue}
   }
 
@@ -617,30 +578,18 @@ public struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMapSubmessage) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -680,11 +629,6 @@ public struct ProtobufUnittest_TestMessageMap: ProtobufGeneratedMessage {
     if !mapInt32Message.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypes>.self, value: mapInt32Message, protoFieldNumber: 1, protoFieldName: "map_int32_message", jsonFieldName: "mapInt32Message", swiftFieldName: "mapInt32Message")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !mapInt32Message.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageMap) -> Bool {
@@ -744,12 +688,6 @@ public struct ProtobufUnittest_TestSameTypeMap: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !map1.isEmpty {return false}
-    if !map2.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestSameTypeMap) -> Bool {
     if map1 != other.map1 {return false}
     if map2 != other.map2 {return false}
@@ -794,11 +732,6 @@ public struct ProtobufUnittest_TestRequiredMessageMap: ProtobufGeneratedMessage 
     if !mapField.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequired>.self, value: mapField, protoFieldNumber: 1, protoFieldName: "map_field", jsonFieldName: "mapField", swiftFieldName: "mapField")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !mapField.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMap) -> Bool {
@@ -959,28 +892,6 @@ public struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage {
       }
     }
 
-    var isEmpty: Bool {
-      if !_mapInt32Int32.isEmpty {return false}
-      if !_mapInt64Int64.isEmpty {return false}
-      if !_mapUint32Uint32.isEmpty {return false}
-      if !_mapUint64Uint64.isEmpty {return false}
-      if !_mapSint32Sint32.isEmpty {return false}
-      if !_mapSint64Sint64.isEmpty {return false}
-      if !_mapFixed32Fixed32.isEmpty {return false}
-      if !_mapFixed64Fixed64.isEmpty {return false}
-      if !_mapSfixed32Sfixed32.isEmpty {return false}
-      if !_mapSfixed64Sfixed64.isEmpty {return false}
-      if !_mapInt32Float.isEmpty {return false}
-      if !_mapInt32Double.isEmpty {return false}
-      if !_mapBoolBool.isEmpty {return false}
-      if !_mapStringString.isEmpty {return false}
-      if !_mapInt32Bytes.isEmpty {return false}
-      if !_mapInt32Enum.isEmpty {return false}
-      if !_mapInt32ForeignMessage.isEmpty {return false}
-      if !_mapInt32ForeignMessageNoArena.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _mapInt32Int32 != other._mapInt32Int32 {return false}
       if _mapInt64Int64 != other._mapInt64Int64 {return false}
@@ -1027,95 +938,95 @@ public struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapInt32Int32 ?? [:]}
+    get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   public var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapInt64Int64 ?? [:]}
+    get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapUint32Uint32 ?? [:]}
+    get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapUint64Uint64 ?? [:]}
+    get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   public var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSint32Sint32 ?? [:]}
+    get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   public var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSint64Sint64 ?? [:]}
+    get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage?._mapFixed32Fixed32 ?? [:]}
+    get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage?._mapFixed64Fixed64 ?? [:]}
+    get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage?._mapSfixed32Sfixed32 ?? [:]}
+    get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage?._mapSfixed64Sfixed64 ?? [:]}
+    get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   public var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage?._mapInt32Float ?? [:]}
+    get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   public var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage?._mapInt32Double ?? [:]}
+    get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   public var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage?._mapBoolBool ?? [:]}
+    get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   public var mapStringString: Dictionary<String,String> {
-    get {return _storage?._mapStringString ?? [:]}
+    get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   public var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage?._mapInt32Bytes ?? [:]}
+    get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   public var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> {
-    get {return _storage?._mapInt32Enum ?? [:]}
+    get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
   public var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> {
-    get {return _storage?._mapInt32ForeignMessage ?? [:]}
+    get {return _storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
   public var mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessage> {
-    get {return _storage?._mapInt32ForeignMessageNoArena ?? [:]}
+    get {return _storage._mapInt32ForeignMessageNoArena}
     set {_uniqueStorage()._mapInt32ForeignMessageNoArena = newValue}
   }
 
@@ -1202,30 +1113,18 @@ public struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestArenaMap) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1337,11 +1236,6 @@ public struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGenerate
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !type.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_MessageContainingEnumCalledType) -> Bool {
     if type != other.type {return false}
     return true
@@ -1387,11 +1281,6 @@ public struct ProtobufUnittest_MessageContainingMapCalledEntry: ProtobufGenerate
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !entry.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_MessageContainingMapCalledEntry) -> Bool {
     if entry != other.entry {return false}
     return true
@@ -1434,11 +1323,6 @@ public struct ProtobufUnittest_TestRecursiveMapMessage: ProtobufGeneratedMessage
     if !a.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
     }
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !a.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRecursiveMapMessage) -> Bool {

@@ -163,11 +163,6 @@ public struct Google_Protobuf_Struct: ProtobufGeneratedMessage, Hashable, Custom
         }
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-        if !fields.isEmpty {return false}
-        return true
-    }
-    
     public  func _protoc_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
         if fields != other.fields {return false}
         return true
@@ -326,8 +321,6 @@ public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomRe
     fileprivate func serializeJSONValue(jsonEncoder: inout ProtobufJSONEncoder) throws {
         try kind.serializeJSONField(encoder: &jsonEncoder)
     }
-
-    public var isEmpty: Bool {return kind == .None}
 
     public func isEqualTo(other: Google_Protobuf_Value) -> Bool {
         return kind == other.kind
@@ -601,8 +594,6 @@ public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomRe
             case .None: return 0
             }
         }
-
-        public var isEmpty: Bool {return self == .None}
     }
 }
 
@@ -731,8 +722,6 @@ public struct Google_Protobuf_ListValue: ProtobufAbstractMessage, Hashable, Cust
             try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1, protoFieldName: "values", jsonFieldName: "values", swiftFieldName: "values")
         }
     }
-
-    public var isEmpty: Bool {return (values.isEmpty)}
 
     public func isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
         return values == other.values
