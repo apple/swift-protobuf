@@ -280,11 +280,6 @@ public struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !paths.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
     if paths != other.paths {return false}
     return true

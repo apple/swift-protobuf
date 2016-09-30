@@ -82,11 +82,6 @@ public struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if fileName != "" {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceContext) -> Bool {
     if fileName != other.fileName {return false}
     return true

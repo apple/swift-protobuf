@@ -65,8 +65,6 @@ public struct Google_Protobuf_Empty: ProtobufGeneratedMessage {
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
   }
 
-  public let _protoc_generated_isEmpty: Bool = true
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Empty) -> Bool {
     return true
   }

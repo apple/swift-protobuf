@@ -138,12 +138,6 @@ public struct Google_Protobuf_Duration: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if seconds != 0 {return false}
-    if nanos != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Duration) -> Bool {
     if seconds != other.seconds {return false}
     if nanos != other.nanos {return false}
