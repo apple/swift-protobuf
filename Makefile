@@ -77,7 +77,7 @@ TEST_PROTOS= \
 	google/protobuf/unittest_preserve_unknown_enum2.proto \
 	google/protobuf/unittest_proto3.proto \
 	google/protobuf/unittest_proto3_arena.proto \
-	google/protobuf/unittest_well_known_typ.protoes \
+	google/protobuf/unittest_well_known_types.proto \
 	swift-options.proto \
 	unittest_swift_all_required_types.proto \
 	unittest_swift_cycle.proto \
