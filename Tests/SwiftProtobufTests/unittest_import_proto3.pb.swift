@@ -175,11 +175,6 @@ public struct Proto3ImportMessage: ProtobufGeneratedMessage {
     }
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if d != 0 {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: Proto3ImportMessage) -> Bool {
     if d != other.d {return false}
     return true

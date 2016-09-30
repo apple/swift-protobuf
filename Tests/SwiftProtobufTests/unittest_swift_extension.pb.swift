@@ -92,13 +92,6 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
         unknown.traverse(visitor: &visitor)
       }
 
-      public var _protoc_generated_isEmpty: Bool {
-        if a != nil {return false}
-        if !unknown.isEmpty {return false}
-        if !extensionFieldValues.isEmpty {return false}
-        return true
-      }
-
       public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar.Baz) -> Bool {
         if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
         if unknown != other.unknown {return false}
@@ -130,11 +123,6 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar) -> Bool {
       if unknown != other.unknown {return false}
       return true
@@ -149,11 +137,6 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo) -> Bool {
@@ -204,12 +187,6 @@ public struct ProtobufUnittest_Extend_C: ProtobufGeneratedGroup {
       try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 999, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if c != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_C) -> Bool {

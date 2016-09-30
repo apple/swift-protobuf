@@ -239,8 +239,6 @@ public struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMe
         break
       }
     }
-
-    public var isEmpty: Bool {return self == .None}
   }
 
   public enum AnEnum: ProtobufEnum {
@@ -370,13 +368,6 @@ public struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMe
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if field1 != nil {return false}
-    if !anOneof.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageWithCustomOptions) -> Bool {
     if ((field1 != nil || other.field1 != nil) && (field1 == nil || other.field1 == nil || field1! != other.field1!)) {return false}
     if anOneof != other.anOneof {return false}
@@ -406,11 +397,6 @@ public struct ProtobufUnittest_CustomOptionFooRequest: ProtobufGeneratedMessage 
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CustomOptionFooRequest) -> Bool {
     if unknown != other.unknown {return false}
     return true
@@ -434,11 +420,6 @@ public struct ProtobufUnittest_CustomOptionFooResponse: ProtobufGeneratedMessage
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CustomOptionFooResponse) -> Bool {
@@ -466,11 +447,6 @@ public struct ProtobufUnittest_CustomOptionFooClientMessage: ProtobufGeneratedMe
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CustomOptionFooClientMessage) -> Bool {
     if unknown != other.unknown {return false}
     return true
@@ -494,11 +470,6 @@ public struct ProtobufUnittest_CustomOptionFooServerMessage: ProtobufGeneratedMe
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CustomOptionFooServerMessage) -> Bool {
@@ -599,11 +570,6 @@ public struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMess
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_DummyMessageContainingEnum) -> Bool {
     if unknown != other.unknown {return false}
     return true
@@ -627,11 +593,6 @@ public struct ProtobufUnittest_DummyMessageInvalidAsOptionType: ProtobufGenerate
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_DummyMessageInvalidAsOptionType) -> Bool {
@@ -659,11 +620,6 @@ public struct ProtobufUnittest_CustomOptionMinIntegerValues: ProtobufGeneratedMe
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CustomOptionMinIntegerValues) -> Bool {
     if unknown != other.unknown {return false}
     return true
@@ -687,11 +643,6 @@ public struct ProtobufUnittest_CustomOptionMaxIntegerValues: ProtobufGeneratedMe
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CustomOptionMaxIntegerValues) -> Bool {
@@ -719,11 +670,6 @@ public struct ProtobufUnittest_CustomOptionOtherValues: ProtobufGeneratedMessage
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CustomOptionOtherValues) -> Bool {
     if unknown != other.unknown {return false}
     return true
@@ -749,11 +695,6 @@ public struct ProtobufUnittest_SettingRealsFromPositiveInts: ProtobufGeneratedMe
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SettingRealsFromPositiveInts) -> Bool {
     if unknown != other.unknown {return false}
     return true
@@ -777,11 +718,6 @@ public struct ProtobufUnittest_SettingRealsFromNegativeInts: ProtobufGeneratedMe
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SettingRealsFromNegativeInts) -> Bool {
@@ -870,16 +806,6 @@ public struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, Pro
     }
     try extensionFieldValues.traverse(visitor: &visitor, start: 100, end: 536870912)
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if foo != nil {return false}
-    if foo2 != nil {return false}
-    if foo3 != nil {return false}
-    if !foo4.isEmpty {return false}
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType1) -> Bool {
@@ -972,20 +898,10 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _bar != nil {return false}
-      if _baz != nil {return false}
-      if _fred != nil {return false}
-      if !_barney.isEmpty {return false}
-      if !unknown.isEmpty {return false}
-      if !extensionFieldValues.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (((_bar != nil && !_bar!.isEmpty) || (other._bar != nil && !other._bar!.isEmpty)) && (_bar == nil || other._bar == nil || _bar! != other._bar!)) {return false}
+      if ((_bar != nil || other._bar != nil) && (_bar == nil || other._bar == nil || _bar! != other._bar!)) {return false}
       if ((_baz != nil || other._baz != nil) && (_baz == nil || other._baz == nil || _baz! != other._baz!)) {return false}
-      if (((_fred != nil && !_fred!.isEmpty) || (other._fred != nil && !other._fred!.isEmpty)) && (_fred == nil || other._fred == nil || _fred! != other._fred!)) {return false}
+      if ((_fred != nil || other._fred != nil) && (_fred == nil || other._fred == nil || _fred! != other._fred!)) {return false}
       if _barney != other._barney {return false}
       if unknown != other.unknown {return false}
       if extensionFieldValues != other.extensionFieldValues {return false}
@@ -1004,7 +920,7 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   public struct ComplexOptionType4: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType2.ComplexOptionType4"}
@@ -1054,12 +970,6 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if waldo != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4) -> Bool {
       if ((waldo != nil || other.waldo != nil) && (waldo == nil || other.waldo == nil || waldo! != other.waldo!)) {return false}
       if unknown != other.unknown {return false}
@@ -1068,22 +978,22 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
   }
 
   public var bar: ProtobufUnittest_ComplexOptionType1? {
-    get {return _storage?._bar}
+    get {return _storage._bar}
     set {_uniqueStorage()._bar = newValue}
   }
 
   public var baz: Int32? {
-    get {return _storage?._baz}
+    get {return _storage._baz}
     set {_uniqueStorage()._baz = newValue}
   }
 
   public var fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? {
-    get {return _storage?._fred}
+    get {return _storage._fred}
     set {_uniqueStorage()._fred = newValue}
   }
 
   public var barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] {
-    get {return _storage?._barney ?? []}
+    get {return _storage._barney}
     set {_uniqueStorage()._barney = newValue}
   }
 
@@ -1108,30 +1018,18 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 
   public mutating func setExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_ComplexOptionType2>, value: F.ValueType) {
@@ -1139,7 +1037,7 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
   }
 
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_ComplexOptionType2>) -> F.ValueType {
-    return _storage?.getExtensionValue(ext: ext) ?? ext.defaultValue
+    return _storage.getExtensionValue(ext: ext)
   }
 }
 
@@ -1201,12 +1099,6 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if plugh != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5) -> Bool {
       if ((plugh != nil || other.plugh != nil) && (plugh == nil || other.plugh == nil || plugh! != other.plugh!)) {return false}
       if unknown != other.unknown {return false}
@@ -1252,16 +1144,9 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if qux != nil {return false}
-    if complexOptionType5 != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3) -> Bool {
     if ((qux != nil || other.qux != nil) && (qux == nil || other.qux == nil || qux! != other.qux!)) {return false}
-    if (((complexOptionType5 != nil && !complexOptionType5!.isEmpty) || (other.complexOptionType5 != nil && !other.complexOptionType5!.isEmpty)) && (complexOptionType5 == nil || other.complexOptionType5 == nil || complexOptionType5! != other.complexOptionType5!)) {return false}
+    if ((complexOptionType5 != nil || other.complexOptionType5 != nil) && (complexOptionType5 == nil || other.complexOptionType5 == nil || complexOptionType5! != other.complexOptionType5!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -1310,12 +1195,6 @@ public struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedGroup {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if xyzzy != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOpt6) -> Bool {
     if ((xyzzy != nil || other.xyzzy != nil) && (xyzzy == nil || other.xyzzy == nil || xyzzy! != other.xyzzy!)) {return false}
     if unknown != other.unknown {return false}
@@ -1341,11 +1220,6 @@ public struct ProtobufUnittest_VariousComplexOptions: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_VariousComplexOptions) -> Bool {
@@ -1385,12 +1259,6 @@ public struct ProtobufUnittest_AggregateMessageSet: ProtobufGeneratedMessage, Pr
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     try extensionFieldValues.traverse(visitor: &visitor, start: 4, end: 2147483647)
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    if !extensionFieldValues.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_AggregateMessageSet) -> Bool {
@@ -1459,12 +1327,6 @@ public struct ProtobufUnittest_AggregateMessageSetElement: ProtobufGeneratedMess
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "s", jsonFieldName: "s", swiftFieldName: "s")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if s != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_AggregateMessageSetElement) -> Bool {
@@ -1542,22 +1404,12 @@ public struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    var isEmpty: Bool {
-      if _i != nil {return false}
-      if _s != nil {return false}
-      if _sub != nil {return false}
-      if _file != nil {return false}
-      if _mset != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if ((_i != nil || other._i != nil) && (_i == nil || other._i == nil || _i! != other._i!)) {return false}
       if ((_s != nil || other._s != nil) && (_s == nil || other._s == nil || _s! != other._s!)) {return false}
-      if (((_sub != nil && !_sub!.isEmpty) || (other._sub != nil && !other._sub!.isEmpty)) && (_sub == nil || other._sub == nil || _sub! != other._sub!)) {return false}
-      if (((_file != nil && !_file!.isEmpty) || (other._file != nil && !other._file!.isEmpty)) && (_file == nil || other._file == nil || _file! != other._file!)) {return false}
-      if (((_mset != nil && !_mset!.isEmpty) || (other._mset != nil && !other._mset!.isEmpty)) && (_mset == nil || other._mset == nil || _mset! != other._mset!)) {return false}
+      if ((_sub != nil || other._sub != nil) && (_sub == nil || other._sub == nil || _sub! != other._sub!)) {return false}
+      if ((_file != nil || other._file != nil) && (_file == nil || other._file == nil || _file! != other._file!)) {return false}
+      if ((_mset != nil || other._mset != nil) && (_mset == nil || other._mset == nil || _mset! != other._mset!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1574,7 +1426,7 @@ public struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
     }
   }
 
-  private var _storage: _StorageClass?
+  private var _storage = _StorageClass()
 
   struct Extensions {
 
@@ -1582,30 +1434,30 @@ public struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
   }
 
   public var i: Int32? {
-    get {return _storage?._i}
+    get {return _storage._i}
     set {_uniqueStorage()._i = newValue}
   }
 
   public var s: String? {
-    get {return _storage?._s}
+    get {return _storage._s}
     set {_uniqueStorage()._s = newValue}
   }
 
   ///   A nested object
   public var sub: ProtobufUnittest_Aggregate? {
-    get {return _storage?._sub}
+    get {return _storage._sub}
     set {_uniqueStorage()._sub = newValue}
   }
 
   ///   To test the parsing of extensions inside aggregate values
   public var file: Google_Protobuf_FileOptions? {
-    get {return _storage?._file}
+    get {return _storage._file}
     set {_uniqueStorage()._file = newValue}
   }
 
   ///   An embedded message set
   public var mset: ProtobufUnittest_AggregateMessageSet? {
-    get {return _storage?._mset}
+    get {return _storage._mset}
     set {_uniqueStorage()._mset = newValue}
   }
 
@@ -1630,30 +1482,18 @@ public struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try _storage?.traverse(visitor: &visitor)
+    try _storage.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {return _storage?.isEmpty ?? true}
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Aggregate) -> Bool {
-    if let s = _storage {
-      if let os = other._storage {
-        return s === os || s.isEqualTo(other: os)
-      }
-      return isEmpty // empty storage == nil storage
-    } else if let os = other._storage {
-      return os.isEmpty // nil storage == empty storage
-    }
-    return true // Both nil, both empty
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
   private mutating func _uniqueStorage() -> _StorageClass {
-    if _storage == nil {
-      _storage = _StorageClass()
-    } else if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage!.copy()
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-    return _storage!
+    return _storage
   }
 }
 
@@ -1698,12 +1538,6 @@ public struct ProtobufUnittest_AggregateMessage: ProtobufGeneratedMessage {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "fieldname", jsonFieldName: "fieldname", swiftFieldName: "fieldname")
     }
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if fieldname != nil {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_AggregateMessage) -> Bool {
@@ -1830,12 +1664,6 @@ public struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
       unknown.traverse(visitor: &visitor)
     }
 
-    public var _protoc_generated_isEmpty: Bool {
-      if nestedField != nil {return false}
-      if !unknown.isEmpty {return false}
-      return true
-    }
-
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_NestedOptionType.NestedMessage) -> Bool {
       if ((nestedField != nil || other.nestedField != nil) && (nestedField == nil || other.nestedField == nil || nestedField! != other.nestedField!)) {return false}
       if unknown != other.unknown {return false}
@@ -1856,11 +1684,6 @@ public struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_NestedOptionType) -> Bool {
@@ -1974,12 +1797,6 @@ public struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage {
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     try visitor.visitSingularField(fieldType: ProtobufUnittest_OldOptionType.TestEnum.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if value != ProtobufUnittest_OldOptionType.TestEnum.oldValue {return false}
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_OldOptionType) -> Bool {
@@ -2103,12 +1920,6 @@ public struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage {
     unknown.traverse(visitor: &visitor)
   }
 
-  public var _protoc_generated_isEmpty: Bool {
-    if value != ProtobufUnittest_NewOptionType.TestEnum.oldValue {return false}
-    if !unknown.isEmpty {return false}
-    return true
-  }
-
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_NewOptionType) -> Bool {
     if value != other.value {return false}
     if unknown != other.unknown {return false}
@@ -2134,11 +1945,6 @@ public struct ProtobufUnittest_TestMessageWithRequiredEnumOption: ProtobufGenera
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     unknown.traverse(visitor: &visitor)
-  }
-
-  public var _protoc_generated_isEmpty: Bool {
-    if !unknown.isEmpty {return false}
-    return true
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageWithRequiredEnumOption) -> Bool {
