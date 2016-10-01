@@ -99,7 +99,7 @@ class Stdin {
 
 func writeFileData(filename: String, data: [UInt8]) throws {
 #if os(Linux)
-    _ = try NSData(bytes: data, length: data.count).write(to: NSURL(fileURLWithPath: filename))
+    _ = try NSData(bytes: data, length: data.count).write(to: URL(fileURLWithPath: filename))
 #else
     _ = try Data(bytes: data).write(to: URL(fileURLWithPath: filename))
 #endif
