@@ -66,7 +66,7 @@ extension Google_Protobuf_EnumDescriptorProto {
             let fieldPrefix = fieldChars[0..<enumChars.count]
             let fieldPrefixString = String(fieldPrefix)
             if fieldPrefixString != enumName {
-                return o
+                return 0
             }
 #else
             if enumName.commonPrefix(with: fieldName) != enumName {
