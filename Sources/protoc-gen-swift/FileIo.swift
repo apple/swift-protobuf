@@ -112,7 +112,7 @@ func readFileData(filename: String) throws -> [UInt8] {
     }
 
     // from NSData to [UInt8]
-    return Array(UnsafeBufferPointer(start: UnsafePointer<UInt8>(data.bytes), count: data.length))
+    return data.bytes.advanced(by: data.length).load(as: [UInt8].self)
 #else
     return try [UInt8](Data(contentsOf:URL(fileURLWithPath: filename)))
 #endif
