@@ -48,10 +48,6 @@ EOF
   exit 1
 }
 
-function mkdir_if_necessary() {
-  mkdir "$@" 2>/dev/null || true
-}
-
 # ---------------------------------------------------------------
 # Functions for generating the .proto file.
 
@@ -168,17 +164,20 @@ readonly field_type=$2
 readonly script_dir="$(dirname $0)"
 
 # Make sure the runtime and plug-in are up to date first.
-pushd "$script_dir/.." >/dev/null
-swift build -c release
-popd >/dev/null
+( cd "$script_dir/.." >/dev/null; swift build -c release )
 
-mkdir_if_necessary "$script_dir/Generated"
-mkdir_if_necessary "$script_dir/Results"
+# Copy the newly built plugin with a new name so that we can ensure that we're
+# invoking the correct one when we pass it on the command line.
+cp "$script_dir/../.build/release/protoc-gen-swift" \
+    "$script_dir/../.build/release/protoc-gen-swiftForPerf"
 
-gen_message_path="$script_dir/Generated/message.proto"
-gen_harness_path="$script_dir/Generated/Harness+Generated.swift"
-results="$script_dir/Results/$field_count fields of $field_type"
-harness="$script_dir/Generated/harness"
+mkdir -p "$script_dir/_generated"
+mkdir -p "$script_dir/_results"
+
+gen_message_path="$script_dir/_generated/message.proto"
+gen_harness_path="$script_dir/_generated/Harness+Generated.swift"
+results="$script_dir/_results/$field_count fields of $field_type"
+harness="$script_dir/_generated/harness"
 
 echo "Generating test proto with $field_count fields..."
 generate_test_proto "$field_count" "$field_type"
@@ -186,8 +185,8 @@ generate_test_proto "$field_count" "$field_type"
 echo "Generating test harness..."
 generate_perf_harness "$field_count" "$field_type"
 
-protoc --plugin="$script_dir/../.build/release/protoc-gen-swift" \
-    --swift_out="$script_dir/Generated" \
+protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForPerf" \
+    --swiftForPerf_out="$script_dir/_generated" \
     "$gen_message_path"
 
 echo "Building test harness..."
@@ -198,7 +197,7 @@ time ( swiftc -O -target x86_64-apple-macosx10.10 \
     -lSwiftProtobuf \
     "$gen_harness_path" \
     "$script_dir/Harness.swift" \
-    "$script_dir/Generated/message.pb.swift" \
+    "$script_dir/_generated/message.pb.swift" \
     "$script_dir/main.swift" \
 )
 echo
