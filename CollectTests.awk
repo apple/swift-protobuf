@@ -32,7 +32,7 @@ BEGIN {
     TESTCASES=""
     TESTCASE_separator=""
     printf("import XCTest\n")
-    printf("@testable import ProtobufTests\n")
+    printf("@testable import SwiftProtobufTests\n")
     printf("\n")
     printf("private func run_test(test:() -> ()) throws {\n")
     printf("    test()\n")
