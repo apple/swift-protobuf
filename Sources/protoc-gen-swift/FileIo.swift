@@ -99,7 +99,7 @@ class Stdin {
 
 func writeFileData(filename: String, data: [UInt8]) throws {
 #if os(Linux)
-    _ = try NSData(bytes: data, length: data.count).write(to: NSURL(fileURLWithPath: filename))
+    _ = try NSData(bytes: data, length: data.count).write(to: URL(fileURLWithPath: filename))
 #else
     _ = try Data(bytes: data).write(to: URL(fileURLWithPath: filename))
 #endif
@@ -112,7 +112,7 @@ func readFileData(filename: String) throws -> [UInt8] {
     }
 
     // from NSData to [UInt8]
-    return Array(UnsafeBufferPointer(start: UnsafePointer<UInt8>(data.bytes), count: data.length))
+    return data.bytes.advanced(by: data.length).load(as: [UInt8].self)
 #else
     return try [UInt8](Data(contentsOf:URL(fileURLWithPath: filename)))
 #endif
