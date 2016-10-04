@@ -805,11 +805,20 @@ public extension ProtobufMessage {
     }
 
     init(protobuf: Data) throws {
-        try self.init(protobufBytes: [UInt8](protobuf), extensions: nil)
+        try self.init(protobuf: protobuf, extensions: nil)
     }
 
     init(protobuf: Data, extensions: ProtobufExtensionSet? = nil) throws {
-        try self.init(protobufBytes: [UInt8](protobuf), extensions: extensions)
+        self.init()
+        // We need to gracefully handle empty data, because the pointer passed into withUnsafeBytes'
+        // closure will be nil in that case.
+        guard !protobuf.isEmpty else {
+            return
+        }
+        try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
+            let bufferPointer = UnsafeBufferPointer<UInt8>(start: pointer, count: protobuf.count)
+            try decodeIntoSelf(from: bufferPointer, extensions: extensions)
+        }
     }
 
     init(protobufBytes: [UInt8]) throws {
@@ -817,9 +826,8 @@ public extension ProtobufMessage {
     }
     init(protobufBytes: [UInt8], extensions: ProtobufExtensionSet? = nil) throws {
         self.init()
-        try protobufBytes.withUnsafeBufferPointer { (bp) in
-            var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: bp, extensions: extensions)
-            try protobufDecoder.decodeFullObject(message: &self)
+        try protobufBytes.withUnsafeBufferPointer { bp in
+            try decodeIntoSelf(from: bp, extensions: extensions)
         }
     }
 
@@ -828,7 +836,10 @@ public extension ProtobufMessage {
     }
     init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet? = nil) throws {
         self.init()
-        var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: protobufBuffer, extensions: extensions)
+        try decodeIntoSelf(from: protobufBuffer, extensions: extensions)
+    }
+    private mutating func decodeIntoSelf(from bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws {
+        var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: bufferPointer, extensions: extensions)
         try protobufDecoder.decodeFullObject(message: &self)
     }
 }
