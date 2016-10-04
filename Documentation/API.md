@@ -66,9 +66,6 @@ public struct Example: ProtobufMessage {
   public var debugDescription: String
   public var hashValue: Int
 
-  // Returns true if none of the fields are set to non-default values.
-  public var isEmpty: Bool
-
   // The == operator below is implemented in terms of this method
   // so that you can easily override the implementation.
   // You should not call this method directly.
@@ -91,7 +88,6 @@ The following methods can be defined in manually-constructed extensions if you w
    // These are standard properties.
    public var debugDescription: String
    public var hashValue: Int
-   public var isEmpty: Bool
 
    // These are heavily used by the protobuf libraries but are rarely
    // used directly in normal code.
@@ -111,7 +107,6 @@ from your own code except in such overrides:
 public extension Example: ProtobufGeneratedMessage {
   public mutating fund _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws
-  public var _protoc_generated_isEmpty: Bool
   public var _protoc_generated_isEqualTo(other: Example) -> Bool
 }
 ```
@@ -379,7 +374,7 @@ func serializeJSON() throws -> String
 ```
 JSON serialization can fail if there are Any fields that were decoded from binary protobuf format, or if you abuse the well-known Timestamp, Duration, or FieldMask types.
 
-**Other Message Features:** All messages conform to `Hashable`, `Equatable`, and `CustomDebugStringConvertible`.  All generated objects include an `isEmpty` property that returns `true` if the object would test equal to a newly-created unmodified object.
+**Other Message Features:** All messages conform to `Hashable`, `Equatable`, and `CustomDebugStringConvertible`.
 
 **Convenience Initializer:** Messages that have fields gain an additional convenience intializer that has an argument for every field.  The arguments are defaulted so you can specify only the ones you actually need to set.
 
