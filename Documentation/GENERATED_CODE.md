@@ -261,8 +261,6 @@ These maps are used by corresponding decoders to translate serialized names into
 
 TODO: initializers
 
-TODO: isEmpty
-
 TODO: isEqualTo
 
 TODO: _protoc_generated methods
