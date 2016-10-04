@@ -19,11 +19,10 @@ import Foundation
 import Swift
 
 public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
-    private var encoder = ProtobufBinaryEncoder()
+    private var encoder: ProtobufBinaryEncoder
 
-    public var buffer: [UInt8] {return encoder.buffer}
-
-    public init(message: ProtobufMessageBase) throws {
+    public init(message: ProtobufMessageBase, pointer: UnsafeMutablePointer<UInt8>) throws {
+        encoder = ProtobufBinaryEncoder(pointer: pointer)
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try message.traverse(visitor: &visitor)
         }
@@ -32,7 +31,7 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
     public mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws ->()) throws {
         var visitor: ProtobufVisitor = self
         try clause(&visitor)
-        encoder.buffer = (visitor as! ProtobufBinaryEncodingVisitor).encoder.buffer
+        encoder = (visitor as! ProtobufBinaryEncodingVisitor).encoder
     }
 
     mutating public func visitUnknown(bytes: [UInt8]) {
@@ -53,11 +52,14 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
 
     mutating public func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(tagType: protoFieldNumber * 8 + 2)
-        var subencoder = ProtobufBinaryEncoder()
+        var packedSize = 0
         for v in value {
-            try S.serializeProtobufValue(encoder: &subencoder, value: v)
+            packedSize += try S.encodedSize(of: v)
         }
-        encoder.putBytesValue(value: subencoder.buffer)
+        encoder.putVarInt(value: packedSize)
+        for v in value {
+            try S.serializeProtobufValue(encoder: &encoder, value: v)
+        }
     }
 
     mutating public func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
@@ -95,16 +97,18 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
     mutating public func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
         for (k,v) in value {
             encoder.startField(tagType: protoFieldNumber * 8 + 2)
-            var subencoder = ProtobufBinaryEncoder()
-            subencoder.startField(tagType: 8 + KeyType.protobufWireType())
-            KeyType.serializeProtobufValue(encoder: &subencoder, value: k)
-            subencoder.startField(tagType: 16 + ValueType.protobufWireType())
+            let keyTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
+            let valueTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
+            let entrySize = try keyTagSize + KeyType.encodedSize(of: k) + valueTagSize + ValueType.encodedSize(of: v)
+            encoder.putVarInt(value: entrySize)
+            encoder.startField(tagType: 8 + KeyType.protobufWireType())
+            KeyType.serializeProtobufValue(encoder: &encoder, value: k)
+            encoder.startField(tagType: 16 + ValueType.protobufWireType())
             // Note: ValueType could be a message, so messages need
             // static func serializeProtobufValue(...)
             // TODO: Could we traverse the valuetype instead?
             // TODO: Propagate failure out of here...
-            try ValueType.serializeProtobufValue(encoder: &subencoder, value: v)
-            encoder.putBytesValue(value: subencoder.buffer)
+            try ValueType.serializeProtobufValue(encoder: &encoder, value: v)
         }
     }
 }
@@ -115,12 +119,33 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
  * TODO: Should this be a class?
  */
 public struct ProtobufBinaryEncoder {
-    public fileprivate(set) var buffer: [UInt8] = []
+    private var pointer: UnsafeMutablePointer<UInt8>
 
-    public init() {}
+    public init(pointer: UnsafeMutablePointer<UInt8>) {
+        self.pointer = pointer
+    }
+
+    private mutating func append(_ byte: UInt8) {
+        pointer.pointee = byte
+        pointer = pointer.successor()
+    }
+
+    private mutating func append(contentsOf bytes: [UInt8]) {
+        let count = bytes.count
+        bytes.withUnsafeBufferPointer { source in
+            self.pointer.assign(from: source.baseAddress!, count: count)
+        }
+        pointer = pointer.advanced(by: count)
+    }
+
+    private mutating func append(contentsOf bufferPointer: UnsafeBufferPointer<UInt8>) {
+        let count = bufferPointer.count
+        pointer.assign(from: bufferPointer.baseAddress!, count: count)
+        pointer = pointer.advanced(by: count)
+    }
 
     public mutating func appendUnknown(bytes: [UInt8]) {
-        buffer.append(contentsOf: bytes)
+        append(contentsOf: bytes)
     }
 
     mutating func startField(tagType: Int) {
@@ -130,10 +155,10 @@ public struct ProtobufBinaryEncoder {
     mutating func putVarInt(value: UInt64) {
         var v = value
         while v > 127 {
-            buffer.append(UInt8(v & 0x7f | 0x80))
+            append(UInt8(v & 0x7f | 0x80))
             v >>= 7
         }
-        buffer.append(UInt8(v))
+        append(UInt8(v))
     }
 
     mutating func putVarInt(value: Int64) {
@@ -151,7 +176,7 @@ public struct ProtobufBinaryEncoder {
     }
 
     mutating func putBoolValue(value: Bool) {
-        buffer.append(value ? 1 : 0)
+        append(value ? 1 : 0)
     }
 
     mutating func putFixedUInt64(value : UInt64) {
@@ -160,7 +185,7 @@ public struct ProtobufBinaryEncoder {
         withUnsafePointer(to: &v) { v -> () in
             v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
                 let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                buffer.append(contentsOf: buff)
+                append(contentsOf: buff)
             }
         }
     }
@@ -171,7 +196,7 @@ public struct ProtobufBinaryEncoder {
         withUnsafePointer(to: &v) { v -> () in
             v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
                 let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                buffer.append(contentsOf: buff)
+                append(contentsOf: buff)
             }
         }
     }
@@ -182,7 +207,7 @@ public struct ProtobufBinaryEncoder {
         withUnsafePointer(to: &v) { v -> () in
             v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
                 let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                buffer.append(contentsOf: buff)
+                append(contentsOf: buff)
             }
         }
     }
@@ -193,7 +218,7 @@ public struct ProtobufBinaryEncoder {
         withUnsafePointer(to: &v) { v -> () in
             v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
                 let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                buffer.append(contentsOf: buff)
+                append(contentsOf: buff)
             }
         }
     }
@@ -208,7 +233,7 @@ public struct ProtobufBinaryEncoder {
             stringWithNul.withUnsafeBufferPointer { bp -> () in
                 bp.baseAddress?.withMemoryRebound(to: UInt8.self, capacity: stringLength) { p -> () in
                     let stringWithoutNul = UnsafeBufferPointer<UInt8>(start: p, count: stringLength)
-                    buffer.append(contentsOf: stringWithoutNul)
+                    append(contentsOf: stringWithoutNul)
                 }
             }
         }
@@ -216,12 +241,12 @@ public struct ProtobufBinaryEncoder {
 
     mutating func putBytesValue(value: [UInt8]) {
         putVarInt(value: value.count)
-        buffer.append(contentsOf: value)
+        append(contentsOf: value)
     }
 
     mutating func putBytesValue(value: Data) {
         let bytes = [UInt8](value)
         putVarInt(value: bytes.count)
-        buffer.append(contentsOf: bytes)
+        append(contentsOf: bytes)
     }
 }

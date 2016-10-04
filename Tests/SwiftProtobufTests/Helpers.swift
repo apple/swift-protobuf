@@ -26,6 +26,10 @@ protocol PBTestHelpers {
 
 extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
 
+    private func string(from data: Data) -> String {
+        return "[" + data.map { String($0) }.joined(separator: ", ") + "]"
+    }
+
     func assertEncode(_ expected: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
@@ -33,12 +37,12 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializeProtobuf()
-            XCTAssert(Data(bytes: expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            XCTAssert(Data(bytes: expected) == encoded, "Did not encode correctly: got \(string(from: encoded))", file: file, line: line)
             do {
                 let decoded = try MessageTestType(protobuf: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
-                XCTFail("Failed to decode protobuf: \(encoded)", file: file, line: line)
+                XCTFail("Failed to decode protobuf: \(string(from: encoded))", file: file, line: line)
             }
         } catch let e {
             XCTFail("Failed to encode: \(e)\n    \(configured)", file: file, line: line)
