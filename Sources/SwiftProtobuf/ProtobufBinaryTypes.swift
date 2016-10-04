@@ -344,15 +344,13 @@ public extension ProtobufSInt32 {
 
     public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
         let t = UInt32(truncatingBitPattern: varint)
-        let n = Int32(bitPattern: (t >> 1))
-        value = n ^ -Int32(bitPattern: t & 1)
+        value = ZigZag.decoded(t)
         return true
     }
 
     public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
         let t = UInt32(truncatingBitPattern: varint)
-        let n = Int32(bitPattern: (t >> 1))
-        value.append(n ^ -Int32(bitPattern: t & 1))
+        value.append(ZigZag.decoded(t))
         return true
     }
 
@@ -380,14 +378,12 @@ public extension ProtobufSInt64 {
     }
 
     public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
-        let n = Int64(bitPattern: (varint >> 1))
-        value = n ^ -Int64(bitPattern: varint & 1)
+        value = ZigZag.decoded(varint)
         return true
     }
 
     public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        let n = Int64(bitPattern: (varint >> 1))
-        value.append(n ^ -Int64(bitPattern: varint & 1))
+        value.append(ZigZag.decoded(varint))
         return true
     }
 

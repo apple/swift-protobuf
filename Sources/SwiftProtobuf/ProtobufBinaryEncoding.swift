@@ -170,8 +170,7 @@ public struct ProtobufBinaryEncoder {
     }
 
     mutating func putZigZagVarInt(value: Int64) {
-        let coded = UInt64(bitPattern: (value << 1))
-            ^ UInt64(bitPattern: (value >> 63))
+        let coded = ZigZag.encoded(value)
         putVarInt(value: coded)
     }
 

@@ -541,15 +541,13 @@ public struct ProtobufBinaryDecoder {
 
     // Convert a 64-bit value from zigzag coding.
     fileprivate func unZigZag64(zigZag: UIntMax) -> Int64 {
-        let n = Int64(bitPattern: (zigZag >> 1))
-        return n ^ -Int64(bitPattern: zigZag & 1)
+        return ZigZag.decoded(zigZag)
     }
 
     // Convert a 32-bit value from zigzag coding.
     fileprivate func unZigZag32(zigZag: UIntMax) -> Int32 {
         let t = UInt32(truncatingBitPattern: zigZag)
-        let n = Int32(bitPattern: (t >> 1))
-        return n ^ -Int32(bitPattern: t & 1)
+        return ZigZag.decoded(t)
     }
 }
 
