@@ -1,5 +1,13 @@
 # Swift Protobuf Generated Code Guide
 
+---
+
+> :warning: **WARING** :warning: This project is in a _prerelease_ state. There
+> is active work going on that will result in API changes that can/will break
+> code while things are finished. Use with caution.
+
+---
+
 This explanation of the generated code is intended to help people
 understand the design of Swift Protobuf.
 This is not a contract: The details of the generated code are

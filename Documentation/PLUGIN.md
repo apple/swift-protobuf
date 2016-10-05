@@ -1,6 +1,14 @@
 <img src="https://swift.org/assets/images/swift.svg" alt="Swift logo" height="70" >
 # Swift Protobuf Plugin
 
+---
+
+> :warning: **WARING** :warning: This project is in a _prerelease_ state. There
+> is active work going on that will result in API changes that can/will break
+> code while things are finished. Use with caution.
+
+---
+
 The protoc _plugin_ works with protoc to translate proto files into
 Swift code.
 

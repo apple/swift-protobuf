@@ -1,11 +1,19 @@
 <img src="https://swift.org/assets/images/swift.svg" alt="Swift logo" height="70" >
 # Swift Protobuf
 
+---
+
+> :warning: **WARING** :warning: This project is in a _prerelease_ state. There
+> is active work going on that will result in API changes that can/will break
+> code while things are finished. Use with caution.
+
+---
+
 **Welcome to Swift Protobuf!**
 
-Apple's Swift programming language is a perfect complement to Google's Protocol
-Buffer serialization technology.  They both emphasize high performance
-and programmer safety.
+Apple's Swift programming language is a perfect complement to [Google's Protocol
+Buffer](https://developers.google.com/protocol-buffers/) serialization
+technology.  They both emphasize high performance and programmer safety.
 
 This project provides both the protoc plugin that provides Swift code
 generation and the runtime library that is necessary for using code
