@@ -749,13 +749,10 @@ extension ProtobufEnum where RawValue == Int {
 public protocol ProtobufBinaryMessageBase: ProtobufMessageBase {
     // Serialize to protobuf
     func serializeProtobuf() throws -> Data
-    func serializeProtobufBytes() throws -> [UInt8]
     func serializedProtobufSize() throws -> Int
     // Decode from protobuf
     init(protobuf: Data) throws
     init(protobuf: Data, extensions: ProtobufExtensionSet?) throws
-    init(protobufBytes: [UInt8]) throws
-    init(protobufBytes: [UInt8], extensions: ProtobufExtensionSet?) throws
     init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws
     init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws
 }
@@ -768,14 +765,6 @@ public extension ProtobufBinaryMessageBase {
             try serializeProtobuf(into: pointer)
         }
         return data
-    }
-    func serializeProtobufBytes() throws -> [UInt8] {
-        let requiredSize = try serializedProtobufSize()
-        var bytes = [UInt8](repeating: 0, count: requiredSize)
-        try bytes.withUnsafeMutableBufferPointer { (pointer: inout UnsafeMutableBufferPointer<UInt8>) in
-            try serializeProtobuf(into: pointer.baseAddress!)
-        }
-        return bytes
     }
     private func serializeProtobuf(into pointer: UnsafeMutablePointer<UInt8>) throws {
         _ = try ProtobufBinaryEncodingVisitor(message: self, pointer: pointer)
@@ -818,16 +807,6 @@ public extension ProtobufMessage {
         try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
             let bufferPointer = UnsafeBufferPointer<UInt8>(start: pointer, count: protobuf.count)
             try decodeIntoSelf(from: bufferPointer, extensions: extensions)
-        }
-    }
-
-    init(protobufBytes: [UInt8]) throws {
-        try self.init(protobufBytes: protobufBytes, extensions: nil)
-    }
-    init(protobufBytes: [UInt8], extensions: ProtobufExtensionSet? = nil) throws {
-        self.init()
-        try protobufBytes.withUnsafeBufferPointer { bp in
-            try decodeIntoSelf(from: bp, extensions: extensions)
         }
     }
 
