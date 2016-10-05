@@ -35,7 +35,6 @@
 		9C2F23931D7780D1008524F2 /* ProtobufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */; };
 		9C2F23941D7780D1008524F2 /* ProtobufMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */; };
 		9C2F23951D7780D1008524F2 /* ProtobufOneof.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */; };
-		9C2F23961D7780D1008524F2 /* ProtobufRawMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufRawMessage.swift /* ProtobufRawMessage.swift */; };
 		9C2F23971D7780D1008524F2 /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
 		9C2F23981D7780D1008524F2 /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
 		9C2F23991D7780D1008524F2 /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
@@ -152,7 +151,6 @@
 		__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufRawMessage.swift /* ProtobufRawMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufRawMessage.swift /* ProtobufRawMessage.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
@@ -291,7 +289,6 @@
 		__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufMessage.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufMirror.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufOneof.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufRawMessage.swift /* ProtobufRawMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufRawMessage.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufTraversal.swift; sourceTree = "<group>"; tabWidth = 4; };
 		__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufTypes.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufUnknown.swift; sourceTree = "<group>"; };
@@ -478,7 +475,6 @@
 				__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufRawMessage.swift /* ProtobufRawMessage.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */,
@@ -812,7 +808,6 @@
 				9C2F23931D7780D1008524F2 /* ProtobufMessage.swift in Sources */,
 				9C2F23941D7780D1008524F2 /* ProtobufMirror.swift in Sources */,
 				9C2F23951D7780D1008524F2 /* ProtobufOneof.swift in Sources */,
-				9C2F23961D7780D1008524F2 /* ProtobufRawMessage.swift in Sources */,
 				9C2F23971D7780D1008524F2 /* ProtobufTraversal.swift in Sources */,
 				9C2F23981D7780D1008524F2 /* ProtobufTypes.swift in Sources */,
 				9C2F23991D7780D1008524F2 /* ProtobufUnknown.swift in Sources */,
@@ -857,7 +852,6 @@
 				__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufRawMessage.swift /* ProtobufRawMessage.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift in Sources */,
