@@ -18,39 +18,39 @@
 import Foundation
 import Swift
 
-public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
+struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
     private var encoder: ProtobufBinaryEncoder
 
-    public init(message: ProtobufMessageBase, pointer: UnsafeMutablePointer<UInt8>) throws {
+    init(message: ProtobufMessageBase, pointer: UnsafeMutablePointer<UInt8>) throws {
         encoder = ProtobufBinaryEncoder(pointer: pointer)
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try message.traverse(visitor: &visitor)
         }
     }
 
-    public mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws ->()) throws {
+    mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws ->()) throws {
         var visitor: ProtobufVisitor = self
         try clause(&visitor)
         encoder = (visitor as! ProtobufBinaryEncodingVisitor).encoder
     }
 
-    mutating public func visitUnknown(bytes: [UInt8]) {
+    mutating func visitUnknown(bytes: [UInt8]) {
         encoder.appendUnknown(bytes: bytes)
     }
 
-    mutating public func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(tagType: protoFieldNumber * 8 + S.protobufWireType())
         try S.serializeProtobufValue(encoder: &encoder, value: value)
     }
 
-    mutating public func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
             encoder.startField(tagType: protoFieldNumber * 8 + S.protobufWireType())
             try S.serializeProtobufValue(encoder: &encoder, value: v)
         }
     }
 
-    mutating public func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(tagType: protoFieldNumber * 8 + 2)
         var packedSize = 0
         for v in value {
@@ -62,13 +62,13 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         }
     }
 
-    mutating public func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         let t = try value.serializeProtobufBytes()
         encoder.startField(tagType: protoFieldNumber * 8 + M.protobufWireType())
         encoder.putBytesValue(value: t)
     }
 
-    mutating public func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
             let t = try v.serializeProtobufBytes()
             encoder.startField(tagType: protoFieldNumber * 8 + M.protobufWireType())
@@ -76,7 +76,7 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         }
     }
 
-    mutating public func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(tagType: protoFieldNumber * 8 + 3) // Start of group
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try value.traverse(visitor: &visitor)
@@ -84,7 +84,7 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         encoder.startField(tagType: protoFieldNumber * 8 + 4) // End of group
     }
 
-    mutating public func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
             encoder.startField(tagType: protoFieldNumber * 8 + 3) // Start of group
             try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
@@ -94,7 +94,7 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         }
     }
 
-    mutating public func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
         for (k,v) in value {
             encoder.startField(tagType: protoFieldNumber * 8 + 2)
             let keyTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
