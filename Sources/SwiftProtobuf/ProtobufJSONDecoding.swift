@@ -171,7 +171,7 @@ public struct ProtobufJSONDecoder {
         }
     }
     
-    public mutating func decodeValue<G: ProtobufGroup>(key: String, group: inout G) throws {
+    public mutating func decodeValue<G: ProtobufMessage>(key: String, group: inout G) throws {
         if let token = try nextToken() {
             let protoFieldNumber = (group.jsonFieldNames[key]
                 ?? group.protoFieldNames[key])
@@ -382,10 +382,10 @@ private struct ProtobufJSONNullFieldDecoder: ProtobufJSONFieldDecoder {
     mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws -> Bool {
         return true
     }
-    mutating func decodeOptionalGroupField<G: ProtobufGroup>(fieldType: G.Type, value: inout G?) throws -> Bool {
+    mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
         return true
     }
-    mutating func decodeRepeatedGroupField<G: ProtobufGroup>(fieldType: G.Type, value: inout [G]) throws -> Bool {
+    mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool {
         return true
     }
     mutating func decodeMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws -> Bool where KeyType.BaseType: Hashable {
@@ -439,7 +439,7 @@ private struct ProtobufJSONObjectFieldDecoder: ProtobufJSONFieldDecoder {
         return true
     }
 
-    mutating func decodeOptionalGroupField<G: ProtobufGroup>(fieldType: G.Type, value: inout G?) throws -> Bool {
+    mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
         var group = G()
         var subDecoder = ProtobufJSONDecoder(scanner: scanner)
         try group.decodeFromJSONObject(jsonDecoder: &subDecoder)
@@ -603,7 +603,7 @@ internal struct ProtobufJSONArrayFieldDecoder: ProtobufJSONFieldDecoder {
         }
     }
 
-    mutating func decodeRepeatedGroupField<G: ProtobufGroup>(fieldType: G.Type, value: inout [G]) throws -> Bool {
+    mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool {
         var token: ProtobufJSONToken
         if let startToken = try scanner.next() {
             switch startToken {

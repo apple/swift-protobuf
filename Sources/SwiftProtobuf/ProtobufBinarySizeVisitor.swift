@@ -86,7 +86,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
         }
     }
 
-    mutating func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         // The wire format doesn't matter here because the encoded size of the integer won't change
         // based on the low three bits.
         let tagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: protoFieldNumber << 3))
@@ -96,7 +96,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
         }
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         let tagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: protoFieldNumber << 3))
         serializedSize += 2 * value.count * tagSize
         for v in value {
