@@ -54,7 +54,7 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         encoder.startField(tagType: protoFieldNumber * 8 + 2)
         var packedSize = 0
         for v in value {
-            packedSize += try S.encodedSize(of: v)
+            packedSize += try S.encodedSizeWithoutTag(of: v)
         }
         encoder.putVarInt(value: packedSize)
         for v in value {
@@ -99,7 +99,7 @@ public struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
             encoder.startField(tagType: protoFieldNumber * 8 + 2)
             let keyTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
             let valueTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
-            let entrySize = try keyTagSize + KeyType.encodedSize(of: k) + valueTagSize + ValueType.encodedSize(of: v)
+            let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) + valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
             encoder.putVarInt(value: entrySize)
             encoder.startField(tagType: 8 + KeyType.protobufWireType())
             KeyType.serializeProtobufValue(encoder: &encoder, value: k)

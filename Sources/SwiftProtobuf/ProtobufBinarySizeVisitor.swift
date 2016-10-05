@@ -43,7 +43,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         let tagSize = Varint.encodedSize(of: UInt32(
             truncatingBitPattern: protoFieldNumber << 3 | S.protobufWireType()))
-        serializedSize += try tagSize + S.encodedSize(of: value)
+        serializedSize += try tagSize + S.encodedSizeWithoutTag(of: value)
     }
 
     mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
@@ -51,7 +51,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
             truncatingBitPattern: protoFieldNumber << 3 | S.protobufWireType()))
         serializedSize += value.count * tagSize
         for v in value {
-            serializedSize += try S.encodedSize(of: v)
+            serializedSize += try S.encodedSizeWithoutTag(of: v)
         }
     }
 
@@ -64,7 +64,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
             truncatingBitPattern: protoFieldNumber << 3 | S.protobufWireType()))
         var dataSize = 0
         for v in value {
-            dataSize += try S.encodedSize(of: v)
+            dataSize += try S.encodedSizeWithoutTag(of: v)
         }
         serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
     }
@@ -72,7 +72,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
     mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         let tagSize = Varint.encodedSize(of: UInt32(
             truncatingBitPattern: protoFieldNumber << 3 | M.protobufWireType()))
-        let messageSize = try value.serializedSize()
+        let messageSize = try value.serializedProtobufSize()
         serializedSize += tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
     }
 
@@ -81,7 +81,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
             truncatingBitPattern: protoFieldNumber << 3 | M.protobufWireType()))
         serializedSize += value.count * tagSize
         for v in value {
-            let messageSize = try v.serializedSize()
+            let messageSize = try v.serializedProtobufSize()
             serializedSize += Varint.encodedSize(of: UInt64(messageSize)) + messageSize
         }
     }
@@ -111,7 +111,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
         let keyTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
         let valueTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
         for (k,v) in value {
-            let entrySize = try keyTagSize + KeyType.encodedSize(of: k) + valueTagSize + ValueType.encodedSize(of: v)
+            let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) + valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
             serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
         }
         serializedSize += value.count * tagSize

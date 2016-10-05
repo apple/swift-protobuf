@@ -37,12 +37,12 @@ public protocol ProtobufBinaryCodableType: ProtobufTypePropertiesBase {
     // Special interface for decoding a value of this type as a map value.
     static func decodeProtobufMapValue(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws
 
-    /// Returns the number of byte required to encode `value` on the wire.
+    /// Returns the number of bytes required to encode `value` on the wire.
     ///
     /// Note that for length-delimited data (such as strings, bytes, and messages), the returned
     /// size includes the space required for the length prefix. For messages, this is a subtle
     /// distinction from the `serializedSize()` method, which does *not* include the length prefix.
-    static func encodedSize(of value: BaseType) throws -> Int
+    static func encodedSizeWithoutTag(of value: BaseType) throws -> Int
 }
 
 /// Extension defines default handling for mismatched wire types.
@@ -99,7 +99,7 @@ public protocol ProtobufBinaryCodableMapKeyType: ProtobufTypePropertiesBase {
     static func protobufWireType() -> Int
     /// Write out the protobuf value only.
     static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: BaseType)
-    static func encodedSize(of: BaseType) throws -> Int
+    static func encodedSizeWithoutTag(of: BaseType) throws -> Int
 }
 
 
@@ -146,7 +146,7 @@ public extension ProtobufFloat {
         return true
     }
 
-    public static func encodedSize(of value: Float) -> Int {
+    public static func encodedSizeWithoutTag(of value: Float) -> Int {
         return MemoryLayout<Float>.size
     }
 }
@@ -195,7 +195,7 @@ public extension ProtobufDouble {
         return true
     }
 
-    public static func encodedSize(of value: Double) -> Int {
+    public static func encodedSizeWithoutTag(of value: Double) -> Int {
         return MemoryLayout<Double>.size
     }
 }
@@ -228,7 +228,7 @@ public extension ProtobufInt32 {
         return true
     }
 
-    public static func encodedSize(of value: Int32) -> Int {
+    public static func encodedSizeWithoutTag(of value: Int32) -> Int {
         return Varint.encodedSize(of: value)
     }
 }
@@ -261,7 +261,7 @@ public extension ProtobufInt64 {
         return true
     }
 
-    public static func encodedSize(of value: Int64) -> Int {
+    public static func encodedSizeWithoutTag(of value: Int64) -> Int {
         return Varint.encodedSize(of: value)
     }
 }
@@ -294,7 +294,7 @@ public extension ProtobufUInt32 {
         return true
     }
 
-    public static func encodedSize(of value: UInt32) -> Int {
+    public static func encodedSizeWithoutTag(of value: UInt32) -> Int {
         return Varint.encodedSize(of: value)
     }
 }
@@ -327,7 +327,7 @@ public extension ProtobufUInt64 {
         return true
     }
 
-    public static func encodedSize(of value: UInt64) -> Int {
+    public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
         return Varint.encodedSize(of: value)
     }
 }
@@ -362,7 +362,7 @@ public extension ProtobufSInt32 {
         return true
     }
 
-    public static func encodedSize(of value: Int32) -> Int {
+    public static func encodedSizeWithoutTag(of value: Int32) -> Int {
         return Varint.encodedSize(of: ZigZag.encoded(value))
     }
 }
@@ -395,7 +395,7 @@ public extension ProtobufSInt64 {
         return true
     }
 
-    public static func encodedSize(of value: Int64) -> Int {
+    public static func encodedSizeWithoutTag(of value: Int64) -> Int {
         return Varint.encodedSize(of: ZigZag.encoded(value))
     }
 }
@@ -443,7 +443,7 @@ public extension ProtobufFixed32 {
         return true
     }
 
-    public static func encodedSize(of value: UInt32) -> Int {
+    public static func encodedSizeWithoutTag(of value: UInt32) -> Int {
         return MemoryLayout<UInt32>.size
     }
 }
@@ -491,7 +491,7 @@ public extension ProtobufFixed64 {
         return true
     }
 
-    public static func encodedSize(of value: UInt64) -> Int {
+    public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
         return MemoryLayout<UInt64>.size
     }
 }
@@ -539,7 +539,7 @@ public extension ProtobufSFixed32 {
         return true
     }
 
-    public static func encodedSize(of value: Int32) -> Int {
+    public static func encodedSizeWithoutTag(of value: Int32) -> Int {
         return MemoryLayout<Int32>.size
     }
 }
@@ -587,7 +587,7 @@ public extension ProtobufSFixed64 {
         return true
     }
 
-    public static func encodedSize(of value: Int64) -> Int {
+    public static func encodedSizeWithoutTag(of value: Int64) -> Int {
         return MemoryLayout<Int64>.size
     }
 }
@@ -620,7 +620,7 @@ public extension ProtobufBool {
         return true
     }
 
-    public static func encodedSize(of value: Bool) -> Int {
+    public static func encodedSizeWithoutTag(of value: Bool) -> Int {
         return 1
     }
 }
@@ -663,7 +663,7 @@ public extension ProtobufString {
         throw ProtobufDecodingError.invalidUTF8
     }
 
-    public static func encodedSize(of value: String) -> Int {
+    public static func encodedSizeWithoutTag(of value: String) -> Int {
         let stringWithNul = value.utf8CString
         let stringLength = stringWithNul.count - 1
         return Varint.encodedSize(of: Int64(stringLength)) + stringLength
@@ -690,7 +690,7 @@ public extension ProtobufBytes {
         return true
     }
 
-    public static func encodedSize(of value: Data) -> Int {
+    public static func encodedSizeWithoutTag(of value: Data) -> Int {
         let count = value.count
         return Varint.encodedSize(of: Int64(count)) + count
     }
@@ -737,7 +737,7 @@ extension ProtobufEnum where RawValue == Int {
         return true
     }
 
-    public static func encodedSize(of value: Self) -> Int {
+    public static func encodedSizeWithoutTag(of value: Self) -> Int {
         return Varint.encodedSize(of: Int32(truncatingBitPattern: value.rawValue))
     }
 }
@@ -750,7 +750,7 @@ public protocol ProtobufBinaryMessageBase: ProtobufMessageBase {
     // Serialize to protobuf
     func serializeProtobuf() throws -> Data
     func serializeProtobufBytes() throws -> [UInt8]
-    func serializedSize() throws -> Int
+    func serializedProtobufSize() throws -> Int
     // Decode from protobuf
     init(protobuf: Data) throws
     init(protobuf: Data, extensions: ProtobufExtensionSet?) throws
@@ -762,7 +762,7 @@ public protocol ProtobufBinaryMessageBase: ProtobufMessageBase {
 
 public extension ProtobufBinaryMessageBase {
     func serializeProtobuf() throws -> Data {
-        let requiredSize = try serializedSize()
+        let requiredSize = try serializedProtobufSize()
         var data = Data(count: requiredSize)
         try data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
             try serializeProtobuf(into: pointer)
@@ -770,7 +770,7 @@ public extension ProtobufBinaryMessageBase {
         return data
     }
     func serializeProtobufBytes() throws -> [UInt8] {
-        let requiredSize = try serializedSize()
+        let requiredSize = try serializedProtobufSize()
         var bytes = [UInt8](repeating: 0, count: requiredSize)
         try bytes.withUnsafeMutableBufferPointer { (pointer: inout UnsafeMutableBufferPointer<UInt8>) in
             try serializeProtobuf(into: pointer.baseAddress!)
@@ -781,7 +781,7 @@ public extension ProtobufBinaryMessageBase {
         _ = try ProtobufBinaryEncodingVisitor(message: self, pointer: pointer)
     }
 
-    func serializedSize() throws -> Int {
+    func serializedProtobufSize() throws -> Int {
         return try ProtobufBinarySizeVisitor(message: self).serializedSize
     }
 
@@ -792,8 +792,8 @@ public extension ProtobufBinaryMessageBase {
         encoder.putBytesValue(value: t)
     }
 
-    static func encodedSize(of value: Self) throws -> Int {
-        let messageSize = try value.serializedSize()
+    static func encodedSizeWithoutTag(of value: Self) throws -> Int {
+        let messageSize = try value.serializedProtobufSize()
         return Varint.encodedSize(of: Int64(messageSize)) + messageSize
     }
 }
