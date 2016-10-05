@@ -338,7 +338,7 @@ class MessageGenerator {
             swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name!)
             swiftFullName = swiftRelativeName
         }
-        var conformance = isGroup ? "ProtobufGeneratedGroup" : "ProtobufGeneratedMessage"
+        var conformance = "ProtobufGeneratedMessage"
         if isExtensible {
             conformance += ", ProtobufExtensibleMessage"
         }

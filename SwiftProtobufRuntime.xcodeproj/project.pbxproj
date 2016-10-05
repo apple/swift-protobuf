@@ -27,7 +27,6 @@
 		9C2F238B1D7780D1008524F2 /* ProtobufExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */; };
 		9C2F238C1D7780D1008524F2 /* ProtobufExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */; };
 		9C2F238D1D7780D1008524F2 /* ProtobufFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */; };
-		9C2F238E1D7780D1008524F2 /* ProtobufGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufGroup.swift /* ProtobufGroup.swift */; };
 		9C2F238F1D7780D1008524F2 /* ProtobufHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */; };
 		9C2F23901D7780D1008524F2 /* ProtobufJSONDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */; };
 		9C2F23911D7780D1008524F2 /* ProtobufJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */; };
@@ -143,7 +142,6 @@
 		__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufGroup.swift /* ProtobufGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufGroup.swift /* ProtobufGroup.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */; };
@@ -281,7 +279,6 @@
 		__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufExtensionFields.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufExtensions.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufFieldDecoder.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufGroup.swift /* ProtobufGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufGroup.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufHash.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufJSONDecoding.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufJSONEncoding.swift; sourceTree = "<group>"; };
@@ -467,7 +464,6 @@
 				__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufGroup.swift /* ProtobufGroup.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */,
@@ -799,7 +795,6 @@
 				9C2F238B1D7780D1008524F2 /* ProtobufExtensionFields.swift in Sources */,
 				9C2F238C1D7780D1008524F2 /* ProtobufExtensions.swift in Sources */,
 				9C2F238D1D7780D1008524F2 /* ProtobufFieldDecoder.swift in Sources */,
-				9C2F238E1D7780D1008524F2 /* ProtobufGroup.swift in Sources */,
 				9C2F238F1D7780D1008524F2 /* ProtobufHash.swift in Sources */,
 				9C2F23901D7780D1008524F2 /* ProtobufJSONDecoding.swift in Sources */,
 				AA28A4AA1DA40B0900C866D9 /* Varint.swift in Sources */,
@@ -843,7 +838,6 @@
 				__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufGroup.swift /* ProtobufGroup.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift in Sources */,
 				AA28A4A91DA40B0900C866D9 /* Varint.swift in Sources */,

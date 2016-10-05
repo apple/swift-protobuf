@@ -31,16 +31,6 @@ public struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         }
         description.append(")")
     }
-
-    public init(group: ProtobufGroupBase) {
-        description.append(group.swiftClassName)
-        description.append("(")
-        withAbstractVisitor {(visitor: inout ProtobufVisitor) in
-            try group.traverse(visitor: &visitor)
-        }
-        description.append(")")
-    }
-
     public mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) {
         var visitor: ProtobufVisitor = self
         do {
@@ -113,23 +103,23 @@ public struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
    }
 
 
-    mutating public func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating public func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":")
-        let groupDescription = ProtobufDebugDescriptionVisitor(group: value).description
+        let groupDescription = ProtobufDebugDescriptionVisitor(message: value).description
         description.append(groupDescription)
         separator = ","
     }
 
-    mutating public func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating public func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
         var arraySeparator = ""
         for v in value {
             description.append(arraySeparator)
-            let groupDescription = ProtobufDebugDescriptionVisitor(group: v).description
+            let groupDescription = ProtobufDebugDescriptionVisitor(message: v).description
             description.append(groupDescription)
             arraySeparator = ","
         }

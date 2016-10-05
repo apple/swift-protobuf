@@ -342,7 +342,7 @@ public func ==<M: ProtobufAbstractMessage>(lhs: ProtobufRepeatedMessageField<M>,
 // Protoc internally treats groups the same as messages, but
 // they serialize very differently, so we have separate serialization
 // handling here...
-public struct ProtobufOptionalGroupField<G: ProtobufGroup & Hashable>: ProtobufTypedExtensionField {
+public struct ProtobufOptionalGroupField<G: ProtobufMessage & Hashable>: ProtobufTypedExtensionField {
     public typealias BaseType = G
     public typealias ValueType = BaseType?
     public var value: G?
@@ -372,7 +372,7 @@ public struct ProtobufOptionalGroupField<G: ProtobufGroup & Hashable>: ProtobufT
     }
 }
 
-public func==<M: ProtobufGroup>(lhs:ProtobufOptionalGroupField<M>, rhs:ProtobufOptionalGroupField<M>) -> Bool {
+public func==<M: ProtobufMessage>(lhs:ProtobufOptionalGroupField<M>, rhs:ProtobufOptionalGroupField<M>) -> Bool {
     if let l = lhs.value {
         if let r = rhs.value {
             return l == r
@@ -385,7 +385,7 @@ public func==<M: ProtobufGroup>(lhs:ProtobufOptionalGroupField<M>, rhs:ProtobufO
 }
 
 
-public struct ProtobufRepeatedGroupField<G: ProtobufGroup & Hashable>: ProtobufTypedExtensionField {
+public struct ProtobufRepeatedGroupField<G: ProtobufMessage & Hashable>: ProtobufTypedExtensionField {
     public typealias BaseType = G
     public typealias ValueType = [BaseType]
     public var value = [G]()
@@ -423,7 +423,7 @@ public struct ProtobufRepeatedGroupField<G: ProtobufGroup & Hashable>: ProtobufT
     }
 }
 
-public func ==<G: ProtobufGroup>(lhs: ProtobufRepeatedGroupField<G>, rhs: ProtobufRepeatedGroupField<G>) -> Bool {
+public func ==<G: ProtobufMessage>(lhs: ProtobufRepeatedGroupField<G>, rhs: ProtobufRepeatedGroupField<G>) -> Bool {
     if lhs.value.count != rhs.value.count {
         return false
     }

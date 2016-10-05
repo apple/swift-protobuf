@@ -66,11 +66,11 @@ public struct ProtobufMirrorVisitor: ProtobufVisitor {
         mirrorChildren.append((label: swiftFieldName, value: value))
    }
 
-    mutating public func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating public func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
-    mutating public func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating public func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
