@@ -17,19 +17,19 @@
 import Foundation
 import Swift
 
-public struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
+struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     private var encoder = ProtobufJSONEncoder()
-    public var result: String {return encoder.result}
+    var result: String {return encoder.result}
 
-    public init() {}
+    init() {}
 
-    public init(message: ProtobufJSONMessageBase) throws {
+    init(message: ProtobufJSONMessageBase) throws {
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try message.traverse(visitor: &visitor)
         }
     }
 
-    mutating public func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) throws {
+    mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) throws {
         encoder.startObject()
         var visitor: ProtobufVisitor = self
         try clause(&visitor)
@@ -38,16 +38,16 @@ public struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     }
 
 
-    mutating public func visitUnknown(bytes: [UInt8]) {
+    mutating func visitUnknown(bytes: [UInt8]) {
         // JSON encoding has no provision for carrying proto2 unknown fields
     }
 
-    mutating public func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         try S.serializeJSONValue(encoder: &encoder, value: value)
     }
 
-    mutating public func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
@@ -59,11 +59,11 @@ public struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
         encoder.append(text: "]")
     }
 
-    mutating public func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         try visitRepeatedField(fieldType: fieldType, value: value, protoFieldNumber: protoFieldNumber, protoFieldName: protoFieldName, jsonFieldName: jsonFieldName, swiftFieldName: swiftFieldName)
     }
 
-    mutating public func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         // Note: We ask the message to serialize itself instead of
         // using ProtobufJSONEncodingVisitor(message:) since
@@ -71,7 +71,7 @@ public struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
         try M.serializeJSONValue(encoder: &encoder, value: value)
     }
 
-    mutating public func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
@@ -88,14 +88,14 @@ public struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
 
     // Note that JSON encoding for groups is not officially supported
     // by any Google spec.  But it's trivial to support it here.
-    mutating public func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         // Groups have no special JSON support, so we use only the generic traversal mechanism here
         let t = try ProtobufJSONEncodingVisitor(message: value).result
         encoder.append(text: t)
     }
 
-    mutating public func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
@@ -109,7 +109,7 @@ public struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
         encoder.append(text: "]")
     }
 
-    mutating public func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws  where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws  where KeyType.BaseType: Hashable {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "{")

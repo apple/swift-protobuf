@@ -37,7 +37,6 @@
 		9C2F23971D7780D1008524F2 /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
 		9C2F23981D7780D1008524F2 /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
 		9C2F23991D7780D1008524F2 /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
-		9C2F239A1D7780D1008524F2 /* ProtobufUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUtility.swift /* ProtobufUtility.swift */; };
 		9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		9C2F239D1D7780D1008524F2 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
@@ -152,7 +151,6 @@
 		__src_cc_ref_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufUtility.swift /* ProtobufUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUtility.swift /* ProtobufUtility.swift */; };
 		__src_cc_ref_Sources/Protobuf/api.pb.swift /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */; };
 		__src_cc_ref_Sources/Protobuf/duration.pb.swift /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */; };
 		__src_cc_ref_Sources/Protobuf/empty.pb.swift /* empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */; };
@@ -289,7 +287,6 @@
 		__PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufTraversal.swift; sourceTree = "<group>"; tabWidth = 4; };
 		__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufTypes.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufUnknown.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufUtility.swift /* ProtobufUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufUtility.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duration.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.pb.swift; sourceTree = "<group>"; };
@@ -474,7 +471,6 @@
 				__PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufUtility.swift /* ProtobufUtility.swift */,
 				__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */,
@@ -806,7 +802,6 @@
 				9C2F23971D7780D1008524F2 /* ProtobufTraversal.swift in Sources */,
 				9C2F23981D7780D1008524F2 /* ProtobufTypes.swift in Sources */,
 				9C2F23991D7780D1008524F2 /* ProtobufUnknown.swift in Sources */,
-				9C2F239A1D7780D1008524F2 /* ProtobufUtility.swift in Sources */,
 				9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */,
 				9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */,
 				AA28A4A71DA30E5900C866D9 /* ZigZag.swift in Sources */,
@@ -849,7 +844,6 @@
 				__src_cc_ref_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufUtility.swift /* ProtobufUtility.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift in Sources */,
 				AA28A4A61DA30E5900C866D9 /* ZigZag.swift in Sources */,
