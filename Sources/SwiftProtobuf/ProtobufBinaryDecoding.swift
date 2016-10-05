@@ -180,7 +180,7 @@ private struct ProtobufFieldWireType3: ProtobufBinaryFieldDecoder {
     let scanner: ProtobufScanner
     let protoFieldNumber: Int
 
-    mutating func decodeOptionalGroupField<G: ProtobufGroup>(fieldType: G.Type, value: inout G?) throws -> Bool {
+    mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
         var group = value ?? G()
         var decoder = ProtobufBinaryDecoder(scanner: scanner)
         try decoder.decodeFullGroup(group: &group, protoFieldNumber: protoFieldNumber)
@@ -188,7 +188,7 @@ private struct ProtobufFieldWireType3: ProtobufBinaryFieldDecoder {
         return true
     }
 
-    mutating func decodeRepeatedGroupField<G: ProtobufGroup>(fieldType: G.Type, value: inout [G]) throws -> Bool {
+    mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool {
         var group = G()
         var decoder = ProtobufBinaryDecoder(scanner: scanner)
         try decoder.decodeFullGroup(group: &group, protoFieldNumber: protoFieldNumber)
@@ -309,7 +309,7 @@ public struct ProtobufBinaryDecoder {
         }
     }
 
-    public mutating func decodeFullGroup<G: ProtobufGroupBase>(group: inout G, protoFieldNumber: Int) throws {
+    public mutating func decodeFullGroup<G: ProtobufMessageBase>(group: inout G, protoFieldNumber: Int) throws {
         guard scanner.fieldWireType == 3 else {throw ProtobufDecodingError.malformedProtobuf}
         while let tagType = try scanner.getTagType() {
             if tagType / 8 == protoFieldNumber {

@@ -51,12 +51,6 @@ struct ProtobufHashVisitor: ProtobufVisitor {
         }
     }
 
-    init(group: ProtobufGroupBase) {
-        withAbstractVisitor {(visitor: inout ProtobufVisitor) in
-            try group.traverse(visitor: &visitor)
-        }
-    }
-
     mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) {
         var visitor: ProtobufVisitor = self
         let _ = try? clause(&visitor)
@@ -98,12 +92,12 @@ struct ProtobufHashVisitor: ProtobufVisitor {
         }
    }
 
-    mutating func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         mix(protoFieldNumber)
         mix(value.hashValue)
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         mix(protoFieldNumber)
         for v in value {
             mix(v.hashValue)

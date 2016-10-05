@@ -919,46 +919,6 @@ extension ProtobufMessage {
 }
 
 ///
-/// Groups
-///
-public extension ProtobufGroup {
-    // Open curly brace already consumed.
-    public mutating func decodeFromJSONObject(jsonDecoder: inout ProtobufJSONDecoder) throws {
-        var key = ""
-        var state = ProtobufJSONDecoder.ObjectParseState.expectFirstKey
-        while let token = try jsonDecoder.nextToken() {
-            switch token {
-            case .string(let s): // This is a key
-                if state != .expectKey && state != .expectFirstKey {
-                    throw ProtobufDecodingError.malformedJSON
-                }
-                key = s
-                state = .expectColon
-            case .colon:
-                if state != .expectColon {
-                    throw ProtobufDecodingError.malformedJSON
-                }
-                try jsonDecoder.decodeValue(key: key, group: &self)
-                state = .expectComma
-            case .comma:
-                if state != .expectComma {
-                    throw ProtobufDecodingError.malformedJSON
-                }
-                state = .expectKey
-            case .endObject:
-                if state != .expectFirstKey && state != .expectComma {
-                    throw ProtobufDecodingError.malformedJSON
-                }
-                return
-            default:
-                throw ProtobufDecodingError.malformedJSON
-            }
-        }
-        throw ProtobufDecodingError.truncatedInput
-    }
-}
-
-///
 /// Maps
 ///
 public extension ProtobufMap {

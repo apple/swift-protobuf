@@ -76,7 +76,7 @@ struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         }
     }
 
-    mutating func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(tagType: protoFieldNumber * 8 + 3) // Start of group
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try value.traverse(visitor: &visitor)
@@ -84,7 +84,7 @@ struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         encoder.startField(tagType: protoFieldNumber * 8 + 4) // End of group
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
             encoder.startField(tagType: protoFieldNumber * 8 + 3) // Start of group
             try withAbstractVisitor {(visitor: inout ProtobufVisitor) in

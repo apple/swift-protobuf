@@ -29,12 +29,6 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
         }
     }
 
-    init(group: ProtobufGroupBase) throws {
-        try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
-            try group.traverse(visitor: &visitor)
-        }
-    }
-
     mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) throws {
         encoder.startObject()
         var visitor: ProtobufVisitor = self
@@ -94,21 +88,21 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
 
     // Note that JSON encoding for groups is not officially supported
     // by any Google spec.  But it's trivial to support it here.
-    mutating func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         // Groups have no special JSON support, so we use only the generic traversal mechanism here
-        let t = try ProtobufJSONEncodingVisitor(group: value).result
+        let t = try ProtobufJSONEncodingVisitor(message: value).result
         encoder.append(text: t)
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
         for v in value {
             encoder.append(text: arraySeparator)
             // Groups have no special JSON support, so we use only the generic traversal mechanism here
-            let t = try ProtobufJSONEncodingVisitor(group: v).result
+            let t = try ProtobufJSONEncodingVisitor(message: v).result
             encoder.append(text: t)
             arraySeparator = ","
         }
