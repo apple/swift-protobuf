@@ -17,7 +17,7 @@
 
 import Swift
 
-public func ==(lhs: [[UInt8]], rhs: [[UInt8]]) -> Bool {
+func ==(lhs: [[UInt8]], rhs: [[UInt8]]) -> Bool {
     guard lhs.count == rhs.count else {return false}
     for (l,r) in zip(lhs, rhs) {
         if l != r {
@@ -27,11 +27,11 @@ public func ==(lhs: [[UInt8]], rhs: [[UInt8]]) -> Bool {
     return true
 }
 
-public func !=(lhs: [[UInt8]], rhs: [[UInt8]]) -> Bool {
+func !=(lhs: [[UInt8]], rhs: [[UInt8]]) -> Bool {
     return !(lhs == rhs)
 }
 
-public func ==<T: Equatable>(lhs: Dictionary<T, [UInt8]>, rhs: Dictionary<T, [UInt8]>) -> Bool {
+func ==<T: Equatable>(lhs: Dictionary<T, [UInt8]>, rhs: Dictionary<T, [UInt8]>) -> Bool {
     guard lhs.count == rhs.count else {return false}
     for (k,v) in lhs {
         let rv = rhs[k]
@@ -42,6 +42,6 @@ public func ==<T: Equatable>(lhs: Dictionary<T, [UInt8]>, rhs: Dictionary<T, [UI
     return true
 }
 
-public func !=<T: Equatable>(lhs: Dictionary<T, [UInt8]>, rhs: Dictionary<T, [UInt8]>) -> Bool {
+func !=<T: Equatable>(lhs: Dictionary<T, [UInt8]>, rhs: Dictionary<T, [UInt8]>) -> Bool {
     return !(lhs == rhs)
 }
