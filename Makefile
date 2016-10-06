@@ -120,22 +120,7 @@ PLUGIN_PROTOS= \
 	regenerate-test-protos \
 	test \
 	test-plugin \
-	test-runtime \
-	test-xcode \
-	test-xcode-debug \
-	test-xcode-release \
-	test-xcode-iOS \
-	test-xcode-iOS-debug \
-	test-xcode-iOS-release \
-	test-xcode-macOS \
-	test-xcode-macOS-debug \
-	test-xcode-macOS-release
-
-.NOTPARALLEL: \
-	test-xcode-iOS-debug \
-	test-xcode-iOS-release \
-	test-xcode-macOS-debug \
-	test-xcode-macOS-release
+	test-runtime
 
 default: build
 
@@ -250,40 +235,3 @@ regenerate-test-protos: ${PROTOC_GEN_SWIFTX}
 	for t in ${TEST_PROTOS}; do \
 		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=Tests/SwiftProtobufTests -I Protos Protos/$$t; \
 	done;
-
-
-# Helpers to put the Xcode project through all modes.
-
-# Grouping targets
-test-xcode: test-xcode-iOS test-xcode-macOS
-test-xcode-iOS: test-xcode-iOS-debug test-xcode-iOS-release
-test-xcode-macOS: test-xcode-macOS-debug test-xcode-macOS-release
-test-xcode-debug: test-xcode-iOS-debug test-xcode-macOS-debug
-test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release
-
-# The individual ones
-test-xcode-iOS-debug:
-	xcodebuild -project SwiftProtobufRuntime.xcodeproj \
-	  -scheme SwiftProtobufRuntime_iOS \
-	  -configuration Debug \
-	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
-	  test
-
-test-xcode-iOS-release:
-	xcodebuild -project SwiftProtobufRuntime.xcodeproj \
-	  -scheme SwiftProtobufRuntime_iOS \
-	  -configuration Release \
-	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
-	  test
-
-test-xcode-macOS-debug:
-	xcodebuild -project SwiftProtobufRuntime.xcodeproj \
-	  -scheme SwiftProtobufRuntime_macOS \
-	  -configuration debug \
-	  build test
-
-test-xcode-macOS-release:
-	xcodebuild -project SwiftProtobufRuntime.xcodeproj \
-	  -scheme SwiftProtobufRuntime_macOS \
-	  -configuration Release \
-	  build test
