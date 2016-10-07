@@ -98,7 +98,15 @@ TEST_PROTOS= \
 # checkout into this project.
 
 # Protos that are embedded into the SwiftProtobuf runtime library module
-LIBRARY_PROTOS= api duration empty field_mask source_context timestamp type
+LIBRARY_PROTOS= \
+    api \
+    duration \
+    empty \
+    field_mask \
+    source_context \
+    timestamp \
+    type \
+    wrappers
 
 # Protos that are used internally by the plugin
 PLUGIN_PROTOS= \
