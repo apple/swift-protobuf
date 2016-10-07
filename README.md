@@ -45,6 +45,7 @@ To use Swift with Protocol buffers, you'll need:
 Building the plugin should be simple on any supported Swift platform:
 ```
 $ git clone https://github.com/apple/swift-protobuf
+$ git checkout tags/0.9.23
 $ cd swift-protobuf
 $ swift build
 ```
