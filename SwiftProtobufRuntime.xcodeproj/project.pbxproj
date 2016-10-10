@@ -965,7 +965,6 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/ProtobufTestSuite_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufRuntimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -979,7 +978,6 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/ProtobufTestSuite_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufRuntimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
