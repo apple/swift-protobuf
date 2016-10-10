@@ -18,28 +18,32 @@ import Foundation
 
 public struct ProtobufTextEncodingVisitor: ProtobufVisitor {
     private var encoder = ProtobufTextEncoder()
+    private var tabLevel: Int = 0
     public var result: String {return encoder.result}
+    
     
     public init() {}
     
-    public init(message: ProtobufTextMessageBase) throws {
+    public init(message: ProtobufTextMessageBase, tabLevel: Int) throws {
+        self.tabLevel = tabLevel
+        
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try message.traverse(visitor: &visitor)
         }
     }
     
-    public init(group: ProtobufGroupBase) throws {
+    public init(group: ProtobufGroupBase, tabLevel: Int) throws {
+        self.tabLevel = tabLevel
+
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try group.traverse(visitor: &visitor)
         }
     }
     
     mutating public func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) throws {
-//        encoder.startObject() // BJL - Modification point for text encoding
         var visitor: ProtobufVisitor = self
         try clause(&visitor)
         encoder.text = (visitor as! ProtobufTextEncodingVisitor).encoder.text
-//        encoder.endObject() // BJL - Modification point for text encoding
     }
     
     
@@ -49,22 +53,17 @@ public struct ProtobufTextEncodingVisitor: ProtobufVisitor {
     }
     
     mutating public func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(name: jsonFieldName)
+        encoder.startField(name: protoFieldName, tabLevel: tabLevel)
         try S.serializeTextValue(encoder: &encoder, value: value)
         encoder.endField()
     }
     
     mutating public func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(name: jsonFieldName)
-        var arraySeparator = ""
-        encoder.append(text: "[")
         for v in value {
-            encoder.append(text: arraySeparator)
+            encoder.startField(name: protoFieldName, tabLevel: tabLevel)
             try S.serializeTextValue(encoder: &encoder, value: v)
-            arraySeparator = ","
+            encoder.endField()
         }
-        encoder.append(text: "]")
-        encoder.endField()
     }
     
     mutating public func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
@@ -72,59 +71,51 @@ public struct ProtobufTextEncodingVisitor: ProtobufVisitor {
     }
     
     mutating public func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(name: jsonFieldName, dropColon: true)
+        encoder.startField(name: protoFieldName, tabLevel: tabLevel, dropColon: true)
         // Note: We ask the message to serialize itself instead of
         // using ProtobufJSONEncodingVisitor(message:) since
         // some messages override the JSON format at this point.
         encoder.startObject()
-        try M.serializeTextValue(encoder: &encoder, value: value)
-        encoder.endObject()
+        try M.serializeTextValue(encoder: &encoder, value: value, tabLevel: tabLevel + 1)
+        encoder.endObject(tabLevel: tabLevel)
         encoder.endField()
     }
     
     mutating public func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(name: jsonFieldName)
-        var arraySeparator = ""
-        encoder.append(text: "[")
         for v in value {
-            encoder.append(text: arraySeparator)
+            encoder.startField(name: protoFieldName, tabLevel: tabLevel)
+            encoder.startObject()
             // Note: We ask the message to serialize itself instead of
             // using ProtobufJSONEncodingVisitor(message:) since
             // some messages override the JSON format at this point.
-            try M.serializeTextValue(encoder: &encoder, value: v)
-            arraySeparator = ","
+            try M.serializeTextValue(encoder: &encoder, value: v, tabLevel: tabLevel + 1)
+            encoder.endObject(tabLevel: tabLevel)
+            encoder.endField()
         }
-        encoder.append(text: "]")
-        encoder.endField()
     }
     
     // Note that JSON encoding for groups is not officially supported
     // by any Google spec.  But it's trivial to support it here.
     mutating public func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(name: jsonFieldName)
+        encoder.startField(name: protoFieldName, tabLevel: tabLevel)
         // Groups have no special JSON support, so we use only the generic traversal mechanism here
-        let t = try ProtobufTextEncodingVisitor(group: value).result
+        let t = try ProtobufTextEncodingVisitor(group: value, tabLevel:tabLevel).result
         encoder.append(text: t)
         encoder.endField()
     }
     
     mutating public func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(name: jsonFieldName)
-        var arraySeparator = ""
-        encoder.append(text: "[")
         for v in value {
-            encoder.append(text: arraySeparator)
+            encoder.startField(name: protoFieldName, tabLevel: tabLevel)
             // Groups have no special JSON support, so we use only the generic traversal mechanism here
-            let t = try ProtobufTextEncodingVisitor(group: v).result
+            let t = try ProtobufTextEncodingVisitor(group: v, tabLevel:tabLevel).result
             encoder.append(text: t)
-            arraySeparator = ","
+            encoder.endField()
         }
-        encoder.append(text: "]")
-        encoder.endField()
     }
     
     mutating public func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws  where KeyType.BaseType: Hashable {
-        encoder.startField(name: jsonFieldName)
+        encoder.startField(name: protoFieldName, tabLevel: tabLevel)
         var arraySeparator = ""
         encoder.append(text: "{")
         for (k,v) in value {
@@ -166,20 +157,28 @@ public struct ProtobufTextEncoder {
             }
         }
     }
-    mutating func startField(name: String, dropColon:Bool = false) {  // BJL - modification point for text
+    mutating func startField(name: String, tabLevel: Int, dropColon:Bool = false) {
+        for _ in 0..<tabLevel {
+            append(text:"  ")
+        }
+        
         if dropColon {
             append(text: name + " ")
         } else {
             append(text: name + ": ")
         }
     }
-    mutating func endField() {  // BJL - modification point for text
+    mutating func endField() {
         append(text: "\n")
     }
     public mutating func startObject() {
         append(text: "{\n")
     }
-    public mutating func endObject() {
+    public mutating func endObject(tabLevel: Int) {
+        for _ in 0..<tabLevel {
+            append(text:"  ")
+        }
+
         append(text: "}")
     }
     mutating func putNullValue() {

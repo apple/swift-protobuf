@@ -778,7 +778,7 @@ public protocol ProtobufTextMessageBase: ProtobufMessageBase {
     init()
     
     // Serialize to text
-    func serializeText() throws -> String
+    func serializeText(tabLevel:Int) throws -> String
     
     // Decode from text
     init(text: String) throws
@@ -813,8 +813,8 @@ public extension ProtobufTextMessageBase {
         }
     }
     
-    func serializeText() throws -> String {
-        return try ProtobufTextEncodingVisitor(message: self).result
+    func serializeText(tabLevel:Int = 0) throws -> String {
+        return try ProtobufTextEncodingVisitor(message: self, tabLevel:tabLevel).result
     }
     
     func serializeAnyText() throws -> String {
@@ -828,7 +828,11 @@ public extension ProtobufTextMessageBase {
     
     // TODO: Can we get rid of this?  (This is leftover from an earlier generation of JSON encoding logic.)
     static func serializeTextValue(encoder: inout ProtobufTextEncoder, value: Self) throws {
-        let text = try value.serializeText()
+        try serializeTextValue(encoder:&encoder, value:value, tabLevel:0)
+    }
+
+    static func serializeTextValue(encoder: inout ProtobufTextEncoder, value: Self, tabLevel:Int) throws {
+        let text = try value.serializeText(tabLevel:tabLevel)
         encoder.append(text: text)
     }
     

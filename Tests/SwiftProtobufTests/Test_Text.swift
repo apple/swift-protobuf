@@ -24,12 +24,12 @@ class Test_Text: XCTestCase, PBTestHelpers {
         a.singleInt32 = 41
 
         XCTAssertEqual("{\"singleInt32\":41}", try a.serializeJSON())
-        XCTAssertEqual("singleInt32: 41\n", try a.serializeText())
+        XCTAssertEqual("single_int32: 41\n", try a.serializeText())
 
         a.singleFloat = 11
 
         XCTAssertEqual("{\"singleInt32\":41,\"singleFloat\":11}", try a.serializeJSON())
-        XCTAssertEqual("singleInt32: 41\n" + "singleFloat: 11\n", try a.serializeText())
+        XCTAssertEqual("single_int32: 41\n" + "single_float: 11\n", try a.serializeText())
         
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
@@ -58,7 +58,7 @@ class Test_Text: XCTestCase, PBTestHelpers {
             + "single_double: 12\n"
             + "single_bool: true\n"
             + "single_string: \"abc\"\n"
-            + "single_bytes: \"AB\"\n"
+            + "single_bytes: \"QUI=\"\n" // TODO: Not sure if this part is correct
             + "single_nested_message {\n"
             + "  bb: 7\n"
             + "}\n"
@@ -103,7 +103,7 @@ class Test_Text: XCTestCase, PBTestHelpers {
             + "repeated_string: \"abc\"\n"
             + "repeated_string: \"def\"\n"
             + "repeated_bytes: \"\"\n"
-            + "repeated_bytes: \"AB\"\n"
+            + "repeated_bytes: \"QUI=\"\n" // TODO: Not sure if this is correct
             + "repeated_nested_message {\n"
             + "  bb: 7\n"
             + "}\n"
