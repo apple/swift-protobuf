@@ -108,7 +108,7 @@ public extension ProtobufMessageBase {
 /// additional requirements, including serialization extensions.
 /// This is used directly by hand-coded message implementations.
 ///
-public protocol ProtobufMessage: ProtobufMessageBase, ProtobufBinaryMessageBase, ProtobufJSONMessageBase, CustomReflectable {
+public protocol ProtobufMessage: ProtobufMessageBase, ProtobufBinaryMessageBase, ProtobufJSONMessageBase, ProtobufTextMessageBase, CustomReflectable {
 }
 
 public protocol ProtobufAbstractMessage: ProtobufMessage, Hashable, ProtobufMapValueType {

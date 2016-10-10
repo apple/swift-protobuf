@@ -100,6 +100,30 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
         }
     }
 
+    func assertTextEncode(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+        let empty = MessageTestType()
+        var configured = empty
+        configure(&configured)
+        XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
+        do {
+            let encoded = try configured.serializeText()
+
+            print("==== Begin Encoding ====")
+            print("\(encoded)")
+            print("==== End Encoding ====")
+            
+            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            do {
+                let decoded = try MessageTestType(text: encoded)
+                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+            } catch {
+                XCTFail("Encode/decode cycle should not throw error, decoding: \(encoded)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
+        }
+    }
+    
     func assertJSONDecodeSucceeds(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
             let decoded: MessageTestType = try MessageTestType(json: json)
