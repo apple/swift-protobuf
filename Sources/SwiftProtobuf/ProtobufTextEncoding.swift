@@ -83,7 +83,7 @@ public struct ProtobufTextEncodingVisitor: ProtobufVisitor {
     
     mutating public func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
-            encoder.startField(name: protoFieldName, tabLevel: tabLevel)
+            encoder.startField(name: protoFieldName, tabLevel: tabLevel, dropColon: true)
             encoder.startObject()
             // Note: We ask the message to serialize itself instead of
             // using ProtobufJSONEncodingVisitor(message:) since

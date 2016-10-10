@@ -746,7 +746,7 @@ extension ProtobufEnum where RawValue == Int {
     }
     
     public static func serializeTextValue(encoder: inout ProtobufTextEncoder, value: Self) {
-        encoder.append(text: value.json)
+        encoder.append(text: value.json.trimmingCharacters(in:["\""]))
     }
     
     public static func decodeTextMapFieldValue(textDecoder: inout ProtobufTextDecoder) throws -> Self? {
