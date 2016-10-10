@@ -959,7 +959,6 @@
 		9C8CDA1B1D7A288E00E207CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/ProtobufTestSuite_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -974,7 +973,6 @@
 		9C8CDA1C1D7A288E00E207CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/ProtobufTestSuite_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -990,9 +988,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/Protobuf_Info.plist;
@@ -1009,9 +1005,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_MODULES = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/Protobuf_Info.plist;
