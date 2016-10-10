@@ -961,8 +961,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/Protobuf_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -978,7 +976,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/Protobuf_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -998,7 +995,6 @@
 				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/Protobuf_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				INSTALL_PATH_ACTUAL = "$(SYSTEM_LIBRARY_DIR)/Frameworks";
@@ -1021,7 +1017,6 @@
 				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SwiftProtobufRuntime.xcodeproj/Protobuf_Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				INSTALL_PATH_ACTUAL = "$(SYSTEM_LIBRARY_DIR)/Frameworks";
