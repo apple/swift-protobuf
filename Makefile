@@ -271,17 +271,21 @@ test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release
 
 # The individual ones
 test-xcode-iOS-debug:
+    # 4s - 32bit, 6s - 64bit
 	xcodebuild -project SwiftProtobufRuntime.xcodeproj \
 	  -scheme SwiftProtobufRuntime_iOS \
 	  -configuration Debug \
 	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
+	  -destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
 	  test
 
 test-xcode-iOS-release:
+    # 4s - 32bit, 6s - 64bit
 	xcodebuild -project SwiftProtobufRuntime.xcodeproj \
 	  -scheme SwiftProtobufRuntime_iOS \
 	  -configuration Release \
 	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
+	  -destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
 	  test
 
 test-xcode-macOS-debug:
