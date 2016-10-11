@@ -54,11 +54,6 @@ protocol ProtobufWrapper {
 
 extension ProtobufWrapper {
 
-  public init(_ value: WrappedType.BaseType) {
-    self.init()
-    self.value = value
-  }
-
   func serializeWrapperJSON() throws -> String {
     if !isZeroOrEmpty {
       var encoder = ProtobufJSONEncoder()
@@ -78,6 +73,11 @@ extension Google_Protobuf_DoubleValue:
 
   var isZeroOrEmpty: Bool {
     return value == 0
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(floatLiteral: FloatLiteralType) {
@@ -107,6 +107,11 @@ extension Google_Protobuf_FloatValue:
     return value.isZero
   }
 
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
+  }
+
   public init(floatLiteral: FloatLiteralType) {
     self.init(floatLiteral)
   }
@@ -132,6 +137,11 @@ extension Google_Protobuf_Int64Value:
 
   var isZeroOrEmpty: Bool {
     return value == 0
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(integerLiteral: IntegerLiteralType) {
@@ -161,6 +171,11 @@ extension Google_Protobuf_UInt64Value:
     return value == 0
   }
 
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
+  }
+
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
@@ -186,6 +201,11 @@ extension Google_Protobuf_Int32Value:
 
   var isZeroOrEmpty: Bool {
     return value == 0
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(integerLiteral: IntegerLiteralType) {
@@ -215,6 +235,11 @@ extension Google_Protobuf_UInt32Value:
     return value == 0
   }
 
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
+  }
+
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
@@ -240,6 +265,11 @@ extension Google_Protobuf_BoolValue:
 
   var isZeroOrEmpty: Bool {
     return !value
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(booleanLiteral: Bool) {
@@ -269,6 +299,11 @@ extension Google_Protobuf_StringValue:
 
   var isZeroOrEmpty: Bool {
     return value.isEmpty
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(stringLiteral: String) {
@@ -302,6 +337,11 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
 
   var isZeroOrEmpty: Bool {
     return value.isEmpty
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public func serializeJSON() throws -> String {
