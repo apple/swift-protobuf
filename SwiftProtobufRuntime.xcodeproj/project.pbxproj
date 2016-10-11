@@ -129,6 +129,7 @@
 		AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		AAEA52741DA80DEA003F318F /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
 		AAEA52771DA832A8003F318F /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
+		F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		_LinkFileRef_Protobuf_via_ProtobufTestSuite /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift */; };
@@ -812,6 +813,7 @@
 				9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */,
 				AA28A4A71DA30E5900C866D9 /* ZigZag.swift in Sources */,
 				9C2F239D1D7780D1008524F2 /* type.pb.swift in Sources */,
+				F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
