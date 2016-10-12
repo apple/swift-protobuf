@@ -246,6 +246,42 @@
 		F44F93F61DAEA8C900BC5B85 /* unittest_swift_startup.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift */; };
 		F44F93F71DAEA8C900BC5B85 /* unittest_well_known_types.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift */; };
 		F44F93F81DAEA8C900BC5B85 /* unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift */; };
+		F44F94061DAEB23500BC5B85 /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */; };
+		F44F94071DAEB23500BC5B85 /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */; };
+		F44F94081DAEB23500BC5B85 /* empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */; };
+		F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift */; };
+		F44F940A1DAEB23500BC5B85 /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
+		F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift */; };
+		F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift */; };
+		F44F940D1DAEB23500BC5B85 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
+		F44F940E1DAEB23500BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */; };
+		F44F940F1DAEB23500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
+		F44F94101DAEB23500BC5B85 /* ProtobufBinaryDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift */; };
+		F44F94111DAEB23500BC5B85 /* ProtobufBinaryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift */; };
+		F44F94121DAEB23500BC5B85 /* ProtobufBinarySizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */; };
+		F44F94131DAEB23500BC5B85 /* ProtobufBinaryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift */; };
+		F44F94141DAEB23500BC5B85 /* ProtobufDebugDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift */; };
+		F44F94151DAEB23500BC5B85 /* ProtobufEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift */; };
+		F44F94161DAEB23500BC5B85 /* ProtobufError.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift */; };
+		F44F94171DAEB23500BC5B85 /* ProtobufExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */; };
+		F44F94181DAEB23500BC5B85 /* ProtobufExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */; };
+		F44F94191DAEB23500BC5B85 /* ProtobufFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */; };
+		F44F941A1DAEB23500BC5B85 /* ProtobufHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */; };
+		F44F941B1DAEB23500BC5B85 /* ProtobufJSONDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */; };
+		F44F941C1DAEB23500BC5B85 /* ProtobufJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */; };
+		F44F941D1DAEB23500BC5B85 /* ProtobufJSONTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift */; };
+		F44F941E1DAEB23500BC5B85 /* ProtobufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */; };
+		F44F941F1DAEB23500BC5B85 /* ProtobufMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */; };
+		F44F94201DAEB23500BC5B85 /* ProtobufOneof.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */; };
+		F44F94211DAEB23500BC5B85 /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
+		F44F94221DAEB23500BC5B85 /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
+		F44F94231DAEB23500BC5B85 /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
+		F44F94241DAEB23500BC5B85 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
+		F44F94251DAEB23500BC5B85 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
+		F44F94261DAEB23500BC5B85 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
+		F44F94271DAEB23500BC5B85 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A81DA40B0900C866D9 /* Varint.swift */; };
+		F44F94281DAEB23500BC5B85 /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
+		F44F94291DAEB23500BC5B85 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A51DA30E5900C866D9 /* ZigZag.swift */; };
 		_LinkFileRef_Protobuf_via_ProtobufTestSuite /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift */; };
@@ -391,6 +427,7 @@
 		AAEA52731DA80DEA003F318F /* wrappers.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wrappers.pb.swift; sourceTree = "<group>"; };
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTestSuite_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		__PBXFileRef_ProtobufTestSuite_Info.plist /* ProtobufTestSuite_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ProtobufTestSuite_Info.plist; path = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist; sourceTree = SOURCE_ROOT; };
 		__PBXFileRef_Protobuf_Info.plist /* Protobuf_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Protobuf_Info.plist; path = SwiftProtobuf.xcodeproj/Protobuf_Info.plist; sourceTree = SOURCE_ROOT; };
@@ -556,6 +593,7 @@
 				"_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTestSuite_iOS.xctest */,
 				F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */,
 				F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */,
+				F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -783,6 +821,21 @@
 			productReference = F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F44F93FD1DAEB13F00BC5B85 /* SwiftProtobuf_watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F44F94051DAEB13F00BC5B85 /* Build configuration list for PBXNativeTarget "SwiftProtobuf_watchOS" */;
+			buildPhases = (
+				F44F93F91DAEB13F00BC5B85 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftProtobuf_watchOS;
+			productName = SwiftProtobuf_watchOS;
+			productReference = F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		"______Target_Protobuf" /* SwiftProtobuf_macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = "_______Confs_Protobuf" /* Build configuration list for PBXNativeTarget "SwiftProtobuf_macOS" */;
@@ -840,6 +893,10 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					F44F93FD1DAEB13F00BC5B85 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
+					};
 				};
 			};
 			buildConfigurationList = "___RootConfs_" /* Build configuration list for PBXProject "SwiftProtobuf" */;
@@ -860,6 +917,7 @@
 				9C8CDA111D7A288E00E207CA /* SwiftProtobufTestSuite_iOS */,
 				F44F936E1DAEA53900BC5B85 /* SwiftProtobuf_tvOS */,
 				F44F939E1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS */,
+				F44F93FD1DAEB13F00BC5B85 /* SwiftProtobuf_watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -1252,6 +1310,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F44F93F91DAEB13F00BC5B85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F44F94111DAEB23500BC5B85 /* ProtobufBinaryEncoding.swift in Sources */,
+				F44F94251DAEB23500BC5B85 /* timestamp.pb.swift in Sources */,
+				F44F94241DAEB23500BC5B85 /* source_context.pb.swift in Sources */,
+				F44F94291DAEB23500BC5B85 /* ZigZag.swift in Sources */,
+				F44F94261DAEB23500BC5B85 /* type.pb.swift in Sources */,
+				F44F940E1DAEB23500BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
+				F44F941D1DAEB23500BC5B85 /* ProtobufJSONTypes.swift in Sources */,
+				F44F940F1DAEB23500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				F44F941B1DAEB23500BC5B85 /* ProtobufJSONDecoding.swift in Sources */,
+				F44F941F1DAEB23500BC5B85 /* ProtobufMirror.swift in Sources */,
+				F44F94201DAEB23500BC5B85 /* ProtobufOneof.swift in Sources */,
+				F44F94211DAEB23500BC5B85 /* ProtobufTraversal.swift in Sources */,
+				F44F941E1DAEB23500BC5B85 /* ProtobufMessage.swift in Sources */,
+				F44F94151DAEB23500BC5B85 /* ProtobufEnum.swift in Sources */,
+				F44F94191DAEB23500BC5B85 /* ProtobufFieldDecoder.swift in Sources */,
+				F44F94141DAEB23500BC5B85 /* ProtobufDebugDescription.swift in Sources */,
+				F44F941C1DAEB23500BC5B85 /* ProtobufJSONEncoding.swift in Sources */,
+				F44F941A1DAEB23500BC5B85 /* ProtobufHash.swift in Sources */,
+				F44F940D1DAEB23500BC5B85 /* Google_Protobuf_Struct.swift in Sources */,
+				F44F94231DAEB23500BC5B85 /* ProtobufUnknown.swift in Sources */,
+				F44F94071DAEB23500BC5B85 /* duration.pb.swift in Sources */,
+				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
+				F44F94121DAEB23500BC5B85 /* ProtobufBinarySizeVisitor.swift in Sources */,
+				F44F94131DAEB23500BC5B85 /* ProtobufBinaryTypes.swift in Sources */,
+				F44F940A1DAEB23500BC5B85 /* Google_Protobuf_Any.swift in Sources */,
+				F44F94281DAEB23500BC5B85 /* wrappers.pb.swift in Sources */,
+				F44F94101DAEB23500BC5B85 /* ProtobufBinaryDecoding.swift in Sources */,
+				F44F94271DAEB23500BC5B85 /* Varint.swift in Sources */,
+				F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
+				F44F94221DAEB23500BC5B85 /* ProtobufTypes.swift in Sources */,
+				F44F94161DAEB23500BC5B85 /* ProtobufError.swift in Sources */,
+				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
+				F44F94061DAEB23500BC5B85 /* api.pb.swift in Sources */,
+				F44F94081DAEB23500BC5B85 /* empty.pb.swift in Sources */,
+				F44F94181DAEB23500BC5B85 /* ProtobufExtensions.swift in Sources */,
+				F44F94171DAEB23500BC5B85 /* ProtobufExtensionFields.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1390,6 +1491,40 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		F44F94031DAEB13F00BC5B85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
+				SDKROOT = watchos;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		F44F94041DAEB13F00BC5B85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
+				SDKROOT = watchos;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1555,12 +1690,22 @@
 				F44F93751DAEA53900BC5B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		F44F93A71DAEA7C500BC5B85 /* Build configuration list for PBXNativeTarget "SwiftProtobufTestSuite_tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F44F93A81DAEA7C500BC5B85 /* Debug */,
 				F44F93A91DAEA7C500BC5B85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F44F94051DAEB13F00BC5B85 /* Build configuration list for PBXNativeTarget "SwiftProtobuf_watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F44F94031DAEB13F00BC5B85 /* Debug */,
+				F44F94041DAEB13F00BC5B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
