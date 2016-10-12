@@ -53,6 +53,12 @@ protocol ProtobufWrapper {
 }
 
 extension ProtobufWrapper {
+  // NOTE: The `init(_ value: WrappedType.BaseType)` initializer repeated below
+  // should theoretically be able to go here and be declared public, but this
+  // causes linker errors in release builds (see issue #70). If this is indeed a
+  // bug and should be allowed, we should move the initializer back into this
+  // extension once it's fixed, to reduce a small amount of code duplication/
+  // bloat.
 
   func serializeWrapperJSON() throws -> String {
     if !isZeroOrEmpty {
