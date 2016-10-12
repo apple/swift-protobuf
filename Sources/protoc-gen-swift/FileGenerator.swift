@@ -267,19 +267,13 @@ class FileGenerator {
             p.print("\n")
         }
 
-        // The well known types don't need to import SwiftProtobuf, so catch
-        // them via their package (just make sure it isn't descriptor since that
-        // isn't needed/shipped, it would be outside the library.
-        if isWellKnownType {
-          p.print(
-              "import Foundation\n",
-              "\n")
-        } else {
-          p.print(
-              "import Foundation\n",
-              "import SwiftProtobuf\n",
-              "\n")
+        p.print("import Foundation\n")
+        if !isWellKnownType {
+          // The well known types ship with the runtime, everything else needs
+          // to import the runtime.
+          p.print("import SwiftProtobuf\n")
         }
+        p.print("\n")
 
         var enums = [EnumGenerator]()
         let path = [Int32]()
