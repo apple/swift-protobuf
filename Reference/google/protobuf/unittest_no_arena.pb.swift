@@ -1060,7 +1060,7 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public struct OptionalGroup: ProtobufGeneratedGroup {
+  public struct OptionalGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittestNoArena_TestAllTypes.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest_no_arena"}
@@ -1110,7 +1110,7 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RepeatedGroup: ProtobufGeneratedGroup {
+  public struct RepeatedGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest_no_arena"}

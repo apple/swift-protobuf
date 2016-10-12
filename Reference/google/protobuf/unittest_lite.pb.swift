@@ -1189,7 +1189,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     }
   }
 
-  public struct OptionalGroup: ProtobufGeneratedGroup {
+  public struct OptionalGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllTypesLite.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1239,7 +1239,7 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RepeatedGroup: ProtobufGeneratedGroup {
+  public struct RepeatedGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllTypesLite.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -2294,7 +2294,7 @@ public struct ProtobufUnittest_TestAllExtensionsLite: ProtobufGeneratedMessage, 
   }
 }
 
-public struct ProtobufUnittest_OptionalGroup_extension_lite: ProtobufGeneratedGroup {
+public struct ProtobufUnittest_OptionalGroup_extension_lite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_OptionalGroup_extension_lite"}
   public var protoMessageName: String {return "OptionalGroup_extension_lite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2344,7 +2344,7 @@ public struct ProtobufUnittest_OptionalGroup_extension_lite: ProtobufGeneratedGr
   }
 }
 
-public struct ProtobufUnittest_RepeatedGroup_extension_lite: ProtobufGeneratedGroup {
+public struct ProtobufUnittest_RepeatedGroup_extension_lite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_RepeatedGroup_extension_lite"}
   public var protoMessageName: String {return "RepeatedGroup_extension_lite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2651,7 +2651,7 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
 
     var unknown = ProtobufUnknownStorage()
 
-    public struct Group1: ProtobufGeneratedGroup {
+    public struct Group1: ProtobufGeneratedMessage {
       public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1"}
       public var protoMessageName: String {return "Group1"}
       public var protoPackageName: String {return "protobuf_unittest"}
@@ -2701,7 +2701,7 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
       }
     }
 
-    public struct Group2: ProtobufGeneratedGroup {
+    public struct Group2: ProtobufGeneratedMessage {
       public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2"}
       public var protoMessageName: String {return "Group2"}
       public var protoPackageName: String {return "protobuf_unittest"}
@@ -2856,7 +2856,7 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
     }
   }
 
-  public struct OptionalGroup: ProtobufGeneratedGroup {
+  public struct OptionalGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -2906,7 +2906,7 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
     }
   }
 
-  public struct RepeatedGroup: ProtobufGeneratedGroup {
+  public struct RepeatedGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}

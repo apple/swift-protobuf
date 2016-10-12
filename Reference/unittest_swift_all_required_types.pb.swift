@@ -653,7 +653,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RequiredGroup: ProtobufGeneratedGroup {
+  public struct RequiredGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllRequiredTypes.RequiredGroup"}
     public var protoMessageName: String {return "RequiredGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
