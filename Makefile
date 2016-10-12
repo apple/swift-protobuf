@@ -5,16 +5,20 @@
 #   Build the runtime library and plugin
 # make test
 #   Build everything, run both plugin and library tests:
-#   Plugin test verifies that plugin output matches the "Reference" files exactly
+#   Plugin test verifies that plugin output matches the "Reference" files
+#      exactly
 #   Library test exercises most features of the generated code
 # make regenerate
 #   Recompile all the necessary protos
 #   (requires protoc in path)
+# make test-xcode[-NAME]:
+#   Runs the tests in the Xcode project in the requested mode(s).
 #
-# Caution:  'test' does not 'regenerate', so if you've made changes to the
-# code generation, you'll need to do more than just 'test':
+# Caution: 'test' does not 'regenerate', so if you've made changes to the code
+# generation, you'll need to do more than just 'test':
 #    1. 'make build' to build the plugin
-#    2. 'make regenerate' to rebuild the Swift code from protos using the new plugin
+#    2. 'make regenerate' to rebuild the Swift code from protos using the new
+#       plugin
 #    3. 'make build' again to recompile everything with the regenerated protos
 #    4. 'make test' to run the test suites
 #
@@ -23,15 +27,13 @@
 # 'swift test', etc commands.
 SWIFT=swift
 
-# How to run a working version of protoc
+# How to run a working version of protoc. Invoke make with PROTOC=[path] to
+# override this value, i.e. -
+#   make reference PROTOC=../protobuf/src/protoc
 PROTOC=protoc
 
 # How to run awk on your system
 AWK=awk
-
-# Path to a source checkout of Google's protobuf project, used
-# by the 'update' target.
-PROTOBUF_PROJECT_DIR=../protobuf
 
 # Installation directory
 BINDIR=/usr/local/bin
@@ -114,6 +116,22 @@ PLUGIN_PROTOS= \
 	google/protobuf/descriptor.proto \
 	swift-options.proto
 
+XCODEBUILD_EXTRAS =
+# Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
+# building the Xcode projects. For Release builds, this is a non trivial speed
+# up for compilation
+XCODE_SKIP_OPTIMIZER=0
+ifeq "$(XCODE_SKIP_OPTIMIZER)" "1"
+  XCODEBUILD_EXTRAS += SWIFT_OPTIMIZATION_LEVEL=-Onone
+endif
+
+# Invoke make with XCODE_ANALYZE=1 to enable the analyzer while building the
+# Xcode projects.
+XCODE_ANALYZE=0
+ifeq "$(XCODE_ANALYZE)" "1"
+  XCODEBUILD_EXTRAS += RUN_CLANG_STATIC_ANALYZER=YES CLANG_STATIC_ANALYZER_MODE=deep
+endif
+
 .PHONY: \
 	all \
 	build \
@@ -127,6 +145,8 @@ PLUGIN_PROTOS= \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
 	test \
+	test-all \
+	test-everything \
 	test-plugin \
 	test-runtime \
 	test-xcode \
@@ -185,6 +205,9 @@ clean:
 # This must pass before any commit.
 #
 check test: build test-runtime test-plugin
+
+# Test everything (runtime, plugin, xcode project)
+test-all test-everything: test test-xcode
 
 #
 # The Swift test suite includes unit tests for the runtime library
@@ -254,7 +277,7 @@ regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-p
 regenerate-library-protos: ${PROTOC_GEN_SWIFTX}
 	for t in ${LIBRARY_PROTOS}; do \
 		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=Sources/SwiftProtobuf -I Protos Protos/google/protobuf/$$t.proto; \
-		sed -i~ -e 's/^import SwiftProtobuf$$//' -e 's/^import Protobuf$$//' Sources/SwiftProtobuf/$$t.pb.swift; \
+		sed -i~ -e 's/^import SwiftProtobuf$$//' Sources/SwiftProtobuf/$$t.pb.swift; \
 	done
 
 # Rebuild just the protos used by the plugin
@@ -289,7 +312,7 @@ test-xcode-iOS-debug:
 	  -configuration Debug \
 	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
 	  -destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
-	  test
+	  test $(XCODEBUILD_EXTRAS)
 
 test-xcode-iOS-release:
 	# 4s - 32bit, 6s - 64bit
@@ -298,44 +321,44 @@ test-xcode-iOS-release:
 	  -configuration Release \
 	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
 	  -destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
-	  test
+	  test $(XCODEBUILD_EXTRAS)
 
 test-xcode-macOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_macOS \
 	  -configuration debug \
-	  build test
+	  build test $(XCODEBUILD_EXTRAS)
 
 test-xcode-macOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_macOS \
 	  -configuration Release \
-	  build test
+	  build test $(XCODEBUILD_EXTRAS)
 
 test-xcode-tvOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_tvOS \
 	  -configuration Debug \
 	  -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
-	  build test
+	  build test $(XCODEBUILD_EXTRAS)
 
 test-xcode-tvOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_tvOS \
 	  -configuration Release \
 	  -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
-	  build test
+	  build test $(XCODEBUILD_EXTRAS)
 
 test-xcode-watchOS-debug:
 	# watchOS doesn't support tests
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_watchOS \
 	  -configuration Debug \
-	  build
+	  build $(XCODEBUILD_EXTRAS)
 
 test-xcode-watchOS-release:
 	# watchOS doesn't support tests
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_watchOS \
 	  -configuration Release \
-	  build
+	  build $(XCODEBUILD_EXTRAS)
