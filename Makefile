@@ -140,7 +140,10 @@ PLUGIN_PROTOS= \
 	test-xcode-macOS-release \
 	test-xcode-tvOS \
 	test-xcode-tvOS-debug \
-	test-xcode-tvOS-release
+	test-xcode-tvOS-release \
+	test-xcode-watchOS \
+	test-xcode-watchOS-debug \
+	test-xcode-watchOS-release
 
 .NOTPARALLEL: \
 	test-xcode-iOS-debug \
@@ -148,7 +151,9 @@ PLUGIN_PROTOS= \
 	test-xcode-macOS-debug \
 	test-xcode-macOS-release \
 	test-xcode-tvOS-debug \
-	test-xcode-tvOS-release
+	test-xcode-tvOS-release \
+	test-xcode-watchOS-debug \
+	test-xcode-watchOS-release
 
 default: build
 
@@ -268,16 +273,17 @@ regenerate-test-protos: ${PROTOC_GEN_SWIFTX}
 # Helpers to put the Xcode project through all modes.
 
 # Grouping targets
-test-xcode: test-xcode-iOS test-xcode-macOS test-xcode-tvOS
+test-xcode: test-xcode-iOS test-xcode-macOS test-xcode-tvOS test-xcode-watchOS
 test-xcode-iOS: test-xcode-iOS-debug test-xcode-iOS-release
 test-xcode-macOS: test-xcode-macOS-debug test-xcode-macOS-release
 test-xcode-tvOS: test-xcode-tvOS-debug test-xcode-tvOS-release
-test-xcode-debug: test-xcode-iOS-debug test-xcode-macOS-debug test-xcode-tvOS-debug
-test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release test-xcode-tvOS-release
+test-xcode-watchOS: test-xcode-watchOS-debug test-xcode-watchOS-release
+test-xcode-debug: test-xcode-iOS-debug test-xcode-macOS-debug test-xcode-tvOS-debug test-xcode-watchOS-debug
+test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release test-xcode-tvOS-release test-xcode-watchOS-release
 
 # The individual ones
 test-xcode-iOS-debug:
-    # 4s - 32bit, 6s - 64bit
+	# 4s - 32bit, 6s - 64bit
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_iOS \
 	  -configuration Debug \
@@ -286,7 +292,7 @@ test-xcode-iOS-debug:
 	  test
 
 test-xcode-iOS-release:
-    # 4s - 32bit, 6s - 64bit
+	# 4s - 32bit, 6s - 64bit
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_iOS \
 	  -configuration Release \
@@ -310,12 +316,26 @@ test-xcode-tvOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_tvOS \
 	  -configuration Debug \
-      -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
+	  -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
 	  build test
 
 test-xcode-tvOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_tvOS \
 	  -configuration Release \
-      -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
+	  -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
 	  build test
+
+test-xcode-watchOS-debug:
+	# watchOS doesn't support tests
+	xcodebuild -project SwiftProtobuf.xcodeproj \
+	  -scheme SwiftProtobuf_watchOS \
+	  -configuration Debug \
+	  build
+
+test-xcode-watchOS-release:
+	# watchOS doesn't support tests
+	xcodebuild -project SwiftProtobuf.xcodeproj \
+	  -scheme SwiftProtobuf_watchOS \
+	  -configuration Release \
+	  build
