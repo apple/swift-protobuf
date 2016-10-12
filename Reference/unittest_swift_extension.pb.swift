@@ -145,7 +145,7 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_Extend_C: ProtobufGeneratedGroup {
+public struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_C"}
   public var protoMessageName: String {return "C"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
