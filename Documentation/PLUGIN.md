@@ -48,7 +48,7 @@ Each `.proto` input file will get translated to a corresponding `.pb.swift` file
 
 ### Building your project
 
-After copying the `.pb.swift` files into your project, you will need to add the [SwiftProtobufRuntime library](https://github.com/apple/swift-protobuf-runtime) to your project to support the generated code.  If you are using the Swift Package Manager, you should first check what version of `protoc-gen-swift` you are currently using:
+After copying the `.pb.swift` files into your project, you will need to add the [SwiftProtobuf library](https://github.com/apple/swift-protobuf) to your project to support the generated code.  If you are using the Swift Package Manager, you should first check what version of `protoc-gen-swift` you are currently using:
 ```
 $ protoc-gen-swift --version
 protoc-gen-swift 0.9.12
@@ -63,8 +63,8 @@ dependencies: [
 
 If you are using Xcode, then you should:
 * Add the Swift source files generated from your protos directly to your project
-* Clone the SwiftProtobufRuntime package
-* Add the SwiftProtobufRuntime target from the Xcode project from that package to your project.
+* Clone the SwiftProtobuf package
+* Add the SwiftProtobuf target from the Xcode project from that package to your project.
 
 # Quick Example
 

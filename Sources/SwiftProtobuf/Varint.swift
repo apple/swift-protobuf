@@ -1,4 +1,4 @@
-// SwiftProtobufRuntime/Sources/SwiftProtobuf/Varint.swift - Varint encoding/decoding helpers
+// SwiftProtobuf/Sources/SwiftProtobuf/Varint.swift - Varint encoding/decoding helpers
 //
 // This source file is part of the Swift.org open source project
 //

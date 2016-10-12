@@ -1,4 +1,4 @@
-// SwiftProtobufRuntime/Sources/SwiftProtobuf/ProtobufBinarySizeVisitor.swift - Binary size calculation support
+// SwiftProtobuf/Sources/SwiftProtobuf/ProtobufBinarySizeVisitor.swift - Binary size calculation support
 //
 // This source file is part of the Swift.org open source project
 //

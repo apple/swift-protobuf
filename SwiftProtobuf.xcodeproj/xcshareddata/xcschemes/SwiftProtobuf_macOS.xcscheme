@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD12FD351D767BA0001815C7"
+               BlueprintIdentifier = "______Target_Protobuf"
                BuildableName = "SwiftProtobuf.framework"
-               BlueprintName = "SwiftProtobuf_iOS"
-               ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
+               BlueprintName = "SwiftProtobuf_macOS"
+               ReferencedContainer = "container:SwiftProtobuf.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,22 +32,13 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C8CDA111D7A288E00E207CA"
-               BuildableName = "SwiftProtobufTestSuite_iOS.xctest"
-               BlueprintName = "SwiftProtobufTestSuite_iOS"
-               ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
+               BlueprintIdentifier = "______Target_ProtobufTestSuite"
+               BuildableName = "SwiftProtobufTestSuite_macOS.xctest"
+               BlueprintName = "SwiftProtobufTestSuite_macOS"
+               ReferencedContainer = "container:SwiftProtobuf.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD12FD351D767BA0001815C7"
-            BuildableName = "SwiftProtobuf.framework"
-            BlueprintName = "SwiftProtobuf_iOS"
-            ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,10 +55,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD12FD351D767BA0001815C7"
+            BlueprintIdentifier = "______Target_Protobuf"
             BuildableName = "SwiftProtobuf.framework"
-            BlueprintName = "SwiftProtobuf_iOS"
-            ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
+            BlueprintName = "SwiftProtobuf_macOS"
+            ReferencedContainer = "container:SwiftProtobuf.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -79,15 +70,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD12FD351D767BA0001815C7"
-            BuildableName = "SwiftProtobuf.framework"
-            BlueprintName = "SwiftProtobuf_iOS"
-            ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

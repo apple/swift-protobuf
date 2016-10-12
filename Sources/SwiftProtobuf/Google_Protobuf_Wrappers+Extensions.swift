@@ -1,4 +1,4 @@
-// SwiftProtobufRuntime/Sources/SwiftProtobuf/Google_Protobuf_Wrappers+Extensions.swift - Well-known wrapper type extensions
+// SwiftProtobuf/Sources/SwiftProtobuf/Google_Protobuf_Wrappers+Extensions.swift - Well-known wrapper type extensions
 //
 // This source file is part of the Swift.org open source project
 //
