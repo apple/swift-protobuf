@@ -17,6 +17,11 @@
 
 /// Encapsulates the number and wire format of a field, which together form the
 /// "tag".
+///
+/// This type also validates tags in that it will never allow a tag with an
+/// improper field number (such as zero) or wire format (such as 6 or 7) to
+/// exist. In other words, a `FieldTag`'s properties never need to be tested
+/// for validity because they are guaranteed correct at initialization time.
 internal struct FieldTag: RawRepresentable {
 
   typealias RawValue = UInt32
@@ -50,8 +55,10 @@ internal struct FieldTag: RawRepresentable {
   /// Note that if the raw value given here is not a valid tag (for example, it
   /// has an invalid wire format), this initializer will fail.
   init?(rawValue: UInt32) {
-    // Verify that the wire format is valid and fail if it is not.
-    guard let _ = WireFormat(rawValue: UInt8(rawValue % 8)) else {
+    // Verify that the field number and wire format are valid and fail if they
+    // are not.
+    guard rawValue & ~0x07 != 0,
+      let _ = WireFormat(rawValue: UInt8(rawValue % 8)) else {
       return nil
     }
     self.rawValue = rawValue

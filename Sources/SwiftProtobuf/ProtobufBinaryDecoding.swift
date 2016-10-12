@@ -659,7 +659,7 @@ private class ProtobufScanner {
         fieldStartP = p
         fieldStartAvailable = available
         if let t = try getRawVarint() {
-            if t > 7 && t < UInt64(UInt32.max) {
+            if t < UInt64(UInt32.max) {
                 guard let tag = FieldTag(rawValue: UInt32(truncatingBitPattern: t)) else {
                     throw ProtobufDecodingError.malformedProtobuf
                 }
