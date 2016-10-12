@@ -137,13 +137,18 @@ PLUGIN_PROTOS= \
 	test-xcode-iOS-release \
 	test-xcode-macOS \
 	test-xcode-macOS-debug \
-	test-xcode-macOS-release
+	test-xcode-macOS-release \
+	test-xcode-tvOS \
+	test-xcode-tvOS-debug \
+	test-xcode-tvOS-release
 
 .NOTPARALLEL: \
 	test-xcode-iOS-debug \
 	test-xcode-iOS-release \
 	test-xcode-macOS-debug \
-	test-xcode-macOS-release
+	test-xcode-macOS-release \
+	test-xcode-tvOS-debug \
+	test-xcode-tvOS-release
 
 default: build
 
@@ -263,11 +268,12 @@ regenerate-test-protos: ${PROTOC_GEN_SWIFTX}
 # Helpers to put the Xcode project through all modes.
 
 # Grouping targets
-test-xcode: test-xcode-iOS test-xcode-macOS
+test-xcode: test-xcode-iOS test-xcode-macOS test-xcode-tvOS
 test-xcode-iOS: test-xcode-iOS-debug test-xcode-iOS-release
 test-xcode-macOS: test-xcode-macOS-debug test-xcode-macOS-release
-test-xcode-debug: test-xcode-iOS-debug test-xcode-macOS-debug
-test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release
+test-xcode-tvOS: test-xcode-tvOS-debug test-xcode-tvOS-release
+test-xcode-debug: test-xcode-iOS-debug test-xcode-macOS-debug test-xcode-tvOS-debug
+test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release test-xcode-tvOS-release
 
 # The individual ones
 test-xcode-iOS-debug:
@@ -298,4 +304,18 @@ test-xcode-macOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 	  -scheme SwiftProtobuf_macOS \
 	  -configuration Release \
+	  build test
+
+test-xcode-tvOS-debug:
+	xcodebuild -project SwiftProtobuf.xcodeproj \
+	  -scheme SwiftProtobuf_tvOS \
+	  -configuration Debug \
+      -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
+	  build test
+
+test-xcode-tvOS-release:
+	xcodebuild -project SwiftProtobuf.xcodeproj \
+	  -scheme SwiftProtobuf_tvOS \
+	  -configuration Release \
+      -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
 	  build test
