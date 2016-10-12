@@ -53,11 +53,12 @@ protocol ProtobufWrapper {
 }
 
 extension ProtobufWrapper {
-
-  public init(_ value: WrappedType.BaseType) {
-    self.init()
-    self.value = value
-  }
+  // NOTE: The `init(_ value: WrappedType.BaseType)` initializer repeated below
+  // should theoretically be able to go here and be declared public, but this
+  // causes linker errors in release builds (see issue #70). If this is indeed a
+  // bug and should be allowed, we should move the initializer back into this
+  // extension once it's fixed, to reduce a small amount of code duplication/
+  // bloat.
 
   func serializeWrapperJSON() throws -> String {
     if !isZeroOrEmpty {
@@ -78,6 +79,11 @@ extension Google_Protobuf_DoubleValue:
 
   var isZeroOrEmpty: Bool {
     return value == 0
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(floatLiteral: FloatLiteralType) {
@@ -107,6 +113,11 @@ extension Google_Protobuf_FloatValue:
     return value.isZero
   }
 
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
+  }
+
   public init(floatLiteral: FloatLiteralType) {
     self.init(floatLiteral)
   }
@@ -132,6 +143,11 @@ extension Google_Protobuf_Int64Value:
 
   var isZeroOrEmpty: Bool {
     return value == 0
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(integerLiteral: IntegerLiteralType) {
@@ -161,6 +177,11 @@ extension Google_Protobuf_UInt64Value:
     return value == 0
   }
 
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
+  }
+
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
@@ -186,6 +207,11 @@ extension Google_Protobuf_Int32Value:
 
   var isZeroOrEmpty: Bool {
     return value == 0
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(integerLiteral: IntegerLiteralType) {
@@ -215,6 +241,11 @@ extension Google_Protobuf_UInt32Value:
     return value == 0
   }
 
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
+  }
+
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
@@ -240,6 +271,11 @@ extension Google_Protobuf_BoolValue:
 
   var isZeroOrEmpty: Bool {
     return !value
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(booleanLiteral: Bool) {
@@ -269,6 +305,11 @@ extension Google_Protobuf_StringValue:
 
   var isZeroOrEmpty: Bool {
     return value.isEmpty
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public init(stringLiteral: String) {
@@ -302,6 +343,11 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
 
   var isZeroOrEmpty: Bool {
     return value.isEmpty
+  }
+
+  public init(_ value: WrappedType.BaseType) {
+    self.init()
+    self.value = value
   }
 
   public func serializeJSON() throws -> String {
