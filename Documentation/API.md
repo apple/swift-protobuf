@@ -193,7 +193,7 @@ Groups in the proto file generate Swift structs that conform to ProtobufGroup.
 
 Messages in the proto file generate Swift structs that conform to ProtobufMessage.
 
-Note:  There are also `ProtobufGeneratedGroup` and `ProtobufGeneratedMessage` protocols.  You should not refer to these directly; use `ProtobufGroup` and `ProtobufMessage` when you need to work with arbitrary groups or messages.
+Note:  There is a `ProtobufGeneratedMessage` protocol.  You should not refer to that directly; use `ProtobufMessage` when you need to work with arbitrary groups or messages.
 
 ### Type modifiers
 
