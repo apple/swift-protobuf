@@ -37,7 +37,6 @@
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
-import SwiftProtobuf
 
 
 ///   The syntax in which a protocol buffer element is defined.
