@@ -40,7 +40,7 @@ extension ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireType0: ProtobufBinaryFieldDecoder {
+private struct ProtobufFieldWireTypeVarint: ProtobufBinaryFieldDecoder {
     let varint: UInt64
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -73,7 +73,7 @@ private struct ProtobufFieldWireType0: ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireType1: ProtobufBinaryFieldDecoder {
+private struct ProtobufFieldWireTypeFixed64: ProtobufBinaryFieldDecoder {
     let fixed8: [UInt8]
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -105,7 +105,7 @@ private struct ProtobufFieldWireType1: ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireType2: ProtobufBinaryFieldDecoder {
+private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder {
     let buffer: UnsafeBufferPointer<UInt8>
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -176,7 +176,7 @@ private struct ProtobufFieldWireType2: ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireType3: ProtobufBinaryFieldDecoder {
+private struct ProtobufFieldWireTypeStartGroup: ProtobufBinaryFieldDecoder {
     let scanner: ProtobufScanner
     let protoFieldNumber: Int
 
@@ -201,7 +201,7 @@ private struct ProtobufFieldWireType3: ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireType5: ProtobufBinaryFieldDecoder {
+private struct ProtobufFieldWireTypeFixed32: ProtobufBinaryFieldDecoder {
     let fixed4: [UInt8]
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -265,29 +265,7 @@ public struct ProtobufBinaryDecoder {
     public mutating func decodeFullObject(decodeField: (inout ProtobufFieldDecoder, Int) throws -> Bool) throws {
         while let tag = try scanner.getTag() {
             let protoFieldNumber = tag.fieldNumber
-            var fieldDecoder: ProtobufFieldDecoder
-            switch scanner.fieldWireFormat {
-            case .varint:
-                let value = try getVarint()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType0(varint: value, unknown: raw, scanner: scanner)
-            case .fixed64:
-                let value = try getFixed8()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType1(fixed8: value, unknown: raw, scanner: scanner)
-            case .lengthDelimited:
-                let value = try getBytesRef()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType2(buffer: value, unknown: raw, scanner: scanner)
-            case .startGroup:
-                fieldDecoder = ProtobufFieldWireType3(scanner: scanner, protoFieldNumber: protoFieldNumber)
-            case .endGroup:
-                throw ProtobufDecodingError.malformedProtobuf
-            case .fixed32:
-                let value = try getFixed4()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType5(fixed4: value, unknown: raw, scanner: scanner)
-            }
+            var fieldDecoder = try decoder(forFieldNumber: protoFieldNumber, scanner: scanner)
             if !(try decodeField(&fieldDecoder, protoFieldNumber)) {
                 let _ = try scanner.skip() // Skip and discard the field.
             }
@@ -312,33 +290,36 @@ public struct ProtobufBinaryDecoder {
                 }
                 break // Fail and exit
             }
-            var fieldDecoder: ProtobufFieldDecoder
-            switch scanner.fieldWireFormat {
-            case .varint:
-                let value = try getVarint()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType0(varint: value, unknown: raw, scanner: scanner)
-            case .fixed64:
-                let value = try getFixed8()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType1(fixed8: value, unknown: raw, scanner: scanner)
-            case .lengthDelimited:
-                let value = try getBytesRef()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType2(buffer: value, unknown: raw, scanner: scanner)
-            case .startGroup:
-                fieldDecoder = ProtobufFieldWireType3(scanner: scanner, protoFieldNumber: protoFieldNumber)
-            case .endGroup:
-                throw ProtobufDecodingError.malformedProtobuf
-            case .fixed32:
-                let value = try getFixed4()
-                let raw = try scanner.getRawField()
-                fieldDecoder = ProtobufFieldWireType5(fixed4: value, unknown: raw, scanner: scanner)
-            }
+            var fieldDecoder = try decoder(forFieldNumber: protoFieldNumber, scanner: scanner)
             // Proto2 groups always consume fields or throw errors, so we can ignore return here
             let _ = try group.decodeField(setter: &fieldDecoder, protoFieldNumber: tag.fieldNumber)
         }
         throw ProtobufDecodingError.truncatedInput
+    }
+
+    private mutating func decoder(forFieldNumber fieldNumber: Int, scanner: ProtobufScanner) throws -> ProtobufFieldDecoder {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let value = try getVarint()
+            let raw = try scanner.getRawField()
+            return ProtobufFieldWireTypeVarint(varint: value, unknown: raw, scanner: scanner)
+        case .fixed64:
+            let value = try getFixed8()
+            let raw = try scanner.getRawField()
+            return ProtobufFieldWireTypeFixed64(fixed8: value, unknown: raw, scanner: scanner)
+        case .lengthDelimited:
+            let value = try getBytesRef()
+            let raw = try scanner.getRawField()
+            return ProtobufFieldWireTypeLengthDelimited(buffer: value, unknown: raw, scanner: scanner)
+        case .startGroup:
+            return ProtobufFieldWireTypeStartGroup(scanner: scanner, protoFieldNumber: fieldNumber)
+        case .endGroup:
+            throw ProtobufDecodingError.malformedProtobuf
+        case .fixed32:
+            let value = try getFixed4()
+            let raw = try scanner.getRawField()
+            return ProtobufFieldWireTypeFixed32(fixed4: value, unknown: raw, scanner: scanner)
+        }
     }
 
     // Marks failure if no or broken varint but returns zero
