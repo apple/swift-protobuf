@@ -24,19 +24,22 @@
 import Foundation
 import PluginLibrary
 
-enum MyError: Error {
-    case failure
+enum GenerationError: Error {
+  /// Raised for any errors reading the input
+  case readFailure
+  /// Raise when parsing the parameter string and found an unknown key
+  case unknownParameter(name: String)
 }
 
 func help(progname: String) {
-    // The name we were invoked with
-    print(progname + ": " + Version.summary)
-    print("")
-    // The internal name of the program (which may be different than we were invoked with)
-    print(Version.versionedName)
-    print(Version.copyright)
-    print("")
-    print(Version.help)
+  // The name we were invoked with
+  print(progname + ": " + Version.summary)
+  print("")
+  // The internal name of the program (which may be different than we were invoked with)
+  print(Version.versionedName)
+  print(Version.copyright)
+  print("")
+  print(Version.help)
 }
 
 var filesToRead: [String] = []
@@ -53,20 +56,20 @@ var argIterator = CommandLine.arguments.makeIterator()
 let programName = argIterator.next()
 var nextArg = argIterator.next()
 while let a = nextArg {
-    switch a {
-    case "-h":
-        justHelp = true
-    case "--version":
-        justVersion = true
-    default:
-        if a.hasPrefix("-") {
-            Stderr.print("Unknown argument \(a)")
-            justHelp = true
-        } else {
-            filesToRead.append(a)
-        }
+  switch a {
+  case "-h":
+    justHelp = true
+  case "--version":
+    justVersion = true
+  default:
+    if a.hasPrefix("-") {
+      Stderr.print("Unknown argument \(a)")
+      justHelp = true
+    } else {
+      filesToRead.append(a)
     }
-    nextArg = argIterator.next()
+  }
+  nextArg = argIterator.next()
 }
 
 //
@@ -74,23 +77,32 @@ while let a = nextArg {
 //
 
 if justVersion {
-    print(Version.versionedName)
+  print(Version.versionedName)
 } else if justHelp {
-    help(progname: programName ?? Version.name)
+  help(progname: programName ?? Version.name)
 } else if filesToRead.isEmpty {
+  let response: CodeGeneratorResponse
+  do {
     let rawRequest = try Stdin.readall()
     let request = try CodeGeneratorRequest(protobuf: rawRequest, extensions: SwiftOptions_Extensions)
     let context = try Context(request: request)
-    let response = context.generateResponse()
-    let serializedResponse = try response.serializeProtobuf()
-    Stdout.write(bytes: serializedResponse)
+    response = context.generateResponse()
+  } catch GenerationError.readFailure {
+    response = CodeGeneratorResponse(error: "Failed to read the input")
+  } catch GenerationError.unknownParameter(let name) {
+    response = CodeGeneratorResponse(error: "Unknown generation parameter '\(name)'")
+  } catch let e {
+    response = CodeGeneratorResponse(error: "Internal Error: \(e)")
+  }
+  let serializedResponse = try response.serializeProtobuf()
+  Stdout.write(bytes: serializedResponse)
 } else {
-    for f in filesToRead {
-        let rawRequest = try readFileData(filename: f)
-        Stderr.print("Read request: \(rawRequest.count) bytes from \(f)")
-        let request = try CodeGeneratorRequest(protobuf: Data(bytes: rawRequest), extensions: SwiftOptions_Extensions)
-        let context = try Context(request: request)
-        let response = context.generateResponse()
-        print(response.file[0].content ?? "<No content>")
-    }
+  for f in filesToRead {
+    let rawRequest = try readFileData(filename: f)
+    Stderr.print("Read request: \(rawRequest.count) bytes from \(f)")
+    let request = try CodeGeneratorRequest(protobuf: Data(bytes: rawRequest), extensions: SwiftOptions_Extensions)
+    let context = try Context(request: request)
+    let response = context.generateResponse()
+    print(response.file[0].content ?? "<No content>")
+  }
 }
