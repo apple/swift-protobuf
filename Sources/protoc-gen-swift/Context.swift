@@ -35,162 +35,162 @@ typealias CodeGeneratorRequest = Google_Protobuf_Compiler_CodeGeneratorRequest
 typealias CodeGeneratorResponse = Google_Protobuf_Compiler_CodeGeneratorResponse
 
 extension CodeGeneratorRequest {
-    func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-        for f in protoFile {
-            if let m = f.getMessageForPath(path: path) {
-                return m
-            }
-        }
-        return nil
+  func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
+    for f in protoFile {
+      if let m = f.getMessageForPath(path: path) {
+        return m
+      }
     }
+    return nil
+  }
 
-    func getMessageNameForPath(path: String) -> String? {
-        for f in protoFile {
-            if let m = f.getMessageNameForPath(path: path) {
-                return m
-            }
-        }
-        return nil
+  func getMessageNameForPath(path: String) -> String? {
+    for f in protoFile {
+      if let m = f.getMessageNameForPath(path: path) {
+        return m
+      }
     }
+    return nil
+  }
 
-    func getEnumNameForPath(path: String) -> String? {
-        for f in protoFile {
-            if let m = f.getEnumNameForPath(path: path) {
-                return m
-            }
-        }
-        return nil
+  func getEnumNameForPath(path: String) -> String? {
+    for f in protoFile {
+      if let m = f.getEnumNameForPath(path: path) {
+        return m
+      }
     }
+    return nil
+  }
 
-    func getSwiftNameForEnumCase(path: String, caseName: String) -> String {
-        for f in protoFile {
-            if let m = f.getSwiftNameForEnumCase(path: path, caseName: caseName) {
-                return m
-            }
-        }
-        fatalError("Unable to locate Enum case \(caseName) in path \(path)")
+  func getSwiftNameForEnumCase(path: String, caseName: String) -> String {
+    for f in protoFile {
+      if let m = f.getSwiftNameForEnumCase(path: path, caseName: caseName) {
+        return m
+      }
     }
+    fatalError("Unable to locate Enum case \(caseName) in path \(path)")
+  }
 }
 
 class Context {
-    var request: CodeGeneratorRequest
+  var request: CodeGeneratorRequest
 
-    private(set) var parent = [String:String]()
-    private(set) var fileByProtoName = [String:Google_Protobuf_FileDescriptorProto]()
-    private(set) var enumByProtoName = [String:Google_Protobuf_EnumDescriptorProto]()
-    private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
-    private(set) var protoNameIsGroup = Set<String>()
+  private(set) var parent = [String:String]()
+  private(set) var fileByProtoName = [String:Google_Protobuf_FileDescriptorProto]()
+  private(set) var enumByProtoName = [String:Google_Protobuf_EnumDescriptorProto]()
+  private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
+  private(set) var protoNameIsGroup = Set<String>()
 
-    func swiftNameForProtoName(protoName: String, appending: String? = nil, separator: String = ".") -> String {
-        let p = parent[protoName]
-        if let e = enumByProtoName[protoName] {
-            return swiftNameForProtoName(protoName: p!, appending: e.name!, separator: separator)
-        } else if let m = messageByProtoName[protoName] {
-            let baseName: String
-            if protoNameIsGroup.contains(protoName) {
-                // TODO: Find a way to actually get to this line of code.
-                // Then fix it to be whatever it should be.
-                // If it can't be reached, assert an error in this case.
-                baseName = "XXGROUPXX_" + m.name! + "_XXGROUPXX"
-            } else {
-                baseName = m.name!
-            }
-            let name: String
-            if let a = appending {
-                name = baseName + separator + a
-            } else {
-                name = baseName
-            }
-            return swiftNameForProtoName(protoName: p!, appending: name, separator: separator)
-        } else if let f = fileByProtoName[protoName] {
-            return f.swiftPrefix + (appending ?? "")
-        }
-        return ""
+  func swiftNameForProtoName(protoName: String, appending: String? = nil, separator: String = ".") -> String {
+    let p = parent[protoName]
+    if let e = enumByProtoName[protoName] {
+      return swiftNameForProtoName(protoName: p!, appending: e.name!, separator: separator)
+    } else if let m = messageByProtoName[protoName] {
+      let baseName: String
+      if protoNameIsGroup.contains(protoName) {
+        // TODO: Find a way to actually get to this line of code.
+        // Then fix it to be whatever it should be.
+        // If it can't be reached, assert an error in this case.
+        baseName = "XXGROUPXX_" + m.name! + "_XXGROUPXX"
+      } else {
+        baseName = m.name!
+      }
+      let name: String
+      if let a = appending {
+        name = baseName + separator + a
+      } else {
+        name = baseName
+      }
+      return swiftNameForProtoName(protoName: p!, appending: name, separator: separator)
+    } else if let f = fileByProtoName[protoName] {
+      return f.swiftPrefix + (appending ?? "")
     }
+    return ""
+  }
 
-    func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-        return request.getMessageForPath(path: path)
+  func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
+    return request.getMessageForPath(path: path)
+  }
+
+  func getMessageNameForPath(path: String) -> String? {
+    return request.getMessageNameForPath(path: path)
+  }
+
+  func getEnumNameForPath(path: String) -> String? {
+    return request.getEnumNameForPath(path: path)
+  }
+
+  init(request: CodeGeneratorRequest) throws {
+    self.request = request
+    for fileProto in request.protoFile {
+      populateFrom(fileProto: fileProto)
     }
+  }
 
-    func getMessageNameForPath(path: String) -> String? {
-        return request.getMessageNameForPath(path: path)
+  func populateFrom(fileProto: Google_Protobuf_FileDescriptorProto) {
+    let prefix: String
+    if let pkg = fileProto.package {
+      prefix = "." + pkg
+    } else {
+      prefix = ""
     }
-
-    func getEnumNameForPath(path: String) -> String? {
-        return request.getEnumNameForPath(path: path)
+    fileByProtoName[prefix] = fileProto
+    for e in fileProto.enumType {
+      populateFrom(enumProto: e, prefix: prefix)
     }
-
-    init(request: CodeGeneratorRequest) throws {
-        self.request = request
-        for fileProto in request.protoFile {
-            populateFrom(fileProto: fileProto)
-        }
+    for m in fileProto.messageType {
+      populateFrom(messageProto: m, prefix: prefix)
     }
-
-    func populateFrom(fileProto: Google_Protobuf_FileDescriptorProto) {
-        let prefix: String
-        if let pkg = fileProto.package {
-            prefix = "." + pkg
-        } else {
-            prefix = ""
-        }
-        fileByProtoName[prefix] = fileProto
-        for e in fileProto.enumType {
-            populateFrom(enumProto: e, prefix: prefix)
-        }
-        for m in fileProto.messageType {
-            populateFrom(messageProto: m, prefix: prefix)
-        }
-        for f in fileProto.extension_p {
-            if f.type! == .group {
-                protoNameIsGroup.insert(f.typeName!)
-            }
-        }
+    for f in fileProto.extension_p {
+      if f.type! == .group {
+        protoNameIsGroup.insert(f.typeName!)
+      }
     }
+  }
 
-    func populateFrom(enumProto: Google_Protobuf_EnumDescriptorProto, prefix: String) {
-        let name = prefix + "." + enumProto.name!
-        enumByProtoName[name] = enumProto
-        parent[name] = prefix
+  func populateFrom(enumProto: Google_Protobuf_EnumDescriptorProto, prefix: String) {
+    let name = prefix + "." + enumProto.name!
+    enumByProtoName[name] = enumProto
+    parent[name] = prefix
+  }
+
+  func populateFrom(messageProto: Google_Protobuf_DescriptorProto, prefix: String) {
+    let name = prefix + "." + messageProto.name!
+    parent[name] = prefix
+    messageByProtoName[name] = messageProto
+    for f in messageProto.field {
+      if f.type! == .group {
+        protoNameIsGroup.insert(f.typeName!)
+      }
     }
-
-    func populateFrom(messageProto: Google_Protobuf_DescriptorProto, prefix: String) {
-        let name = prefix + "." + messageProto.name!
-        parent[name] = prefix
-        messageByProtoName[name] = messageProto
-        for f in messageProto.field {
-            if f.type! == .group {
-                protoNameIsGroup.insert(f.typeName!)
-            }
-        }
-        for f in messageProto.extension_p {
-            if f.type! == .group {
-                protoNameIsGroup.insert(f.typeName!)
-            }
-        }
-        for e in messageProto.enumType {
-            populateFrom(enumProto: e, prefix: name)
-        }
-        for m in messageProto.nestedType {
-            populateFrom(messageProto: m, prefix: name)
-        }
+    for f in messageProto.extension_p {
+      if f.type! == .group {
+        protoNameIsGroup.insert(f.typeName!)
+      }
     }
-
-    func getSwiftNameForEnumCase(path: String, caseName: String) -> String {
-        return request.getSwiftNameForEnumCase(path: path, caseName: caseName)
+    for e in messageProto.enumType {
+      populateFrom(enumProto: e, prefix: name)
     }
-
-    func generateResponse() -> CodeGeneratorResponse {
-        var response = CodeGeneratorResponse()
-        let explicit = Set<String>(request.fileToGenerate)
-
-        for fileProto in request.protoFile where explicit.contains(fileProto.name!) {
-            var printer = CodePrinter()
-            let file = FileGenerator(descriptor: fileProto)
-            file.generateOutputFile(printer: &printer, context: self)
-            let fileResponse = CodeGeneratorResponse.File(name: file.outputFilename, content: printer.content)
-            response.file.append(fileResponse)
-        }
-        return response
+    for m in messageProto.nestedType {
+      populateFrom(messageProto: m, prefix: name)
     }
+  }
+
+  func getSwiftNameForEnumCase(path: String, caseName: String) -> String {
+    return request.getSwiftNameForEnumCase(path: path, caseName: caseName)
+  }
+
+  func generateResponse() -> CodeGeneratorResponse {
+    var response = CodeGeneratorResponse()
+    let explicit = Set<String>(request.fileToGenerate)
+
+    for fileProto in request.protoFile where explicit.contains(fileProto.name!) {
+      var printer = CodePrinter()
+      let file = FileGenerator(descriptor: fileProto)
+      file.generateOutputFile(printer: &printer, context: self)
+      let fileResponse = CodeGeneratorResponse.File(name: file.outputFilename, content: printer.content)
+      response.file.append(fileResponse)
+    }
+    return response
+  }
 }
