@@ -25,8 +25,9 @@ import Foundation
 import PluginLibrary
 
 enum GenerationError: Error {
+  /// Raised for any errors reading the input
   case readFailure
-  /// Raise when parsing the parameter sting and found an unknown key
+  /// Raise when parsing the parameter string and found an unknown key
   case unknownParameter(name: String)
 }
 
@@ -90,8 +91,8 @@ if justVersion {
     response = CodeGeneratorResponse(error: "Failed to read the input")
   } catch GenerationError.unknownParameter(let name) {
     response = CodeGeneratorResponse(error: "Unknown generation parameter '\(name)'")
-  } catch {
-    response = CodeGeneratorResponse(error: "Internal Error")
+  } catch let e {
+    response = CodeGeneratorResponse(error: "Internal Error: \(e)")
   }
   let serializedResponse = try response.serializeProtobuf()
   Stdout.write(bytes: serializedResponse)
