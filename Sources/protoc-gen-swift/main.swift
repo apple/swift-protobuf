@@ -26,6 +26,8 @@ import PluginLibrary
 
 enum GenerationError: Error {
   case readFailure
+  /// Raise when parsing the parameter sting and found an unknown key
+  case unknownParameter(name: String)
 }
 
 func help(progname: String) {
@@ -86,6 +88,8 @@ if justVersion {
     response = context.generateResponse()
   } catch GenerationError.readFailure {
     response = CodeGeneratorResponse(error: "Failed to read the input")
+  } catch GenerationError.unknownParameter(let name) {
+    response = CodeGeneratorResponse(error: "Unknown generation parameter '\(name)'")
   } catch {
     response = CodeGeneratorResponse(error: "Internal Error")
   }

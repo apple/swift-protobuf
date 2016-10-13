@@ -72,8 +72,22 @@ extension CodeGeneratorRequest {
   }
 }
 
+class GeneratorOptions {
+
+  init(parameter: String?) throws {
+    for pair in parseParameter(string:parameter) {
+      switch pair.key {
+      // TODO: Add cases for things really supported
+      default:
+        throw GenerationError.unknownParameter(name: pair.key)
+      }
+    }
+  }
+}
+
 class Context {
-  var request: CodeGeneratorRequest
+  let request: CodeGeneratorRequest
+  let options: GeneratorOptions
 
   private(set) var parent = [String:String]()
   private(set) var fileByProtoName = [String:Google_Protobuf_FileDescriptorProto]()
@@ -122,6 +136,7 @@ class Context {
 
   init(request: CodeGeneratorRequest) throws {
     self.request = request
+    self.options = try GeneratorOptions(parameter: request.parameter)
     for fileProto in request.protoFile {
       populateFrom(fileProto: fileProto)
     }

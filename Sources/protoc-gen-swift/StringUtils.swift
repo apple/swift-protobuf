@@ -42,6 +42,23 @@ func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
   return (dir: dir, base: base, suffix: suffix)
 }
 
+func partition(string: String, atFirstOccurrenceOf substring: String) -> (String, String) {
+  guard let index = string.range(of: substring)?.lowerBound else {
+    return (string, "")
+  }
+  return (string.substring(to: index), string.substring(from: string.index(after: index)))
+}
+
+func parseParameter(string: String?) -> [(key:String, value:String)] {
+  guard let string = string, string.characters.count > 0 else {
+    return []
+  }
+  let parts = string.components(separatedBy: ",")
+  let asPairs = parts.map { partition(string: $0, atFirstOccurrenceOf: "=") }
+  let result = asPairs.map { (key:trimWhitespace($0), value:trimWhitespace($1)) }
+  return result
+}
+
 private let digits: Set<String> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 private func splitIdentifier(_ s: String) -> [String] {
@@ -208,26 +225,7 @@ func toJsonFieldName(_ s: String) -> String {
 private let whitespace: Set<Character> = [" ", "\t", "\n"]
 
 func trimWhitespace(_ s: String) -> String {
-  var out = ""
-  var ws = ""
-  var cs = s.characters.makeIterator()
-  var pending = cs.next()
-
-  while let c = pending, whitespace.contains(c) {
-    pending = cs.next()
-  }
-
-  while let c = pending {
-    if whitespace.contains(c) {
-      ws.append(c)
-    } else {
-      out.append(ws)
-      ws = ""
-      out.append(c)
-    }
-    pending = cs.next()
-  }
-  return out
+  return s.trimmingCharacters(in: .whitespacesAndNewlines)
 }
 
 /// The protoc parser emits byte literals using an escaped C convention.
