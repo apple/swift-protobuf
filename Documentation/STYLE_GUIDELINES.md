@@ -37,7 +37,9 @@ two pieces of advice:
   conformance to a type should be named `Type+Protocol.swift` so the content
   and purpose of the file is easily glanceable based on the name and so that it
   is easy to find the source file where a particular concept is implemented.
-  * Mirroring 
+  * Mirroring the multiple-types-in-one-file discussed above, a file that adds
+    protocol conformance to several related types could be named based on the
+    plural name of that file, plus the protocol name: `Types+Protocol.swift`.
 
 ## Documentation
 
