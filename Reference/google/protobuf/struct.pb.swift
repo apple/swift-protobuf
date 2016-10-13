@@ -137,13 +137,6 @@ public struct Google_Protobuf_Struct: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(fields: Dictionary<String,Google_Protobuf_Value> = [:])
-  {
-    if !fields.isEmpty {
-      self.fields = fields
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -429,34 +422,6 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(nullValue: Google_Protobuf_NullValue? = nil,
-    numberValue: Double? = nil,
-    stringValue: String? = nil,
-    boolValue: Bool? = nil,
-    structValue: Google_Protobuf_Struct? = nil,
-    listValue: Google_Protobuf_ListValue? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = nullValue {
-      storage._kind = .nullValue(v)
-    }
-    if let v = numberValue {
-      storage._kind = .numberValue(v)
-    }
-    if let v = stringValue {
-      storage._kind = .stringValue(v)
-    }
-    if let v = boolValue {
-      storage._kind = .boolValue(v)
-    }
-    if let v = structValue {
-      storage._kind = .structValue(v)
-    }
-    if let v = listValue {
-      storage._kind = .listValue(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -495,13 +460,6 @@ public struct Google_Protobuf_ListValue: ProtobufGeneratedMessage {
   public var values: [Google_Protobuf_Value] = []
 
   public init() {}
-
-  public init(values: [Google_Protobuf_Value] = [])
-  {
-    if !values.isEmpty {
-      self.values = values
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

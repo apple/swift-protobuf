@@ -335,15 +335,6 @@ public struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMe
 
   public init() {}
 
-  public init(field1: String? = nil,
-    oneofField: Int32? = nil)
-  {
-    self.field1 = field1
-    if let v = oneofField {
-      self.anOneof = .oneofField(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -757,19 +748,6 @@ public struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, Pro
 
   public init() {}
 
-  public init(foo: Int32? = nil,
-    foo2: Int32? = nil,
-    foo3: Int32? = nil,
-    foo4: [Int32] = [])
-  {
-    self.foo = foo
-    self.foo2 = foo2
-    self.foo3 = foo3
-    if !foo4.isEmpty {
-      self.foo4 = foo4
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -944,11 +922,6 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
 
     public init() {}
 
-    public init(waldo: Int32? = nil)
-    {
-      self.waldo = waldo
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -998,20 +971,6 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
   }
 
   public init() {}
-
-  public init(bar: ProtobufUnittest_ComplexOptionType1? = nil,
-    baz: Int32? = nil,
-    fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil,
-    barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = [])
-  {
-    let storage = _uniqueStorage()
-    storage._bar = bar
-    storage._baz = baz
-    storage._fred = fred
-    if !barney.isEmpty {
-      storage._barney = barney
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1073,11 +1032,6 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(plugh: Int32? = nil)
-    {
-      self.plugh = plugh
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -1111,13 +1065,6 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
   public var complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
 
   public init() {}
-
-  public init(qux: Int32? = nil,
-    complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil)
-  {
-    self.qux = qux
-    self.complexOptionType5 = complexOptionType5
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1168,11 +1115,6 @@ public struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedMessage {
   public var xyzzy: Int32? = nil
 
   public init() {}
-
-  public init(xyzzy: Int32? = nil)
-  {
-    self.xyzzy = xyzzy
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1302,11 +1244,6 @@ public struct ProtobufUnittest_AggregateMessageSetElement: ProtobufGeneratedMess
   public var s: String? = nil
 
   public init() {}
-
-  public init(s: String? = nil)
-  {
-    self.s = s
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1463,20 +1400,6 @@ public struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(i: Int32? = nil,
-    s: String? = nil,
-    sub: ProtobufUnittest_Aggregate? = nil,
-    file: Google_Protobuf_FileOptions? = nil,
-    mset: ProtobufUnittest_AggregateMessageSet? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._i = i
-    storage._s = s
-    storage._sub = sub
-    storage._file = file
-    storage._mset = mset
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1513,11 +1436,6 @@ public struct ProtobufUnittest_AggregateMessage: ProtobufGeneratedMessage {
   public var fieldname: Int32? = nil
 
   public init() {}
-
-  public init(fieldname: Int32? = nil)
-  {
-    self.fieldname = fieldname
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1637,11 +1555,6 @@ public struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
     public var nestedField: Int32? = nil
 
     public init() {}
-
-    public init(nestedField: Int32? = nil)
-    {
-      self.nestedField = nestedField
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -1775,11 +1688,6 @@ public struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(value: ProtobufUnittest_OldOptionType.TestEnum = ProtobufUnittest_OldOptionType.TestEnum.oldValue)
-  {
-    self.value = value
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -1895,11 +1803,6 @@ public struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage {
   public var value: ProtobufUnittest_NewOptionType.TestEnum = ProtobufUnittest_NewOptionType.TestEnum.oldValue
 
   public init() {}
-
-  public init(value: ProtobufUnittest_NewOptionType.TestEnum = ProtobufUnittest_NewOptionType.TestEnum.oldValue)
-  {
-    self.value = value
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

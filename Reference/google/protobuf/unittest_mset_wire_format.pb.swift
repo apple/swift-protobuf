@@ -158,12 +158,6 @@ public struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: Protob
 
   public init() {}
 
-  public init(messageSet: Proto2WireformatUnittest_TestMessageSet? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._messageSet = messageSet
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }

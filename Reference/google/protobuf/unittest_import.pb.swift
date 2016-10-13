@@ -223,11 +223,6 @@ public struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(d: Int32? = nil)
-  {
-    self.d = d
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {

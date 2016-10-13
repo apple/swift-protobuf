@@ -4698,838 +4698,6 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(string: Int32? = nil,
-    int: Int32? = nil,
-    double: Int32? = nil,
-    float: Int32? = nil,
-    uint: Int32? = nil,
-    hashValue_p: Int32? = nil,
-    description_p: Int32? = nil,
-    debugDescription_p: Int32? = nil,
-    swift: Int32? = nil,
-    unrecognized: Int32? = nil,
-    class_p: Int32? = nil,
-    deinit_p: Int32? = nil,
-    enum_p: Int32? = nil,
-    extension_p: Int32? = nil,
-    func_p: Int32? = nil,
-    import_p: Int32? = nil,
-    init_p: Int32? = nil,
-    inout_p: Int32? = nil,
-    internal_p: Int32? = nil,
-    let_p: Int32? = nil,
-    operator_p: Int32? = nil,
-    private_p: Int32? = nil,
-    protocol_p: Int32? = nil,
-    public_p: Int32? = nil,
-    static_p: Int32? = nil,
-    struct_p: Int32? = nil,
-    subscript_p: Int32? = nil,
-    typealias_p: Int32? = nil,
-    var_p: Int32? = nil,
-    break_p: Int32? = nil,
-    case_p: Int32? = nil,
-    continue_p: Int32? = nil,
-    default_p: Int32? = nil,
-    defer_p: Int32? = nil,
-    do_p: Int32? = nil,
-    else_p: Int32? = nil,
-    fallthrough_p: Int32? = nil,
-    for_p: Int32? = nil,
-    guard_p: Int32? = nil,
-    if_p: Int32? = nil,
-    in_p: Int32? = nil,
-    repeat_p: Int32? = nil,
-    return_p: Int32? = nil,
-    switch_p: Int32? = nil,
-    where_p: Int32? = nil,
-    while_p: Int32? = nil,
-    as_p: Int32? = nil,
-    catch_p: Int32? = nil,
-    dynamicType_p: Int32? = nil,
-    false_p: Int32? = nil,
-    is_p: Int32? = nil,
-    nil_p: Int32? = nil,
-    rethrows_p: Int32? = nil,
-    super_p: Int32? = nil,
-    self_p: Int32? = nil,
-    throw_p: Int32? = nil,
-    throws_p: Int32? = nil,
-    true_p: Int32? = nil,
-    try_p: Int32? = nil,
-    _Column__: Int32? = nil,
-    _File__: Int32? = nil,
-    _Function__: Int32? = nil,
-    _Line__: Int32? = nil,
-    ___: Int32? = nil,
-    associativity: Int32? = nil,
-    convenience: Int32? = nil,
-    dynamic: Int32? = nil,
-    didSet: Int32? = nil,
-    final: Int32? = nil,
-    get: Int32? = nil,
-    infix: Int32? = nil,
-    indirect: Int32? = nil,
-    lazy: Int32? = nil,
-    left: Int32? = nil,
-    mutating: Int32? = nil,
-    none: Int32? = nil,
-    nonmutating: Int32? = nil,
-    optional: Int32? = nil,
-    override: Int32? = nil,
-    postfix: Int32? = nil,
-    precedence: Int32? = nil,
-    prefix: Int32? = nil,
-    required: Int32? = nil,
-    right: Int32? = nil,
-    set: Int32? = nil,
-    type: Int32? = nil,
-    unowned: Int32? = nil,
-    weak: Int32? = nil,
-    willSet: Int32? = nil,
-    id: Int32? = nil,
-    cmd: Int32? = nil,
-    out: Int32? = nil,
-    bycopy: Int32? = nil,
-    byref: Int32? = nil,
-    oneway: Int32? = nil,
-    and: Int32? = nil,
-    andEq: Int32? = nil,
-    alignas: Int32? = nil,
-    alignof: Int32? = nil,
-    asm: Int32? = nil,
-    auto: Int32? = nil,
-    bitand: Int32? = nil,
-    bitor: Int32? = nil,
-    bool: Int32? = nil,
-    char: Int32? = nil,
-    char16T: Int32? = nil,
-    char32T: Int32? = nil,
-    compl: Int32? = nil,
-    const: Int32? = nil,
-    constexpr: Int32? = nil,
-    constCast: Int32? = nil,
-    decltype: Int32? = nil,
-    delete: Int32? = nil,
-    dynamicCast: Int32? = nil,
-    explicit: Int32? = nil,
-    export: Int32? = nil,
-    extern: Int32? = nil,
-    friend: Int32? = nil,
-    goto: Int32? = nil,
-    inline: Int32? = nil,
-    long: Int32? = nil,
-    mutable: Int32? = nil,
-    namespace: Int32? = nil,
-    new: Int32? = nil,
-    noexcept: Int32? = nil,
-    not: Int32? = nil,
-    notEq: Int32? = nil,
-    nullptr: Int32? = nil,
-    or: Int32? = nil,
-    orEq: Int32? = nil,
-    protected: Int32? = nil,
-    register: Int32? = nil,
-    reinterpretCast: Int32? = nil,
-    short: Int32? = nil,
-    signed: Int32? = nil,
-    sizeof: Int32? = nil,
-    staticAssert: Int32? = nil,
-    staticCast: Int32? = nil,
-    template: Int32? = nil,
-    this: Int32? = nil,
-    threadLocal: Int32? = nil,
-    typedef: Int32? = nil,
-    typeid: Int32? = nil,
-    typename: Int32? = nil,
-    union: Int32? = nil,
-    unsigned: Int32? = nil,
-    using: Int32? = nil,
-    virtual: Int32? = nil,
-    void: Int32? = nil,
-    volatile: Int32? = nil,
-    wcharT: Int32? = nil,
-    xor: Int32? = nil,
-    xorEq: Int32? = nil,
-    restrict: Int32? = nil,
-    category: Int32? = nil,
-    ivar: Int32? = nil,
-    method: Int32? = nil,
-    finalize: Int32? = nil,
-    hash: Int32? = nil,
-    dealloc: Int32? = nil,
-    superclass: Int32? = nil,
-    retain: Int32? = nil,
-    release: Int32? = nil,
-    autorelease: Int32? = nil,
-    retainCount: Int32? = nil,
-    zone: Int32? = nil,
-    isProxy: Int32? = nil,
-    copy: Int32? = nil,
-    mutableCopy: Int32? = nil,
-    classForCoder: Int32? = nil,
-    clear: Int32? = nil,
-    data: Int32? = nil,
-    delimitedData: Int32? = nil,
-    descriptor: Int32? = nil,
-    extensionRegistry: Int32? = nil,
-    extensionsCurrentlySet: Int32? = nil,
-    isInitialized: Int32? = nil,
-    serializedSize: Int32? = nil,
-    sortedExtensionsInUse: Int32? = nil,
-    unknownFields: Int32? = nil,
-    fixed: Int32? = nil,
-    fract: Int32? = nil,
-    size: Int32? = nil,
-    logicalAddress: Int32? = nil,
-    physicalAddress: Int32? = nil,
-    byteCount: Int32? = nil,
-    byteOffset: Int32? = nil,
-    duration: Int32? = nil,
-    absoluteTime: Int32? = nil,
-    optionBits: Int32? = nil,
-    itemCount: Int32? = nil,
-    pbversion: Int32? = nil,
-    scriptCode: Int32? = nil,
-    langCode: Int32? = nil,
-    regionCode: Int32? = nil,
-    ostype: Int32? = nil,
-    processSerialNumber: Int32? = nil,
-    point: Int32? = nil,
-    rect: Int32? = nil,
-    fixedPoint: Int32? = nil,
-    fixedRect: Int32? = nil,
-    style: Int32? = nil,
-    styleParameter: Int32? = nil,
-    styleField: Int32? = nil,
-    timeScale: Int32? = nil,
-    timeBase: Int32? = nil,
-    timeRecord: Int32? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = string {
-      storage._string = v
-    }
-    if let v = int {
-      storage._int = v
-    }
-    if let v = double {
-      storage._double = v
-    }
-    if let v = float {
-      storage._float = v
-    }
-    if let v = uint {
-      storage._uint = v
-    }
-    if let v = hashValue_p {
-      storage._hashValue_p = v
-    }
-    if let v = description_p {
-      storage._description_p = v
-    }
-    if let v = debugDescription_p {
-      storage._debugDescription_p = v
-    }
-    if let v = swift {
-      storage._swift = v
-    }
-    if let v = unrecognized {
-      storage._unrecognized = v
-    }
-    if let v = class_p {
-      storage._class_p = v
-    }
-    if let v = deinit_p {
-      storage._deinit_p = v
-    }
-    if let v = enum_p {
-      storage._enum_p = v
-    }
-    if let v = extension_p {
-      storage._extension_p = v
-    }
-    if let v = func_p {
-      storage._func_p = v
-    }
-    if let v = import_p {
-      storage._import_p = v
-    }
-    if let v = init_p {
-      storage._init_p = v
-    }
-    if let v = inout_p {
-      storage._inout_p = v
-    }
-    if let v = internal_p {
-      storage._internal_p = v
-    }
-    if let v = let_p {
-      storage._let_p = v
-    }
-    if let v = operator_p {
-      storage._operator_p = v
-    }
-    if let v = private_p {
-      storage._private_p = v
-    }
-    if let v = protocol_p {
-      storage._protocol_p = v
-    }
-    if let v = public_p {
-      storage._public_p = v
-    }
-    if let v = static_p {
-      storage._static_p = v
-    }
-    if let v = struct_p {
-      storage._struct_p = v
-    }
-    if let v = subscript_p {
-      storage._subscript_p = v
-    }
-    if let v = typealias_p {
-      storage._typealias_p = v
-    }
-    if let v = var_p {
-      storage._var_p = v
-    }
-    if let v = break_p {
-      storage._break_p = v
-    }
-    if let v = case_p {
-      storage._case_p = v
-    }
-    if let v = continue_p {
-      storage._continue_p = v
-    }
-    if let v = default_p {
-      storage._default_p = v
-    }
-    if let v = defer_p {
-      storage._defer_p = v
-    }
-    if let v = do_p {
-      storage._do_p = v
-    }
-    if let v = else_p {
-      storage._else_p = v
-    }
-    if let v = fallthrough_p {
-      storage._fallthrough_p = v
-    }
-    if let v = for_p {
-      storage._for_p = v
-    }
-    if let v = guard_p {
-      storage._guard_p = v
-    }
-    if let v = if_p {
-      storage._if_p = v
-    }
-    if let v = in_p {
-      storage._in_p = v
-    }
-    if let v = repeat_p {
-      storage._repeat_p = v
-    }
-    if let v = return_p {
-      storage._return_p = v
-    }
-    if let v = switch_p {
-      storage._switch_p = v
-    }
-    if let v = where_p {
-      storage._where_p = v
-    }
-    if let v = while_p {
-      storage._while_p = v
-    }
-    if let v = as_p {
-      storage._as_p = v
-    }
-    if let v = catch_p {
-      storage._catch_p = v
-    }
-    if let v = dynamicType_p {
-      storage._dynamicType_p = v
-    }
-    if let v = false_p {
-      storage._false_p = v
-    }
-    if let v = is_p {
-      storage._is_p = v
-    }
-    if let v = nil_p {
-      storage._nil_p = v
-    }
-    if let v = rethrows_p {
-      storage._rethrows_p = v
-    }
-    if let v = super_p {
-      storage._super_p = v
-    }
-    if let v = self_p {
-      storage._self_p = v
-    }
-    if let v = throw_p {
-      storage._throw_p = v
-    }
-    if let v = throws_p {
-      storage._throws_p = v
-    }
-    if let v = true_p {
-      storage._true_p = v
-    }
-    if let v = try_p {
-      storage._try_p = v
-    }
-    if let v = _Column__ {
-      storage.__Column__ = v
-    }
-    if let v = _File__ {
-      storage.__File__ = v
-    }
-    if let v = _Function__ {
-      storage.__Function__ = v
-    }
-    if let v = _Line__ {
-      storage.__Line__ = v
-    }
-    if let v = ___ {
-      storage.____ = v
-    }
-    if let v = associativity {
-      storage._associativity = v
-    }
-    if let v = convenience {
-      storage._convenience = v
-    }
-    if let v = dynamic {
-      storage._dynamic = v
-    }
-    if let v = didSet {
-      storage._didSet = v
-    }
-    if let v = final {
-      storage._final = v
-    }
-    if let v = get {
-      storage._get = v
-    }
-    if let v = infix {
-      storage._infix = v
-    }
-    if let v = indirect {
-      storage._indirect = v
-    }
-    if let v = lazy {
-      storage._lazy = v
-    }
-    if let v = left {
-      storage._left = v
-    }
-    if let v = mutating {
-      storage._mutating = v
-    }
-    if let v = none {
-      storage._none = v
-    }
-    if let v = nonmutating {
-      storage._nonmutating = v
-    }
-    if let v = optional {
-      storage._optional = v
-    }
-    if let v = override {
-      storage._override = v
-    }
-    if let v = postfix {
-      storage._postfix = v
-    }
-    if let v = precedence {
-      storage._precedence = v
-    }
-    if let v = prefix {
-      storage._prefix = v
-    }
-    if let v = required {
-      storage._required = v
-    }
-    if let v = right {
-      storage._right = v
-    }
-    if let v = set {
-      storage._set = v
-    }
-    if let v = type {
-      storage._type = v
-    }
-    if let v = unowned {
-      storage._unowned = v
-    }
-    if let v = weak {
-      storage._weak = v
-    }
-    if let v = willSet {
-      storage._willSet = v
-    }
-    if let v = id {
-      storage._id = v
-    }
-    if let v = cmd {
-      storage._cmd = v
-    }
-    if let v = out {
-      storage._out = v
-    }
-    if let v = bycopy {
-      storage._bycopy = v
-    }
-    if let v = byref {
-      storage._byref = v
-    }
-    if let v = oneway {
-      storage._oneway = v
-    }
-    if let v = and {
-      storage._and = v
-    }
-    if let v = andEq {
-      storage._andEq = v
-    }
-    if let v = alignas {
-      storage._alignas = v
-    }
-    if let v = alignof {
-      storage._alignof = v
-    }
-    if let v = asm {
-      storage._asm = v
-    }
-    if let v = auto {
-      storage._auto = v
-    }
-    if let v = bitand {
-      storage._bitand = v
-    }
-    if let v = bitor {
-      storage._bitor = v
-    }
-    if let v = bool {
-      storage._bool = v
-    }
-    if let v = char {
-      storage._char = v
-    }
-    if let v = char16T {
-      storage._char16T = v
-    }
-    if let v = char32T {
-      storage._char32T = v
-    }
-    if let v = compl {
-      storage._compl = v
-    }
-    if let v = const {
-      storage._const = v
-    }
-    if let v = constexpr {
-      storage._constexpr = v
-    }
-    if let v = constCast {
-      storage._constCast = v
-    }
-    if let v = decltype {
-      storage._decltype = v
-    }
-    if let v = delete {
-      storage._delete = v
-    }
-    if let v = dynamicCast {
-      storage._dynamicCast = v
-    }
-    if let v = explicit {
-      storage._explicit = v
-    }
-    if let v = export {
-      storage._export = v
-    }
-    if let v = extern {
-      storage._extern = v
-    }
-    if let v = friend {
-      storage._friend = v
-    }
-    if let v = goto {
-      storage._goto = v
-    }
-    if let v = inline {
-      storage._inline = v
-    }
-    if let v = long {
-      storage._long = v
-    }
-    if let v = mutable {
-      storage._mutable = v
-    }
-    if let v = namespace {
-      storage._namespace = v
-    }
-    if let v = new {
-      storage._new = v
-    }
-    if let v = noexcept {
-      storage._noexcept = v
-    }
-    if let v = not {
-      storage._not = v
-    }
-    if let v = notEq {
-      storage._notEq = v
-    }
-    if let v = nullptr {
-      storage._nullptr = v
-    }
-    if let v = or {
-      storage._or = v
-    }
-    if let v = orEq {
-      storage._orEq = v
-    }
-    if let v = protected {
-      storage._protected = v
-    }
-    if let v = register {
-      storage._register = v
-    }
-    if let v = reinterpretCast {
-      storage._reinterpretCast = v
-    }
-    if let v = short {
-      storage._short = v
-    }
-    if let v = signed {
-      storage._signed = v
-    }
-    if let v = sizeof {
-      storage._sizeof = v
-    }
-    if let v = staticAssert {
-      storage._staticAssert = v
-    }
-    if let v = staticCast {
-      storage._staticCast = v
-    }
-    if let v = template {
-      storage._template = v
-    }
-    if let v = this {
-      storage._this = v
-    }
-    if let v = threadLocal {
-      storage._threadLocal = v
-    }
-    if let v = typedef {
-      storage._typedef = v
-    }
-    if let v = typeid {
-      storage._typeid = v
-    }
-    if let v = typename {
-      storage._typename = v
-    }
-    if let v = union {
-      storage._union = v
-    }
-    if let v = unsigned {
-      storage._unsigned = v
-    }
-    if let v = using {
-      storage._using = v
-    }
-    if let v = virtual {
-      storage._virtual = v
-    }
-    if let v = void {
-      storage._void = v
-    }
-    if let v = volatile {
-      storage._volatile = v
-    }
-    if let v = wcharT {
-      storage._wcharT = v
-    }
-    if let v = xor {
-      storage._xor = v
-    }
-    if let v = xorEq {
-      storage._xorEq = v
-    }
-    if let v = restrict {
-      storage._restrict = v
-    }
-    if let v = category {
-      storage._category = v
-    }
-    if let v = ivar {
-      storage._ivar = v
-    }
-    if let v = method {
-      storage._method = v
-    }
-    if let v = finalize {
-      storage._finalize = v
-    }
-    if let v = hash {
-      storage._hash = v
-    }
-    if let v = dealloc {
-      storage._dealloc = v
-    }
-    if let v = superclass {
-      storage._superclass = v
-    }
-    if let v = retain {
-      storage._retain = v
-    }
-    if let v = release {
-      storage._release = v
-    }
-    if let v = autorelease {
-      storage._autorelease = v
-    }
-    if let v = retainCount {
-      storage._retainCount = v
-    }
-    if let v = zone {
-      storage._zone = v
-    }
-    if let v = isProxy {
-      storage._isProxy = v
-    }
-    if let v = copy {
-      storage._copy = v
-    }
-    if let v = mutableCopy {
-      storage._mutableCopy = v
-    }
-    if let v = classForCoder {
-      storage._classForCoder = v
-    }
-    if let v = clear {
-      storage._clear = v
-    }
-    if let v = data {
-      storage._data = v
-    }
-    if let v = delimitedData {
-      storage._delimitedData = v
-    }
-    if let v = descriptor {
-      storage._descriptor = v
-    }
-    if let v = extensionRegistry {
-      storage._extensionRegistry = v
-    }
-    if let v = extensionsCurrentlySet {
-      storage._extensionsCurrentlySet = v
-    }
-    if let v = isInitialized {
-      storage._isInitialized = v
-    }
-    if let v = serializedSize {
-      storage._serializedSize = v
-    }
-    if let v = sortedExtensionsInUse {
-      storage._sortedExtensionsInUse = v
-    }
-    if let v = unknownFields {
-      storage._unknownFields = v
-    }
-    if let v = fixed {
-      storage._fixed = v
-    }
-    if let v = fract {
-      storage._fract = v
-    }
-    if let v = size {
-      storage._size = v
-    }
-    if let v = logicalAddress {
-      storage._logicalAddress = v
-    }
-    if let v = physicalAddress {
-      storage._physicalAddress = v
-    }
-    if let v = byteCount {
-      storage._byteCount = v
-    }
-    if let v = byteOffset {
-      storage._byteOffset = v
-    }
-    if let v = duration {
-      storage._duration = v
-    }
-    if let v = absoluteTime {
-      storage._absoluteTime = v
-    }
-    if let v = optionBits {
-      storage._optionBits = v
-    }
-    if let v = itemCount {
-      storage._itemCount = v
-    }
-    if let v = pbversion {
-      storage._pbversion = v
-    }
-    if let v = scriptCode {
-      storage._scriptCode = v
-    }
-    if let v = langCode {
-      storage._langCode = v
-    }
-    if let v = regionCode {
-      storage._regionCode = v
-    }
-    if let v = ostype {
-      storage._ostype = v
-    }
-    if let v = processSerialNumber {
-      storage._processSerialNumber = v
-    }
-    if let v = point {
-      storage._point = v
-    }
-    if let v = rect {
-      storage._rect = v
-    }
-    if let v = fixedPoint {
-      storage._fixedPoint = v
-    }
-    if let v = fixedRect {
-      storage._fixedRect = v
-    }
-    if let v = style {
-      storage._style = v
-    }
-    if let v = styleParameter {
-      storage._styleParameter = v
-    }
-    if let v = styleField {
-      storage._styleField = v
-    }
-    if let v = timeScale {
-      storage._timeScale = v
-    }
-    if let v = timeBase {
-      storage._timeBase = v
-    }
-    if let v = timeRecord {
-      storage._timeRecord = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -5572,13 +4740,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -5615,13 +4776,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -5660,13 +4814,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -5703,13 +4850,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -5748,13 +4888,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -5791,13 +4924,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -5836,13 +4962,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -5879,13 +4998,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -5924,13 +5036,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -5967,13 +5072,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6012,13 +5110,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6055,13 +5146,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6100,13 +5184,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6143,13 +5220,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6188,13 +5258,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6231,13 +5294,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6276,13 +5332,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6319,13 +5368,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6364,13 +5406,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6407,13 +5442,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6452,13 +5480,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6495,13 +5516,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6540,13 +5554,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6583,13 +5590,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6628,13 +5628,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6671,13 +5664,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6716,13 +5702,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6759,13 +5738,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6804,13 +5776,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6847,13 +5812,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6892,13 +5850,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -6935,13 +5886,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -6980,13 +5924,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7023,13 +5960,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7068,13 +5998,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7111,13 +6034,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7156,13 +6072,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7199,13 +6108,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7244,13 +6146,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7287,13 +6182,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7332,13 +6220,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7375,13 +6256,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7420,13 +6294,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7463,13 +6330,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7508,13 +6368,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7551,13 +6404,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7596,13 +6442,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7639,13 +6478,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7684,13 +6516,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7727,13 +6552,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7772,13 +6590,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7815,13 +6626,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7860,13 +6664,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7903,13 +6700,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -7948,13 +6738,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -7991,13 +6774,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8036,13 +6812,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8079,13 +6848,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8124,13 +6886,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8167,13 +6922,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8212,13 +6960,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8255,13 +6996,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8300,13 +7034,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8343,13 +7070,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8388,13 +7108,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8431,13 +7144,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8476,13 +7182,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8519,13 +7218,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8564,13 +7256,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8607,13 +7292,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8652,13 +7330,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8695,13 +7366,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8740,13 +7404,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8783,13 +7440,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8828,13 +7478,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8871,13 +7514,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -8916,13 +7552,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -8959,13 +7588,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9004,13 +7626,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9047,13 +7662,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9092,13 +7700,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9135,13 +7736,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9180,13 +7774,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9223,13 +7810,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9268,13 +7848,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9311,13 +7884,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9356,13 +7922,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9399,13 +7958,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9444,13 +7996,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9487,13 +8032,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9532,13 +8070,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9575,13 +8106,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9620,13 +8144,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9663,13 +8180,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9708,13 +8218,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9751,13 +8254,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9796,13 +8292,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9839,13 +8328,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9884,13 +8366,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -9927,13 +8402,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -9972,13 +8440,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10015,13 +8476,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10060,13 +8514,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10103,13 +8550,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10148,13 +8588,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10191,13 +8624,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10236,13 +8662,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10279,13 +8698,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10324,13 +8736,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10367,13 +8772,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10412,13 +8810,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10455,13 +8846,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10500,13 +8884,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10543,13 +8920,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10588,13 +8958,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10631,13 +8994,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10676,13 +9032,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10719,13 +9068,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10764,13 +9106,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10807,13 +9142,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10852,13 +9180,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10895,13 +9216,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -10940,13 +9254,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -10983,13 +9290,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11028,13 +9328,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11071,13 +9364,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11116,13 +9402,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11159,13 +9438,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11204,13 +9476,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11247,13 +9512,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11292,13 +9550,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11335,13 +9586,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11380,13 +9624,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11423,13 +9660,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11468,13 +9698,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11511,13 +9734,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11556,13 +9772,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11599,13 +9808,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11644,13 +9846,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11687,13 +9882,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11732,13 +9920,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11775,13 +9956,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11820,13 +9994,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11863,13 +10030,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11908,13 +10068,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -11951,13 +10104,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -11996,13 +10142,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12039,13 +10178,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12084,13 +10216,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12127,13 +10252,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12172,13 +10290,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12215,13 +10326,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12260,13 +10364,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12303,13 +10400,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12348,13 +10438,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12391,13 +10474,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12436,13 +10512,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12479,13 +10548,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12524,13 +10586,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12567,13 +10622,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12612,13 +10660,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12655,13 +10696,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12700,13 +10734,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12743,13 +10770,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12788,13 +10808,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12831,13 +10844,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12876,13 +10882,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -12919,13 +10918,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -12964,13 +10956,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13007,13 +10992,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13052,13 +11030,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13095,13 +11066,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13140,13 +11104,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13183,13 +11140,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13228,13 +11178,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13271,13 +11214,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13316,13 +11252,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13359,13 +11288,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13404,13 +11326,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13447,13 +11362,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13492,13 +11400,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13535,13 +11436,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13580,13 +11474,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13623,13 +11510,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13668,13 +11548,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13711,13 +11584,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13756,13 +11622,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13799,13 +11658,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13844,13 +11696,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13887,13 +11732,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -13932,13 +11770,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -13975,13 +11806,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14020,13 +11844,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14063,13 +11880,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14108,13 +11918,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14151,13 +11954,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14196,13 +11992,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14239,13 +12028,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14284,13 +12066,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14327,13 +12102,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14372,13 +12140,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14415,13 +12176,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14460,13 +12214,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14503,13 +12250,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14548,13 +12288,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14591,13 +12324,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -14636,13 +12362,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14680,13 +12399,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -14723,13 +12435,6 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      if let v = a {
-        self.a = v
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool

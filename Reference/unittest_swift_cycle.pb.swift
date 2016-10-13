@@ -135,16 +135,6 @@ public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(aFoo: ProtobufUnittest_CycleFoo? = nil,
-    aBar: ProtobufUnittest_CycleBar? = nil,
-    aBaz: ProtobufUnittest_CycleBaz? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._aFoo = aFoo
-    storage._aBar = aBar
-    storage._aBaz = aBaz
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -255,16 +245,6 @@ public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(aBar: ProtobufUnittest_CycleBar? = nil,
-    aBaz: ProtobufUnittest_CycleBaz? = nil,
-    aFoo: ProtobufUnittest_CycleFoo? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._aBar = aBar
-    storage._aBaz = aBaz
-    storage._aFoo = aFoo
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -374,16 +354,6 @@ public struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
   }
 
   public init() {}
-
-  public init(aBaz: ProtobufUnittest_CycleBaz? = nil,
-    aFoo: ProtobufUnittest_CycleFoo? = nil,
-    aBar: ProtobufUnittest_CycleBar? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._aBaz = aBaz
-    storage._aFoo = aFoo
-    storage._aBar = aBar
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

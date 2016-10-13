@@ -251,32 +251,6 @@ public struct Google_Protobuf_Type: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(name: String? = nil,
-    fields: [Google_Protobuf_Field] = [],
-    oneofs: [String] = [],
-    options: [Google_Protobuf_Option] = [],
-    sourceContext: Google_Protobuf_SourceContext? = nil,
-    syntax: Google_Protobuf_Syntax? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = name {
-      storage._name = v
-    }
-    if !fields.isEmpty {
-      storage._fields = fields
-    }
-    if !oneofs.isEmpty {
-      storage._oneofs = oneofs
-    }
-    if !options.isEmpty {
-      storage._options = options
-    }
-    storage._sourceContext = sourceContext
-    if let v = syntax {
-      storage._syntax = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -713,49 +687,6 @@ public struct Google_Protobuf_Field: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(kind: Google_Protobuf_Field.Kind? = nil,
-    cardinality: Google_Protobuf_Field.Cardinality? = nil,
-    number: Int32? = nil,
-    name: String? = nil,
-    typeURL: String? = nil,
-    oneofIndex: Int32? = nil,
-    packed: Bool? = nil,
-    options: [Google_Protobuf_Option] = [],
-    jsonName: String? = nil,
-    defaultValue: String? = nil)
-  {
-    if let v = kind {
-      self.kind = v
-    }
-    if let v = cardinality {
-      self.cardinality = v
-    }
-    if let v = number {
-      self.number = v
-    }
-    if let v = name {
-      self.name = v
-    }
-    if let v = typeURL {
-      self.typeURL = v
-    }
-    if let v = oneofIndex {
-      self.oneofIndex = v
-    }
-    if let v = packed {
-      self.packed = v
-    }
-    if !options.isEmpty {
-      self.options = options
-    }
-    if let v = jsonName {
-      self.jsonName = v
-    }
-    if let v = defaultValue {
-      self.defaultValue = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -939,28 +870,6 @@ public struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(name: String? = nil,
-    enumvalue: [Google_Protobuf_EnumValue] = [],
-    options: [Google_Protobuf_Option] = [],
-    sourceContext: Google_Protobuf_SourceContext? = nil,
-    syntax: Google_Protobuf_Syntax? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = name {
-      storage._name = v
-    }
-    if !enumvalue.isEmpty {
-      storage._enumvalue = enumvalue
-    }
-    if !options.isEmpty {
-      storage._options = options
-    }
-    storage._sourceContext = sourceContext
-    if let v = syntax {
-      storage._syntax = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1007,21 +916,6 @@ public struct Google_Protobuf_EnumValue: ProtobufGeneratedMessage {
   public var options: [Google_Protobuf_Option] = []
 
   public init() {}
-
-  public init(name: String? = nil,
-    number: Int32? = nil,
-    options: [Google_Protobuf_Option] = [])
-  {
-    if let v = name {
-      self.name = v
-    }
-    if let v = number {
-      self.number = v
-    }
-    if !options.isEmpty {
-      self.options = options
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1126,16 +1020,6 @@ public struct Google_Protobuf_Option: ProtobufGeneratedMessage {
   }
 
   public init() {}
-
-  public init(name: String? = nil,
-    value: Google_Protobuf_Any? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = name {
-      storage._name = v
-    }
-    storage._value = value
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

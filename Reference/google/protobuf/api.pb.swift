@@ -206,36 +206,6 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(name: String? = nil,
-    methods: [Google_Protobuf_Method] = [],
-    options: [Google_Protobuf_Option] = [],
-    version: String? = nil,
-    sourceContext: Google_Protobuf_SourceContext? = nil,
-    mixins: [Google_Protobuf_Mixin] = [],
-    syntax: Google_Protobuf_Syntax? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = name {
-      storage._name = v
-    }
-    if !methods.isEmpty {
-      storage._methods = methods
-    }
-    if !options.isEmpty {
-      storage._options = options
-    }
-    if let v = version {
-      storage._version = v
-    }
-    storage._sourceContext = sourceContext
-    if !mixins.isEmpty {
-      storage._mixins = mixins
-    }
-    if let v = syntax {
-      storage._syntax = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -302,37 +272,6 @@ public struct Google_Protobuf_Method: ProtobufGeneratedMessage {
   public var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
 
   public init() {}
-
-  public init(name: String? = nil,
-    requestTypeURL: String? = nil,
-    requestStreaming: Bool? = nil,
-    responseTypeURL: String? = nil,
-    responseStreaming: Bool? = nil,
-    options: [Google_Protobuf_Option] = [],
-    syntax: Google_Protobuf_Syntax? = nil)
-  {
-    if let v = name {
-      self.name = v
-    }
-    if let v = requestTypeURL {
-      self.requestTypeURL = v
-    }
-    if let v = requestStreaming {
-      self.requestStreaming = v
-    }
-    if let v = responseTypeURL {
-      self.responseTypeURL = v
-    }
-    if let v = responseStreaming {
-      self.responseStreaming = v
-    }
-    if !options.isEmpty {
-      self.options = options
-    }
-    if let v = syntax {
-      self.syntax = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -484,17 +423,6 @@ public struct Google_Protobuf_Mixin: ProtobufGeneratedMessage {
   public var root: String = ""
 
   public init() {}
-
-  public init(name: String? = nil,
-    root: String? = nil)
-  {
-    if let v = name {
-      self.name = v
-    }
-    if let v = root {
-      self.root = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
