@@ -39,19 +39,19 @@ struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
     }
 
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(tagType: protoFieldNumber * 8 + S.protobufWireType())
+        encoder.startField(fieldNumber: protoFieldNumber, wireFormat: S.protobufWireFormat)
         try S.serializeProtobufValue(encoder: &encoder, value: value)
     }
 
     mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
-            encoder.startField(tagType: protoFieldNumber * 8 + S.protobufWireType())
+            encoder.startField(fieldNumber: protoFieldNumber, wireFormat: S.protobufWireFormat)
             try S.serializeProtobufValue(encoder: &encoder, value: v)
         }
     }
 
     mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(tagType: protoFieldNumber * 8 + 2)
+        encoder.startField(fieldNumber: protoFieldNumber, wireFormat: .lengthDelimited)
         var packedSize = 0
         for v in value {
             packedSize += try S.encodedSizeWithoutTag(of: v)
@@ -64,46 +64,46 @@ struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
 
     mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         let t = try value.serializeProtobuf()
-        encoder.startField(tagType: protoFieldNumber * 8 + M.protobufWireType())
+        encoder.startField(fieldNumber: protoFieldNumber, wireFormat: M.protobufWireFormat)
         encoder.putBytesValue(value: t)
     }
 
     mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
             let t = try v.serializeProtobuf()
-            encoder.startField(tagType: protoFieldNumber * 8 + M.protobufWireType())
+            encoder.startField(fieldNumber: protoFieldNumber, wireFormat: M.protobufWireFormat)
             encoder.putBytesValue(value: t)
         }
     }
 
     mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
-        encoder.startField(tagType: protoFieldNumber * 8 + 3) // Start of group
+        encoder.startField(fieldNumber: protoFieldNumber, wireFormat: .startGroup)
         try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
             try value.traverse(visitor: &visitor)
         }
-        encoder.startField(tagType: protoFieldNumber * 8 + 4) // End of group
+        encoder.startField(fieldNumber: protoFieldNumber, wireFormat: .endGroup)
     }
 
     mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
-            encoder.startField(tagType: protoFieldNumber * 8 + 3) // Start of group
+            encoder.startField(fieldNumber: protoFieldNumber, wireFormat: .startGroup)
             try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
                 try v.traverse(visitor: &visitor)
             }
-            encoder.startField(tagType: protoFieldNumber * 8 + 4) // End of group
+            encoder.startField(fieldNumber: protoFieldNumber, wireFormat: .endGroup)
         }
     }
 
     mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
         for (k,v) in value {
-            encoder.startField(tagType: protoFieldNumber * 8 + 2)
+            encoder.startField(fieldNumber: protoFieldNumber, wireFormat: .lengthDelimited)
             let keyTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
             let valueTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
             let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) + valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
             encoder.putVarInt(value: entrySize)
-            encoder.startField(tagType: 8 + KeyType.protobufWireType())
+            encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
             KeyType.serializeProtobufValue(encoder: &encoder, value: k)
-            encoder.startField(tagType: 16 + ValueType.protobufWireType())
+            encoder.startField(fieldNumber: 2, wireFormat: ValueType.protobufWireFormat)
             // Note: ValueType could be a message, so messages need
             // static func serializeProtobufValue(...)
             // TODO: Could we traverse the valuetype instead?
@@ -148,8 +148,9 @@ public struct ProtobufBinaryEncoder {
         append(contentsOf: bytes)
     }
 
-    mutating func startField(tagType: Int) {
-        putVarInt(value: UInt64(tagType))
+    mutating func startField(fieldNumber: Int, wireFormat: WireFormat) {
+        let tag = FieldTag(fieldNumber: fieldNumber, wireFormat: wireFormat)
+        putVarInt(value: UInt64(tag.rawValue))
     }
 
     mutating func putVarInt(value: UInt64) {

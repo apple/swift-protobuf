@@ -19,7 +19,7 @@ import Swift
 import Foundation
 
 public protocol ProtobufBinaryCodableType: ProtobufTypePropertiesBase {
-    static func protobufWireType() -> Int
+    static var protobufWireFormat: WireFormat { get }
     /// Write out the protobuf value only.
     static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: BaseType) throws
 
@@ -96,7 +96,7 @@ public extension ProtobufTypeProperties {
 
 public protocol ProtobufBinaryCodableMapKeyType: ProtobufTypePropertiesBase {
     /// Basic protobuf encoding hooks.
-    static func protobufWireType() -> Int
+    static var protobufWireFormat: WireFormat { get }
     /// Write out the protobuf value only.
     static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: BaseType)
     static func encodedSizeWithoutTag(of: BaseType) throws -> Int
@@ -107,7 +107,7 @@ public protocol ProtobufBinaryCodableMapKeyType: ProtobufTypePropertiesBase {
 /// Float traits
 ///
 public extension ProtobufFloat {
-    public static func protobufWireType() -> Int { return 5 }
+    public static var protobufWireFormat: WireFormat { return .fixed32 }
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Float) {
         encoder.putFloatValue(value: value)
     }
@@ -156,7 +156,7 @@ public extension ProtobufFloat {
 /// Double traits
 ///
 public extension ProtobufDouble {
-    public static func protobufWireType() -> Int { return 1 }
+    public static var protobufWireFormat: WireFormat { return .fixed64 }
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Double) {
         encoder.putDoubleValue(value: value)
     }
@@ -204,7 +204,7 @@ public extension ProtobufDouble {
 /// Int32 traits
 ///
 public extension ProtobufInt32 {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Int32) {
         encoder.putVarInt(value: Int64(value))
@@ -237,7 +237,7 @@ public extension ProtobufInt32 {
 /// Int64 traits
 ///
 public extension ProtobufInt64 {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Int64) {
         encoder.putVarInt(value: value)
@@ -270,7 +270,7 @@ public extension ProtobufInt64 {
 /// UInt32 traits
 ///
 public extension ProtobufUInt32 {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: UInt32) {
         encoder.putVarInt(value: UInt64(value))
@@ -303,7 +303,7 @@ public extension ProtobufUInt32 {
 /// UInt64 traits
 ///
 public extension ProtobufUInt64 {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: UInt64) {
         encoder.putVarInt(value: value)
@@ -336,7 +336,7 @@ public extension ProtobufUInt64 {
 /// SInt32 traits
 ///
 public extension ProtobufSInt32 {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Int32) {
         encoder.putZigZagVarInt(value: Int64(value))
@@ -371,7 +371,7 @@ public extension ProtobufSInt32 {
 /// SInt64 traits
 ///
 public extension ProtobufSInt64 {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Int64) {
         encoder.putZigZagVarInt(value: value)
@@ -404,7 +404,7 @@ public extension ProtobufSInt64 {
 /// Fixed32 traits
 ///
 public extension ProtobufFixed32 {
-    public static func protobufWireType() -> Int { return 5 }
+    public static var protobufWireFormat: WireFormat { return .fixed32 }
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: UInt32) {
         encoder.putFixedUInt32(value: value)
     }
@@ -452,7 +452,7 @@ public extension ProtobufFixed32 {
 /// Fixed64 traits
 ///
 public extension ProtobufFixed64 {
-    public static func protobufWireType() -> Int { return 1 }
+    public static var protobufWireFormat: WireFormat { return .fixed64 }
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: UInt64) {
         encoder.putFixedUInt64(value: value.littleEndian)
     }
@@ -500,7 +500,7 @@ public extension ProtobufFixed64 {
 /// SFixed32 traits
 ///
 public extension ProtobufSFixed32 {
-    public static func protobufWireType() -> Int { return 5 }
+    public static var protobufWireFormat: WireFormat { return .fixed32 }
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Int32) {
         encoder.putFixedUInt32(value: UInt32(bitPattern: value))
     }
@@ -548,7 +548,7 @@ public extension ProtobufSFixed32 {
 /// SFixed64 traits
 ///
 public extension ProtobufSFixed64 {
-    public static func protobufWireType() -> Int { return 1 }
+    public static var protobufWireFormat: WireFormat { return .fixed64 }
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Int64) {
         encoder.putFixedUInt64(value: UInt64(bitPattern: value.littleEndian))
     }
@@ -596,7 +596,7 @@ public extension ProtobufSFixed64 {
 /// Bool traits
 ///
 public extension ProtobufBool {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Bool) {
         encoder.putBoolValue(value: value)
@@ -642,7 +642,7 @@ private func bufferToString(buffer: UnsafeBufferPointer<UInt8>) -> String? {
 }
 
 public extension ProtobufString {
-    public static func protobufWireType() -> Int { return 2 }
+    public static var protobufWireFormat: WireFormat { return .lengthDelimited }
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: String) {
         encoder.putStringValue(value: value)
     }
@@ -674,7 +674,7 @@ public extension ProtobufString {
 /// Bytes traits
 ///
 public extension ProtobufBytes {
-    public static func protobufWireType() -> Int { return 2 }
+    public static var protobufWireFormat: WireFormat { return .lengthDelimited }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Data) {
         encoder.putBytesValue(value: [UInt8](value))
@@ -700,7 +700,7 @@ public extension ProtobufBytes {
 // Enum traits
 //
 extension ProtobufEnum where RawValue == Int {
-    public static func protobufWireType() -> Int { return 0 }
+    public static var protobufWireFormat: WireFormat { return .varint }
     public static func decodeOptionalField(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws -> Bool {
         return try decoder.decodeOptionalField(fieldType: Self.self, value: &value)
     }
@@ -774,7 +774,7 @@ public extension ProtobufBinaryMessageBase {
         return try ProtobufBinarySizeVisitor(message: self).serializedSize
     }
 
-    static func protobufWireType() -> Int {return 2}
+    static var protobufWireFormat: WireFormat { return .lengthDelimited }
 
     static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Self) throws {
         let t = try value.serializeProtobuf()
