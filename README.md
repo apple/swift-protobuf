@@ -27,6 +27,7 @@ More information is available in the associated documentation:
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the protoc plugin
  * [API.md](Documentation/API.md) documents the API you should use
  * [GENERATED_CODE.md](Documentation/GENERATED_CODE.md) documents the structure of the generated code
+ * [STYLE_GUIDELINES.md](Documentation/STYLE_GUIDELINES.md) documents the style guidelines we have adopted in our codebase if you are interested in contributing
 
 ## Getting Started
 
