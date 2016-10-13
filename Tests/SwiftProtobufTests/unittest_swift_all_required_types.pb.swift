@@ -622,11 +622,6 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(bb: Int32 = 0)
-    {
-      self.bb = bb
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -669,11 +664,6 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     public var a: Int32 = 0
 
     public init() {}
-
-    public init(a: Int32 = 0)
-    {
-      self.a = a
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -1007,118 +997,6 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(requiredInt32: Int32 = 0,
-    requiredInt64: Int64 = 0,
-    requiredUint32: UInt32 = 0,
-    requiredUint64: UInt64 = 0,
-    requiredSint32: Int32 = 0,
-    requiredSint64: Int64 = 0,
-    requiredFixed32: UInt32 = 0,
-    requiredFixed64: UInt64 = 0,
-    requiredSfixed32: Int32 = 0,
-    requiredSfixed64: Int64 = 0,
-    requiredFloat: Float = 0,
-    requiredDouble: Double = 0,
-    requiredBool: Bool = false,
-    requiredString: String = "",
-    requiredBytes: Data = Data(),
-    requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil,
-    requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil,
-    requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil,
-    requiredImportMessage: ProtobufUnittestImport_ImportMessage? = nil,
-    requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum = ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo,
-    requiredForeignEnum: ProtobufUnittest_ForeignEnum = ProtobufUnittest_ForeignEnum.foreignFoo,
-    requiredImportEnum: ProtobufUnittestImport_ImportEnum = ProtobufUnittestImport_ImportEnum.importFoo,
-    requiredStringPiece: String = "",
-    requiredCord: String = "",
-    requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil,
-    requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil,
-    defaultInt32: Int32 = 41,
-    defaultInt64: Int64 = 42,
-    defaultUint32: UInt32 = 43,
-    defaultUint64: UInt64 = 44,
-    defaultSint32: Int32 = -45,
-    defaultSint64: Int64 = 46,
-    defaultFixed32: UInt32 = 47,
-    defaultFixed64: UInt64 = 48,
-    defaultSfixed32: Int32 = 49,
-    defaultSfixed64: Int64 = -50,
-    defaultFloat: Float = 51.5,
-    defaultDouble: Double = 52000,
-    defaultBool: Bool = true,
-    defaultString: String = "hello",
-    defaultBytes: Data = Data(bytes: [119, 111, 114, 108, 100]),
-    defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum = ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar,
-    defaultForeignEnum: ProtobufUnittest_ForeignEnum = ProtobufUnittest_ForeignEnum.foreignBar,
-    defaultImportEnum: ProtobufUnittestImport_ImportEnum = ProtobufUnittestImport_ImportEnum.importBar,
-    defaultStringPiece: String = "abc",
-    defaultCord: String = "123",
-    oneofUint32: UInt32? = nil,
-    oneofNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil,
-    oneofString: String? = nil,
-    oneofBytes: Data? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._requiredInt32 = requiredInt32
-    storage._requiredInt64 = requiredInt64
-    storage._requiredUint32 = requiredUint32
-    storage._requiredUint64 = requiredUint64
-    storage._requiredSint32 = requiredSint32
-    storage._requiredSint64 = requiredSint64
-    storage._requiredFixed32 = requiredFixed32
-    storage._requiredFixed64 = requiredFixed64
-    storage._requiredSfixed32 = requiredSfixed32
-    storage._requiredSfixed64 = requiredSfixed64
-    storage._requiredFloat = requiredFloat
-    storage._requiredDouble = requiredDouble
-    storage._requiredBool = requiredBool
-    storage._requiredString = requiredString
-    storage._requiredBytes = requiredBytes
-    storage._requiredGroup = requiredGroup
-    storage._requiredNestedMessage = requiredNestedMessage
-    storage._requiredForeignMessage = requiredForeignMessage
-    storage._requiredImportMessage = requiredImportMessage
-    storage._requiredNestedEnum = requiredNestedEnum
-    storage._requiredForeignEnum = requiredForeignEnum
-    storage._requiredImportEnum = requiredImportEnum
-    storage._requiredStringPiece = requiredStringPiece
-    storage._requiredCord = requiredCord
-    storage._requiredPublicImportMessage = requiredPublicImportMessage
-    storage._requiredLazyMessage = requiredLazyMessage
-    storage._defaultInt32 = defaultInt32
-    storage._defaultInt64 = defaultInt64
-    storage._defaultUint32 = defaultUint32
-    storage._defaultUint64 = defaultUint64
-    storage._defaultSint32 = defaultSint32
-    storage._defaultSint64 = defaultSint64
-    storage._defaultFixed32 = defaultFixed32
-    storage._defaultFixed64 = defaultFixed64
-    storage._defaultSfixed32 = defaultSfixed32
-    storage._defaultSfixed64 = defaultSfixed64
-    storage._defaultFloat = defaultFloat
-    storage._defaultDouble = defaultDouble
-    storage._defaultBool = defaultBool
-    storage._defaultString = defaultString
-    storage._defaultBytes = defaultBytes
-    storage._defaultNestedEnum = defaultNestedEnum
-    storage._defaultForeignEnum = defaultForeignEnum
-    storage._defaultImportEnum = defaultImportEnum
-    storage._defaultStringPiece = defaultStringPiece
-    storage._defaultCord = defaultCord
-    if let v = oneofUint32 {
-      storage._oneofField = .oneofUint32(v)
-    }
-    if let v = oneofNestedMessage {
-      storage._oneofField = .oneofNestedMessage(v)
-    }
-    if let v = oneofString {
-      storage._oneofField = .oneofString(v)
-    }
-    if let v = oneofBytes {
-      storage._oneofField = .oneofBytes(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1240,21 +1118,6 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
   public var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum = ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo
 
   public init() {}
-
-  public init(requiredInt32: Int32 = 0,
-    requiredFloat: Float = 0,
-    requiredBool: Bool = false,
-    requiredString: String = "",
-    requiredBytes: Data = Data(),
-    requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum = ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo)
-  {
-    self.requiredInt32 = requiredInt32
-    self.requiredFloat = requiredFloat
-    self.requiredBool = requiredBool
-    self.requiredString = requiredString
-    self.requiredBytes = requiredBytes
-    self.requiredNestedEnum = requiredNestedEnum
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

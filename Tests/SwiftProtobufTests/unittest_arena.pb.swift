@@ -57,11 +57,6 @@ public struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(d: Int32? = nil)
-  {
-    self.d = d
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -110,17 +105,6 @@ public struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage {
   public var repeatedImportNoArenaMessage: [Proto2ArenaUnittest_ImportNoArenaNestedMessage] = []
 
   public init() {}
-
-  public init(repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = [],
-    repeatedImportNoArenaMessage: [Proto2ArenaUnittest_ImportNoArenaNestedMessage] = [])
-  {
-    if !repeatedNestedMessage.isEmpty {
-      self.repeatedNestedMessage = repeatedNestedMessage
-    }
-    if !repeatedImportNoArenaMessage.isEmpty {
-      self.repeatedImportNoArenaMessage = repeatedImportNoArenaMessage
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

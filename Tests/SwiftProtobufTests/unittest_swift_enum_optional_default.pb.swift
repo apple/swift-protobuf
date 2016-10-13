@@ -177,14 +177,6 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
 
     public init() {}
 
-    public init(message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil,
-      optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil)
-    {
-      let storage = _uniqueStorage()
-      storage._message = message
-      storage._optionalEnum = optionalEnum
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
     }
@@ -289,11 +281,6 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     }
 
     public init() {}
-
-    public init(optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil)
-    {
-      self.optionalEnum = optionalEnum
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool

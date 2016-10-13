@@ -194,7 +194,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
         var decodingFailures = 0
         var roundTripFailures = 0
         while t < latest {
-            let start = Google_Protobuf_Timestamp(secondsSinceEpoch: t)
+            let start = Google_Protobuf_Timestamp(seconds: t)
             do {
                 let encoded = try start.serializeJSON()
                 do {
@@ -238,7 +238,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
     func testJSON_timestampField() throws {
         do {
             let valid = try Conformance_TestAllTypes(json: "{\"optionalTimestamp\": \"0001-01-01T00:00:00Z\"}")
-            XCTAssertEqual(valid.optionalTimestamp, Google_Protobuf_Timestamp(secondsSinceEpoch: -62135596800))
+            XCTAssertEqual(valid.optionalTimestamp, Google_Protobuf_Timestamp(seconds: -62135596800))
         } catch {
             XCTFail("Should have decoded correctly")
         }
@@ -253,7 +253,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     // A couple more test cases transcribed from conformance test
     func testJSON_conformance() throws {
-        let t1 = Google_Protobuf_Timestamp(secondsSinceEpoch: 0, nanos: 10000000)
+        let t1 = Google_Protobuf_Timestamp(seconds: 0, nanos: 10000000)
         var m1 = Conformance_TestAllTypes()
         m1.optionalTimestamp = t1
         let expected1 = "{\"optionalTimestamp\":\"1970-01-01T00:00:00.010Z\"}"
@@ -276,19 +276,19 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
         // Extra spaces around all the tokens.
         let json3 = " { \"repeatedTimestamp\" : [ \"0001-01-01T00:00:00Z\" , \"9999-12-31T23:59:59.999999999Z\" ] } "
         let m3 = try Conformance_TestAllTypes(json: json3)
-        let expected3 = [Google_Protobuf_Timestamp(secondsSinceEpoch: -62135596800),
-                Google_Protobuf_Timestamp(secondsSinceEpoch: 253402300799, nanos: 999999999)]
+        let expected3 = [Google_Protobuf_Timestamp(seconds: -62135596800),
+                Google_Protobuf_Timestamp(seconds: 253402300799, nanos: 999999999)]
         XCTAssertEqual(m3.repeatedTimestamp, expected3)
     }
 
     func testSerializationFailure() throws {
-        let maxOutOfRange = Google_Protobuf_Timestamp(secondsSinceEpoch:-62135596800, nanos: -1)
+        let maxOutOfRange = Google_Protobuf_Timestamp(seconds:-62135596800, nanos: -1)
         XCTAssertThrowsError(try maxOutOfRange.serializeJSON())
-        let minInRange = Google_Protobuf_Timestamp(secondsSinceEpoch:-62135596800)
+        let minInRange = Google_Protobuf_Timestamp(seconds:-62135596800)
         XCTAssertNotNil(try minInRange.serializeJSON())
-        let maxInRange = Google_Protobuf_Timestamp(secondsSinceEpoch:253402300799, nanos: 999999999)
+        let maxInRange = Google_Protobuf_Timestamp(seconds:253402300799, nanos: 999999999)
         XCTAssertNotNil(try maxInRange.serializeJSON())
-        let minOutOfRange = Google_Protobuf_Timestamp(secondsSinceEpoch:253402300800)
+        let minOutOfRange = Google_Protobuf_Timestamp(seconds:253402300800)
         XCTAssertThrowsError(try minOutOfRange.serializeJSON())
     }
 

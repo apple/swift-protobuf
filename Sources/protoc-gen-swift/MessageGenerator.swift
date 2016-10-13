@@ -510,59 +510,6 @@ class MessageGenerator {
         p.print("\n")
         p.print("public init() {}\n")
 
-        // Convenience init
-        if !fields.isEmpty {
-            p.print("\n")
-            p.print("public init(")
-            p.indent()
-            var separator = ""
-            for f in fields {
-                p.print(separator)
-                separator = ",\n"
-                p.print("\(f.swiftName): \(f.convenienceInitType) = \(f.convenienceInitDefault)")
-            }
-            p.print(")\n")
-            p.outdent()
-            p.print("{\n")
-            p.indent()
-            if storage != nil {
-                p.print("let storage = _uniqueStorage()\n")
-            }
-            for f in fields {
-                let varName: String
-                if storage == nil {
-                    varName = "self." + f.swiftName
-                } else {
-                    varName = "storage." + f.swiftStorageName
-                }
-                if let oneof = f.oneof {
-                    let oneofVarName: String
-                    if storage == nil {
-                        oneofVarName = "self." + oneof.swiftFieldName
-                    } else {
-                        oneofVarName = "storage." + oneof.swiftStorageFieldName
-                    }
-                    p.print("if let v = \(f.swiftName) {\n")
-                    p.print("  \(oneofVarName) = .\(f.swiftName)(v)\n")
-                    p.print("}\n")
-                } else if f.isRepeated || f.isMap {
-                    p.print("if !\(f.swiftName).isEmpty {\n")
-                    p.print("  \(varName) = \(f.swiftName)\n")
-                    p.print("}\n")
-                } else if f.isGroup || f.isMessage {
-                    p.print("\(varName) = \(f.swiftName)\n")
-                } else if isProto3 {
-                    p.print("if let v = \(f.swiftName) {\n")
-                    p.print("  \(varName) = v\n")
-                    p.print("}\n")
-                } else {
-                    p.print("\(varName) = \(f.swiftName)\n")
-                }
-            }
-            p.outdent()
-            p.print("}\n")
-        }
-
         // Field-addressable decoding
         p.print("\n")
         p.print("public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {\n")

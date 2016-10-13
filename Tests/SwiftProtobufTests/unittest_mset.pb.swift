@@ -108,12 +108,6 @@ public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage
 
   public init() {}
 
-  public init(messageSet: Proto2WireformatUnittest_TestMessageSet? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._messageSet = messageSet
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -155,11 +149,6 @@ public struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessag
   public var i: Int32? = nil
 
   public init() {}
-
-  public init(i: Int32? = nil)
-  {
-    self.i = i
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -210,11 +199,6 @@ public struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessag
   public var str: String? = nil
 
   public init() {}
-
-  public init(str: String? = nil)
-  {
-    self.str = str
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -290,13 +274,6 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(typeId: Int32 = 0,
-      message: Data = Data())
-    {
-      self.typeId = typeId
-      self.message = message
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -329,13 +306,6 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
   public var item: [ProtobufUnittest_RawMessageSet.Item] = []
 
   public init() {}
-
-  public init(item: [ProtobufUnittest_RawMessageSet.Item] = [])
-  {
-    if !item.isEmpty {
-      self.item = item
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

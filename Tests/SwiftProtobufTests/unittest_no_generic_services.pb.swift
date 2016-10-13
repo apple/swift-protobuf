@@ -123,11 +123,6 @@ public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGenerat
 
   public init() {}
 
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {

@@ -56,13 +56,6 @@ public struct Proto3PublicImportMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(e: Int32? = nil)
-  {
-    if let v = e {
-      self.e = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
