@@ -39,7 +39,6 @@
 import Foundation
 
 
-
 ///   `FieldMask` represents a set of symbolic field paths, for example:
 ///  
 ///       paths: "f.a"

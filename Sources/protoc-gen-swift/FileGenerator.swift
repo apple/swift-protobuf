@@ -122,6 +122,16 @@ extension Google_Protobuf_FileDescriptorProto {
         }
     }
 
+    var baseFilename: String {
+        return splitPath(pathname: name ?? "").base
+    }
+
+    var isWellKnownType : Bool {
+      // descriptor.proto is also in the "google.protobuf" package, but it isn't
+      // a well known type, so filter it out.
+      return package == "google.protobuf" && baseFilename != "descriptor"
+    }
+
     var swiftPrefix: String {
         if let p = options?.swiftPrefix {
             return p
@@ -190,10 +200,8 @@ class FileGenerator {
     var protoPackageName: String {return descriptor.package ?? ""}
     var swiftPrefix: String {return descriptor.swiftPrefix}
     var isProto3: Bool {return descriptor.isProto3}
-
-    var baseFilename: String {
-        return splitPath(pathname: descriptor.name ?? "").base
-    }
+    var isWellKnownType: Bool {return descriptor.isWellKnownType}
+    var baseFilename: String {return descriptor.baseFilename}
 
     var outputFilename: String {
         return baseFilename + ".pb.swift"
@@ -259,10 +267,13 @@ class FileGenerator {
             p.print("\n")
         }
 
-        p.print(
-            "import Foundation\n",
-            "import SwiftProtobuf\n",
-            "\n")
+        p.print("import Foundation\n")
+        if !isWellKnownType {
+          // The well known types ship with the runtime, everything else needs
+          // to import the runtime.
+          p.print("import SwiftProtobuf\n")
+        }
+        p.print("\n")
 
         var enums = [EnumGenerator]()
         let path = [Int32]()

@@ -37,7 +37,6 @@
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
-import SwiftProtobuf
 
 
 ///   `Any` contains an arbitrary serialized protocol buffer message along with a

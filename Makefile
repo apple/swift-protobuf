@@ -277,7 +277,6 @@ regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-p
 regenerate-library-protos: ${PROTOC_GEN_SWIFTX}
 	for t in ${LIBRARY_PROTOS}; do \
 		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=Sources/SwiftProtobuf -I Protos Protos/google/protobuf/$$t.proto; \
-		sed -i~ -e 's/^import SwiftProtobuf$$//' Sources/SwiftProtobuf/$$t.pb.swift; \
 	done
 
 # Rebuild just the protos used by the plugin
