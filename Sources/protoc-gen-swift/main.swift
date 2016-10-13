@@ -24,8 +24,8 @@
 import Foundation
 import PluginLibrary
 
-enum MyError: Error {
-  case failure
+enum GenerationError: Error {
+  case readFailure
 }
 
 func help(progname: String) {
@@ -78,10 +78,17 @@ if justVersion {
 } else if justHelp {
   help(progname: programName ?? Version.name)
 } else if filesToRead.isEmpty {
-  let rawRequest = try Stdin.readall()
-  let request = try CodeGeneratorRequest(protobuf: rawRequest, extensions: SwiftOptions_Extensions)
-  let context = try Context(request: request)
-  let response = context.generateResponse()
+  let response: CodeGeneratorResponse
+  do {
+    let rawRequest = try Stdin.readall()
+    let request = try CodeGeneratorRequest(protobuf: rawRequest, extensions: SwiftOptions_Extensions)
+    let context = try Context(request: request)
+    response = context.generateResponse()
+  } catch GenerationError.readFailure {
+    response = CodeGeneratorResponse(error: "Failed to read the input")
+  } catch {
+    response = CodeGeneratorResponse(error: "Internal Error")
+  }
   let serializedResponse = try response.serializeProtobuf()
   Stdout.write(bytes: serializedResponse)
 } else {
