@@ -101,6 +101,26 @@ public extension ProtobufMessageBase {
         url += protoMessageName
         return url
     }
+
+    /// Creates an instance of the message type on which this method is called,
+    /// executes the given block passing the message in as its sole `inout`
+    /// argument, and then returns the message.
+    ///
+    /// This method acts essentially as a "builder" in that the initialization
+    /// of the message is captured within the block, allowing the returned value
+    /// to be set in an immutable variable. For example,
+    ///
+    ///     let msg = MyMessage.with { $0.myField = "foo" }
+    ///     msg.myOtherField = 5  // error: msg is immutable
+    ///
+    /// - Parameter populator: A block or function that populates the new
+    ///   message, which is passed into the block as an `inout` argument.
+    /// - Returns: The message after execution of the block.
+    public static func with(populator: (inout Self) -> ()) -> Self {
+        var message = Self()
+        populator(&message)
+        return message
+    }
 }
 
 ///

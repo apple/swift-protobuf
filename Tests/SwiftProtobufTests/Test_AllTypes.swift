@@ -2053,5 +2053,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.repeatedGroup = [g1, g2]
         }
     }
+
+    func testWithFactoryHelper() {
+        let m = ProtobufUnittest_ForeignMessage.with { $0.c = 5 }
+        XCTAssertEqual(5, m.c)
+    }
 }
 
