@@ -96,7 +96,8 @@ extension Test_AllTypes {
             ("testDebugDescription", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription)}),
             ("testDebugDescription2", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription2)}),
             ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription3)}),
-            ("testDebugDescription4", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription4)})        ]
+            ("testDebugDescription4", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription4)}),
+            ("testWithFactoryHelper", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelper)})        ]
     }
 }
 
