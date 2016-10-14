@@ -248,7 +248,6 @@ class FileGenerator {
 
     func generateOutputFile(printer p: inout CodePrinter, context: Context) {
         let inputFilename = descriptor.name ?? "<No name>";
-        Stderr.print("Generating Swift for \(inputFilename)")
         p.print(
             "/*\n",
             " * DO NOT EDIT.\n",
