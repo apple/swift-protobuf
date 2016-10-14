@@ -229,17 +229,6 @@ public struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:],
-    unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:])
-  {
-    if !knownMapField.isEmpty {
-      self.knownMapField = knownMapField
-    }
-    if !unknownMapField.isEmpty {
-      self.unknownMapField = unknownMapField
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -294,17 +283,6 @@ public struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:],
-    unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:])
-  {
-    if !knownMapField.isEmpty {
-      self.knownMapField = knownMapField
-    }
-    if !unknownMapField.isEmpty {
-      self.unknownMapField = unknownMapField
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -354,13 +332,6 @@ public struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage {
   public var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
 
   public init() {}
-
-  public init(importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:])
-  {
-    if !importEnumAmp.isEmpty {
-      self.importEnumAmp = importEnumAmp
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

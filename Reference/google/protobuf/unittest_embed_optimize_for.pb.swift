@@ -123,16 +123,6 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
 
   public init() {}
 
-  public init(optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil,
-    repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = [])
-  {
-    let storage = _uniqueStorage()
-    storage._optionalMessage = optionalMessage
-    if !repeatedMessage.isEmpty {
-      storage._repeatedMessage = repeatedMessage
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }

@@ -24,10 +24,13 @@ import SwiftProtobuf
 class Test_Any: XCTestCase {
 
     func test_Any() throws {
-        let content = ProtobufUnittest_TestAllTypes(optionalInt32: 7)
+        var content = ProtobufUnittest_TestAllTypes()
+        content.optionalInt32 = 7
         XCTAssertEqual(content.anyTypeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
 
-        let m = ProtobufUnittest_TestAny(int32Value: 12, anyValue: Google_Protobuf_Any(message: content))
+        var m = ProtobufUnittest_TestAny()
+        m.int32Value = 12
+        m.anyValue = Google_Protobuf_Any(message: content)
 
         // The Any holding an object can be JSON serialized
         XCTAssertNotNil(try m.serializeJSON())
@@ -156,9 +159,12 @@ class Test_Any: XCTestCase {
 
     func test_Any_UserMessage() throws {
         Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
-        let content = ProtobufUnittest_TestAllTypes(optionalInt32: 7)
+        var content = ProtobufUnittest_TestAllTypes()
+        content.optionalInt32 = 7
 
-        let m = ProtobufUnittest_TestAny(int32Value: 12, anyValue: Google_Protobuf_Any(message: content))
+        var m = ProtobufUnittest_TestAny()
+        m.int32Value = 12
+        m.anyValue = Google_Protobuf_Any(message: content)
 
         let encoded = try m.serializeJSON()
         XCTAssertEqual(encoded, "{\"int32Value\":12,\"anyValue\":{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalInt32\":7}}")

@@ -242,31 +242,6 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
 
   public init() {}
 
-  public init(e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil,
-    repeatedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] = [],
-    repeatedPackedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] = [],
-    repeatedPackedUnexpectedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] = [],
-    oneofE1: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil,
-    oneofE2: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil)
-  {
-    self.e = e
-    if !repeatedE.isEmpty {
-      self.repeatedE = repeatedE
-    }
-    if !repeatedPackedE.isEmpty {
-      self.repeatedPackedE = repeatedPackedE
-    }
-    if !repeatedPackedUnexpectedE.isEmpty {
-      self.repeatedPackedUnexpectedE = repeatedPackedUnexpectedE
-    }
-    if let v = oneofE1 {
-      self.o = .oneofE1(v)
-    }
-    if let v = oneofE2 {
-      self.o = .oneofE2(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {

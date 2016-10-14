@@ -58,11 +58,6 @@ public struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtens
 
   public init() {}
 
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -127,11 +122,6 @@ public struct ExtensionGroup: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -177,11 +167,6 @@ public struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -226,11 +211,6 @@ public struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
   public var a: Int32? = nil
 
   public init() {}
-
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

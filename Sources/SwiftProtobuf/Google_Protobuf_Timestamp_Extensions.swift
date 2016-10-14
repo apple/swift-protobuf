@@ -263,9 +263,9 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
 
 
 public extension Google_Protobuf_Timestamp {
-    public init(secondsSinceEpoch: Int64, nanos: Int32 = 0) {
+    public init(seconds: Int64 = 0, nanos: Int32 = 0) {
         self.init()
-        self.seconds = secondsSinceEpoch
+        self.seconds = seconds
         self.nanos = nanos
     }
 

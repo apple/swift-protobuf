@@ -230,13 +230,6 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
 
     public init() {}
 
-    public init(oo: Int64? = nil,
-      bb: Int32? = nil)
-    {
-      self.oo = oo
-      self.bb = bb
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -362,34 +355,6 @@ public struct Swift_Protobuf_TestFieldOrderings: ProtobufGeneratedMessage, Proto
   }
 
   public init() {}
-
-  public init(myString: String? = nil,
-    myInt: Int64? = nil,
-    myFloat: Float? = nil,
-    oneofInt64: Int64? = nil,
-    oneofBool: Bool? = nil,
-    oneofString: String? = nil,
-    oneofInt32: Int32? = nil,
-    optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._myString = myString
-    storage._myInt = myInt
-    storage._myFloat = myFloat
-    if let v = oneofInt64 {
-      storage._options = .oneofInt64(v)
-    }
-    if let v = oneofBool {
-      storage._options = .oneofBool(v)
-    }
-    if let v = oneofString {
-      storage._options = .oneofString(v)
-    }
-    if let v = oneofInt32 {
-      storage._options = .oneofInt32(v)
-    }
-    storage._optionalNestedMessage = optionalNestedMessage
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

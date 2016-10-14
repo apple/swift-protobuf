@@ -105,12 +105,6 @@ public struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage 
 
   public init() {}
 
-  public init(message: ProtobufUnittest_TestAllTypes? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._message = message
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }

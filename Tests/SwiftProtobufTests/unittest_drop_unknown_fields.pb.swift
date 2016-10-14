@@ -143,17 +143,6 @@ public struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(int32Value: Int32? = nil,
-    enumValue: UnittestDropUnknownFields_Foo.NestedEnum? = nil)
-  {
-    if let v = int32Value {
-      self.int32Value = v
-    }
-    if let v = enumValue {
-      self.enumValue = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -295,21 +284,6 @@ public struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMes
   public var extraInt32Value: Int32 = 0
 
   public init() {}
-
-  public init(int32Value: Int32? = nil,
-    enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum? = nil,
-    extraInt32Value: Int32? = nil)
-  {
-    if let v = int32Value {
-      self.int32Value = v
-    }
-    if let v = enumValue {
-      self.enumValue = v
-    }
-    if let v = extraInt32Value {
-      self.extraInt32Value = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

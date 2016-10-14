@@ -670,7 +670,9 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([146, 1, 4, 8, 1, 8, 3]) {$0.singleNestedMessage.bb == 3}
         assertDecodeSucceeds([146, 1, 2, 8, 1, 146, 1, 2, 8, 4]) {$0.singleNestedMessage.bb == 4}
         assertDebugDescription("Proto3TestAllTypes(singleNestedMessage:Proto3TestAllTypes.NestedMessage(bb:1))") {(o: inout MessageTestType) in
-            o.singleNestedMessage = MessageTestType.NestedMessage(bb: 1)
+            var nested = MessageTestType.NestedMessage()
+            nested.bb = 1
+            o.singleNestedMessage = nested
         }
 
         assertDecodeFails([146, 1, 2, 8, 128])

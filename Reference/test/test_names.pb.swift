@@ -33,21 +33,6 @@ public struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(httpRequest: Int32? = nil,
-    url: Int32? = nil,
-    aBC: Int32? = nil)
-  {
-    if let v = httpRequest {
-      self.httpRequest = v
-    }
-    if let v = url {
-      self.url = v
-    }
-    if let v = aBC {
-      self.aBC = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -99,17 +84,6 @@ public struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(httprequest: Int32? = nil,
-    url: Int32? = nil)
-  {
-    if let v = httprequest {
-      self.httprequest = v
-    }
-    if let v = url {
-      self.url = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -151,13 +125,6 @@ public struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage {
   public var url: Int32 = 0
 
   public init() {}
-
-  public init(url: Int32? = nil)
-  {
-    if let v = url {
-      self.url = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

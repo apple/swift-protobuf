@@ -588,82 +588,6 @@ public struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(mapInt32Int32: Dictionary<Int32,Int32> = [:],
-    mapInt64Int64: Dictionary<Int64,Int64> = [:],
-    mapUint32Uint32: Dictionary<UInt32,UInt32> = [:],
-    mapUint64Uint64: Dictionary<UInt64,UInt64> = [:],
-    mapSint32Sint32: Dictionary<Int32,Int32> = [:],
-    mapSint64Sint64: Dictionary<Int64,Int64> = [:],
-    mapFixed32Fixed32: Dictionary<UInt32,UInt32> = [:],
-    mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:],
-    mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:],
-    mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:],
-    mapInt32Float: Dictionary<Int32,Float> = [:],
-    mapInt32Double: Dictionary<Int32,Double> = [:],
-    mapBoolBool: Dictionary<Bool,Bool> = [:],
-    mapStringString: Dictionary<String,String> = [:],
-    mapInt32Bytes: Dictionary<Int32,Data> = [:],
-    mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> = [:],
-    mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageLite> = [:],
-    teboring: Dictionary<Int32,Int32> = [:])
-  {
-    let storage = _uniqueStorage()
-    if !mapInt32Int32.isEmpty {
-      storage._mapInt32Int32 = mapInt32Int32
-    }
-    if !mapInt64Int64.isEmpty {
-      storage._mapInt64Int64 = mapInt64Int64
-    }
-    if !mapUint32Uint32.isEmpty {
-      storage._mapUint32Uint32 = mapUint32Uint32
-    }
-    if !mapUint64Uint64.isEmpty {
-      storage._mapUint64Uint64 = mapUint64Uint64
-    }
-    if !mapSint32Sint32.isEmpty {
-      storage._mapSint32Sint32 = mapSint32Sint32
-    }
-    if !mapSint64Sint64.isEmpty {
-      storage._mapSint64Sint64 = mapSint64Sint64
-    }
-    if !mapFixed32Fixed32.isEmpty {
-      storage._mapFixed32Fixed32 = mapFixed32Fixed32
-    }
-    if !mapFixed64Fixed64.isEmpty {
-      storage._mapFixed64Fixed64 = mapFixed64Fixed64
-    }
-    if !mapSfixed32Sfixed32.isEmpty {
-      storage._mapSfixed32Sfixed32 = mapSfixed32Sfixed32
-    }
-    if !mapSfixed64Sfixed64.isEmpty {
-      storage._mapSfixed64Sfixed64 = mapSfixed64Sfixed64
-    }
-    if !mapInt32Float.isEmpty {
-      storage._mapInt32Float = mapInt32Float
-    }
-    if !mapInt32Double.isEmpty {
-      storage._mapInt32Double = mapInt32Double
-    }
-    if !mapBoolBool.isEmpty {
-      storage._mapBoolBool = mapBoolBool
-    }
-    if !mapStringString.isEmpty {
-      storage._mapStringString = mapStringString
-    }
-    if !mapInt32Bytes.isEmpty {
-      storage._mapInt32Bytes = mapInt32Bytes
-    }
-    if !mapInt32Enum.isEmpty {
-      storage._mapInt32Enum = mapInt32Enum
-    }
-    if !mapInt32ForeignMessage.isEmpty {
-      storage._mapInt32ForeignMessage = mapInt32ForeignMessage
-    }
-    if !teboring.isEmpty {
-      storage._teboring = teboring
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -984,82 +908,6 @@ public struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(mapInt32Int32: Dictionary<Int32,Int32> = [:],
-    mapInt64Int64: Dictionary<Int64,Int64> = [:],
-    mapUint32Uint32: Dictionary<UInt32,UInt32> = [:],
-    mapUint64Uint64: Dictionary<UInt64,UInt64> = [:],
-    mapSint32Sint32: Dictionary<Int32,Int32> = [:],
-    mapSint64Sint64: Dictionary<Int64,Int64> = [:],
-    mapFixed32Fixed32: Dictionary<UInt32,UInt32> = [:],
-    mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:],
-    mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:],
-    mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:],
-    mapInt32Float: Dictionary<Int32,Float> = [:],
-    mapInt32Double: Dictionary<Int32,Double> = [:],
-    mapBoolBool: Dictionary<Bool,Bool> = [:],
-    mapStringString: Dictionary<String,String> = [:],
-    mapInt32Bytes: Dictionary<Int32,Data> = [:],
-    mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> = [:],
-    mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageArenaLite> = [:],
-    mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessageLite> = [:])
-  {
-    let storage = _uniqueStorage()
-    if !mapInt32Int32.isEmpty {
-      storage._mapInt32Int32 = mapInt32Int32
-    }
-    if !mapInt64Int64.isEmpty {
-      storage._mapInt64Int64 = mapInt64Int64
-    }
-    if !mapUint32Uint32.isEmpty {
-      storage._mapUint32Uint32 = mapUint32Uint32
-    }
-    if !mapUint64Uint64.isEmpty {
-      storage._mapUint64Uint64 = mapUint64Uint64
-    }
-    if !mapSint32Sint32.isEmpty {
-      storage._mapSint32Sint32 = mapSint32Sint32
-    }
-    if !mapSint64Sint64.isEmpty {
-      storage._mapSint64Sint64 = mapSint64Sint64
-    }
-    if !mapFixed32Fixed32.isEmpty {
-      storage._mapFixed32Fixed32 = mapFixed32Fixed32
-    }
-    if !mapFixed64Fixed64.isEmpty {
-      storage._mapFixed64Fixed64 = mapFixed64Fixed64
-    }
-    if !mapSfixed32Sfixed32.isEmpty {
-      storage._mapSfixed32Sfixed32 = mapSfixed32Sfixed32
-    }
-    if !mapSfixed64Sfixed64.isEmpty {
-      storage._mapSfixed64Sfixed64 = mapSfixed64Sfixed64
-    }
-    if !mapInt32Float.isEmpty {
-      storage._mapInt32Float = mapInt32Float
-    }
-    if !mapInt32Double.isEmpty {
-      storage._mapInt32Double = mapInt32Double
-    }
-    if !mapBoolBool.isEmpty {
-      storage._mapBoolBool = mapBoolBool
-    }
-    if !mapStringString.isEmpty {
-      storage._mapStringString = mapStringString
-    }
-    if !mapInt32Bytes.isEmpty {
-      storage._mapInt32Bytes = mapInt32Bytes
-    }
-    if !mapInt32Enum.isEmpty {
-      storage._mapInt32Enum = mapInt32Enum
-    }
-    if !mapInt32ForeignMessage.isEmpty {
-      storage._mapInt32ForeignMessage = mapInt32ForeignMessage
-    }
-    if !mapInt32ForeignMessageNoArena.isEmpty {
-      storage._mapInt32ForeignMessageNoArena = mapInt32ForeignMessageNoArena
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1097,13 +945,6 @@ public struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMess
   public var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
 
   public init() {}
-
-  public init(mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:])
-  {
-    if !mapField.isEmpty {
-      self.mapField = mapField
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1153,17 +994,6 @@ public struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
   public var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
   public init() {}
-
-  public init(knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:],
-    unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:])
-  {
-    if !knownMapField.isEmpty {
-      self.knownMapField = knownMapField
-    }
-    if !unknownMapField.isEmpty {
-      self.unknownMapField = unknownMapField
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1219,17 +1049,6 @@ public struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessag
 
   public init() {}
 
-  public init(knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:],
-    unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:])
-  {
-    if !knownMapField.isEmpty {
-      self.knownMapField = knownMapField
-    }
-    if !unknownMapField.isEmpty {
-      self.unknownMapField = unknownMapField
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -1279,13 +1098,6 @@ public struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage {
   public var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
 
   public init() {}
-
-  public init(mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:])
-  {
-    if !mapInt32Message.isEmpty {
-      self.mapInt32Message = mapInt32Message
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1340,15 +1152,6 @@ public struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(a: Int32 = 0,
-    b: Int32 = 0,
-    c: Int32 = 0)
-  {
-    self.a = a
-    self.b = b
-    self.c = c
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -1397,11 +1200,6 @@ public struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage
   public var c: Int32? = nil
 
   public init() {}
-
-  public init(c: Int32? = nil)
-  {
-    self.c = c
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

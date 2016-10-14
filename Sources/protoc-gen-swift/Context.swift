@@ -72,6 +72,21 @@ extension CodeGeneratorRequest {
   }
 }
 
+extension CodeGeneratorResponse {
+  init(error: String) {
+    self.init()
+    self.error = error
+  }
+}
+
+extension CodeGeneratorResponse.File {
+  init(name: String, content: String) {
+    self.init()
+    self.name = name
+    self.content = content
+  }
+}
+
 class GeneratorOptions {
 
   init(parameter: String?) throws {

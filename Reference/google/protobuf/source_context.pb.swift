@@ -58,13 +58,6 @@ public struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(fileName: String? = nil)
-  {
-    if let v = fileName {
-      self.fileName = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {

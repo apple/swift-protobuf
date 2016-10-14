@@ -149,17 +149,6 @@ public struct Google_Protobuf_Any: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(typeURL: String? = nil,
-    value: Data? = nil)
-  {
-    if let v = typeURL {
-      self.typeURL = v
-    }
-    if let v = value {
-      self.value = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {

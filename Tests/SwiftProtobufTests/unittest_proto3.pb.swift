@@ -1004,13 +1004,6 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(bb: Int32? = nil)
-    {
-      if let v = bb {
-        self.bb = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -1330,194 +1323,6 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(singleInt32: Int32? = nil,
-    singleInt64: Int64? = nil,
-    singleUint32: UInt32? = nil,
-    singleUint64: UInt64? = nil,
-    singleSint32: Int32? = nil,
-    singleSint64: Int64? = nil,
-    singleFixed32: UInt32? = nil,
-    singleFixed64: UInt64? = nil,
-    singleSfixed32: Int32? = nil,
-    singleSfixed64: Int64? = nil,
-    singleFloat: Float? = nil,
-    singleDouble: Double? = nil,
-    singleBool: Bool? = nil,
-    singleString: String? = nil,
-    singleBytes: Data? = nil,
-    singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil,
-    singleForeignMessage: Proto3ForeignMessage? = nil,
-    singleImportMessage: Proto3ImportMessage? = nil,
-    singleNestedEnum: Proto3TestAllTypes.NestedEnum? = nil,
-    singleForeignEnum: Proto3ForeignEnum? = nil,
-    singleImportEnum: Proto3ImportEnum? = nil,
-    singlePublicImportMessage: Proto3PublicImportMessage? = nil,
-    repeatedInt32: [Int32] = [],
-    repeatedInt64: [Int64] = [],
-    repeatedUint32: [UInt32] = [],
-    repeatedUint64: [UInt64] = [],
-    repeatedSint32: [Int32] = [],
-    repeatedSint64: [Int64] = [],
-    repeatedFixed32: [UInt32] = [],
-    repeatedFixed64: [UInt64] = [],
-    repeatedSfixed32: [Int32] = [],
-    repeatedSfixed64: [Int64] = [],
-    repeatedFloat: [Float] = [],
-    repeatedDouble: [Double] = [],
-    repeatedBool: [Bool] = [],
-    repeatedString: [String] = [],
-    repeatedBytes: [Data] = [],
-    repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] = [],
-    repeatedForeignMessage: [Proto3ForeignMessage] = [],
-    repeatedImportMessage: [Proto3ImportMessage] = [],
-    repeatedNestedEnum: [Proto3TestAllTypes.NestedEnum] = [],
-    repeatedForeignEnum: [Proto3ForeignEnum] = [],
-    repeatedImportEnum: [Proto3ImportEnum] = [],
-    repeatedPublicImportMessage: [Proto3PublicImportMessage] = [],
-    oneofUint32: UInt32? = nil,
-    oneofNestedMessage: Proto3TestAllTypes.NestedMessage? = nil,
-    oneofString: String? = nil,
-    oneofBytes: Data? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = singleInt32 {
-      storage._singleInt32 = v
-    }
-    if let v = singleInt64 {
-      storage._singleInt64 = v
-    }
-    if let v = singleUint32 {
-      storage._singleUint32 = v
-    }
-    if let v = singleUint64 {
-      storage._singleUint64 = v
-    }
-    if let v = singleSint32 {
-      storage._singleSint32 = v
-    }
-    if let v = singleSint64 {
-      storage._singleSint64 = v
-    }
-    if let v = singleFixed32 {
-      storage._singleFixed32 = v
-    }
-    if let v = singleFixed64 {
-      storage._singleFixed64 = v
-    }
-    if let v = singleSfixed32 {
-      storage._singleSfixed32 = v
-    }
-    if let v = singleSfixed64 {
-      storage._singleSfixed64 = v
-    }
-    if let v = singleFloat {
-      storage._singleFloat = v
-    }
-    if let v = singleDouble {
-      storage._singleDouble = v
-    }
-    if let v = singleBool {
-      storage._singleBool = v
-    }
-    if let v = singleString {
-      storage._singleString = v
-    }
-    if let v = singleBytes {
-      storage._singleBytes = v
-    }
-    storage._singleNestedMessage = singleNestedMessage
-    storage._singleForeignMessage = singleForeignMessage
-    storage._singleImportMessage = singleImportMessage
-    if let v = singleNestedEnum {
-      storage._singleNestedEnum = v
-    }
-    if let v = singleForeignEnum {
-      storage._singleForeignEnum = v
-    }
-    if let v = singleImportEnum {
-      storage._singleImportEnum = v
-    }
-    storage._singlePublicImportMessage = singlePublicImportMessage
-    if !repeatedInt32.isEmpty {
-      storage._repeatedInt32 = repeatedInt32
-    }
-    if !repeatedInt64.isEmpty {
-      storage._repeatedInt64 = repeatedInt64
-    }
-    if !repeatedUint32.isEmpty {
-      storage._repeatedUint32 = repeatedUint32
-    }
-    if !repeatedUint64.isEmpty {
-      storage._repeatedUint64 = repeatedUint64
-    }
-    if !repeatedSint32.isEmpty {
-      storage._repeatedSint32 = repeatedSint32
-    }
-    if !repeatedSint64.isEmpty {
-      storage._repeatedSint64 = repeatedSint64
-    }
-    if !repeatedFixed32.isEmpty {
-      storage._repeatedFixed32 = repeatedFixed32
-    }
-    if !repeatedFixed64.isEmpty {
-      storage._repeatedFixed64 = repeatedFixed64
-    }
-    if !repeatedSfixed32.isEmpty {
-      storage._repeatedSfixed32 = repeatedSfixed32
-    }
-    if !repeatedSfixed64.isEmpty {
-      storage._repeatedSfixed64 = repeatedSfixed64
-    }
-    if !repeatedFloat.isEmpty {
-      storage._repeatedFloat = repeatedFloat
-    }
-    if !repeatedDouble.isEmpty {
-      storage._repeatedDouble = repeatedDouble
-    }
-    if !repeatedBool.isEmpty {
-      storage._repeatedBool = repeatedBool
-    }
-    if !repeatedString.isEmpty {
-      storage._repeatedString = repeatedString
-    }
-    if !repeatedBytes.isEmpty {
-      storage._repeatedBytes = repeatedBytes
-    }
-    if !repeatedNestedMessage.isEmpty {
-      storage._repeatedNestedMessage = repeatedNestedMessage
-    }
-    if !repeatedForeignMessage.isEmpty {
-      storage._repeatedForeignMessage = repeatedForeignMessage
-    }
-    if !repeatedImportMessage.isEmpty {
-      storage._repeatedImportMessage = repeatedImportMessage
-    }
-    if !repeatedNestedEnum.isEmpty {
-      storage._repeatedNestedEnum = repeatedNestedEnum
-    }
-    if !repeatedForeignEnum.isEmpty {
-      storage._repeatedForeignEnum = repeatedForeignEnum
-    }
-    if !repeatedImportEnum.isEmpty {
-      storage._repeatedImportEnum = repeatedImportEnum
-    }
-    if !repeatedPublicImportMessage.isEmpty {
-      storage._repeatedPublicImportMessage = repeatedPublicImportMessage
-    }
-    if let v = oneofUint32 {
-      storage._oneofField = .oneofUint32(v)
-    }
-    if let v = oneofNestedMessage {
-      storage._oneofField = .oneofNestedMessage(v)
-    }
-    if let v = oneofString {
-      storage._oneofField = .oneofString(v)
-    }
-    if let v = oneofBytes {
-      storage._oneofField = .oneofBytes(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1621,18 +1426,6 @@ public struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(child: Proto3NestedTestAllTypes? = nil,
-    payload: Proto3TestAllTypes? = nil,
-    repeatedChild: [Proto3NestedTestAllTypes] = [])
-  {
-    let storage = _uniqueStorage()
-    storage._child = child
-    storage._payload = payload
-    if !repeatedChild.isEmpty {
-      storage._repeatedChild = repeatedChild
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1667,13 +1460,6 @@ public struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
   public var deprecatedInt32: Int32 = 0
 
   public init() {}
-
-  public init(deprecatedInt32: Int32? = nil)
-  {
-    if let v = deprecatedInt32 {
-      self.deprecatedInt32 = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1713,13 +1499,6 @@ public struct Proto3ForeignMessage: ProtobufGeneratedMessage {
   public var c: Int32 = 0
 
   public init() {}
-
-  public init(c: Int32? = nil)
-  {
-    if let v = c {
-      self.c = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1819,12 +1598,6 @@ public struct Proto3TestForeignNested: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(foreignNested: Proto3TestAllTypes.NestedMessage? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._foreignNested = foreignNested
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1866,17 +1639,6 @@ public struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
   public var bb: Int32 = 0
 
   public init() {}
-
-  public init(a: Int32? = nil,
-    bb: Int32? = nil)
-  {
-    if let v = a {
-      self.a = v
-    }
-    if let v = bb {
-      self.bb = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1973,16 +1735,6 @@ public struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(a: Proto3TestRecursiveMessage? = nil,
-    i: Int32? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._a = a
-    if let v = i {
-      storage._i = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -2057,12 +1809,6 @@ public struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
   }
 
   public init() {}
-
-  public init(bb: Proto3TestMutualRecursionB? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._bb = bb
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2151,16 +1897,6 @@ public struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
   }
 
   public init() {}
-
-  public init(a: Proto3TestMutualRecursionA? = nil,
-    optionalInt32: Int32? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._a = a
-    if let v = optionalInt32 {
-      storage._optionalInt32 = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2336,40 +2072,6 @@ public struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(primitiveField: Int32? = nil,
-    stringField: String? = nil,
-    enumField: Proto3ForeignEnum? = nil,
-    messageField: Proto3ForeignMessage? = nil,
-    repeatedPrimitiveField: [Int32] = [],
-    repeatedStringField: [String] = [],
-    repeatedEnumField: [Proto3ForeignEnum] = [],
-    repeatedMessageField: [Proto3ForeignMessage] = [])
-  {
-    let storage = _uniqueStorage()
-    if let v = primitiveField {
-      storage._primitiveField = v
-    }
-    if let v = stringField {
-      storage._stringField = v
-    }
-    if let v = enumField {
-      storage._enumField = v
-    }
-    storage._messageField = messageField
-    if !repeatedPrimitiveField.isEmpty {
-      storage._repeatedPrimitiveField = repeatedPrimitiveField
-    }
-    if !repeatedStringField.isEmpty {
-      storage._repeatedStringField = repeatedStringField
-    }
-    if !repeatedEnumField.isEmpty {
-      storage._repeatedEnumField = repeatedEnumField
-    }
-    if !repeatedMessageField.isEmpty {
-      storage._repeatedMessageField = repeatedMessageField
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -2488,17 +2190,6 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(oo: Int64? = nil,
-      bb: Int32? = nil)
-    {
-      if let v = oo {
-        self.oo = v
-      }
-      if let v = bb {
-        self.bb = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -2548,24 +2239,6 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(myString: String? = nil,
-    myInt: Int64? = nil,
-    myFloat: Float? = nil,
-    singleNestedMessage: Proto3TestFieldOrderings.NestedMessage? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = myString {
-      storage._myString = v
-    }
-    if let v = myInt {
-      storage._myInt = v
-    }
-    if let v = myFloat {
-      storage._myFloat = v
-    }
-    storage._singleNestedMessage = singleNestedMessage
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -2600,13 +2273,6 @@ public struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
   public var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.testSparseEnumUnspecified
 
   public init() {}
-
-  public init(sparseEnum: Proto3TestSparseEnum? = nil)
-  {
-    if let v = sparseEnum {
-      self.sparseEnum = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2646,13 +2312,6 @@ public struct Proto3OneString: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(data: String? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -2689,13 +2348,6 @@ public struct Proto3MoreString: ProtobufGeneratedMessage {
   public var data: [String] = []
 
   public init() {}
-
-  public init(data: [String] = [])
-  {
-    if !data.isEmpty {
-      self.data = data
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2734,13 +2386,6 @@ public struct Proto3OneBytes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(data: Data? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -2777,13 +2422,6 @@ public struct Proto3MoreBytes: ProtobufGeneratedMessage {
   public var data: Data = Data()
 
   public init() {}
-
-  public init(data: Data? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2823,13 +2461,6 @@ public struct Proto3Int32Message: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(data: Int32? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -2866,13 +2497,6 @@ public struct Proto3Uint32Message: ProtobufGeneratedMessage {
   public var data: UInt32 = 0
 
   public init() {}
-
-  public init(data: UInt32? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2911,13 +2535,6 @@ public struct Proto3Int64Message: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(data: Int64? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -2955,13 +2572,6 @@ public struct Proto3Uint64Message: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(data: UInt64? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -2998,13 +2608,6 @@ public struct Proto3BoolMessage: ProtobufGeneratedMessage {
   public var data: Bool = false
 
   public init() {}
-
-  public init(data: Bool? = nil)
-  {
-    if let v = data {
-      self.data = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -3197,22 +2800,6 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(fooInt: Int32? = nil,
-    fooString: String? = nil,
-    fooMessage: Proto3TestAllTypes? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = fooInt {
-      storage._foo = .fooInt(v)
-    }
-    if let v = fooString {
-      storage._foo = .fooString(v)
-    }
-    if let v = fooMessage {
-      storage._foo = .fooMessage(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -3300,65 +2887,6 @@ public struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
   public var packedEnum: [Proto3ForeignEnum] = []
 
   public init() {}
-
-  public init(packedInt32: [Int32] = [],
-    packedInt64: [Int64] = [],
-    packedUint32: [UInt32] = [],
-    packedUint64: [UInt64] = [],
-    packedSint32: [Int32] = [],
-    packedSint64: [Int64] = [],
-    packedFixed32: [UInt32] = [],
-    packedFixed64: [UInt64] = [],
-    packedSfixed32: [Int32] = [],
-    packedSfixed64: [Int64] = [],
-    packedFloat: [Float] = [],
-    packedDouble: [Double] = [],
-    packedBool: [Bool] = [],
-    packedEnum: [Proto3ForeignEnum] = [])
-  {
-    if !packedInt32.isEmpty {
-      self.packedInt32 = packedInt32
-    }
-    if !packedInt64.isEmpty {
-      self.packedInt64 = packedInt64
-    }
-    if !packedUint32.isEmpty {
-      self.packedUint32 = packedUint32
-    }
-    if !packedUint64.isEmpty {
-      self.packedUint64 = packedUint64
-    }
-    if !packedSint32.isEmpty {
-      self.packedSint32 = packedSint32
-    }
-    if !packedSint64.isEmpty {
-      self.packedSint64 = packedSint64
-    }
-    if !packedFixed32.isEmpty {
-      self.packedFixed32 = packedFixed32
-    }
-    if !packedFixed64.isEmpty {
-      self.packedFixed64 = packedFixed64
-    }
-    if !packedSfixed32.isEmpty {
-      self.packedSfixed32 = packedSfixed32
-    }
-    if !packedSfixed64.isEmpty {
-      self.packedSfixed64 = packedSfixed64
-    }
-    if !packedFloat.isEmpty {
-      self.packedFloat = packedFloat
-    }
-    if !packedDouble.isEmpty {
-      self.packedDouble = packedDouble
-    }
-    if !packedBool.isEmpty {
-      self.packedBool = packedBool
-    }
-    if !packedEnum.isEmpty {
-      self.packedEnum = packedEnum
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -3516,65 +3044,6 @@ public struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(unpackedInt32: [Int32] = [],
-    unpackedInt64: [Int64] = [],
-    unpackedUint32: [UInt32] = [],
-    unpackedUint64: [UInt64] = [],
-    unpackedSint32: [Int32] = [],
-    unpackedSint64: [Int64] = [],
-    unpackedFixed32: [UInt32] = [],
-    unpackedFixed64: [UInt64] = [],
-    unpackedSfixed32: [Int32] = [],
-    unpackedSfixed64: [Int64] = [],
-    unpackedFloat: [Float] = [],
-    unpackedDouble: [Double] = [],
-    unpackedBool: [Bool] = [],
-    unpackedEnum: [Proto3ForeignEnum] = [])
-  {
-    if !unpackedInt32.isEmpty {
-      self.unpackedInt32 = unpackedInt32
-    }
-    if !unpackedInt64.isEmpty {
-      self.unpackedInt64 = unpackedInt64
-    }
-    if !unpackedUint32.isEmpty {
-      self.unpackedUint32 = unpackedUint32
-    }
-    if !unpackedUint64.isEmpty {
-      self.unpackedUint64 = unpackedUint64
-    }
-    if !unpackedSint32.isEmpty {
-      self.unpackedSint32 = unpackedSint32
-    }
-    if !unpackedSint64.isEmpty {
-      self.unpackedSint64 = unpackedSint64
-    }
-    if !unpackedFixed32.isEmpty {
-      self.unpackedFixed32 = unpackedFixed32
-    }
-    if !unpackedFixed64.isEmpty {
-      self.unpackedFixed64 = unpackedFixed64
-    }
-    if !unpackedSfixed32.isEmpty {
-      self.unpackedSfixed32 = unpackedSfixed32
-    }
-    if !unpackedSfixed64.isEmpty {
-      self.unpackedSfixed64 = unpackedSfixed64
-    }
-    if !unpackedFloat.isEmpty {
-      self.unpackedFloat = unpackedFloat
-    }
-    if !unpackedDouble.isEmpty {
-      self.unpackedDouble = unpackedDouble
-    }
-    if !unpackedBool.isEmpty {
-      self.unpackedBool = unpackedBool
-    }
-    if !unpackedEnum.isEmpty {
-      self.unpackedEnum = unpackedEnum
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -3703,33 +3172,6 @@ public struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessag
 
   public init() {}
 
-  public init(repeatedFixed32: [UInt32] = [],
-    repeatedInt32: [Int32] = [],
-    repeatedFixed64: [UInt64] = [],
-    repeatedInt64: [Int64] = [],
-    repeatedFloat: [Float] = [],
-    repeatedUint64: [UInt64] = [])
-  {
-    if !repeatedFixed32.isEmpty {
-      self.repeatedFixed32 = repeatedFixed32
-    }
-    if !repeatedInt32.isEmpty {
-      self.repeatedInt32 = repeatedInt32
-    }
-    if !repeatedFixed64.isEmpty {
-      self.repeatedFixed64 = repeatedFixed64
-    }
-    if !repeatedInt64.isEmpty {
-      self.repeatedInt64 = repeatedInt64
-    }
-    if !repeatedFloat.isEmpty {
-      self.repeatedFloat = repeatedFloat
-    }
-    if !repeatedUint64.isEmpty {
-      self.repeatedUint64 = repeatedUint64
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -3792,13 +3234,6 @@ public struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
   public var a: String = ""
 
   public init() {}
-
-  public init(a: String? = nil)
-  {
-    if let v = a {
-      self.a = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
