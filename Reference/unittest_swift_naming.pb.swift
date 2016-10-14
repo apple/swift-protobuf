@@ -93,7 +93,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
   case _Function__ // = 63
   case _Line__ // = 64
   case ___ // = 65
-  case ____ // = 1065
   case `associativity` // = 66
   case convenience // = 67
   case dynamic // = 68
@@ -310,7 +309,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     case 63: self = ._Function__
     case 64: self = ._Line__
     case 65: self = .___
-    case 1065: self = .____
     case 66: self = .`associativity`
     case 67: self = .convenience
     case 68: self = .dynamic
@@ -525,7 +523,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     case "_Function__": self = ._Function__
     case "_Line__": self = ._Line__
     case "___": self = .___
-    case "____": self = .____
     case "associativity": self = .`associativity`
     case "convenience": self = .convenience
     case "dynamic": self = .dynamic
@@ -740,7 +737,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     case "__FUNCTION__": self = ._Function__
     case "__LINE__": self = ._Line__
     case "_": self = .___
-    case "__": self = .____
     case "associativity": self = .`associativity`
     case "convenience": self = .convenience
     case "dynamic": self = .dynamic
@@ -955,7 +951,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     case "__FUNCTION__": self = ._Function__
     case "__LINE__": self = ._Line__
     case "_": self = .___
-    case "__": self = .____
     case "associativity": self = .`associativity`
     case "convenience": self = .convenience
     case "dynamic": self = .dynamic
@@ -1171,7 +1166,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
       case ._Function__: return 63
       case ._Line__: return 64
       case .___: return 65
-      case .____: return 1065
       case .`associativity`: return 66
       case .convenience: return 67
       case .dynamic: return 68
@@ -1388,7 +1382,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
       case ._Function__: return "\"__FUNCTION__\""
       case ._Line__: return "\"__LINE__\""
       case .___: return "\"_\""
-      case .____: return "\"__\""
       case .`associativity`: return "\"associativity\""
       case .convenience: return "\"convenience\""
       case .dynamic: return "\"dynamic\""
@@ -1607,7 +1600,6 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
       case ._Function__: return "._Function__"
       case ._Line__: return "._Line__"
       case .___: return ".___"
-      case .____: return ".____"
       case .`associativity`: return ".associativity"
       case .convenience: return ".convenience"
       case .dynamic: return ".dynamic"
@@ -1751,6 +1743,90 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
       case .timeScale: return ".timeScale"
       case .timeBase: return ".timeBase"
       case .timeRecord: return ".timeRecord"
+      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
+      }
+    }
+  }
+
+}
+
+public enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
+  public typealias RawValue = Int
+  case aa // = 0
+
+  ///   protoc no longer allows enum naming that would differ only in underscores.
+  ///   Initial commit:
+  ///     https://github.com/google/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
+  ///   Change keep proto3 as error, but proto2 to just a warning:
+  ///     https://github.com/google/protobuf/pull/2204
+  ///   So this is in a second enum so it won't cause issues with the '_' one;
+  ///   but still ensure things generator correctly.
+  case ____ // = 1065
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .aa
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .aa
+    case 1065: self = .____
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public init?(name: String) {
+    switch name {
+    case "aa": self = .aa
+    case "____": self = .____
+    default: return nil
+    }
+  }
+
+  public init?(jsonName: String) {
+    switch jsonName {
+    case "AA": self = .aa
+    case "__": self = .____
+    default: return nil
+    }
+  }
+
+  public init?(protoName: String) {
+    switch protoName {
+    case "AA": self = .aa
+    case "__": self = .____
+    default: return nil
+    }
+  }
+
+  public var rawValue: Int {
+    get {
+      switch self {
+      case .aa: return 0
+      case .____: return 1065
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+  }
+
+  public var json: String {
+    get {
+      switch self {
+      case .aa: return "\"AA\""
+      case .____: return "\"__\""
+      case .UNRECOGNIZED(let i): return String(i)
+      }
+    }
+  }
+
+  public var hashValue: Int { return rawValue }
+
+  public var debugDescription: String {
+    get {
+      switch self {
+      case .aa: return ".aa"
+      case .____: return ".____"
       case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
       }
     }
