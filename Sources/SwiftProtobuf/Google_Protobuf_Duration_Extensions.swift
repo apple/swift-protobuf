@@ -157,7 +157,7 @@ public extension Google_Protobuf_Duration {
 
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
-    public init(seconds: Int64, nanos: Int32 = 0) {
+    public init(seconds: Int64 = 0, nanos: Int32 = 0) {
         self.init()
         self.seconds = seconds
         self.nanos = nanos
