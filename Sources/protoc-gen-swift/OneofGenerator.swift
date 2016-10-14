@@ -1,4 +1,4 @@
-// Sources/OneofGenerator.swift - Oneof handling
+// Sources/protoc-gen-swift/OneofGenerator.swift - Oneof handling
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Sources/MessageGenerator.swift - Per-message logic
+// Sources/protoc-gen-swift/MessageGenerator.swift - Per-message logic
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Sources/Context.swift - Overall code generation handling
+// Sources/protoc-gen-swift/Context.swift - Overall code generation handling
 //
 // This source file is part of the Swift.org open source project
 //

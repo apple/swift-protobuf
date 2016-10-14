@@ -1,4 +1,4 @@
-// Sources/FileGenerator.swift - File-level generation logic
+// Sources/protoc-gen-swift/FileGenerator.swift - File-level generation logic
 //
 // This source file is part of the Swift.org open source project
 //
