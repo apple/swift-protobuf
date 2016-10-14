@@ -85,7 +85,7 @@ class Stdin {
             var fragment = [UInt8](repeating: 0, count: buffSize)
             let count = read(fd, &fragment, buffSize)
             if count < 0 {
-                throw MyError.failure
+                throw GenerationError.readFailure
             }
             if count < buffSize {
                 buff += fragment[0..<count]
@@ -108,7 +108,7 @@ func writeFileData(filename: String, data: [UInt8]) throws {
 func readFileData(filename: String) throws -> [UInt8] {
 #if os(Linux)
     guard let data = NSData(contentsOfFile: filename) else {
-        throw MyError.failure
+        throw GenerationError.readFailure
     }
 
     // from NSData to [UInt8]

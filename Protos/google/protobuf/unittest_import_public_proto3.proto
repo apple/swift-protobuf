@@ -36,7 +36,8 @@ package protobuf_unittest_import;
 
 option java_package = "com.google.protobuf.test";
 option csharp_namespace = "Google.Protobuf.TestProtos";
-option swift_prefix = "Proto3";
+import "swift-options.proto";
+option (apple_swift_prefix) = "Proto3";
 
 message PublicImportMessage {
  int32 e = 1;

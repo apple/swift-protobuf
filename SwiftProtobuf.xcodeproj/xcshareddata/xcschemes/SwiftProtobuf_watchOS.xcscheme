@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "9999"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_Protobuf"
+               BlueprintIdentifier = "F44F93FD1DAEB13F00BC5B85"
                BuildableName = "SwiftProtobuf.framework"
-               BlueprintName = "SwiftProtobuf_macOS"
-               ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
+               BlueprintName = "SwiftProtobuf_watchOS"
+               ReferencedContainer = "container:SwiftProtobuf.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_ProtobufTestSuite"
-               BuildableName = "SwiftProtobufTestSuite_macOS.xctest"
-               BlueprintName = "SwiftProtobufTestSuite_macOS"
-               ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
@@ -55,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "______Target_Protobuf"
+            BlueprintIdentifier = "F44F93FD1DAEB13F00BC5B85"
             BuildableName = "SwiftProtobuf.framework"
-            BlueprintName = "SwiftProtobuf_macOS"
-            ReferencedContainer = "container:SwiftProtobufRuntime.xcodeproj">
+            BlueprintName = "SwiftProtobuf_watchOS"
+            ReferencedContainer = "container:SwiftProtobuf.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -70,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F44F93FD1DAEB13F00BC5B85"
+            BuildableName = "SwiftProtobuf.framework"
+            BlueprintName = "SwiftProtobuf_watchOS"
+            ReferencedContainer = "container:SwiftProtobuf.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -1,11 +1,19 @@
 <img src="https://swift.org/assets/images/swift.svg" alt="Swift logo" height="70" >
 # Swift Protobuf
 
+---
+
+> :warning: **WARNING** :warning: This project is in a _prerelease_ state. There
+> is active work going on that will result in API changes that can/will break
+> code while things are finished. Use with caution.
+
+---
+
 **Welcome to Swift Protobuf!**
 
-Apple's Swift programming language is a perfect complement to Google's Protocol
-Buffer serialization technology.  They both emphasize high performance
-and programmer safety.
+Apple's Swift programming language is a perfect complement to [Google's Protocol
+Buffer](https://developers.google.com/protocol-buffers/) serialization
+technology.  They both emphasize high performance and programmer safety.
 
 This project provides both the protoc plugin that provides Swift code
 generation and the runtime library that is necessary for using code
@@ -19,6 +27,7 @@ More information is available in the associated documentation:
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the protoc plugin
  * [API.md](Documentation/API.md) documents the API you should use
  * [GENERATED_CODE.md](Documentation/GENERATED_CODE.md) documents the structure of the generated code
+ * [STYLE_GUIDELINES.md](Documentation/STYLE_GUIDELINES.md) documents the style guidelines we have adopted in our codebase if you are interested in contributing
 
 ## Getting Started
 
@@ -56,7 +65,7 @@ Each `.proto` input file will get translated to a corresponding `.pb.swift` file
 
 ## Building your project with `swift build`
 
-After copying the `.pb.swift` files into your project, you will need to add the [SwiftProtobufRuntime library](https://github.com/apple/swift-protobuf-runtime) to your project to support the generated code.  If you are using the Swift Package Manager, you should first check what version of `protoc-gen-swift` you are currently using:
+After copying the `.pb.swift` files into your project, you will need to add the [SwiftProtobuf library](https://github.com/apple/swift-protobuf) to your project to support the generated code.  If you are using the Swift Package Manager, you should first check what version of `protoc-gen-swift` you are currently using:
 ```
 $ protoc-gen-swift --version
 protoc-gen-swift 0.9.23

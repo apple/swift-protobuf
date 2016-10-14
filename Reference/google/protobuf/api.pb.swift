@@ -37,7 +37,6 @@
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
-import SwiftProtobuf
 
 
 ///   Api is a light-weight descriptor for a protocol buffer service.

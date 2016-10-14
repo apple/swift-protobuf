@@ -44,7 +44,6 @@
 //  such as the string literal length limit in Java.
 
 import Foundation
-import SwiftProtobuf
 
 
 public struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage {

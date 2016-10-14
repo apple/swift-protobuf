@@ -940,7 +940,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   }
 
-  public struct OptionalGroup: ProtobufGeneratedGroup {
+  public struct OptionalGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -990,7 +990,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RepeatedGroup: ProtobufGeneratedGroup {
+  public struct RepeatedGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1040,7 +1040,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
   }
 
-  public struct OneofGroup: ProtobufGeneratedGroup {
+  public struct OneofGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.OneofGroup"}
     public var protoMessageName: String {return "OneofGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}

@@ -110,7 +110,7 @@ public struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtens
   }
 }
 
-public struct ExtensionGroup: ProtobufGeneratedGroup {
+public struct ExtensionGroup: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ExtensionGroup"}
   public var protoMessageName: String {return "ExtensionGroup"}
   public var protoPackageName: String {return ""}
@@ -160,7 +160,7 @@ public struct ExtensionGroup: ProtobufGeneratedGroup {
   }
 }
 
-public struct RepeatedExtensionGroup: ProtobufGeneratedGroup {
+public struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "RepeatedExtensionGroup"}
   public var protoMessageName: String {return "RepeatedExtensionGroup"}
   public var protoPackageName: String {return ""}

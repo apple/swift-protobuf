@@ -37,7 +37,6 @@
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
-import SwiftProtobuf
 
 
 ///   A generic empty message that you can re-use to avoid defining duplicated

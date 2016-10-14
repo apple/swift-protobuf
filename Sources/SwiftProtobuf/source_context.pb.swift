@@ -39,7 +39,6 @@
 import Foundation
 
 
-
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
 public struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage {

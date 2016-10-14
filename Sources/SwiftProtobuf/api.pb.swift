@@ -39,7 +39,6 @@
 import Foundation
 
 
-
 ///   Api is a light-weight descriptor for a protocol buffer service.
 public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Api"}

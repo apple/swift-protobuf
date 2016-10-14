@@ -39,7 +39,6 @@
 import Foundation
 
 
-
 ///   The syntax in which a protocol buffer element is defined.
 public enum Google_Protobuf_Syntax: ProtobufEnum {
   public typealias RawValue = Int

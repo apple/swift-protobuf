@@ -269,7 +269,7 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public struct Item: ProtobufGeneratedGroup {
+  public struct Item: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet.Item"}
     public var protoMessageName: String {return "Item"}
     public var protoPackageName: String {return "protobuf_unittest"}

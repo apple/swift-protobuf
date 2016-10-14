@@ -1056,7 +1056,7 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public struct ComplexOptionType5: ProtobufGeneratedGroup {
+  public struct ComplexOptionType5: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType3.ComplexOptionType5"}
     public var protoMessageName: String {return "ComplexOptionType5"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1152,7 +1152,7 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedGroup {
+public struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOpt6"}
   public var protoMessageName: String {return "ComplexOpt6"}
   public var protoPackageName: String {return "protobuf_unittest"}

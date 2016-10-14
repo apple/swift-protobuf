@@ -37,7 +37,6 @@
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
-import SwiftProtobuf
 
 
 ///   `SourceContext` represents information about the source of a
