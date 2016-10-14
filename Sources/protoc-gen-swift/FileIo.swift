@@ -22,6 +22,7 @@ import Foundation
   import Darwin.C
 #endif
 
+// Alias clib's write() so Stdout.write(bytes:) can call it.
 private let _write = write
 
 private func printToFd(_ s: String, fd: Int32, appendNewLine: Bool = true) {
@@ -30,40 +31,18 @@ private func printToFd(_ s: String, fd: Int32, appendNewLine: Bool = true) {
   bytes.withUnsafeBufferPointer { (bp: UnsafeBufferPointer<UInt8>) -> () in
     write(fd, bp.baseAddress, bp.count)
   }
-  // Write trailing newline
-  [UInt8(10)].withUnsafeBufferPointer { (bp: UnsafeBufferPointer<UInt8>) -> () in
-    write(fd, bp.baseAddress, bp.count)
+  if appendNewLine {
+    // Write trailing newline
+    [UInt8(10)].withUnsafeBufferPointer { (bp: UnsafeBufferPointer<UInt8>) -> () in
+      write(fd, bp.baseAddress, bp.count)
+    }
   }
 }
 
-let Stderr = _Stderr()
-
-class _Stderr {
-  private(set) var content = ""
-  private var currentIndentDepth = 0
-  private var currentIndent = ""
-  private var atLineStart = true
-
-  private func resetIndent() {
-    currentIndent = (0..<currentIndentDepth).map { Int -> String in return "  " } .joined(separator:"")
-  }
-
-  func print(_ s: String) {
-    let out = currentIndent + "protoc-gen-swift: " + s
+class Stderr {
+  static func print(_ s: String) {
+    let out = "protoc-gen-swift: " + s
     printToFd(out, fd: 2)
-  }
-
-  func enter(_ s: String) {
-    currentIndentDepth += 1
-    resetIndent()
-    print(s)
-  }
-
-  func exit(_ s: String = "") {
-    currentIndentDepth -= 1
-    if currentIndentDepth < 0 {currentIndentDepth = 0}
-    resetIndent()
-    print(s)
   }
 }
 
