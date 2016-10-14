@@ -14,7 +14,9 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import XCTest
+import SwiftProtobuf
 
 class Test_Text: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3TestAllTypes
@@ -27,7 +29,7 @@ class Test_Text: XCTestCase, PBTestHelpers {
         XCTAssertEqual("single_int32: 41\n", try a.serializeText())
 
         a.singleFloat = 11
-
+U
         XCTAssertEqual("{\"singleInt32\":41,\"singleFloat\":11}", try a.serializeJSON())
         XCTAssertEqual("single_int32: 41\n" + "single_float: 11\n", try a.serializeText())
         

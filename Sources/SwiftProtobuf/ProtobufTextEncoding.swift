@@ -32,14 +32,6 @@ public struct ProtobufTextEncodingVisitor: ProtobufVisitor {
         }
     }
     
-    public init(group: ProtobufGroupBase, tabLevel: Int) throws {
-        self.tabLevel = tabLevel
-
-        try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
-            try group.traverse(visitor: &visitor)
-        }
-    }
-    
     mutating public func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) throws {
         var visitor: ProtobufVisitor = self
         try clause(&visitor)
@@ -96,19 +88,19 @@ public struct ProtobufTextEncodingVisitor: ProtobufVisitor {
     
     // Note that JSON encoding for groups is not officially supported
     // by any Google spec.  But it's trivial to support it here.
-    mutating public func visitSingularGroupField<G: ProtobufGroup>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating public func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: protoFieldName, tabLevel: tabLevel)
         // Groups have no special JSON support, so we use only the generic traversal mechanism here
-        let t = try ProtobufTextEncodingVisitor(group: value, tabLevel:tabLevel).result
+        let t = try ProtobufTextEncodingVisitor(message: value, tabLevel:tabLevel).result
         encoder.append(text: t)
         encoder.endField()
     }
     
-    mutating public func visitRepeatedGroupField<G: ProtobufGroup>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating public func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         for v in value {
             encoder.startField(name: protoFieldName, tabLevel: tabLevel)
             // Groups have no special JSON support, so we use only the generic traversal mechanism here
-            let t = try ProtobufTextEncodingVisitor(group: v, tabLevel:tabLevel).result
+            let t = try ProtobufTextEncodingVisitor(message: v, tabLevel:tabLevel).result
             encoder.append(text: t)
             encoder.endField()
         }
