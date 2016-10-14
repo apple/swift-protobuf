@@ -1,4 +1,4 @@
-// Sources/MessageFieldGenerator.swift - Facts about a single message field
+// Sources/protoc-gen-swift/MessageFieldGenerator.swift - Facts about a single message field
 //
 // This source file is part of the Swift.org open source project
 //

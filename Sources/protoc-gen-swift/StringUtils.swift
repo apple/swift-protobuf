@@ -1,4 +1,4 @@
-// Sources/StringUtils.swift - String processing utilities
+// Sources/protoc-gen-swift/StringUtils.swift - String processing utilities
 //
 // This source file is part of the Swift.org open source project
 //

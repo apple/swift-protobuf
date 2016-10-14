@@ -1,4 +1,4 @@
-// Sources/CodePrinter.swift - Code output
+// Sources/protoc-gen-swift/CodePrinter.swift - Code output
 //
 // This source file is part of the Swift.org open source project
 //

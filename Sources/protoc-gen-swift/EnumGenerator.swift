@@ -1,4 +1,4 @@
-// Sources/EnumGenerator.swift - Enum logic
+// Sources/protoc-gen-swift/EnumGenerator.swift - Enum logic
 //
 // This source file is part of the Swift.org open source project
 //

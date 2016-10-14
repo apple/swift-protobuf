@@ -1,4 +1,4 @@
-// Sources/FileIo.swift - File I/O utilities
+// Sources/protoc-gen-swift/FileIo.swift - File I/O utilities
 //
 // This source file is part of the Swift.org open source project
 //

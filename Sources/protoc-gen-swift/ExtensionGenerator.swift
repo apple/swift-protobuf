@@ -1,4 +1,4 @@
-// Sources/ExtensionGenerator.swift - Handle Proto2 extension
+// Sources/protoc-gen-swift/ExtensionGenerator.swift - Handle Proto2 extension
 //
 // This source file is part of the Swift.org open source project
 //

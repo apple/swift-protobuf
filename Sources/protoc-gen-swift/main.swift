@@ -1,4 +1,4 @@
-// Sources/main.swift - Protoc plugin main
+// Sources/protoc-gen-swift/main.swift - Protoc plugin main
 //
 // This source file is part of the Swift.org open source project
 //
