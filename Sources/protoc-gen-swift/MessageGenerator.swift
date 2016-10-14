@@ -426,7 +426,9 @@ class MessageGenerator {
             p.print("public var jsonFieldNames: [String: Int] {return [\n")
             p.indent()
             for f in fields {
-                p.print("\"\(f.jsonName)\": \(f.number),\n")
+                if let jsonName = f.jsonName {
+                    p.print("\"\(jsonName)\": \(f.number),\n")
+                }
             }
             p.outdent()
             p.print("]}\n")

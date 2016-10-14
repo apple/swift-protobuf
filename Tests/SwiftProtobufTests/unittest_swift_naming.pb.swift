@@ -1972,6 +1972,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     "timeScale": 241,
     "timeBase": 242,
     "timeRecord": 243,
+    "json_was_overridden": 244,
   ]}
   public var protoFieldNames: [String: Int] {return [
     "String": 1,
@@ -2181,6 +2182,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     "TimeScale": 241,
     "TimeBase": 242,
     "TimeRecord": 243,
+    "json_should_be_overriden": 244,
   ]}
 
   private class _StorageClass {
@@ -2392,6 +2394,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     var _timeScale: Int32 = 0
     var _timeBase: Int32 = 0
     var _timeRecord: Int32 = 0
+    var _jsonShouldBeOverriden: Int32 = 0
 
     init() {}
 
@@ -2605,6 +2608,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       case 241: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_timeScale)
       case 242: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_timeBase)
       case 243: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_timeRecord)
+      case 244: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_jsonShouldBeOverriden)
       default:
         handled = false
       }
@@ -3233,6 +3237,9 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       if _timeRecord != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeRecord, protoFieldNumber: 243, protoFieldName: "TimeRecord", jsonFieldName: "timeRecord", swiftFieldName: "timeRecord")
       }
+      if _jsonShouldBeOverriden != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _jsonShouldBeOverriden, protoFieldNumber: 244, protoFieldName: "json_should_be_overriden", jsonFieldName: "json_was_overridden", swiftFieldName: "jsonShouldBeOverriden")
+      }
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -3443,6 +3450,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       if _timeScale != other._timeScale {return false}
       if _timeBase != other._timeBase {return false}
       if _timeRecord != other._timeRecord {return false}
+      if _jsonShouldBeOverriden != other._jsonShouldBeOverriden {return false}
       return true
     }
 
@@ -3655,6 +3663,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       clone._timeScale = _timeScale
       clone._timeBase = _timeBase
       clone._timeRecord = _timeRecord
+      clone._jsonShouldBeOverriden = _jsonShouldBeOverriden
       return clone
     }
   }
@@ -4694,6 +4703,11 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
   public var timeRecord: Int32 {
     get {return _storage._timeRecord}
     set {_uniqueStorage()._timeRecord = newValue}
+  }
+
+  public var jsonShouldBeOverriden: Int32 {
+    get {return _storage._jsonShouldBeOverriden}
+    set {_uniqueStorage()._jsonShouldBeOverriden = newValue}
   }
 
   public init() {}
