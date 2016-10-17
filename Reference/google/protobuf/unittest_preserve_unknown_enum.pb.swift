@@ -296,37 +296,29 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
   ///   not packed
   public var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
-  public var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum? {
+  public var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE1(let v) = o {
         return v
       }
-      return nil
+      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
     }
     set {
-      if let newValue = newValue {
-        o = .oneofE1(newValue)
-      } else {
-        o = .None
-      }
+      o = .oneofE1(newValue)
     }
   }
 
   public var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
 
-  public var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum? {
+  public var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE2(let v) = o {
         return v
       }
-      return nil
+      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
     }
     set {
-      if let newValue = newValue {
-        o = .oneofE2(newValue)
-      } else {
-        o = .None
-      }
+      o = .oneofE2(newValue)
     }
   }
 
@@ -452,37 +444,29 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGene
 
   public var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
-  public var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra? {
+  public var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
       if case .oneofE1(let v) = o {
         return v
       }
-      return nil
+      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
     }
     set {
-      if let newValue = newValue {
-        o = .oneofE1(newValue)
-      } else {
-        o = .None
-      }
+      o = .oneofE1(newValue)
     }
   }
 
   public var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O = .None
 
-  public var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra? {
+  public var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
       if case .oneofE2(let v) = o {
         return v
       }
-      return nil
+      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
     }
     set {
-      if let newValue = newValue {
-        o = .oneofE2(newValue)
-      } else {
-        o = .None
-      }
+      o = .oneofE2(newValue)
     }
   }
 

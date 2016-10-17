@@ -54,14 +54,24 @@ public struct ProtobufUnittestImport_PublicImportMessageLite: ProtobufGeneratedM
 
   var unknown = ProtobufUnknownStorage()
 
-  public var e: Int32? = nil
+  private var _e: Int32? = nil
+  public var e: Int32 {
+    get {return _e ?? 0}
+    set {_e = newValue}
+  }
+  public var hasE: Bool {
+    return _e != nil
+  }
+  public mutating func clearE() {
+    return _e = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &e)
+    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_e)
     default:
       handled = false
     }
@@ -73,14 +83,14 @@ public struct ProtobufUnittestImport_PublicImportMessageLite: ProtobufGeneratedM
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = e {
+    if let v = _e {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "e", jsonFieldName: "e", swiftFieldName: "e")
     }
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_PublicImportMessageLite) -> Bool {
-    if ((e != nil || other.e != nil) && (e == nil || other.e == nil || e! != other.e!)) {return false}
+    if (e != other.e) {return false}
     if unknown != other.unknown {return false}
     return true
   }

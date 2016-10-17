@@ -101,9 +101,15 @@ public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage
 
   private var _storage = _StorageClass()
 
-  public var messageSet: Proto2WireformatUnittest_TestMessageSet? {
-    get {return _storage._messageSet}
+  public var messageSet: Proto2WireformatUnittest_TestMessageSet {
+    get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
+  }
+  public var hasMessageSet: Bool {
+    return _storage._messageSet != nil
+  }
+  public mutating func clearMessageSet() {
+    return _storage._messageSet = nil
   }
 
   public init() {}
@@ -143,17 +149,27 @@ public struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessag
 
   struct Extensions {
 
-    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension", defaultValue: nil)
+    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension1())
   }
 
-  public var i: Int32? = nil
+  private var _i: Int32? = nil
+  public var i: Int32 {
+    get {return _i ?? 0}
+    set {_i = newValue}
+  }
+  public var hasI: Bool {
+    return _i != nil
+  }
+  public mutating func clearI() {
+    return _i = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 15: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &i)
+    case 15: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_i)
     default:
       handled = false
     }
@@ -165,14 +181,14 @@ public struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessag
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = i {
+    if let v = _i {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 15, protoFieldName: "i", jsonFieldName: "i", swiftFieldName: "i")
     }
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
-    if ((i != nil || other.i != nil) && (i == nil || other.i == nil || i! != other.i!)) {return false}
+    if (i != other.i) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -193,17 +209,27 @@ public struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessag
 
   struct Extensions {
 
-    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension", defaultValue: nil)
+    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension2())
   }
 
-  public var str: String? = nil
+  private var _str: String? = nil
+  public var str: String {
+    get {return _str ?? ""}
+    set {_str = newValue}
+  }
+  public var hasStr: Bool {
+    return _str != nil
+  }
+  public mutating func clearStr() {
+    return _str = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 25: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &str)
+    case 25: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_str)
     default:
       handled = false
     }
@@ -215,14 +241,14 @@ public struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessag
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = str {
+    if let v = _str {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 25, protoFieldName: "str", jsonFieldName: "str", swiftFieldName: "str")
     }
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
-    if ((str != nil || other.str != nil) && (str == nil || other.str == nil || str! != other.str!)) {return false}
+    if (str != other.str) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -268,17 +294,37 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public var typeId: Int32 = 0
+    private var _typeId: Int32? = nil
+    public var typeId: Int32 {
+      get {return _typeId ?? 0}
+      set {_typeId = newValue}
+    }
+    public var hasTypeId: Bool {
+      return _typeId != nil
+    }
+    public mutating func clearTypeId() {
+      return _typeId = nil
+    }
 
-    public var message: Data = Data()
+    private var _message: Data? = nil
+    public var message: Data {
+      get {return _message ?? Data()}
+      set {_message = newValue}
+    }
+    public var hasMessage: Bool {
+      return _message != nil
+    }
+    public mutating func clearMessage() {
+      return _message = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 2: handled = try setter.decodeRequiredField(fieldType: ProtobufInt32.self, value: &typeId)
-      case 3: handled = try setter.decodeRequiredField(fieldType: ProtobufBytes.self, value: &message)
+      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_typeId)
+      case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &_message)
       default:
         handled = false
       }
@@ -290,14 +336,14 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: typeId, protoFieldNumber: 2, protoFieldName: "type_id", jsonFieldName: "typeId", swiftFieldName: "typeId")
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: message, protoFieldNumber: 3, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typeId ?? 0, protoFieldNumber: 2, protoFieldName: "type_id", jsonFieldName: "typeId", swiftFieldName: "typeId")
+      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _message ?? Data(), protoFieldNumber: 3, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
-      if typeId != other.typeId {return false}
-      if message != other.message {return false}
+      if (typeId != other.typeId) {return false}
+      if (message != other.message) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -336,16 +382,28 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 }
 
 extension Proto2WireformatUnittest_TestMessageSet {
-  public var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1? {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)}
+  public var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension) ?? ProtobufUnittest_TestMessageSetExtension1()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension, value: newValue)}
+  }
+  public var hasProtobufUnittest_TestMessageSetExtension1_messageSetExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
+  }
+  public mutating func clearProtobufUnittest_TestMessageSetExtension1_messageSetExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
   }
 }
 
 extension Proto2WireformatUnittest_TestMessageSet {
-  public var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2? {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)}
+  public var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension) ?? ProtobufUnittest_TestMessageSetExtension2()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension, value: newValue)}
+  }
+  public var hasProtobufUnittest_TestMessageSetExtension2_messageSetExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
+  }
+  public mutating func clearProtobufUnittest_TestMessageSetExtension2_messageSetExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
   }
 }
 

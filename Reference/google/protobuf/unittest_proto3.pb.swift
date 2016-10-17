@@ -841,7 +841,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
         self = .oneofUint32(value)
       case 112:
         var value: Proto3TestAllTypes.NestedMessage?
-        handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeOptionalMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }
@@ -1106,15 +1106,33 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._singleNestedMessage ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
   }
+  public var hasSingleNestedMessage: Bool {
+    return _storage._singleNestedMessage != nil
+  }
+  public mutating func clearSingleNestedMessage() {
+    return _storage._singleNestedMessage = nil
+  }
 
   public var singleForeignMessage: Proto3ForeignMessage {
     get {return _storage._singleForeignMessage ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._singleForeignMessage = newValue}
   }
+  public var hasSingleForeignMessage: Bool {
+    return _storage._singleForeignMessage != nil
+  }
+  public mutating func clearSingleForeignMessage() {
+    return _storage._singleForeignMessage = nil
+  }
 
   public var singleImportMessage: Proto3ImportMessage {
     get {return _storage._singleImportMessage ?? Proto3ImportMessage()}
     set {_uniqueStorage()._singleImportMessage = newValue}
+  }
+  public var hasSingleImportMessage: Bool {
+    return _storage._singleImportMessage != nil
+  }
+  public mutating func clearSingleImportMessage() {
+    return _storage._singleImportMessage = nil
   }
 
   public var singleNestedEnum: Proto3TestAllTypes.NestedEnum {
@@ -1136,6 +1154,12 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
   public var singlePublicImportMessage: Proto3PublicImportMessage {
     get {return _storage._singlePublicImportMessage ?? Proto3PublicImportMessage()}
     set {_uniqueStorage()._singlePublicImportMessage = newValue}
+  }
+  public var hasSinglePublicImportMessage: Bool {
+    return _storage._singlePublicImportMessage != nil
+  }
+  public mutating func clearSinglePublicImportMessage() {
+    return _storage._singlePublicImportMessage = nil
   }
 
   ///   Repeated
@@ -1250,71 +1274,55 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedPublicImportMessage = newValue}
   }
 
-  public var oneofUint32: UInt32? {
+  public var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofUint32(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofUint32(newValue)
     }
   }
 
-  public var oneofNestedMessage: Proto3TestAllTypes.NestedMessage? {
+  public var oneofNestedMessage: Proto3TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Proto3TestAllTypes.NestedMessage()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
     }
   }
 
-  public var oneofString: String? {
+  public var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofString(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofString(newValue)
     }
   }
 
-  public var oneofBytes: Data? {
+  public var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofBytes(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofBytes(newValue)
     }
   }
 
-  public var _oneofField: OneOf_OneofField {
+  public var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -1413,10 +1421,22 @@ public struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._child ?? Proto3NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
+  public var hasChild: Bool {
+    return _storage._child != nil
+  }
+  public mutating func clearChild() {
+    return _storage._child = nil
+  }
 
   public var payload: Proto3TestAllTypes {
     get {return _storage._payload ?? Proto3TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
+  }
+  public var hasPayload: Bool {
+    return _storage._payload != nil
+  }
+  public mutating func clearPayload() {
+    return _storage._payload = nil
   }
 
   public var repeatedChild: [Proto3NestedTestAllTypes] {
@@ -1595,6 +1615,12 @@ public struct Proto3TestForeignNested: ProtobufGeneratedMessage {
     get {return _storage._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._foreignNested = newValue}
   }
+  public var hasForeignNested: Bool {
+    return _storage._foreignNested != nil
+  }
+  public mutating func clearForeignNested() {
+    return _storage._foreignNested = nil
+  }
 
   public init() {}
 
@@ -1727,6 +1753,12 @@ public struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
     get {return _storage._a ?? Proto3TestRecursiveMessage()}
     set {_uniqueStorage()._a = newValue}
   }
+  public var hasA: Bool {
+    return _storage._a != nil
+  }
+  public mutating func clearA() {
+    return _storage._a = nil
+  }
 
   public var i: Int32 {
     get {return _storage._i}
@@ -1806,6 +1838,12 @@ public struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
   public var bb: Proto3TestMutualRecursionB {
     get {return _storage._bb ?? Proto3TestMutualRecursionB()}
     set {_uniqueStorage()._bb = newValue}
+  }
+  public var hasBb: Bool {
+    return _storage._bb != nil
+  }
+  public mutating func clearBb() {
+    return _storage._bb = nil
   }
 
   public init() {}
@@ -1889,6 +1927,12 @@ public struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
   public var a: Proto3TestMutualRecursionA {
     get {return _storage._a ?? Proto3TestMutualRecursionA()}
     set {_uniqueStorage()._a = newValue}
+  }
+  public var hasA: Bool {
+    return _storage._a != nil
+  }
+  public mutating func clearA() {
+    return _storage._a = nil
   }
 
   public var optionalInt32: Int32 {
@@ -2048,6 +2092,12 @@ public struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
   public var messageField: Proto3ForeignMessage {
     get {return _storage._messageField ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._messageField = newValue}
+  }
+  public var hasMessageField: Bool {
+    return _storage._messageField != nil
+  }
+  public mutating func clearMessageField() {
+    return _storage._messageField = nil
   }
 
   public var repeatedPrimitiveField: [Int32] {
@@ -2235,6 +2285,12 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
   public var singleNestedMessage: Proto3TestFieldOrderings.NestedMessage {
     get {return _storage._singleNestedMessage ?? Proto3TestFieldOrderings.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
+  }
+  public var hasSingleNestedMessage: Bool {
+    return _storage._singleNestedMessage != nil
+  }
+  public mutating func clearSingleNestedMessage() {
+    return _storage._singleNestedMessage = nil
   }
 
   public init() {}
@@ -2712,7 +2768,7 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
         self = .fooString(value)
       case 3:
         var value: Proto3TestAllTypes?
-        handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.self, value: &value)
+        handled = try setter.decodeOptionalMessageField(fieldType: Proto3TestAllTypes.self, value: &value)
         if let value = value, handled {
           self = .fooMessage(value)
         }
@@ -2743,55 +2799,43 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
     }
   }
 
-  public var fooInt: Int32? {
+  public var fooInt: Int32 {
     get {
       if case .fooInt(let v) = _storage._foo {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._foo = .fooInt(newValue)
-      } else {
-        _uniqueStorage()._foo = .None
-      }
+      _uniqueStorage()._foo = .fooInt(newValue)
     }
   }
 
-  public var fooString: String? {
+  public var fooString: String {
     get {
       if case .fooString(let v) = _storage._foo {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._foo = .fooString(newValue)
-      } else {
-        _uniqueStorage()._foo = .None
-      }
+      _uniqueStorage()._foo = .fooString(newValue)
     }
   }
 
-  public var fooMessage: Proto3TestAllTypes? {
+  public var fooMessage: Proto3TestAllTypes {
     get {
       if case .fooMessage(let v) = _storage._foo {
         return v
       }
-      return nil
+      return Proto3TestAllTypes()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._foo = .fooMessage(newValue)
-      } else {
-        _uniqueStorage()._foo = .None
-      }
+      _uniqueStorage()._foo = .fooMessage(newValue)
     }
   }
 
-  public var _foo: OneOf_Foo {
+  public var foo: OneOf_Foo {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue

@@ -636,7 +636,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
         self = .oneofUint32(value)
       case 112:
         var value: Proto3LiteUnittest_TestAllTypes.NestedMessage?
-        handled = try setter.decodeSingularMessageField(fieldType: Proto3LiteUnittest_TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeOptionalMessageField(fieldType: Proto3LiteUnittest_TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }
@@ -905,15 +905,33 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._optionalNestedMessage ?? Proto3LiteUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
+  public var hasOptionalNestedMessage: Bool {
+    return _storage._optionalNestedMessage != nil
+  }
+  public mutating func clearOptionalNestedMessage() {
+    return _storage._optionalNestedMessage = nil
+  }
 
   public var optionalForeignMessage: Proto3LiteUnittest_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? Proto3LiteUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
+  public var hasOptionalForeignMessage: Bool {
+    return _storage._optionalForeignMessage != nil
+  }
+  public mutating func clearOptionalForeignMessage() {
+    return _storage._optionalForeignMessage = nil
+  }
 
   public var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
     get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
+  }
+  public var hasOptionalImportMessage: Bool {
+    return _storage._optionalImportMessage != nil
+  }
+  public mutating func clearOptionalImportMessage() {
+    return _storage._optionalImportMessage = nil
   }
 
   public var optionalNestedEnum: Proto3LiteUnittest_TestAllTypes.NestedEnum {
@@ -945,10 +963,22 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
+  public var hasOptionalPublicImportMessage: Bool {
+    return _storage._optionalPublicImportMessage != nil
+  }
+  public mutating func clearOptionalPublicImportMessage() {
+    return _storage._optionalPublicImportMessage = nil
+  }
 
   public var optionalLazyMessage: Proto3LiteUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalLazyMessage ?? Proto3LiteUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
+  }
+  public var hasOptionalLazyMessage: Bool {
+    return _storage._optionalLazyMessage != nil
+  }
+  public mutating func clearOptionalLazyMessage() {
+    return _storage._optionalLazyMessage = nil
   }
 
   ///   Repeated
@@ -1075,71 +1105,55 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
-  public var oneofUint32: UInt32? {
+  public var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofUint32(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofUint32(newValue)
     }
   }
 
-  public var oneofNestedMessage: Proto3LiteUnittest_TestAllTypes.NestedMessage? {
+  public var oneofNestedMessage: Proto3LiteUnittest_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Proto3LiteUnittest_TestAllTypes.NestedMessage()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
     }
   }
 
-  public var oneofString: String? {
+  public var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofString(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofString(newValue)
     }
   }
 
-  public var oneofBytes: Data? {
+  public var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofBytes(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofBytes(newValue)
     }
   }
 
-  public var _oneofField: OneOf_OneofField {
+  public var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -1539,10 +1553,22 @@ public struct Proto3LiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._child ?? Proto3LiteUnittest_NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
+  public var hasChild: Bool {
+    return _storage._child != nil
+  }
+  public mutating func clearChild() {
+    return _storage._child = nil
+  }
 
   public var payload: Proto3LiteUnittest_TestAllTypes {
     get {return _storage._payload ?? Proto3LiteUnittest_TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
+  }
+  public var hasPayload: Bool {
+    return _storage._payload != nil
+  }
+  public mutating func clearPayload() {
+    return _storage._payload = nil
   }
 
   public init() {}
