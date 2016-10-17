@@ -173,9 +173,12 @@ extension Google_Protobuf_FileDescriptorProto {
 
 class FileGenerator {
     let descriptor: Google_Protobuf_FileDescriptorProto
+    let generatorOptions: GeneratorOptions
 
-    init(descriptor: Google_Protobuf_FileDescriptorProto) {
+    init(descriptor: Google_Protobuf_FileDescriptorProto,
+         generatorOptions: GeneratorOptions) {
         self.descriptor = descriptor
+        self.generatorOptions = generatorOptions
     }
 
     func messageNameForPath(path: String) -> String? {
@@ -204,7 +207,18 @@ class FileGenerator {
     var baseFilename: String {return descriptor.baseFilename}
 
     var outputFilename: String {
-        return baseFilename + ".pb.swift"
+        let ext = ".pb.swift"
+        let pathParts = splitPath(pathname: descriptor.name ?? "")
+        switch generatorOptions.outputNaming {
+        case .FullPath:
+            return pathParts.dir + pathParts.base + ext
+        case .PathToUnderscores:
+            let dirWithUnderscores =
+                pathParts.dir.replacingOccurrences(of: "/", with: "_")
+            return dirWithUnderscores + pathParts.base + ext
+        case .DropPath:
+            return pathParts.base + ext
+        }
     }
 
     func commentsFor(path: [Int32]) -> String {
