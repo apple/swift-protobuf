@@ -27,7 +27,7 @@ class Test_ExtremeDefaultValues: XCTestCase {
 
     func test_escapedBytes() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
-        XCTAssertEqual(m.escapedBytes!, Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]))
+        XCTAssertEqual(m.escapedBytes, Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]))
     }
 
     func test_largeUint32() {
@@ -113,26 +113,26 @@ class Test_ExtremeDefaultValues: XCTestCase {
 
     func test_nanDouble() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
-        XCTAssert(m.nanDouble!.isNaN)
+        XCTAssert(m.nanDouble.isNaN)
     }
 
     func test_infFloat() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
         XCTAssertEqual(m.infFloat, Float.infinity)
-        XCTAssert(m.infFloat!.isInfinite)
-        XCTAssertEqual(m.infFloat!.sign, FloatingPointSign.plus)
+        XCTAssert(m.infFloat.isInfinite)
+        XCTAssertEqual(m.infFloat.sign, FloatingPointSign.plus)
     }
 
     func test_negInfFloat() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
         XCTAssertEqual(m.negInfFloat, -Float.infinity)
-        XCTAssert(m.negInfFloat!.isInfinite)
-        XCTAssertEqual(m.negInfFloat!.sign, FloatingPointSign.minus)
+        XCTAssert(m.negInfFloat.isInfinite)
+        XCTAssertEqual(m.negInfFloat.sign, FloatingPointSign.minus)
     }
 
     func test_nanFloat() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
-        XCTAssert(m.nanFloat!.isNaN)
+        XCTAssert(m.nanFloat.isNaN)
     }
 
     func test_cppTrigraph() {
@@ -147,7 +147,7 @@ class Test_ExtremeDefaultValues: XCTestCase {
 
     func test_bytesWithZero() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
-        XCTAssertEqual(m.bytesWithZero!, Data(bytes: [119, 111, 114, 0, 108, 100]))
+        XCTAssertEqual(m.bytesWithZero, Data(bytes: [119, 111, 114, 0, 108, 100]))
     }
 
     func test_stringPieceWithZero() {

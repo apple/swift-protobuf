@@ -1186,7 +1186,10 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertEncode([248, 6, 0]) {(o: inout MessageTestType) in o.oneofUint32 = 0}
         assertDecodeSucceeds([248, 6, 255, 255, 255, 255, 15]) {$0.oneofUint32 == UInt32.max}
         assertDecodeSucceeds([138, 7, 1, 97, 248, 6, 1]) {(o: MessageTestType) in
-            o.oneofString == nil && o.oneofUint32 == UInt32(1)
+            if case .oneofUint32 = o.oneofField, o.oneofUint32 == UInt32(1) {
+              return true
+            }
+            return false
         }
 
         assertDecodeFails([248, 6, 128]) // Bad varint
@@ -1217,19 +1220,19 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofNestedMessage() {
         assertEncode([130, 7, 2, 8, 1]) {(o: inout MessageTestType) in
             o.oneofNestedMessage = MessageTestType.NestedMessage()
-            o.oneofNestedMessage!.bb = 1
+            o.oneofNestedMessage.bb = 1
         }
         assertDecodeSucceeds([130, 7, 0]) {(o: MessageTestType) in
-            if let m = o.oneofNestedMessage {
+            if case .oneofNestedMessage(let m) = o.oneofField {
                 return m.bb == 0
             }
             return false
         }
         assertDecodeSucceeds([248, 6, 0, 130, 7, 2, 8, 1]) {(o: MessageTestType) in
-            if o.oneofUint32 != nil {
+            if case .oneofUint32 = o.oneofField {
                 return false
             }
-            if let m = o.oneofNestedMessage {
+            if case .oneofNestedMessage(let m) = o.oneofField {
                 return m.bb == 1
             }
             return false
@@ -1237,22 +1240,28 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
     func testEncoding_oneofNestedMessage1() {
         assertDecodeSucceeds([130, 7, 2, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            o.oneofNestedMessage == nil && o.oneofUint32 == 0
+            if case .oneofUint32 = o.oneofField, o.oneofUint32 == UInt32(0) {
+                return true
+            }
+            return false
         }
         // Unkonwn field within nested message should not break decoding
         assertDecodeSucceeds([130, 7, 5, 128, 127, 0, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            o.oneofNestedMessage == nil && o.oneofUint32 == 0
+            if case .oneofUint32 = o.oneofField, o.oneofUint32 == 0 {
+                return true
+            }
+            return false
         }
     }
 
     func testEncoding_oneofNestedMessage2() {
         var m = MessageTestType()
         m.oneofNestedMessage = MessageTestType.NestedMessage()
-        m.oneofNestedMessage!.bb = 1
+        m.oneofNestedMessage.bb = 1
         XCTAssertEqual(m.debugDescription, "Proto3TestAllTypes(oneofNestedMessage:Proto3TestAllTypes.NestedMessage(bb:1))");
         var m2 = MessageTestType()
         m2.oneofNestedMessage = MessageTestType.NestedMessage()
-        m2.oneofNestedMessage!.bb = 2
+        m2.oneofNestedMessage.bb = 2
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
     }
 
@@ -1278,7 +1287,10 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([138, 7, 1, 97]) {$0.oneofString == "a"}
         assertDecodeSucceeds([138, 7, 0]) {$0.oneofString == ""}
         assertDecodeSucceeds([146, 7, 0, 138, 7, 1, 97]) {(o:MessageTestType) in
-            o.oneofBytes == nil && o.oneofString == "a"
+            if case .oneofString = o.oneofField, o.oneofString == "a" {
+              return true
+            }
+            return false
         }
         assertDecodeFails([138, 7, 1]) // Truncated body
         assertDecodeFails([138, 7, 1, 192]) // Malformed UTF-8
@@ -1309,10 +1321,9 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes2() {
         assertDecodeSucceeds([146, 7, 1, 1]) {(o: MessageTestType) in
             let expectedB = Data(bytes: [1])
-            let expectedS: String? = nil
-            if let b = o.oneofBytes {
+            if case .oneofBytes(let b) = o.oneofField {
                 let s = o.oneofString
-                return b == expectedB && s == expectedS
+                return b == expectedB && s == ""
             }
             return false
         }
@@ -1320,9 +1331,9 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes3() {
         assertDecodeSucceeds([146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if let b = o.oneofBytes {
+            if case .oneofBytes(let b) = o.oneofField {
                 let s = o.oneofString
-                return b == expectedB && s == nil
+                return b == expectedB && s == ""
             }
             return false
         }
@@ -1330,9 +1341,9 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes4() {
         assertDecodeSucceeds([138, 7, 1, 97, 146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if let b = o.oneofBytes {
+            if case .oneofBytes(let b) = o.oneofField {
                 let s = o.oneofString
-                return b == expectedB && s == nil
+                return b == expectedB && s == ""
             }
             return false
         }
