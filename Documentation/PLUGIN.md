@@ -37,8 +37,8 @@ versions of protoc.  You can get recent versions from
 Building the plugin should be simple on any supported Swift platform:
 
 ```
-$ git clone https://github.com/apple/swift-protobuf-plugin
-$ cd swift-protobuf-plugin
+$ git clone https://github.com/apple/swift-protobuf
+$ cd swift-protobuf
 $ swift build
 ```
 
@@ -59,6 +59,29 @@ The `protoc` program will automatically look for `protoc-gen-swift` in your
 
 Each `.proto` input file will get translated to a corresponding `.pb.swift` file
 in the output directory.
+
+#### Naming of the Generated Source
+
+By default, the paths to the proto files are maintained on the generated files.
+So if you pass `foo/bar/my.proto`, you will get `foo/bar/my.pb.swift` in the
+output directory. `protoc` supports passing generator options to the plugins,
+and the Swift plugin supports an option to control the generated file names.
+
+The option is given as part of the `--swift-out` argument like this:
+
+```
+$ protoc --swift_out=FileNaming=[value]:. foo/bar/*.proto mumble/*.proto
+```
+
+The possible values for `FileNaming` are:
+
+ * `FullPath` (default): Like all other languages, "foo/bar/baz.proto" makes
+   "foo/bar/baz.pb.swift.
+ * `PathToUnderscores`: To help with things like the Swift Package Manager
+   where someone might want all the files in one directory; "foo/bar/baz.proto"
+   makes "foo_bar_baz.pb.swift".
+ * `DropPath`: Drop the path from the input and just write all files into the
+   output directory; "foo/bar/baz.proto" makes "baz.pb.swift".
 
 ### Building your project
 
