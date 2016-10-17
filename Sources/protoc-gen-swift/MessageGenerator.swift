@@ -22,7 +22,7 @@ import SwiftProtobuf
 extension Google_Protobuf_DescriptorProto {
     func getMessageForPath(path: String, parentPath: String) -> Google_Protobuf_DescriptorProto? {
         for m in nestedType {
-            let messagePath = parentPath + "." + m.name!
+            let messagePath = parentPath + "." + m.name
             if messagePath == path {
                 return m
             }
@@ -35,8 +35,8 @@ extension Google_Protobuf_DescriptorProto {
 
     func getMessageNameForPath(path: String, parentPath: String, swiftPrefix: String) -> String? {
         for m in nestedType {
-            let messagePath = parentPath + "." + m.name!
-            let messageSwiftPath = swiftPrefix + "." + sanitizeMessageTypeName(m.name!)
+            let messagePath = parentPath + "." + m.name
+            let messageSwiftPath = swiftPrefix + "." + sanitizeMessageTypeName(m.name)
             if messagePath == path {
                 return messageSwiftPath
             }
@@ -49,15 +49,15 @@ extension Google_Protobuf_DescriptorProto {
 
     func getEnumNameForPath(path: String, parentPath: String, swiftPrefix: String) -> String? {
         for e in enumType {
-            let enumPath = parentPath + "." + e.name!
+            let enumPath = parentPath + "." + e.name
             if enumPath == path {
-                return swiftPrefix + "." + sanitizeEnumTypeName(e.name!)
+                return swiftPrefix + "." + sanitizeEnumTypeName(e.name)
             }
         }
 
         for m in nestedType {
-            let messagePath = parentPath + "." + m.name!
-            let messageSwiftPath = swiftPrefix + "." + sanitizeMessageTypeName(m.name!)
+            let messagePath = parentPath + "." + m.name
+            let messageSwiftPath = swiftPrefix + "." + sanitizeMessageTypeName(m.name)
             if let n = m.getEnumNameForPath(path: path, parentPath: messagePath, swiftPrefix: messageSwiftPath) {
                 return n
             }
@@ -67,16 +67,16 @@ extension Google_Protobuf_DescriptorProto {
 
     func getSwiftNameForEnumCase(path: String, caseName: String, parentPath: String, swiftPrefix: String) -> String? {
         for e in enumType {
-            let enumPath = parentPath + "." + e.name!
+            let enumPath = parentPath + "." + e.name
             if enumPath == path {
-                let enumSwiftName = swiftPrefix + "." + sanitizeEnumTypeName(e.name!)
+                let enumSwiftName = swiftPrefix + "." + sanitizeEnumTypeName(e.name)
                 return enumSwiftName + "." + e.getSwiftNameForEnumCase(caseName: caseName)
             }
         }
 
         for m in nestedType {
-            let messagePath = parentPath + "." + m.name!
-            let messageSwiftPath = swiftPrefix + "." + sanitizeMessageTypeName(m.name!)
+            let messagePath = parentPath + "." + m.name
+            let messageSwiftPath = swiftPrefix + "." + sanitizeMessageTypeName(m.name)
             if let n = m.getSwiftNameForEnumCase(path: path, caseName: caseName, parentPath: messagePath, swiftPrefix: messageSwiftPath) {
                 return n
             }
@@ -87,9 +87,9 @@ extension Google_Protobuf_DescriptorProto {
 
 func hasMessageField(descriptor: Google_Protobuf_DescriptorProto, context: Context) -> Bool {
     let hasMessageField = descriptor.field.contains {
-        $0.type == .message
+        ($0.type == .message || $0.type == .group)
         && $0.label != .repeated
-        && (context.getMessageForPath(path: $0.typeName!)?.options?.mapEntry != .some(true))
+        && (context.getMessageForPath(path: $0.typeName)?.options.mapEntry != true)
     }
     return hasMessageField
 }
@@ -129,7 +129,8 @@ class StorageClassGenerator {
         // ivars
         var oneofHandled = Set<Int32>()
         for f in fields {
-            if let oneofIndex = f.descriptor.oneofIndex {
+            if f.descriptor.hasOneofIndex {
+                let oneofIndex = f.descriptor.oneofIndex
                 if !oneofHandled.contains(oneofIndex) {
                     let oneof = f.oneof!
                     p.print("var \(oneof.swiftStorageFieldName) = \(messageSwiftName).\(oneof.swiftRelativeType)()\n")
@@ -151,11 +152,12 @@ class StorageClassGenerator {
         p.print("switch protoFieldNumber {\n")
         oneofHandled.removeAll(keepingCapacity: true)
         for f in fields {
-            if let oneofIndex = f.descriptor.oneofIndex {
+            if f.descriptor.hasOneofIndex {
+                let oneofIndex = f.descriptor.oneofIndex
                 if !oneofHandled.contains(oneofIndex) {
                     p.print("case \(f.number)")
                     for other in fields {
-                        if other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
+                        if other.descriptor.hasOneofIndex && other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
                             p.print(", \(other.number)")
                         }
                     }
@@ -177,7 +179,7 @@ class StorageClassGenerator {
             var separator = ""
             for range in descriptor.extensionRange {
                 p.print(separator)
-                p.print("(\(range.start!) <= protoFieldNumber && protoFieldNumber < \(range.end!))")
+                p.print("(\(range.start) <= protoFieldNumber && protoFieldNumber < \(range.end))")
                 separator = " || "
             }
             p.print(" {\n")
@@ -212,11 +214,11 @@ class StorageClassGenerator {
         var ranges = descriptor.extensionRange.makeIterator()
         var nextRange = ranges.next()
         for f in (fields.sorted {$0.number < $1.number}) {
-            while nextRange != nil && Int(nextRange!.start!) < f.number {
-                p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start!), end: \(nextRange!.end!))\n")
+            while nextRange != nil && Int(nextRange!.start) < f.number {
+                p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
-            if let c = currentOneof, let n = f.oneof, n.name! == c.name! {
+            if let c = currentOneof, let n = f.oneof, n.name == c.name {
                 oneofEnd = f.number + 1
             } else {
                 if let oneof = currentOneof {
@@ -236,7 +238,7 @@ class StorageClassGenerator {
             p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
         }
         while nextRange != nil {
-            p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start!), end: \(nextRange!.end!))\n")
+            p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
             nextRange = ranges.next()
         }
         if !isProto3 {
@@ -252,12 +254,12 @@ class StorageClassGenerator {
         oneofHandled.removeAll(keepingCapacity: true)
         for f in fields {
             if let o = f.oneof {
-                if !oneofHandled.contains(f.descriptor.oneofIndex!) {
+                if !oneofHandled.contains(f.descriptor.oneofIndex) {
                     p.print("if \(o.swiftStorageFieldName) != other.\(o.swiftStorageFieldName) {return false}\n")
-                    oneofHandled.insert(f.descriptor.oneofIndex!)
+                    oneofHandled.insert(f.descriptor.oneofIndex)
                 }
             } else {
-                let notEqualClause = f.generateNotEqual(name: f.swiftStorageName)
+                let notEqualClause = f.generateNotEqual(name: f.swiftStorageName, usesHeapStorage: true)
                 p.print("if \(notEqualClause) {return false}\n")
             }
         }
@@ -285,9 +287,9 @@ class StorageClassGenerator {
         oneofHandled.removeAll(keepingCapacity: true)
         for f in fields {
             if let o = f.oneof {
-                if !oneofHandled.contains(f.descriptor.oneofIndex!) {
+                if !oneofHandled.contains(f.descriptor.oneofIndex) {
                     p.print("clone.\(o.swiftStorageFieldName) = \(o.swiftStorageFieldName)\n")
-                    oneofHandled.insert(f.descriptor.oneofIndex!)
+                    oneofHandled.insert(f.descriptor.oneofIndex)
                 }
             } else {
                 p.print("clone.\(f.swiftStorageName) = \(f.swiftStorageName)\n")
@@ -324,7 +326,7 @@ class MessageGenerator {
     private let comments: String
 
     init(descriptor: Google_Protobuf_DescriptorProto, path: [Int32], parentSwiftName: String?, parentProtoPath: String?, file: FileGenerator, context: Context) {
-        self.protoMessageName = descriptor.name!
+        self.protoMessageName = descriptor.name
         self.protoFullName = (parentProtoPath == nil ? "" : (parentProtoPath! + ".")) + self.protoMessageName
         self.descriptor = descriptor
         self.isProto3 = file.isProto3
@@ -332,10 +334,10 @@ class MessageGenerator {
         self.isExtensible = descriptor.extensionRange.count > 0
         self.protoPackageName = file.protoPackageName
         if let parentSwiftName = parentSwiftName {
-            swiftRelativeName = sanitizeMessageTypeName(descriptor.name!)
+            swiftRelativeName = sanitizeMessageTypeName(descriptor.name)
             swiftFullName = parentSwiftName + "." + swiftRelativeName
         } else {
-            swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name!)
+            swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
             swiftFullName = swiftRelativeName
         }
         var conformance = "ProtobufGeneratedMessage"
@@ -368,7 +370,9 @@ class MessageGenerator {
 
         var oneofs = [OneofGenerator]()
         for oneofIndex in (0..<descriptor.oneofDecl.count) {
-            let oneofFields = fields.filter {$0.descriptor.oneofIndex == Int32(oneofIndex)}
+            let oneofFields = fields.filter {
+                $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(oneofIndex)
+            }
             let oneof = OneofGenerator(descriptor: descriptor.oneofDecl[oneofIndex], fields: oneofFields, swiftMessageFullName: swiftFullName, isProto3: isProto3)
             oneofs.append(oneof)
         }
@@ -387,7 +391,7 @@ class MessageGenerator {
 
         i = 0
         var messages = [MessageGenerator]()
-        for m in descriptor.nestedType where m.options?.mapEntry != true {
+        for m in descriptor.nestedType where m.options.mapEntry != true {
             var msgPath = path
             msgPath.append(3)
             msgPath.append(i)
@@ -399,7 +403,7 @@ class MessageGenerator {
         self.path = path
         self.comments = file.commentsFor(path: path)
 
-        let useHeapStorage = !isGroup && (hasMessageField(descriptor: descriptor, context: context) || fields.count > 16)
+        let useHeapStorage = hasMessageField(descriptor: descriptor, context: context) || fields.count > 16
         if useHeapStorage {
             self.storage = StorageClassGenerator(descriptor: descriptor, fields: fields, file: file, messageSwiftName: self.swiftFullName, isExtensible: isExtensible)
         } else {
@@ -487,6 +491,8 @@ class MessageGenerator {
         if storage != nil {
             for f in fields {
                 f.generateProxyIvar(printer: &p)
+                f.generateHasProperty(printer: &p, usesHeapStorage: true)
+                f.generateClearMethod(printer: &p, usesHeapStorage: true)
             }
             for o in oneofs {
                 o.generateProxyIvar(printer: &p)
@@ -496,7 +502,10 @@ class MessageGenerator {
             var oneofHandled = Set<Int32>()
             for f in fields {
                 f.generateTopIvar(printer: &p)
-                if let oneofIndex = f.descriptor.oneofIndex {
+                f.generateHasProperty(printer: &p, usesHeapStorage: false)
+                f.generateClearMethod(printer: &p, usesHeapStorage: false)
+                if f.descriptor.hasOneofIndex {
+                    let oneofIndex = f.descriptor.oneofIndex
                     if !oneofHandled.contains(oneofIndex) {
                         let oneof = oneofs[Int(oneofIndex)]
                         oneof.generateTopIvar(printer: &p)
@@ -525,7 +534,7 @@ class MessageGenerator {
                 var separator = ""
                 for range in descriptor.extensionRange {
                     p.print(separator)
-                    p.print("(\(range.start!) <= protoFieldNumber && protoFieldNumber < \(range.end!))")
+                    p.print("(\(range.start) <= protoFieldNumber && protoFieldNumber < \(range.end))")
                     separator = " || "
                 }
                 p.print(" {\n")
@@ -546,11 +555,12 @@ class MessageGenerator {
             p.print("switch protoFieldNumber {\n")
             var oneofHandled = Set<Int32>()
             for f in fields {
-                if let oneofIndex = f.descriptor.oneofIndex {
+                if f.descriptor.hasOneofIndex {
+                    let oneofIndex = f.descriptor.oneofIndex
                     if !oneofHandled.contains(oneofIndex) {
                         p.print("case \(f.number)")
                         for other in fields {
-                            if other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
+                            if other.descriptor.hasOneofIndex && other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
                                 p.print(", \(other.number)")
                             }
                         }
@@ -572,7 +582,7 @@ class MessageGenerator {
                 var separator = ""
                 for range in descriptor.extensionRange {
                     p.print(separator)
-                    p.print("(\(range.start!) <= protoFieldNumber && protoFieldNumber < \(range.end!))")
+                    p.print("(\(range.start) <= protoFieldNumber && protoFieldNumber < \(range.end))")
                     separator = " || "
                 }
                 p.print(" {\n")
@@ -611,11 +621,11 @@ class MessageGenerator {
             var oneofStart = 0
             var oneofEnd = 0
             for f in (fields.sorted {$0.number < $1.number}) {
-                while nextRange != nil && Int(nextRange!.start!) < f.number {
-                    p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start!), end: \(nextRange!.end!))\n")
+                while nextRange != nil && Int(nextRange!.start) < f.number {
+                    p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                     nextRange = ranges.next()
                 }
-                if let c = currentOneof, let n = f.oneof, n.name! == c.name! {
+                if let c = currentOneof, let n = f.oneof, n.name == c.name {
                     oneofEnd = f.number + 1
                 } else {
                     if let oneof = currentOneof {
@@ -635,7 +645,7 @@ class MessageGenerator {
                 p.print("try \(oneof.swiftFieldName).traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
             }
             while nextRange != nil {
-                p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start!), end: \(nextRange!.end!))\n")
+                p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if !file.isProto3 {
@@ -664,12 +674,12 @@ class MessageGenerator {
                 var oneofHandled = Set<Int32>()
                 for f in fields {
                     if let o = f.oneof {
-                        if !oneofHandled.contains(f.descriptor.oneofIndex!) {
+                        if !oneofHandled.contains(f.descriptor.oneofIndex) {
                             p.print("if \(o.swiftFieldName) != other.\(o.swiftFieldName) {return false}\n")
-                            oneofHandled.insert(f.descriptor.oneofIndex!)
+                            oneofHandled.insert(f.descriptor.oneofIndex)
                         }
                     } else {
-                        let notEqualClause = f.generateNotEqual(name: f.swiftName)
+                        let notEqualClause = f.generateNotEqual(name: f.swiftName, usesHeapStorage: false)
                         p.print("if \(notEqualClause) {return false}\n")
                     }
                 }
@@ -704,8 +714,16 @@ class MessageGenerator {
                 p.print("  return _uniqueStorage().setExtensionValue(ext: ext, value: value)\n")
                 p.print("}\n")
                 p.print("\n")
+                p.print("public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) {\n")
+                p.print("  return _storage.clearExtensionValue(ext: ext)\n")
+                p.print("}\n")
+                p.print("\n")
                 p.print("public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
                 p.print("  return _storage.getExtensionValue(ext: ext)\n")
+                p.print("}\n")
+                p.print("\n")
+                p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
+                p.print("  return _storage.hasExtensionValue(ext: ext)\n")
                 p.print("}\n")
             } else {
                 p.print("\n")
@@ -715,11 +733,19 @@ class MessageGenerator {
                 p.print("  extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)\n")
                 p.print("}\n")
                 p.print("\n")
+                p.print("public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) {\n")
+                p.print("  extensionFieldValues[ext.protoFieldNumber] = nil\n")
+                p.print("}\n")
+                p.print("\n")
                 p.print("public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
                 p.print("  if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {\n")
                 p.print("    return fieldValue.value\n")
                 p.print("  }\n")
                 p.print("  return ext.defaultValue\n")
+                p.print("}\n")
+                p.print("\n")
+                p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
+                p.print("  return extensionFieldValues[ext.protoFieldNumber] is F\n")
                 p.print("}\n")
             }
         }

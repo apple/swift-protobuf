@@ -113,16 +113,16 @@ class Context {
   func swiftNameForProtoName(protoName: String, appending: String? = nil, separator: String = ".") -> String {
     let p = parent[protoName]
     if let e = enumByProtoName[protoName] {
-      return swiftNameForProtoName(protoName: p!, appending: e.name!, separator: separator)
+      return swiftNameForProtoName(protoName: p!, appending: e.name, separator: separator)
     } else if let m = messageByProtoName[protoName] {
       let baseName: String
       if protoNameIsGroup.contains(protoName) {
         // TODO: Find a way to actually get to this line of code.
         // Then fix it to be whatever it should be.
         // If it can't be reached, assert an error in this case.
-        baseName = "XXGROUPXX_" + m.name! + "_XXGROUPXX"
+        baseName = "XXGROUPXX_" + m.name + "_XXGROUPXX"
       } else {
-        baseName = m.name!
+        baseName = m.name
       }
       let name: String
       if let a = appending {
@@ -159,7 +159,8 @@ class Context {
 
   func populateFrom(fileProto: Google_Protobuf_FileDescriptorProto) {
     let prefix: String
-    if let pkg = fileProto.package {
+    let pkg = fileProto.package
+    if !pkg.isEmpty {
       prefix = "." + pkg
     } else {
       prefix = ""
@@ -172,30 +173,30 @@ class Context {
       populateFrom(messageProto: m, prefix: prefix)
     }
     for f in fileProto.extension_p {
-      if f.type! == .group {
-        protoNameIsGroup.insert(f.typeName!)
+      if f.type == .group {
+        protoNameIsGroup.insert(f.typeName)
       }
     }
   }
 
   func populateFrom(enumProto: Google_Protobuf_EnumDescriptorProto, prefix: String) {
-    let name = prefix + "." + enumProto.name!
+    let name = prefix + "." + enumProto.name
     enumByProtoName[name] = enumProto
     parent[name] = prefix
   }
 
   func populateFrom(messageProto: Google_Protobuf_DescriptorProto, prefix: String) {
-    let name = prefix + "." + messageProto.name!
+    let name = prefix + "." + messageProto.name
     parent[name] = prefix
     messageByProtoName[name] = messageProto
     for f in messageProto.field {
-      if f.type! == .group {
-        protoNameIsGroup.insert(f.typeName!)
+      if f.type == .group {
+        protoNameIsGroup.insert(f.typeName)
       }
     }
     for f in messageProto.extension_p {
-      if f.type! == .group {
-        protoNameIsGroup.insert(f.typeName!)
+      if f.type == .group {
+        protoNameIsGroup.insert(f.typeName)
       }
     }
     for e in messageProto.enumType {
@@ -214,7 +215,7 @@ class Context {
     var response = CodeGeneratorResponse()
     let explicit = Set<String>(request.fileToGenerate)
 
-    for fileProto in request.protoFile where explicit.contains(fileProto.name!) {
+    for fileProto in request.protoFile where explicit.contains(fileProto.name) {
       var printer = CodePrinter()
       let file = FileGenerator(descriptor: fileProto)
       file.generateOutputFile(printer: &printer, context: self)

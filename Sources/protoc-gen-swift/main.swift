@@ -103,6 +103,7 @@ if justVersion {
     let request = try CodeGeneratorRequest(protobuf: Data(bytes: rawRequest), extensions: SwiftOptions_Extensions)
     let context = try Context(request: request)
     let response = context.generateResponse()
-    print(response.file[0].content ?? "<No content>")
+    let content = response.file[0].content
+    print(!content.isEmpty ? content : "<No content>")
   }
 }
