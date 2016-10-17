@@ -120,7 +120,8 @@ class OneofGenerator {
             let special = f.isGroup ? "Group" : f.isMessage ? "Message" : "";
             let visitorMethod = "visitSingular\(special)Field"
             let fieldClause = (f.isGroup || f.isMessage) ? "" : "fieldType: \(f.traitsType).self, "
-            p.print("try visitor.\(visitorMethod)(\(fieldClause)value: v, protoFieldNumber: \(f.number), protoFieldName: \"\(f.name)\", jsonFieldName: \"\(f.jsonName)\", swiftFieldName: \"\(f.swiftName)\")\n")
+            let jsonName = f.jsonName ?? ""
+            p.print("try visitor.\(visitorMethod)(\(fieldClause)value: v, protoFieldNumber: \(f.number), protoFieldName: \"\(f.name)\", jsonFieldName: \"\(jsonName)\", swiftFieldName: \"\(f.swiftName)\")\n")
             p.outdent()
             p.print("}\n")
             p.outdent()
