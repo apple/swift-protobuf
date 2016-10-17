@@ -88,11 +88,19 @@ public struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage,
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -151,9 +159,15 @@ public struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: Protob
 
   private var _storage = _StorageClass()
 
-  public var messageSet: Proto2WireformatUnittest_TestMessageSet? {
-    get {return _storage._messageSet}
+  public var messageSet: Proto2WireformatUnittest_TestMessageSet {
+    get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
+  }
+  public var hasMessageSet: Bool {
+    return _storage._messageSet != nil
+  }
+  public mutating func clearMessageSet() {
+    return _storage._messageSet = nil
   }
 
   public init() {}

@@ -118,19 +118,37 @@ public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public var aFoo: ProtobufUnittest_CycleFoo? {
-    get {return _storage._aFoo}
+  public var aFoo: ProtobufUnittest_CycleFoo {
+    get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
-
-  public var aBar: ProtobufUnittest_CycleBar? {
-    get {return _storage._aBar}
-    set {_uniqueStorage()._aBar = newValue}
+  public var hasAFoo: Bool {
+    return _storage._aFoo != nil
+  }
+  public mutating func clearAFoo() {
+    return _storage._aFoo = nil
   }
 
-  public var aBaz: ProtobufUnittest_CycleBaz? {
-    get {return _storage._aBaz}
+  public var aBar: ProtobufUnittest_CycleBar {
+    get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
+    set {_uniqueStorage()._aBar = newValue}
+  }
+  public var hasABar: Bool {
+    return _storage._aBar != nil
+  }
+  public mutating func clearABar() {
+    return _storage._aBar = nil
+  }
+
+  public var aBaz: ProtobufUnittest_CycleBaz {
+    get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
+  }
+  public var hasABaz: Bool {
+    return _storage._aBaz != nil
+  }
+  public mutating func clearABaz() {
+    return _storage._aBaz = nil
   }
 
   public init() {}
@@ -228,19 +246,37 @@ public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public var aBar: ProtobufUnittest_CycleBar? {
-    get {return _storage._aBar}
+  public var aBar: ProtobufUnittest_CycleBar {
+    get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
-
-  public var aBaz: ProtobufUnittest_CycleBaz? {
-    get {return _storage._aBaz}
-    set {_uniqueStorage()._aBaz = newValue}
+  public var hasABar: Bool {
+    return _storage._aBar != nil
+  }
+  public mutating func clearABar() {
+    return _storage._aBar = nil
   }
 
-  public var aFoo: ProtobufUnittest_CycleFoo? {
-    get {return _storage._aFoo}
+  public var aBaz: ProtobufUnittest_CycleBaz {
+    get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
+    set {_uniqueStorage()._aBaz = newValue}
+  }
+  public var hasABaz: Bool {
+    return _storage._aBaz != nil
+  }
+  public mutating func clearABaz() {
+    return _storage._aBaz = nil
+  }
+
+  public var aFoo: ProtobufUnittest_CycleFoo {
+    get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
+  }
+  public var hasAFoo: Bool {
+    return _storage._aFoo != nil
+  }
+  public mutating func clearAFoo() {
+    return _storage._aFoo = nil
   }
 
   public init() {}
@@ -338,19 +374,37 @@ public struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public var aBaz: ProtobufUnittest_CycleBaz? {
-    get {return _storage._aBaz}
+  public var aBaz: ProtobufUnittest_CycleBaz {
+    get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
-
-  public var aFoo: ProtobufUnittest_CycleFoo? {
-    get {return _storage._aFoo}
-    set {_uniqueStorage()._aFoo = newValue}
+  public var hasABaz: Bool {
+    return _storage._aBaz != nil
+  }
+  public mutating func clearABaz() {
+    return _storage._aBaz = nil
   }
 
-  public var aBar: ProtobufUnittest_CycleBar? {
-    get {return _storage._aBar}
+  public var aFoo: ProtobufUnittest_CycleFoo {
+    get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
+    set {_uniqueStorage()._aFoo = newValue}
+  }
+  public var hasAFoo: Bool {
+    return _storage._aFoo != nil
+  }
+  public mutating func clearAFoo() {
+    return _storage._aFoo = nil
+  }
+
+  public var aBar: ProtobufUnittest_CycleBar {
+    get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
+  }
+  public var hasABar: Bool {
+    return _storage._aBar != nil
+  }
+  public mutating func clearABar() {
+    return _storage._aBar = nil
   }
 
   public init() {}

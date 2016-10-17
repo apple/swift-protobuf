@@ -111,9 +111,15 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
 
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
   ///   one optimized for speed works.
-  public var optionalMessage: ProtobufUnittest_TestOptimizedForSize? {
-    get {return _storage._optionalMessage}
+  public var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
+    get {return _storage._optionalMessage ?? ProtobufUnittest_TestOptimizedForSize()}
     set {_uniqueStorage()._optionalMessage = newValue}
+  }
+  public var hasOptionalMessage: Bool {
+    return _storage._optionalMessage != nil
+  }
+  public mutating func clearOptionalMessage() {
+    return _storage._optionalMessage = nil
   }
 
   public var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {

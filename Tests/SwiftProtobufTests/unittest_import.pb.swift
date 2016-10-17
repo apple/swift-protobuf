@@ -219,14 +219,24 @@ public struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public var d: Int32? = nil
+  private var _d: Int32? = nil
+  public var d: Int32 {
+    get {return _d ?? 0}
+    set {_d = newValue}
+  }
+  public var hasD: Bool {
+    return _d != nil
+  }
+  public mutating func clearD() {
+    return _d = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &d)
+    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_d)
     default:
       handled = false
     }
@@ -238,14 +248,14 @@ public struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = d {
+    if let v = _d {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
     }
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessage) -> Bool {
-    if ((d != nil || other.d != nil) && (d == nil || other.d == nil || d! != other.d!)) {return false}
+    if (d != other.d) {return false}
     if unknown != other.unknown {return false}
     return true
   }
