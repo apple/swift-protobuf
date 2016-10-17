@@ -717,11 +717,11 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     "field0name5": 405,
     "field0Name6": 406,
     "fieldName7": 407,
-    "fieldName8": 408,
+    "FieldName8": 408,
     "fieldName9": 409,
-    "fieldName10": 410,
-    "fIELDNAME11": 411,
-    "fIELDName12": 412,
+    "FieldName10": 410,
+    "FIELDNAME11": 411,
+    "FIELDName12": 412,
   ]}
   public var protoFieldNames: [String: Int] {return [
     "optional_int32": 1,
@@ -1359,19 +1359,19 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName7, protoFieldNumber: 407, protoFieldName: "fieldName7", jsonFieldName: "fieldName7", swiftFieldName: "fieldName7")
       }
       if _fieldName8 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName8, protoFieldNumber: 408, protoFieldName: "FieldName8", jsonFieldName: "fieldName8", swiftFieldName: "fieldName8")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName8, protoFieldNumber: 408, protoFieldName: "FieldName8", jsonFieldName: "FieldName8", swiftFieldName: "fieldName8")
       }
       if _fieldName9 != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName9, protoFieldNumber: 409, protoFieldName: "field_Name9", jsonFieldName: "fieldName9", swiftFieldName: "fieldName9")
       }
       if _fieldName10 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName10, protoFieldNumber: 410, protoFieldName: "Field_Name10", jsonFieldName: "fieldName10", swiftFieldName: "fieldName10")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName10, protoFieldNumber: 410, protoFieldName: "Field_Name10", jsonFieldName: "FieldName10", swiftFieldName: "fieldName10")
       }
       if _fieldName11 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName11, protoFieldNumber: 411, protoFieldName: "FIELD_NAME11", jsonFieldName: "fIELDNAME11", swiftFieldName: "fieldName11")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName11, protoFieldNumber: 411, protoFieldName: "FIELD_NAME11", jsonFieldName: "FIELDNAME11", swiftFieldName: "fieldName11")
       }
       if _fieldName12 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName12, protoFieldNumber: 412, protoFieldName: "FIELD_name12", jsonFieldName: "fIELDName12", swiftFieldName: "fieldName12")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName12, protoFieldNumber: 412, protoFieldName: "FIELD_name12", jsonFieldName: "FIELDName12", swiftFieldName: "fieldName12")
       }
     }
 
