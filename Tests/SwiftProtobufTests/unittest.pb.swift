@@ -3863,18 +3863,18 @@ public struct ProtobufUnittest_TestCamelCaseFieldNames: ProtobufGeneratedMessage
   public var protoMessageName: String {return "TestCamelCaseFieldNames"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [
-    "primitiveField": 1,
-    "stringField": 2,
-    "enumField": 3,
-    "messageField": 4,
-    "stringPieceField": 5,
-    "cordField": 6,
-    "repeatedPrimitiveField": 7,
-    "repeatedStringField": 8,
-    "repeatedEnumField": 9,
-    "repeatedMessageField": 10,
-    "repeatedStringPieceField": 11,
-    "repeatedCordField": 12,
+    "PrimitiveField": 1,
+    "StringField": 2,
+    "EnumField": 3,
+    "MessageField": 4,
+    "StringPieceField": 5,
+    "CordField": 6,
+    "RepeatedPrimitiveField": 7,
+    "RepeatedStringField": 8,
+    "RepeatedEnumField": 9,
+    "RepeatedMessageField": 10,
+    "RepeatedStringPieceField": 11,
+    "RepeatedCordField": 12,
   ]}
   public var protoFieldNames: [String: Int] {return [
     "PrimitiveField": 1,
@@ -3936,40 +3936,40 @@ public struct ProtobufUnittest_TestCamelCaseFieldNames: ProtobufGeneratedMessage
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _primitiveField {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "PrimitiveField", jsonFieldName: "primitiveField", swiftFieldName: "primitiveField")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "PrimitiveField", jsonFieldName: "PrimitiveField", swiftFieldName: "primitiveField")
       }
       if let v = _stringField {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "StringField", jsonFieldName: "stringField", swiftFieldName: "stringField")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "StringField", jsonFieldName: "StringField", swiftFieldName: "stringField")
       }
       if let v = _enumField {
-        try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: v, protoFieldNumber: 3, protoFieldName: "EnumField", jsonFieldName: "enumField", swiftFieldName: "enumField")
+        try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: v, protoFieldNumber: 3, protoFieldName: "EnumField", jsonFieldName: "EnumField", swiftFieldName: "enumField")
       }
       if let v = _messageField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4, protoFieldName: "MessageField", jsonFieldName: "messageField", swiftFieldName: "messageField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4, protoFieldName: "MessageField", jsonFieldName: "MessageField", swiftFieldName: "messageField")
       }
       if let v = _stringPieceField {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 5, protoFieldName: "StringPieceField", jsonFieldName: "stringPieceField", swiftFieldName: "stringPieceField")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 5, protoFieldName: "StringPieceField", jsonFieldName: "StringPieceField", swiftFieldName: "stringPieceField")
       }
       if let v = _cordField {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 6, protoFieldName: "CordField", jsonFieldName: "cordField", swiftFieldName: "cordField")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 6, protoFieldName: "CordField", jsonFieldName: "CordField", swiftFieldName: "cordField")
       }
       if !_repeatedPrimitiveField.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufInt32.self, value: _repeatedPrimitiveField, protoFieldNumber: 7, protoFieldName: "RepeatedPrimitiveField", jsonFieldName: "repeatedPrimitiveField", swiftFieldName: "repeatedPrimitiveField")
+        try visitor.visitRepeatedField(fieldType: ProtobufInt32.self, value: _repeatedPrimitiveField, protoFieldNumber: 7, protoFieldName: "RepeatedPrimitiveField", jsonFieldName: "RepeatedPrimitiveField", swiftFieldName: "repeatedPrimitiveField")
       }
       if !_repeatedStringField.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedStringField, protoFieldNumber: 8, protoFieldName: "RepeatedStringField", jsonFieldName: "repeatedStringField", swiftFieldName: "repeatedStringField")
+        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedStringField, protoFieldNumber: 8, protoFieldName: "RepeatedStringField", jsonFieldName: "RepeatedStringField", swiftFieldName: "repeatedStringField")
       }
       if !_repeatedEnumField.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _repeatedEnumField, protoFieldNumber: 9, protoFieldName: "RepeatedEnumField", jsonFieldName: "repeatedEnumField", swiftFieldName: "repeatedEnumField")
+        try visitor.visitRepeatedField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _repeatedEnumField, protoFieldNumber: 9, protoFieldName: "RepeatedEnumField", jsonFieldName: "RepeatedEnumField", swiftFieldName: "repeatedEnumField")
       }
       if !_repeatedMessageField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedMessageField, protoFieldNumber: 10, protoFieldName: "RepeatedMessageField", jsonFieldName: "repeatedMessageField", swiftFieldName: "repeatedMessageField")
+        try visitor.visitRepeatedMessageField(value: _repeatedMessageField, protoFieldNumber: 10, protoFieldName: "RepeatedMessageField", jsonFieldName: "RepeatedMessageField", swiftFieldName: "repeatedMessageField")
       }
       if !_repeatedStringPieceField.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedStringPieceField, protoFieldNumber: 11, protoFieldName: "RepeatedStringPieceField", jsonFieldName: "repeatedStringPieceField", swiftFieldName: "repeatedStringPieceField")
+        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedStringPieceField, protoFieldNumber: 11, protoFieldName: "RepeatedStringPieceField", jsonFieldName: "RepeatedStringPieceField", swiftFieldName: "repeatedStringPieceField")
       }
       if !_repeatedCordField.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedCordField, protoFieldNumber: 12, protoFieldName: "RepeatedCordField", jsonFieldName: "repeatedCordField", swiftFieldName: "repeatedCordField")
+        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedCordField, protoFieldNumber: 12, protoFieldName: "RepeatedCordField", jsonFieldName: "RepeatedCordField", swiftFieldName: "repeatedCordField")
       }
       unknown.traverse(visitor: &visitor)
     }

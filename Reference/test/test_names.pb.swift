@@ -70,8 +70,8 @@ public struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage {
   public var protoMessageName: String {return "NamesTest2"}
   public var protoPackageName: String {return "swift.protobuf.test"}
   public var jsonFieldNames: [String: Int] {return [
-    "hTTPRequest": 2,
-    "uRL": 4,
+    "HTTPRequest": 2,
+    "URL": 4,
   ]}
   public var protoFieldNames: [String: Int] {return [
     "HTTPRequest": 2,
@@ -97,10 +97,10 @@ public struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if httprequest != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httprequest, protoFieldNumber: 2, protoFieldName: "HTTPRequest", jsonFieldName: "hTTPRequest", swiftFieldName: "httprequest")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httprequest, protoFieldNumber: 2, protoFieldName: "HTTPRequest", jsonFieldName: "HTTPRequest", swiftFieldName: "httprequest")
     }
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 4, protoFieldName: "URL", jsonFieldName: "uRL", swiftFieldName: "url")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 4, protoFieldName: "URL", jsonFieldName: "URL", swiftFieldName: "url")
     }
   }
 
@@ -116,7 +116,7 @@ public struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage {
   public var protoMessageName: String {return "NamesTest3"}
   public var protoPackageName: String {return "swift.protobuf.test"}
   public var jsonFieldNames: [String: Int] {return [
-    "url": 5,
+    "Url": 5,
   ]}
   public var protoFieldNames: [String: Int] {return [
     "Url": 5,
@@ -138,7 +138,7 @@ public struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 5, protoFieldName: "Url", jsonFieldName: "url", swiftFieldName: "url")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 5, protoFieldName: "Url", jsonFieldName: "Url", swiftFieldName: "url")
     }
   }
 
