@@ -11,7 +11,7 @@
 
 **Welcome to Swift Protobuf!**
 
-Apple's Swift programming language is a perfect complement to [Google's Protocol
+[Apple's Swift programming language](https://swift.org/) is a perfect complement to [Google's Protocol
 Buffer](https://developers.google.com/protocol-buffers/) serialization
 technology.  They both emphasize high performance and programmer safety.
 
