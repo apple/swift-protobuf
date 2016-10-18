@@ -43,8 +43,10 @@ import SwiftProtobuf
 //  since the properties on the mutable class change types. This file just
 //  needs to generate source, and that source must compile, to ensure the
 //  generated source works for this sort of case.
+
 //  You can't make a object graph that spans files, so this can only be done
 //  within a single proto file.
+
 public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CycleFoo"}
   public var protoMessageName: String {return "CycleFoo"}

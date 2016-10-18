@@ -1836,6 +1836,7 @@ public enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
 
 //  TODO: Build a MessageNames message with a submessage of every name below
 //  TODO: Create tests that access every field, enum, message to verify the name is generated correctly
+
 public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "SwiftUnittest_Names_FieldNames"}
   public var protoMessageName: String {return "FieldNames"}

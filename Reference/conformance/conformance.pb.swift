@@ -58,6 +58,7 @@ import SwiftProtobuf
 // 
 //    - running as a sub-process may be more tricky in unusual environments like
 //      iOS apps, where fork/stdin/stdout are not available.
+
 public enum Conformance_WireFormat: ProtobufEnum {
   public typealias RawValue = Int
   case unspecified // = 0

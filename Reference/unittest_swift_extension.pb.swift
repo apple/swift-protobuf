@@ -153,7 +153,7 @@ public struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  ///   extensions 10 to 20;
+  ///        extensions 10 to 20;
   public var c: Int64? = nil
 
   public init() {}
