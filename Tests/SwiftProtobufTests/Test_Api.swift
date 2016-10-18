@@ -31,12 +31,17 @@ class Test_Api: XCTestCase, PBTestHelpers {
     }
 
     func testInitializer() {
-        let m = MessageTestType(
-            name: "apiName",
-            methods: [Google_Protobuf_Method(name: "method1")],
-            options: [Google_Protobuf_Option(name: "option1", value: Google_Protobuf_Any(message: Google_Protobuf_StringValue("value1")))],
-            version: "1.0.0",
-            syntax: .proto3)
+        var m = MessageTestType()
+        m.name = "apiName"
+        var method = Google_Protobuf_Method()
+        method.name = "method1"
+        m.methods = [method]
+        var option = Google_Protobuf_Option()
+        option.name = "option1"
+        option.value = Google_Protobuf_Any(message: Google_Protobuf_StringValue("value1"))
+        m.options = [option]
+        m.version = "1.0.0"
+        m.syntax = .proto3
 
         XCTAssertEqual(try m.serializeJSON(), "{\"name\":\"apiName\",\"methods\":[{\"name\":\"method1\"}],\"options\":[{\"name\":\"option1\",\"value\":{\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"value1\"}}],\"version\":\"1.0.0\",\"syntax\":\"SYNTAX_PROTO3\"}")
     }

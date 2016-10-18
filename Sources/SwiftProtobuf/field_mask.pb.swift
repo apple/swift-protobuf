@@ -256,13 +256,6 @@ public struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(paths: [String] = [])
-  {
-    if !paths.isEmpty {
-      self.paths = paths
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {

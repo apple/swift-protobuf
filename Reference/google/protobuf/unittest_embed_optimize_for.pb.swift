@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 //   Based on original Protocol Buffers design by
 //   Sanjay Ghemawat, Jeff Dean, and others.
@@ -122,16 +123,6 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
   }
 
   public init() {}
-
-  public init(optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil,
-    repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = [])
-  {
-    let storage = _uniqueStorage()
-    storage._optionalMessage = optionalMessage
-    if !repeatedMessage.isEmpty {
-      storage._repeatedMessage = repeatedMessage
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

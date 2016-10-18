@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 //   Based on original Protocol Buffers design by
 //   Sanjay Ghemawat, Jeff Dean, and others.
@@ -222,11 +223,6 @@ public struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
   public var d: Int32? = nil
 
   public init() {}
-
-  public init(d: Int32? = nil)
-  {
-    self.d = d
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

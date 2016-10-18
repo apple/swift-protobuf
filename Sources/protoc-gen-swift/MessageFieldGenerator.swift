@@ -1,4 +1,4 @@
-// Sources/MessageFieldGenerator.swift - Facts about a single message field
+// Sources/protoc-gen-swift/MessageFieldGenerator.swift - Facts about a single message field
 //
 // This source file is part of the Swift.org open source project
 //
@@ -210,7 +210,7 @@ struct MessageFieldGenerator {
     let descriptor: Google_Protobuf_FieldDescriptorProto
     let oneof: Google_Protobuf_OneofDescriptorProto?
     let messageDescriptor: Google_Protobuf_DescriptorProto
-    let jsonName: String
+    let jsonName: String?
     let swiftName: String
     let swiftStorageName: String
     var protoName: String {return descriptor.name!}
@@ -227,12 +227,7 @@ struct MessageFieldGenerator {
         context: Context)
     {
         self.descriptor = descriptor
-        // Note: We would just use descriptor.jsonName provided by protoc, but:
-        // 1. That only exists with protoc 3.0 and later
-        // 2. It's broken in 3.0 beta 3
-        // So we calculate the jsonName ourselves instead.
-        // (Which sucks for conformance.)
-        self.jsonName = toJsonFieldName(descriptor.name!)
+        self.jsonName = descriptor.jsonName
         if descriptor.type! == .group {
             let g = context.getMessageForPath(path: descriptor.typeName!)!
             self.swiftName = sanitizeFieldName(toLowerCamelCase(g.name!))
@@ -484,7 +479,8 @@ struct MessageFieldGenerator {
         if conditional {
             p.indent()
         }
-        p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), protoFieldNumber: \(number), protoFieldName: \"\(protoName)\", jsonFieldName: \"\(jsonName)\", swiftFieldName: \"\(swiftName)\")\n")
+        let json = jsonName ?? ""
+        p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), protoFieldNumber: \(number), protoFieldName: \"\(protoName)\", jsonFieldName: \"\(json)\", swiftFieldName: \"\(swiftName)\")\n")
         if conditional {
             p.outdent()
             p.print("}\n")

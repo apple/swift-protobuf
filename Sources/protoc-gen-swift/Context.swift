@@ -1,4 +1,4 @@
-// Sources/Context.swift - Overall code generation handling
+// Sources/protoc-gen-swift/Context.swift - Overall code generation handling
 //
 // This source file is part of the Swift.org open source project
 //
@@ -72,12 +72,40 @@ extension CodeGeneratorRequest {
   }
 }
 
+extension CodeGeneratorResponse {
+  init(error: String) {
+    self.init()
+    self.error = error
+  }
+}
+
+extension CodeGeneratorResponse.File {
+  init(name: String, content: String) {
+    self.init()
+    self.name = name
+    self.content = content
+  }
+}
+
 class GeneratorOptions {
+  enum OutputNaming : String {
+    case FullPath
+    case PathToUnderscores
+    case DropPath
+  }
+
+  private(set) var outputNaming: OutputNaming = .FullPath
 
   init(parameter: String?) throws {
     for pair in parseParameter(string:parameter) {
       switch pair.key {
-      // TODO: Add cases for things really supported
+      case "FileNaming":
+        if let naming = OutputNaming(rawValue: pair.value) {
+          outputNaming = naming
+        } else {
+          throw GenerationError.invalidParameterValue(name: pair.key,
+                                                      value: pair.value)
+        }
       default:
         throw GenerationError.unknownParameter(name: pair.key)
       }
@@ -201,7 +229,7 @@ class Context {
 
     for fileProto in request.protoFile where explicit.contains(fileProto.name!) {
       var printer = CodePrinter()
-      let file = FileGenerator(descriptor: fileProto)
+      let file = FileGenerator(descriptor: fileProto, generatorOptions: options)
       file.generateOutputFile(printer: &printer, context: self)
       let fileResponse = CodeGeneratorResponse.File(name: file.outputFilename, content: printer.content)
       response.file.append(fileResponse)

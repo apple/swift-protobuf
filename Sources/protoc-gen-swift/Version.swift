@@ -1,4 +1,4 @@
-// Sources/Version.swift - Protoc plugin version info
+// Sources/protoc-gen-swift/Version.swift - Protoc plugin version info
 //
 // This source file is part of the Swift.org open source project
 //

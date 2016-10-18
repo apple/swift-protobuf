@@ -122,20 +122,6 @@ public struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(int32Value: Int32? = nil,
-    anyValue: Google_Protobuf_Any? = nil,
-    repeatedAnyValue: [Google_Protobuf_Any] = [])
-  {
-    let storage = _uniqueStorage()
-    if let v = int32Value {
-      storage._int32Value = v
-    }
-    storage._anyValue = anyValue
-    if !repeatedAnyValue.isEmpty {
-      storage._repeatedAnyValue = repeatedAnyValue
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }

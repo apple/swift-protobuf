@@ -1,4 +1,4 @@
-// Sources/ExtensionGenerator.swift - Handle Proto2 extension
+// Sources/protoc-gen-swift/ExtensionGenerator.swift - Handle Proto2 extension
 //
 // This source file is part of the Swift.org open source project
 //
@@ -105,7 +105,8 @@ struct ExtensionGenerator {
         }
         let scope = declaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
-        p.print("\(scope)let \(swiftRelativeExtensionName) = ProtobufGenericMessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number!), protoFieldName: \"\(descriptor.name!)\", jsonFieldName: \"\(descriptor.jsonName!)\", swiftFieldName: \"\(swiftFieldName)\", defaultValue: \(defaultValue))\n")
+        let jsonName = descriptor.jsonName ?? ""
+        p.print("\(scope)let \(swiftRelativeExtensionName) = ProtobufGenericMessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number!), protoFieldName: \"\(descriptor.name!)\", jsonFieldName: \"\(jsonName)\", swiftFieldName: \"\(swiftFieldName)\", defaultValue: \(defaultValue))\n")
     }
 
     func generateTopLevel(printer p: inout CodePrinter) {

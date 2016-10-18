@@ -228,6 +228,7 @@ message FieldNames {
     int32 TimeScale = 241;
     int32 TimeBase = 242;
     int32 TimeRecord = 243;
+    int32 json_should_be_overriden = 244 [json_name = "json_was_overridden"];
 }
 
 message MessageNames {
@@ -720,7 +721,6 @@ enum EnumFieldNames {
     __FUNCTION__ = 63;
     __LINE__ = 64;
     _ = 65;
-    __ = 1065;
     associativity = 66;
     convenience = 67;
     dynamic = 68;
@@ -864,4 +864,17 @@ enum EnumFieldNames {
     TimeScale = 241;
     TimeBase = 242;
     TimeRecord = 243;
+}
+
+enum EnumFieldNames2 {
+    AA = 0;
+
+    // protoc no longer allows enum naming that would differ only in underscores.
+    // Initial commit:
+    //   https://github.com/google/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
+    // Change keep proto3 as error, but proto2 to just a warning:
+    //   https://github.com/google/protobuf/pull/2204
+    // So this is in a second enum so it won't cause issues with the '_' one;
+    // but still ensure things generator correctly.
+    __ = 1065;
 }

@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: liujisi@google.com (Pherl Liu)
 
 import Foundation
@@ -57,11 +58,6 @@ public struct ProtobufUnittestImport_PublicImportMessage: ProtobufGeneratedMessa
   public var e: Int32? = nil
 
   public init() {}
-
-  public init(e: Int32? = nil)
-  {
-    self.e = e
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

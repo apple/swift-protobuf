@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 //   Based on original Protocol Buffers design by
 //   Sanjay Ghemawat, Jeff Dean, and others.
@@ -1027,11 +1028,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(bb: Int32? = nil)
-    {
-      self.bb = bb
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -1077,11 +1073,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      self.a = a
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -1126,11 +1117,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     public var a: Int32? = nil
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      self.a = a
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -1608,222 +1594,6 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(optionalInt32: Int32? = nil,
-    optionalInt64: Int64? = nil,
-    optionalUint32: UInt32? = nil,
-    optionalUint64: UInt64? = nil,
-    optionalSint32: Int32? = nil,
-    optionalSint64: Int64? = nil,
-    optionalFixed32: UInt32? = nil,
-    optionalFixed64: UInt64? = nil,
-    optionalSfixed32: Int32? = nil,
-    optionalSfixed64: Int64? = nil,
-    optionalFloat: Float? = nil,
-    optionalDouble: Double? = nil,
-    optionalBool: Bool? = nil,
-    optionalString: String? = nil,
-    optionalBytes: Data? = nil,
-    optionalGroup: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup? = nil,
-    optionalNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? = nil,
-    optionalForeignMessage: ProtobufUnittestNoArena_ForeignMessage? = nil,
-    optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil,
-    optionalNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum? = nil,
-    optionalForeignEnum: ProtobufUnittestNoArena_ForeignEnum? = nil,
-    optionalImportEnum: ProtobufUnittestImport_ImportEnum? = nil,
-    optionalStringPiece: String? = nil,
-    optionalCord: String? = nil,
-    optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil,
-    optionalMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? = nil,
-    repeatedInt32: [Int32] = [],
-    repeatedInt64: [Int64] = [],
-    repeatedUint32: [UInt32] = [],
-    repeatedUint64: [UInt64] = [],
-    repeatedSint32: [Int32] = [],
-    repeatedSint64: [Int64] = [],
-    repeatedFixed32: [UInt32] = [],
-    repeatedFixed64: [UInt64] = [],
-    repeatedSfixed32: [Int32] = [],
-    repeatedSfixed64: [Int64] = [],
-    repeatedFloat: [Float] = [],
-    repeatedDouble: [Double] = [],
-    repeatedBool: [Bool] = [],
-    repeatedString: [String] = [],
-    repeatedBytes: [Data] = [],
-    repeatedGroup: [ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup] = [],
-    repeatedNestedMessage: [ProtobufUnittestNoArena_TestAllTypes.NestedMessage] = [],
-    repeatedForeignMessage: [ProtobufUnittestNoArena_ForeignMessage] = [],
-    repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = [],
-    repeatedNestedEnum: [ProtobufUnittestNoArena_TestAllTypes.NestedEnum] = [],
-    repeatedForeignEnum: [ProtobufUnittestNoArena_ForeignEnum] = [],
-    repeatedImportEnum: [ProtobufUnittestImport_ImportEnum] = [],
-    repeatedStringPiece: [String] = [],
-    repeatedCord: [String] = [],
-    repeatedLazyMessage: [ProtobufUnittestNoArena_TestAllTypes.NestedMessage] = [],
-    defaultInt32: Int32? = nil,
-    defaultInt64: Int64? = nil,
-    defaultUint32: UInt32? = nil,
-    defaultUint64: UInt64? = nil,
-    defaultSint32: Int32? = nil,
-    defaultSint64: Int64? = nil,
-    defaultFixed32: UInt32? = nil,
-    defaultFixed64: UInt64? = nil,
-    defaultSfixed32: Int32? = nil,
-    defaultSfixed64: Int64? = nil,
-    defaultFloat: Float? = nil,
-    defaultDouble: Double? = nil,
-    defaultBool: Bool? = nil,
-    defaultString: String? = nil,
-    defaultBytes: Data? = nil,
-    defaultNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum? = nil,
-    defaultForeignEnum: ProtobufUnittestNoArena_ForeignEnum? = nil,
-    defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil,
-    defaultStringPiece: String? = nil,
-    defaultCord: String? = nil,
-    oneofUint32: UInt32? = nil,
-    oneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? = nil,
-    oneofString: String? = nil,
-    oneofBytes: Data? = nil,
-    lazyOneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._optionalInt32 = optionalInt32
-    storage._optionalInt64 = optionalInt64
-    storage._optionalUint32 = optionalUint32
-    storage._optionalUint64 = optionalUint64
-    storage._optionalSint32 = optionalSint32
-    storage._optionalSint64 = optionalSint64
-    storage._optionalFixed32 = optionalFixed32
-    storage._optionalFixed64 = optionalFixed64
-    storage._optionalSfixed32 = optionalSfixed32
-    storage._optionalSfixed64 = optionalSfixed64
-    storage._optionalFloat = optionalFloat
-    storage._optionalDouble = optionalDouble
-    storage._optionalBool = optionalBool
-    storage._optionalString = optionalString
-    storage._optionalBytes = optionalBytes
-    storage._optionalGroup = optionalGroup
-    storage._optionalNestedMessage = optionalNestedMessage
-    storage._optionalForeignMessage = optionalForeignMessage
-    storage._optionalImportMessage = optionalImportMessage
-    storage._optionalNestedEnum = optionalNestedEnum
-    storage._optionalForeignEnum = optionalForeignEnum
-    storage._optionalImportEnum = optionalImportEnum
-    storage._optionalStringPiece = optionalStringPiece
-    storage._optionalCord = optionalCord
-    storage._optionalPublicImportMessage = optionalPublicImportMessage
-    storage._optionalMessage = optionalMessage
-    if !repeatedInt32.isEmpty {
-      storage._repeatedInt32 = repeatedInt32
-    }
-    if !repeatedInt64.isEmpty {
-      storage._repeatedInt64 = repeatedInt64
-    }
-    if !repeatedUint32.isEmpty {
-      storage._repeatedUint32 = repeatedUint32
-    }
-    if !repeatedUint64.isEmpty {
-      storage._repeatedUint64 = repeatedUint64
-    }
-    if !repeatedSint32.isEmpty {
-      storage._repeatedSint32 = repeatedSint32
-    }
-    if !repeatedSint64.isEmpty {
-      storage._repeatedSint64 = repeatedSint64
-    }
-    if !repeatedFixed32.isEmpty {
-      storage._repeatedFixed32 = repeatedFixed32
-    }
-    if !repeatedFixed64.isEmpty {
-      storage._repeatedFixed64 = repeatedFixed64
-    }
-    if !repeatedSfixed32.isEmpty {
-      storage._repeatedSfixed32 = repeatedSfixed32
-    }
-    if !repeatedSfixed64.isEmpty {
-      storage._repeatedSfixed64 = repeatedSfixed64
-    }
-    if !repeatedFloat.isEmpty {
-      storage._repeatedFloat = repeatedFloat
-    }
-    if !repeatedDouble.isEmpty {
-      storage._repeatedDouble = repeatedDouble
-    }
-    if !repeatedBool.isEmpty {
-      storage._repeatedBool = repeatedBool
-    }
-    if !repeatedString.isEmpty {
-      storage._repeatedString = repeatedString
-    }
-    if !repeatedBytes.isEmpty {
-      storage._repeatedBytes = repeatedBytes
-    }
-    if !repeatedGroup.isEmpty {
-      storage._repeatedGroup = repeatedGroup
-    }
-    if !repeatedNestedMessage.isEmpty {
-      storage._repeatedNestedMessage = repeatedNestedMessage
-    }
-    if !repeatedForeignMessage.isEmpty {
-      storage._repeatedForeignMessage = repeatedForeignMessage
-    }
-    if !repeatedImportMessage.isEmpty {
-      storage._repeatedImportMessage = repeatedImportMessage
-    }
-    if !repeatedNestedEnum.isEmpty {
-      storage._repeatedNestedEnum = repeatedNestedEnum
-    }
-    if !repeatedForeignEnum.isEmpty {
-      storage._repeatedForeignEnum = repeatedForeignEnum
-    }
-    if !repeatedImportEnum.isEmpty {
-      storage._repeatedImportEnum = repeatedImportEnum
-    }
-    if !repeatedStringPiece.isEmpty {
-      storage._repeatedStringPiece = repeatedStringPiece
-    }
-    if !repeatedCord.isEmpty {
-      storage._repeatedCord = repeatedCord
-    }
-    if !repeatedLazyMessage.isEmpty {
-      storage._repeatedLazyMessage = repeatedLazyMessage
-    }
-    storage._defaultInt32 = defaultInt32
-    storage._defaultInt64 = defaultInt64
-    storage._defaultUint32 = defaultUint32
-    storage._defaultUint64 = defaultUint64
-    storage._defaultSint32 = defaultSint32
-    storage._defaultSint64 = defaultSint64
-    storage._defaultFixed32 = defaultFixed32
-    storage._defaultFixed64 = defaultFixed64
-    storage._defaultSfixed32 = defaultSfixed32
-    storage._defaultSfixed64 = defaultSfixed64
-    storage._defaultFloat = defaultFloat
-    storage._defaultDouble = defaultDouble
-    storage._defaultBool = defaultBool
-    storage._defaultString = defaultString
-    storage._defaultBytes = defaultBytes
-    storage._defaultNestedEnum = defaultNestedEnum
-    storage._defaultForeignEnum = defaultForeignEnum
-    storage._defaultImportEnum = defaultImportEnum
-    storage._defaultStringPiece = defaultStringPiece
-    storage._defaultCord = defaultCord
-    if let v = oneofUint32 {
-      storage._oneofField = .oneofUint32(v)
-    }
-    if let v = oneofNestedMessage {
-      storage._oneofField = .oneofNestedMessage(v)
-    }
-    if let v = oneofString {
-      storage._oneofField = .oneofString(v)
-    }
-    if let v = oneofBytes {
-      storage._oneofField = .oneofBytes(v)
-    }
-    if let v = lazyOneofNestedMessage {
-      storage._oneofField = .lazyOneofNestedMessage(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1862,11 +1632,6 @@ public struct ProtobufUnittestNoArena_ForeignMessage: ProtobufGeneratedMessage {
   public var c: Int32? = nil
 
   public init() {}
-
-  public init(c: Int32? = nil)
-  {
-    self.c = c
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -1957,12 +1722,6 @@ public struct ProtobufUnittestNoArena_TestNoArenaMessage: ProtobufGeneratedMessa
   }
 
   public init() {}
-
-  public init(arenaMessage: Proto2ArenaUnittest_ArenaMessage? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._arenaMessage = arenaMessage
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

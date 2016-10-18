@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 
 import Foundation
@@ -106,6 +107,7 @@ public enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
 }
 
 //  *_generic_services are false by default.
+
 public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_NoGenericServicesTest_TestMessage"}
   public var protoMessageName: String {return "TestMessage"}
@@ -122,11 +124,6 @@ public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGenerat
   public var a: Int32? = nil
 
   public init() {}
-
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

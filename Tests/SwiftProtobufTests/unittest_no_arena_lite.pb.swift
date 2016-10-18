@@ -57,11 +57,6 @@ public struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessa
 
   public init() {}
 
-  public init(c: Int32? = nil)
-  {
-    self.c = c
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {

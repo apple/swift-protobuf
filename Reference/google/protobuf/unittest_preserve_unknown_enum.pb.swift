@@ -332,33 +332,6 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
 
   public init() {}
 
-  public init(e: Proto3PreserveUnknownEnumUnittest_MyEnum? = nil,
-    repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [],
-    repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [],
-    repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [],
-    oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum? = nil,
-    oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum? = nil)
-  {
-    if let v = e {
-      self.e = v
-    }
-    if !repeatedE.isEmpty {
-      self.repeatedE = repeatedE
-    }
-    if !repeatedPackedE.isEmpty {
-      self.repeatedPackedE = repeatedPackedE
-    }
-    if !repeatedPackedUnexpectedE.isEmpty {
-      self.repeatedPackedUnexpectedE = repeatedPackedUnexpectedE
-    }
-    if let v = oneofE1 {
-      self.o = .oneofE1(v)
-    }
-    if let v = oneofE2 {
-      self.o = .oneofE2(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -514,33 +487,6 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGene
   }
 
   public init() {}
-
-  public init(e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra? = nil,
-    repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [],
-    repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [],
-    repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [],
-    oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra? = nil,
-    oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra? = nil)
-  {
-    if let v = e {
-      self.e = v
-    }
-    if !repeatedE.isEmpty {
-      self.repeatedE = repeatedE
-    }
-    if !repeatedPackedE.isEmpty {
-      self.repeatedPackedE = repeatedPackedE
-    }
-    if !repeatedPackedUnexpectedE.isEmpty {
-      self.repeatedPackedUnexpectedE = repeatedPackedUnexpectedE
-    }
-    if let v = oneofE1 {
-      self.o = .oneofE1(v)
-    }
-    if let v = oneofE2 {
-      self.o = .oneofE2(v)
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

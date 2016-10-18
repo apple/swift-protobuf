@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 // 
 //  Tests that a "lite" message can import a regular message.
@@ -104,12 +105,6 @@ public struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage 
   }
 
   public init() {}
-
-  public init(message: ProtobufUnittest_TestAllTypes? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._message = message
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

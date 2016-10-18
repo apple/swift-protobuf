@@ -1,4 +1,4 @@
-// Sources/FileGenerator.swift - File-level generation logic
+// Sources/protoc-gen-swift/FileGenerator.swift - File-level generation logic
 //
 // This source file is part of the Swift.org open source project
 //
@@ -173,9 +173,12 @@ extension Google_Protobuf_FileDescriptorProto {
 
 class FileGenerator {
     let descriptor: Google_Protobuf_FileDescriptorProto
+    let generatorOptions: GeneratorOptions
 
-    init(descriptor: Google_Protobuf_FileDescriptorProto) {
+    init(descriptor: Google_Protobuf_FileDescriptorProto,
+         generatorOptions: GeneratorOptions) {
         self.descriptor = descriptor
+        self.generatorOptions = generatorOptions
     }
 
     func messageNameForPath(path: String) -> String? {
@@ -204,51 +207,73 @@ class FileGenerator {
     var baseFilename: String {return descriptor.baseFilename}
 
     var outputFilename: String {
-        return baseFilename + ".pb.swift"
+        let ext = ".pb.swift"
+        let pathParts = splitPath(pathname: descriptor.name ?? "")
+        switch generatorOptions.outputNaming {
+        case .FullPath:
+            return pathParts.dir + pathParts.base + ext
+        case .PathToUnderscores:
+            let dirWithUnderscores =
+                pathParts.dir.replacingOccurrences(of: "/", with: "_")
+            return dirWithUnderscores + pathParts.base + ext
+        case .DropPath:
+            return pathParts.base + ext
+        }
     }
 
     func commentsFor(path: [Int32]) -> String {
-        func addLinePrefix(text: String, prefix: String) -> String {
-            var output = ""
-            var atLineStart = true
-            for c in text.characters {
-                if atLineStart {
-                    if output == "" {
-                        output.append(prefix + " ")
-                    } else {
-                        output.append(prefix)
-                    }
-                }
-                if c == "\n" {
-                    output.append("\n")
-                    atLineStart = true
-                } else {
-                    output.append(c);
-                    atLineStart = false
-                }
+        func escapeMarkup(_ text: String) -> String {
+            // Proto file comments don't really have any markup associated with
+            // them.  Swift uses something like MarkDown:
+            //   "Markup Formatting Reference"
+            //   https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html
+            // Sadly that format doesn't really lend itself to any form of
+            // escaping to ensure comments are interpreted markup when they
+            // really aren't. About the only thing that could be done is to
+            // try and escape some set of things that could start directives,
+            // and that gets pretty chatty/ugly pretty quickly.
+            return text
+        }
+
+        func prefixLines(text: String, prefix: String) -> String {
+            var result = ""
+            var lines = text.components(separatedBy: .newlines)
+            // Trim any blank lines off the end.
+            while !lines.isEmpty && trimWhitespace(lines.last!).isEmpty {
+                lines.removeLast()
             }
-            return output
+            for line in lines {
+                result.append(prefix + line + "\n")
+            }
+            return result
         }
 
         if let location = descriptor.locationFor(path: path) {
-            let leading = trimWhitespace(location.leadingDetachedComments.joined(separator: ""))
-            let trimmed = trimWhitespace(location.leadingComments ?? location.trailingComments ?? "")
+            var result = ""
 
-            let commentBlocks: [String] = [
-                addLinePrefix(text: leading, prefix: "// "),
-                addLinePrefix(text: trimmed, prefix: "///  ")
-            ]
-            let comments = commentBlocks.filter {$0 != ""}.joined(separator: "\n\n")
-            if comments != "" {
-                return comments + "\n"
+            // https://github.com/apple/swift-protobuf/issues/108 is opened to
+            // confirm that we really want the detached comments. Since file
+            // structure is lost, they might not make sense where we pull them
+            // over.
+            for detached in location.leadingDetachedComments {
+                let comment = prefixLines(text: detached, prefix: "// ")
+                if !comment.isEmpty {
+                    result += comment
+                    // Detached comments have blank lines between then (and
+                    // anything that follows them).
+                    result += "\n"
+                }
             }
+
+            let comments = location.leadingComments ?? location.trailingComments ?? ""
+            result += prefixLines(text: escapeMarkup(comments), prefix: "///  ")
+            return result
         }
         return ""
     }
 
     func generateOutputFile(printer p: inout CodePrinter, context: Context) {
         let inputFilename = descriptor.name ?? "<No name>";
-        Stderr.print("Generating Swift for \(inputFilename)")
         p.print(
             "/*\n",
             " * DO NOT EDIT.\n",
@@ -259,12 +284,18 @@ class FileGenerator {
             " */\n",
             "\n")
 
-        // File header comments sometimes precede the 'syntax' field
-        // Carry those through if we can.
+        // The C++ FileDescriptor::GetSourceLocation(), says the location for
+        // the file is an empty path. That never seems to have comments on it.
+        // https://github.com/google/protobuf/issues/2249 opened to figure out
+        // the right way to do this since the syntax entry is optional.
         let comments = commentsFor(path: [12])
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
-            p.print("\n")
+            // If the was a leading or tailing comment it won't have a blank
+            // line, after it, so esure there is one.
+            if !comments.hasSuffix("\n\n") {
+                p.print("\n")
+            }
         }
 
         p.print("import Foundation\n")

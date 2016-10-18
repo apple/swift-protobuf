@@ -1,4 +1,4 @@
-// Sources/main.swift - Protoc plugin main
+// Sources/protoc-gen-swift/main.swift - Protoc plugin main
 //
 // This source file is part of the Swift.org open source project
 //
@@ -27,8 +27,10 @@ import PluginLibrary
 enum GenerationError: Error {
   /// Raised for any errors reading the input
   case readFailure
-  /// Raise when parsing the parameter string and found an unknown key
+  /// Raised when parsing the parameter string and found an unknown key
   case unknownParameter(name: String)
+  /// Raised when a parameter was giving an invalid value
+  case invalidParameterValue(name: String, value: String)
 }
 
 func help(progname: String) {
@@ -91,6 +93,9 @@ if justVersion {
     response = CodeGeneratorResponse(error: "Failed to read the input")
   } catch GenerationError.unknownParameter(let name) {
     response = CodeGeneratorResponse(error: "Unknown generation parameter '\(name)'")
+  } catch GenerationError.invalidParameterValue(let name, let value) {
+    response = CodeGeneratorResponse(
+      error: "Unknown value for generation parameter '\(name)': '\(value)'")
   } catch let e {
     response = CodeGeneratorResponse(error: "Internal Error: \(e)")
   }

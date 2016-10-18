@@ -1,4 +1,4 @@
-// Sources/StringUtils.swift - String processing utilities
+// Sources/protoc-gen-swift/StringUtils.swift - String processing utilities
 //
 // This source file is part of the Swift.org open source project
 //
@@ -186,40 +186,6 @@ func toLowerCamelCase(_ s: String) -> String {
     forceLower = false
   }
   return out
-}
-
-///
-/// This attempts to implement Google's (undocumented) translation
-/// algorithm for converting proto field names to JSON field names:
-///
-/// 1. Drop all underscores
-/// 2. Character preceded by underscore is uppercased
-/// 3. First character is lowercased (unless preceded by underscore)
-///
-/// The rules above were derived by inspecting Google's conformance
-/// test suite as of July 2016.  The C++ unit tests actually
-/// contradict this, and some later conformance test additions
-/// also contradict this.  (See github.com/google/protobuf PR #1963)
-///
-func toJsonFieldName(_ s: String) -> String {
-  var result = ""
-  var capitalizeNext = false
-  var lowercaseNext = true
-
-  for c in s.characters {
-    if c == "_" {
-      capitalizeNext = true
-    } else if capitalizeNext {
-      result.append(String(c).uppercased())
-      capitalizeNext = false
-    } else if lowercaseNext {
-      result.append(String(c).lowercased())
-    } else {
-      result.append(String(c))
-    }
-    lowercaseNext = false
-  }
-  return result;
 }
 
 private let whitespace: Set<Character> = [" ", "\t", "\n"]

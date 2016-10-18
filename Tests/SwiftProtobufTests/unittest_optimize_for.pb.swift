@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 //   Based on original Protocol Buffers design by
 //   Sanjay Ghemawat, Jeff Dean, and others.
@@ -239,22 +240,6 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
 
   public init() {}
 
-  public init(i: Int32? = nil,
-    msg: ProtobufUnittest_ForeignMessage? = nil,
-    integerField: Int32? = nil,
-    stringField: String? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._i = i
-    storage._msg = msg
-    if let v = integerField {
-      storage._foo = .integerField(v)
-    }
-    if let v = stringField {
-      storage._foo = .stringField(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -299,11 +284,6 @@ public struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMe
   public var x: Int32 = 0
 
   public init() {}
-
-  public init(x: Int32 = 0)
-  {
-    self.x = x
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -392,12 +372,6 @@ public struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMe
   }
 
   public init() {}
-
-  public init(o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._o = o
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

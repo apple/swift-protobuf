@@ -58,6 +58,7 @@ import SwiftProtobuf
 // 
 //    - running as a sub-process may be more tricky in unusual environments like
 //      iOS apps, where fork/stdin/stdout are not available.
+
 public enum Conformance_WireFormat: ProtobufEnum {
   public typealias RawValue = Int
   case unspecified // = 0
@@ -335,21 +336,6 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(protobufPayload: Data? = nil,
-    jsonPayload: String? = nil,
-    requestedOutputFormat: Conformance_WireFormat? = nil)
-  {
-    if let v = protobufPayload {
-      self.payload = .protobufPayload(v)
-    }
-    if let v = jsonPayload {
-      self.payload = .jsonPayload(v)
-    }
-    if let v = requestedOutputFormat {
-      self.requestedOutputFormat = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -601,33 +587,6 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(parseError: String? = nil,
-    serializeError: String? = nil,
-    runtimeError: String? = nil,
-    protobufPayload: Data? = nil,
-    jsonPayload: String? = nil,
-    skipped: String? = nil)
-  {
-    if let v = parseError {
-      self.result = .parseError(v)
-    }
-    if let v = serializeError {
-      self.result = .serializeError(v)
-    }
-    if let v = runtimeError {
-      self.result = .runtimeError(v)
-    }
-    if let v = protobufPayload {
-      self.result = .protobufPayload(v)
-    }
-    if let v = jsonPayload {
-      self.result = .jsonPayload(v)
-    }
-    if let v = skipped {
-      self.result = .skipped(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -759,11 +718,11 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     "field0name5": 405,
     "field0Name6": 406,
     "fieldName7": 407,
-    "fieldName8": 408,
+    "FieldName8": 408,
     "fieldName9": 409,
-    "fieldName10": 410,
-    "fIELDNAME11": 411,
-    "fIELDName12": 412,
+    "FieldName10": 410,
+    "FIELDNAME11": 411,
+    "FIELDName12": 412,
   ]}
   public var protoFieldNames: [String: Int] {return [
     "optional_int32": 1,
@@ -1401,19 +1360,19 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName7, protoFieldNumber: 407, protoFieldName: "fieldName7", jsonFieldName: "fieldName7", swiftFieldName: "fieldName7")
       }
       if _fieldName8 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName8, protoFieldNumber: 408, protoFieldName: "FieldName8", jsonFieldName: "fieldName8", swiftFieldName: "fieldName8")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName8, protoFieldNumber: 408, protoFieldName: "FieldName8", jsonFieldName: "FieldName8", swiftFieldName: "fieldName8")
       }
       if _fieldName9 != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName9, protoFieldNumber: 409, protoFieldName: "field_Name9", jsonFieldName: "fieldName9", swiftFieldName: "fieldName9")
       }
       if _fieldName10 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName10, protoFieldNumber: 410, protoFieldName: "Field_Name10", jsonFieldName: "fieldName10", swiftFieldName: "fieldName10")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName10, protoFieldNumber: 410, protoFieldName: "Field_Name10", jsonFieldName: "FieldName10", swiftFieldName: "fieldName10")
       }
       if _fieldName11 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName11, protoFieldNumber: 411, protoFieldName: "FIELD_NAME11", jsonFieldName: "fIELDNAME11", swiftFieldName: "fieldName11")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName11, protoFieldNumber: 411, protoFieldName: "FIELD_NAME11", jsonFieldName: "FIELDNAME11", swiftFieldName: "fieldName11")
       }
       if _fieldName12 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName12, protoFieldNumber: 412, protoFieldName: "FIELD_name12", jsonFieldName: "fIELDName12", swiftFieldName: "fieldName12")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName12, protoFieldNumber: 412, protoFieldName: "FIELD_name12", jsonFieldName: "FIELDName12", swiftFieldName: "fieldName12")
       }
     }
 
@@ -1870,16 +1829,6 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
 
     public init() {}
-
-    public init(a: Int32? = nil,
-      corecursive: Conformance_TestAllTypes? = nil)
-    {
-      let storage = _uniqueStorage()
-      if let v = a {
-        storage._a = v
-      }
-      storage._corecursive = corecursive
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2499,406 +2448,6 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(optionalInt32: Int32? = nil,
-    optionalInt64: Int64? = nil,
-    optionalUint32: UInt32? = nil,
-    optionalUint64: UInt64? = nil,
-    optionalSint32: Int32? = nil,
-    optionalSint64: Int64? = nil,
-    optionalFixed32: UInt32? = nil,
-    optionalFixed64: UInt64? = nil,
-    optionalSfixed32: Int32? = nil,
-    optionalSfixed64: Int64? = nil,
-    optionalFloat: Float? = nil,
-    optionalDouble: Double? = nil,
-    optionalBool: Bool? = nil,
-    optionalString: String? = nil,
-    optionalBytes: Data? = nil,
-    optionalNestedMessage: Conformance_TestAllTypes.NestedMessage? = nil,
-    optionalForeignMessage: Conformance_ForeignMessage? = nil,
-    optionalNestedEnum: Conformance_TestAllTypes.NestedEnum? = nil,
-    optionalForeignEnum: Conformance_ForeignEnum? = nil,
-    optionalStringPiece: String? = nil,
-    optionalCord: String? = nil,
-    recursiveMessage: Conformance_TestAllTypes? = nil,
-    repeatedInt32: [Int32] = [],
-    repeatedInt64: [Int64] = [],
-    repeatedUint32: [UInt32] = [],
-    repeatedUint64: [UInt64] = [],
-    repeatedSint32: [Int32] = [],
-    repeatedSint64: [Int64] = [],
-    repeatedFixed32: [UInt32] = [],
-    repeatedFixed64: [UInt64] = [],
-    repeatedSfixed32: [Int32] = [],
-    repeatedSfixed64: [Int64] = [],
-    repeatedFloat: [Float] = [],
-    repeatedDouble: [Double] = [],
-    repeatedBool: [Bool] = [],
-    repeatedString: [String] = [],
-    repeatedBytes: [Data] = [],
-    repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] = [],
-    repeatedForeignMessage: [Conformance_ForeignMessage] = [],
-    repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] = [],
-    repeatedForeignEnum: [Conformance_ForeignEnum] = [],
-    repeatedStringPiece: [String] = [],
-    repeatedCord: [String] = [],
-    mapInt32Int32: Dictionary<Int32,Int32> = [:],
-    mapInt64Int64: Dictionary<Int64,Int64> = [:],
-    mapUint32Uint32: Dictionary<UInt32,UInt32> = [:],
-    mapUint64Uint64: Dictionary<UInt64,UInt64> = [:],
-    mapSint32Sint32: Dictionary<Int32,Int32> = [:],
-    mapSint64Sint64: Dictionary<Int64,Int64> = [:],
-    mapFixed32Fixed32: Dictionary<UInt32,UInt32> = [:],
-    mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:],
-    mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:],
-    mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:],
-    mapInt32Float: Dictionary<Int32,Float> = [:],
-    mapInt32Double: Dictionary<Int32,Double> = [:],
-    mapBoolBool: Dictionary<Bool,Bool> = [:],
-    mapStringString: Dictionary<String,String> = [:],
-    mapStringBytes: Dictionary<String,Data> = [:],
-    mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> = [:],
-    mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> = [:],
-    mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> = [:],
-    mapStringForeignEnum: Dictionary<String,Conformance_ForeignEnum> = [:],
-    oneofUint32: UInt32? = nil,
-    oneofNestedMessage: Conformance_TestAllTypes.NestedMessage? = nil,
-    oneofString: String? = nil,
-    oneofBytes: Data? = nil,
-    optionalBoolWrapper: Google_Protobuf_BoolValue? = nil,
-    optionalInt32Wrapper: Google_Protobuf_Int32Value? = nil,
-    optionalInt64Wrapper: Google_Protobuf_Int64Value? = nil,
-    optionalUint32Wrapper: Google_Protobuf_UInt32Value? = nil,
-    optionalUint64Wrapper: Google_Protobuf_UInt64Value? = nil,
-    optionalFloatWrapper: Google_Protobuf_FloatValue? = nil,
-    optionalDoubleWrapper: Google_Protobuf_DoubleValue? = nil,
-    optionalStringWrapper: Google_Protobuf_StringValue? = nil,
-    optionalBytesWrapper: Google_Protobuf_BytesValue? = nil,
-    repeatedBoolWrapper: [Google_Protobuf_BoolValue] = [],
-    repeatedInt32Wrapper: [Google_Protobuf_Int32Value] = [],
-    repeatedInt64Wrapper: [Google_Protobuf_Int64Value] = [],
-    repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] = [],
-    repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] = [],
-    repeatedFloatWrapper: [Google_Protobuf_FloatValue] = [],
-    repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] = [],
-    repeatedStringWrapper: [Google_Protobuf_StringValue] = [],
-    repeatedBytesWrapper: [Google_Protobuf_BytesValue] = [],
-    optionalDuration: Google_Protobuf_Duration? = nil,
-    optionalTimestamp: Google_Protobuf_Timestamp? = nil,
-    optionalFieldMask: Google_Protobuf_FieldMask? = nil,
-    optionalStruct: Google_Protobuf_Struct? = nil,
-    optionalAny: Google_Protobuf_Any? = nil,
-    optionalValue: Google_Protobuf_Value? = nil,
-    repeatedDuration: [Google_Protobuf_Duration] = [],
-    repeatedTimestamp: [Google_Protobuf_Timestamp] = [],
-    repeatedFieldmask: [Google_Protobuf_FieldMask] = [],
-    repeatedStruct: [Google_Protobuf_Struct] = [],
-    repeatedAny: [Google_Protobuf_Any] = [],
-    repeatedValue: [Google_Protobuf_Value] = [],
-    fieldname1: Int32? = nil,
-    fieldName2: Int32? = nil,
-    fieldName3: Int32? = nil,
-    field_Name4_: Int32? = nil,
-    field0Name5: Int32? = nil,
-    field0Name6: Int32? = nil,
-    fieldName7: Int32? = nil,
-    fieldName8: Int32? = nil,
-    fieldName9: Int32? = nil,
-    fieldName10: Int32? = nil,
-    fieldName11: Int32? = nil,
-    fieldName12: Int32? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = optionalInt32 {
-      storage._optionalInt32 = v
-    }
-    if let v = optionalInt64 {
-      storage._optionalInt64 = v
-    }
-    if let v = optionalUint32 {
-      storage._optionalUint32 = v
-    }
-    if let v = optionalUint64 {
-      storage._optionalUint64 = v
-    }
-    if let v = optionalSint32 {
-      storage._optionalSint32 = v
-    }
-    if let v = optionalSint64 {
-      storage._optionalSint64 = v
-    }
-    if let v = optionalFixed32 {
-      storage._optionalFixed32 = v
-    }
-    if let v = optionalFixed64 {
-      storage._optionalFixed64 = v
-    }
-    if let v = optionalSfixed32 {
-      storage._optionalSfixed32 = v
-    }
-    if let v = optionalSfixed64 {
-      storage._optionalSfixed64 = v
-    }
-    if let v = optionalFloat {
-      storage._optionalFloat = v
-    }
-    if let v = optionalDouble {
-      storage._optionalDouble = v
-    }
-    if let v = optionalBool {
-      storage._optionalBool = v
-    }
-    if let v = optionalString {
-      storage._optionalString = v
-    }
-    if let v = optionalBytes {
-      storage._optionalBytes = v
-    }
-    storage._optionalNestedMessage = optionalNestedMessage
-    storage._optionalForeignMessage = optionalForeignMessage
-    if let v = optionalNestedEnum {
-      storage._optionalNestedEnum = v
-    }
-    if let v = optionalForeignEnum {
-      storage._optionalForeignEnum = v
-    }
-    if let v = optionalStringPiece {
-      storage._optionalStringPiece = v
-    }
-    if let v = optionalCord {
-      storage._optionalCord = v
-    }
-    storage._recursiveMessage = recursiveMessage
-    if !repeatedInt32.isEmpty {
-      storage._repeatedInt32 = repeatedInt32
-    }
-    if !repeatedInt64.isEmpty {
-      storage._repeatedInt64 = repeatedInt64
-    }
-    if !repeatedUint32.isEmpty {
-      storage._repeatedUint32 = repeatedUint32
-    }
-    if !repeatedUint64.isEmpty {
-      storage._repeatedUint64 = repeatedUint64
-    }
-    if !repeatedSint32.isEmpty {
-      storage._repeatedSint32 = repeatedSint32
-    }
-    if !repeatedSint64.isEmpty {
-      storage._repeatedSint64 = repeatedSint64
-    }
-    if !repeatedFixed32.isEmpty {
-      storage._repeatedFixed32 = repeatedFixed32
-    }
-    if !repeatedFixed64.isEmpty {
-      storage._repeatedFixed64 = repeatedFixed64
-    }
-    if !repeatedSfixed32.isEmpty {
-      storage._repeatedSfixed32 = repeatedSfixed32
-    }
-    if !repeatedSfixed64.isEmpty {
-      storage._repeatedSfixed64 = repeatedSfixed64
-    }
-    if !repeatedFloat.isEmpty {
-      storage._repeatedFloat = repeatedFloat
-    }
-    if !repeatedDouble.isEmpty {
-      storage._repeatedDouble = repeatedDouble
-    }
-    if !repeatedBool.isEmpty {
-      storage._repeatedBool = repeatedBool
-    }
-    if !repeatedString.isEmpty {
-      storage._repeatedString = repeatedString
-    }
-    if !repeatedBytes.isEmpty {
-      storage._repeatedBytes = repeatedBytes
-    }
-    if !repeatedNestedMessage.isEmpty {
-      storage._repeatedNestedMessage = repeatedNestedMessage
-    }
-    if !repeatedForeignMessage.isEmpty {
-      storage._repeatedForeignMessage = repeatedForeignMessage
-    }
-    if !repeatedNestedEnum.isEmpty {
-      storage._repeatedNestedEnum = repeatedNestedEnum
-    }
-    if !repeatedForeignEnum.isEmpty {
-      storage._repeatedForeignEnum = repeatedForeignEnum
-    }
-    if !repeatedStringPiece.isEmpty {
-      storage._repeatedStringPiece = repeatedStringPiece
-    }
-    if !repeatedCord.isEmpty {
-      storage._repeatedCord = repeatedCord
-    }
-    if !mapInt32Int32.isEmpty {
-      storage._mapInt32Int32 = mapInt32Int32
-    }
-    if !mapInt64Int64.isEmpty {
-      storage._mapInt64Int64 = mapInt64Int64
-    }
-    if !mapUint32Uint32.isEmpty {
-      storage._mapUint32Uint32 = mapUint32Uint32
-    }
-    if !mapUint64Uint64.isEmpty {
-      storage._mapUint64Uint64 = mapUint64Uint64
-    }
-    if !mapSint32Sint32.isEmpty {
-      storage._mapSint32Sint32 = mapSint32Sint32
-    }
-    if !mapSint64Sint64.isEmpty {
-      storage._mapSint64Sint64 = mapSint64Sint64
-    }
-    if !mapFixed32Fixed32.isEmpty {
-      storage._mapFixed32Fixed32 = mapFixed32Fixed32
-    }
-    if !mapFixed64Fixed64.isEmpty {
-      storage._mapFixed64Fixed64 = mapFixed64Fixed64
-    }
-    if !mapSfixed32Sfixed32.isEmpty {
-      storage._mapSfixed32Sfixed32 = mapSfixed32Sfixed32
-    }
-    if !mapSfixed64Sfixed64.isEmpty {
-      storage._mapSfixed64Sfixed64 = mapSfixed64Sfixed64
-    }
-    if !mapInt32Float.isEmpty {
-      storage._mapInt32Float = mapInt32Float
-    }
-    if !mapInt32Double.isEmpty {
-      storage._mapInt32Double = mapInt32Double
-    }
-    if !mapBoolBool.isEmpty {
-      storage._mapBoolBool = mapBoolBool
-    }
-    if !mapStringString.isEmpty {
-      storage._mapStringString = mapStringString
-    }
-    if !mapStringBytes.isEmpty {
-      storage._mapStringBytes = mapStringBytes
-    }
-    if !mapStringNestedMessage.isEmpty {
-      storage._mapStringNestedMessage = mapStringNestedMessage
-    }
-    if !mapStringForeignMessage.isEmpty {
-      storage._mapStringForeignMessage = mapStringForeignMessage
-    }
-    if !mapStringNestedEnum.isEmpty {
-      storage._mapStringNestedEnum = mapStringNestedEnum
-    }
-    if !mapStringForeignEnum.isEmpty {
-      storage._mapStringForeignEnum = mapStringForeignEnum
-    }
-    if let v = oneofUint32 {
-      storage._oneofField = .oneofUint32(v)
-    }
-    if let v = oneofNestedMessage {
-      storage._oneofField = .oneofNestedMessage(v)
-    }
-    if let v = oneofString {
-      storage._oneofField = .oneofString(v)
-    }
-    if let v = oneofBytes {
-      storage._oneofField = .oneofBytes(v)
-    }
-    storage._optionalBoolWrapper = optionalBoolWrapper
-    storage._optionalInt32Wrapper = optionalInt32Wrapper
-    storage._optionalInt64Wrapper = optionalInt64Wrapper
-    storage._optionalUint32Wrapper = optionalUint32Wrapper
-    storage._optionalUint64Wrapper = optionalUint64Wrapper
-    storage._optionalFloatWrapper = optionalFloatWrapper
-    storage._optionalDoubleWrapper = optionalDoubleWrapper
-    storage._optionalStringWrapper = optionalStringWrapper
-    storage._optionalBytesWrapper = optionalBytesWrapper
-    if !repeatedBoolWrapper.isEmpty {
-      storage._repeatedBoolWrapper = repeatedBoolWrapper
-    }
-    if !repeatedInt32Wrapper.isEmpty {
-      storage._repeatedInt32Wrapper = repeatedInt32Wrapper
-    }
-    if !repeatedInt64Wrapper.isEmpty {
-      storage._repeatedInt64Wrapper = repeatedInt64Wrapper
-    }
-    if !repeatedUint32Wrapper.isEmpty {
-      storage._repeatedUint32Wrapper = repeatedUint32Wrapper
-    }
-    if !repeatedUint64Wrapper.isEmpty {
-      storage._repeatedUint64Wrapper = repeatedUint64Wrapper
-    }
-    if !repeatedFloatWrapper.isEmpty {
-      storage._repeatedFloatWrapper = repeatedFloatWrapper
-    }
-    if !repeatedDoubleWrapper.isEmpty {
-      storage._repeatedDoubleWrapper = repeatedDoubleWrapper
-    }
-    if !repeatedStringWrapper.isEmpty {
-      storage._repeatedStringWrapper = repeatedStringWrapper
-    }
-    if !repeatedBytesWrapper.isEmpty {
-      storage._repeatedBytesWrapper = repeatedBytesWrapper
-    }
-    storage._optionalDuration = optionalDuration
-    storage._optionalTimestamp = optionalTimestamp
-    storage._optionalFieldMask = optionalFieldMask
-    storage._optionalStruct = optionalStruct
-    storage._optionalAny = optionalAny
-    storage._optionalValue = optionalValue
-    if !repeatedDuration.isEmpty {
-      storage._repeatedDuration = repeatedDuration
-    }
-    if !repeatedTimestamp.isEmpty {
-      storage._repeatedTimestamp = repeatedTimestamp
-    }
-    if !repeatedFieldmask.isEmpty {
-      storage._repeatedFieldmask = repeatedFieldmask
-    }
-    if !repeatedStruct.isEmpty {
-      storage._repeatedStruct = repeatedStruct
-    }
-    if !repeatedAny.isEmpty {
-      storage._repeatedAny = repeatedAny
-    }
-    if !repeatedValue.isEmpty {
-      storage._repeatedValue = repeatedValue
-    }
-    if let v = fieldname1 {
-      storage._fieldname1 = v
-    }
-    if let v = fieldName2 {
-      storage._fieldName2 = v
-    }
-    if let v = fieldName3 {
-      storage._fieldName3 = v
-    }
-    if let v = field_Name4_ {
-      storage._field_Name4_ = v
-    }
-    if let v = field0Name5 {
-      storage._field0Name5 = v
-    }
-    if let v = field0Name6 {
-      storage._field0Name6 = v
-    }
-    if let v = fieldName7 {
-      storage._fieldName7 = v
-    }
-    if let v = fieldName8 {
-      storage._fieldName8 = v
-    }
-    if let v = fieldName9 {
-      storage._fieldName9 = v
-    }
-    if let v = fieldName10 {
-      storage._fieldName10 = v
-    }
-    if let v = fieldName11 {
-      storage._fieldName11 = v
-    }
-    if let v = fieldName12 {
-      storage._fieldName12 = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -2933,13 +2482,6 @@ public struct Conformance_ForeignMessage: ProtobufGeneratedMessage {
   public var c: Int32 = 0
 
   public init() {}
-
-  public init(c: Int32? = nil)
-  {
-    if let v = c {
-      self.c = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

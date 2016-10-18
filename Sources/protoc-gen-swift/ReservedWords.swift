@@ -1,4 +1,4 @@
-// Sources/ReservedWords.swift - Reserved words database and sanitizing
+// Sources/protoc-gen-swift/ReservedWords.swift - Reserved words database and sanitizing
 //
 // This source file is part of the Swift.org open source project
 //

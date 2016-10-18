@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 // 
 //  This is like unittest.proto but with optimize_for = LITE_RUNTIME.
@@ -1149,13 +1150,6 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(bb: Int32? = nil,
-      cc: Int64? = nil)
-    {
-      self.bb = bb
-      self.cc = cc
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -1206,11 +1200,6 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public init(a: Int32? = nil)
-    {
-      self.a = a
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -1255,11 +1244,6 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
     public var a: Int32? = nil
 
     public init() {}
-
-    public init(a: Int32? = nil)
-    {
-      self.a = a
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -1737,222 +1721,6 @@ public struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(optionalInt32: Int32? = nil,
-    optionalInt64: Int64? = nil,
-    optionalUint32: UInt32? = nil,
-    optionalUint64: UInt64? = nil,
-    optionalSint32: Int32? = nil,
-    optionalSint64: Int64? = nil,
-    optionalFixed32: UInt32? = nil,
-    optionalFixed64: UInt64? = nil,
-    optionalSfixed32: Int32? = nil,
-    optionalSfixed64: Int64? = nil,
-    optionalFloat: Float? = nil,
-    optionalDouble: Double? = nil,
-    optionalBool: Bool? = nil,
-    optionalString: String? = nil,
-    optionalBytes: Data? = nil,
-    optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup? = nil,
-    optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil,
-    optionalForeignMessage: ProtobufUnittest_ForeignMessageLite? = nil,
-    optionalImportMessage: ProtobufUnittestImport_ImportMessageLite? = nil,
-    optionalNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum? = nil,
-    optionalForeignEnum: ProtobufUnittest_ForeignEnumLite? = nil,
-    optionalImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil,
-    optionalStringPiece: String? = nil,
-    optionalCord: String? = nil,
-    optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite? = nil,
-    optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil,
-    repeatedInt32: [Int32] = [],
-    repeatedInt64: [Int64] = [],
-    repeatedUint32: [UInt32] = [],
-    repeatedUint64: [UInt64] = [],
-    repeatedSint32: [Int32] = [],
-    repeatedSint64: [Int64] = [],
-    repeatedFixed32: [UInt32] = [],
-    repeatedFixed64: [UInt64] = [],
-    repeatedSfixed32: [Int32] = [],
-    repeatedSfixed64: [Int64] = [],
-    repeatedFloat: [Float] = [],
-    repeatedDouble: [Double] = [],
-    repeatedBool: [Bool] = [],
-    repeatedString: [String] = [],
-    repeatedBytes: [Data] = [],
-    repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] = [],
-    repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] = [],
-    repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] = [],
-    repeatedImportMessage: [ProtobufUnittestImport_ImportMessageLite] = [],
-    repeatedNestedEnum: [ProtobufUnittest_TestAllTypesLite.NestedEnum] = [],
-    repeatedForeignEnum: [ProtobufUnittest_ForeignEnumLite] = [],
-    repeatedImportEnum: [ProtobufUnittestImport_ImportEnumLite] = [],
-    repeatedStringPiece: [String] = [],
-    repeatedCord: [String] = [],
-    repeatedLazyMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] = [],
-    defaultInt32: Int32? = nil,
-    defaultInt64: Int64? = nil,
-    defaultUint32: UInt32? = nil,
-    defaultUint64: UInt64? = nil,
-    defaultSint32: Int32? = nil,
-    defaultSint64: Int64? = nil,
-    defaultFixed32: UInt32? = nil,
-    defaultFixed64: UInt64? = nil,
-    defaultSfixed32: Int32? = nil,
-    defaultSfixed64: Int64? = nil,
-    defaultFloat: Float? = nil,
-    defaultDouble: Double? = nil,
-    defaultBool: Bool? = nil,
-    defaultString: String? = nil,
-    defaultBytes: Data? = nil,
-    defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum? = nil,
-    defaultForeignEnum: ProtobufUnittest_ForeignEnumLite? = nil,
-    defaultImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil,
-    defaultStringPiece: String? = nil,
-    defaultCord: String? = nil,
-    oneofUint32: UInt32? = nil,
-    oneofNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil,
-    oneofString: String? = nil,
-    oneofBytes: Data? = nil,
-    oneofLazyNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._optionalInt32 = optionalInt32
-    storage._optionalInt64 = optionalInt64
-    storage._optionalUint32 = optionalUint32
-    storage._optionalUint64 = optionalUint64
-    storage._optionalSint32 = optionalSint32
-    storage._optionalSint64 = optionalSint64
-    storage._optionalFixed32 = optionalFixed32
-    storage._optionalFixed64 = optionalFixed64
-    storage._optionalSfixed32 = optionalSfixed32
-    storage._optionalSfixed64 = optionalSfixed64
-    storage._optionalFloat = optionalFloat
-    storage._optionalDouble = optionalDouble
-    storage._optionalBool = optionalBool
-    storage._optionalString = optionalString
-    storage._optionalBytes = optionalBytes
-    storage._optionalGroup = optionalGroup
-    storage._optionalNestedMessage = optionalNestedMessage
-    storage._optionalForeignMessage = optionalForeignMessage
-    storage._optionalImportMessage = optionalImportMessage
-    storage._optionalNestedEnum = optionalNestedEnum
-    storage._optionalForeignEnum = optionalForeignEnum
-    storage._optionalImportEnum = optionalImportEnum
-    storage._optionalStringPiece = optionalStringPiece
-    storage._optionalCord = optionalCord
-    storage._optionalPublicImportMessage = optionalPublicImportMessage
-    storage._optionalLazyMessage = optionalLazyMessage
-    if !repeatedInt32.isEmpty {
-      storage._repeatedInt32 = repeatedInt32
-    }
-    if !repeatedInt64.isEmpty {
-      storage._repeatedInt64 = repeatedInt64
-    }
-    if !repeatedUint32.isEmpty {
-      storage._repeatedUint32 = repeatedUint32
-    }
-    if !repeatedUint64.isEmpty {
-      storage._repeatedUint64 = repeatedUint64
-    }
-    if !repeatedSint32.isEmpty {
-      storage._repeatedSint32 = repeatedSint32
-    }
-    if !repeatedSint64.isEmpty {
-      storage._repeatedSint64 = repeatedSint64
-    }
-    if !repeatedFixed32.isEmpty {
-      storage._repeatedFixed32 = repeatedFixed32
-    }
-    if !repeatedFixed64.isEmpty {
-      storage._repeatedFixed64 = repeatedFixed64
-    }
-    if !repeatedSfixed32.isEmpty {
-      storage._repeatedSfixed32 = repeatedSfixed32
-    }
-    if !repeatedSfixed64.isEmpty {
-      storage._repeatedSfixed64 = repeatedSfixed64
-    }
-    if !repeatedFloat.isEmpty {
-      storage._repeatedFloat = repeatedFloat
-    }
-    if !repeatedDouble.isEmpty {
-      storage._repeatedDouble = repeatedDouble
-    }
-    if !repeatedBool.isEmpty {
-      storage._repeatedBool = repeatedBool
-    }
-    if !repeatedString.isEmpty {
-      storage._repeatedString = repeatedString
-    }
-    if !repeatedBytes.isEmpty {
-      storage._repeatedBytes = repeatedBytes
-    }
-    if !repeatedGroup.isEmpty {
-      storage._repeatedGroup = repeatedGroup
-    }
-    if !repeatedNestedMessage.isEmpty {
-      storage._repeatedNestedMessage = repeatedNestedMessage
-    }
-    if !repeatedForeignMessage.isEmpty {
-      storage._repeatedForeignMessage = repeatedForeignMessage
-    }
-    if !repeatedImportMessage.isEmpty {
-      storage._repeatedImportMessage = repeatedImportMessage
-    }
-    if !repeatedNestedEnum.isEmpty {
-      storage._repeatedNestedEnum = repeatedNestedEnum
-    }
-    if !repeatedForeignEnum.isEmpty {
-      storage._repeatedForeignEnum = repeatedForeignEnum
-    }
-    if !repeatedImportEnum.isEmpty {
-      storage._repeatedImportEnum = repeatedImportEnum
-    }
-    if !repeatedStringPiece.isEmpty {
-      storage._repeatedStringPiece = repeatedStringPiece
-    }
-    if !repeatedCord.isEmpty {
-      storage._repeatedCord = repeatedCord
-    }
-    if !repeatedLazyMessage.isEmpty {
-      storage._repeatedLazyMessage = repeatedLazyMessage
-    }
-    storage._defaultInt32 = defaultInt32
-    storage._defaultInt64 = defaultInt64
-    storage._defaultUint32 = defaultUint32
-    storage._defaultUint64 = defaultUint64
-    storage._defaultSint32 = defaultSint32
-    storage._defaultSint64 = defaultSint64
-    storage._defaultFixed32 = defaultFixed32
-    storage._defaultFixed64 = defaultFixed64
-    storage._defaultSfixed32 = defaultSfixed32
-    storage._defaultSfixed64 = defaultSfixed64
-    storage._defaultFloat = defaultFloat
-    storage._defaultDouble = defaultDouble
-    storage._defaultBool = defaultBool
-    storage._defaultString = defaultString
-    storage._defaultBytes = defaultBytes
-    storage._defaultNestedEnum = defaultNestedEnum
-    storage._defaultForeignEnum = defaultForeignEnum
-    storage._defaultImportEnum = defaultImportEnum
-    storage._defaultStringPiece = defaultStringPiece
-    storage._defaultCord = defaultCord
-    if let v = oneofUint32 {
-      storage._oneofField = .oneofUint32(v)
-    }
-    if let v = oneofNestedMessage {
-      storage._oneofField = .oneofNestedMessage(v)
-    }
-    if let v = oneofString {
-      storage._oneofField = .oneofString(v)
-    }
-    if let v = oneofBytes {
-      storage._oneofField = .oneofBytes(v)
-    }
-    if let v = oneofLazyNestedMessage {
-      storage._oneofField = .oneofLazyNestedMessage(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1989,11 +1757,6 @@ public struct ProtobufUnittest_ForeignMessageLite: ProtobufGeneratedMessage {
   public var c: Int32? = nil
 
   public init() {}
-
-  public init(c: Int32? = nil)
-  {
-    self.c = c
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2091,65 +1854,6 @@ public struct ProtobufUnittest_TestPackedTypesLite: ProtobufGeneratedMessage {
   public var packedEnum: [ProtobufUnittest_ForeignEnumLite] = []
 
   public init() {}
-
-  public init(packedInt32: [Int32] = [],
-    packedInt64: [Int64] = [],
-    packedUint32: [UInt32] = [],
-    packedUint64: [UInt64] = [],
-    packedSint32: [Int32] = [],
-    packedSint64: [Int64] = [],
-    packedFixed32: [UInt32] = [],
-    packedFixed64: [UInt64] = [],
-    packedSfixed32: [Int32] = [],
-    packedSfixed64: [Int64] = [],
-    packedFloat: [Float] = [],
-    packedDouble: [Double] = [],
-    packedBool: [Bool] = [],
-    packedEnum: [ProtobufUnittest_ForeignEnumLite] = [])
-  {
-    if !packedInt32.isEmpty {
-      self.packedInt32 = packedInt32
-    }
-    if !packedInt64.isEmpty {
-      self.packedInt64 = packedInt64
-    }
-    if !packedUint32.isEmpty {
-      self.packedUint32 = packedUint32
-    }
-    if !packedUint64.isEmpty {
-      self.packedUint64 = packedUint64
-    }
-    if !packedSint32.isEmpty {
-      self.packedSint32 = packedSint32
-    }
-    if !packedSint64.isEmpty {
-      self.packedSint64 = packedSint64
-    }
-    if !packedFixed32.isEmpty {
-      self.packedFixed32 = packedFixed32
-    }
-    if !packedFixed64.isEmpty {
-      self.packedFixed64 = packedFixed64
-    }
-    if !packedSfixed32.isEmpty {
-      self.packedSfixed32 = packedSfixed32
-    }
-    if !packedSfixed64.isEmpty {
-      self.packedSfixed64 = packedSfixed64
-    }
-    if !packedFloat.isEmpty {
-      self.packedFloat = packedFloat
-    }
-    if !packedDouble.isEmpty {
-      self.packedDouble = packedDouble
-    }
-    if !packedBool.isEmpty {
-      self.packedBool = packedBool
-    }
-    if !packedEnum.isEmpty {
-      self.packedEnum = packedEnum
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2311,11 +2015,6 @@ public struct ProtobufUnittest_OptionalGroup_extension_lite: ProtobufGeneratedMe
 
   public init() {}
 
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -2360,11 +2059,6 @@ public struct ProtobufUnittest_RepeatedGroup_extension_lite: ProtobufGeneratedMe
   public var a: Int32? = nil
 
   public init() {}
-
-  public init(a: Int32? = nil)
-  {
-    self.a = a
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2492,11 +2186,6 @@ public struct ProtobufUnittest_TestDeprecatedLite: ProtobufGeneratedMessage {
   public var deprecatedField: Int32? = nil
 
   public init() {}
-
-  public init(deprecatedField: Int32? = nil)
-  {
-    self.deprecatedField = deprecatedField
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -2668,11 +2357,6 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
 
       public init() {}
 
-      public init(field1: ProtobufUnittest_TestAllTypesLite? = nil)
-      {
-        self.field1 = field1
-      }
-
       public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         let handled: Bool
         switch protoFieldNumber {
@@ -2718,11 +2402,6 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
 
       public init() {}
 
-      public init(field1: ProtobufUnittest_TestAllTypesLite? = nil)
-      {
-        self.field1 = field1
-      }
-
       public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         let handled: Bool
         switch protoFieldNumber {
@@ -2766,37 +2445,6 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
     public var ext2: [ProtobufUnittest_TestAllTypesLite] = []
 
     public init() {}
-
-    public init(field1: [ProtobufUnittest_TestAllTypesLite] = [],
-      field2: [ProtobufUnittest_TestAllTypesLite] = [],
-      field3: [ProtobufUnittest_TestAllTypesLite] = [],
-      group1: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1] = [],
-      group2: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2] = [],
-      ext1: [ProtobufUnittest_TestAllTypesLite] = [],
-      ext2: [ProtobufUnittest_TestAllTypesLite] = [])
-    {
-      if !field1.isEmpty {
-        self.field1 = field1
-      }
-      if !field2.isEmpty {
-        self.field2 = field2
-      }
-      if !field3.isEmpty {
-        self.field3 = field3
-      }
-      if !group1.isEmpty {
-        self.group1 = group1
-      }
-      if !group2.isEmpty {
-        self.group2 = group2
-      }
-      if !ext1.isEmpty {
-        self.ext1 = ext1
-      }
-      if !ext2.isEmpty {
-        self.ext2 = ext2
-      }
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -2873,11 +2521,6 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
 
     public init() {}
 
-    public init(optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil)
-    {
-      self.optionalGroupAllTypes = optionalGroupAllTypes
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -2922,11 +2565,6 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
     public var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
 
     public init() {}
-
-    public init(repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil)
-    {
-      self.repeatedGroupAllTypes = repeatedGroupAllTypes
-    }
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
@@ -2989,24 +2627,6 @@ public struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, P
   }
 
   public init() {}
-
-  public init(requiredAllTypes: ProtobufUnittest_TestAllTypesLite? = nil,
-    optionalAllTypes: ProtobufUnittest_TestAllTypesLite? = nil,
-    repeatedAllTypes: [ProtobufUnittest_TestAllTypesLite] = [],
-    optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup? = nil,
-    repeatedGroup: [ProtobufUnittest_TestParsingMergeLite.RepeatedGroup] = [])
-  {
-    let storage = _uniqueStorage()
-    storage._requiredAllTypes = requiredAllTypes
-    storage._optionalAllTypes = optionalAllTypes
-    if !repeatedAllTypes.isEmpty {
-      storage._repeatedAllTypes = repeatedAllTypes
-    }
-    storage._optionalGroup = optionalGroup
-    if !repeatedGroup.isEmpty {
-      storage._repeatedGroup = repeatedGroup
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -3139,13 +2759,6 @@ public struct ProtobufUnittest_V1MessageLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(intField: Int32 = 0,
-    enumField: ProtobufUnittest_V1EnumLite? = nil)
-  {
-    self.intField = intField
-    self.enumField = enumField
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
@@ -3201,13 +2814,6 @@ public struct ProtobufUnittest_V2MessageLite: ProtobufGeneratedMessage {
   }
 
   public init() {}
-
-  public init(intField: Int32 = 0,
-    enumField: ProtobufUnittest_V2EnumLite? = nil)
-  {
-    self.intField = intField
-    self.enumField = enumField
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 // 
 //  WARNING:  The plugin interface is currently EXPERIMENTAL and is subject to
@@ -95,19 +96,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
   public var protoFile: [Google_Protobuf_FileDescriptorProto] = []
 
   public init() {}
-
-  public init(fileToGenerate: [String] = [],
-    parameter: String? = nil,
-    protoFile: [Google_Protobuf_FileDescriptorProto] = [])
-  {
-    if !fileToGenerate.isEmpty {
-      self.fileToGenerate = fileToGenerate
-    }
-    self.parameter = parameter
-    if !protoFile.isEmpty {
-      self.protoFile = protoFile
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
@@ -238,15 +226,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
 
     public init() {}
 
-    public init(name: String? = nil,
-      insertionPoint: String? = nil,
-      content: String? = nil)
-    {
-      self.name = name
-      self.insertionPoint = insertionPoint
-      self.content = content
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -298,15 +277,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
   public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
   public init() {}
-
-  public init(error: String? = nil,
-    file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = [])
-  {
-    self.error = error
-    if !file.isEmpty {
-      self.file = file
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

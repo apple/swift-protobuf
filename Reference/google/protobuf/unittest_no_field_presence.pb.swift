@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  A proto file used to test a message type with no explicit field presence.
 
 import Foundation
@@ -762,13 +763,6 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
 
     public init() {}
 
-    public init(bb: Int32? = nil)
-    {
-      if let v = bb {
-        self.bb = v
-      }
-    }
-
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
@@ -1101,202 +1095,6 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
 
   public init() {}
 
-  public init(optionalInt32: Int32? = nil,
-    optionalInt64: Int64? = nil,
-    optionalUint32: UInt32? = nil,
-    optionalUint64: UInt64? = nil,
-    optionalSint32: Int32? = nil,
-    optionalSint64: Int64? = nil,
-    optionalFixed32: UInt32? = nil,
-    optionalFixed64: UInt64? = nil,
-    optionalSfixed32: Int32? = nil,
-    optionalSfixed64: Int64? = nil,
-    optionalFloat: Float? = nil,
-    optionalDouble: Double? = nil,
-    optionalBool: Bool? = nil,
-    optionalString: String? = nil,
-    optionalBytes: Data? = nil,
-    optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil,
-    optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil,
-    optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil,
-    optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum? = nil,
-    optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum? = nil,
-    optionalStringPiece: String? = nil,
-    optionalCord: String? = nil,
-    optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil,
-    repeatedInt32: [Int32] = [],
-    repeatedInt64: [Int64] = [],
-    repeatedUint32: [UInt32] = [],
-    repeatedUint64: [UInt64] = [],
-    repeatedSint32: [Int32] = [],
-    repeatedSint64: [Int64] = [],
-    repeatedFixed32: [UInt32] = [],
-    repeatedFixed64: [UInt64] = [],
-    repeatedSfixed32: [Int32] = [],
-    repeatedSfixed64: [Int64] = [],
-    repeatedFloat: [Float] = [],
-    repeatedDouble: [Double] = [],
-    repeatedBool: [Bool] = [],
-    repeatedString: [String] = [],
-    repeatedBytes: [Data] = [],
-    repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = [],
-    repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] = [],
-    repeatedProto2Message: [ProtobufUnittest_TestAllTypes] = [],
-    repeatedNestedEnum: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = [],
-    repeatedForeignEnum: [Proto2NofieldpresenceUnittest_ForeignEnum] = [],
-    repeatedStringPiece: [String] = [],
-    repeatedCord: [String] = [],
-    repeatedLazyMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = [],
-    oneofUint32: UInt32? = nil,
-    oneofNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil,
-    oneofString: String? = nil,
-    oneofEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum? = nil)
-  {
-    let storage = _uniqueStorage()
-    if let v = optionalInt32 {
-      storage._optionalInt32 = v
-    }
-    if let v = optionalInt64 {
-      storage._optionalInt64 = v
-    }
-    if let v = optionalUint32 {
-      storage._optionalUint32 = v
-    }
-    if let v = optionalUint64 {
-      storage._optionalUint64 = v
-    }
-    if let v = optionalSint32 {
-      storage._optionalSint32 = v
-    }
-    if let v = optionalSint64 {
-      storage._optionalSint64 = v
-    }
-    if let v = optionalFixed32 {
-      storage._optionalFixed32 = v
-    }
-    if let v = optionalFixed64 {
-      storage._optionalFixed64 = v
-    }
-    if let v = optionalSfixed32 {
-      storage._optionalSfixed32 = v
-    }
-    if let v = optionalSfixed64 {
-      storage._optionalSfixed64 = v
-    }
-    if let v = optionalFloat {
-      storage._optionalFloat = v
-    }
-    if let v = optionalDouble {
-      storage._optionalDouble = v
-    }
-    if let v = optionalBool {
-      storage._optionalBool = v
-    }
-    if let v = optionalString {
-      storage._optionalString = v
-    }
-    if let v = optionalBytes {
-      storage._optionalBytes = v
-    }
-    storage._optionalNestedMessage = optionalNestedMessage
-    storage._optionalForeignMessage = optionalForeignMessage
-    storage._optionalProto2Message = optionalProto2Message
-    if let v = optionalNestedEnum {
-      storage._optionalNestedEnum = v
-    }
-    if let v = optionalForeignEnum {
-      storage._optionalForeignEnum = v
-    }
-    if let v = optionalStringPiece {
-      storage._optionalStringPiece = v
-    }
-    if let v = optionalCord {
-      storage._optionalCord = v
-    }
-    storage._optionalLazyMessage = optionalLazyMessage
-    if !repeatedInt32.isEmpty {
-      storage._repeatedInt32 = repeatedInt32
-    }
-    if !repeatedInt64.isEmpty {
-      storage._repeatedInt64 = repeatedInt64
-    }
-    if !repeatedUint32.isEmpty {
-      storage._repeatedUint32 = repeatedUint32
-    }
-    if !repeatedUint64.isEmpty {
-      storage._repeatedUint64 = repeatedUint64
-    }
-    if !repeatedSint32.isEmpty {
-      storage._repeatedSint32 = repeatedSint32
-    }
-    if !repeatedSint64.isEmpty {
-      storage._repeatedSint64 = repeatedSint64
-    }
-    if !repeatedFixed32.isEmpty {
-      storage._repeatedFixed32 = repeatedFixed32
-    }
-    if !repeatedFixed64.isEmpty {
-      storage._repeatedFixed64 = repeatedFixed64
-    }
-    if !repeatedSfixed32.isEmpty {
-      storage._repeatedSfixed32 = repeatedSfixed32
-    }
-    if !repeatedSfixed64.isEmpty {
-      storage._repeatedSfixed64 = repeatedSfixed64
-    }
-    if !repeatedFloat.isEmpty {
-      storage._repeatedFloat = repeatedFloat
-    }
-    if !repeatedDouble.isEmpty {
-      storage._repeatedDouble = repeatedDouble
-    }
-    if !repeatedBool.isEmpty {
-      storage._repeatedBool = repeatedBool
-    }
-    if !repeatedString.isEmpty {
-      storage._repeatedString = repeatedString
-    }
-    if !repeatedBytes.isEmpty {
-      storage._repeatedBytes = repeatedBytes
-    }
-    if !repeatedNestedMessage.isEmpty {
-      storage._repeatedNestedMessage = repeatedNestedMessage
-    }
-    if !repeatedForeignMessage.isEmpty {
-      storage._repeatedForeignMessage = repeatedForeignMessage
-    }
-    if !repeatedProto2Message.isEmpty {
-      storage._repeatedProto2Message = repeatedProto2Message
-    }
-    if !repeatedNestedEnum.isEmpty {
-      storage._repeatedNestedEnum = repeatedNestedEnum
-    }
-    if !repeatedForeignEnum.isEmpty {
-      storage._repeatedForeignEnum = repeatedForeignEnum
-    }
-    if !repeatedStringPiece.isEmpty {
-      storage._repeatedStringPiece = repeatedStringPiece
-    }
-    if !repeatedCord.isEmpty {
-      storage._repeatedCord = repeatedCord
-    }
-    if !repeatedLazyMessage.isEmpty {
-      storage._repeatedLazyMessage = repeatedLazyMessage
-    }
-    if let v = oneofUint32 {
-      storage._oneofField = .oneofUint32(v)
-    }
-    if let v = oneofNestedMessage {
-      storage._oneofField = .oneofNestedMessage(v)
-    }
-    if let v = oneofString {
-      storage._oneofField = .oneofString(v)
-    }
-    if let v = oneofEnum {
-      storage._oneofField = .oneofEnum(v)
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1371,12 +1169,6 @@ public struct Proto2NofieldpresenceUnittest_TestProto2Required: ProtobufGenerate
 
   public init() {}
 
-  public init(proto2: ProtobufUnittest_TestRequired? = nil)
-  {
-    let storage = _uniqueStorage()
-    storage._proto2 = proto2
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1413,13 +1205,6 @@ public struct Proto2NofieldpresenceUnittest_ForeignMessage: ProtobufGeneratedMes
   public var c: Int32 = 0
 
   public init() {}
-
-  public init(c: Int32? = nil)
-  {
-    if let v = c {
-      self.c = v
-    }
-  }
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool

@@ -118,17 +118,6 @@ public struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public init(seconds: Int64? = nil,
-    nanos: Int32? = nil)
-  {
-    if let v = seconds {
-      self.seconds = v
-    }
-    if let v = nanos {
-      self.nanos = v
-    }
-  }
-
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
