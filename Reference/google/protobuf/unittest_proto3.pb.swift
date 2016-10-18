@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 //   Based on original Protocol Buffers design by
 //   Sanjay Ghemawat, Jeff Dean, and others.
@@ -2821,6 +2822,7 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
 }
 
 //  Test messages for packed fields
+
 public struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}

@@ -901,6 +901,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
   //  optional group OptionalGroup = 16 {
   //    optional int32 a = 17;
   //  }
+
   public var optionalNestedMessage: Proto3LiteUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalNestedMessage ?? Proto3LiteUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
@@ -930,6 +931,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
   //  inside proto2 messages.
   // 
   //  optional protobuf_unittest_import.ImportEnum    optional_import_enum  = 23;
+
   public var optionalStringPiece: String {
     get {return _storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
@@ -1031,6 +1033,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
   //  repeated group RepeatedGroup = 46 {
   //    optional int32 a = 47;
   //  }
+
   public var repeatedNestedMessage: [Proto3LiteUnittest_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
@@ -1060,6 +1063,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
   //  inside proto2 messages.
   // 
   //  repeated protobuf_unittest_import.ImportEnum    repeated_import_enum  = 53;
+
   public var repeatedStringPiece: [String] {
     get {return _storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
@@ -1169,6 +1173,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
 }
 
 //  Test messages for packed fields
+
 public struct Proto3LiteUnittest_TestPackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
