@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum Proto3ImportEnum: ProtobufEnum {
+enum Proto3ImportEnum: ProtobufEnum {
   public typealias RawValue = Int
   case importEnumUnspecified // = 0
   case importFoo // = 7
@@ -138,7 +138,7 @@ public enum Proto3ImportEnum: ProtobufEnum {
 
 }
 
-public struct Proto3ImportMessage: ProtobufGeneratedMessage {
+struct Proto3ImportMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}

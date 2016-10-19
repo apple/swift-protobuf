@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
+enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
   public typealias RawValue = Int
   case importFoo // = 7
   case importBar // = 8
@@ -127,7 +127,7 @@ public enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
 }
 
 ///   To use an enum in a map, it must has the first value as 0.
-public enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
+enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
   public typealias RawValue = Int
   case unknown // = 0
   case foo // = 1
@@ -207,7 +207,7 @@ public enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
 
 }
 
-public struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}

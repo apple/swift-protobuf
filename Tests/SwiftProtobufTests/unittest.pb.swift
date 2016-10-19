@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum ProtobufUnittest_ForeignEnum: ProtobufEnum {
+enum ProtobufUnittest_ForeignEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foreignFoo // = 4
   case foreignBar // = 5
@@ -127,7 +127,7 @@ public enum ProtobufUnittest_ForeignEnum: ProtobufEnum {
 }
 
 ///   Test an enum that has multiple values with the same number.
-public enum ProtobufUnittest_TestEnumWithDupValue: ProtobufEnum {
+enum ProtobufUnittest_TestEnumWithDupValue: ProtobufEnum {
   public typealias RawValue = Int
   case foo1 // = 1
   case bar1 // = 2
@@ -222,7 +222,7 @@ public enum ProtobufUnittest_TestEnumWithDupValue: ProtobufEnum {
 }
 
 ///   Test an enum with large, unordered values.
-public enum ProtobufUnittest_TestSparseEnum: ProtobufEnum {
+enum ProtobufUnittest_TestSparseEnum: ProtobufEnum {
   public typealias RawValue = Int
   case sparseA // = 123
   case sparseB // = 62374
@@ -336,7 +336,7 @@ public enum ProtobufUnittest_TestSparseEnum: ProtobufEnum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1035,7 +1035,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -1111,7 +1111,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 1
     case bar // = 2
@@ -1201,7 +1201,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
 
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1259,7 +1259,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public struct OptionalGroup: ProtobufGeneratedMessage {
+  struct OptionalGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllTypes.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1314,7 +1314,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RepeatedGroup: ProtobufGeneratedMessage {
+  struct RepeatedGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllTypes.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -2082,7 +2082,7 @@ public struct ProtobufUnittest_TestAllTypes: ProtobufGeneratedMessage {
 }
 
 ///   This proto includes a recusively nested message.
-public struct ProtobufUnittest_NestedTestAllTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_NestedTestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_NestedTestAllTypes"}
   public var protoMessageName: String {return "NestedTestAllTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2204,7 +2204,7 @@ public struct ProtobufUnittest_NestedTestAllTypes: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestDeprecatedFields: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestDeprecatedFields: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestDeprecatedFields"}
   public var protoMessageName: String {return "TestDeprecatedFields"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2261,7 +2261,7 @@ public struct ProtobufUnittest_TestDeprecatedFields: ProtobufGeneratedMessage {
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-public struct ProtobufUnittest_ForeignMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_ForeignMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2335,7 +2335,7 @@ public struct ProtobufUnittest_ForeignMessage: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestReservedFields: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestReservedFields: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestReservedFields"}
   public var protoMessageName: String {return "TestReservedFields"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2360,7 +2360,7 @@ public struct ProtobufUnittest_TestReservedFields: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestAllExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestAllExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestAllExtensions"}
   public var protoMessageName: String {return "TestAllExtensions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2418,7 +2418,7 @@ public struct ProtobufUnittest_TestAllExtensions: ProtobufGeneratedMessage, Prot
   }
 }
 
-public struct ProtobufUnittest_OptionalGroup_extension: ProtobufGeneratedMessage {
+struct ProtobufUnittest_OptionalGroup_extension: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_OptionalGroup_extension"}
   public var protoMessageName: String {return "OptionalGroup_extension"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2473,7 +2473,7 @@ public struct ProtobufUnittest_OptionalGroup_extension: ProtobufGeneratedMessage
   }
 }
 
-public struct ProtobufUnittest_RepeatedGroup_extension: ProtobufGeneratedMessage {
+struct ProtobufUnittest_RepeatedGroup_extension: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_RepeatedGroup_extension"}
   public var protoMessageName: String {return "RepeatedGroup_extension"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2528,7 +2528,7 @@ public struct ProtobufUnittest_RepeatedGroup_extension: ProtobufGeneratedMessage
   }
 }
 
-public struct ProtobufUnittest_TestNestedExtension: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestNestedExtension: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestNestedExtension"}
   public var protoMessageName: String {return "TestNestedExtension"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2569,7 +2569,7 @@ public struct ProtobufUnittest_TestNestedExtension: ProtobufGeneratedMessage {
 ///   do anything with it.  Note that we don't need to test every type of
 ///   required filed because the code output is basically identical to
 ///   optional fields for all types.
-public struct ProtobufUnittest_TestRequired: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRequired: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequired"}
   public var protoMessageName: String {return "TestRequired"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3300,7 +3300,7 @@ public struct ProtobufUnittest_TestRequired: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestRequiredForeign: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRequiredForeign: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredForeign"}
   public var protoMessageName: String {return "TestRequiredForeign"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3423,7 +3423,7 @@ public struct ProtobufUnittest_TestRequiredForeign: ProtobufGeneratedMessage {
 }
 
 ///   Test that we can use NestedMessage from outside TestAllTypes.
-public struct ProtobufUnittest_TestForeignNested: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestForeignNested: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestForeignNested"}
   public var protoMessageName: String {return "TestForeignNested"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3512,7 +3512,7 @@ public struct ProtobufUnittest_TestForeignNested: ProtobufGeneratedMessage {
 }
 
 ///   TestEmptyMessage is used to test unknown field support.
-public struct ProtobufUnittest_TestEmptyMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEmptyMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEmptyMessage"}
   public var protoMessageName: String {return "TestEmptyMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3539,7 +3539,7 @@ public struct ProtobufUnittest_TestEmptyMessage: ProtobufGeneratedMessage {
 
 ///   Like above, but declare all field numbers as potential extensions.  No
 ///   actual extensions should ever be defined for this type.
-public struct ProtobufUnittest_TestEmptyMessageWithExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestEmptyMessageWithExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEmptyMessageWithExtensions"}
   public var protoMessageName: String {return "TestEmptyMessageWithExtensions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3597,7 +3597,7 @@ public struct ProtobufUnittest_TestEmptyMessageWithExtensions: ProtobufGenerated
   }
 }
 
-public struct ProtobufUnittest_TestMultipleExtensionRanges: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestMultipleExtensionRanges: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMultipleExtensionRanges"}
   public var protoMessageName: String {return "TestMultipleExtensionRanges"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3658,7 +3658,7 @@ public struct ProtobufUnittest_TestMultipleExtensionRanges: ProtobufGeneratedMes
 }
 
 ///   Test that really large tag numbers don't break anything.
-public struct ProtobufUnittest_TestReallyLargeTagNumber: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestReallyLargeTagNumber: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestReallyLargeTagNumber"}
   public var protoMessageName: String {return "TestReallyLargeTagNumber"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3734,7 +3734,7 @@ public struct ProtobufUnittest_TestReallyLargeTagNumber: ProtobufGeneratedMessag
   }
 }
 
-public struct ProtobufUnittest_TestRecursiveMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRecursiveMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestRecursiveMessage"}
   public var protoMessageName: String {return "TestRecursiveMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3843,7 +3843,7 @@ public struct ProtobufUnittest_TestRecursiveMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test that mutual recursion works.
-public struct ProtobufUnittest_TestMutualRecursionA: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMutualRecursionA: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMutualRecursionA"}
   public var protoMessageName: String {return "TestMutualRecursionA"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3931,7 +3931,7 @@ public struct ProtobufUnittest_TestMutualRecursionA: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestMutualRecursionB: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMutualRecursionB: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMutualRecursionB"}
   public var protoMessageName: String {return "TestMutualRecursionB"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -4043,7 +4043,7 @@ public struct ProtobufUnittest_TestMutualRecursionB: ProtobufGeneratedMessage {
 ///   parents.  This is NOT possible in proto1; only google.protobuf.  When attempting
 ///   to compile with proto1, this will emit an error; so we only include it
 ///   in protobuf_unittest_proto.
-public struct ProtobufUnittest_TestDupFieldNumber: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestDupFieldNumber: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestDupFieldNumber"}
   public var protoMessageName: String {return "TestDupFieldNumber"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -4116,7 +4116,7 @@ public struct ProtobufUnittest_TestDupFieldNumber: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public struct Foo: ProtobufGeneratedMessage {
+  struct Foo: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestDupFieldNumber.Foo"}
     public var protoMessageName: String {return "Foo"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -4171,7 +4171,7 @@ public struct ProtobufUnittest_TestDupFieldNumber: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Bar: ProtobufGeneratedMessage {
+  struct Bar: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestDupFieldNumber.Bar"}
     public var protoMessageName: String {return "Bar"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -4283,7 +4283,7 @@ public struct ProtobufUnittest_TestDupFieldNumber: ProtobufGeneratedMessage {
 }
 
 ///   Additional messages for testing lazy fields.
-public struct ProtobufUnittest_TestEagerMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEagerMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEagerMessage"}
   public var protoMessageName: String {return "TestEagerMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -4371,7 +4371,7 @@ public struct ProtobufUnittest_TestEagerMessage: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestLazyMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestLazyMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestLazyMessage"}
   public var protoMessageName: String {return "TestLazyMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -4460,7 +4460,7 @@ public struct ProtobufUnittest_TestLazyMessage: ProtobufGeneratedMessage {
 }
 
 ///   Needed for a Python test.
-public struct ProtobufUnittest_TestNestedMessageHasBits: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestNestedMessageHasBits: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestNestedMessageHasBits"}
   public var protoMessageName: String {return "TestNestedMessageHasBits"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -4515,7 +4515,7 @@ public struct ProtobufUnittest_TestNestedMessageHasBits: ProtobufGeneratedMessag
 
   private var _storage = _StorageClass()
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestNestedMessageHasBits.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -4604,7 +4604,7 @@ public struct ProtobufUnittest_TestNestedMessageHasBits: ProtobufGeneratedMessag
 
 ///   Test message with CamelCase field names.  This violates Protocol Buffer
 ///   standard style.
-public struct ProtobufUnittest_TestCamelCaseFieldNames: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestCamelCaseFieldNames: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestCamelCaseFieldNames"}
   public var protoMessageName: String {return "TestCamelCaseFieldNames"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -4878,7 +4878,7 @@ public struct ProtobufUnittest_TestCamelCaseFieldNames: ProtobufGeneratedMessage
 
 ///   We list fields out of order, to ensure that we're using field number and not
 ///   field index to determine serialization order.
-public struct ProtobufUnittest_TestFieldOrderings: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestFieldOrderings: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestFieldOrderings"}
   public var protoMessageName: String {return "TestFieldOrderings"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -4969,7 +4969,7 @@ public struct ProtobufUnittest_TestFieldOrderings: ProtobufGeneratedMessage, Pro
 
   private var _storage = _StorageClass()
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestFieldOrderings.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -5128,7 +5128,7 @@ public struct ProtobufUnittest_TestFieldOrderings: ProtobufGeneratedMessage, Pro
   }
 }
 
-public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestExtremeDefaultValues"}
   public var protoMessageName: String {return "TestExtremeDefaultValues"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -5748,7 +5748,7 @@ public struct ProtobufUnittest_TestExtremeDefaultValues: ProtobufGeneratedMessag
   }
 }
 
-public struct ProtobufUnittest_SparseEnumMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SparseEnumMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_SparseEnumMessage"}
   public var protoMessageName: String {return "SparseEnumMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -5804,7 +5804,7 @@ public struct ProtobufUnittest_SparseEnumMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test String and Bytes: string is for valid UTF-8 strings
-public struct ProtobufUnittest_OneString: ProtobufGeneratedMessage {
+struct ProtobufUnittest_OneString: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_OneString"}
   public var protoMessageName: String {return "OneString"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -5859,7 +5859,7 @@ public struct ProtobufUnittest_OneString: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_MoreString: ProtobufGeneratedMessage {
+struct ProtobufUnittest_MoreString: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_MoreString"}
   public var protoMessageName: String {return "MoreString"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -5904,7 +5904,7 @@ public struct ProtobufUnittest_MoreString: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_OneBytes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_OneBytes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_OneBytes"}
   public var protoMessageName: String {return "OneBytes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -5959,7 +5959,7 @@ public struct ProtobufUnittest_OneBytes: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_MoreBytes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_MoreBytes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_MoreBytes"}
   public var protoMessageName: String {return "MoreBytes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6005,7 +6005,7 @@ public struct ProtobufUnittest_MoreBytes: ProtobufGeneratedMessage {
 }
 
 ///   Test int32, uint32, int64, uint64, and bool are all compatible
-public struct ProtobufUnittest_Int32Message: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Int32Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Int32Message"}
   public var protoMessageName: String {return "Int32Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6060,7 +6060,7 @@ public struct ProtobufUnittest_Int32Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_Uint32Message: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Uint32Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Uint32Message"}
   public var protoMessageName: String {return "Uint32Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6115,7 +6115,7 @@ public struct ProtobufUnittest_Uint32Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_Int64Message: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Int64Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Int64Message"}
   public var protoMessageName: String {return "Int64Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6170,7 +6170,7 @@ public struct ProtobufUnittest_Int64Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_Uint64Message: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Uint64Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Uint64Message"}
   public var protoMessageName: String {return "Uint64Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6225,7 +6225,7 @@ public struct ProtobufUnittest_Uint64Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_BoolMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_BoolMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_BoolMessage"}
   public var protoMessageName: String {return "BoolMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6281,7 +6281,7 @@ public struct ProtobufUnittest_BoolMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test oneofs.
-public struct ProtobufUnittest_TestOneof: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestOneof: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestOneof"}
   public var protoMessageName: String {return "TestOneof"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6341,7 +6341,7 @@ public struct ProtobufUnittest_TestOneof: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestAllTypes)
@@ -6417,7 +6417,7 @@ public struct ProtobufUnittest_TestOneof: ProtobufGeneratedMessage {
     }
   }
 
-  public struct FooGroup: ProtobufGeneratedMessage {
+  struct FooGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestOneof.FooGroup"}
     public var protoMessageName: String {return "FooGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -6568,7 +6568,7 @@ public struct ProtobufUnittest_TestOneof: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestOneofBackwardsCompatible: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestOneofBackwardsCompatible: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestOneofBackwardsCompatible"}
   public var protoMessageName: String {return "TestOneofBackwardsCompatible"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6650,7 +6650,7 @@ public struct ProtobufUnittest_TestOneofBackwardsCompatible: ProtobufGeneratedMe
 
   private var _storage = _StorageClass()
 
-  public struct FooGroup: ProtobufGeneratedMessage {
+  struct FooGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup"}
     public var protoMessageName: String {return "FooGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -6790,7 +6790,7 @@ public struct ProtobufUnittest_TestOneofBackwardsCompatible: ProtobufGeneratedMe
   }
 }
 
-public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestOneof2"}
   public var protoMessageName: String {return "TestOneof2"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -6896,7 +6896,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case fooInt(Int32)
     case fooString(String)
     case fooCord(String)
@@ -7027,7 +7027,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     }
   }
 
-  public enum OneOf_Bar: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Bar: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case barInt(Int32)
     case barString(String)
     case barCord(String)
@@ -7125,7 +7125,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     }
   }
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 1
     case bar // = 2
@@ -7205,7 +7205,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
 
   }
 
-  public struct FooGroup: ProtobufGeneratedMessage {
+  struct FooGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestOneof2.FooGroup"}
     public var protoMessageName: String {return "FooGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -7279,7 +7279,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
     }
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestOneof2.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -7581,7 +7581,7 @@ public struct ProtobufUnittest_TestOneof2: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestRequiredOneof: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRequiredOneof: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredOneof"}
   public var protoMessageName: String {return "TestRequiredOneof"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -7639,7 +7639,7 @@ public struct ProtobufUnittest_TestRequiredOneof: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestRequiredOneof.NestedMessage)
@@ -7704,7 +7704,7 @@ public struct ProtobufUnittest_TestRequiredOneof: ProtobufGeneratedMessage {
     }
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestRequiredOneof.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -7824,7 +7824,7 @@ public struct ProtobufUnittest_TestRequiredOneof: ProtobufGeneratedMessage {
 
 //  Test messages for packed fields
 
-public struct ProtobufUnittest_TestPackedTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestPackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -7988,7 +7988,7 @@ public struct ProtobufUnittest_TestPackedTypes: ProtobufGeneratedMessage {
 
 ///   A message with the same fields as TestPackedTypes, but without packing. Used
 ///   to test packed <-> unpacked wire compatibility.
-public struct ProtobufUnittest_TestUnpackedTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestUnpackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestUnpackedTypes"}
   public var protoMessageName: String {return "TestUnpackedTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -8150,7 +8150,7 @@ public struct ProtobufUnittest_TestUnpackedTypes: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestPackedExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestPackedExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestPackedExtensions"}
   public var protoMessageName: String {return "TestPackedExtensions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -8208,7 +8208,7 @@ public struct ProtobufUnittest_TestPackedExtensions: ProtobufGeneratedMessage, P
   }
 }
 
-public struct ProtobufUnittest_TestUnpackedExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestUnpackedExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestUnpackedExtensions"}
   public var protoMessageName: String {return "TestUnpackedExtensions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -8269,7 +8269,7 @@ public struct ProtobufUnittest_TestUnpackedExtensions: ProtobufGeneratedMessage,
 ///   Used by ExtensionSetTest/DynamicExtensions.  The test actually builds
 ///   a set of extensions to TestAllExtensions dynamically, based on the fields
 ///   of this message type.
-public struct ProtobufUnittest_TestDynamicExtensions: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestDynamicExtensions: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestDynamicExtensions"}
   public var protoMessageName: String {return "TestDynamicExtensions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -8378,7 +8378,7 @@ public struct ProtobufUnittest_TestDynamicExtensions: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum DynamicEnumType: ProtobufEnum {
+  enum DynamicEnumType: ProtobufEnum {
     public typealias RawValue = Int
     case dynamicFoo // = 2200
     case dynamicBar // = 2201
@@ -8458,7 +8458,7 @@ public struct ProtobufUnittest_TestDynamicExtensions: ProtobufGeneratedMessage {
 
   }
 
-  public struct DynamicMessageType: ProtobufGeneratedMessage {
+  struct DynamicMessageType: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestDynamicExtensions.DynamicMessageType"}
     public var protoMessageName: String {return "DynamicMessageType"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -8600,7 +8600,7 @@ public struct ProtobufUnittest_TestDynamicExtensions: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestRepeatedScalarDifferentTagSizes"}
   public var protoMessageName: String {return "TestRepeatedScalarDifferentTagSizes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -8698,7 +8698,7 @@ public struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: ProtobufGene
 
 ///   Test that if an optional or required message/group field appears multiple
 ///   times in the input, they need to be merged.
-public struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestParsingMerge"}
   public var protoMessageName: String {return "TestParsingMerge"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -8802,7 +8802,7 @@ public struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, Proto
   ///   RepeatedFieldsGenerator to bytes, and parse the bytes to TestParsingMerge.
   ///   Repeated fields in RepeatedFieldsGenerator are expected to be merged into
   ///   the corresponding required/optional fields in TestParsingMerge.
-  public struct RepeatedFieldsGenerator: ProtobufGeneratedMessage {
+  struct RepeatedFieldsGenerator: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator"}
     public var protoMessageName: String {return "RepeatedFieldsGenerator"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -8827,7 +8827,7 @@ public struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, Proto
 
     var unknown = ProtobufUnknownStorage()
 
-    public struct Group1: ProtobufGeneratedMessage {
+    struct Group1: ProtobufGeneratedMessage {
       public var swiftClassName: String {return "ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1"}
       public var protoMessageName: String {return "Group1"}
       public var protoPackageName: String {return "protobuf_unittest"}
@@ -8915,7 +8915,7 @@ public struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, Proto
       }
     }
 
-    public struct Group2: ProtobufGeneratedMessage {
+    struct Group2: ProtobufGeneratedMessage {
       public var swiftClassName: String {return "ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2"}
       public var protoMessageName: String {return "Group2"}
       public var protoPackageName: String {return "protobuf_unittest"}
@@ -9077,7 +9077,7 @@ public struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, Proto
     }
   }
 
-  public struct OptionalGroup: ProtobufGeneratedMessage {
+  struct OptionalGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestParsingMerge.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -9165,7 +9165,7 @@ public struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, Proto
     }
   }
 
-  public struct RepeatedGroup: ProtobufGeneratedMessage {
+  struct RepeatedGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestParsingMerge.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -9341,7 +9341,7 @@ public struct ProtobufUnittest_TestParsingMerge: ProtobufGeneratedMessage, Proto
   }
 }
 
-public struct ProtobufUnittest_TestCommentInjectionMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestCommentInjectionMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestCommentInjectionMessage"}
   public var protoMessageName: String {return "TestCommentInjectionMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -9398,7 +9398,7 @@ public struct ProtobufUnittest_TestCommentInjectionMessage: ProtobufGeneratedMes
 }
 
 ///   Test that RPC services work.
-public struct ProtobufUnittest_FooRequest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_FooRequest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_FooRequest"}
   public var protoMessageName: String {return "FooRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -9423,7 +9423,7 @@ public struct ProtobufUnittest_FooRequest: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_FooResponse: ProtobufGeneratedMessage {
+struct ProtobufUnittest_FooResponse: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_FooResponse"}
   public var protoMessageName: String {return "FooResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -9448,7 +9448,7 @@ public struct ProtobufUnittest_FooResponse: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_FooClientMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_FooClientMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_FooClientMessage"}
   public var protoMessageName: String {return "FooClientMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -9473,7 +9473,7 @@ public struct ProtobufUnittest_FooClientMessage: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_FooServerMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_FooServerMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_FooServerMessage"}
   public var protoMessageName: String {return "FooServerMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -9498,7 +9498,7 @@ public struct ProtobufUnittest_FooServerMessage: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_BarRequest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_BarRequest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_BarRequest"}
   public var protoMessageName: String {return "BarRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -9523,7 +9523,7 @@ public struct ProtobufUnittest_BarRequest: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_BarResponse: ProtobufGeneratedMessage {
+struct ProtobufUnittest_BarResponse: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_BarResponse"}
   public var protoMessageName: String {return "BarResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -9762,7 +9762,7 @@ let ProtobufUnittest_TestUnpackedExtensions_unpackedBoolExtension = ProtobufGene
 
 let ProtobufUnittest_TestUnpackedExtensions_unpackedEnumExtension = ProtobufGenericMessageExtension<ProtobufRepeatedField<ProtobufUnittest_ForeignEnum>, ProtobufUnittest_TestUnpackedExtensions>(protoFieldNumber: 103, protoFieldName: "unpacked_enum_extension", jsonFieldName: "unpackedEnumExtension", swiftFieldName: "unpackedEnumExtension", defaultValue: [])
 
-public func ==(lhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
@@ -9776,14 +9776,14 @@ public func ==(lhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField, rhs: Protobu
 extension ProtobufUnittest_TestAllExtensions {
   ///   Check for bug where string extensions declared in tested scope did not
   ///   compile.
-  public var ProtobufUnittest_TestNestedExtension_test: String {
+  var ProtobufUnittest_TestNestedExtension_test: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_test) ?? "test"}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_test, value: newValue)}
   }
-  public var hasProtobufUnittest_TestNestedExtension_test: Bool {
+  var hasProtobufUnittest_TestNestedExtension_test: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_test)
   }
-  public mutating func clearProtobufUnittest_TestNestedExtension_test() {
+  mutating func clearProtobufUnittest_TestNestedExtension_test() {
     clearExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_test)
   }
 }
@@ -9791,45 +9791,45 @@ extension ProtobufUnittest_TestAllExtensions {
 extension ProtobufUnittest_TestAllExtensions {
   ///   Used to test if generated extension name is correct when there are
   ///   underscores.
-  public var ProtobufUnittest_TestNestedExtension_nestedStringExtension: String {
+  var ProtobufUnittest_TestNestedExtension_nestedStringExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_nestedStringExtension) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_nestedStringExtension, value: newValue)}
   }
-  public var hasProtobufUnittest_TestNestedExtension_nestedStringExtension: Bool {
+  var hasProtobufUnittest_TestNestedExtension_nestedStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_nestedStringExtension)
   }
-  public mutating func clearProtobufUnittest_TestNestedExtension_nestedStringExtension() {
+  mutating func clearProtobufUnittest_TestNestedExtension_nestedStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.ProtobufUnittest_TestAllExtensions_nestedStringExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var ProtobufUnittest_TestRequired_single: ProtobufUnittest_TestRequired {
+  var ProtobufUnittest_TestRequired_single: ProtobufUnittest_TestRequired {
     get {return getExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_single) ?? ProtobufUnittest_TestRequired()}
     set {setExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_single, value: newValue)}
   }
-  public var hasProtobufUnittest_TestRequired_single: Bool {
+  var hasProtobufUnittest_TestRequired_single: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_single)
   }
-  public mutating func clearProtobufUnittest_TestRequired_single() {
+  mutating func clearProtobufUnittest_TestRequired_single() {
     clearExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_single)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var ProtobufUnittest_TestRequired_multi: [ProtobufUnittest_TestRequired] {
+  var ProtobufUnittest_TestRequired_multi: [ProtobufUnittest_TestRequired] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_multi)}
     set {setExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_multi, value: newValue)}
   }
-  public var hasProtobufUnittest_TestRequired_multi: Bool {
+  var hasProtobufUnittest_TestRequired_multi: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_multi)
   }
-  public mutating func clearProtobufUnittest_TestRequired_multi() {
+  mutating func clearProtobufUnittest_TestRequired_multi() {
     clearExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.ProtobufUnittest_TestAllExtensions_multi)
   }
 }
 
-public func ==(lhs: ProtobufUnittest_TestOneof.OneOf_Foo, rhs: ProtobufUnittest_TestOneof.OneOf_Foo) -> Bool {
+func ==(lhs: ProtobufUnittest_TestOneof.OneOf_Foo, rhs: ProtobufUnittest_TestOneof.OneOf_Foo) -> Bool {
   switch (lhs, rhs) {
   case (.fooInt(let l), .fooInt(let r)): return l == r
   case (.fooString(let l), .fooString(let r)): return l == r
@@ -9840,7 +9840,7 @@ public func ==(lhs: ProtobufUnittest_TestOneof.OneOf_Foo, rhs: ProtobufUnittest_
   }
 }
 
-public func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Foo, rhs: ProtobufUnittest_TestOneof2.OneOf_Foo) -> Bool {
+func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Foo, rhs: ProtobufUnittest_TestOneof2.OneOf_Foo) -> Bool {
   switch (lhs, rhs) {
   case (.fooInt(let l), .fooInt(let r)): return l == r
   case (.fooString(let l), .fooString(let r)): return l == r
@@ -9856,7 +9856,7 @@ public func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Foo, rhs: ProtobufUnittest
   }
 }
 
-public func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Bar, rhs: ProtobufUnittest_TestOneof2.OneOf_Bar) -> Bool {
+func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Bar, rhs: ProtobufUnittest_TestOneof2.OneOf_Bar) -> Bool {
   switch (lhs, rhs) {
   case (.barInt(let l), .barInt(let r)): return l == r
   case (.barString(let l), .barString(let r)): return l == r
@@ -9869,7 +9869,7 @@ public func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Bar, rhs: ProtobufUnittest
   }
 }
 
-public func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo) -> Bool {
+func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo) -> Bool {
   switch (lhs, rhs) {
   case (.fooInt(let l), .fooInt(let r)): return l == r
   case (.fooString(let l), .fooString(let r)): return l == r
@@ -9880,1401 +9880,1401 @@ public func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufU
 }
 
 extension ProtobufUnittest_TestParsingMerge {
-  public var ProtobufUnittest_TestParsingMerge_optionalExt: ProtobufUnittest_TestAllTypes {
+  var ProtobufUnittest_TestParsingMerge_optionalExt: ProtobufUnittest_TestAllTypes {
     get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_optionalExt) ?? ProtobufUnittest_TestAllTypes()}
     set {setExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_optionalExt, value: newValue)}
   }
-  public var hasProtobufUnittest_TestParsingMerge_optionalExt: Bool {
+  var hasProtobufUnittest_TestParsingMerge_optionalExt: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_optionalExt)
   }
-  public mutating func clearProtobufUnittest_TestParsingMerge_optionalExt() {
+  mutating func clearProtobufUnittest_TestParsingMerge_optionalExt() {
     clearExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_optionalExt)
   }
 }
 
 extension ProtobufUnittest_TestParsingMerge {
-  public var ProtobufUnittest_TestParsingMerge_repeatedExt: [ProtobufUnittest_TestAllTypes] {
+  var ProtobufUnittest_TestParsingMerge_repeatedExt: [ProtobufUnittest_TestAllTypes] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_repeatedExt)}
     set {setExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_repeatedExt, value: newValue)}
   }
-  public var hasProtobufUnittest_TestParsingMerge_repeatedExt: Bool {
+  var hasProtobufUnittest_TestParsingMerge_repeatedExt: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_repeatedExt)
   }
-  public mutating func clearProtobufUnittest_TestParsingMerge_repeatedExt() {
+  mutating func clearProtobufUnittest_TestParsingMerge_repeatedExt() {
     clearExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.ProtobufUnittest_TestParsingMerge_repeatedExt)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   Singular
-  public var optionalInt32Extension: Int32 {
+  var optionalInt32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt32Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt32Extension, value: newValue)}
   }
-  public var hasOptionalInt32Extension: Bool {
+  var hasOptionalInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt32Extension)
   }
-  public mutating func clearOptionalInt32Extension() {
+  mutating func clearOptionalInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalInt64Extension: Int64 {
+  var optionalInt64Extension: Int64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt64Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt64Extension, value: newValue)}
   }
-  public var hasOptionalInt64Extension: Bool {
+  var hasOptionalInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt64Extension)
   }
-  public mutating func clearOptionalInt64Extension() {
+  mutating func clearOptionalInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalInt64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalUint32Extension: UInt32 {
+  var optionalUint32Extension: UInt32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint32Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint32Extension, value: newValue)}
   }
-  public var hasOptionalUint32Extension: Bool {
+  var hasOptionalUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint32Extension)
   }
-  public mutating func clearOptionalUint32Extension() {
+  mutating func clearOptionalUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalUint64Extension: UInt64 {
+  var optionalUint64Extension: UInt64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint64Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint64Extension, value: newValue)}
   }
-  public var hasOptionalUint64Extension: Bool {
+  var hasOptionalUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint64Extension)
   }
-  public mutating func clearOptionalUint64Extension() {
+  mutating func clearOptionalUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalUint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalSint32Extension: Int32 {
+  var optionalSint32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint32Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint32Extension, value: newValue)}
   }
-  public var hasOptionalSint32Extension: Bool {
+  var hasOptionalSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint32Extension)
   }
-  public mutating func clearOptionalSint32Extension() {
+  mutating func clearOptionalSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalSint64Extension: Int64 {
+  var optionalSint64Extension: Int64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint64Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint64Extension, value: newValue)}
   }
-  public var hasOptionalSint64Extension: Bool {
+  var hasOptionalSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint64Extension)
   }
-  public mutating func clearOptionalSint64Extension() {
+  mutating func clearOptionalSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalFixed32Extension: UInt32 {
+  var optionalFixed32Extension: UInt32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed32Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed32Extension, value: newValue)}
   }
-  public var hasOptionalFixed32Extension: Bool {
+  var hasOptionalFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed32Extension)
   }
-  public mutating func clearOptionalFixed32Extension() {
+  mutating func clearOptionalFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalFixed64Extension: UInt64 {
+  var optionalFixed64Extension: UInt64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed64Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed64Extension, value: newValue)}
   }
-  public var hasOptionalFixed64Extension: Bool {
+  var hasOptionalFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed64Extension)
   }
-  public mutating func clearOptionalFixed64Extension() {
+  mutating func clearOptionalFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalSfixed32Extension: Int32 {
+  var optionalSfixed32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed32Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed32Extension, value: newValue)}
   }
-  public var hasOptionalSfixed32Extension: Bool {
+  var hasOptionalSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed32Extension)
   }
-  public mutating func clearOptionalSfixed32Extension() {
+  mutating func clearOptionalSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalSfixed64Extension: Int64 {
+  var optionalSfixed64Extension: Int64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed64Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed64Extension, value: newValue)}
   }
-  public var hasOptionalSfixed64Extension: Bool {
+  var hasOptionalSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed64Extension)
   }
-  public mutating func clearOptionalSfixed64Extension() {
+  mutating func clearOptionalSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalSfixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalFloatExtension: Float {
+  var optionalFloatExtension: Float {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFloatExtension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFloatExtension, value: newValue)}
   }
-  public var hasOptionalFloatExtension: Bool {
+  var hasOptionalFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFloatExtension)
   }
-  public mutating func clearOptionalFloatExtension() {
+  mutating func clearOptionalFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalFloatExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalDoubleExtension: Double {
+  var optionalDoubleExtension: Double {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalDoubleExtension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalDoubleExtension, value: newValue)}
   }
-  public var hasOptionalDoubleExtension: Bool {
+  var hasOptionalDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalDoubleExtension)
   }
-  public mutating func clearOptionalDoubleExtension() {
+  mutating func clearOptionalDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalDoubleExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalBoolExtension: Bool {
+  var optionalBoolExtension: Bool {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBoolExtension) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBoolExtension, value: newValue)}
   }
-  public var hasOptionalBoolExtension: Bool {
+  var hasOptionalBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBoolExtension)
   }
-  public mutating func clearOptionalBoolExtension() {
+  mutating func clearOptionalBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBoolExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalStringExtension: String {
+  var optionalStringExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringExtension) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringExtension, value: newValue)}
   }
-  public var hasOptionalStringExtension: Bool {
+  var hasOptionalStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringExtension)
   }
-  public mutating func clearOptionalStringExtension() {
+  mutating func clearOptionalStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalBytesExtension: Data {
+  var optionalBytesExtension: Data {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension) ?? Data()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension, value: newValue)}
   }
-  public var hasOptionalBytesExtension: Bool {
+  var hasOptionalBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension)
   }
-  public mutating func clearOptionalBytesExtension() {
+  mutating func clearOptionalBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalBytesExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalGroupExtension: ProtobufUnittest_OptionalGroup_extension {
+  var optionalGroupExtension: ProtobufUnittest_OptionalGroup_extension {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalGroupExtension) ?? ProtobufUnittest_OptionalGroup_extension()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalGroupExtension, value: newValue)}
   }
-  public var hasOptionalGroupExtension: Bool {
+  var hasOptionalGroupExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalGroupExtension)
   }
-  public mutating func clearOptionalGroupExtension() {
+  mutating func clearOptionalGroupExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalGroupExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage {
+  var optionalNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedMessageExtension) ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedMessageExtension, value: newValue)}
   }
-  public var hasOptionalNestedMessageExtension: Bool {
+  var hasOptionalNestedMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedMessageExtension)
   }
-  public mutating func clearOptionalNestedMessageExtension() {
+  mutating func clearOptionalNestedMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalForeignMessageExtension: ProtobufUnittest_ForeignMessage {
+  var optionalForeignMessageExtension: ProtobufUnittest_ForeignMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignMessageExtension) ?? ProtobufUnittest_ForeignMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignMessageExtension, value: newValue)}
   }
-  public var hasOptionalForeignMessageExtension: Bool {
+  var hasOptionalForeignMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignMessageExtension)
   }
-  public mutating func clearOptionalForeignMessageExtension() {
+  mutating func clearOptionalForeignMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalImportMessageExtension: ProtobufUnittestImport_ImportMessage {
+  var optionalImportMessageExtension: ProtobufUnittestImport_ImportMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportMessageExtension) ?? ProtobufUnittestImport_ImportMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportMessageExtension, value: newValue)}
   }
-  public var hasOptionalImportMessageExtension: Bool {
+  var hasOptionalImportMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportMessageExtension)
   }
-  public mutating func clearOptionalImportMessageExtension() {
+  mutating func clearOptionalImportMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum {
+  var optionalNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedEnumExtension) ?? ProtobufUnittest_TestAllTypes.NestedEnum.foo}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedEnumExtension, value: newValue)}
   }
-  public var hasOptionalNestedEnumExtension: Bool {
+  var hasOptionalNestedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedEnumExtension)
   }
-  public mutating func clearOptionalNestedEnumExtension() {
+  mutating func clearOptionalNestedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalNestedEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalForeignEnumExtension: ProtobufUnittest_ForeignEnum {
+  var optionalForeignEnumExtension: ProtobufUnittest_ForeignEnum {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignEnumExtension) ?? ProtobufUnittest_ForeignEnum.foreignFoo}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignEnumExtension, value: newValue)}
   }
-  public var hasOptionalForeignEnumExtension: Bool {
+  var hasOptionalForeignEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignEnumExtension)
   }
-  public mutating func clearOptionalForeignEnumExtension() {
+  mutating func clearOptionalForeignEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalForeignEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalImportEnumExtension: ProtobufUnittestImport_ImportEnum {
+  var optionalImportEnumExtension: ProtobufUnittestImport_ImportEnum {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportEnumExtension) ?? ProtobufUnittestImport_ImportEnum.importFoo}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportEnumExtension, value: newValue)}
   }
-  public var hasOptionalImportEnumExtension: Bool {
+  var hasOptionalImportEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportEnumExtension)
   }
-  public mutating func clearOptionalImportEnumExtension() {
+  mutating func clearOptionalImportEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalImportEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalStringPieceExtension: String {
+  var optionalStringPieceExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringPieceExtension) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringPieceExtension, value: newValue)}
   }
-  public var hasOptionalStringPieceExtension: Bool {
+  var hasOptionalStringPieceExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringPieceExtension)
   }
-  public mutating func clearOptionalStringPieceExtension() {
+  mutating func clearOptionalStringPieceExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalStringPieceExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalCordExtension: String {
+  var optionalCordExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalCordExtension) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalCordExtension, value: newValue)}
   }
-  public var hasOptionalCordExtension: Bool {
+  var hasOptionalCordExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalCordExtension)
   }
-  public mutating func clearOptionalCordExtension() {
+  mutating func clearOptionalCordExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalCordExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalPublicImportMessageExtension: ProtobufUnittestImport_PublicImportMessage {
+  var optionalPublicImportMessageExtension: ProtobufUnittestImport_PublicImportMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalPublicImportMessageExtension) ?? ProtobufUnittestImport_PublicImportMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalPublicImportMessageExtension, value: newValue)}
   }
-  public var hasOptionalPublicImportMessageExtension: Bool {
+  var hasOptionalPublicImportMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalPublicImportMessageExtension)
   }
-  public mutating func clearOptionalPublicImportMessageExtension() {
+  mutating func clearOptionalPublicImportMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalPublicImportMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var optionalLazyMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage {
+  var optionalLazyMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalLazyMessageExtension) ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalLazyMessageExtension, value: newValue)}
   }
-  public var hasOptionalLazyMessageExtension: Bool {
+  var hasOptionalLazyMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalLazyMessageExtension)
   }
-  public mutating func clearOptionalLazyMessageExtension() {
+  mutating func clearOptionalLazyMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_optionalLazyMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   Repeated
-  public var repeatedInt32Extension: [Int32] {
+  var repeatedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt32Extension, value: newValue)}
   }
-  public var hasRepeatedInt32Extension: Bool {
+  var hasRepeatedInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt32Extension)
   }
-  public mutating func clearRepeatedInt32Extension() {
+  mutating func clearRepeatedInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedInt64Extension: [Int64] {
+  var repeatedInt64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt64Extension, value: newValue)}
   }
-  public var hasRepeatedInt64Extension: Bool {
+  var hasRepeatedInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt64Extension)
   }
-  public mutating func clearRepeatedInt64Extension() {
+  mutating func clearRepeatedInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedInt64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedUint32Extension: [UInt32] {
+  var repeatedUint32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint32Extension, value: newValue)}
   }
-  public var hasRepeatedUint32Extension: Bool {
+  var hasRepeatedUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint32Extension)
   }
-  public mutating func clearRepeatedUint32Extension() {
+  mutating func clearRepeatedUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedUint64Extension: [UInt64] {
+  var repeatedUint64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint64Extension, value: newValue)}
   }
-  public var hasRepeatedUint64Extension: Bool {
+  var hasRepeatedUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint64Extension)
   }
-  public mutating func clearRepeatedUint64Extension() {
+  mutating func clearRepeatedUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedUint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedSint32Extension: [Int32] {
+  var repeatedSint32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint32Extension, value: newValue)}
   }
-  public var hasRepeatedSint32Extension: Bool {
+  var hasRepeatedSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint32Extension)
   }
-  public mutating func clearRepeatedSint32Extension() {
+  mutating func clearRepeatedSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedSint64Extension: [Int64] {
+  var repeatedSint64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint64Extension, value: newValue)}
   }
-  public var hasRepeatedSint64Extension: Bool {
+  var hasRepeatedSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint64Extension)
   }
-  public mutating func clearRepeatedSint64Extension() {
+  mutating func clearRepeatedSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedFixed32Extension: [UInt32] {
+  var repeatedFixed32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed32Extension, value: newValue)}
   }
-  public var hasRepeatedFixed32Extension: Bool {
+  var hasRepeatedFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed32Extension)
   }
-  public mutating func clearRepeatedFixed32Extension() {
+  mutating func clearRepeatedFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedFixed64Extension: [UInt64] {
+  var repeatedFixed64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed64Extension, value: newValue)}
   }
-  public var hasRepeatedFixed64Extension: Bool {
+  var hasRepeatedFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed64Extension)
   }
-  public mutating func clearRepeatedFixed64Extension() {
+  mutating func clearRepeatedFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedSfixed32Extension: [Int32] {
+  var repeatedSfixed32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed32Extension, value: newValue)}
   }
-  public var hasRepeatedSfixed32Extension: Bool {
+  var hasRepeatedSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed32Extension)
   }
-  public mutating func clearRepeatedSfixed32Extension() {
+  mutating func clearRepeatedSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedSfixed64Extension: [Int64] {
+  var repeatedSfixed64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed64Extension, value: newValue)}
   }
-  public var hasRepeatedSfixed64Extension: Bool {
+  var hasRepeatedSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed64Extension)
   }
-  public mutating func clearRepeatedSfixed64Extension() {
+  mutating func clearRepeatedSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedSfixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedFloatExtension: [Float] {
+  var repeatedFloatExtension: [Float] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFloatExtension, value: newValue)}
   }
-  public var hasRepeatedFloatExtension: Bool {
+  var hasRepeatedFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFloatExtension)
   }
-  public mutating func clearRepeatedFloatExtension() {
+  mutating func clearRepeatedFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedFloatExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedDoubleExtension: [Double] {
+  var repeatedDoubleExtension: [Double] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedDoubleExtension, value: newValue)}
   }
-  public var hasRepeatedDoubleExtension: Bool {
+  var hasRepeatedDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedDoubleExtension)
   }
-  public mutating func clearRepeatedDoubleExtension() {
+  mutating func clearRepeatedDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedDoubleExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedBoolExtension: [Bool] {
+  var repeatedBoolExtension: [Bool] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBoolExtension, value: newValue)}
   }
-  public var hasRepeatedBoolExtension: Bool {
+  var hasRepeatedBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBoolExtension)
   }
-  public mutating func clearRepeatedBoolExtension() {
+  mutating func clearRepeatedBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBoolExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedStringExtension: [String] {
+  var repeatedStringExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringExtension, value: newValue)}
   }
-  public var hasRepeatedStringExtension: Bool {
+  var hasRepeatedStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringExtension)
   }
-  public mutating func clearRepeatedStringExtension() {
+  mutating func clearRepeatedStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedBytesExtension: [Data] {
+  var repeatedBytesExtension: [Data] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension, value: newValue)}
   }
-  public var hasRepeatedBytesExtension: Bool {
+  var hasRepeatedBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension)
   }
-  public mutating func clearRepeatedBytesExtension() {
+  mutating func clearRepeatedBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedBytesExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedGroupExtension: [ProtobufUnittest_RepeatedGroup_extension] {
+  var repeatedGroupExtension: [ProtobufUnittest_RepeatedGroup_extension] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedGroupExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedGroupExtension, value: newValue)}
   }
-  public var hasRepeatedGroupExtension: Bool {
+  var hasRepeatedGroupExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedGroupExtension)
   }
-  public mutating func clearRepeatedGroupExtension() {
+  mutating func clearRepeatedGroupExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedGroupExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedNestedMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
+  var repeatedNestedMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedMessageExtension, value: newValue)}
   }
-  public var hasRepeatedNestedMessageExtension: Bool {
+  var hasRepeatedNestedMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedMessageExtension)
   }
-  public mutating func clearRepeatedNestedMessageExtension() {
+  mutating func clearRepeatedNestedMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedForeignMessageExtension: [ProtobufUnittest_ForeignMessage] {
+  var repeatedForeignMessageExtension: [ProtobufUnittest_ForeignMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignMessageExtension, value: newValue)}
   }
-  public var hasRepeatedForeignMessageExtension: Bool {
+  var hasRepeatedForeignMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignMessageExtension)
   }
-  public mutating func clearRepeatedForeignMessageExtension() {
+  mutating func clearRepeatedForeignMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedImportMessageExtension: [ProtobufUnittestImport_ImportMessage] {
+  var repeatedImportMessageExtension: [ProtobufUnittestImport_ImportMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportMessageExtension, value: newValue)}
   }
-  public var hasRepeatedImportMessageExtension: Bool {
+  var hasRepeatedImportMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportMessageExtension)
   }
-  public mutating func clearRepeatedImportMessageExtension() {
+  mutating func clearRepeatedImportMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedNestedEnumExtension: [ProtobufUnittest_TestAllTypes.NestedEnum] {
+  var repeatedNestedEnumExtension: [ProtobufUnittest_TestAllTypes.NestedEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedEnumExtension, value: newValue)}
   }
-  public var hasRepeatedNestedEnumExtension: Bool {
+  var hasRepeatedNestedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedEnumExtension)
   }
-  public mutating func clearRepeatedNestedEnumExtension() {
+  mutating func clearRepeatedNestedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedNestedEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedForeignEnumExtension: [ProtobufUnittest_ForeignEnum] {
+  var repeatedForeignEnumExtension: [ProtobufUnittest_ForeignEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignEnumExtension, value: newValue)}
   }
-  public var hasRepeatedForeignEnumExtension: Bool {
+  var hasRepeatedForeignEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignEnumExtension)
   }
-  public mutating func clearRepeatedForeignEnumExtension() {
+  mutating func clearRepeatedForeignEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedForeignEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedImportEnumExtension: [ProtobufUnittestImport_ImportEnum] {
+  var repeatedImportEnumExtension: [ProtobufUnittestImport_ImportEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportEnumExtension, value: newValue)}
   }
-  public var hasRepeatedImportEnumExtension: Bool {
+  var hasRepeatedImportEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportEnumExtension)
   }
-  public mutating func clearRepeatedImportEnumExtension() {
+  mutating func clearRepeatedImportEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedImportEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedStringPieceExtension: [String] {
+  var repeatedStringPieceExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringPieceExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringPieceExtension, value: newValue)}
   }
-  public var hasRepeatedStringPieceExtension: Bool {
+  var hasRepeatedStringPieceExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringPieceExtension)
   }
-  public mutating func clearRepeatedStringPieceExtension() {
+  mutating func clearRepeatedStringPieceExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedStringPieceExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedCordExtension: [String] {
+  var repeatedCordExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedCordExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedCordExtension, value: newValue)}
   }
-  public var hasRepeatedCordExtension: Bool {
+  var hasRepeatedCordExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedCordExtension)
   }
-  public mutating func clearRepeatedCordExtension() {
+  mutating func clearRepeatedCordExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedCordExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var repeatedLazyMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
+  var repeatedLazyMessageExtension: [ProtobufUnittest_TestAllTypes.NestedMessage] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedLazyMessageExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedLazyMessageExtension, value: newValue)}
   }
-  public var hasRepeatedLazyMessageExtension: Bool {
+  var hasRepeatedLazyMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedLazyMessageExtension)
   }
-  public mutating func clearRepeatedLazyMessageExtension() {
+  mutating func clearRepeatedLazyMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_repeatedLazyMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   Singular with defaults
-  public var defaultInt32Extension: Int32 {
+  var defaultInt32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt32Extension) ?? 41}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt32Extension, value: newValue)}
   }
-  public var hasDefaultInt32Extension: Bool {
+  var hasDefaultInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt32Extension)
   }
-  public mutating func clearDefaultInt32Extension() {
+  mutating func clearDefaultInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultInt64Extension: Int64 {
+  var defaultInt64Extension: Int64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt64Extension) ?? 42}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt64Extension, value: newValue)}
   }
-  public var hasDefaultInt64Extension: Bool {
+  var hasDefaultInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt64Extension)
   }
-  public mutating func clearDefaultInt64Extension() {
+  mutating func clearDefaultInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultInt64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultUint32Extension: UInt32 {
+  var defaultUint32Extension: UInt32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint32Extension) ?? 43}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint32Extension, value: newValue)}
   }
-  public var hasDefaultUint32Extension: Bool {
+  var hasDefaultUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint32Extension)
   }
-  public mutating func clearDefaultUint32Extension() {
+  mutating func clearDefaultUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultUint64Extension: UInt64 {
+  var defaultUint64Extension: UInt64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint64Extension) ?? 44}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint64Extension, value: newValue)}
   }
-  public var hasDefaultUint64Extension: Bool {
+  var hasDefaultUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint64Extension)
   }
-  public mutating func clearDefaultUint64Extension() {
+  mutating func clearDefaultUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultUint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultSint32Extension: Int32 {
+  var defaultSint32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint32Extension) ?? -45}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint32Extension, value: newValue)}
   }
-  public var hasDefaultSint32Extension: Bool {
+  var hasDefaultSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint32Extension)
   }
-  public mutating func clearDefaultSint32Extension() {
+  mutating func clearDefaultSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultSint64Extension: Int64 {
+  var defaultSint64Extension: Int64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint64Extension) ?? 46}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint64Extension, value: newValue)}
   }
-  public var hasDefaultSint64Extension: Bool {
+  var hasDefaultSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint64Extension)
   }
-  public mutating func clearDefaultSint64Extension() {
+  mutating func clearDefaultSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultFixed32Extension: UInt32 {
+  var defaultFixed32Extension: UInt32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed32Extension) ?? 47}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed32Extension, value: newValue)}
   }
-  public var hasDefaultFixed32Extension: Bool {
+  var hasDefaultFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed32Extension)
   }
-  public mutating func clearDefaultFixed32Extension() {
+  mutating func clearDefaultFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultFixed64Extension: UInt64 {
+  var defaultFixed64Extension: UInt64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed64Extension) ?? 48}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed64Extension, value: newValue)}
   }
-  public var hasDefaultFixed64Extension: Bool {
+  var hasDefaultFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed64Extension)
   }
-  public mutating func clearDefaultFixed64Extension() {
+  mutating func clearDefaultFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultSfixed32Extension: Int32 {
+  var defaultSfixed32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed32Extension) ?? 49}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed32Extension, value: newValue)}
   }
-  public var hasDefaultSfixed32Extension: Bool {
+  var hasDefaultSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed32Extension)
   }
-  public mutating func clearDefaultSfixed32Extension() {
+  mutating func clearDefaultSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultSfixed64Extension: Int64 {
+  var defaultSfixed64Extension: Int64 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed64Extension) ?? -50}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed64Extension, value: newValue)}
   }
-  public var hasDefaultSfixed64Extension: Bool {
+  var hasDefaultSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed64Extension)
   }
-  public mutating func clearDefaultSfixed64Extension() {
+  mutating func clearDefaultSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultSfixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultFloatExtension: Float {
+  var defaultFloatExtension: Float {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFloatExtension) ?? 51.5}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFloatExtension, value: newValue)}
   }
-  public var hasDefaultFloatExtension: Bool {
+  var hasDefaultFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFloatExtension)
   }
-  public mutating func clearDefaultFloatExtension() {
+  mutating func clearDefaultFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultFloatExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultDoubleExtension: Double {
+  var defaultDoubleExtension: Double {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultDoubleExtension) ?? 52000}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultDoubleExtension, value: newValue)}
   }
-  public var hasDefaultDoubleExtension: Bool {
+  var hasDefaultDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultDoubleExtension)
   }
-  public mutating func clearDefaultDoubleExtension() {
+  mutating func clearDefaultDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultDoubleExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultBoolExtension: Bool {
+  var defaultBoolExtension: Bool {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBoolExtension) ?? true}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBoolExtension, value: newValue)}
   }
-  public var hasDefaultBoolExtension: Bool {
+  var hasDefaultBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBoolExtension)
   }
-  public mutating func clearDefaultBoolExtension() {
+  mutating func clearDefaultBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBoolExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultStringExtension: String {
+  var defaultStringExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringExtension) ?? "hello"}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringExtension, value: newValue)}
   }
-  public var hasDefaultStringExtension: Bool {
+  var hasDefaultStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringExtension)
   }
-  public mutating func clearDefaultStringExtension() {
+  mutating func clearDefaultStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultBytesExtension: Data {
+  var defaultBytesExtension: Data {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension) ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension, value: newValue)}
   }
-  public var hasDefaultBytesExtension: Bool {
+  var hasDefaultBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension)
   }
-  public mutating func clearDefaultBytesExtension() {
+  mutating func clearDefaultBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultBytesExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum {
+  var defaultNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultNestedEnumExtension) ?? ProtobufUnittest_TestAllTypes.NestedEnum.bar}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultNestedEnumExtension, value: newValue)}
   }
-  public var hasDefaultNestedEnumExtension: Bool {
+  var hasDefaultNestedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultNestedEnumExtension)
   }
-  public mutating func clearDefaultNestedEnumExtension() {
+  mutating func clearDefaultNestedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultNestedEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultForeignEnumExtension: ProtobufUnittest_ForeignEnum {
+  var defaultForeignEnumExtension: ProtobufUnittest_ForeignEnum {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultForeignEnumExtension) ?? ProtobufUnittest_ForeignEnum.foreignBar}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultForeignEnumExtension, value: newValue)}
   }
-  public var hasDefaultForeignEnumExtension: Bool {
+  var hasDefaultForeignEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultForeignEnumExtension)
   }
-  public mutating func clearDefaultForeignEnumExtension() {
+  mutating func clearDefaultForeignEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultForeignEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultImportEnumExtension: ProtobufUnittestImport_ImportEnum {
+  var defaultImportEnumExtension: ProtobufUnittestImport_ImportEnum {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultImportEnumExtension) ?? ProtobufUnittestImport_ImportEnum.importBar}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultImportEnumExtension, value: newValue)}
   }
-  public var hasDefaultImportEnumExtension: Bool {
+  var hasDefaultImportEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultImportEnumExtension)
   }
-  public mutating func clearDefaultImportEnumExtension() {
+  mutating func clearDefaultImportEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultImportEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultStringPieceExtension: String {
+  var defaultStringPieceExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringPieceExtension) ?? "abc"}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringPieceExtension, value: newValue)}
   }
-  public var hasDefaultStringPieceExtension: Bool {
+  var hasDefaultStringPieceExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringPieceExtension)
   }
-  public mutating func clearDefaultStringPieceExtension() {
+  mutating func clearDefaultStringPieceExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultStringPieceExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var defaultCordExtension: String {
+  var defaultCordExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultCordExtension) ?? "123"}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultCordExtension, value: newValue)}
   }
-  public var hasDefaultCordExtension: Bool {
+  var hasDefaultCordExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultCordExtension)
   }
-  public mutating func clearDefaultCordExtension() {
+  mutating func clearDefaultCordExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_defaultCordExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
   ///   For oneof test
-  public var oneofUint32Extension: UInt32 {
+  var oneofUint32Extension: UInt32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofUint32Extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofUint32Extension, value: newValue)}
   }
-  public var hasOneofUint32Extension: Bool {
+  var hasOneofUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofUint32Extension)
   }
-  public mutating func clearOneofUint32Extension() {
+  mutating func clearOneofUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofUint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var oneofNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage {
+  var oneofNestedMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofNestedMessageExtension) ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofNestedMessageExtension, value: newValue)}
   }
-  public var hasOneofNestedMessageExtension: Bool {
+  var hasOneofNestedMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofNestedMessageExtension)
   }
-  public mutating func clearOneofNestedMessageExtension() {
+  mutating func clearOneofNestedMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofNestedMessageExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var oneofStringExtension: String {
+  var oneofStringExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofStringExtension) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofStringExtension, value: newValue)}
   }
-  public var hasOneofStringExtension: Bool {
+  var hasOneofStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofStringExtension)
   }
-  public mutating func clearOneofStringExtension() {
+  mutating func clearOneofStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofStringExtension)
   }
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  public var oneofBytesExtension: Data {
+  var oneofBytesExtension: Data {
     get {return getExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension) ?? Data()}
     set {setExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension, value: newValue)}
   }
-  public var hasOneofBytesExtension: Bool {
+  var hasOneofBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension)
   }
-  public mutating func clearOneofBytesExtension() {
+  mutating func clearOneofBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestAllExtensions_oneofBytesExtension)
   }
 }
 
 extension ProtobufUnittest_TestFieldOrderings {
-  public var myExtensionString: String {
+  var myExtensionString: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionString) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionString, value: newValue)}
   }
-  public var hasMyExtensionString: Bool {
+  var hasMyExtensionString: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionString)
   }
-  public mutating func clearMyExtensionString() {
+  mutating func clearMyExtensionString() {
     clearExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionString)
   }
 }
 
 extension ProtobufUnittest_TestFieldOrderings {
-  public var myExtensionInt: Int32 {
+  var myExtensionInt: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionInt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionInt, value: newValue)}
   }
-  public var hasMyExtensionInt: Bool {
+  var hasMyExtensionInt: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionInt)
   }
-  public mutating func clearMyExtensionInt() {
+  mutating func clearMyExtensionInt() {
     clearExtensionValue(ext: ProtobufUnittest_TestFieldOrderings_myExtensionInt)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedInt32Extension: [Int32] {
+  var packedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt32Extension, value: newValue)}
   }
-  public var hasPackedInt32Extension: Bool {
+  var hasPackedInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt32Extension)
   }
-  public mutating func clearPackedInt32Extension() {
+  mutating func clearPackedInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt32Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedInt64Extension: [Int64] {
+  var packedInt64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt64Extension, value: newValue)}
   }
-  public var hasPackedInt64Extension: Bool {
+  var hasPackedInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt64Extension)
   }
-  public mutating func clearPackedInt64Extension() {
+  mutating func clearPackedInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedInt64Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedUint32Extension: [UInt32] {
+  var packedUint32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint32Extension, value: newValue)}
   }
-  public var hasPackedUint32Extension: Bool {
+  var hasPackedUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint32Extension)
   }
-  public mutating func clearPackedUint32Extension() {
+  mutating func clearPackedUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedUint64Extension: [UInt64] {
+  var packedUint64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint64Extension, value: newValue)}
   }
-  public var hasPackedUint64Extension: Bool {
+  var hasPackedUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint64Extension)
   }
-  public mutating func clearPackedUint64Extension() {
+  mutating func clearPackedUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedUint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedSint32Extension: [Int32] {
+  var packedSint32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint32Extension, value: newValue)}
   }
-  public var hasPackedSint32Extension: Bool {
+  var hasPackedSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint32Extension)
   }
-  public mutating func clearPackedSint32Extension() {
+  mutating func clearPackedSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedSint64Extension: [Int64] {
+  var packedSint64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint64Extension, value: newValue)}
   }
-  public var hasPackedSint64Extension: Bool {
+  var hasPackedSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint64Extension)
   }
-  public mutating func clearPackedSint64Extension() {
+  mutating func clearPackedSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedFixed32Extension: [UInt32] {
+  var packedFixed32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed32Extension, value: newValue)}
   }
-  public var hasPackedFixed32Extension: Bool {
+  var hasPackedFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed32Extension)
   }
-  public mutating func clearPackedFixed32Extension() {
+  mutating func clearPackedFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedFixed64Extension: [UInt64] {
+  var packedFixed64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed64Extension, value: newValue)}
   }
-  public var hasPackedFixed64Extension: Bool {
+  var hasPackedFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed64Extension)
   }
-  public mutating func clearPackedFixed64Extension() {
+  mutating func clearPackedFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedSfixed32Extension: [Int32] {
+  var packedSfixed32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed32Extension, value: newValue)}
   }
-  public var hasPackedSfixed32Extension: Bool {
+  var hasPackedSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed32Extension)
   }
-  public mutating func clearPackedSfixed32Extension() {
+  mutating func clearPackedSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedSfixed64Extension: [Int64] {
+  var packedSfixed64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed64Extension, value: newValue)}
   }
-  public var hasPackedSfixed64Extension: Bool {
+  var hasPackedSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed64Extension)
   }
-  public mutating func clearPackedSfixed64Extension() {
+  mutating func clearPackedSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedSfixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedFloatExtension: [Float] {
+  var packedFloatExtension: [Float] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFloatExtension, value: newValue)}
   }
-  public var hasPackedFloatExtension: Bool {
+  var hasPackedFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFloatExtension)
   }
-  public mutating func clearPackedFloatExtension() {
+  mutating func clearPackedFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedFloatExtension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedDoubleExtension: [Double] {
+  var packedDoubleExtension: [Double] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedDoubleExtension, value: newValue)}
   }
-  public var hasPackedDoubleExtension: Bool {
+  var hasPackedDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedDoubleExtension)
   }
-  public mutating func clearPackedDoubleExtension() {
+  mutating func clearPackedDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedDoubleExtension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedBoolExtension: [Bool] {
+  var packedBoolExtension: [Bool] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedBoolExtension, value: newValue)}
   }
-  public var hasPackedBoolExtension: Bool {
+  var hasPackedBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedBoolExtension)
   }
-  public mutating func clearPackedBoolExtension() {
+  mutating func clearPackedBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedBoolExtension)
   }
 }
 
 extension ProtobufUnittest_TestPackedExtensions {
-  public var packedEnumExtension: [ProtobufUnittest_ForeignEnum] {
+  var packedEnumExtension: [ProtobufUnittest_ForeignEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedEnumExtension, value: newValue)}
   }
-  public var hasPackedEnumExtension: Bool {
+  var hasPackedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedEnumExtension)
   }
-  public mutating func clearPackedEnumExtension() {
+  mutating func clearPackedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestPackedExtensions_packedEnumExtension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedInt32Extension: [Int32] {
+  var unpackedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt32Extension, value: newValue)}
   }
-  public var hasUnpackedInt32Extension: Bool {
+  var hasUnpackedInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt32Extension)
   }
-  public mutating func clearUnpackedInt32Extension() {
+  mutating func clearUnpackedInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt32Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedInt64Extension: [Int64] {
+  var unpackedInt64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt64Extension, value: newValue)}
   }
-  public var hasUnpackedInt64Extension: Bool {
+  var hasUnpackedInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt64Extension)
   }
-  public mutating func clearUnpackedInt64Extension() {
+  mutating func clearUnpackedInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedInt64Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedUint32Extension: [UInt32] {
+  var unpackedUint32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint32Extension, value: newValue)}
   }
-  public var hasUnpackedUint32Extension: Bool {
+  var hasUnpackedUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint32Extension)
   }
-  public mutating func clearUnpackedUint32Extension() {
+  mutating func clearUnpackedUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedUint64Extension: [UInt64] {
+  var unpackedUint64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint64Extension, value: newValue)}
   }
-  public var hasUnpackedUint64Extension: Bool {
+  var hasUnpackedUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint64Extension)
   }
-  public mutating func clearUnpackedUint64Extension() {
+  mutating func clearUnpackedUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedUint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedSint32Extension: [Int32] {
+  var unpackedSint32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint32Extension, value: newValue)}
   }
-  public var hasUnpackedSint32Extension: Bool {
+  var hasUnpackedSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint32Extension)
   }
-  public mutating func clearUnpackedSint32Extension() {
+  mutating func clearUnpackedSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint32Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedSint64Extension: [Int64] {
+  var unpackedSint64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint64Extension, value: newValue)}
   }
-  public var hasUnpackedSint64Extension: Bool {
+  var hasUnpackedSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint64Extension)
   }
-  public mutating func clearUnpackedSint64Extension() {
+  mutating func clearUnpackedSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSint64Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedFixed32Extension: [UInt32] {
+  var unpackedFixed32Extension: [UInt32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed32Extension, value: newValue)}
   }
-  public var hasUnpackedFixed32Extension: Bool {
+  var hasUnpackedFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed32Extension)
   }
-  public mutating func clearUnpackedFixed32Extension() {
+  mutating func clearUnpackedFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedFixed64Extension: [UInt64] {
+  var unpackedFixed64Extension: [UInt64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed64Extension, value: newValue)}
   }
-  public var hasUnpackedFixed64Extension: Bool {
+  var hasUnpackedFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed64Extension)
   }
-  public mutating func clearUnpackedFixed64Extension() {
+  mutating func clearUnpackedFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedSfixed32Extension: [Int32] {
+  var unpackedSfixed32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed32Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed32Extension, value: newValue)}
   }
-  public var hasUnpackedSfixed32Extension: Bool {
+  var hasUnpackedSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed32Extension)
   }
-  public mutating func clearUnpackedSfixed32Extension() {
+  mutating func clearUnpackedSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed32Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedSfixed64Extension: [Int64] {
+  var unpackedSfixed64Extension: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed64Extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed64Extension, value: newValue)}
   }
-  public var hasUnpackedSfixed64Extension: Bool {
+  var hasUnpackedSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed64Extension)
   }
-  public mutating func clearUnpackedSfixed64Extension() {
+  mutating func clearUnpackedSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedSfixed64Extension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedFloatExtension: [Float] {
+  var unpackedFloatExtension: [Float] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFloatExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFloatExtension, value: newValue)}
   }
-  public var hasUnpackedFloatExtension: Bool {
+  var hasUnpackedFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFloatExtension)
   }
-  public mutating func clearUnpackedFloatExtension() {
+  mutating func clearUnpackedFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedFloatExtension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedDoubleExtension: [Double] {
+  var unpackedDoubleExtension: [Double] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedDoubleExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedDoubleExtension, value: newValue)}
   }
-  public var hasUnpackedDoubleExtension: Bool {
+  var hasUnpackedDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedDoubleExtension)
   }
-  public mutating func clearUnpackedDoubleExtension() {
+  mutating func clearUnpackedDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedDoubleExtension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedBoolExtension: [Bool] {
+  var unpackedBoolExtension: [Bool] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedBoolExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedBoolExtension, value: newValue)}
   }
-  public var hasUnpackedBoolExtension: Bool {
+  var hasUnpackedBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedBoolExtension)
   }
-  public mutating func clearUnpackedBoolExtension() {
+  mutating func clearUnpackedBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedBoolExtension)
   }
 }
 
 extension ProtobufUnittest_TestUnpackedExtensions {
-  public var unpackedEnumExtension: [ProtobufUnittest_ForeignEnum] {
+  var unpackedEnumExtension: [ProtobufUnittest_ForeignEnum] {
     get {return getExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedEnumExtension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedEnumExtension, value: newValue)}
   }
-  public var hasUnpackedEnumExtension: Bool {
+  var hasUnpackedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedEnumExtension)
   }
-  public mutating func clearUnpackedEnumExtension() {
+  mutating func clearUnpackedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestUnpackedExtensions_unpackedEnumExtension)
   }
 }
 
-public let ProtobufUnittest_Unittest_Extensions: ProtobufExtensionSet = [
+let ProtobufUnittest_Unittest_Extensions: ProtobufExtensionSet = [
   ProtobufUnittest_TestAllExtensions_optionalInt32Extension,
   ProtobufUnittest_TestAllExtensions_optionalInt64Extension,
   ProtobufUnittest_TestAllExtensions_optionalUint32Extension,

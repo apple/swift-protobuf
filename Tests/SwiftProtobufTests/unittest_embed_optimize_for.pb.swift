@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEmbedOptimizedForSize"}
   public var protoMessageName: String {return "TestEmbedOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
