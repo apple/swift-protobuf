@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: kenton@google.com (Kenton Varda)
 //   Based on original Protocol Buffers design by
 //   Sanjay Ghemawat, Jeff Dean, and others.
@@ -2021,6 +2022,7 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
 
 //  ===================================================================
 //  Options
+
 //  Each of the definitions above may have "options" attached.  These are
 //  just annotations which may cause code to be generated slightly differently
 //  or may contain hints for code that manipulates protocol messages.
@@ -2049,6 +2051,7 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
 //    https://developers.google.com/protocol-buffers/docs/proto#options
 //    If this turns out to be popular, a web service will be set up
 //    to automatically assign option numbers.
+
 public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_FileOptions"}
   public var protoMessageName: String {return "FileOptions"}

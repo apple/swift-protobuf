@@ -35,6 +35,7 @@
 //  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 //  Author: benjy@google.com (Benjy Weinberger)
 //   Based on original Protocol Buffers design by
 //   Sanjay Ghemawat, Jeff Dean, and others.
@@ -476,6 +477,7 @@ public struct ProtobufUnittest_CustomOptionFooServerMessage: ProtobufGeneratedMe
 }
 
 //  Options of every possible field type, so we can test them all exhaustively.
+
 public struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_DummyMessageContainingEnum"}
   public var protoMessageName: String {return "DummyMessageContainingEnum"}
@@ -725,6 +727,7 @@ public struct ProtobufUnittest_SettingRealsFromNegativeInts: ProtobufGeneratedMe
 
 //  Options of complex message types, themselves combined and extended in
 //  various ways.
+
 public struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType1"}
   public var protoMessageName: String {return "ComplexOptionType1"}
@@ -1327,6 +1330,7 @@ public struct ProtobufUnittest_VariousComplexOptions: ProtobufGeneratedMessage {
 //  ------------------------------------------------------
 //  Definitions for testing aggregate option parsing.
 //  See descriptor_unittest.cc.
+
 public struct ProtobufUnittest_AggregateMessageSet: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_AggregateMessageSet"}
   public var protoMessageName: String {return "AggregateMessageSet"}

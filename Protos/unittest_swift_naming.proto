@@ -228,6 +228,7 @@ message FieldNames {
     int32 TimeScale = 241;
     int32 TimeBase = 242;
     int32 TimeRecord = 243;
+    int32 json_should_be_overriden = 244 [json_name = "json_was_overridden"];
 }
 
 message MessageNames {

@@ -1836,21 +1836,22 @@ public enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
 
 //  TODO: Build a MessageNames message with a submessage of every name below
 //  TODO: Create tests that access every field, enum, message to verify the name is generated correctly
+
 public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "SwiftUnittest_Names_FieldNames"}
   public var protoMessageName: String {return "FieldNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
   public var jsonFieldNames: [String: Int] {return [
-    "string": 1,
-    "int": 2,
-    "double": 3,
-    "float": 4,
-    "uInt": 5,
+    "String": 1,
+    "Int": 2,
+    "Double": 3,
+    "Float": 4,
+    "UInt": 5,
     "hashValue": 6,
     "description": 7,
     "debugDescription": 8,
-    "swift": 9,
-    "uNRECOGNIZED": 10,
+    "Swift": 9,
+    "UNRECOGNIZED": 10,
     "class": 11,
     "deinit": 12,
     "enum": 13,
@@ -1926,7 +1927,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     "required": 85,
     "right": 86,
     "set": 87,
-    "type": 88,
+    "Type": 88,
     "unowned": 89,
     "weak": 90,
     "willSet": 91,
@@ -1995,9 +1996,9 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     "xor": 183,
     "xorEq": 184,
     "restrict": 185,
-    "category": 186,
-    "ivar": 187,
-    "method": 188,
+    "Category": 186,
+    "Ivar": 187,
+    "Method": 188,
     "finalize": 192,
     "hash": 193,
     "dealloc": 194,
@@ -2021,33 +2022,34 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     "serializedSize": 214,
     "sortedExtensionsInUse": 215,
     "unknownFields": 216,
-    "fixed": 217,
-    "fract": 218,
-    "size": 219,
-    "logicalAddress": 220,
-    "physicalAddress": 221,
-    "byteCount": 222,
-    "byteOffset": 223,
-    "duration": 224,
-    "absoluteTime": 225,
-    "optionBits": 226,
-    "itemCount": 227,
-    "pBVersion": 228,
-    "scriptCode": 229,
-    "langCode": 230,
-    "regionCode": 231,
-    "oSType": 232,
-    "processSerialNumber": 233,
-    "point": 234,
-    "rect": 235,
-    "fixedPoint": 236,
-    "fixedRect": 237,
-    "style": 238,
-    "styleParameter": 239,
-    "styleField": 240,
-    "timeScale": 241,
-    "timeBase": 242,
-    "timeRecord": 243,
+    "Fixed": 217,
+    "Fract": 218,
+    "Size": 219,
+    "LogicalAddress": 220,
+    "PhysicalAddress": 221,
+    "ByteCount": 222,
+    "ByteOffset": 223,
+    "Duration": 224,
+    "AbsoluteTime": 225,
+    "OptionBits": 226,
+    "ItemCount": 227,
+    "PBVersion": 228,
+    "ScriptCode": 229,
+    "LangCode": 230,
+    "RegionCode": 231,
+    "OSType": 232,
+    "ProcessSerialNumber": 233,
+    "Point": 234,
+    "Rect": 235,
+    "FixedPoint": 236,
+    "FixedRect": 237,
+    "Style": 238,
+    "StyleParameter": 239,
+    "StyleField": 240,
+    "TimeScale": 241,
+    "TimeBase": 242,
+    "TimeRecord": 243,
+    "json_was_overridden": 244,
   ]}
   public var protoFieldNames: [String: Int] {return [
     "String": 1,
@@ -2257,6 +2259,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     "TimeScale": 241,
     "TimeBase": 242,
     "TimeRecord": 243,
+    "json_should_be_overriden": 244,
   ]}
 
   private class _StorageClass {
@@ -2468,6 +2471,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
     var _timeScale: Int32 = 0
     var _timeBase: Int32 = 0
     var _timeRecord: Int32 = 0
+    var _jsonShouldBeOverriden: Int32 = 0
 
     init() {}
 
@@ -2681,6 +2685,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       case 241: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_timeScale)
       case 242: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_timeBase)
       case 243: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_timeRecord)
+      case 244: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_jsonShouldBeOverriden)
       default:
         handled = false
       }
@@ -2689,19 +2694,19 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if _string != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _string, protoFieldNumber: 1, protoFieldName: "String", jsonFieldName: "string", swiftFieldName: "string")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _string, protoFieldNumber: 1, protoFieldName: "String", jsonFieldName: "String", swiftFieldName: "string")
       }
       if _int != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int, protoFieldNumber: 2, protoFieldName: "Int", jsonFieldName: "int", swiftFieldName: "int")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int, protoFieldNumber: 2, protoFieldName: "Int", jsonFieldName: "Int", swiftFieldName: "int")
       }
       if _double != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _double, protoFieldNumber: 3, protoFieldName: "Double", jsonFieldName: "double", swiftFieldName: "double")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _double, protoFieldNumber: 3, protoFieldName: "Double", jsonFieldName: "Double", swiftFieldName: "double")
       }
       if _float != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _float, protoFieldNumber: 4, protoFieldName: "Float", jsonFieldName: "float", swiftFieldName: "float")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _float, protoFieldNumber: 4, protoFieldName: "Float", jsonFieldName: "Float", swiftFieldName: "float")
       }
       if _uint != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _uint, protoFieldNumber: 5, protoFieldName: "UInt", jsonFieldName: "uInt", swiftFieldName: "uint")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _uint, protoFieldNumber: 5, protoFieldName: "UInt", jsonFieldName: "UInt", swiftFieldName: "uint")
       }
       if _hashValue_p != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _hashValue_p, protoFieldNumber: 6, protoFieldName: "hashValue", jsonFieldName: "hashValue", swiftFieldName: "hashValue_p")
@@ -2713,10 +2718,10 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _debugDescription_p, protoFieldNumber: 8, protoFieldName: "debugDescription", jsonFieldName: "debugDescription", swiftFieldName: "debugDescription_p")
       }
       if _swift != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _swift, protoFieldNumber: 9, protoFieldName: "Swift", jsonFieldName: "swift", swiftFieldName: "swift")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _swift, protoFieldNumber: 9, protoFieldName: "Swift", jsonFieldName: "Swift", swiftFieldName: "swift")
       }
       if _unrecognized != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unrecognized, protoFieldNumber: 10, protoFieldName: "UNRECOGNIZED", jsonFieldName: "uNRECOGNIZED", swiftFieldName: "unrecognized")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unrecognized, protoFieldNumber: 10, protoFieldName: "UNRECOGNIZED", jsonFieldName: "UNRECOGNIZED", swiftFieldName: "unrecognized")
       }
       if _class_p != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _class_p, protoFieldNumber: 11, protoFieldName: "class", jsonFieldName: "class", swiftFieldName: "class_p")
@@ -2944,7 +2949,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _set, protoFieldNumber: 87, protoFieldName: "set", jsonFieldName: "set", swiftFieldName: "set")
       }
       if _type != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _type, protoFieldNumber: 88, protoFieldName: "Type", jsonFieldName: "type", swiftFieldName: "type")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _type, protoFieldNumber: 88, protoFieldName: "Type", jsonFieldName: "Type", swiftFieldName: "type")
       }
       if _unowned != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unowned, protoFieldNumber: 89, protoFieldName: "unowned", jsonFieldName: "unowned", swiftFieldName: "unowned")
@@ -3151,13 +3156,13 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _restrict, protoFieldNumber: 185, protoFieldName: "restrict", jsonFieldName: "restrict", swiftFieldName: "restrict")
       }
       if _category != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _category, protoFieldNumber: 186, protoFieldName: "Category", jsonFieldName: "category", swiftFieldName: "category")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _category, protoFieldNumber: 186, protoFieldName: "Category", jsonFieldName: "Category", swiftFieldName: "category")
       }
       if _ivar != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ivar, protoFieldNumber: 187, protoFieldName: "Ivar", jsonFieldName: "ivar", swiftFieldName: "ivar")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ivar, protoFieldNumber: 187, protoFieldName: "Ivar", jsonFieldName: "Ivar", swiftFieldName: "ivar")
       }
       if _method != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _method, protoFieldNumber: 188, protoFieldName: "Method", jsonFieldName: "method", swiftFieldName: "method")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _method, protoFieldNumber: 188, protoFieldName: "Method", jsonFieldName: "Method", swiftFieldName: "method")
       }
       if _finalize != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _finalize, protoFieldNumber: 192, protoFieldName: "finalize", jsonFieldName: "finalize", swiftFieldName: "finalize")
@@ -3229,85 +3234,88 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unknownFields, protoFieldNumber: 216, protoFieldName: "unknownFields", jsonFieldName: "unknownFields", swiftFieldName: "unknownFields")
       }
       if _fixed != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixed, protoFieldNumber: 217, protoFieldName: "Fixed", jsonFieldName: "fixed", swiftFieldName: "fixed")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixed, protoFieldNumber: 217, protoFieldName: "Fixed", jsonFieldName: "Fixed", swiftFieldName: "fixed")
       }
       if _fract != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fract, protoFieldNumber: 218, protoFieldName: "Fract", jsonFieldName: "fract", swiftFieldName: "fract")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fract, protoFieldNumber: 218, protoFieldName: "Fract", jsonFieldName: "Fract", swiftFieldName: "fract")
       }
       if _size != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _size, protoFieldNumber: 219, protoFieldName: "Size", jsonFieldName: "size", swiftFieldName: "size")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _size, protoFieldNumber: 219, protoFieldName: "Size", jsonFieldName: "Size", swiftFieldName: "size")
       }
       if _logicalAddress != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _logicalAddress, protoFieldNumber: 220, protoFieldName: "LogicalAddress", jsonFieldName: "logicalAddress", swiftFieldName: "logicalAddress")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _logicalAddress, protoFieldNumber: 220, protoFieldName: "LogicalAddress", jsonFieldName: "LogicalAddress", swiftFieldName: "logicalAddress")
       }
       if _physicalAddress != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _physicalAddress, protoFieldNumber: 221, protoFieldName: "PhysicalAddress", jsonFieldName: "physicalAddress", swiftFieldName: "physicalAddress")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _physicalAddress, protoFieldNumber: 221, protoFieldName: "PhysicalAddress", jsonFieldName: "PhysicalAddress", swiftFieldName: "physicalAddress")
       }
       if _byteCount != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteCount, protoFieldNumber: 222, protoFieldName: "ByteCount", jsonFieldName: "byteCount", swiftFieldName: "byteCount")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteCount, protoFieldNumber: 222, protoFieldName: "ByteCount", jsonFieldName: "ByteCount", swiftFieldName: "byteCount")
       }
       if _byteOffset != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteOffset, protoFieldNumber: 223, protoFieldName: "ByteOffset", jsonFieldName: "byteOffset", swiftFieldName: "byteOffset")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteOffset, protoFieldNumber: 223, protoFieldName: "ByteOffset", jsonFieldName: "ByteOffset", swiftFieldName: "byteOffset")
       }
       if _duration != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _duration, protoFieldNumber: 224, protoFieldName: "Duration", jsonFieldName: "duration", swiftFieldName: "duration")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _duration, protoFieldNumber: 224, protoFieldName: "Duration", jsonFieldName: "Duration", swiftFieldName: "duration")
       }
       if _absoluteTime != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _absoluteTime, protoFieldNumber: 225, protoFieldName: "AbsoluteTime", jsonFieldName: "absoluteTime", swiftFieldName: "absoluteTime")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _absoluteTime, protoFieldNumber: 225, protoFieldName: "AbsoluteTime", jsonFieldName: "AbsoluteTime", swiftFieldName: "absoluteTime")
       }
       if _optionBits != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionBits, protoFieldNumber: 226, protoFieldName: "OptionBits", jsonFieldName: "optionBits", swiftFieldName: "optionBits")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionBits, protoFieldNumber: 226, protoFieldName: "OptionBits", jsonFieldName: "OptionBits", swiftFieldName: "optionBits")
       }
       if _itemCount != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _itemCount, protoFieldNumber: 227, protoFieldName: "ItemCount", jsonFieldName: "itemCount", swiftFieldName: "itemCount")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _itemCount, protoFieldNumber: 227, protoFieldName: "ItemCount", jsonFieldName: "ItemCount", swiftFieldName: "itemCount")
       }
       if _pbversion != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _pbversion, protoFieldNumber: 228, protoFieldName: "PBVersion", jsonFieldName: "pBVersion", swiftFieldName: "pbversion")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _pbversion, protoFieldNumber: 228, protoFieldName: "PBVersion", jsonFieldName: "PBVersion", swiftFieldName: "pbversion")
       }
       if _scriptCode != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _scriptCode, protoFieldNumber: 229, protoFieldName: "ScriptCode", jsonFieldName: "scriptCode", swiftFieldName: "scriptCode")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _scriptCode, protoFieldNumber: 229, protoFieldName: "ScriptCode", jsonFieldName: "ScriptCode", swiftFieldName: "scriptCode")
       }
       if _langCode != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _langCode, protoFieldNumber: 230, protoFieldName: "LangCode", jsonFieldName: "langCode", swiftFieldName: "langCode")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _langCode, protoFieldNumber: 230, protoFieldName: "LangCode", jsonFieldName: "LangCode", swiftFieldName: "langCode")
       }
       if _regionCode != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _regionCode, protoFieldNumber: 231, protoFieldName: "RegionCode", jsonFieldName: "regionCode", swiftFieldName: "regionCode")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _regionCode, protoFieldNumber: 231, protoFieldName: "RegionCode", jsonFieldName: "RegionCode", swiftFieldName: "regionCode")
       }
       if _ostype != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ostype, protoFieldNumber: 232, protoFieldName: "OSType", jsonFieldName: "oSType", swiftFieldName: "ostype")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ostype, protoFieldNumber: 232, protoFieldName: "OSType", jsonFieldName: "OSType", swiftFieldName: "ostype")
       }
       if _processSerialNumber != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _processSerialNumber, protoFieldNumber: 233, protoFieldName: "ProcessSerialNumber", jsonFieldName: "processSerialNumber", swiftFieldName: "processSerialNumber")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _processSerialNumber, protoFieldNumber: 233, protoFieldName: "ProcessSerialNumber", jsonFieldName: "ProcessSerialNumber", swiftFieldName: "processSerialNumber")
       }
       if _point != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _point, protoFieldNumber: 234, protoFieldName: "Point", jsonFieldName: "point", swiftFieldName: "point")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _point, protoFieldNumber: 234, protoFieldName: "Point", jsonFieldName: "Point", swiftFieldName: "point")
       }
       if _rect != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _rect, protoFieldNumber: 235, protoFieldName: "Rect", jsonFieldName: "rect", swiftFieldName: "rect")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _rect, protoFieldNumber: 235, protoFieldName: "Rect", jsonFieldName: "Rect", swiftFieldName: "rect")
       }
       if _fixedPoint != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedPoint, protoFieldNumber: 236, protoFieldName: "FixedPoint", jsonFieldName: "fixedPoint", swiftFieldName: "fixedPoint")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedPoint, protoFieldNumber: 236, protoFieldName: "FixedPoint", jsonFieldName: "FixedPoint", swiftFieldName: "fixedPoint")
       }
       if _fixedRect != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedRect, protoFieldNumber: 237, protoFieldName: "FixedRect", jsonFieldName: "fixedRect", swiftFieldName: "fixedRect")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedRect, protoFieldNumber: 237, protoFieldName: "FixedRect", jsonFieldName: "FixedRect", swiftFieldName: "fixedRect")
       }
       if _style != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _style, protoFieldNumber: 238, protoFieldName: "Style", jsonFieldName: "style", swiftFieldName: "style")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _style, protoFieldNumber: 238, protoFieldName: "Style", jsonFieldName: "Style", swiftFieldName: "style")
       }
       if _styleParameter != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleParameter, protoFieldNumber: 239, protoFieldName: "StyleParameter", jsonFieldName: "styleParameter", swiftFieldName: "styleParameter")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleParameter, protoFieldNumber: 239, protoFieldName: "StyleParameter", jsonFieldName: "StyleParameter", swiftFieldName: "styleParameter")
       }
       if _styleField != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleField, protoFieldNumber: 240, protoFieldName: "StyleField", jsonFieldName: "styleField", swiftFieldName: "styleField")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleField, protoFieldNumber: 240, protoFieldName: "StyleField", jsonFieldName: "StyleField", swiftFieldName: "styleField")
       }
       if _timeScale != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeScale, protoFieldNumber: 241, protoFieldName: "TimeScale", jsonFieldName: "timeScale", swiftFieldName: "timeScale")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeScale, protoFieldNumber: 241, protoFieldName: "TimeScale", jsonFieldName: "TimeScale", swiftFieldName: "timeScale")
       }
       if _timeBase != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeBase, protoFieldNumber: 242, protoFieldName: "TimeBase", jsonFieldName: "timeBase", swiftFieldName: "timeBase")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeBase, protoFieldNumber: 242, protoFieldName: "TimeBase", jsonFieldName: "TimeBase", swiftFieldName: "timeBase")
       }
       if _timeRecord != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeRecord, protoFieldNumber: 243, protoFieldName: "TimeRecord", jsonFieldName: "timeRecord", swiftFieldName: "timeRecord")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeRecord, protoFieldNumber: 243, protoFieldName: "TimeRecord", jsonFieldName: "TimeRecord", swiftFieldName: "timeRecord")
+      }
+      if _jsonShouldBeOverriden != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _jsonShouldBeOverriden, protoFieldNumber: 244, protoFieldName: "json_should_be_overriden", jsonFieldName: "json_was_overridden", swiftFieldName: "jsonShouldBeOverriden")
       }
     }
 
@@ -3519,6 +3527,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       if _timeScale != other._timeScale {return false}
       if _timeBase != other._timeBase {return false}
       if _timeRecord != other._timeRecord {return false}
+      if _jsonShouldBeOverriden != other._jsonShouldBeOverriden {return false}
       return true
     }
 
@@ -3731,6 +3740,7 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
       clone._timeScale = _timeScale
       clone._timeBase = _timeBase
       clone._timeRecord = _timeRecord
+      clone._jsonShouldBeOverriden = _jsonShouldBeOverriden
       return clone
     }
   }
@@ -4770,6 +4780,11 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
   public var timeRecord: Int32 {
     get {return _storage._timeRecord}
     set {_uniqueStorage()._timeRecord = newValue}
+  }
+
+  public var jsonShouldBeOverriden: Int32 {
+    get {return _storage._jsonShouldBeOverriden}
+    set {_uniqueStorage()._jsonShouldBeOverriden = newValue}
   }
 
   public init() {}

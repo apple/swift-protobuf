@@ -42,58 +42,75 @@ INSTALL=install
 
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 
-# swiftX is renamed so we can ensure we're using the local version
-# (instead of a previously-installed version)
-PROTOC_GEN_SWIFTX=.build/debug/protoc-gen-swiftX
+# Helpers for the common parts of source generation.
+#
+# To ensure that the local version of the plugin is always used (and not a
+# previously installed one), we use a custom output name (-tfiws_out).
+GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
+GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
+
+# NOTE: TEST_PROTOS, LIBRARY_PROTOS, and PLUGIN_PROTOS are all full paths so
+# eventually we might be able to do proper dependencies and use them as inputs
+# for other rules (we'll also likely need outputs).
+#
+# But since plugin is also Swift code using the runtime, there's a bit of
+# recursion that doesn't lend itself to easily being resolved; as the build
+# could create a new plugin that in turn could cause new sources need to
+# generated, which in turns means the plugin needs to be rebuilt...
+#
+# It might be easier in the long run to give up on make, and instead have a
+# script that does the build and then generation and checks to see if generated
+# source change, and if it doesn't errors out to have the developer restart
+# the process so they stabilize.
 
 # Protos used for the unit and functional tests
 TEST_PROTOS= \
-	conformance/conformance.proto \
-	google/protobuf/any_test.proto \
-	google/protobuf/descriptor.proto \
-	google/protobuf/map_unittest.proto \
-	google/protobuf/map_unittest_proto3.proto \
-	google/protobuf/unittest.proto \
-	google/protobuf/unittest_arena.proto \
-	google/protobuf/unittest_custom_options.proto \
-	google/protobuf/unittest_drop_unknown_fields.proto \
-	google/protobuf/unittest_embed_optimize_for.proto \
-	google/protobuf/unittest_empty.proto \
-	google/protobuf/unittest_import.proto \
-	google/protobuf/unittest_import_lite.proto \
-	google/protobuf/unittest_import_proto3.proto \
-	google/protobuf/unittest_import_public.proto \
-	google/protobuf/unittest_import_public_lite.proto \
-	google/protobuf/unittest_import_public_proto3.proto \
-	google/protobuf/unittest_lite.proto \
-	google/protobuf/unittest_lite_imports_nonlite.proto \
-	google/protobuf/unittest_mset.proto \
-	google/protobuf/unittest_mset_wire_format.proto \
-	google/protobuf/unittest_no_arena.proto \
-	google/protobuf/unittest_no_arena_import.proto \
-	google/protobuf/unittest_no_arena_lite.proto \
-	google/protobuf/unittest_no_field_presence.proto \
-	google/protobuf/unittest_no_generic_services.proto \
-	google/protobuf/unittest_optimize_for.proto \
-	google/protobuf/unittest_preserve_unknown_enum.proto \
-	google/protobuf/unittest_preserve_unknown_enum2.proto \
-	google/protobuf/unittest_proto3.proto \
-	google/protobuf/unittest_proto3_arena.proto \
-	google/protobuf/unittest_well_known_types.proto \
-	swift-options.proto \
-	unittest_swift_all_required_types.proto \
-	unittest_swift_cycle.proto \
-	unittest_swift_enum.proto \
-	unittest_swift_enum_optional_default.proto \
-	unittest_swift_extension.proto \
-	unittest_swift_fieldorder.proto \
-	unittest_swift_groups.proto \
-	unittest_swift_naming.proto \
-	unittest_swift_performance.proto \
-	unittest_swift_reserved.proto \
-	unittest_swift_runtime_proto2.proto \
-	unittest_swift_runtime_proto3.proto \
-	unittest_swift_startup.proto
+	Protos/conformance/conformance.proto \
+	Protos/google/protobuf/any_test.proto \
+	Protos/google/protobuf/descriptor.proto \
+	Protos/google/protobuf/map_unittest.proto \
+	Protos/google/protobuf/map_unittest_proto3.proto \
+	Protos/google/protobuf/unittest.proto \
+	Protos/google/protobuf/unittest_arena.proto \
+	Protos/google/protobuf/unittest_custom_options.proto \
+	Protos/google/protobuf/unittest_drop_unknown_fields.proto \
+	Protos/google/protobuf/unittest_embed_optimize_for.proto \
+	Protos/google/protobuf/unittest_empty.proto \
+	Protos/google/protobuf/unittest_import.proto \
+	Protos/google/protobuf/unittest_import_lite.proto \
+	Protos/google/protobuf/unittest_import_proto3.proto \
+	Protos/google/protobuf/unittest_import_public.proto \
+	Protos/google/protobuf/unittest_import_public_lite.proto \
+	Protos/google/protobuf/unittest_import_public_proto3.proto \
+	Protos/google/protobuf/unittest_lite.proto \
+	Protos/google/protobuf/unittest_lite_imports_nonlite.proto \
+	Protos/google/protobuf/unittest_mset.proto \
+	Protos/google/protobuf/unittest_mset_wire_format.proto \
+	Protos/google/protobuf/unittest_no_arena.proto \
+	Protos/google/protobuf/unittest_no_arena_import.proto \
+	Protos/google/protobuf/unittest_no_arena_lite.proto \
+	Protos/google/protobuf/unittest_no_field_presence.proto \
+	Protos/google/protobuf/unittest_no_generic_services.proto \
+	Protos/google/protobuf/unittest_optimize_for.proto \
+	Protos/google/protobuf/unittest_preserve_unknown_enum.proto \
+	Protos/google/protobuf/unittest_preserve_unknown_enum2.proto \
+	Protos/google/protobuf/unittest_proto3.proto \
+	Protos/google/protobuf/unittest_proto3_arena.proto \
+	Protos/google/protobuf/unittest_well_known_types.proto \
+	Protos/swift-options.proto \
+	Protos/unittest_swift_all_required_types.proto \
+	Protos/unittest_swift_cycle.proto \
+	Protos/unittest_swift_enum.proto \
+	Protos/unittest_swift_enum_optional_default.proto \
+	Protos/unittest_swift_extension.proto \
+	Protos/unittest_swift_fieldorder.proto \
+	Protos/unittest_swift_groups.proto \
+	Protos/unittest_swift_naming.proto \
+	Protos/unittest_swift_performance.proto \
+	Protos/unittest_swift_reserved.proto \
+	Protos/unittest_swift_runtime_proto2.proto \
+	Protos/unittest_swift_runtime_proto3.proto \
+	Protos/unittest_swift_startup.proto
 
 # TODO: The library and plugin Protos come directly from google sources.
 # There should be an easy way to copy the Google versions from a protobuf
@@ -101,20 +118,20 @@ TEST_PROTOS= \
 
 # Protos that are embedded into the SwiftProtobuf runtime library module
 LIBRARY_PROTOS= \
-    api \
-    duration \
-    empty \
-    field_mask \
-    source_context \
-    timestamp \
-    type \
-    wrappers
+	Protos/google/protobuf/api.proto \
+	Protos/google/protobuf/duration.proto \
+	Protos/google/protobuf/empty.proto \
+	Protos/google/protobuf/field_mask.proto \
+	Protos/google/protobuf/source_context.proto \
+	Protos/google/protobuf/timestamp.proto \
+	Protos/google/protobuf/type.proto \
+	Protos/google/protobuf/wrappers.proto
 
 # Protos that are used internally by the plugin
 PLUGIN_PROTOS= \
-	google/protobuf/compiler/plugin.proto \
-	google/protobuf/descriptor.proto \
-	swift-options.proto
+	Protos/google/protobuf/compiler/plugin.proto \
+	Protos/google/protobuf/descriptor.proto \
+	Protos/swift-options.proto
 
 XCODEBUILD_EXTRAS =
 # Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
@@ -179,25 +196,29 @@ default: build
 
 all: build
 
-# This also rebuilds LinuxMain.swift to include all of the test cases
-# (The awk script is very fast, so re-running it on every build is reasonable.)
+# This also rebuilds LinuxMain.swift to include all of the test cases.
+# (The awk script is very fast, so re-running it on every build is reasonable,
+#  but we only update the file when it changes to avoid extra builds.)
 # (Someday, 'swift test' will learn how to auto-discover test cases on Linux,
 # at which time this will no longer be needed.)
-build:
-	${AWK} -f CollectTests.awk Tests/SwiftProtobufTests/Test_*.swift > Tests/LinuxMain.swift
+build ${PROTOC_GEN_SWIFT}:
+	@${AWK} -f CollectTests.awk Tests/SwiftProtobufTests/Test_*.swift > Tests/LinuxMain.swift.new
+	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
+		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
+		echo "FYI: Tests/LinuxMain.swift Updated"; \
+	fi
+	@rm Tests/LinuxMain.swift.new
 	${SWIFT} build
 
-${PROTOC_GEN_SWIFT}: build
-
-install:
+# Does it really make sense to install a debug build, or should this be forcing
+# a release build and then installing that instead?
+install: build
 	${INSTALL} ${PROTOC_GEN_SWIFT} ${BINDIR}
 
 clean:
 	swift build --clean
-	rm -rf .build
-	rm -rf _test
+	rm -rf .build _test ${PROTOC_GEN_SWIFT}
 	find . -name '*~' | xargs rm
-	rm -rf ${PROTOC_GEN_SWIFT} ${PROTOC_GEN_SWIFTX}
 
 #
 # Test the runtime and the plugin
@@ -217,9 +238,6 @@ test-runtime: build
 	${SWIFT} test
 
 
-${PROTOC_GEN_SWIFTX}: ${PROTOC_GEN_SWIFT}
-	cp ${PROTOC_GEN_SWIFT} ${PROTOC_GEN_SWIFTX}
-
 #
 # Test the plugin by itself:
 #   * Translate every proto in Protos into Swift using local protoc-gen-swift
@@ -235,31 +253,30 @@ ${PROTOC_GEN_SWIFTX}: ${PROTOC_GEN_SWIFT}
 #   * MANUALLY go through `git diff Reference` to verify that the generated Swift changed in the way you expect
 #   * `make clean build test` to do a final check
 #
-test-plugin: ${PROTOC_GEN_SWIFTX}
-	rm -rf _test
-	for p in `cd Protos; find . -type f -name '*.proto'`; do \
-		echo "==> Testing plugin for $$p"; \
-		d=`dirname $$p`; b=`basename $$p .proto`; \
-		mkdir -p _test/$$d; \
-		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=_test/$$d -I Protos Protos/$$p || exit 1; \
-		diff -u _test/$$d/$$b.pb.swift Reference/$$d/$$b.pb.swift || exit 1; \
+# Note: Some of these protos define the same package.(message|enum)s, so they
+# can't be done in a single protoc/proto-gen-swift invoke and have to be done
+# one at a time instead.
+test-plugin: build
+	@rm -rf _test && mkdir _test
+	for p in `find Protos -type f -name '*.proto'`; do \
+		${GENERATE_SRCS} --tfiws_out=_test $$p; \
 	done
+	diff -ru _test Reference
 
 #
-# Rebuild the reference files by running the local
-# version of protoc-gen-swift against our menagerie
-# of sample protos.
+# Rebuild the reference files by running the local version of protoc-gen-swift
+# against our menagerie of sample protos.
 #
-# If you do this, you MUST MANUALLY verify these files
-# before checking them in, since the new checkin will
-# become the new master reference.
+# If you do this, you MUST MANUALLY verify these files before checking them in,
+# since the new checkin will become the new master reference.
 #
-reference: ${PROTOC_GEN_SWIFTX}
-	rm -rf Reference; \
-	for p in `cd Protos; find . -type f -name '*.proto'`; do \
-		d=`dirname $$p`; \
-		mkdir -p Reference/$$d; \
-		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=Reference/$$d -I Protos Protos/$$p; \
+# Note: Some of these protos define the same package.(message|enum)s, so they
+# can't be done in a single protoc/proto-gen-swift invoke and have to be done
+# one at a time instead.
+reference: build
+	@rm -rf Reference && mkdir Reference
+	for p in `find Protos -type f -name '*.proto'`; do \
+		${GENERATE_SRCS} --tfiws_out=Reference $$p; \
 	done
 
 #
@@ -274,22 +291,21 @@ reference: ${PROTOC_GEN_SWIFTX}
 regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-protos
 
 # Rebuild just the protos included in the runtime library
-regenerate-library-protos: ${PROTOC_GEN_SWIFTX}
-	for t in ${LIBRARY_PROTOS}; do \
-		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=Sources/SwiftProtobuf -I Protos Protos/google/protobuf/$$t.proto; \
-	done
+regenerate-library-protos: build
+	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/SwiftProtobuf ${LIBRARY_PROTOS}
 
 # Rebuild just the protos used by the plugin
-regenerate-plugin-protos: ${PROTOC_GEN_SWIFTX}
-	for t in ${PLUGIN_PROTOS}; do \
-		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=Sources/PluginLibrary -I Protos Protos/$$t; \
-	done
+regenerate-plugin-protos: build
+	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/PluginLibrary ${PLUGIN_PROTOS}
 
 # Rebuild just the protos used by the runtime test suite
-regenerate-test-protos: ${PROTOC_GEN_SWIFTX}
+# Note: Some of these protos define the same package.(message|enum)s, so they
+# can't be done in a single protoc/proto-gen-swift invoke and have to be done
+# one at a time instead.
+regenerate-test-protos: build
 	for t in ${TEST_PROTOS}; do \
-		${PROTOC} --plugin=${PROTOC_GEN_SWIFTX} --swiftX_out=Tests/SwiftProtobufTests -I Protos Protos/$$t; \
-	done;
+		${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Tests/SwiftProtobufTests $$t; \
+	done
 
 
 # Helpers to put the Xcode project through all modes.
@@ -304,60 +320,61 @@ test-xcode-debug: test-xcode-iOS-debug test-xcode-macOS-debug test-xcode-tvOS-de
 test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release test-xcode-tvOS-release test-xcode-watchOS-release
 
 # The individual ones
-test-xcode-iOS-debug:
-	# 4s - 32bit, 6s - 64bit
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_iOS \
-	  -configuration Debug \
-	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
-	  -destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
-	  test $(XCODEBUILD_EXTRAS)
 
-test-xcode-iOS-release:
-	# 4s - 32bit, 6s - 64bit
+# 4s - 32bit, 6s - 64bit
+test-xcode-iOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_iOS \
-	  -configuration Release \
-	  -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
-	  -destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
-	  test $(XCODEBUILD_EXTRAS)
+		-scheme SwiftProtobuf_iOS \
+		-configuration Debug \
+		-destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
+		-destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
+		test $(XCODEBUILD_EXTRAS)
+
+# 4s - 32bit, 6s - 64bit
+test-xcode-iOS-release:
+	xcodebuild -project SwiftProtobuf.xcodeproj \
+		-scheme SwiftProtobuf_iOS \
+		-configuration Release \
+		-destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
+		-destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
+		test $(XCODEBUILD_EXTRAS)
 
 test-xcode-macOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_macOS \
-	  -configuration debug \
-	  build test $(XCODEBUILD_EXTRAS)
+		-scheme SwiftProtobuf_macOS \
+		-configuration debug \
+		build test $(XCODEBUILD_EXTRAS)
 
 test-xcode-macOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_macOS \
-	  -configuration Release \
-	  build test $(XCODEBUILD_EXTRAS)
+		-scheme SwiftProtobuf_macOS \
+		-configuration Release \
+		build test $(XCODEBUILD_EXTRAS)
 
 test-xcode-tvOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_tvOS \
-	  -configuration Debug \
-	  -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
-	  build test $(XCODEBUILD_EXTRAS)
+		-scheme SwiftProtobuf_tvOS \
+		-configuration Debug \
+		-destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
+		build test $(XCODEBUILD_EXTRAS)
 
 test-xcode-tvOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_tvOS \
-	  -configuration Release \
-	  -destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
-	  build test $(XCODEBUILD_EXTRAS)
+		-scheme SwiftProtobuf_tvOS \
+		-configuration Release \
+		-destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
+		build test $(XCODEBUILD_EXTRAS)
 
+# watchOS doesn't support tests, just do a build.
 test-xcode-watchOS-debug:
-	# watchOS doesn't support tests
 	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_watchOS \
-	  -configuration Debug \
-	  build $(XCODEBUILD_EXTRAS)
+		-scheme SwiftProtobuf_watchOS \
+		-configuration Debug \
+		build $(XCODEBUILD_EXTRAS)
 
+# watchOS doesn't support tests, just do a build.
 test-xcode-watchOS-release:
-	# watchOS doesn't support tests
 	xcodebuild -project SwiftProtobuf.xcodeproj \
-	  -scheme SwiftProtobuf_watchOS \
-	  -configuration Release \
-	  build $(XCODEBUILD_EXTRAS)
+		-scheme SwiftProtobuf_watchOS \
+		-configuration Release \
+		build $(XCODEBUILD_EXTRAS)
