@@ -89,7 +89,7 @@ public extension ProtobufBinaryCodableType {
 
 public extension ProtobufTypeProperties {
     public static func decodeProtobufMapValue(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws {
-        let handled = try decoder.decodeOptionalField(fieldType: Self.self, value: &value)
+        let handled = try decoder.decodeSingularField(fieldType: Self.self, value: &value)
         assert(handled)
     }
 }
@@ -702,7 +702,7 @@ public extension ProtobufBytes {
 extension ProtobufEnum where RawValue == Int {
     public static var protobufWireFormat: WireFormat { return .varint }
     public static func decodeOptionalField(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws -> Bool {
-        return try decoder.decodeOptionalField(fieldType: Self.self, value: &value)
+        return try decoder.decodeSingularField(fieldType: Self.self, value: &value)
     }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Self) {
@@ -789,7 +789,7 @@ public extension ProtobufBinaryMessageBase {
 
 public extension ProtobufMessage {
     static func decodeProtobufMapValue(decoder: inout ProtobufFieldDecoder, value: inout Self?) throws {
-        let handled = try decoder.decodeOptionalMessageField(fieldType: Self.self, value: &value)
+        let handled = try decoder.decodeSingularMessageField(fieldType: Self.self, value: &value)
         assert(handled)
     }
 

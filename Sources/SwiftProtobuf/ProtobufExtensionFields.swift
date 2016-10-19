@@ -93,7 +93,7 @@ public struct ProtobufOptionalField<T: ProtobufTypeProperties>: ProtobufTypedExt
     }
 
     public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeOptionalField(fieldType: T.self, value: &value)
+        return try setter.decodeSingularField(fieldType: T.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -262,7 +262,7 @@ public struct ProtobufOptionalMessageField<M: ProtobufAbstractMessage>: Protobuf
     }
 
     public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeOptionalMessageField(fieldType: M.self, value: &value)
+        return try setter.decodeSingularMessageField(fieldType: M.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -362,7 +362,7 @@ public struct ProtobufOptionalGroupField<G: ProtobufMessage & Hashable>: Protobu
     }
 
     public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeOptionalGroupField(fieldType: G.self, value: &value)
+        return try setter.decodeSingularGroupField(fieldType: G.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {

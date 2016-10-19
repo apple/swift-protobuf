@@ -45,7 +45,7 @@ private struct ProtobufFieldWireTypeVarint: ProtobufBinaryFieldDecoder {
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
 
-    mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
+    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return try S.setFromProtobufVarint(varint: varint, value: &value)
     }
 
@@ -68,7 +68,7 @@ private struct ProtobufFieldWireTypeFixed64: ProtobufBinaryFieldDecoder {
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
 
-    mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
+    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return try S.setFromProtobufFixed8(fixed8: fixed8, value: &value)
     }
 
@@ -90,7 +90,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
 
-    mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
+    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return try S.setFromProtobufBuffer(buffer: buffer, value: &value)
     }
 
@@ -102,7 +102,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
         return try S.setFromProtobufBuffer(buffer: buffer, value: &value)
     }
 
-    mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
+    mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
         var v = value ?? M()
         var subDecoder = ProtobufBinaryDecoder(protobufPointer: buffer, extensions: scanner.extensions)
         try subDecoder.decodeFullObject(message: &v)
@@ -123,7 +123,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
             switch protoFieldNumber {
             case 1:
                 // Keys are always basic types, so we can use the direct path here
-                let handled = try decoder.decodeOptionalField(fieldType: KeyType.self, value: &k)
+                let handled = try decoder.decodeSingularField(fieldType: KeyType.self, value: &k)
                 if !handled {
                     return false
                 }
@@ -150,7 +150,7 @@ private struct ProtobufFieldWireTypeStartGroup: ProtobufBinaryFieldDecoder {
     let scanner: ProtobufScanner
     let protoFieldNumber: Int
 
-    mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
+    mutating func decodeSingularGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
         var group = value ?? G()
         var decoder = ProtobufBinaryDecoder(scanner: scanner)
         try decoder.decodeFullGroup(group: &group, protoFieldNumber: protoFieldNumber)
@@ -176,7 +176,7 @@ private struct ProtobufFieldWireTypeFixed32: ProtobufBinaryFieldDecoder {
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
 
-    mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
+    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return try S.setFromProtobufFixed4(fixed4: fixed4, value: &value)
     }
 
