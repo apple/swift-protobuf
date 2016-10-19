@@ -229,8 +229,8 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
 
     mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         switch protoFieldNumber {
-        case 1: return try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &typeURL)
-        case 2: return try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &_value)
+        case 1: return try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
+        case 2: return try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
         default: return false
         }
     }

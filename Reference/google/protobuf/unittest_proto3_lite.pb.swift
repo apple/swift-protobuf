@@ -636,7 +636,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
         self = .oneofUint32(value)
       case 112:
         var value: Proto3LiteUnittest_TestAllTypes.NestedMessage?
-        handled = try setter.decodeOptionalMessageField(fieldType: Proto3LiteUnittest_TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Proto3LiteUnittest_TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }

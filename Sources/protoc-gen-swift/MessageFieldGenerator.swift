@@ -265,7 +265,6 @@ struct MessageFieldGenerator {
         } else {
             let modifier = (isPacked ? "Packed"
                          : isRepeated ? "Repeated"
-                         : !isProto3 ? "Optional"
                          : "Singular")
             let special = isGroup ? "Group"
                          : isMessage ? "Message"

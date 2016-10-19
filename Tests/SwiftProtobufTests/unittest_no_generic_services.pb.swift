@@ -138,7 +138,7 @@ public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGenerat
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
         handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, protoFieldNumber: protoFieldNumber)

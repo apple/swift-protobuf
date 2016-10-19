@@ -59,8 +59,8 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
       func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         let handled: Bool
         switch protoFieldNumber {
-        case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.self, value: &_message)
-        case 17: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.self, value: &_optionalEnum)
+        case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.self, value: &_message)
+        case 17: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.self, value: &_optionalEnum)
         default:
           handled = false
         }
@@ -303,7 +303,7 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 17: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: &_optionalEnum)
+      case 17: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: &_optionalEnum)
       default:
         handled = false
       }

@@ -74,7 +74,7 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
       public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         let handled: Bool
         switch protoFieldNumber {
-        case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
+        case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
         default:
           if (100 <= protoFieldNumber && protoFieldNumber < 1001) {
             handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Baz.self, protoFieldNumber: protoFieldNumber)
@@ -189,7 +189,7 @@ public struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage {
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 999: handled = try setter.decodeOptionalField(fieldType: ProtobufInt64.self, value: &_c)
+    case 999: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_c)
     default:
       handled = false
     }

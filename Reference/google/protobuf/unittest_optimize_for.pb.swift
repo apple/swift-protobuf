@@ -76,8 +76,8 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_i)
-      case 19: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_ForeignMessage.self, value: &_msg)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_i)
+      case 19: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_ForeignMessage.self, value: &_msg)
       case 2, 3:
         handled = try _foo.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default:
@@ -149,13 +149,13 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
       switch protoFieldNumber {
       case 2:
         var value: Int32?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
         if let value = value, handled {
           self = .integerField(value)
         }
       case 3:
         var value: String?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         if let value = value, handled {
           self = .stringField(value)
         }
@@ -310,7 +310,7 @@ public struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMe
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_x)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_x)
     default:
       handled = false
     }
@@ -354,7 +354,7 @@ public struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMe
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_TestRequiredOptimizedForSize.self, value: &_o)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestRequiredOptimizedForSize.self, value: &_o)
       default:
         handled = false
       }

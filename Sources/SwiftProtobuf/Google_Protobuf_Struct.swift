@@ -480,37 +480,37 @@ public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomRe
             switch protoFieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
-                handled = try setter.decodeOptionalField(fieldType: Google_Protobuf_NullValue.self, value: &value)
+                handled = try setter.decodeSingularField(fieldType: Google_Protobuf_NullValue.self, value: &value)
                 if let value = value, handled {
                     self = .nullValue(value)
                 }
             case 2:
                 var value: Double?
-                handled = try setter.decodeOptionalField(fieldType: ProtobufDouble.self, value: &value)
+                handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
                 if let value = value, handled {
                     self = .numberValue(value)
                 }
             case 3:
                 var value: String?
-                handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &value)
+                handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
                 if let value = value, handled {
                     self = .stringValue(value)
                 }
             case 4:
                 var value: Bool?
-                handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &value)
+                handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
                 if let value = value, handled {
                     self = .boolValue(value)
                 }
             case 5:
                 var value: Google_Protobuf_Struct?
-                handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
+                handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
                 if let value = value, handled {
                     self = .structValue(value)
                 }
             case 6:
                 var value: Google_Protobuf_ListValue?
-                handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
+                handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
                 if let value = value, handled {
                     self = .listValue(value)
                 }

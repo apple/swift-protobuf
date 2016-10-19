@@ -164,13 +164,13 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
       switch protoFieldNumber {
       case 5:
         var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
-        handled = try setter.decodeOptionalField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
         if let value = value, handled {
           self = .oneofE1(value)
         }
       case 6:
         var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
-        handled = try setter.decodeOptionalField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
         if let value = value, handled {
           self = .oneofE2(value)
         }
@@ -247,7 +247,7 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &_e)
+    case 1: handled = try setter.decodeSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &_e)
     case 2: handled = try setter.decodeRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedE)
     case 3: handled = try setter.decodePackedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedE)
     case 4: handled = try setter.decodeRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedUnexpectedE)

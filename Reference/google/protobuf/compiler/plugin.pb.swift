@@ -111,7 +111,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
     let handled: Bool
     switch protoFieldNumber {
     case 1: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &fileToGenerate)
-    case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_parameter)
+    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_parameter)
     case 15: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &protoFile)
     default:
       handled = false
@@ -269,9 +269,9 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_insertionPoint)
-      case 15: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_content)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_insertionPoint)
+      case 15: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_content)
       default:
         handled = false
       }
@@ -331,7 +331,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_error)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_error)
     case 15: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Compiler_CodeGeneratorResponse.File.self, value: &file)
     default:
       handled = false

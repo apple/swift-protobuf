@@ -621,7 +621,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
         self = .oneofUint32(value)
       case 112:
         var value: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage?
-        handled = try setter.decodeOptionalMessageField(fieldType: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }

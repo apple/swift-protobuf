@@ -262,13 +262,13 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
         self = .boolValue(value)
       case 5:
         var value: Google_Protobuf_Struct?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
         if let value = value, handled {
           self = .structValue(value)
         }
       case 6:
         var value: Google_Protobuf_ListValue?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
         if let value = value, handled {
           self = .listValue(value)
         }

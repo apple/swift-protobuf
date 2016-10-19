@@ -68,7 +68,7 @@ public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
       default:
         handled = false
       }
@@ -170,7 +170,7 @@ public struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessag
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 15: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_i)
+    case 15: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_i)
     default:
       handled = false
     }
@@ -230,7 +230,7 @@ public struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessag
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 25: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_str)
+    case 25: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_str)
     default:
       handled = false
     }
@@ -324,8 +324,8 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_typeId)
-      case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &_message)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_typeId)
+      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_message)
       default:
         handled = false
       }

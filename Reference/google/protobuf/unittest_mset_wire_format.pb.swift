@@ -126,7 +126,7 @@ public struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: Protob
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
       default:
         handled = false
       }

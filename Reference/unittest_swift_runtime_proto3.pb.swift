@@ -690,7 +690,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
         self = .oneofBytes(value)
       case 68:
         var value: ProtobufUnittest_Message3?
-        handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_Message3.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_Message3.self, value: &value)
         if let value = value, handled {
           self = .oneofMessage(value)
         }
