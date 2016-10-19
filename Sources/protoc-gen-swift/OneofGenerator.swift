@@ -88,7 +88,7 @@ class OneofGenerator {
             } else {
                 p.print("var value: \(f.swiftStorageType)\n")
                 let special = f.isGroup ? "Group" : f.isMessage ? "Message" : "";
-                let modifier = "Optional"
+                let modifier = "Singular"
                 let decoderMethod = "decode\(modifier)\(special)Field"
                 p.print("handled = try setter.\(decoderMethod)(fieldType: \(f.traitsType).self, value: &value)\n")
                 p.print("if let value = value, handled {\n")
