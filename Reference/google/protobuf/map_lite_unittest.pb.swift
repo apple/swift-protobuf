@@ -1185,9 +1185,9 @@ public struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
-    case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_b)
-    case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_c)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_b)
+    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
     default:
       handled = false
     }
@@ -1244,7 +1244,7 @@ public struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_c)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
     default:
       handled = false
     }

@@ -842,7 +842,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
         self = .oneofUint32(value)
       case 112:
         var value: Proto3TestAllTypes.NestedMessage?
-        handled = try setter.decodeOptionalMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }
@@ -2769,7 +2769,7 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
         self = .fooString(value)
       case 3:
         var value: Proto3TestAllTypes?
-        handled = try setter.decodeOptionalMessageField(fieldType: Proto3TestAllTypes.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.self, value: &value)
         if let value = value, handled {
           self = .fooMessage(value)
         }

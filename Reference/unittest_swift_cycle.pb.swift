@@ -74,9 +74,9 @@ public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
-      case 2: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
-      case 3: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
+      case 2: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
+      case 3: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
       default:
         handled = false
       }
@@ -202,9 +202,9 @@ public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
-      case 2: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
-      case 3: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
+      case 2: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
+      case 3: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
       default:
         handled = false
       }
@@ -330,9 +330,9 @@ public struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
-      case 2: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
-      case 3: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
+      case 2: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
+      case 3: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
       default:
         handled = false
       }
