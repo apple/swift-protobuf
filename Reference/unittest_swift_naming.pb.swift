@@ -26,7 +26,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
+enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
   public typealias RawValue = Int
   case a // = 0
   case string // = 1
@@ -1750,7 +1750,7 @@ public enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
 
 }
 
-public enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
+enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
   public typealias RawValue = Int
   case aa // = 0
 
@@ -1837,7 +1837,7 @@ public enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
 //  TODO: Build a MessageNames message with a submessage of every name below
 //  TODO: Create tests that access every field, enum, message to verify the name is generated correctly
 
-public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
+struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "SwiftUnittest_Names_FieldNames"}
   public var protoMessageName: String {return "FieldNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
@@ -4809,14 +4809,14 @@ public struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage {
   }
 }
 
-public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
+struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames"}
   public var protoMessageName: String {return "MessageNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  public struct StringMessage: ProtobufGeneratedMessage {
+  struct StringMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StringMessage"}
     public var protoMessageName: String {return "String"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -4853,7 +4853,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct ProtocolMessage: ProtobufGeneratedMessage {
+  struct ProtocolMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ProtocolMessage"}
     public var protoMessageName: String {return "Protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -4890,7 +4890,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct IntMessage: ProtobufGeneratedMessage {
+  struct IntMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.IntMessage"}
     public var protoMessageName: String {return "Int"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -4927,7 +4927,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct DoubleMessage: ProtobufGeneratedMessage {
+  struct DoubleMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.DoubleMessage"}
     public var protoMessageName: String {return "Double"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -4964,7 +4964,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct FloatMessage: ProtobufGeneratedMessage {
+  struct FloatMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FloatMessage"}
     public var protoMessageName: String {return "Float"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5001,7 +5001,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct UIntMessage: ProtobufGeneratedMessage {
+  struct UIntMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.UIntMessage"}
     public var protoMessageName: String {return "UInt"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5038,7 +5038,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct hashValueMessage: ProtobufGeneratedMessage {
+  struct hashValueMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.hashValueMessage"}
     public var protoMessageName: String {return "hashValue"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5075,7 +5075,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct descriptionMessage: ProtobufGeneratedMessage {
+  struct descriptionMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.descriptionMessage"}
     public var protoMessageName: String {return "description"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5112,7 +5112,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct debugDescriptionMessage: ProtobufGeneratedMessage {
+  struct debugDescriptionMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.debugDescriptionMessage"}
     public var protoMessageName: String {return "debugDescription"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5149,7 +5149,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Swift: ProtobufGeneratedMessage {
+  struct Swift: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Swift"}
     public var protoMessageName: String {return "Swift"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5186,7 +5186,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct UNRECOGNIZED: ProtobufGeneratedMessage {
+  struct UNRECOGNIZED: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.UNRECOGNIZED"}
     public var protoMessageName: String {return "UNRECOGNIZED"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5223,7 +5223,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct classMessage: ProtobufGeneratedMessage {
+  struct classMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5260,7 +5260,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct deinitMessage: ProtobufGeneratedMessage {
+  struct deinitMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.deinitMessage"}
     public var protoMessageName: String {return "deinit"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5297,7 +5297,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct enumMessage: ProtobufGeneratedMessage {
+  struct enumMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.enumMessage"}
     public var protoMessageName: String {return "enum"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5334,7 +5334,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct extensionMessage: ProtobufGeneratedMessage {
+  struct extensionMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionMessage"}
     public var protoMessageName: String {return "extension"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5371,7 +5371,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct funcMessage: ProtobufGeneratedMessage {
+  struct funcMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.funcMessage"}
     public var protoMessageName: String {return "func"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5408,7 +5408,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct importMessage: ProtobufGeneratedMessage {
+  struct importMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.importMessage"}
     public var protoMessageName: String {return "import"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5445,7 +5445,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct initMessage: ProtobufGeneratedMessage {
+  struct initMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.initMessage"}
     public var protoMessageName: String {return "init"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5482,7 +5482,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct inoutMessage: ProtobufGeneratedMessage {
+  struct inoutMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inoutMessage"}
     public var protoMessageName: String {return "inout"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5519,7 +5519,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct internalMessage: ProtobufGeneratedMessage {
+  struct internalMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.internalMessage"}
     public var protoMessageName: String {return "internal"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5556,7 +5556,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct letMessage: ProtobufGeneratedMessage {
+  struct letMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.letMessage"}
     public var protoMessageName: String {return "let"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5593,7 +5593,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct operatorMessage: ProtobufGeneratedMessage {
+  struct operatorMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.operatorMessage"}
     public var protoMessageName: String {return "operator"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5630,7 +5630,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct privateMessage: ProtobufGeneratedMessage {
+  struct privateMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.privateMessage"}
     public var protoMessageName: String {return "private"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5667,7 +5667,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct protocolMessage: ProtobufGeneratedMessage {
+  struct protocolMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.protocolMessage"}
     public var protoMessageName: String {return "protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5704,7 +5704,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct publicMessage: ProtobufGeneratedMessage {
+  struct publicMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.publicMessage"}
     public var protoMessageName: String {return "public"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5741,7 +5741,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct staticMessage: ProtobufGeneratedMessage {
+  struct staticMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.staticMessage"}
     public var protoMessageName: String {return "static"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5778,7 +5778,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct structMessage: ProtobufGeneratedMessage {
+  struct structMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.structMessage"}
     public var protoMessageName: String {return "struct"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5815,7 +5815,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct subscriptMessage: ProtobufGeneratedMessage {
+  struct subscriptMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.subscriptMessage"}
     public var protoMessageName: String {return "subscript"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5852,7 +5852,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct typealiasMessage: ProtobufGeneratedMessage {
+  struct typealiasMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typealiasMessage"}
     public var protoMessageName: String {return "typealias"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5889,7 +5889,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct varMessage: ProtobufGeneratedMessage {
+  struct varMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.varMessage"}
     public var protoMessageName: String {return "var"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5926,7 +5926,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct breakMessage: ProtobufGeneratedMessage {
+  struct breakMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.breakMessage"}
     public var protoMessageName: String {return "break"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -5963,7 +5963,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct caseMessage: ProtobufGeneratedMessage {
+  struct caseMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.caseMessage"}
     public var protoMessageName: String {return "case"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6000,7 +6000,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct continueMessage: ProtobufGeneratedMessage {
+  struct continueMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.continueMessage"}
     public var protoMessageName: String {return "continue"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6037,7 +6037,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct defaultMessage: ProtobufGeneratedMessage {
+  struct defaultMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.defaultMessage"}
     public var protoMessageName: String {return "default"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6074,7 +6074,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct deferMessage: ProtobufGeneratedMessage {
+  struct deferMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.deferMessage"}
     public var protoMessageName: String {return "defer"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6111,7 +6111,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct doMessage: ProtobufGeneratedMessage {
+  struct doMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.doMessage"}
     public var protoMessageName: String {return "do"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6148,7 +6148,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct elseMessage: ProtobufGeneratedMessage {
+  struct elseMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.elseMessage"}
     public var protoMessageName: String {return "else"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6185,7 +6185,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct fallthroughMessage: ProtobufGeneratedMessage {
+  struct fallthroughMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.fallthroughMessage"}
     public var protoMessageName: String {return "fallthrough"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6222,7 +6222,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct forMessage: ProtobufGeneratedMessage {
+  struct forMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.forMessage"}
     public var protoMessageName: String {return "for"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6259,7 +6259,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct guardMessage: ProtobufGeneratedMessage {
+  struct guardMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.guardMessage"}
     public var protoMessageName: String {return "guard"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6296,7 +6296,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct ifMessage: ProtobufGeneratedMessage {
+  struct ifMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ifMessage"}
     public var protoMessageName: String {return "if"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6333,7 +6333,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct inMessage: ProtobufGeneratedMessage {
+  struct inMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inMessage"}
     public var protoMessageName: String {return "in"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6370,7 +6370,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct repeatMessage: ProtobufGeneratedMessage {
+  struct repeatMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.repeatMessage"}
     public var protoMessageName: String {return "repeat"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6407,7 +6407,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct returnMessage: ProtobufGeneratedMessage {
+  struct returnMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.returnMessage"}
     public var protoMessageName: String {return "return"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6444,7 +6444,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct switchMessage: ProtobufGeneratedMessage {
+  struct switchMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.switchMessage"}
     public var protoMessageName: String {return "switch"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6481,7 +6481,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct whereMessage: ProtobufGeneratedMessage {
+  struct whereMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.whereMessage"}
     public var protoMessageName: String {return "where"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6518,7 +6518,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct whileMessage: ProtobufGeneratedMessage {
+  struct whileMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.whileMessage"}
     public var protoMessageName: String {return "while"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6555,7 +6555,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct asMessage: ProtobufGeneratedMessage {
+  struct asMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.asMessage"}
     public var protoMessageName: String {return "as"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6592,7 +6592,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct catchMessage: ProtobufGeneratedMessage {
+  struct catchMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.catchMessage"}
     public var protoMessageName: String {return "catch"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6629,7 +6629,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct dynamicTypeMessage: ProtobufGeneratedMessage {
+  struct dynamicTypeMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamicTypeMessage"}
     public var protoMessageName: String {return "dynamicType"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6666,7 +6666,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct falseMessage: ProtobufGeneratedMessage {
+  struct falseMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.falseMessage"}
     public var protoMessageName: String {return "false"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6703,7 +6703,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct isMessage: ProtobufGeneratedMessage {
+  struct isMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isMessage"}
     public var protoMessageName: String {return "is"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6740,7 +6740,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct nilMessage: ProtobufGeneratedMessage {
+  struct nilMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nilMessage"}
     public var protoMessageName: String {return "nil"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6777,7 +6777,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct rethrowsMessage: ProtobufGeneratedMessage {
+  struct rethrowsMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.rethrowsMessage"}
     public var protoMessageName: String {return "rethrows"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6814,7 +6814,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct superMessage: ProtobufGeneratedMessage {
+  struct superMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.superMessage"}
     public var protoMessageName: String {return "super"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6851,7 +6851,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct selfMessage: ProtobufGeneratedMessage {
+  struct selfMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.selfMessage"}
     public var protoMessageName: String {return "self"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6888,7 +6888,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct throwMessage: ProtobufGeneratedMessage {
+  struct throwMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.throwMessage"}
     public var protoMessageName: String {return "throw"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6925,7 +6925,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct throwsMessage: ProtobufGeneratedMessage {
+  struct throwsMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.throwsMessage"}
     public var protoMessageName: String {return "throws"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6962,7 +6962,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct trueMessage: ProtobufGeneratedMessage {
+  struct trueMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.trueMessage"}
     public var protoMessageName: String {return "true"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -6999,7 +6999,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct tryMessage: ProtobufGeneratedMessage {
+  struct tryMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.tryMessage"}
     public var protoMessageName: String {return "try"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7036,7 +7036,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct __COLUMN__Message: ProtobufGeneratedMessage {
+  struct __COLUMN__Message: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__COLUMN__Message"}
     public var protoMessageName: String {return "__COLUMN__"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7073,7 +7073,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct __FILE__Message: ProtobufGeneratedMessage {
+  struct __FILE__Message: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__FILE__Message"}
     public var protoMessageName: String {return "__FILE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7110,7 +7110,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct __FUNCTION__Message: ProtobufGeneratedMessage {
+  struct __FUNCTION__Message: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__FUNCTION__Message"}
     public var protoMessageName: String {return "__FUNCTION__"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7147,7 +7147,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct __LINE__Message: ProtobufGeneratedMessage {
+  struct __LINE__Message: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__LINE__Message"}
     public var protoMessageName: String {return "__LINE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7184,7 +7184,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct _Message: ProtobufGeneratedMessage {
+  struct _Message: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames._Message"}
     public var protoMessageName: String {return "_"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7221,7 +7221,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct __Message: ProtobufGeneratedMessage {
+  struct __Message: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__Message"}
     public var protoMessageName: String {return "__"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7258,7 +7258,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct associativity: ProtobufGeneratedMessage {
+  struct associativity: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.associativity"}
     public var protoMessageName: String {return "associativity"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7295,7 +7295,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct convenience: ProtobufGeneratedMessage {
+  struct convenience: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.convenience"}
     public var protoMessageName: String {return "convenience"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7332,7 +7332,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct dynamic: ProtobufGeneratedMessage {
+  struct dynamic: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamic"}
     public var protoMessageName: String {return "dynamic"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7369,7 +7369,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct didSet: ProtobufGeneratedMessage {
+  struct didSet: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.didSet"}
     public var protoMessageName: String {return "didSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7406,7 +7406,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct final: ProtobufGeneratedMessage {
+  struct final: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.final"}
     public var protoMessageName: String {return "final"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7443,7 +7443,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct get: ProtobufGeneratedMessage {
+  struct get: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.get"}
     public var protoMessageName: String {return "get"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7480,7 +7480,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct infix: ProtobufGeneratedMessage {
+  struct infix: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.infix"}
     public var protoMessageName: String {return "infix"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7517,7 +7517,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct indirect: ProtobufGeneratedMessage {
+  struct indirect: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.indirect"}
     public var protoMessageName: String {return "indirect"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7554,7 +7554,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct lazy: ProtobufGeneratedMessage {
+  struct lazy: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.lazy"}
     public var protoMessageName: String {return "lazy"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7591,7 +7591,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct left: ProtobufGeneratedMessage {
+  struct left: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.left"}
     public var protoMessageName: String {return "left"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7628,7 +7628,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct mutating: ProtobufGeneratedMessage {
+  struct mutating: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutating"}
     public var protoMessageName: String {return "mutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7665,7 +7665,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct none: ProtobufGeneratedMessage {
+  struct none: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.none"}
     public var protoMessageName: String {return "none"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7702,7 +7702,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct nonmutating: ProtobufGeneratedMessage {
+  struct nonmutating: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nonmutating"}
     public var protoMessageName: String {return "nonmutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7739,7 +7739,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct optional: ProtobufGeneratedMessage {
+  struct optional: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.optional"}
     public var protoMessageName: String {return "optional"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7776,7 +7776,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct override: ProtobufGeneratedMessage {
+  struct override: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.override"}
     public var protoMessageName: String {return "override"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7813,7 +7813,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct postfix: ProtobufGeneratedMessage {
+  struct postfix: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.postfix"}
     public var protoMessageName: String {return "postfix"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7850,7 +7850,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct precedence: ProtobufGeneratedMessage {
+  struct precedence: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.precedence"}
     public var protoMessageName: String {return "precedence"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7887,7 +7887,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct prefix: ProtobufGeneratedMessage {
+  struct prefix: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.prefix"}
     public var protoMessageName: String {return "prefix"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7924,7 +7924,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct required: ProtobufGeneratedMessage {
+  struct required: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.required"}
     public var protoMessageName: String {return "required"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7961,7 +7961,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct right: ProtobufGeneratedMessage {
+  struct right: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.right"}
     public var protoMessageName: String {return "right"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -7998,7 +7998,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct set: ProtobufGeneratedMessage {
+  struct set: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.set"}
     public var protoMessageName: String {return "set"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8035,7 +8035,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct TypeMessage: ProtobufGeneratedMessage {
+  struct TypeMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8072,7 +8072,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct unowned: ProtobufGeneratedMessage {
+  struct unowned: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unowned"}
     public var protoMessageName: String {return "unowned"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8109,7 +8109,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct weak: ProtobufGeneratedMessage {
+  struct weak: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.weak"}
     public var protoMessageName: String {return "weak"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8146,7 +8146,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct willSet: ProtobufGeneratedMessage {
+  struct willSet: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.willSet"}
     public var protoMessageName: String {return "willSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8183,7 +8183,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct id: ProtobufGeneratedMessage {
+  struct id: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.id"}
     public var protoMessageName: String {return "id"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8220,7 +8220,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct _cmd: ProtobufGeneratedMessage {
+  struct _cmd: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames._cmd"}
     public var protoMessageName: String {return "_cmd"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8257,7 +8257,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct out: ProtobufGeneratedMessage {
+  struct out: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.out"}
     public var protoMessageName: String {return "out"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8294,7 +8294,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct bycopy: ProtobufGeneratedMessage {
+  struct bycopy: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bycopy"}
     public var protoMessageName: String {return "bycopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8331,7 +8331,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct byref: ProtobufGeneratedMessage {
+  struct byref: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.byref"}
     public var protoMessageName: String {return "byref"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8368,7 +8368,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct oneway: ProtobufGeneratedMessage {
+  struct oneway: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.oneway"}
     public var protoMessageName: String {return "oneway"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8405,7 +8405,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct and: ProtobufGeneratedMessage {
+  struct and: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.and"}
     public var protoMessageName: String {return "and"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8442,7 +8442,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct and_eq: ProtobufGeneratedMessage {
+  struct and_eq: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.and_eq"}
     public var protoMessageName: String {return "and_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8479,7 +8479,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct alignas: ProtobufGeneratedMessage {
+  struct alignas: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.alignas"}
     public var protoMessageName: String {return "alignas"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8516,7 +8516,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct alignof: ProtobufGeneratedMessage {
+  struct alignof: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.alignof"}
     public var protoMessageName: String {return "alignof"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8553,7 +8553,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct asm: ProtobufGeneratedMessage {
+  struct asm: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.asm"}
     public var protoMessageName: String {return "asm"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8590,7 +8590,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct auto: ProtobufGeneratedMessage {
+  struct auto: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.auto"}
     public var protoMessageName: String {return "auto"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8627,7 +8627,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct bitand: ProtobufGeneratedMessage {
+  struct bitand: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bitand"}
     public var protoMessageName: String {return "bitand"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8664,7 +8664,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct bitor: ProtobufGeneratedMessage {
+  struct bitor: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bitor"}
     public var protoMessageName: String {return "bitor"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8701,7 +8701,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct bool: ProtobufGeneratedMessage {
+  struct bool: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bool"}
     public var protoMessageName: String {return "bool"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8738,7 +8738,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct char: ProtobufGeneratedMessage {
+  struct char: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char"}
     public var protoMessageName: String {return "char"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8775,7 +8775,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct char16_t: ProtobufGeneratedMessage {
+  struct char16_t: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char16_t"}
     public var protoMessageName: String {return "char16_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8812,7 +8812,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct char32_t: ProtobufGeneratedMessage {
+  struct char32_t: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char32_t"}
     public var protoMessageName: String {return "char32_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8849,7 +8849,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct compl: ProtobufGeneratedMessage {
+  struct compl: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.compl"}
     public var protoMessageName: String {return "compl"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8886,7 +8886,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct const: ProtobufGeneratedMessage {
+  struct const: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.const"}
     public var protoMessageName: String {return "const"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8923,7 +8923,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct constexpr: ProtobufGeneratedMessage {
+  struct constexpr: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.constexpr"}
     public var protoMessageName: String {return "constexpr"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8960,7 +8960,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct const_cast: ProtobufGeneratedMessage {
+  struct const_cast: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.const_cast"}
     public var protoMessageName: String {return "const_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -8997,7 +8997,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct decltype: ProtobufGeneratedMessage {
+  struct decltype: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.decltype"}
     public var protoMessageName: String {return "decltype"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9034,7 +9034,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct delete: ProtobufGeneratedMessage {
+  struct delete: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.delete"}
     public var protoMessageName: String {return "delete"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9071,7 +9071,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct dynamic_cast: ProtobufGeneratedMessage {
+  struct dynamic_cast: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamic_cast"}
     public var protoMessageName: String {return "dynamic_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9108,7 +9108,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct explicit: ProtobufGeneratedMessage {
+  struct explicit: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.explicit"}
     public var protoMessageName: String {return "explicit"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9145,7 +9145,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct export: ProtobufGeneratedMessage {
+  struct export: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.export"}
     public var protoMessageName: String {return "export"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9182,7 +9182,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct extern: ProtobufGeneratedMessage {
+  struct extern: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extern"}
     public var protoMessageName: String {return "extern"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9219,7 +9219,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct friend: ProtobufGeneratedMessage {
+  struct friend: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.friend"}
     public var protoMessageName: String {return "friend"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9256,7 +9256,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct goto: ProtobufGeneratedMessage {
+  struct goto: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.goto"}
     public var protoMessageName: String {return "goto"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9293,7 +9293,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct inline: ProtobufGeneratedMessage {
+  struct inline: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inline"}
     public var protoMessageName: String {return "inline"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9330,7 +9330,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct long: ProtobufGeneratedMessage {
+  struct long: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.long"}
     public var protoMessageName: String {return "long"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9367,7 +9367,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct mutable: ProtobufGeneratedMessage {
+  struct mutable: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutable"}
     public var protoMessageName: String {return "mutable"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9404,7 +9404,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct namespace: ProtobufGeneratedMessage {
+  struct namespace: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.namespace"}
     public var protoMessageName: String {return "namespace"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9441,7 +9441,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct new: ProtobufGeneratedMessage {
+  struct new: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.new"}
     public var protoMessageName: String {return "new"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9478,7 +9478,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct noexcept: ProtobufGeneratedMessage {
+  struct noexcept: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.noexcept"}
     public var protoMessageName: String {return "noexcept"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9515,7 +9515,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct not: ProtobufGeneratedMessage {
+  struct not: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.not"}
     public var protoMessageName: String {return "not"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9552,7 +9552,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct not_eq: ProtobufGeneratedMessage {
+  struct not_eq: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.not_eq"}
     public var protoMessageName: String {return "not_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9589,7 +9589,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct nullptr: ProtobufGeneratedMessage {
+  struct nullptr: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nullptr"}
     public var protoMessageName: String {return "nullptr"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9626,7 +9626,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct or: ProtobufGeneratedMessage {
+  struct or: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.or"}
     public var protoMessageName: String {return "or"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9663,7 +9663,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct or_eq: ProtobufGeneratedMessage {
+  struct or_eq: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.or_eq"}
     public var protoMessageName: String {return "or_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9700,7 +9700,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct protected: ProtobufGeneratedMessage {
+  struct protected: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.protected"}
     public var protoMessageName: String {return "protected"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9737,7 +9737,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct register: ProtobufGeneratedMessage {
+  struct register: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.register"}
     public var protoMessageName: String {return "register"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9774,7 +9774,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct reinterpret_cast: ProtobufGeneratedMessage {
+  struct reinterpret_cast: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.reinterpret_cast"}
     public var protoMessageName: String {return "reinterpret_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9811,7 +9811,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct short: ProtobufGeneratedMessage {
+  struct short: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.short"}
     public var protoMessageName: String {return "short"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9848,7 +9848,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct signed: ProtobufGeneratedMessage {
+  struct signed: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.signed"}
     public var protoMessageName: String {return "signed"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9885,7 +9885,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct sizeof: ProtobufGeneratedMessage {
+  struct sizeof: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.sizeof"}
     public var protoMessageName: String {return "sizeof"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9922,7 +9922,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct static_assert: ProtobufGeneratedMessage {
+  struct static_assert: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.static_assert"}
     public var protoMessageName: String {return "static_assert"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9959,7 +9959,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct static_cast: ProtobufGeneratedMessage {
+  struct static_cast: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.static_cast"}
     public var protoMessageName: String {return "static_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -9996,7 +9996,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct template: ProtobufGeneratedMessage {
+  struct template: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.template"}
     public var protoMessageName: String {return "template"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10033,7 +10033,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct this: ProtobufGeneratedMessage {
+  struct this: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.this"}
     public var protoMessageName: String {return "this"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10070,7 +10070,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct thread_local: ProtobufGeneratedMessage {
+  struct thread_local: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.thread_local"}
     public var protoMessageName: String {return "thread_local"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10107,7 +10107,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct typedef: ProtobufGeneratedMessage {
+  struct typedef: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typedef"}
     public var protoMessageName: String {return "typedef"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10144,7 +10144,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct typeid: ProtobufGeneratedMessage {
+  struct typeid: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typeid"}
     public var protoMessageName: String {return "typeid"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10181,7 +10181,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct typename: ProtobufGeneratedMessage {
+  struct typename: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typename"}
     public var protoMessageName: String {return "typename"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10218,7 +10218,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct union: ProtobufGeneratedMessage {
+  struct union: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.union"}
     public var protoMessageName: String {return "union"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10255,7 +10255,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct unsigned: ProtobufGeneratedMessage {
+  struct unsigned: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unsigned"}
     public var protoMessageName: String {return "unsigned"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10292,7 +10292,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct using: ProtobufGeneratedMessage {
+  struct using: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.using"}
     public var protoMessageName: String {return "using"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10329,7 +10329,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct virtual: ProtobufGeneratedMessage {
+  struct virtual: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.virtual"}
     public var protoMessageName: String {return "virtual"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10366,7 +10366,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct void: ProtobufGeneratedMessage {
+  struct void: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.void"}
     public var protoMessageName: String {return "void"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10403,7 +10403,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct volatile: ProtobufGeneratedMessage {
+  struct volatile: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.volatile"}
     public var protoMessageName: String {return "volatile"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10440,7 +10440,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct wchar_t: ProtobufGeneratedMessage {
+  struct wchar_t: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.wchar_t"}
     public var protoMessageName: String {return "wchar_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10477,7 +10477,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct xor: ProtobufGeneratedMessage {
+  struct xor: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.xor"}
     public var protoMessageName: String {return "xor"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10514,7 +10514,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct xor_eq: ProtobufGeneratedMessage {
+  struct xor_eq: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.xor_eq"}
     public var protoMessageName: String {return "xor_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10551,7 +10551,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct restrict: ProtobufGeneratedMessage {
+  struct restrict: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.restrict"}
     public var protoMessageName: String {return "restrict"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10588,7 +10588,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Category: ProtobufGeneratedMessage {
+  struct Category: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Category"}
     public var protoMessageName: String {return "Category"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10625,7 +10625,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Ivar: ProtobufGeneratedMessage {
+  struct Ivar: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Ivar"}
     public var protoMessageName: String {return "Ivar"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10662,7 +10662,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Method: ProtobufGeneratedMessage {
+  struct Method: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Method"}
     public var protoMessageName: String {return "Method"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10699,7 +10699,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct finalize: ProtobufGeneratedMessage {
+  struct finalize: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.finalize"}
     public var protoMessageName: String {return "finalize"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10736,7 +10736,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct hash: ProtobufGeneratedMessage {
+  struct hash: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.hash"}
     public var protoMessageName: String {return "hash"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10773,7 +10773,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct dealloc: ProtobufGeneratedMessage {
+  struct dealloc: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dealloc"}
     public var protoMessageName: String {return "dealloc"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10810,7 +10810,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct superclass: ProtobufGeneratedMessage {
+  struct superclass: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.superclass"}
     public var protoMessageName: String {return "superclass"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10847,7 +10847,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct retain: ProtobufGeneratedMessage {
+  struct retain: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.retain"}
     public var protoMessageName: String {return "retain"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10884,7 +10884,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct release: ProtobufGeneratedMessage {
+  struct release: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.release"}
     public var protoMessageName: String {return "release"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10921,7 +10921,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct autorelease: ProtobufGeneratedMessage {
+  struct autorelease: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.autorelease"}
     public var protoMessageName: String {return "autorelease"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10958,7 +10958,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct retainCount: ProtobufGeneratedMessage {
+  struct retainCount: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.retainCount"}
     public var protoMessageName: String {return "retainCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -10995,7 +10995,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct zone: ProtobufGeneratedMessage {
+  struct zone: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.zone"}
     public var protoMessageName: String {return "zone"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11032,7 +11032,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct isProxy: ProtobufGeneratedMessage {
+  struct isProxy: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isProxy"}
     public var protoMessageName: String {return "isProxy"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11069,7 +11069,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct copy: ProtobufGeneratedMessage {
+  struct copy: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.copy"}
     public var protoMessageName: String {return "copy"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11106,7 +11106,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct mutableCopy: ProtobufGeneratedMessage {
+  struct mutableCopy: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutableCopy"}
     public var protoMessageName: String {return "mutableCopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11143,7 +11143,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct classForCoder: ProtobufGeneratedMessage {
+  struct classForCoder: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.classForCoder"}
     public var protoMessageName: String {return "classForCoder"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11180,7 +11180,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct clear: ProtobufGeneratedMessage {
+  struct clear: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.clear"}
     public var protoMessageName: String {return "clear"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11217,7 +11217,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct data: ProtobufGeneratedMessage {
+  struct data: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.data"}
     public var protoMessageName: String {return "data"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11254,7 +11254,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct delimitedData: ProtobufGeneratedMessage {
+  struct delimitedData: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.delimitedData"}
     public var protoMessageName: String {return "delimitedData"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11291,7 +11291,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct descriptor: ProtobufGeneratedMessage {
+  struct descriptor: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.descriptor"}
     public var protoMessageName: String {return "descriptor"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11328,7 +11328,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct extensionRegistry: ProtobufGeneratedMessage {
+  struct extensionRegistry: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionRegistry"}
     public var protoMessageName: String {return "extensionRegistry"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11365,7 +11365,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct extensionsCurrentlySet: ProtobufGeneratedMessage {
+  struct extensionsCurrentlySet: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionsCurrentlySet"}
     public var protoMessageName: String {return "extensionsCurrentlySet"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11402,7 +11402,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct isInitialized: ProtobufGeneratedMessage {
+  struct isInitialized: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isInitialized"}
     public var protoMessageName: String {return "isInitialized"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11439,7 +11439,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct serializedSize: ProtobufGeneratedMessage {
+  struct serializedSize: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.serializedSize"}
     public var protoMessageName: String {return "serializedSize"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11476,7 +11476,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct sortedExtensionsInUse: ProtobufGeneratedMessage {
+  struct sortedExtensionsInUse: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.sortedExtensionsInUse"}
     public var protoMessageName: String {return "sortedExtensionsInUse"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11513,7 +11513,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct unknownFields: ProtobufGeneratedMessage {
+  struct unknownFields: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unknownFields"}
     public var protoMessageName: String {return "unknownFields"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11550,7 +11550,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Fixed: ProtobufGeneratedMessage {
+  struct Fixed: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Fixed"}
     public var protoMessageName: String {return "Fixed"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11587,7 +11587,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Fract: ProtobufGeneratedMessage {
+  struct Fract: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Fract"}
     public var protoMessageName: String {return "Fract"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11624,7 +11624,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Size: ProtobufGeneratedMessage {
+  struct Size: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Size"}
     public var protoMessageName: String {return "Size"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11661,7 +11661,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct LogicalAddress: ProtobufGeneratedMessage {
+  struct LogicalAddress: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.LogicalAddress"}
     public var protoMessageName: String {return "LogicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11698,7 +11698,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct PhysicalAddress: ProtobufGeneratedMessage {
+  struct PhysicalAddress: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.PhysicalAddress"}
     public var protoMessageName: String {return "PhysicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11735,7 +11735,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct ByteCount: ProtobufGeneratedMessage {
+  struct ByteCount: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ByteCount"}
     public var protoMessageName: String {return "ByteCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11772,7 +11772,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct ByteOffset: ProtobufGeneratedMessage {
+  struct ByteOffset: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ByteOffset"}
     public var protoMessageName: String {return "ByteOffset"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11809,7 +11809,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Duration: ProtobufGeneratedMessage {
+  struct Duration: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Duration"}
     public var protoMessageName: String {return "Duration"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11846,7 +11846,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct AbsoluteTime: ProtobufGeneratedMessage {
+  struct AbsoluteTime: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.AbsoluteTime"}
     public var protoMessageName: String {return "AbsoluteTime"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11883,7 +11883,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct OptionBits: ProtobufGeneratedMessage {
+  struct OptionBits: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.OptionBits"}
     public var protoMessageName: String {return "OptionBits"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11920,7 +11920,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct ItemCount: ProtobufGeneratedMessage {
+  struct ItemCount: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ItemCount"}
     public var protoMessageName: String {return "ItemCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11957,7 +11957,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct PBVersion: ProtobufGeneratedMessage {
+  struct PBVersion: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.PBVersion"}
     public var protoMessageName: String {return "PBVersion"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -11994,7 +11994,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct ScriptCode: ProtobufGeneratedMessage {
+  struct ScriptCode: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ScriptCode"}
     public var protoMessageName: String {return "ScriptCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12031,7 +12031,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct LangCode: ProtobufGeneratedMessage {
+  struct LangCode: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.LangCode"}
     public var protoMessageName: String {return "LangCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12068,7 +12068,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RegionCode: ProtobufGeneratedMessage {
+  struct RegionCode: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.RegionCode"}
     public var protoMessageName: String {return "RegionCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12105,7 +12105,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct OSType: ProtobufGeneratedMessage {
+  struct OSType: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.OSType"}
     public var protoMessageName: String {return "OSType"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12142,7 +12142,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct ProcessSerialNumber: ProtobufGeneratedMessage {
+  struct ProcessSerialNumber: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ProcessSerialNumber"}
     public var protoMessageName: String {return "ProcessSerialNumber"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12179,7 +12179,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Point: ProtobufGeneratedMessage {
+  struct Point: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Point"}
     public var protoMessageName: String {return "Point"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12216,7 +12216,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Rect: ProtobufGeneratedMessage {
+  struct Rect: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Rect"}
     public var protoMessageName: String {return "Rect"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12253,7 +12253,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct FixedPoint: ProtobufGeneratedMessage {
+  struct FixedPoint: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FixedPoint"}
     public var protoMessageName: String {return "FixedPoint"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12290,7 +12290,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct FixedRect: ProtobufGeneratedMessage {
+  struct FixedRect: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FixedRect"}
     public var protoMessageName: String {return "FixedRect"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12327,7 +12327,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct Style: ProtobufGeneratedMessage {
+  struct Style: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Style"}
     public var protoMessageName: String {return "Style"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12364,7 +12364,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct StyleParameter: ProtobufGeneratedMessage {
+  struct StyleParameter: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StyleParameter"}
     public var protoMessageName: String {return "StyleParameter"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12401,7 +12401,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct StyleField: ProtobufGeneratedMessage {
+  struct StyleField: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StyleField"}
     public var protoMessageName: String {return "StyleField"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12438,7 +12438,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct TimeScale: ProtobufGeneratedMessage {
+  struct TimeScale: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeScale"}
     public var protoMessageName: String {return "TimeScale"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12475,7 +12475,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct TimeBase: ProtobufGeneratedMessage {
+  struct TimeBase: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeBase"}
     public var protoMessageName: String {return "TimeBase"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12512,7 +12512,7 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
     }
   }
 
-  public struct TimeRecord: ProtobufGeneratedMessage {
+  struct TimeRecord: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeRecord"}
     public var protoMessageName: String {return "TimeRecord"}
     public var protoPackageName: String {return "swift_unittest.names"}
@@ -12563,14 +12563,14 @@ public struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage {
   }
 }
 
-public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
+struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "SwiftUnittest_Names_EnumNames"}
   public var protoMessageName: String {return "EnumNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  public enum StringEnum: ProtobufEnum {
+  enum StringEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aString // = 0
     case UNRECOGNIZED(Int)
@@ -12638,7 +12638,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum ProtocolEnum: ProtobufEnum {
+  enum ProtocolEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aProtocol // = 0
     case UNRECOGNIZED(Int)
@@ -12706,7 +12706,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum IntEnum: ProtobufEnum {
+  enum IntEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aInt // = 0
     case UNRECOGNIZED(Int)
@@ -12774,7 +12774,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum DoubleEnum: ProtobufEnum {
+  enum DoubleEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aDouble // = 0
     case UNRECOGNIZED(Int)
@@ -12842,7 +12842,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum FloatEnum: ProtobufEnum {
+  enum FloatEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aFloat // = 0
     case UNRECOGNIZED(Int)
@@ -12910,7 +12910,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum UIntEnum: ProtobufEnum {
+  enum UIntEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aUint // = 0
     case UNRECOGNIZED(Int)
@@ -12978,7 +12978,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum hashValueEnum: ProtobufEnum {
+  enum hashValueEnum: ProtobufEnum {
     public typealias RawValue = Int
     case ahashValue // = 0
     case UNRECOGNIZED(Int)
@@ -13046,7 +13046,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum descriptionEnum: ProtobufEnum {
+  enum descriptionEnum: ProtobufEnum {
     public typealias RawValue = Int
     case adescription // = 0
     case UNRECOGNIZED(Int)
@@ -13114,7 +13114,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum debugDescriptionEnum: ProtobufEnum {
+  enum debugDescriptionEnum: ProtobufEnum {
     public typealias RawValue = Int
     case adebugDescription // = 0
     case UNRECOGNIZED(Int)
@@ -13182,7 +13182,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Swift: ProtobufEnum {
+  enum Swift: ProtobufEnum {
     public typealias RawValue = Int
     case aSwift // = 0
     case UNRECOGNIZED(Int)
@@ -13250,7 +13250,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum UNRECOGNIZED: ProtobufEnum {
+  enum UNRECOGNIZED: ProtobufEnum {
     public typealias RawValue = Int
     case aUnrecognized // = 0
     case UNRECOGNIZED(Int)
@@ -13318,7 +13318,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum classEnum: ProtobufEnum {
+  enum classEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aclass // = 0
     case UNRECOGNIZED(Int)
@@ -13386,7 +13386,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum deinitEnum: ProtobufEnum {
+  enum deinitEnum: ProtobufEnum {
     public typealias RawValue = Int
     case adeinit // = 0
     case UNRECOGNIZED(Int)
@@ -13454,7 +13454,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum enumEnum: ProtobufEnum {
+  enum enumEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aenum // = 0
     case UNRECOGNIZED(Int)
@@ -13522,7 +13522,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum extensionEnum: ProtobufEnum {
+  enum extensionEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aextension // = 0
     case UNRECOGNIZED(Int)
@@ -13590,7 +13590,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum funcEnum: ProtobufEnum {
+  enum funcEnum: ProtobufEnum {
     public typealias RawValue = Int
     case afunc // = 0
     case UNRECOGNIZED(Int)
@@ -13658,7 +13658,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum importEnum: ProtobufEnum {
+  enum importEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aimport // = 0
     case UNRECOGNIZED(Int)
@@ -13726,7 +13726,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum initEnum: ProtobufEnum {
+  enum initEnum: ProtobufEnum {
     public typealias RawValue = Int
     case ainit // = 0
     case UNRECOGNIZED(Int)
@@ -13794,7 +13794,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum inoutEnum: ProtobufEnum {
+  enum inoutEnum: ProtobufEnum {
     public typealias RawValue = Int
     case ainout // = 0
     case UNRECOGNIZED(Int)
@@ -13862,7 +13862,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum internalEnum: ProtobufEnum {
+  enum internalEnum: ProtobufEnum {
     public typealias RawValue = Int
     case ainternal // = 0
     case UNRECOGNIZED(Int)
@@ -13930,7 +13930,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum letEnum: ProtobufEnum {
+  enum letEnum: ProtobufEnum {
     public typealias RawValue = Int
     case alet // = 0
     case UNRECOGNIZED(Int)
@@ -13998,7 +13998,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum operatorEnum: ProtobufEnum {
+  enum operatorEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aoperator // = 0
     case UNRECOGNIZED(Int)
@@ -14066,7 +14066,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum privateEnum: ProtobufEnum {
+  enum privateEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aprivate // = 0
     case UNRECOGNIZED(Int)
@@ -14134,7 +14134,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum protocolEnum: ProtobufEnum {
+  enum protocolEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aprotocol // = 0
     case UNRECOGNIZED(Int)
@@ -14202,7 +14202,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum publicEnum: ProtobufEnum {
+  enum publicEnum: ProtobufEnum {
     public typealias RawValue = Int
     case apublic // = 0
     case UNRECOGNIZED(Int)
@@ -14270,7 +14270,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum staticEnum: ProtobufEnum {
+  enum staticEnum: ProtobufEnum {
     public typealias RawValue = Int
     case astatic // = 0
     case UNRECOGNIZED(Int)
@@ -14338,7 +14338,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum structEnum: ProtobufEnum {
+  enum structEnum: ProtobufEnum {
     public typealias RawValue = Int
     case astruct // = 0
     case UNRECOGNIZED(Int)
@@ -14406,7 +14406,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum subscriptEnum: ProtobufEnum {
+  enum subscriptEnum: ProtobufEnum {
     public typealias RawValue = Int
     case asubscript // = 0
     case UNRECOGNIZED(Int)
@@ -14474,7 +14474,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum typealiasEnum: ProtobufEnum {
+  enum typealiasEnum: ProtobufEnum {
     public typealias RawValue = Int
     case atypealias // = 0
     case UNRECOGNIZED(Int)
@@ -14542,7 +14542,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum varEnum: ProtobufEnum {
+  enum varEnum: ProtobufEnum {
     public typealias RawValue = Int
     case avar // = 0
     case UNRECOGNIZED(Int)
@@ -14610,7 +14610,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum breakEnum: ProtobufEnum {
+  enum breakEnum: ProtobufEnum {
     public typealias RawValue = Int
     case abreak // = 0
     case UNRECOGNIZED(Int)
@@ -14678,7 +14678,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum caseEnum: ProtobufEnum {
+  enum caseEnum: ProtobufEnum {
     public typealias RawValue = Int
     case acase // = 0
     case UNRECOGNIZED(Int)
@@ -14746,7 +14746,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum continueEnum: ProtobufEnum {
+  enum continueEnum: ProtobufEnum {
     public typealias RawValue = Int
     case acontinue // = 0
     case UNRECOGNIZED(Int)
@@ -14814,7 +14814,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum defaultEnum: ProtobufEnum {
+  enum defaultEnum: ProtobufEnum {
     public typealias RawValue = Int
     case adefault // = 0
     case UNRECOGNIZED(Int)
@@ -14882,7 +14882,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum deferEnum: ProtobufEnum {
+  enum deferEnum: ProtobufEnum {
     public typealias RawValue = Int
     case adefer // = 0
     case UNRECOGNIZED(Int)
@@ -14950,7 +14950,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum doEnum: ProtobufEnum {
+  enum doEnum: ProtobufEnum {
     public typealias RawValue = Int
     case ado // = 0
     case UNRECOGNIZED(Int)
@@ -15018,7 +15018,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum elseEnum: ProtobufEnum {
+  enum elseEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aelse // = 0
     case UNRECOGNIZED(Int)
@@ -15086,7 +15086,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum fallthroughEnum: ProtobufEnum {
+  enum fallthroughEnum: ProtobufEnum {
     public typealias RawValue = Int
     case afallthrough // = 0
     case UNRECOGNIZED(Int)
@@ -15154,7 +15154,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum forEnum: ProtobufEnum {
+  enum forEnum: ProtobufEnum {
     public typealias RawValue = Int
     case afor // = 0
     case UNRECOGNIZED(Int)
@@ -15222,7 +15222,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum guardEnum: ProtobufEnum {
+  enum guardEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aguard // = 0
     case UNRECOGNIZED(Int)
@@ -15290,7 +15290,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum ifEnum: ProtobufEnum {
+  enum ifEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aif // = 0
     case UNRECOGNIZED(Int)
@@ -15358,7 +15358,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum inEnum: ProtobufEnum {
+  enum inEnum: ProtobufEnum {
     public typealias RawValue = Int
     case ain // = 0
     case UNRECOGNIZED(Int)
@@ -15426,7 +15426,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum repeatEnum: ProtobufEnum {
+  enum repeatEnum: ProtobufEnum {
     public typealias RawValue = Int
     case arepeat // = 0
     case UNRECOGNIZED(Int)
@@ -15494,7 +15494,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum returnEnum: ProtobufEnum {
+  enum returnEnum: ProtobufEnum {
     public typealias RawValue = Int
     case areturn // = 0
     case UNRECOGNIZED(Int)
@@ -15562,7 +15562,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum switchEnum: ProtobufEnum {
+  enum switchEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aswitch // = 0
     case UNRECOGNIZED(Int)
@@ -15630,7 +15630,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum whereEnum: ProtobufEnum {
+  enum whereEnum: ProtobufEnum {
     public typealias RawValue = Int
     case awhere // = 0
     case UNRECOGNIZED(Int)
@@ -15698,7 +15698,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum whileEnum: ProtobufEnum {
+  enum whileEnum: ProtobufEnum {
     public typealias RawValue = Int
     case awhile // = 0
     case UNRECOGNIZED(Int)
@@ -15766,7 +15766,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum asEnum: ProtobufEnum {
+  enum asEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aas // = 0
     case UNRECOGNIZED(Int)
@@ -15834,7 +15834,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum catchEnum: ProtobufEnum {
+  enum catchEnum: ProtobufEnum {
     public typealias RawValue = Int
     case acatch // = 0
     case UNRECOGNIZED(Int)
@@ -15902,7 +15902,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum dynamicTypeEnum: ProtobufEnum {
+  enum dynamicTypeEnum: ProtobufEnum {
     public typealias RawValue = Int
     case adynamicType // = 0
     case UNRECOGNIZED(Int)
@@ -15970,7 +15970,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum falseEnum: ProtobufEnum {
+  enum falseEnum: ProtobufEnum {
     public typealias RawValue = Int
     case afalse // = 0
     case UNRECOGNIZED(Int)
@@ -16038,7 +16038,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum isEnum: ProtobufEnum {
+  enum isEnum: ProtobufEnum {
     public typealias RawValue = Int
     case ais // = 0
     case UNRECOGNIZED(Int)
@@ -16106,7 +16106,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum nilEnum: ProtobufEnum {
+  enum nilEnum: ProtobufEnum {
     public typealias RawValue = Int
     case anil // = 0
     case UNRECOGNIZED(Int)
@@ -16174,7 +16174,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum rethrowsEnum: ProtobufEnum {
+  enum rethrowsEnum: ProtobufEnum {
     public typealias RawValue = Int
     case arethrows // = 0
     case UNRECOGNIZED(Int)
@@ -16242,7 +16242,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum superEnum: ProtobufEnum {
+  enum superEnum: ProtobufEnum {
     public typealias RawValue = Int
     case asuper // = 0
     case UNRECOGNIZED(Int)
@@ -16310,7 +16310,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum selfEnum: ProtobufEnum {
+  enum selfEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aself // = 0
     case UNRECOGNIZED(Int)
@@ -16378,7 +16378,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum throwEnum: ProtobufEnum {
+  enum throwEnum: ProtobufEnum {
     public typealias RawValue = Int
     case athrow // = 0
     case UNRECOGNIZED(Int)
@@ -16446,7 +16446,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum throwsEnum: ProtobufEnum {
+  enum throwsEnum: ProtobufEnum {
     public typealias RawValue = Int
     case athrows // = 0
     case UNRECOGNIZED(Int)
@@ -16514,7 +16514,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum trueEnum: ProtobufEnum {
+  enum trueEnum: ProtobufEnum {
     public typealias RawValue = Int
     case atrue // = 0
     case UNRECOGNIZED(Int)
@@ -16582,7 +16582,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum tryEnum: ProtobufEnum {
+  enum tryEnum: ProtobufEnum {
     public typealias RawValue = Int
     case atry // = 0
     case UNRECOGNIZED(Int)
@@ -16650,7 +16650,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum __COLUMN__Enum: ProtobufEnum {
+  enum __COLUMN__Enum: ProtobufEnum {
     public typealias RawValue = Int
     case a_Column__ // = 0
     case UNRECOGNIZED(Int)
@@ -16718,7 +16718,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum __FILE__Enum: ProtobufEnum {
+  enum __FILE__Enum: ProtobufEnum {
     public typealias RawValue = Int
     case a_File__ // = 0
     case UNRECOGNIZED(Int)
@@ -16786,7 +16786,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum __FUNCTION__Enum: ProtobufEnum {
+  enum __FUNCTION__Enum: ProtobufEnum {
     public typealias RawValue = Int
     case a_Function__ // = 0
     case UNRECOGNIZED(Int)
@@ -16854,7 +16854,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum __LINE__Enum: ProtobufEnum {
+  enum __LINE__Enum: ProtobufEnum {
     public typealias RawValue = Int
     case a_Line__ // = 0
     case UNRECOGNIZED(Int)
@@ -16922,7 +16922,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum _Enum: ProtobufEnum {
+  enum _Enum: ProtobufEnum {
     public typealias RawValue = Int
     case a_ // = 0
     case UNRECOGNIZED(Int)
@@ -16990,7 +16990,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum __Enum: ProtobufEnum {
+  enum __Enum: ProtobufEnum {
     public typealias RawValue = Int
     case a__ // = 0
     case UNRECOGNIZED(Int)
@@ -17058,7 +17058,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum associativity: ProtobufEnum {
+  enum associativity: ProtobufEnum {
     public typealias RawValue = Int
     case aassociativity // = 0
     case UNRECOGNIZED(Int)
@@ -17126,7 +17126,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum convenience: ProtobufEnum {
+  enum convenience: ProtobufEnum {
     public typealias RawValue = Int
     case aconvenience // = 0
     case UNRECOGNIZED(Int)
@@ -17194,7 +17194,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum dynamic: ProtobufEnum {
+  enum dynamic: ProtobufEnum {
     public typealias RawValue = Int
     case adynamic // = 0
     case UNRECOGNIZED(Int)
@@ -17262,7 +17262,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum didSet: ProtobufEnum {
+  enum didSet: ProtobufEnum {
     public typealias RawValue = Int
     case adidSet // = 0
     case UNRECOGNIZED(Int)
@@ -17330,7 +17330,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum final: ProtobufEnum {
+  enum final: ProtobufEnum {
     public typealias RawValue = Int
     case afinal // = 0
     case UNRECOGNIZED(Int)
@@ -17398,7 +17398,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum get: ProtobufEnum {
+  enum get: ProtobufEnum {
     public typealias RawValue = Int
     case aget // = 0
     case UNRECOGNIZED(Int)
@@ -17466,7 +17466,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum infix: ProtobufEnum {
+  enum infix: ProtobufEnum {
     public typealias RawValue = Int
     case ainfix // = 0
     case UNRECOGNIZED(Int)
@@ -17534,7 +17534,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum indirect: ProtobufEnum {
+  enum indirect: ProtobufEnum {
     public typealias RawValue = Int
     case aindirect // = 0
     case UNRECOGNIZED(Int)
@@ -17602,7 +17602,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum lazy: ProtobufEnum {
+  enum lazy: ProtobufEnum {
     public typealias RawValue = Int
     case alazy // = 0
     case UNRECOGNIZED(Int)
@@ -17670,7 +17670,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum left: ProtobufEnum {
+  enum left: ProtobufEnum {
     public typealias RawValue = Int
     case aleft // = 0
     case UNRECOGNIZED(Int)
@@ -17738,7 +17738,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum mutating: ProtobufEnum {
+  enum mutating: ProtobufEnum {
     public typealias RawValue = Int
     case amutating // = 0
     case UNRECOGNIZED(Int)
@@ -17806,7 +17806,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum none: ProtobufEnum {
+  enum none: ProtobufEnum {
     public typealias RawValue = Int
     case anone // = 0
     case UNRECOGNIZED(Int)
@@ -17874,7 +17874,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum nonmutating: ProtobufEnum {
+  enum nonmutating: ProtobufEnum {
     public typealias RawValue = Int
     case anonmutating // = 0
     case UNRECOGNIZED(Int)
@@ -17942,7 +17942,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum optional: ProtobufEnum {
+  enum optional: ProtobufEnum {
     public typealias RawValue = Int
     case aoptional // = 0
     case UNRECOGNIZED(Int)
@@ -18010,7 +18010,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum override: ProtobufEnum {
+  enum override: ProtobufEnum {
     public typealias RawValue = Int
     case aoverride // = 0
     case UNRECOGNIZED(Int)
@@ -18078,7 +18078,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum postfix: ProtobufEnum {
+  enum postfix: ProtobufEnum {
     public typealias RawValue = Int
     case apostfix // = 0
     case UNRECOGNIZED(Int)
@@ -18146,7 +18146,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum precedence: ProtobufEnum {
+  enum precedence: ProtobufEnum {
     public typealias RawValue = Int
     case aprecedence // = 0
     case UNRECOGNIZED(Int)
@@ -18214,7 +18214,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum prefix: ProtobufEnum {
+  enum prefix: ProtobufEnum {
     public typealias RawValue = Int
     case aprefix // = 0
     case UNRECOGNIZED(Int)
@@ -18282,7 +18282,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum required: ProtobufEnum {
+  enum required: ProtobufEnum {
     public typealias RawValue = Int
     case arequired // = 0
     case UNRECOGNIZED(Int)
@@ -18350,7 +18350,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum right: ProtobufEnum {
+  enum right: ProtobufEnum {
     public typealias RawValue = Int
     case aright // = 0
     case UNRECOGNIZED(Int)
@@ -18418,7 +18418,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum set: ProtobufEnum {
+  enum set: ProtobufEnum {
     public typealias RawValue = Int
     case aset // = 0
     case UNRECOGNIZED(Int)
@@ -18486,7 +18486,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum TypeEnum: ProtobufEnum {
+  enum TypeEnum: ProtobufEnum {
     public typealias RawValue = Int
     case aType // = 0
     case UNRECOGNIZED(Int)
@@ -18554,7 +18554,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum unowned: ProtobufEnum {
+  enum unowned: ProtobufEnum {
     public typealias RawValue = Int
     case aunowned // = 0
     case UNRECOGNIZED(Int)
@@ -18622,7 +18622,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum weak: ProtobufEnum {
+  enum weak: ProtobufEnum {
     public typealias RawValue = Int
     case aweak // = 0
     case UNRECOGNIZED(Int)
@@ -18690,7 +18690,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum willSet: ProtobufEnum {
+  enum willSet: ProtobufEnum {
     public typealias RawValue = Int
     case awillSet // = 0
     case UNRECOGNIZED(Int)
@@ -18758,7 +18758,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum id: ProtobufEnum {
+  enum id: ProtobufEnum {
     public typealias RawValue = Int
     case aid // = 0
     case UNRECOGNIZED(Int)
@@ -18826,7 +18826,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum _cmd: ProtobufEnum {
+  enum _cmd: ProtobufEnum {
     public typealias RawValue = Int
     case aCmd // = 0
     case UNRECOGNIZED(Int)
@@ -18894,7 +18894,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum out: ProtobufEnum {
+  enum out: ProtobufEnum {
     public typealias RawValue = Int
     case aout // = 0
     case UNRECOGNIZED(Int)
@@ -18962,7 +18962,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum bycopy: ProtobufEnum {
+  enum bycopy: ProtobufEnum {
     public typealias RawValue = Int
     case abycopy // = 0
     case UNRECOGNIZED(Int)
@@ -19030,7 +19030,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum byref: ProtobufEnum {
+  enum byref: ProtobufEnum {
     public typealias RawValue = Int
     case abyref // = 0
     case UNRECOGNIZED(Int)
@@ -19098,7 +19098,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum oneway: ProtobufEnum {
+  enum oneway: ProtobufEnum {
     public typealias RawValue = Int
     case aoneway // = 0
     case UNRECOGNIZED(Int)
@@ -19166,7 +19166,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum and: ProtobufEnum {
+  enum and: ProtobufEnum {
     public typealias RawValue = Int
     case aand // = 0
     case UNRECOGNIZED(Int)
@@ -19234,7 +19234,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum and_eq: ProtobufEnum {
+  enum and_eq: ProtobufEnum {
     public typealias RawValue = Int
     case aandEq // = 0
     case UNRECOGNIZED(Int)
@@ -19302,7 +19302,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum alignas: ProtobufEnum {
+  enum alignas: ProtobufEnum {
     public typealias RawValue = Int
     case aalignas // = 0
     case UNRECOGNIZED(Int)
@@ -19370,7 +19370,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum alignof: ProtobufEnum {
+  enum alignof: ProtobufEnum {
     public typealias RawValue = Int
     case aalignof // = 0
     case UNRECOGNIZED(Int)
@@ -19438,7 +19438,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum asm: ProtobufEnum {
+  enum asm: ProtobufEnum {
     public typealias RawValue = Int
     case aasm // = 0
     case UNRECOGNIZED(Int)
@@ -19506,7 +19506,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum auto: ProtobufEnum {
+  enum auto: ProtobufEnum {
     public typealias RawValue = Int
     case aauto // = 0
     case UNRECOGNIZED(Int)
@@ -19574,7 +19574,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum bitand: ProtobufEnum {
+  enum bitand: ProtobufEnum {
     public typealias RawValue = Int
     case abitand // = 0
     case UNRECOGNIZED(Int)
@@ -19642,7 +19642,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum bitor: ProtobufEnum {
+  enum bitor: ProtobufEnum {
     public typealias RawValue = Int
     case abitor // = 0
     case UNRECOGNIZED(Int)
@@ -19710,7 +19710,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum bool: ProtobufEnum {
+  enum bool: ProtobufEnum {
     public typealias RawValue = Int
     case abool // = 0
     case UNRECOGNIZED(Int)
@@ -19778,7 +19778,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum char: ProtobufEnum {
+  enum char: ProtobufEnum {
     public typealias RawValue = Int
     case achar // = 0
     case UNRECOGNIZED(Int)
@@ -19846,7 +19846,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum char16_t: ProtobufEnum {
+  enum char16_t: ProtobufEnum {
     public typealias RawValue = Int
     case achar16T // = 0
     case UNRECOGNIZED(Int)
@@ -19914,7 +19914,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum char32_t: ProtobufEnum {
+  enum char32_t: ProtobufEnum {
     public typealias RawValue = Int
     case achar32T // = 0
     case UNRECOGNIZED(Int)
@@ -19982,7 +19982,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum compl: ProtobufEnum {
+  enum compl: ProtobufEnum {
     public typealias RawValue = Int
     case acompl // = 0
     case UNRECOGNIZED(Int)
@@ -20050,7 +20050,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum const: ProtobufEnum {
+  enum const: ProtobufEnum {
     public typealias RawValue = Int
     case aconst // = 0
     case UNRECOGNIZED(Int)
@@ -20118,7 +20118,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum constexpr: ProtobufEnum {
+  enum constexpr: ProtobufEnum {
     public typealias RawValue = Int
     case aconstexpr // = 0
     case UNRECOGNIZED(Int)
@@ -20186,7 +20186,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum const_cast: ProtobufEnum {
+  enum const_cast: ProtobufEnum {
     public typealias RawValue = Int
     case aconstCast // = 0
     case UNRECOGNIZED(Int)
@@ -20254,7 +20254,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum decltype: ProtobufEnum {
+  enum decltype: ProtobufEnum {
     public typealias RawValue = Int
     case adecltype // = 0
     case UNRECOGNIZED(Int)
@@ -20322,7 +20322,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum delete: ProtobufEnum {
+  enum delete: ProtobufEnum {
     public typealias RawValue = Int
     case adelete // = 0
     case UNRECOGNIZED(Int)
@@ -20390,7 +20390,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum dynamic_cast: ProtobufEnum {
+  enum dynamic_cast: ProtobufEnum {
     public typealias RawValue = Int
     case adynamicCast // = 0
     case UNRECOGNIZED(Int)
@@ -20458,7 +20458,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum explicit: ProtobufEnum {
+  enum explicit: ProtobufEnum {
     public typealias RawValue = Int
     case aexplicit // = 0
     case UNRECOGNIZED(Int)
@@ -20526,7 +20526,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum export: ProtobufEnum {
+  enum export: ProtobufEnum {
     public typealias RawValue = Int
     case aexport // = 0
     case UNRECOGNIZED(Int)
@@ -20594,7 +20594,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum extern: ProtobufEnum {
+  enum extern: ProtobufEnum {
     public typealias RawValue = Int
     case aextern // = 0
     case UNRECOGNIZED(Int)
@@ -20662,7 +20662,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum friend: ProtobufEnum {
+  enum friend: ProtobufEnum {
     public typealias RawValue = Int
     case afriend // = 0
     case UNRECOGNIZED(Int)
@@ -20730,7 +20730,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum goto: ProtobufEnum {
+  enum goto: ProtobufEnum {
     public typealias RawValue = Int
     case agoto // = 0
     case UNRECOGNIZED(Int)
@@ -20798,7 +20798,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum inline: ProtobufEnum {
+  enum inline: ProtobufEnum {
     public typealias RawValue = Int
     case ainline // = 0
     case UNRECOGNIZED(Int)
@@ -20866,7 +20866,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum long: ProtobufEnum {
+  enum long: ProtobufEnum {
     public typealias RawValue = Int
     case along // = 0
     case UNRECOGNIZED(Int)
@@ -20934,7 +20934,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum mutable: ProtobufEnum {
+  enum mutable: ProtobufEnum {
     public typealias RawValue = Int
     case amutable // = 0
     case UNRECOGNIZED(Int)
@@ -21002,7 +21002,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum namespace: ProtobufEnum {
+  enum namespace: ProtobufEnum {
     public typealias RawValue = Int
     case anamespace // = 0
     case UNRECOGNIZED(Int)
@@ -21070,7 +21070,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum new: ProtobufEnum {
+  enum new: ProtobufEnum {
     public typealias RawValue = Int
     case anew // = 0
     case UNRECOGNIZED(Int)
@@ -21138,7 +21138,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum noexcept: ProtobufEnum {
+  enum noexcept: ProtobufEnum {
     public typealias RawValue = Int
     case anoexcept // = 0
     case UNRECOGNIZED(Int)
@@ -21206,7 +21206,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum not: ProtobufEnum {
+  enum not: ProtobufEnum {
     public typealias RawValue = Int
     case anot // = 0
     case UNRECOGNIZED(Int)
@@ -21274,7 +21274,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum not_eq: ProtobufEnum {
+  enum not_eq: ProtobufEnum {
     public typealias RawValue = Int
     case anotEq // = 0
     case UNRECOGNIZED(Int)
@@ -21342,7 +21342,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum nullptr: ProtobufEnum {
+  enum nullptr: ProtobufEnum {
     public typealias RawValue = Int
     case anullptr // = 0
     case UNRECOGNIZED(Int)
@@ -21410,7 +21410,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum or: ProtobufEnum {
+  enum or: ProtobufEnum {
     public typealias RawValue = Int
     case aor // = 0
     case UNRECOGNIZED(Int)
@@ -21478,7 +21478,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum or_eq: ProtobufEnum {
+  enum or_eq: ProtobufEnum {
     public typealias RawValue = Int
     case aorEq // = 0
     case UNRECOGNIZED(Int)
@@ -21546,7 +21546,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum protected: ProtobufEnum {
+  enum protected: ProtobufEnum {
     public typealias RawValue = Int
     case aprotected // = 0
     case UNRECOGNIZED(Int)
@@ -21614,7 +21614,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum register: ProtobufEnum {
+  enum register: ProtobufEnum {
     public typealias RawValue = Int
     case aregister // = 0
     case UNRECOGNIZED(Int)
@@ -21682,7 +21682,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum reinterpret_cast: ProtobufEnum {
+  enum reinterpret_cast: ProtobufEnum {
     public typealias RawValue = Int
     case areinterpretCast // = 0
     case UNRECOGNIZED(Int)
@@ -21750,7 +21750,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum short: ProtobufEnum {
+  enum short: ProtobufEnum {
     public typealias RawValue = Int
     case ashort // = 0
     case UNRECOGNIZED(Int)
@@ -21818,7 +21818,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum signed: ProtobufEnum {
+  enum signed: ProtobufEnum {
     public typealias RawValue = Int
     case asigned // = 0
     case UNRECOGNIZED(Int)
@@ -21886,7 +21886,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum sizeof: ProtobufEnum {
+  enum sizeof: ProtobufEnum {
     public typealias RawValue = Int
     case asizeof // = 0
     case UNRECOGNIZED(Int)
@@ -21954,7 +21954,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum static_assert: ProtobufEnum {
+  enum static_assert: ProtobufEnum {
     public typealias RawValue = Int
     case astaticAssert // = 0
     case UNRECOGNIZED(Int)
@@ -22022,7 +22022,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum static_cast: ProtobufEnum {
+  enum static_cast: ProtobufEnum {
     public typealias RawValue = Int
     case astaticCast // = 0
     case UNRECOGNIZED(Int)
@@ -22090,7 +22090,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum template: ProtobufEnum {
+  enum template: ProtobufEnum {
     public typealias RawValue = Int
     case atemplate // = 0
     case UNRECOGNIZED(Int)
@@ -22158,7 +22158,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum this: ProtobufEnum {
+  enum this: ProtobufEnum {
     public typealias RawValue = Int
     case athis // = 0
     case UNRECOGNIZED(Int)
@@ -22226,7 +22226,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum thread_local: ProtobufEnum {
+  enum thread_local: ProtobufEnum {
     public typealias RawValue = Int
     case athreadLocal // = 0
     case UNRECOGNIZED(Int)
@@ -22294,7 +22294,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum typedef: ProtobufEnum {
+  enum typedef: ProtobufEnum {
     public typealias RawValue = Int
     case atypedef // = 0
     case UNRECOGNIZED(Int)
@@ -22362,7 +22362,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum typeid: ProtobufEnum {
+  enum typeid: ProtobufEnum {
     public typealias RawValue = Int
     case atypeid // = 0
     case UNRECOGNIZED(Int)
@@ -22430,7 +22430,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum typename: ProtobufEnum {
+  enum typename: ProtobufEnum {
     public typealias RawValue = Int
     case atypename // = 0
     case UNRECOGNIZED(Int)
@@ -22498,7 +22498,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum union: ProtobufEnum {
+  enum union: ProtobufEnum {
     public typealias RawValue = Int
     case aunion // = 0
     case UNRECOGNIZED(Int)
@@ -22566,7 +22566,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum unsigned: ProtobufEnum {
+  enum unsigned: ProtobufEnum {
     public typealias RawValue = Int
     case aunsigned // = 0
     case UNRECOGNIZED(Int)
@@ -22634,7 +22634,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum using: ProtobufEnum {
+  enum using: ProtobufEnum {
     public typealias RawValue = Int
     case ausing // = 0
     case UNRECOGNIZED(Int)
@@ -22702,7 +22702,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum virtual: ProtobufEnum {
+  enum virtual: ProtobufEnum {
     public typealias RawValue = Int
     case avirtual // = 0
     case UNRECOGNIZED(Int)
@@ -22770,7 +22770,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum void: ProtobufEnum {
+  enum void: ProtobufEnum {
     public typealias RawValue = Int
     case avoid // = 0
     case UNRECOGNIZED(Int)
@@ -22838,7 +22838,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum volatile: ProtobufEnum {
+  enum volatile: ProtobufEnum {
     public typealias RawValue = Int
     case avolatile // = 0
     case UNRECOGNIZED(Int)
@@ -22906,7 +22906,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum wchar_t: ProtobufEnum {
+  enum wchar_t: ProtobufEnum {
     public typealias RawValue = Int
     case awcharT // = 0
     case UNRECOGNIZED(Int)
@@ -22974,7 +22974,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum xor: ProtobufEnum {
+  enum xor: ProtobufEnum {
     public typealias RawValue = Int
     case axor // = 0
     case UNRECOGNIZED(Int)
@@ -23042,7 +23042,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum xor_eq: ProtobufEnum {
+  enum xor_eq: ProtobufEnum {
     public typealias RawValue = Int
     case axorEq // = 0
     case UNRECOGNIZED(Int)
@@ -23110,7 +23110,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum restrict: ProtobufEnum {
+  enum restrict: ProtobufEnum {
     public typealias RawValue = Int
     case arestrict // = 0
     case UNRECOGNIZED(Int)
@@ -23178,7 +23178,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Category: ProtobufEnum {
+  enum Category: ProtobufEnum {
     public typealias RawValue = Int
     case aCategory // = 0
     case UNRECOGNIZED(Int)
@@ -23246,7 +23246,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Ivar: ProtobufEnum {
+  enum Ivar: ProtobufEnum {
     public typealias RawValue = Int
     case aIvar // = 0
     case UNRECOGNIZED(Int)
@@ -23314,7 +23314,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Method: ProtobufEnum {
+  enum Method: ProtobufEnum {
     public typealias RawValue = Int
     case aMethod // = 0
     case UNRECOGNIZED(Int)
@@ -23382,7 +23382,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum finalize: ProtobufEnum {
+  enum finalize: ProtobufEnum {
     public typealias RawValue = Int
     case afinalize // = 0
     case UNRECOGNIZED(Int)
@@ -23450,7 +23450,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum hash: ProtobufEnum {
+  enum hash: ProtobufEnum {
     public typealias RawValue = Int
     case ahash // = 0
     case UNRECOGNIZED(Int)
@@ -23518,7 +23518,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum dealloc: ProtobufEnum {
+  enum dealloc: ProtobufEnum {
     public typealias RawValue = Int
     case adealloc // = 0
     case UNRECOGNIZED(Int)
@@ -23586,7 +23586,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum superclass: ProtobufEnum {
+  enum superclass: ProtobufEnum {
     public typealias RawValue = Int
     case asuperclass // = 0
     case UNRECOGNIZED(Int)
@@ -23654,7 +23654,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum retain: ProtobufEnum {
+  enum retain: ProtobufEnum {
     public typealias RawValue = Int
     case aretain // = 0
     case UNRECOGNIZED(Int)
@@ -23722,7 +23722,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum release: ProtobufEnum {
+  enum release: ProtobufEnum {
     public typealias RawValue = Int
     case arelease // = 0
     case UNRECOGNIZED(Int)
@@ -23790,7 +23790,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum autorelease: ProtobufEnum {
+  enum autorelease: ProtobufEnum {
     public typealias RawValue = Int
     case aautorelease // = 0
     case UNRECOGNIZED(Int)
@@ -23858,7 +23858,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum retainCount: ProtobufEnum {
+  enum retainCount: ProtobufEnum {
     public typealias RawValue = Int
     case aretainCount // = 0
     case UNRECOGNIZED(Int)
@@ -23926,7 +23926,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum zone: ProtobufEnum {
+  enum zone: ProtobufEnum {
     public typealias RawValue = Int
     case azone // = 0
     case UNRECOGNIZED(Int)
@@ -23994,7 +23994,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum isProxy: ProtobufEnum {
+  enum isProxy: ProtobufEnum {
     public typealias RawValue = Int
     case aisProxy // = 0
     case UNRECOGNIZED(Int)
@@ -24062,7 +24062,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum copy: ProtobufEnum {
+  enum copy: ProtobufEnum {
     public typealias RawValue = Int
     case acopy // = 0
     case UNRECOGNIZED(Int)
@@ -24130,7 +24130,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum mutableCopy: ProtobufEnum {
+  enum mutableCopy: ProtobufEnum {
     public typealias RawValue = Int
     case amutableCopy // = 0
     case UNRECOGNIZED(Int)
@@ -24198,7 +24198,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum classForCoder: ProtobufEnum {
+  enum classForCoder: ProtobufEnum {
     public typealias RawValue = Int
     case aclassForCoder // = 0
     case UNRECOGNIZED(Int)
@@ -24266,7 +24266,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum clear: ProtobufEnum {
+  enum clear: ProtobufEnum {
     public typealias RawValue = Int
     case aclear // = 0
     case UNRECOGNIZED(Int)
@@ -24334,7 +24334,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum data: ProtobufEnum {
+  enum data: ProtobufEnum {
     public typealias RawValue = Int
     case adata // = 0
     case UNRECOGNIZED(Int)
@@ -24402,7 +24402,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum delimitedData: ProtobufEnum {
+  enum delimitedData: ProtobufEnum {
     public typealias RawValue = Int
     case adelimitedData // = 0
     case UNRECOGNIZED(Int)
@@ -24470,7 +24470,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum descriptor: ProtobufEnum {
+  enum descriptor: ProtobufEnum {
     public typealias RawValue = Int
     case adescriptor // = 0
     case UNRECOGNIZED(Int)
@@ -24538,7 +24538,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum extensionRegistry: ProtobufEnum {
+  enum extensionRegistry: ProtobufEnum {
     public typealias RawValue = Int
     case aextensionRegistry // = 0
     case UNRECOGNIZED(Int)
@@ -24606,7 +24606,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum extensionsCurrentlySet: ProtobufEnum {
+  enum extensionsCurrentlySet: ProtobufEnum {
     public typealias RawValue = Int
     case aextensionsCurrentlySet // = 0
     case UNRECOGNIZED(Int)
@@ -24674,7 +24674,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum isInitialized: ProtobufEnum {
+  enum isInitialized: ProtobufEnum {
     public typealias RawValue = Int
     case aisInitialized // = 0
     case UNRECOGNIZED(Int)
@@ -24742,7 +24742,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum serializedSize: ProtobufEnum {
+  enum serializedSize: ProtobufEnum {
     public typealias RawValue = Int
     case aserializedSize // = 0
     case UNRECOGNIZED(Int)
@@ -24810,7 +24810,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum sortedExtensionsInUse: ProtobufEnum {
+  enum sortedExtensionsInUse: ProtobufEnum {
     public typealias RawValue = Int
     case asortedExtensionsInUse // = 0
     case UNRECOGNIZED(Int)
@@ -24878,7 +24878,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum unknownFields: ProtobufEnum {
+  enum unknownFields: ProtobufEnum {
     public typealias RawValue = Int
     case aunknownFields // = 0
     case UNRECOGNIZED(Int)
@@ -24946,7 +24946,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Fixed: ProtobufEnum {
+  enum Fixed: ProtobufEnum {
     public typealias RawValue = Int
     case aFixed // = 0
     case UNRECOGNIZED(Int)
@@ -25014,7 +25014,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Fract: ProtobufEnum {
+  enum Fract: ProtobufEnum {
     public typealias RawValue = Int
     case aFract // = 0
     case UNRECOGNIZED(Int)
@@ -25082,7 +25082,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Size: ProtobufEnum {
+  enum Size: ProtobufEnum {
     public typealias RawValue = Int
     case aSize // = 0
     case UNRECOGNIZED(Int)
@@ -25150,7 +25150,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum LogicalAddress: ProtobufEnum {
+  enum LogicalAddress: ProtobufEnum {
     public typealias RawValue = Int
     case aLogicalAddress // = 0
     case UNRECOGNIZED(Int)
@@ -25218,7 +25218,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum PhysicalAddress: ProtobufEnum {
+  enum PhysicalAddress: ProtobufEnum {
     public typealias RawValue = Int
     case aPhysicalAddress // = 0
     case UNRECOGNIZED(Int)
@@ -25286,7 +25286,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum ByteCount: ProtobufEnum {
+  enum ByteCount: ProtobufEnum {
     public typealias RawValue = Int
     case aByteCount // = 0
     case UNRECOGNIZED(Int)
@@ -25354,7 +25354,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum ByteOffset: ProtobufEnum {
+  enum ByteOffset: ProtobufEnum {
     public typealias RawValue = Int
     case aByteOffset // = 0
     case UNRECOGNIZED(Int)
@@ -25422,7 +25422,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Duration: ProtobufEnum {
+  enum Duration: ProtobufEnum {
     public typealias RawValue = Int
     case aDuration // = 0
     case UNRECOGNIZED(Int)
@@ -25490,7 +25490,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum AbsoluteTime: ProtobufEnum {
+  enum AbsoluteTime: ProtobufEnum {
     public typealias RawValue = Int
     case aAbsoluteTime // = 0
     case UNRECOGNIZED(Int)
@@ -25558,7 +25558,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum OptionBits: ProtobufEnum {
+  enum OptionBits: ProtobufEnum {
     public typealias RawValue = Int
     case aOptionBits // = 0
     case UNRECOGNIZED(Int)
@@ -25626,7 +25626,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum ItemCount: ProtobufEnum {
+  enum ItemCount: ProtobufEnum {
     public typealias RawValue = Int
     case aItemCount // = 0
     case UNRECOGNIZED(Int)
@@ -25694,7 +25694,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum PBVersion: ProtobufEnum {
+  enum PBVersion: ProtobufEnum {
     public typealias RawValue = Int
     case aPbversion // = 0
     case UNRECOGNIZED(Int)
@@ -25762,7 +25762,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum ScriptCode: ProtobufEnum {
+  enum ScriptCode: ProtobufEnum {
     public typealias RawValue = Int
     case aScriptCode // = 0
     case UNRECOGNIZED(Int)
@@ -25830,7 +25830,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum LangCode: ProtobufEnum {
+  enum LangCode: ProtobufEnum {
     public typealias RawValue = Int
     case aLangCode // = 0
     case UNRECOGNIZED(Int)
@@ -25898,7 +25898,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum RegionCode: ProtobufEnum {
+  enum RegionCode: ProtobufEnum {
     public typealias RawValue = Int
     case aRegionCode // = 0
     case UNRECOGNIZED(Int)
@@ -25966,7 +25966,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum OSType: ProtobufEnum {
+  enum OSType: ProtobufEnum {
     public typealias RawValue = Int
     case aOstype // = 0
     case UNRECOGNIZED(Int)
@@ -26034,7 +26034,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum ProcessSerialNumber: ProtobufEnum {
+  enum ProcessSerialNumber: ProtobufEnum {
     public typealias RawValue = Int
     case aProcessSerialNumber // = 0
     case UNRECOGNIZED(Int)
@@ -26102,7 +26102,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Point: ProtobufEnum {
+  enum Point: ProtobufEnum {
     public typealias RawValue = Int
     case aPoint // = 0
     case UNRECOGNIZED(Int)
@@ -26170,7 +26170,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Rect: ProtobufEnum {
+  enum Rect: ProtobufEnum {
     public typealias RawValue = Int
     case aRect // = 0
     case UNRECOGNIZED(Int)
@@ -26238,7 +26238,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum FixedPoint: ProtobufEnum {
+  enum FixedPoint: ProtobufEnum {
     public typealias RawValue = Int
     case aFixedPoint // = 0
     case UNRECOGNIZED(Int)
@@ -26306,7 +26306,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum FixedRect: ProtobufEnum {
+  enum FixedRect: ProtobufEnum {
     public typealias RawValue = Int
     case aFixedRect // = 0
     case UNRECOGNIZED(Int)
@@ -26374,7 +26374,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum Style: ProtobufEnum {
+  enum Style: ProtobufEnum {
     public typealias RawValue = Int
     case aStyle // = 0
     case UNRECOGNIZED(Int)
@@ -26442,7 +26442,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum StyleParameter: ProtobufEnum {
+  enum StyleParameter: ProtobufEnum {
     public typealias RawValue = Int
     case aStyleParameter // = 0
     case UNRECOGNIZED(Int)
@@ -26510,7 +26510,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum StyleField: ProtobufEnum {
+  enum StyleField: ProtobufEnum {
     public typealias RawValue = Int
     case aStyleField // = 0
     case UNRECOGNIZED(Int)
@@ -26578,7 +26578,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum TimeScale: ProtobufEnum {
+  enum TimeScale: ProtobufEnum {
     public typealias RawValue = Int
     case aTimeScale // = 0
     case UNRECOGNIZED(Int)
@@ -26646,7 +26646,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum TimeBase: ProtobufEnum {
+  enum TimeBase: ProtobufEnum {
     public typealias RawValue = Int
     case aTimeBase // = 0
     case UNRECOGNIZED(Int)
@@ -26714,7 +26714,7 @@ public struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage {
 
   }
 
-  public enum TimeRecord: ProtobufEnum {
+  enum TimeRecord: ProtobufEnum {
     public typealias RawValue = Int
     case aTimeRecord // = 0
     case UNRECOGNIZED(Int)

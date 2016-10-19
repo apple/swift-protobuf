@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittestImport_PublicImportMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittestImport_PublicImportMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittestImport_PublicImportMessage"}
   public var protoMessageName: String {return "PublicImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}

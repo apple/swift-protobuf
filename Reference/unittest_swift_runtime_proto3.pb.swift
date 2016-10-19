@@ -39,7 +39,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Message3"}
   public var protoMessageName: String {return "Message3"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -594,7 +594,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -781,7 +781,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     }
   }
 
-  public enum Enum: ProtobufEnum {
+  enum Enum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -1381,7 +1381,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: ProtobufUnittest_Message3.OneOf_O, rhs: ProtobufUnittest_Message3.OneOf_O) -> Bool {
+func ==(lhs: ProtobufUnittest_Message3.OneOf_O, rhs: ProtobufUnittest_Message3.OneOf_O) -> Bool {
   switch (lhs, rhs) {
   case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
   case (.oneofInt64(let l), .oneofInt64(let r)): return l == r

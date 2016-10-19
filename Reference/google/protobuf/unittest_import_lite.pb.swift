@@ -44,7 +44,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
+enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
   public typealias RawValue = Int
   case importLiteFoo // = 7
   case importLiteBar // = 8
@@ -124,7 +124,7 @@ public enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
 
 }
 
-public struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage {
+struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessageLite"}
   public var protoMessageName: String {return "ImportMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_import"}

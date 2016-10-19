@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -120,7 +120,7 @@ public enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
 
 }
 
-public enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
   public typealias RawValue = Int
   case eProto2MapEnumFoo // = 0
   case eProto2MapEnumBar // = 1
@@ -208,7 +208,7 @@ public enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
 
 }
 
-public struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMap"}
   public var protoMessageName: String {return "TestEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -262,7 +262,7 @@ public struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtra"}
   public var protoMessageName: String {return "TestEnumMapPlusExtra"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -316,7 +316,7 @@ public struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestImportEnumMap"}
   public var protoMessageName: String {return "TestImportEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}

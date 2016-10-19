@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum Proto3ForeignEnum: ProtobufEnum {
+enum Proto3ForeignEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foreignUnspecified // = 0
   case foreignFoo // = 4
@@ -139,7 +139,7 @@ public enum Proto3ForeignEnum: ProtobufEnum {
 }
 
 ///   Test an enum that has multiple values with the same number.
-public enum Proto3TestEnumWithDupValue: ProtobufEnum {
+enum Proto3TestEnumWithDupValue: ProtobufEnum {
   public typealias RawValue = Int
   case testEnumWithDupValueUnspecified // = 0
   case foo1 // = 1
@@ -246,7 +246,7 @@ public enum Proto3TestEnumWithDupValue: ProtobufEnum {
 }
 
 ///   Test an enum with large, unordered values.
-public enum Proto3TestSparseEnum: ProtobufEnum {
+enum Proto3TestSparseEnum: ProtobufEnum {
   public typealias RawValue = Int
   case testSparseEnumUnspecified // = 0
   case sparseA // = 123
@@ -367,7 +367,7 @@ public enum Proto3TestSparseEnum: ProtobufEnum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
+struct Proto3TestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -815,7 +815,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -885,7 +885,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case nestedEnumUnspecified // = 0
     case foo // = 1
@@ -987,7 +987,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Proto3TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1353,7 +1353,7 @@ public struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 }
 
 ///   This proto includes a recusively nested message.
-public struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
+struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3NestedTestAllTypes"}
   public var protoMessageName: String {return "NestedTestAllTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1467,7 +1467,7 @@ public struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
+struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestDeprecatedFields"}
   public var protoMessageName: String {return "TestDeprecatedFields"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1506,7 +1506,7 @@ public struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-public struct Proto3ForeignMessage: ProtobufGeneratedMessage {
+struct Proto3ForeignMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1543,7 +1543,7 @@ public struct Proto3ForeignMessage: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3TestReservedFields: ProtobufGeneratedMessage {
+struct Proto3TestReservedFields: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestReservedFields"}
   public var protoMessageName: String {return "TestReservedFields"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1565,7 +1565,7 @@ public struct Proto3TestReservedFields: ProtobufGeneratedMessage {
 }
 
 ///   Test that we can use NestedMessage from outside TestAllTypes.
-public struct Proto3TestForeignNested: ProtobufGeneratedMessage {
+struct Proto3TestForeignNested: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestForeignNested"}
   public var protoMessageName: String {return "TestForeignNested"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1646,7 +1646,7 @@ public struct Proto3TestForeignNested: ProtobufGeneratedMessage {
 }
 
 ///   Test that really large tag numbers don't break anything.
-public struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
+struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestReallyLargeTagNumber"}
   public var protoMessageName: String {return "TestReallyLargeTagNumber"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1694,7 +1694,7 @@ public struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
+struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestRecursiveMessage"}
   public var protoMessageName: String {return "TestRecursiveMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1789,7 +1789,7 @@ public struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test that mutual recursion works.
-public struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
+struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestMutualRecursionA"}
   public var protoMessageName: String {return "TestMutualRecursionA"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1869,7 +1869,7 @@ public struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
+struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestMutualRecursionB"}
   public var protoMessageName: String {return "TestMutualRecursionB"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1965,7 +1965,7 @@ public struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
 
 ///   Test message with CamelCase field names.  This violates Protocol Buffer
 ///   standard style.
-public struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
+struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestCamelCaseFieldNames"}
   public var protoMessageName: String {return "TestCamelCaseFieldNames"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2145,7 +2145,7 @@ public struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
 
 ///   We list fields out of order, to ensure that we're using field number and not
 ///   field index to determine serialization order.
-public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
+struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestFieldOrderings"}
   public var protoMessageName: String {return "TestFieldOrderings"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2219,7 +2219,7 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Proto3TestFieldOrderings.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -2316,7 +2316,7 @@ public struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
+struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3SparseEnumMessage"}
   public var protoMessageName: String {return "SparseEnumMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2354,7 +2354,7 @@ public struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test String and Bytes: string is for valid UTF-8 strings
-public struct Proto3OneString: ProtobufGeneratedMessage {
+struct Proto3OneString: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3OneString"}
   public var protoMessageName: String {return "OneString"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2391,7 +2391,7 @@ public struct Proto3OneString: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3MoreString: ProtobufGeneratedMessage {
+struct Proto3MoreString: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3MoreString"}
   public var protoMessageName: String {return "MoreString"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2428,7 +2428,7 @@ public struct Proto3MoreString: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3OneBytes: ProtobufGeneratedMessage {
+struct Proto3OneBytes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3OneBytes"}
   public var protoMessageName: String {return "OneBytes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2465,7 +2465,7 @@ public struct Proto3OneBytes: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3MoreBytes: ProtobufGeneratedMessage {
+struct Proto3MoreBytes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3MoreBytes"}
   public var protoMessageName: String {return "MoreBytes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2503,7 +2503,7 @@ public struct Proto3MoreBytes: ProtobufGeneratedMessage {
 }
 
 ///   Test int32, uint32, int64, uint64, and bool are all compatible
-public struct Proto3Int32Message: ProtobufGeneratedMessage {
+struct Proto3Int32Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3Int32Message"}
   public var protoMessageName: String {return "Int32Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2540,7 +2540,7 @@ public struct Proto3Int32Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3Uint32Message: ProtobufGeneratedMessage {
+struct Proto3Uint32Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3Uint32Message"}
   public var protoMessageName: String {return "Uint32Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2577,7 +2577,7 @@ public struct Proto3Uint32Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3Int64Message: ProtobufGeneratedMessage {
+struct Proto3Int64Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3Int64Message"}
   public var protoMessageName: String {return "Int64Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2614,7 +2614,7 @@ public struct Proto3Int64Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3Uint64Message: ProtobufGeneratedMessage {
+struct Proto3Uint64Message: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3Uint64Message"}
   public var protoMessageName: String {return "Uint64Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2651,7 +2651,7 @@ public struct Proto3Uint64Message: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3BoolMessage: ProtobufGeneratedMessage {
+struct Proto3BoolMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3BoolMessage"}
   public var protoMessageName: String {return "BoolMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2689,7 +2689,7 @@ public struct Proto3BoolMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test oneofs.
-public struct Proto3TestOneof: ProtobufGeneratedMessage {
+struct Proto3TestOneof: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestOneof"}
   public var protoMessageName: String {return "TestOneof"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2739,7 +2739,7 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(Proto3TestAllTypes)
@@ -2867,7 +2867,7 @@ public struct Proto3TestOneof: ProtobufGeneratedMessage {
 
 //  Test messages for packed fields
 
-public struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
+struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3023,7 +3023,7 @@ public struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
 
 ///   A message with the same fields as TestPackedTypes, but without packing. Used
 ///   to test packed <-> unpacked wire compatibility.
-public struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
+struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestUnpackedTypes"}
   public var protoMessageName: String {return "TestUnpackedTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3177,7 +3177,7 @@ public struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
+struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestRepeatedScalarDifferentTagSizes"}
   public var protoMessageName: String {return "TestRepeatedScalarDifferentTagSizes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3265,7 +3265,7 @@ public struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessag
   }
 }
 
-public struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
+struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3TestCommentInjectionMessage"}
   public var protoMessageName: String {return "TestCommentInjectionMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3304,7 +3304,7 @@ public struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test that RPC services work.
-public struct Proto3FooRequest: ProtobufGeneratedMessage {
+struct Proto3FooRequest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3FooRequest"}
   public var protoMessageName: String {return "FooRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3325,7 +3325,7 @@ public struct Proto3FooRequest: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3FooResponse: ProtobufGeneratedMessage {
+struct Proto3FooResponse: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3FooResponse"}
   public var protoMessageName: String {return "FooResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3346,7 +3346,7 @@ public struct Proto3FooResponse: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3FooClientMessage: ProtobufGeneratedMessage {
+struct Proto3FooClientMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3FooClientMessage"}
   public var protoMessageName: String {return "FooClientMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3367,7 +3367,7 @@ public struct Proto3FooClientMessage: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3FooServerMessage: ProtobufGeneratedMessage {
+struct Proto3FooServerMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3FooServerMessage"}
   public var protoMessageName: String {return "FooServerMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3388,7 +3388,7 @@ public struct Proto3FooServerMessage: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3BarRequest: ProtobufGeneratedMessage {
+struct Proto3BarRequest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3BarRequest"}
   public var protoMessageName: String {return "BarRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3409,7 +3409,7 @@ public struct Proto3BarRequest: ProtobufGeneratedMessage {
   }
 }
 
-public struct Proto3BarResponse: ProtobufGeneratedMessage {
+struct Proto3BarResponse: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3BarResponse"}
   public var protoMessageName: String {return "BarResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3430,7 +3430,7 @@ public struct Proto3BarResponse: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: Proto3TestAllTypes.OneOf_OneofField, rhs: Proto3TestAllTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: Proto3TestAllTypes.OneOf_OneofField, rhs: Proto3TestAllTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
@@ -3441,7 +3441,7 @@ public func ==(lhs: Proto3TestAllTypes.OneOf_OneofField, rhs: Proto3TestAllTypes
   }
 }
 
-public func ==(lhs: Proto3TestOneof.OneOf_Foo, rhs: Proto3TestOneof.OneOf_Foo) -> Bool {
+func ==(lhs: Proto3TestOneof.OneOf_Foo, rhs: Proto3TestOneof.OneOf_Foo) -> Bool {
   switch (lhs, rhs) {
   case (.fooInt(let l), .fooInt(let r)): return l == r
   case (.fooString(let l), .fooString(let r)): return l == r

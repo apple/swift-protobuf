@@ -108,7 +108,7 @@ import Foundation
 ///         "@type": "type.googleapis.com/google.protobuf.Duration",
 ///         "value": "1.212s"
 ///       }
-public struct Google_Protobuf_Any: ProtobufGeneratedMessage {
+struct Google_Protobuf_Any: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Any"}
   public var protoMessageName: String {return "Any"}
   public var protoPackageName: String {return "google.protobuf"}

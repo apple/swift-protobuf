@@ -47,7 +47,7 @@ import Foundation
 ///   Wrapper message for `double`.
 ///  
 ///   The JSON representation for `DoubleValue` is JSON number.
-public struct Google_Protobuf_DoubleValue: ProtobufGeneratedMessage {
+struct Google_Protobuf_DoubleValue: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_DoubleValue"}
   public var protoMessageName: String {return "DoubleValue"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -88,7 +88,7 @@ public struct Google_Protobuf_DoubleValue: ProtobufGeneratedMessage {
 ///   Wrapper message for `float`.
 ///  
 ///   The JSON representation for `FloatValue` is JSON number.
-public struct Google_Protobuf_FloatValue: ProtobufGeneratedMessage {
+struct Google_Protobuf_FloatValue: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_FloatValue"}
   public var protoMessageName: String {return "FloatValue"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -129,7 +129,7 @@ public struct Google_Protobuf_FloatValue: ProtobufGeneratedMessage {
 ///   Wrapper message for `int64`.
 ///  
 ///   The JSON representation for `Int64Value` is JSON string.
-public struct Google_Protobuf_Int64Value: ProtobufGeneratedMessage {
+struct Google_Protobuf_Int64Value: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Int64Value"}
   public var protoMessageName: String {return "Int64Value"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -170,7 +170,7 @@ public struct Google_Protobuf_Int64Value: ProtobufGeneratedMessage {
 ///   Wrapper message for `uint64`.
 ///  
 ///   The JSON representation for `UInt64Value` is JSON string.
-public struct Google_Protobuf_UInt64Value: ProtobufGeneratedMessage {
+struct Google_Protobuf_UInt64Value: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_UInt64Value"}
   public var protoMessageName: String {return "UInt64Value"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -211,7 +211,7 @@ public struct Google_Protobuf_UInt64Value: ProtobufGeneratedMessage {
 ///   Wrapper message for `int32`.
 ///  
 ///   The JSON representation for `Int32Value` is JSON number.
-public struct Google_Protobuf_Int32Value: ProtobufGeneratedMessage {
+struct Google_Protobuf_Int32Value: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Int32Value"}
   public var protoMessageName: String {return "Int32Value"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -252,7 +252,7 @@ public struct Google_Protobuf_Int32Value: ProtobufGeneratedMessage {
 ///   Wrapper message for `uint32`.
 ///  
 ///   The JSON representation for `UInt32Value` is JSON number.
-public struct Google_Protobuf_UInt32Value: ProtobufGeneratedMessage {
+struct Google_Protobuf_UInt32Value: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_UInt32Value"}
   public var protoMessageName: String {return "UInt32Value"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -293,7 +293,7 @@ public struct Google_Protobuf_UInt32Value: ProtobufGeneratedMessage {
 ///   Wrapper message for `bool`.
 ///  
 ///   The JSON representation for `BoolValue` is JSON `true` and `false`.
-public struct Google_Protobuf_BoolValue: ProtobufGeneratedMessage {
+struct Google_Protobuf_BoolValue: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_BoolValue"}
   public var protoMessageName: String {return "BoolValue"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -334,7 +334,7 @@ public struct Google_Protobuf_BoolValue: ProtobufGeneratedMessage {
 ///   Wrapper message for `string`.
 ///  
 ///   The JSON representation for `StringValue` is JSON string.
-public struct Google_Protobuf_StringValue: ProtobufGeneratedMessage {
+struct Google_Protobuf_StringValue: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_StringValue"}
   public var protoMessageName: String {return "StringValue"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -375,7 +375,7 @@ public struct Google_Protobuf_StringValue: ProtobufGeneratedMessage {
 ///   Wrapper message for `bytes`.
 ///  
 ///   The JSON representation for `BytesValue` is JSON string.
-public struct Google_Protobuf_BytesValue: ProtobufGeneratedMessage {
+struct Google_Protobuf_BytesValue: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_BytesValue"}
   public var protoMessageName: String {return "BytesValue"}
   public var protoPackageName: String {return "google.protobuf"}

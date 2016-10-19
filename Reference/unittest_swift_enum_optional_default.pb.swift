@@ -26,7 +26,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault"}
   public var protoMessageName: String {return "EnumOptionalDefault"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -35,7 +35,7 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
 
   var unknown = ProtobufUnknownStorage()
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -99,7 +99,7 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
 
     private var _storage = _StorageClass()
 
-    public enum Enum: ProtobufEnum {
+    enum Enum: ProtobufEnum {
       public typealias RawValue = Int
       case foo // = 0
 
@@ -209,7 +209,7 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     }
   }
 
-  public struct NestedMessage2: ProtobufGeneratedMessage {
+  struct NestedMessage2: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2"}
     public var protoMessageName: String {return "NestedMessage2"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -222,7 +222,7 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
 
     var unknown = ProtobufUnknownStorage()
 
-    public enum Enum: ProtobufEnum {
+    enum Enum: ProtobufEnum {
       public typealias RawValue = Int
       case foo // = 0
 

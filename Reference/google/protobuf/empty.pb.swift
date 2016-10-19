@@ -48,7 +48,7 @@ import Foundation
 ///       }
 ///  
 ///   The JSON representation for `Empty` is empty JSON object `{}`.
-public struct Google_Protobuf_Empty: ProtobufGeneratedMessage {
+struct Google_Protobuf_Empty: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Empty"}
   public var protoMessageName: String {return "Empty"}
   public var protoPackageName: String {return "google.protobuf"}

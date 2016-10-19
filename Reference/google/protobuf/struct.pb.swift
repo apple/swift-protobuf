@@ -43,7 +43,7 @@ import Foundation
 ///   `Value` type union.
 ///  
 ///    The JSON representation for `NullValue` is JSON `null`.
-public enum Google_Protobuf_NullValue: ProtobufEnum {
+enum Google_Protobuf_NullValue: ProtobufEnum {
   public typealias RawValue = Int
 
   ///   Null value.
@@ -121,7 +121,7 @@ public enum Google_Protobuf_NullValue: ProtobufEnum {
 ///   with the proto support for the language.
 ///  
 ///   The JSON representation for `Struct` is JSON object.
-public struct Google_Protobuf_Struct: ProtobufGeneratedMessage {
+struct Google_Protobuf_Struct: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Struct"}
   public var protoMessageName: String {return "Struct"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -165,7 +165,7 @@ public struct Google_Protobuf_Struct: ProtobufGeneratedMessage {
 ///   variants, absence of any variant indicates an error.
 ///  
 ///   The JSON representation for `Value` is JSON value.
-public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
+struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Value"}
   public var protoMessageName: String {return "Value"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -221,7 +221,7 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_Kind: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Kind: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case nullValue(Google_Protobuf_NullValue)
     case numberValue(Double)
     case stringValue(String)
@@ -421,7 +421,7 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
-public struct Google_Protobuf_ListValue: ProtobufGeneratedMessage {
+struct Google_Protobuf_ListValue: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_ListValue"}
   public var protoMessageName: String {return "ListValue"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -459,7 +459,7 @@ public struct Google_Protobuf_ListValue: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
+func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
   switch (lhs, rhs) {
   case (.nullValue(let l), .nullValue(let r)): return l == r
   case (.numberValue(let l), .numberValue(let r)): return l == r
