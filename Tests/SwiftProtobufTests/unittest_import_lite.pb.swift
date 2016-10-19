@@ -154,7 +154,7 @@ public struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_d)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
     default:
       handled = false
     }

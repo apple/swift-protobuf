@@ -885,109 +885,109 @@ public struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
       switch protoFieldNumber {
       case 1:
         var value: Google_Protobuf_Any?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Any.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &value)
         if let value = value, handled {
           self = .anyField(value)
         }
       case 2:
         var value: Google_Protobuf_Api?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Api.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Api.self, value: &value)
         if let value = value, handled {
           self = .apiField(value)
         }
       case 3:
         var value: Google_Protobuf_Duration?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Duration.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Duration.self, value: &value)
         if let value = value, handled {
           self = .durationField(value)
         }
       case 4:
         var value: Google_Protobuf_Empty?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Empty.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Empty.self, value: &value)
         if let value = value, handled {
           self = .emptyField(value)
         }
       case 5:
         var value: Google_Protobuf_FieldMask?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &value)
         if let value = value, handled {
           self = .fieldMaskField(value)
         }
       case 6:
         var value: Google_Protobuf_SourceContext?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &value)
         if let value = value, handled {
           self = .sourceContextField(value)
         }
       case 7:
         var value: Google_Protobuf_Struct?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
         if let value = value, handled {
           self = .structField(value)
         }
       case 8:
         var value: Google_Protobuf_Timestamp?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &value)
         if let value = value, handled {
           self = .timestampField(value)
         }
       case 9:
         var value: Google_Protobuf_Type?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Type.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Type.self, value: &value)
         if let value = value, handled {
           self = .typeField(value)
         }
       case 10:
         var value: Google_Protobuf_DoubleValue?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &value)
         if let value = value, handled {
           self = .doubleField(value)
         }
       case 11:
         var value: Google_Protobuf_FloatValue?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &value)
         if let value = value, handled {
           self = .floatField(value)
         }
       case 12:
         var value: Google_Protobuf_Int64Value?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &value)
         if let value = value, handled {
           self = .int64Field(value)
         }
       case 13:
         var value: Google_Protobuf_UInt64Value?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &value)
         if let value = value, handled {
           self = .uint64Field(value)
         }
       case 14:
         var value: Google_Protobuf_Int32Value?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &value)
         if let value = value, handled {
           self = .int32Field(value)
         }
       case 15:
         var value: Google_Protobuf_UInt32Value?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &value)
         if let value = value, handled {
           self = .uint32Field(value)
         }
       case 16:
         var value: Google_Protobuf_BoolValue?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &value)
         if let value = value, handled {
           self = .boolField(value)
         }
       case 17:
         var value: Google_Protobuf_StringValue?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_StringValue.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_StringValue.self, value: &value)
         if let value = value, handled {
           self = .stringField(value)
         }
       case 18:
         var value: Google_Protobuf_BytesValue?
-        handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &value)
         if let value = value, handled {
           self = .bytesField(value)
         }

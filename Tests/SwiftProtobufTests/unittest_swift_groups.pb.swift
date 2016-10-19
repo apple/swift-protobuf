@@ -71,7 +71,7 @@ public struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtens
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
     default:
       if (2 <= protoFieldNumber && protoFieldNumber < 11) {
         handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: SwiftTestGroupExtensions.self, protoFieldNumber: protoFieldNumber)
@@ -153,7 +153,7 @@ public struct ExtensionGroup: ProtobufGeneratedMessage {
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
     default:
       handled = false
     }
@@ -208,7 +208,7 @@ public struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
     default:
       handled = false
     }
@@ -263,7 +263,7 @@ public struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
     default:
       handled = false
     }

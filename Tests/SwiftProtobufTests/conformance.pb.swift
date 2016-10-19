@@ -1593,7 +1593,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
         self = .oneofUint32(value)
       case 112:
         var value: Conformance_TestAllTypes.NestedMessage?
-        handled = try setter.decodeOptionalMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }
