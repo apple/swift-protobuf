@@ -122,6 +122,7 @@ class EnumCaseGenerator {
 ///
 class EnumGenerator {
     fileprivate let descriptor: Google_Protobuf_EnumDescriptorProto
+    fileprivate let generatorOptions: GeneratorOptions
     fileprivate let swiftRelativeName: String
     fileprivate let swiftFullName: String
     fileprivate let enumCases: [EnumCaseGenerator]
@@ -132,6 +133,7 @@ class EnumGenerator {
 
     init(descriptor: Google_Protobuf_EnumDescriptorProto, path: [Int32], parentSwiftName: String?, file: FileGenerator) {
         self.descriptor = descriptor
+        self.generatorOptions = file.generatorOptions
         self.isProto3 = file.isProto3
         if parentSwiftName == nil {
             swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + descriptor.name)
@@ -160,7 +162,7 @@ class EnumGenerator {
     func generateNested(printer: inout CodePrinter) {
         printer.print("\n")
         printer.print(comments)
-        printer.print("public enum \(swiftRelativeName): ProtobufEnum {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): ProtobufEnum {\n")
         printer.indent()
         printer.print("public typealias RawValue = Int\n")
 
