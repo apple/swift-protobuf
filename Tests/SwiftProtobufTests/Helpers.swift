@@ -112,9 +112,9 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
         do {
             let encoded = try configured.serializeText()
 
-            print("==== Begin Encoding ====")
-            print("\(encoded)")
-            print("==== End Encoding ====")
+//            print("==== Begin Encoding ====")
+//            print("\(encoded)")
+//            print("==== End Encoding ====")
             
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {

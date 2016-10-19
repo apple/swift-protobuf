@@ -29,7 +29,7 @@ class Test_Text: XCTestCase, PBTestHelpers {
         XCTAssertEqual("single_int32: 41\n", try a.serializeText())
 
         a.singleFloat = 11
-U
+
         XCTAssertEqual("{\"singleInt32\":41,\"singleFloat\":11}", try a.serializeJSON())
         XCTAssertEqual("single_int32: 41\n" + "single_float: 11\n", try a.serializeText())
         
@@ -37,12 +37,41 @@ U
         nested.bb = 7
         a.singleNestedMessage = nested
 
-        do {
-            print("Nested:\n \(try a.serializeText())")
-        } catch {
-            
-        }
+        XCTAssertEqual("single_int32: 41\n" + "single_float: 11\n" + "single_nested_message {\n" + "  bb: 7\n" + "}\n", try a.serializeText())
     }
+
+    func testDeserialization() {
+        do {
+            let messageTest1 = try MessageTestType(json:"{\"singleInt32\":41}")
+            XCTAssertEqual(messageTest1.singleInt32, 41)
+            
+            let messageTest2 = try MessageTestType(json:"{\"singleInt32\":41,\"singleFloat\":11}")
+            XCTAssertEqual(messageTest2.singleInt32, 41)
+            XCTAssertEqualWithAccuracy(messageTest2.singleFloat, 11.0, accuracy:0.01)
+        } catch {
+            XCTFail("Parsing should not have failed, error: \(error)")
+        }
+
+        do {
+            let messageTest1 = try MessageTestType(text:"single_int32: 41\n")
+            XCTAssertEqual(messageTest1.singleInt32, 41)
+            
+            let messageTest2 = try MessageTestType(text:"single_int32: 41\n" + "single_float: 11\n")
+            XCTAssertEqual(messageTest2.singleInt32, 41)
+            XCTAssertEqualWithAccuracy(messageTest2.singleFloat, 11.0, accuracy:0.01)
+            
+            let messageTest3 = try MessageTestType(text:"single_int32: 41\n" + "single_nested_message {\n" + "  bb: 7\n" + "}\n" + "single_float: 11\n")
+            print("MESSAGE: \n\(try messageTest3.serializeText())")
+
+            XCTAssertEqual(messageTest3.singleInt32, 41)
+            XCTAssertEqualWithAccuracy(messageTest3.singleFloat, 11.0, accuracy:0.01)
+            XCTAssertEqual(messageTest3.singleNestedMessage.bb, 7)
+        } catch {
+            XCTFail("Parsing should not have failed, error: \(error)")
+        }
+
+    }
+
     
 
     func testMultipleFields() {

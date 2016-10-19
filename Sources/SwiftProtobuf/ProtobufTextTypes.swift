@@ -30,11 +30,11 @@ public protocol ProtobufTextCodableType: ProtobufTypePropertiesBase {
 
 extension ProtobufTextCodableType {
     public static func setFromTextToken(token: ProtobufTextToken, value: inout BaseType?) throws {
-        throw ProtobufDecodingError.schemaMismatch
+        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
     }
     
     public static func setFromTextToken(token: ProtobufTextToken, value: inout [BaseType]) throws {
-        throw ProtobufDecodingError.schemaMismatch
+        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
     }
 }
 
@@ -857,18 +857,18 @@ public extension ProtobufTextMessageBase {
     public init(text: String) throws {
         self.init()
         var textDecoder = ProtobufTextDecoder(text: text)
-        try textDecoder.decodeFullObject(message: &self)
+        try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
         if !textDecoder.complete {
-            throw ProtobufDecodingError.trailingGarbage
+            throw logAndReturnError(ProtobufDecodingError.trailingGarbage)
         }
     }
     
     public init(text: String, extensions: ProtobufExtensionSet) throws {
         self.init()
         var textDecoder = ProtobufTextDecoder(text: text, extensions: extensions)
-        try textDecoder.decodeFullObject(message: &self)
+        try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
         if !textDecoder.complete {
-            throw ProtobufDecodingError.trailingGarbage
+            throw logAndReturnError(ProtobufDecodingError.trailingGarbage)
         }
     }
     
@@ -877,11 +877,11 @@ public extension ProtobufTextMessageBase {
     }
     
     public mutating func decodeFromTextToken(token: ProtobufTextToken) throws {
-        throw ProtobufDecodingError.schemaMismatch
+        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
     }
     
     public mutating func decodeFromTextArray(textDecoder: inout ProtobufTextDecoder) throws {
-        throw ProtobufDecodingError.schemaMismatch
+        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
     }
 }
 
@@ -890,34 +890,36 @@ extension ProtobufMessage {
     public mutating func decodeFromTextObject(textDecoder: inout ProtobufTextDecoder) throws {
         var key = ""
         var state = ProtobufTextDecoder.ObjectParseState.expectFirstKey
-        while let token = try textDecoder.nextToken() {
+        while let token = try textDecoder.nextToken(expectKey:(state == .expectKey) || (state == .expectFirstKey)) {
+            print("TOKEN2: \(token)")
             switch token {
+            case .beginObject:
+                try textDecoder.decodeValue(key: key, message: &self, parsingObject: true)
+                state = .expectKey
             case .string(let s): // This is a key
                 if state != .expectKey && state != .expectFirstKey {
-                    throw ProtobufDecodingError.malformedJSON
+                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
                 }
                 key = s
                 state = .expectColon
             case .colon:
                 if state != .expectColon {
-                    throw ProtobufDecodingError.malformedJSON
+                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
                 }
                 try textDecoder.decodeValue(key: key, message: &self)
-                state = .expectComma
+                state = .expectKey
             case .comma:
                 if state != .expectComma {
-                    throw ProtobufDecodingError.malformedJSON
+                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
                 }
                 state = .expectKey
             case .endObject:
-                if state != .expectFirstKey && state != .expectComma {
-                    throw ProtobufDecodingError.malformedJSON
-                }
+                state = .expectKey
                 return
             default:
-                throw ProtobufDecodingError.malformedJSON
+                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
             }
         }
-        throw ProtobufDecodingError.truncatedInput
+        //throw ProtobufDecodingError.truncatedInput
     }
 }
