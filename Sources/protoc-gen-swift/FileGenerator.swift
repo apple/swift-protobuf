@@ -210,7 +210,7 @@ class FileGenerator {
 
     var outputFilename: String {
         let ext = ".pb.swift"
-        let pathParts = splitPath(pathname: descriptor.name ?? "")
+        let pathParts = splitPath(pathname: descriptor.name)
         switch generatorOptions.outputNaming {
         case .FullPath:
             return pathParts.dir + pathParts.base + ext
@@ -267,7 +267,7 @@ class FileGenerator {
                 }
             }
 
-            let comments = location.leadingComments ?? location.trailingComments ?? ""
+            let comments = location.hasLeadingComments ? location.leadingComments : location.trailingComments
             result += prefixLines(text: escapeMarkup(comments), prefix: "///  ")
             return result
         }
