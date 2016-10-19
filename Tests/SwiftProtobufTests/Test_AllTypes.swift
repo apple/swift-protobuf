@@ -63,7 +63,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([8, 1]) {(o: inout MessageTestType) in o.optionalInt32 = 1}
         assertEncode([8, 255, 255, 255, 255, 7]) {(o: inout MessageTestType) in o.optionalInt32 = Int32.max}
         assertEncode([8, 128, 128, 128, 128, 248, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalInt32 = Int32.min}
-        assertDecodeSucceeds([8, 1]) {$0.optionalInt32! == 1}
+        assertDecodeSucceeds([8, 1]) {$0.optionalInt32 == 1}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalInt32:1)") {(o: inout MessageTestType) in o.optionalInt32 = 1}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalInt32:-2147483648,optionalUint32:4294967295)") {(o: inout MessageTestType) in
             o.optionalInt32 = Int32.min
@@ -71,13 +71,13 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDebugDescription("ProtobufUnittest_TestAllTypes()") {(o: inout MessageTestType) in
             o.optionalInt32 = 1
-            o.optionalInt32 = nil
+            o.clearOptionalInt32()
         }
 
         // Technically, this overflows Int32, but we truncate and accept it.
         assertDecodeSucceeds([8, 255, 255, 255, 255, 255, 255, 1]) {
-            if case .some(let t) = $0.optionalInt32 { // Verify field has optional type
-                return t == -1
+            if $0.hasOptionalInt32 {
+                return $0.optionalInt32 == -1
             } else {
                 XCTFail("Nonexistent value")
                 return false
@@ -103,7 +103,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalInt32 = nil
+        b.clearOptionalInt32()
         XCTAssertNotEqual(a, b)
         b.optionalInt32 = 0
         XCTAssertEqual(a, b)
@@ -113,7 +113,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([16, 1]) {(o: inout MessageTestType) in o.optionalInt64 = 1}
         assertEncode([16, 255, 255, 255, 255, 255, 255, 255, 255, 127]) {(o: inout MessageTestType) in o.optionalInt64 = Int64.max}
         assertEncode([16, 128, 128, 128, 128, 128, 128, 128, 128, 128, 1]) {(o: inout MessageTestType) in o.optionalInt64 = Int64.min}
-        assertDecodeSucceeds([16, 184, 156, 195, 145, 203, 1]) {$0.optionalInt64! == 54529150520}
+        assertDecodeSucceeds([16, 184, 156, 195, 145, 203, 1]) {$0.optionalInt64 == 54529150520}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalInt64:1)") {(o: inout MessageTestType) in o.optionalInt64 = 1}
         assertDecodeFails([16])
         assertDecodeFails([16, 184, 156, 195, 145, 203])
@@ -132,7 +132,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalInt64 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalInt64 = nil
+        b.clearOptionalInt64()
         XCTAssertNotEqual(a, b)
         b.optionalInt64 = 0
         XCTAssertEqual(a, b)
@@ -141,7 +141,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalUint32() {
         assertEncode([24, 255, 255, 255, 255, 15]) {(o: inout MessageTestType) in o.optionalUint32 = UInt32.max}
         assertEncode([24, 0]) {(o: inout MessageTestType) in o.optionalUint32 = UInt32.min}
-        assertDecodeSucceeds([24, 149, 88]) {$0.optionalUint32! == 11285}
+        assertDecodeSucceeds([24, 149, 88]) {$0.optionalUint32 == 11285}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalUint32:1)") {(o: inout MessageTestType) in o.optionalUint32 = 1}
         assertDecodeFails([24])
         assertDecodeFails([24, 149])
@@ -160,7 +160,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalUint32 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalUint32 = nil
+        b.clearOptionalUint32()
         XCTAssertNotEqual(a, b)
         b.optionalUint32 = 0
         XCTAssertEqual(a, b)
@@ -169,7 +169,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalUint64() {
         assertEncode([32, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalUint64 = UInt64.max}
         assertEncode([32, 0]) {(o: inout MessageTestType) in o.optionalUint64 = UInt64.min}
-        assertDecodeSucceeds([32, 149, 7]) {$0.optionalUint64! == 917}
+        assertDecodeSucceeds([32, 149, 7]) {$0.optionalUint64 == 917}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalUint64:1)") {(o: inout MessageTestType) in o.optionalUint64 = 1}
         assertDecodeFails([32])
         assertDecodeFails([32, 149])
@@ -203,7 +203,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalUint64 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalUint64 = nil
+        b.clearOptionalUint64()
         XCTAssertNotEqual(a, b)
         b.optionalUint64 = 0
         XCTAssertEqual(a, b)
@@ -212,13 +212,13 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSint32() {
         assertEncode([40, 254, 255, 255, 255, 15]) {(o: inout MessageTestType) in o.optionalSint32 = Int32.max}
         assertEncode([40, 255, 255, 255, 255, 15]) {(o: inout MessageTestType) in o.optionalSint32 = Int32.min}
-        assertDecodeSucceeds([40, 0x81, 0x82, 0x80, 0x00]) {$0.optionalSint32! == -129}
-        assertDecodeSucceeds([40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00]) {$0.optionalSint32! == 0}
+        assertDecodeSucceeds([40, 0x81, 0x82, 0x80, 0x00]) {$0.optionalSint32 == -129}
+        assertDecodeSucceeds([40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00]) {$0.optionalSint32 == 0}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSint32:1)") {(o: inout MessageTestType) in o.optionalSint32 = 1}
 
         // Truncate on overflow
-        assertDecodeSucceeds([40, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f]) {$0.optionalSint32! == -2147483648}
-        assertDecodeSucceeds([40, 0xfe, 0xff, 0xff, 0xff, 0xff, 0x7f]) {$0.optionalSint32! == 2147483647}
+        assertDecodeSucceeds([40, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f]) {$0.optionalSint32 == -2147483648}
+        assertDecodeSucceeds([40, 0xfe, 0xff, 0xff, 0xff, 0xff, 0x7f]) {$0.optionalSint32 == 2147483647}
 
         assertDecodeFails([40])
         assertDecodeFails([40, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00])
@@ -244,7 +244,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalSint32 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalSint32 = nil
+        b.clearOptionalSint32()
         XCTAssertNotEqual(a, b)
         b.optionalSint32 = 0
         XCTAssertEqual(a, b)
@@ -253,7 +253,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSint64() {
         assertEncode([48, 254, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalSint64 = Int64.max}
         assertEncode([48, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalSint64 = Int64.min}
-        assertDecodeSucceeds([48, 139, 94]) {$0.optionalSint64! == -6022}
+        assertDecodeSucceeds([48, 139, 94]) {$0.optionalSint64 == -6022}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSint64:1)") {(o: inout MessageTestType) in o.optionalSint64 = 1}
         assertDecodeFails([48])
         assertDecodeFails([48, 139])
@@ -279,7 +279,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalSint64 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalSint64 = nil
+        b.clearOptionalSint64()
         XCTAssertNotEqual(a, b)
         b.optionalSint64 = 0
         XCTAssertEqual(a, b)
@@ -288,7 +288,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalFixed32() {
         assertEncode([61, 255, 255, 255, 255]) {(o: inout MessageTestType) in o.optionalFixed32 = UInt32.max}
         assertEncode([61, 0, 0, 0, 0]) {(o: inout MessageTestType) in o.optionalFixed32 = UInt32.min}
-        assertDecodeSucceeds([61, 8, 12, 108, 1]) {$0.optionalFixed32! == 23858184}
+        assertDecodeSucceeds([61, 8, 12, 108, 1]) {$0.optionalFixed32 == 23858184}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalFixed32:1)") {(o: inout MessageTestType) in o.optionalFixed32 = 1}
         assertDecodeFails([61])
         assertDecodeFails([61, 255])
@@ -323,7 +323,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalFixed32 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalFixed32 = nil
+        b.clearOptionalFixed32()
         XCTAssertNotEqual(a, b)
         b.optionalFixed32 = 0
         XCTAssertEqual(a, b)
@@ -332,7 +332,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalFixed64() {
         assertEncode([65, 255, 255, 255, 255, 255, 255, 255, 255]) {(o: inout MessageTestType) in o.optionalFixed64 = UInt64.max}
         assertEncode([65, 0, 0, 0, 0, 0, 0, 0, 0]) {(o: inout MessageTestType) in o.optionalFixed64 = UInt64.min}
-        assertDecodeSucceeds([65, 255, 255, 255, 255, 255, 255, 255, 255]) {$0.optionalFixed64! == 18446744073709551615}
+        assertDecodeSucceeds([65, 255, 255, 255, 255, 255, 255, 255, 255]) {$0.optionalFixed64 == 18446744073709551615}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalFixed64:1)") {(o: inout MessageTestType) in o.optionalFixed64 = 1}
         assertDecodeFails([65])
         assertDecodeFails([65, 255])
@@ -371,7 +371,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalFixed64 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalFixed64 = nil
+        b.clearOptionalFixed64()
         XCTAssertNotEqual(a, b)
         b.optionalFixed64 = 0
         XCTAssertEqual(a, b)
@@ -380,8 +380,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSfixed32() {
         assertEncode([77, 255, 255, 255, 127]) {(o: inout MessageTestType) in o.optionalSfixed32 = Int32.max}
         assertEncode([77, 0, 0, 0, 128]) {(o: inout MessageTestType) in o.optionalSfixed32 = Int32.min}
-        assertDecodeSucceeds([77, 0, 0, 0, 0]) {$0.optionalSfixed32! == 0}
-        assertDecodeSucceeds([77, 255, 255, 255, 255]) {$0.optionalSfixed32! == -1}
+        assertDecodeSucceeds([77, 0, 0, 0, 0]) {$0.optionalSfixed32 == 0}
+        assertDecodeSucceeds([77, 255, 255, 255, 255]) {$0.optionalSfixed32 == -1}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSfixed32:1)") {(o: inout MessageTestType) in o.optionalSfixed32 = 1}
         assertDecodeFails([77])
         assertDecodeFails([77])
@@ -417,7 +417,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalSfixed32 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalSfixed32 = nil
+        b.clearOptionalSfixed32()
         XCTAssertNotEqual(a, b)
         b.optionalSfixed32 = 0
         XCTAssertEqual(a, b)
@@ -426,7 +426,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSfixed64() {
         assertEncode([81, 255, 255, 255, 255, 255, 255, 255, 127]) {(o: inout MessageTestType) in o.optionalSfixed64 = Int64.max}
         assertEncode([81, 0, 0, 0, 0, 0, 0, 0, 128]) {(o: inout MessageTestType) in o.optionalSfixed64 = Int64.min}
-        assertDecodeSucceeds([81, 0, 0, 0, 0, 0, 0, 0, 128]) {$0.optionalSfixed64! == -9223372036854775808}
+        assertDecodeSucceeds([81, 0, 0, 0, 0, 0, 0, 0, 128]) {$0.optionalSfixed64 == -9223372036854775808}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSfixed64:1)") {(o: inout MessageTestType) in o.optionalSfixed64 = 1}
         assertDecodeFails([81])
         assertDecodeFails([81, 0])
@@ -463,7 +463,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalSfixed64 = 1
         XCTAssertNotEqual(a, b)
-        b.optionalSfixed64 = nil
+        b.clearOptionalSfixed64()
         XCTAssertNotEqual(a, b)
         b.optionalSfixed64 = 0
         XCTAssertEqual(a, b)
@@ -474,8 +474,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([93, 0, 0, 0, 63]) {(o: inout MessageTestType) in o.optionalFloat = 0.5}
         assertEncode([93, 0, 0, 0, 64]) {(o: inout MessageTestType) in o.optionalFloat = 2.0}
         assertDecodeSucceeds([93, 0, 0, 0, 0]) {
-            if case .some(let t) = $0.optionalFloat { // Verify field has optional type
-                return t == 0
+            if $0.hasOptionalFloat {
+                return $0.optionalFloat == 0
             } else {
                 XCTFail("Nonexistent value")
                 return false
@@ -508,7 +508,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalFloat = 1
         XCTAssertNotEqual(a, b)
-        b.optionalFloat = nil
+        b.clearOptionalFloat()
         XCTAssertNotEqual(a, b)
         b.optionalFloat = 0
         XCTAssertEqual(a, b)
@@ -518,7 +518,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 0]) {(o: inout MessageTestType) in o.optionalDouble = 0.0}
         assertEncode([97, 0, 0, 0, 0, 0, 0, 224, 63]) {(o: inout MessageTestType) in o.optionalDouble = 0.5}
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 64]) {(o: inout MessageTestType) in o.optionalDouble = 2.0}
-        assertDecodeSucceeds([97, 0, 0, 0, 0, 0, 0, 224, 63]) {$0.optionalDouble! == 0.5}
+        assertDecodeSucceeds([97, 0, 0, 0, 0, 0, 0, 224, 63]) {$0.optionalDouble == 0.5}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalDouble:1.0)") {(o: inout MessageTestType) in o.optionalDouble = 1.0}
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
         assertDecodeFails([97])
@@ -551,7 +551,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalDouble = 1
         XCTAssertNotEqual(a, b)
-        b.optionalDouble = nil
+        b.clearOptionalDouble()
         XCTAssertNotEqual(a, b)
         b.optionalDouble = 0
         XCTAssertEqual(a, b)
@@ -561,8 +561,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([104, 0]) {(o: inout MessageTestType) in o.optionalBool = false}
         assertEncode([104, 1]) {(o: inout MessageTestType) in o.optionalBool = true}
         assertDecodeSucceeds([104, 1]) {
-            if case .some(let t) = $0.optionalBool { // Verify field has optional type
-                return t == true
+            if $0.hasOptionalBool {
+                return $0.optionalBool == true
             } else {
                 XCTFail("Nonexistent value")
                 return false
@@ -594,7 +594,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalBool = true
         XCTAssertNotEqual(a, b)
-        b.optionalBool = nil
+        b.clearOptionalBool()
         XCTAssertNotEqual(a, b)
         b.optionalBool = false
         XCTAssertEqual(a, b)
@@ -607,8 +607,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([114, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) {(o: inout MessageTestType) in
             o.optionalString = "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}\u{08}\u{09}\u{0a}"}
         assertDecodeSucceeds([114, 5, 72, 101, 108, 108, 111]) {
-            if case .some(let t) = $0.optionalString { // Verify field has optional type
-                return t == "Hello"
+            if $0.hasOptionalString {
+                return $0.optionalString == "Hello"
             } else {
                 XCTFail("Nonexistent value")
                 return false
@@ -651,7 +651,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalString = "a"
         XCTAssertNotEqual(a, b)
-        b.optionalString = nil
+        b.clearOptionalString()
         XCTAssertNotEqual(a, b)
         b.optionalString = ""
         XCTAssertEqual(a, b)
@@ -664,11 +664,11 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.optionalGroup = g
         }
         assertDecodeSucceeds([131, 1, 136, 1, 159, 141, 6, 132, 1]) {
-            $0.optionalGroup?.a == .some(99999)
+            $0.optionalGroup.a == 99999
         }
         // Extra field 1 within group
         assertDecodeSucceeds([131, 1, 8, 0, 136, 1, 159, 141, 6, 132, 1]) {
-            $0.optionalGroup?.a == .some(99999)
+            $0.optionalGroup.a == 99999
         }
         assertDebugDescription(
             "ProtobufUnittest_TestAllTypes(optionalGroup:ProtobufUnittest_TestAllTypes.OptionalGroup(a:1))") {(o: inout MessageTestType) in
@@ -699,8 +699,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([122, 1, 1]) {(o: inout MessageTestType) in o.optionalBytes = Data(bytes: [1])}
         assertEncode([122, 2, 1, 2]) {(o: inout MessageTestType) in o.optionalBytes = Data(bytes: [1, 2])}
         assertDecodeSucceeds([122, 4, 0, 1, 2, 255]) {
-            if case .some(let t) = $0.optionalBytes { // Verify field has optional type
-                return t == Data(bytes: [0, 1, 2, 255])
+            if $0.hasOptionalBytes {
+                return $0.optionalBytes == Data(bytes: [0, 1, 2, 255])
             } else {
                 XCTFail("Nonexistent value")
                 return false
@@ -733,7 +733,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var b = empty
         b.optionalBytes = Data(bytes: [1])
         XCTAssertNotEqual(a, b)
-        b.optionalBytes = nil
+        b.clearOptionalBytes()
         XCTAssertNotEqual(a, b)
         b.optionalBytes = Data()
         XCTAssertEqual(a, b)
@@ -745,8 +745,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             nested.bb = 1
             o.optionalNestedMessage = nested
         }
-        assertDecodeSucceeds([146, 1, 4, 8, 1, 8, 3]) {$0.optionalNestedMessage!.bb == 3}
-        assertDecodeSucceeds([146, 1, 2, 8, 1, 146, 1, 2, 8, 4]) {$0.optionalNestedMessage!.bb == 4}
+        assertDecodeSucceeds([146, 1, 4, 8, 1, 8, 3]) {$0.optionalNestedMessage.bb == 3}
+        assertDecodeSucceeds([146, 1, 2, 8, 1, 146, 1, 2, 8, 4]) {$0.optionalNestedMessage.bb == 4}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalNestedMessage:ProtobufUnittest_TestAllTypes.NestedMessage(bb:1))") {(o: inout MessageTestType) in
             var nested = MessageTestType.NestedMessage()
             nested.bb = 1
@@ -763,8 +763,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             foreign.c = 1
             o.optionalForeignMessage = foreign
         }
-        assertDecodeSucceeds([154, 1, 4, 8, 1, 8, 3]) {$0.optionalForeignMessage!.c == 3}
-        assertDecodeSucceeds([154, 1, 2, 8, 1, 154, 1, 2, 8, 4]) {$0.optionalForeignMessage!.c == 4}
+        assertDecodeSucceeds([154, 1, 4, 8, 1, 8, 3]) {$0.optionalForeignMessage.c == 3}
+        assertDecodeSucceeds([154, 1, 2, 8, 1, 154, 1, 2, 8, 4]) {$0.optionalForeignMessage.c == 4}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalForeignMessage:ProtobufUnittest_ForeignMessage(c:1))") {(o: inout MessageTestType) in
             var foreign = ProtobufUnittest_ForeignMessage()
             foreign.c = 1
@@ -796,8 +796,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             imp.d = 1
             o.optionalImportMessage = imp
         }
-        assertDecodeSucceeds([162, 1, 4, 8, 1, 8, 3]) {$0.optionalImportMessage!.d == 3}
-        assertDecodeSucceeds([162, 1, 2, 8, 1, 162, 1, 2, 8, 4]) {$0.optionalImportMessage!.d == 4}
+        assertDecodeSucceeds([162, 1, 4, 8, 1, 8, 3]) {$0.optionalImportMessage.d == 3}
+        assertDecodeSucceeds([162, 1, 2, 8, 1, 162, 1, 2, 8, 4]) {$0.optionalImportMessage.d == 4}
     }
 
     func testEncoding_optionalNestedEnum() throws {
@@ -805,15 +805,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.optionalNestedEnum = .bar
         }
         assertDecodeSucceeds([168, 1, 2]) {
-            if case .some(let t) = $0.optionalNestedEnum { // Verify field has optional type
-                return t == .bar
+            if $0.hasOptionalNestedEnum {
+                return $0.optionalNestedEnum == .bar
             } else {
                 XCTFail("Nonexistent value")
                 return false
             }
         }
         assertDecodeFails([168, 1])
-        assertDecodeSucceeds([168, 1, 128, 1]) {$0.optionalNestedEnum == nil}
+        assertDecodeSucceeds([168, 1, 128, 1]) { !$0.hasOptionalNestedEnum }
         assertDecodeSucceeds([168, 1, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {$0.optionalNestedEnum == .neg}
         assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalNestedEnum:.bar)") {(o: inout MessageTestType) in
             o.optionalNestedEnum = .bar
@@ -821,7 +821,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // The out-of-range enum value should be preserved as an unknown field
         let decoded = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [168, 1, 128, 1]))
-        XCTAssertEqual(decoded.optionalNestedEnum, nil)
+        XCTAssertFalse(decoded.hasOptionalNestedEnum)
         let recoded = try decoded.serializeProtobufBytes()
         XCTAssertEqual(recoded, [168, 1, 128, 1])
     }
@@ -1373,10 +1373,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         b.optionalInt32 = 1
         XCTAssertEqual(a, b)
 
-        // Writing nil restores the default
+        // Calling clear* restores the default
         var t = MessageTestType()
         t.defaultInt32 = 4
-        t.defaultInt32 = nil
+        t.clearDefaultInt32()
         XCTAssertEqual(t.defaultInt32, 41)
         XCTAssertEqual(t.debugDescription, "ProtobufUnittest_TestAllTypes()")
 
@@ -1699,7 +1699,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     func testEncoding_defaultBytes() throws {
         let empty = MessageTestType()
-        XCTAssertEqual(empty.defaultBytes!, Data(bytes: [119, 111, 114, 108, 100]))
+        XCTAssertEqual(empty.defaultBytes, Data(bytes: [119, 111, 114, 108, 100]))
 
         // Writing a value equal to the default compares equal to an unset field
         var a = MessageTestType()
@@ -1714,8 +1714,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.optionalInt32 = 1
         XCTAssertEqual(a, b)
 
-        assertDecodeSucceeds([]) {$0.defaultBytes! == Data(bytes: [119, 111, 114, 108, 100])}
-        assertDecodeSucceeds([218, 4, 1, 1]) {$0.defaultBytes! == Data(bytes: [1])}
+        assertDecodeSucceeds([]) {$0.defaultBytes == Data(bytes: [119, 111, 114, 108, 100])}
+        assertDecodeSucceeds([218, 4, 1, 1]) {$0.defaultBytes == Data(bytes: [1])}
     }
 
     func testEncoding_defaultNestedEnum() throws {
@@ -1792,7 +1792,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([248, 6, 0]) {(o: inout MessageTestType) in o.oneofUint32 = 0}
         assertDecodeSucceeds([248, 6, 255, 255, 255, 255, 15]) {$0.oneofUint32 == UInt32.max}
         assertDecodeSucceeds([138, 7, 1, 97, 248, 6, 1]) {(o: MessageTestType) in
-            o.oneofString == nil && o.oneofUint32 == UInt32(1)
+            if case .oneofUint32 = o.oneofField, o.oneofUint32 == UInt32(1) {
+                return true
+            }
+            return false
         }
 
         assertDecodeFails([248, 6, 128]) // Bad varint
@@ -1827,16 +1830,16 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.oneofNestedMessage = nested
         }
         assertDecodeSucceeds([130, 7, 0]) {(o: MessageTestType) in
-            if let m = o.oneofNestedMessage {
-                return m.bb == nil
+            if case .oneofNestedMessage(let m) = o.oneofField {
+                return !m.hasBb
             }
             return false
         }
         assertDecodeSucceeds([248, 6, 0, 130, 7, 2, 8, 1]) {(o: MessageTestType) in
-            if o.oneofUint32 != nil {
+            if case .oneofUint32 = o.oneofField {
                 return false
             }
-            if let m = o.oneofNestedMessage {
+            if case .oneofNestedMessage(let m) = o.oneofField {
                 return m.bb == 1
             }
             return false
@@ -1844,11 +1847,17 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     }
     func testEncoding_oneofNestedMessage1() {
         assertDecodeSucceeds([130, 7, 2, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            o.oneofNestedMessage == nil && o.oneofUint32 == 0
+            if case .oneofUint32 = o.oneofField, o.oneofUint32 == 0 {
+                return true
+            }
+            return false
         }
         // Unkonwn field within nested message should not break decoding
         assertDecodeSucceeds([130, 7, 5, 128, 127, 0, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            o.oneofNestedMessage == nil && o.oneofUint32 == 0
+            if case .oneofUint32 = o.oneofField, o.oneofUint32 == 0 {
+                return true
+            }
+            return false
         }
     }
 
@@ -1887,7 +1896,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([138, 7, 1, 97]) {$0.oneofString == "a"}
         assertDecodeSucceeds([138, 7, 0]) {$0.oneofString == ""}
         assertDecodeSucceeds([146, 7, 0, 138, 7, 1, 97]) {(o:MessageTestType) in
-            o.oneofBytes == nil && o.oneofString == "a"
+            if case .oneofString = o.oneofField, o.oneofString == "a" {
+                return true
+            }
+            return false
         }
         assertDecodeFails([138, 7, 1]) // Truncated body
         assertDecodeFails([138, 7, 1, 192]) // Malformed UTF-8
@@ -1918,10 +1930,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes2() {
         assertDecodeSucceeds([146, 7, 1, 1]) {(o: MessageTestType) in
             let expectedB = Data(bytes: [1])
-            let expectedS: String? = nil
-            if let b = o.oneofBytes {
+            if case .oneofBytes(let b) = o.oneofField {
                 let s = o.oneofString
-                return b == expectedB && s == expectedS
+                return b == expectedB && s == ""
             }
             return false
         }
@@ -1929,9 +1940,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes3() {
         assertDecodeSucceeds([146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if let b = o.oneofBytes {
+            if case .oneofBytes(let b) = o.oneofField {
                 let s = o.oneofString
-                return b == expectedB && s == nil
+                return b == expectedB && s == ""
             }
             return false
         }
@@ -1939,9 +1950,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes4() {
         assertDecodeSucceeds([138, 7, 1, 97, 146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if let b = o.oneofBytes {
+            if case .oneofBytes(let b) = o.oneofField {
                 let s = o.oneofString
-                return b == expectedB && s == nil
+                return b == expectedB && s == ""
             }
             return false
         }

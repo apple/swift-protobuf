@@ -68,6 +68,8 @@ public class ProtobufGenericMessageExtension<FieldType: ProtobufTypedExtensionFi
 public protocol ProtobufExtensibleMessage: ProtobufMessage {
     mutating func setExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Self>, value: F.ValueType)
     mutating func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Self>) -> F.ValueType
+    func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Self>) -> Bool
+    mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Self>)
 }
 
 // Backwards compatibility shim:  Remove in August 2016
@@ -89,11 +91,19 @@ public extension ProtobufExtensibleMessageStorage {
         extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
     }
 
+    public func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufExtendedMessage>) {
+        extensionFieldValues[ext.protoFieldNumber] = nil
+    }
+
     public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufExtendedMessage>) -> F.ValueType {
         if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
             return fieldValue.value
         }
         return ext.defaultValue
+    }
+
+    public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufExtendedMessage>) -> Bool {
+        return extensionFieldValues[ext.protoFieldNumber] is F
     }
 }
 

@@ -621,7 +621,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
         self = .oneofUint32(value)
       case 112:
         var value: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage?
-        handled = try setter.decodeSingularMessageField(fieldType: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeOptionalMessageField(fieldType: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }
@@ -867,15 +867,33 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     get {return _storage._optionalNestedMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
+  public var hasOptionalNestedMessage: Bool {
+    return _storage._optionalNestedMessage != nil
+  }
+  public mutating func clearOptionalNestedMessage() {
+    return _storage._optionalNestedMessage = nil
+  }
 
   public var optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? Proto2NofieldpresenceUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
+  public var hasOptionalForeignMessage: Bool {
+    return _storage._optionalForeignMessage != nil
+  }
+  public mutating func clearOptionalForeignMessage() {
+    return _storage._optionalForeignMessage = nil
+  }
 
   public var optionalProto2Message: ProtobufUnittest_TestAllTypes {
     get {return _storage._optionalProto2Message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._optionalProto2Message = newValue}
+  }
+  public var hasOptionalProto2Message: Bool {
+    return _storage._optionalProto2Message != nil
+  }
+  public mutating func clearOptionalProto2Message() {
+    return _storage._optionalProto2Message = nil
   }
 
   public var optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
@@ -904,6 +922,12 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
   public var optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalLazyMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
+  }
+  public var hasOptionalLazyMessage: Bool {
+    return _storage._optionalLazyMessage != nil
+  }
+  public mutating func clearOptionalLazyMessage() {
+    return _storage._optionalLazyMessage = nil
   }
 
   ///   Repeated
@@ -1022,71 +1046,55 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
-  public var oneofUint32: UInt32? {
+  public var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofUint32(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofUint32(newValue)
     }
   }
 
-  public var oneofNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? {
+  public var oneofNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
     }
   }
 
-  public var oneofString: String? {
+  public var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofString(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofString(newValue)
     }
   }
 
-  public var oneofEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum? {
+  public var oneofEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
     get {
       if case .oneofEnum(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofEnum(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofEnum(newValue)
     }
   }
 
-  public var _oneofField: OneOf_OneofField {
+  public var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -1165,6 +1173,12 @@ public struct Proto2NofieldpresenceUnittest_TestProto2Required: ProtobufGenerate
   public var proto2: ProtobufUnittest_TestRequired {
     get {return _storage._proto2 ?? ProtobufUnittest_TestRequired()}
     set {_uniqueStorage()._proto2 = newValue}
+  }
+  public var hasProto2: Bool {
+    return _storage._proto2 != nil
+  }
+  public mutating func clearProto2() {
+    return _storage._proto2 = nil
   }
 
   public init() {}

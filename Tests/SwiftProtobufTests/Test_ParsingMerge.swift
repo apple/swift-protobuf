@@ -68,21 +68,19 @@ class Test_ParsingMerge: XCTestCase {
                 XCTAssertEqual(field1.optionalString, "abc")
 
                 // optionalAllTypes <== merge of field2
-                if let field2 = decoded.optionalAllTypes {
-                    XCTAssertEqual(field2.optionalInt32, 2)
-                    XCTAssertEqual(field2.optionalInt64, 3)
-                    XCTAssertEqual(field2.optionalString, "abc")
-                }
-                
+                let field2 = decoded.optionalAllTypes
+                XCTAssertEqual(field2.optionalInt32, 2)
+                XCTAssertEqual(field2.optionalInt64, 3)
+                XCTAssertEqual(field2.optionalString, "abc")
+
                 // repeatedAllTypes <== field3 without merging
                 XCTAssertEqual(decoded.repeatedAllTypes, [t1, t2])
                 
                 // optionalGroup <== merge of repeated group1
-                if let group1 = decoded.optionalGroup {
-                    XCTAssertEqual(group1.optionalGroupAllTypes?.optionalInt32, 2)
-                    XCTAssertEqual(group1.optionalGroupAllTypes?.optionalString, "abc")
-                    XCTAssertEqual(group1.optionalGroupAllTypes?.optionalInt64, 3)
-                }
+                let group1 = decoded.optionalGroup
+                XCTAssertEqual(group1.optionalGroupAllTypes.optionalInt32, 2)
+                XCTAssertEqual(group1.optionalGroupAllTypes.optionalString, "abc")
+                XCTAssertEqual(group1.optionalGroupAllTypes.optionalInt64, 3)
 
                 // repeatedGroup <== no merge from repeated group2
                 XCTAssertEqual(decoded.repeatedGroup.count, 2)

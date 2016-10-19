@@ -489,11 +489,7 @@ extension Test_RecursiveMap {
 
 extension Test_Required {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
-        return [
-            ("test_bare", {try run_test(test:($0 as! Test_Required).test_bare)}),
-            ("test_requiredInt32", {try run_test(test:($0 as! Test_Required).test_requiredInt32)}),
-            ("test_requiredFloat", {try run_test(test:($0 as! Test_Required).test_requiredFloat)}),
-            ("test_requiredString", {try run_test(test:($0 as! Test_Required).test_requiredString)})        ]
+        return [        ]
     }
 }
 

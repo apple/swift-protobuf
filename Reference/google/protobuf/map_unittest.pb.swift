@@ -488,6 +488,12 @@ public struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage {
     get {return _storage._testMap ?? ProtobufUnittest_TestMap()}
     set {_uniqueStorage()._testMap = newValue}
   }
+  public var hasTestMap: Bool {
+    return _storage._testMap != nil
+  }
+  public mutating func clearTestMap() {
+    return _storage._testMap = nil
+  }
 
   public init() {}
 

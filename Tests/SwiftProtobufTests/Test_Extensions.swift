@@ -239,7 +239,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         m.defaultInt32Extension = 100
         XCTAssertEqual(try m.serializeProtobufBytes(), [232, 3, 100])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(defaultInt32Extension:100)")
-        m.defaultInt32Extension = nil
+        m.clearDefaultInt32Extension()
         XCTAssertEqual(try m.serializeProtobufBytes(), [])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions()")
         m.defaultInt32Extension = 41 // Default value
@@ -293,13 +293,13 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Group should be preserved as an unknown field
         do {
             let m2 = try SwiftTestGroupUnextended(protobuf: coded)
-            XCTAssert(m2.a == nil)
+            XCTAssert(!m2.hasA)
             let recoded = try m2.serializeProtobuf()
 
             // Deserialize, check the group contents were preserved.
             do {
                 let m3 = try SwiftTestGroupExtensions(protobuf: recoded, extensions: extensions)
-                XCTAssertEqual(m3.extensionGroup?.a, 7)
+                XCTAssertEqual(m3.extensionGroup.a, 7)
             } catch {
                 XCTFail("Bad decode/recode/decode cycle")
             }
@@ -320,8 +320,8 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
         let m2 = try SwiftTestGroupExtensions(json: json, extensions: [SwiftTestGroupExtensions_extensionGroup])
         XCTAssertNotNil(m2.extensionGroup)
-        if let group = m.extensionGroup {
-            XCTAssertEqual(group.a, 7)
+        if m.hasExtensionGroup {
+            XCTAssertEqual(m.extensionGroup.a, 7)
         }
     }
 
@@ -338,7 +338,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Group should be preserved as an unknown field
         do {
             let m2 = try SwiftTestGroupUnextended(protobuf: coded)
-            XCTAssert(m2.a == nil)
+            XCTAssert(!m2.hasA)
             do {
                 let recoded = try m2.serializeProtobuf()
 

@@ -80,7 +80,17 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
   public var fileToGenerate: [String] = []
 
   ///   The generator parameter passed on the command-line.
-  public var parameter: String? = nil
+  private var _parameter: String? = nil
+  public var parameter: String {
+    get {return _parameter ?? ""}
+    set {_parameter = newValue}
+  }
+  public var hasParameter: Bool {
+    return _parameter != nil
+  }
+  public mutating func clearParameter() {
+    return _parameter = nil
+  }
 
   ///   FileDescriptorProtos for all files in files_to_generate and everything
   ///   they import.  The files will appear in topological order, so each file
@@ -101,7 +111,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
     let handled: Bool
     switch protoFieldNumber {
     case 1: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &fileToGenerate)
-    case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &parameter)
+    case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_parameter)
     case 15: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &protoFile)
     default:
       handled = false
@@ -117,7 +127,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
     if !fileToGenerate.isEmpty {
       try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: fileToGenerate, protoFieldNumber: 1, protoFieldName: "file_to_generate", jsonFieldName: "fileToGenerate", swiftFieldName: "fileToGenerate")
     }
-    if let v = parameter {
+    if let v = _parameter {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "parameter", jsonFieldName: "parameter", swiftFieldName: "parameter")
     }
     if !protoFile.isEmpty {
@@ -128,7 +138,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if fileToGenerate != other.fileToGenerate {return false}
-    if ((parameter != nil || other.parameter != nil) && (parameter == nil || other.parameter == nil || parameter! != other.parameter!)) {return false}
+    if (parameter != other.parameter) {return false}
     if protoFile != other.protoFile {return false}
     if unknown != other.unknown {return false}
     return true
@@ -180,7 +190,17 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
     ///   files need not reside completely in memory at one time.  Note that as of
     ///   this writing protoc does not optimize for this -- it will read the entire
     ///   CodeGeneratorResponse before writing files to disk.
-    public var name: String? = nil
+    private var _name: String? = nil
+    public var name: String {
+      get {return _name ?? ""}
+      set {_name = newValue}
+    }
+    public var hasName: Bool {
+      return _name != nil
+    }
+    public mutating func clearName() {
+      return _name = nil
+    }
 
     ///   If non-empty, indicates that the named file should already exist, and the
     ///   content here is to be inserted into that file at a defined insertion
@@ -219,19 +239,39 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
     ///   command line.
     ///  
     ///   If |insertion_point| is present, |name| must also be present.
-    public var insertionPoint: String? = nil
+    private var _insertionPoint: String? = nil
+    public var insertionPoint: String {
+      get {return _insertionPoint ?? ""}
+      set {_insertionPoint = newValue}
+    }
+    public var hasInsertionPoint: Bool {
+      return _insertionPoint != nil
+    }
+    public mutating func clearInsertionPoint() {
+      return _insertionPoint = nil
+    }
 
     ///   The file contents.
-    public var content: String? = nil
+    private var _content: String? = nil
+    public var content: String {
+      get {return _content ?? ""}
+      set {_content = newValue}
+    }
+    public var hasContent: Bool {
+      return _content != nil
+    }
+    public mutating func clearContent() {
+      return _content = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &name)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &insertionPoint)
-      case 15: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &content)
+      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
+      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_insertionPoint)
+      case 15: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_content)
       default:
         handled = false
       }
@@ -243,22 +283,22 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      if let v = name {
+      if let v = _name {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "name", jsonFieldName: "name", swiftFieldName: "name")
       }
-      if let v = insertionPoint {
+      if let v = _insertionPoint {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "insertion_point", jsonFieldName: "insertionPoint", swiftFieldName: "insertionPoint")
       }
-      if let v = content {
+      if let v = _content {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 15, protoFieldName: "content", jsonFieldName: "content", swiftFieldName: "content")
       }
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
-      if ((name != nil || other.name != nil) && (name == nil || other.name == nil || name! != other.name!)) {return false}
-      if ((insertionPoint != nil || other.insertionPoint != nil) && (insertionPoint == nil || other.insertionPoint == nil || insertionPoint! != other.insertionPoint!)) {return false}
-      if ((content != nil || other.content != nil) && (content == nil || other.content == nil || content! != other.content!)) {return false}
+      if (name != other.name) {return false}
+      if (insertionPoint != other.insertionPoint) {return false}
+      if (content != other.content) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -272,7 +312,17 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
   ///   problem in protoc itself -- such as the input CodeGeneratorRequest being
   ///   unparseable -- should be reported by writing a message to stderr and
   ///   exiting with a non-zero status code.
-  public var error: String? = nil
+  private var _error: String? = nil
+  public var error: String {
+    get {return _error ?? ""}
+    set {_error = newValue}
+  }
+  public var hasError: Bool {
+    return _error != nil
+  }
+  public mutating func clearError() {
+    return _error = nil
+  }
 
   public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
@@ -281,7 +331,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &error)
+    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_error)
     case 15: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Compiler_CodeGeneratorResponse.File.self, value: &file)
     default:
       handled = false
@@ -294,7 +344,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = error {
+    if let v = _error {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "error", jsonFieldName: "error", swiftFieldName: "error")
     }
     if !file.isEmpty {
@@ -304,7 +354,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
-    if ((error != nil || other.error != nil) && (error == nil || other.error == nil || error! != other.error!)) {return false}
+    if (error != other.error) {return false}
     if file != other.file {return false}
     if unknown != other.unknown {return false}
     return true

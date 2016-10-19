@@ -57,14 +57,24 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
 
       var unknown = ProtobufUnknownStorage()
 
-      public var a: Int32? = nil
+      private var _a: Int32? = nil
+      public var a: Int32 {
+        get {return _a ?? 0}
+        set {_a = newValue}
+      }
+      public var hasA: Bool {
+        return _a != nil
+      }
+      public mutating func clearA() {
+        return _a = nil
+      }
 
       public init() {}
 
       public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         let handled: Bool
         switch protoFieldNumber {
-        case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &a)
+        case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_a)
         default:
           if (100 <= protoFieldNumber && protoFieldNumber < 1001) {
             handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Baz.self, protoFieldNumber: protoFieldNumber)
@@ -80,7 +90,7 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
       }
 
       public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-        if let v = a {
+        if let v = _a {
           try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
         }
         try extensionFieldValues.traverse(visitor: &visitor, start: 100, end: 1001)
@@ -88,7 +98,7 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
       }
 
       public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar.Baz) -> Bool {
-        if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
+        if (a != other.a) {return false}
         if unknown != other.unknown {return false}
         if extensionFieldValues != other.extensionFieldValues {return false}
         return true
@@ -100,11 +110,19 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
         extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
       }
 
+      public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Baz>) {
+        extensionFieldValues[ext.protoFieldNumber] = nil
+      }
+
       public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Baz>) -> F.ValueType {
         if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
           return fieldValue.value
         }
         return ext.defaultValue
+      }
+
+      public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Baz>) -> Bool {
+        return extensionFieldValues[ext.protoFieldNumber] is F
       }
     }
 
@@ -154,14 +172,24 @@ public struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage {
   var unknown = ProtobufUnknownStorage()
 
   ///        extensions 10 to 20;
-  public var c: Int64? = nil
+  private var _c: Int64? = nil
+  public var c: Int64 {
+    get {return _c ?? 0}
+    set {_c = newValue}
+  }
+  public var hasC: Bool {
+    return _c != nil
+  }
+  public mutating func clearC() {
+    return _c = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 999: handled = try setter.decodeOptionalField(fieldType: ProtobufInt64.self, value: &c)
+    case 999: handled = try setter.decodeOptionalField(fieldType: ProtobufInt64.self, value: &_c)
     default:
       handled = false
     }
@@ -173,34 +201,46 @@ public struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = c {
+    if let v = _c {
       try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 999, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
     }
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_C) -> Bool {
-    if ((c != nil || other.c != nil) && (c == nil || other.c == nil || c! != other.c!)) {return false}
+    if (c != other.c) {return false}
     if unknown != other.unknown {return false}
     return true
   }
 }
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 100, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "b", defaultValue: nil)
+let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 100, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "b", defaultValue: "")
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c", defaultValue: nil)
+let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c", defaultValue: ProtobufUnittest_Extend_C())
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  public var b: String? {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)}
+  public var b: String {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b, value: newValue)}
+  }
+  public var hasB: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
+  }
+  public mutating func clearB() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
   }
 }
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  public var c: ProtobufUnittest_Extend_C? {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)}
+  public var c: ProtobufUnittest_Extend_C {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c) ?? ProtobufUnittest_Extend_C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c, value: newValue)}
+  }
+  public var hasC: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
+  }
+  public mutating func clearC() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
   }
 }
 
