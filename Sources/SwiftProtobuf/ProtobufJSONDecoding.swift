@@ -366,9 +366,6 @@ private struct ProtobufJSONNullFieldDecoder: ProtobufJSONFieldDecoder {
     mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return true
     }
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        return true
-    }
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
         return true
     }
@@ -407,17 +404,6 @@ private struct ProtobufJSONSingleTokenFieldDecoder: ProtobufJSONFieldDecoder {
         return true
     }
 
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        var t: S.BaseType?
-        try S.setFromJSONToken(token: token, value: &t)
-        if let t = t {
-            value = t
-            return true
-        } else {
-            throw ProtobufDecodingError.malformedJSON
-        }
-    }
-    
     mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
         var m = M()
         try m.decodeFromJSONToken(token: token)

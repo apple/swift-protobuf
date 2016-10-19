@@ -49,16 +49,6 @@ private struct ProtobufFieldWireTypeVarint: ProtobufBinaryFieldDecoder {
         return try S.setFromProtobufVarint(varint: varint, value: &value)
     }
 
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        var t: S.BaseType?
-        let handled = try S.setFromProtobufVarint(varint: varint, value: &t)
-        if let t = t, handled {
-            value = t
-            return true
-        }
-        throw ProtobufDecodingError.schemaMismatch
-    }
-
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
         return try S.setFromProtobufVarint(varint: varint, value: &value)
     }
@@ -82,16 +72,6 @@ private struct ProtobufFieldWireTypeFixed64: ProtobufBinaryFieldDecoder {
         return try S.setFromProtobufFixed8(fixed8: fixed8, value: &value)
     }
 
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        var t: S.BaseType?
-        let handled = try S.setFromProtobufFixed8(fixed8: fixed8, value: &t)
-        if let t = t, handled {
-            value = t
-            return true
-        }
-        throw ProtobufDecodingError.schemaMismatch
-    }
-
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
         return try S.setFromProtobufFixed8(fixed8: fixed8, value: &value)
     }
@@ -112,16 +92,6 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
 
     mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return try S.setFromProtobufBuffer(buffer: buffer, value: &value)
-    }
-
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        var t: S.BaseType?
-        let handled = try S.setFromProtobufBuffer(buffer: buffer, value: &t)
-        if let t = t, handled {
-            value = t
-            return true
-        }
-        throw ProtobufDecodingError.schemaMismatch
     }
 
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
@@ -208,16 +178,6 @@ private struct ProtobufFieldWireTypeFixed32: ProtobufBinaryFieldDecoder {
 
     mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return try S.setFromProtobufFixed4(fixed4: fixed4, value: &value)
-    }
-
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        var t: S.BaseType?
-        let handled = try S.setFromProtobufFixed4(fixed4: fixed4, value: &t)
-        if let t = t, handled {
-            value = t
-            return true
-        }
-        throw ProtobufDecodingError.schemaMismatch
     }
 
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
