@@ -201,7 +201,7 @@ all: build
 #  but we only update the file when it changes to avoid extra builds.)
 # (Someday, 'swift test' will learn how to auto-discover test cases on Linux,
 # at which time this will no longer be needed.)
-build ${PROTOC_GEN_SWIFT}:
+build:
 	@${AWK} -f CollectTests.awk Tests/SwiftProtobufTests/Test_*.swift > Tests/LinuxMain.swift.new
 	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
 		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
@@ -209,6 +209,18 @@ build ${PROTOC_GEN_SWIFT}:
 	fi
 	@rm Tests/LinuxMain.swift.new
 	${SWIFT} build
+
+# This will get run by any other rule that tries to use the plugin.  This hacks
+# in a check during the library build to ensure that the protoc on the local
+# system is one we expect. This was inspired by the findings that lead to
+#   https://github.com/apple/swift-protobuf/issues/111
+# This likely will need follow up to eventually do a pattern match to ensure it
+# is 3.1 or higher.
+${PROTOC_GEN_SWIFT}: build
+	@if [ "$(shell ${PROTOC} --version)" != "libprotoc 3.1.0" ]; then \
+	  echo "WARNING: Unexpected version of protoc: $(shell ${PROTOC} --version)"; \
+	  echo "WARNING: The JSON support in generated files may not be correct."; \
+	fi
 
 # Does it really make sense to install a debug build, or should this be forcing
 # a release build and then installing that instead?
