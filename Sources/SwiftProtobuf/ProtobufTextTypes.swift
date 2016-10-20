@@ -902,10 +902,7 @@ extension ProtobufMessage {
                 key = s
                 state = .expectColon
             case .colon:
-                if state != .expectColon {
-                    throw ProtobufDecodingError.malformedJSON
-                }
-                try textDecoder.decodeValue(key: key, message: &self)
+                try textDecoder.decodeValue(key: key, message: &self, parsingObject: try textDecoder.nextTokenIsBeginObject())
                 state = .expectKey
             case .comma:
                 if state != .expectComma {

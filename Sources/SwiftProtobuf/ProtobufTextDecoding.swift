@@ -81,7 +81,16 @@ public struct ProtobufTextDecoder {
     public mutating func nextToken(expectKey:Bool = false) throws -> ProtobufTextToken? {
         return try scanner.next(expectKey:expectKey)
     }
-    
+
+    public func nextTokenIsBeginObject() throws -> Bool {
+        guard let nextToken = try scanner.next() else {throw ProtobufDecodingError.truncatedInput}
+        if (nextToken == .beginObject) {
+            return true
+        }
+        scanner.pushback(token: nextToken)
+        return false
+    }
+
     public mutating func decodeFullObject<M: ProtobufTextMessageBase>(message: inout M, alreadyInsideObject: Bool = false) throws {
         if alreadyInsideObject {
             try message.decodeFromTextObject(textDecoder: &self)
