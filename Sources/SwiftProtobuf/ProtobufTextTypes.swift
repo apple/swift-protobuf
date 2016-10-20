@@ -852,24 +852,24 @@ public extension ProtobufTextMessageBase {
         return false
     }
     
-    /// Decode an instance of this message type from the provided JSON string.
-    /// JSON "null" decodes to an empty object.
+    /// Decode an instance of this message type from the provided text format string.
+    /// Text format "null" decodes to an empty object.
     public init(text: String) throws {
         self.init()
         var textDecoder = ProtobufTextDecoder(text: text)
         try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
-        if !textDecoder.complete {
-            throw ProtobufDecodingError.trailingGarbage
-        }
+//        if !textDecoder.complete {
+//            throw ProtobufDecodingError.trailingGarbage
+//        }
     }
     
     public init(text: String, extensions: ProtobufExtensionSet) throws {
         self.init()
         var textDecoder = ProtobufTextDecoder(text: text, extensions: extensions)
         try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
-        if !textDecoder.complete {
-            throw ProtobufDecodingError.trailingGarbage
-        }
+//        if !textDecoder.complete {
+//            throw ProtobufDecodingError.trailingGarbage
+//        }
     }
     
     public static func decodeFromTextNull() -> Self? {
