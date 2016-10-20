@@ -114,6 +114,12 @@ public struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage {
     get {return _storage._anyValue ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyValue = newValue}
   }
+  public var hasAnyValue: Bool {
+    return _storage._anyValue != nil
+  }
+  public mutating func clearAnyValue() {
+    return _storage._anyValue = nil
+  }
 
   public var repeatedAnyValue: [Google_Protobuf_Any] {
     get {return _storage._repeatedAnyValue}

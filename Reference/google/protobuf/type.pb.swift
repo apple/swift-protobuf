@@ -242,6 +242,12 @@ public struct Google_Protobuf_Type: ProtobufGeneratedMessage {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
+  public var hasSourceContext: Bool {
+    return _storage._sourceContext != nil
+  }
+  public mutating func clearSourceContext() {
+    return _storage._sourceContext = nil
+  }
 
   ///   The source syntax.
   public var syntax: Google_Protobuf_Syntax {
@@ -861,6 +867,12 @@ public struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
+  public var hasSourceContext: Bool {
+    return _storage._sourceContext != nil
+  }
+  public mutating func clearSourceContext() {
+    return _storage._sourceContext = nil
+  }
 
   ///   The source syntax.
   public var syntax: Google_Protobuf_Syntax {
@@ -1017,6 +1029,12 @@ public struct Google_Protobuf_Option: ProtobufGeneratedMessage {
   public var value: Google_Protobuf_Any {
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
+  }
+  public var hasValue: Bool {
+    return _storage._value != nil
+  }
+  public mutating func clearValue() {
+    return _storage._value = nil
   }
 
   public init() {}

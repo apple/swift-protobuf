@@ -150,8 +150,8 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_package)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_package)
       case 3: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_dependency)
       case 10: handled = try setter.decodeRepeatedField(fieldType: ProtobufInt32.self, value: &_publicDependency)
       case 11: handled = try setter.decodeRepeatedField(fieldType: ProtobufInt32.self, value: &_weakDependency)
@@ -159,9 +159,9 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
       case 5: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_EnumDescriptorProto.self, value: &_enumType)
       case 6: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_ServiceDescriptorProto.self, value: &_service)
       case 7: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FieldDescriptorProto.self, value: &_extension_p)
-      case 8: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_FileOptions.self, value: &_options)
-      case 9: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_SourceCodeInfo.self, value: &_sourceCodeInfo)
-      case 12: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_syntax)
+      case 8: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FileOptions.self, value: &_options)
+      case 9: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceCodeInfo.self, value: &_sourceCodeInfo)
+      case 12: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_syntax)
       default:
         handled = false
       }
@@ -213,8 +213,8 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
-      if ((_package != nil || other._package != nil) && (_package == nil || other._package == nil || _package! != other._package!)) {return false}
+      if (_name != other._name) {return false}
+      if (_package != other._package) {return false}
       if _dependency != other._dependency {return false}
       if _publicDependency != other._publicDependency {return false}
       if _weakDependency != other._weakDependency {return false}
@@ -224,7 +224,7 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
       if _extension_p != other._extension_p {return false}
       if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if ((_sourceCodeInfo != nil || other._sourceCodeInfo != nil) && (_sourceCodeInfo == nil || other._sourceCodeInfo == nil || _sourceCodeInfo! != other._sourceCodeInfo!)) {return false}
-      if ((_syntax != nil || other._syntax != nil) && (_syntax == nil || other._syntax == nil || _syntax! != other._syntax!)) {return false}
+      if (_syntax != other._syntax) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -251,15 +251,27 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
   private var _storage = _StorageClass()
 
   ///   file name, relative to root of source tree
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
+  }
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
   }
 
   ///   e.g. "foo", "foo.bar", etc.
-  public var package: String? {
-    get {return _storage._package}
+  public var package: String {
+    get {return _storage._package ?? ""}
     set {_uniqueStorage()._package = newValue}
+  }
+  public var hasPackage: Bool {
+    return _storage._package != nil
+  }
+  public mutating func clearPackage() {
+    return _storage._package = nil
   }
 
   ///   Names of files imported by this file.
@@ -302,25 +314,43 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
     set {_uniqueStorage()._extension_p = newValue}
   }
 
-  public var options: Google_Protobuf_FileOptions? {
-    get {return _storage._options}
+  public var options: Google_Protobuf_FileOptions {
+    get {return _storage._options ?? Google_Protobuf_FileOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   ///   This field contains optional information about the original source code.
   ///   You may safely remove this entire field without harming runtime
   ///   functionality of the descriptors -- the information is needed only by
   ///   development tools.
-  public var sourceCodeInfo: Google_Protobuf_SourceCodeInfo? {
-    get {return _storage._sourceCodeInfo}
+  public var sourceCodeInfo: Google_Protobuf_SourceCodeInfo {
+    get {return _storage._sourceCodeInfo ?? Google_Protobuf_SourceCodeInfo()}
     set {_uniqueStorage()._sourceCodeInfo = newValue}
+  }
+  public var hasSourceCodeInfo: Bool {
+    return _storage._sourceCodeInfo != nil
+  }
+  public mutating func clearSourceCodeInfo() {
+    return _storage._sourceCodeInfo = nil
   }
 
   ///   The syntax of the proto file.
   ///   The supported values are "proto2" and "proto3".
-  public var syntax: String? {
-    get {return _storage._syntax}
+  public var syntax: String {
+    get {return _storage._syntax ?? ""}
     set {_uniqueStorage()._syntax = newValue}
+  }
+  public var hasSyntax: Bool {
+    return _storage._syntax != nil
+  }
+  public mutating func clearSyntax() {
+    return _storage._syntax = nil
   }
 
   public init() {}
@@ -394,14 +424,14 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
       case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FieldDescriptorProto.self, value: &_field)
       case 6: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FieldDescriptorProto.self, value: &_extension_p)
       case 3: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_DescriptorProto.self, value: &_nestedType)
       case 4: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_EnumDescriptorProto.self, value: &_enumType)
       case 5: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_DescriptorProto.ExtensionRange.self, value: &_extensionRange)
       case 8: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_OneofDescriptorProto.self, value: &_oneofDecl)
-      case 7: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_MessageOptions.self, value: &_options)
+      case 7: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_MessageOptions.self, value: &_options)
       case 9: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_DescriptorProto.ReservedRange.self, value: &_reservedRange)
       case 10: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_reservedName)
       default:
@@ -449,7 +479,7 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
+      if (_name != other._name) {return false}
       if _field != other._field {return false}
       if _extension_p != other._extension_p {return false}
       if _nestedType != other._nestedType {return false}
@@ -497,17 +527,37 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public var start: Int32? = nil
+    private var _start: Int32? = nil
+    public var start: Int32 {
+      get {return _start ?? 0}
+      set {_start = newValue}
+    }
+    public var hasStart: Bool {
+      return _start != nil
+    }
+    public mutating func clearStart() {
+      return _start = nil
+    }
 
-    public var end: Int32? = nil
+    private var _end: Int32? = nil
+    public var end: Int32 {
+      get {return _end ?? 0}
+      set {_end = newValue}
+    }
+    public var hasEnd: Bool {
+      return _end != nil
+    }
+    public mutating func clearEnd() {
+      return _end = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &start)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &end)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_start)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_end)
       default:
         handled = false
       }
@@ -519,18 +569,18 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      if let v = start {
+      if let v = _start {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "start", jsonFieldName: "start", swiftFieldName: "start")
       }
-      if let v = end {
+      if let v = _end {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 2, protoFieldName: "end", jsonFieldName: "end", swiftFieldName: "end")
       }
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
-      if ((start != nil || other.start != nil) && (start == nil || other.start == nil || start! != other.start!)) {return false}
-      if ((end != nil || other.end != nil) && (end == nil || other.end == nil || end! != other.end!)) {return false}
+      if (start != other.start) {return false}
+      if (end != other.end) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -555,18 +605,38 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
     var unknown = ProtobufUnknownStorage()
 
     ///   Inclusive.
-    public var start: Int32? = nil
+    private var _start: Int32? = nil
+    public var start: Int32 {
+      get {return _start ?? 0}
+      set {_start = newValue}
+    }
+    public var hasStart: Bool {
+      return _start != nil
+    }
+    public mutating func clearStart() {
+      return _start = nil
+    }
 
     ///   Exclusive.
-    public var end: Int32? = nil
+    private var _end: Int32? = nil
+    public var end: Int32 {
+      get {return _end ?? 0}
+      set {_end = newValue}
+    }
+    public var hasEnd: Bool {
+      return _end != nil
+    }
+    public mutating func clearEnd() {
+      return _end = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &start)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &end)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_start)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_end)
       default:
         handled = false
       }
@@ -578,26 +648,32 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      if let v = start {
+      if let v = _start {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "start", jsonFieldName: "start", swiftFieldName: "start")
       }
-      if let v = end {
+      if let v = _end {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 2, protoFieldName: "end", jsonFieldName: "end", swiftFieldName: "end")
       }
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
-      if ((start != nil || other.start != nil) && (start == nil || other.start == nil || start! != other.start!)) {return false}
-      if ((end != nil || other.end != nil) && (end == nil || other.end == nil || end! != other.end!)) {return false}
+      if (start != other.start) {return false}
+      if (end != other.end) {return false}
       if unknown != other.unknown {return false}
       return true
     }
   }
 
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
+  }
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
   }
 
   public var field: [Google_Protobuf_FieldDescriptorProto] {
@@ -630,9 +706,15 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
     set {_uniqueStorage()._oneofDecl = newValue}
   }
 
-  public var options: Google_Protobuf_MessageOptions? {
-    get {return _storage._options}
+  public var options: Google_Protobuf_MessageOptions {
+    get {return _storage._options ?? Google_Protobuf_MessageOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   public var reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] {
@@ -718,16 +800,16 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
-      case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_number)
-      case 4: handled = try setter.decodeOptionalField(fieldType: Google_Protobuf_FieldDescriptorProto.Label.self, value: &_label)
-      case 5: handled = try setter.decodeOptionalField(fieldType: Google_Protobuf_FieldDescriptorProto.TypeEnum.self, value: &_type)
-      case 6: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_typeName)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_extendee)
-      case 7: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_defaultValue)
-      case 9: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_oneofIndex)
-      case 10: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_jsonName)
-      case 8: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_FieldOptions.self, value: &_options)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_number)
+      case 4: handled = try setter.decodeSingularField(fieldType: Google_Protobuf_FieldDescriptorProto.Label.self, value: &_label)
+      case 5: handled = try setter.decodeSingularField(fieldType: Google_Protobuf_FieldDescriptorProto.TypeEnum.self, value: &_type)
+      case 6: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_typeName)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_extendee)
+      case 7: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultValue)
+      case 9: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_oneofIndex)
+      case 10: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_jsonName)
+      case 8: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldOptions.self, value: &_options)
       default:
         handled = false
       }
@@ -773,15 +855,15 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
-      if ((_number != nil || other._number != nil) && (_number == nil || other._number == nil || _number! != other._number!)) {return false}
-      if ((_label != nil || other._label != nil) && (_label == nil || other._label == nil || _label! != other._label!)) {return false}
-      if ((_type != nil || other._type != nil) && (_type == nil || other._type == nil || _type! != other._type!)) {return false}
-      if ((_typeName != nil || other._typeName != nil) && (_typeName == nil || other._typeName == nil || _typeName! != other._typeName!)) {return false}
-      if ((_extendee != nil || other._extendee != nil) && (_extendee == nil || other._extendee == nil || _extendee! != other._extendee!)) {return false}
-      if ((_defaultValue != nil || other._defaultValue != nil) && (_defaultValue == nil || other._defaultValue == nil || _defaultValue! != other._defaultValue!)) {return false}
-      if ((_oneofIndex != nil || other._oneofIndex != nil) && (_oneofIndex == nil || other._oneofIndex == nil || _oneofIndex! != other._oneofIndex!)) {return false}
-      if ((_jsonName != nil || other._jsonName != nil) && (_jsonName == nil || other._jsonName == nil || _jsonName! != other._jsonName!)) {return false}
+      if (_name != other._name) {return false}
+      if (_number != other._number) {return false}
+      if (_label != other._label) {return false}
+      if (_type != other._type) {return false}
+      if (_typeName != other._typeName) {return false}
+      if (_extendee != other._extendee) {return false}
+      if (_defaultValue != other._defaultValue) {return false}
+      if (_oneofIndex != other._oneofIndex) {return false}
+      if (_jsonName != other._jsonName) {return false}
       if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
@@ -1109,26 +1191,50 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
 
   }
 
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-
-  public var number: Int32? {
-    get {return _storage._number}
-    set {_uniqueStorage()._number = newValue}
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
   }
 
-  public var label: Google_Protobuf_FieldDescriptorProto.Label? {
-    get {return _storage._label}
+  public var number: Int32 {
+    get {return _storage._number ?? 0}
+    set {_uniqueStorage()._number = newValue}
+  }
+  public var hasNumber: Bool {
+    return _storage._number != nil
+  }
+  public mutating func clearNumber() {
+    return _storage._number = nil
+  }
+
+  public var label: Google_Protobuf_FieldDescriptorProto.Label {
+    get {return _storage._label ?? Google_Protobuf_FieldDescriptorProto.Label.`optional`}
     set {_uniqueStorage()._label = newValue}
+  }
+  public var hasLabel: Bool {
+    return _storage._label != nil
+  }
+  public mutating func clearLabel() {
+    return _storage._label = nil
   }
 
   ///   If type_name is set, this need not be set.  If both this and type_name
   ///   are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
-  public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum? {
-    get {return _storage._type}
+  public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum {
+    get {return _storage._type ?? Google_Protobuf_FieldDescriptorProto.TypeEnum.double}
     set {_uniqueStorage()._type = newValue}
+  }
+  public var hasType: Bool {
+    return _storage._type != nil
+  }
+  public mutating func clearType() {
+    return _storage._type = nil
   }
 
   ///   For message and enum types, this is the name of the type.  If the name
@@ -1136,16 +1242,28 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   ///   rules are used to find the type (i.e. first the nested types within this
   ///   message are searched, then within the parent, on up to the root
   ///   namespace).
-  public var typeName: String? {
-    get {return _storage._typeName}
+  public var typeName: String {
+    get {return _storage._typeName ?? ""}
     set {_uniqueStorage()._typeName = newValue}
+  }
+  public var hasTypeName: Bool {
+    return _storage._typeName != nil
+  }
+  public mutating func clearTypeName() {
+    return _storage._typeName = nil
   }
 
   ///   For extensions, this is the name of the type being extended.  It is
   ///   resolved in the same manner as type_name.
-  public var extendee: String? {
-    get {return _storage._extendee}
+  public var extendee: String {
+    get {return _storage._extendee ?? ""}
     set {_uniqueStorage()._extendee = newValue}
+  }
+  public var hasExtendee: Bool {
+    return _storage._extendee != nil
+  }
+  public mutating func clearExtendee() {
+    return _storage._extendee = nil
   }
 
   ///   For numeric types, contains the original text representation of the value.
@@ -1153,30 +1271,54 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   ///   For strings, contains the default text contents (not escaped in any way).
   ///   For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
   ///   TODO(kenton):  Base-64 encode?
-  public var defaultValue: String? {
-    get {return _storage._defaultValue}
+  public var defaultValue: String {
+    get {return _storage._defaultValue ?? ""}
     set {_uniqueStorage()._defaultValue = newValue}
+  }
+  public var hasDefaultValue: Bool {
+    return _storage._defaultValue != nil
+  }
+  public mutating func clearDefaultValue() {
+    return _storage._defaultValue = nil
   }
 
   ///   If set, gives the index of a oneof in the containing type's oneof_decl
   ///   list.  This field is a member of that oneof.
-  public var oneofIndex: Int32? {
-    get {return _storage._oneofIndex}
+  public var oneofIndex: Int32 {
+    get {return _storage._oneofIndex ?? 0}
     set {_uniqueStorage()._oneofIndex = newValue}
+  }
+  public var hasOneofIndex: Bool {
+    return _storage._oneofIndex != nil
+  }
+  public mutating func clearOneofIndex() {
+    return _storage._oneofIndex = nil
   }
 
   ///   JSON name of this field. The value is set by protocol compiler. If the
   ///   user has set a "json_name" option on this field, that option's value
   ///   will be used. Otherwise, it's deduced from the field's name by converting
   ///   it to camelCase.
-  public var jsonName: String? {
-    get {return _storage._jsonName}
+  public var jsonName: String {
+    get {return _storage._jsonName ?? ""}
     set {_uniqueStorage()._jsonName = newValue}
   }
+  public var hasJsonName: Bool {
+    return _storage._jsonName != nil
+  }
+  public mutating func clearJsonName() {
+    return _storage._jsonName = nil
+  }
 
-  public var options: Google_Protobuf_FieldOptions? {
-    get {return _storage._options}
+  public var options: Google_Protobuf_FieldOptions {
+    get {return _storage._options ?? Google_Protobuf_FieldOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   public init() {}
@@ -1226,8 +1368,8 @@ public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
-      case 2: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_OneofOptions.self, value: &_options)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 2: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_OneofOptions.self, value: &_options)
       default:
         handled = false
       }
@@ -1249,7 +1391,7 @@ public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
+      if (_name != other._name) {return false}
       if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
@@ -1266,14 +1408,26 @@ public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
+  }
 
-  public var options: Google_Protobuf_OneofOptions? {
-    get {return _storage._options}
+  public var options: Google_Protobuf_OneofOptions {
+    get {return _storage._options ?? Google_Protobuf_OneofOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   public init() {}
@@ -1326,9 +1480,9 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
       case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_EnumValueDescriptorProto.self, value: &_value)
-      case 3: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_EnumOptions.self, value: &_options)
+      case 3: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_EnumOptions.self, value: &_options)
       default:
         handled = false
       }
@@ -1353,7 +1507,7 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
+      if (_name != other._name) {return false}
       if _value != other._value {return false}
       if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
@@ -1372,9 +1526,15 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
+  }
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
   }
 
   public var value: [Google_Protobuf_EnumValueDescriptorProto] {
@@ -1382,9 +1542,15 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
     set {_uniqueStorage()._value = newValue}
   }
 
-  public var options: Google_Protobuf_EnumOptions? {
-    get {return _storage._options}
+  public var options: Google_Protobuf_EnumOptions {
+    get {return _storage._options ?? Google_Protobuf_EnumOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   public init() {}
@@ -1437,9 +1603,9 @@ public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_number)
-      case 3: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_EnumValueOptions.self, value: &_options)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_number)
+      case 3: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_EnumValueOptions.self, value: &_options)
       default:
         handled = false
       }
@@ -1464,8 +1630,8 @@ public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
-      if ((_number != nil || other._number != nil) && (_number == nil || other._number == nil || _number! != other._number!)) {return false}
+      if (_name != other._name) {return false}
+      if (_number != other._number) {return false}
       if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
       return true
@@ -1483,19 +1649,37 @@ public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage
 
   private var _storage = _StorageClass()
 
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-
-  public var number: Int32? {
-    get {return _storage._number}
-    set {_uniqueStorage()._number = newValue}
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
   }
 
-  public var options: Google_Protobuf_EnumValueOptions? {
-    get {return _storage._options}
+  public var number: Int32 {
+    get {return _storage._number ?? 0}
+    set {_uniqueStorage()._number = newValue}
+  }
+  public var hasNumber: Bool {
+    return _storage._number != nil
+  }
+  public mutating func clearNumber() {
+    return _storage._number = nil
+  }
+
+  public var options: Google_Protobuf_EnumValueOptions {
+    get {return _storage._options ?? Google_Protobuf_EnumValueOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   public init() {}
@@ -1548,9 +1732,9 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
       case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_MethodDescriptorProto.self, value: &_method)
-      case 3: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_ServiceOptions.self, value: &_options)
+      case 3: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_ServiceOptions.self, value: &_options)
       default:
         handled = false
       }
@@ -1575,7 +1759,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
+      if (_name != other._name) {return false}
       if _method != other._method {return false}
       if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if unknown != other.unknown {return false}
@@ -1594,9 +1778,15 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
+  }
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
   }
 
   public var method: [Google_Protobuf_MethodDescriptorProto] {
@@ -1604,9 +1794,15 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
     set {_uniqueStorage()._method = newValue}
   }
 
-  public var options: Google_Protobuf_ServiceOptions? {
-    get {return _storage._options}
+  public var options: Google_Protobuf_ServiceOptions {
+    get {return _storage._options ?? Google_Protobuf_ServiceOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   public init() {}
@@ -1668,12 +1864,12 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_name)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_inputType)
-      case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_outputType)
-      case 4: handled = try setter.decodeOptionalMessageField(fieldType: Google_Protobuf_MethodOptions.self, value: &_options)
-      case 5: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &_clientStreaming)
-      case 6: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &_serverStreaming)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_inputType)
+      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_outputType)
+      case 4: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_MethodOptions.self, value: &_options)
+      case 5: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_clientStreaming)
+      case 6: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_serverStreaming)
       default:
         handled = false
       }
@@ -1707,9 +1903,9 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
-      if ((_inputType != nil || other._inputType != nil) && (_inputType == nil || other._inputType == nil || _inputType! != other._inputType!)) {return false}
-      if ((_outputType != nil || other._outputType != nil) && (_outputType == nil || other._outputType == nil || _outputType! != other._outputType!)) {return false}
+      if (_name != other._name) {return false}
+      if (_inputType != other._inputType) {return false}
+      if (_outputType != other._outputType) {return false}
       if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
       if (((_clientStreaming != nil && _clientStreaming! != false) || (other._clientStreaming != nil && other._clientStreaming! != false)) && (_clientStreaming == nil || other._clientStreaming == nil || _clientStreaming! != other._clientStreaming!)) {return false}
       if (((_serverStreaming != nil && _serverStreaming! != false) || (other._serverStreaming != nil && other._serverStreaming! != false)) && (_serverStreaming == nil || other._serverStreaming == nil || _serverStreaming! != other._serverStreaming!)) {return false}
@@ -1732,38 +1928,74 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public var name: String? {
-    get {return _storage._name}
+  public var name: String {
+    get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
+  }
+  public var hasName: Bool {
+    return _storage._name != nil
+  }
+  public mutating func clearName() {
+    return _storage._name = nil
   }
 
   ///   Input and output type names.  These are resolved in the same way as
   ///   FieldDescriptorProto.type_name, but must refer to a message type.
-  public var inputType: String? {
-    get {return _storage._inputType}
+  public var inputType: String {
+    get {return _storage._inputType ?? ""}
     set {_uniqueStorage()._inputType = newValue}
   }
-
-  public var outputType: String? {
-    get {return _storage._outputType}
-    set {_uniqueStorage()._outputType = newValue}
+  public var hasInputType: Bool {
+    return _storage._inputType != nil
+  }
+  public mutating func clearInputType() {
+    return _storage._inputType = nil
   }
 
-  public var options: Google_Protobuf_MethodOptions? {
-    get {return _storage._options}
+  public var outputType: String {
+    get {return _storage._outputType ?? ""}
+    set {_uniqueStorage()._outputType = newValue}
+  }
+  public var hasOutputType: Bool {
+    return _storage._outputType != nil
+  }
+  public mutating func clearOutputType() {
+    return _storage._outputType = nil
+  }
+
+  public var options: Google_Protobuf_MethodOptions {
+    get {return _storage._options ?? Google_Protobuf_MethodOptions()}
     set {_uniqueStorage()._options = newValue}
+  }
+  public var hasOptions: Bool {
+    return _storage._options != nil
+  }
+  public mutating func clearOptions() {
+    return _storage._options = nil
   }
 
   ///   Identifies if client streams multiple client messages
-  public var clientStreaming: Bool? {
+  public var clientStreaming: Bool {
     get {return _storage._clientStreaming ?? false}
     set {_uniqueStorage()._clientStreaming = newValue}
   }
+  public var hasClientStreaming: Bool {
+    return _storage._clientStreaming != nil
+  }
+  public mutating func clearClientStreaming() {
+    return _storage._clientStreaming = nil
+  }
 
   ///   Identifies if server streams multiple server messages
-  public var serverStreaming: Bool? {
+  public var serverStreaming: Bool {
     get {return _storage._serverStreaming ?? false}
     set {_uniqueStorage()._serverStreaming = newValue}
+  }
+  public var hasServerStreaming: Bool {
+    return _storage._serverStreaming != nil
+  }
+  public mutating func clearServerStreaming() {
+    return _storage._serverStreaming = nil
   }
 
   public init() {}
@@ -1954,14 +2186,34 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   placed.  By default, the proto package is used, but this is often
   ///   inappropriate because proto packages do not normally start with backwards
   ///   domain names.
-  public var javaPackage: String? = nil
+  private var _javaPackage: String? = nil
+  public var javaPackage: String {
+    get {return _javaPackage ?? ""}
+    set {_javaPackage = newValue}
+  }
+  public var hasJavaPackage: Bool {
+    return _javaPackage != nil
+  }
+  public mutating func clearJavaPackage() {
+    return _javaPackage = nil
+  }
 
   ///   If set, all the classes from the .proto file are wrapped in a single
   ///   outer class with the given name.  This applies to both Proto1
   ///   (equivalent to the old "--one_java_file" option) and Proto2 (where
   ///   a .proto always translates to a single class, but you may want to
   ///   explicitly choose the class name).
-  public var javaOuterClassname: String? = nil
+  private var _javaOuterClassname: String? = nil
+  public var javaOuterClassname: String {
+    get {return _javaOuterClassname ?? ""}
+    set {_javaOuterClassname = newValue}
+  }
+  public var hasJavaOuterClassname: Bool {
+    return _javaOuterClassname != nil
+  }
+  public mutating func clearJavaOuterClassname() {
+    return _javaOuterClassname = nil
+  }
 
   ///   If set true, then the Java code generator will generate a separate .java
   ///   file for each top-level message, enum, and service defined in the .proto
@@ -1970,9 +2222,15 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   generated to contain the file's getDescriptor() method as well as any
   ///   top-level extensions defined in the file.
   private var _javaMultipleFiles: Bool? = nil
-  public var javaMultipleFiles: Bool? {
+  public var javaMultipleFiles: Bool {
     get {return _javaMultipleFiles ?? false}
     set {_javaMultipleFiles = newValue}
+  }
+  public var hasJavaMultipleFiles: Bool {
+    return _javaMultipleFiles != nil
+  }
+  public mutating func clearJavaMultipleFiles() {
+    return _javaMultipleFiles = nil
   }
 
   ///   If set true, then the Java code generator will generate equals() and
@@ -1988,9 +2246,15 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   than object identity. (Implementations should not assume that hashcodes
   ///   will be consistent across runtimes or versions of the protocol compiler.)
   private var _javaGenerateEqualsAndHash: Bool? = nil
-  public var javaGenerateEqualsAndHash: Bool? {
+  public var javaGenerateEqualsAndHash: Bool {
     get {return _javaGenerateEqualsAndHash ?? false}
     set {_javaGenerateEqualsAndHash = newValue}
+  }
+  public var hasJavaGenerateEqualsAndHash: Bool {
+    return _javaGenerateEqualsAndHash != nil
+  }
+  public mutating func clearJavaGenerateEqualsAndHash() {
+    return _javaGenerateEqualsAndHash = nil
   }
 
   ///   If set true, then the Java2 code generator will generate code that
@@ -2000,15 +2264,27 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   However, an extension field still accepts non-UTF-8 byte sequences.
   ///   This option has no effect on when used with the lite runtime.
   private var _javaStringCheckUtf8: Bool? = nil
-  public var javaStringCheckUtf8: Bool? {
+  public var javaStringCheckUtf8: Bool {
     get {return _javaStringCheckUtf8 ?? false}
     set {_javaStringCheckUtf8 = newValue}
   }
+  public var hasJavaStringCheckUtf8: Bool {
+    return _javaStringCheckUtf8 != nil
+  }
+  public mutating func clearJavaStringCheckUtf8() {
+    return _javaStringCheckUtf8 = nil
+  }
 
   private var _optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? = nil
-  public var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? {
+  public var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode {
     get {return _optimizeFor ?? Google_Protobuf_FileOptions.OptimizeMode.speed}
     set {_optimizeFor = newValue}
+  }
+  public var hasOptimizeFor: Bool {
+    return _optimizeFor != nil
+  }
+  public mutating func clearOptimizeFor() {
+    return _optimizeFor = nil
   }
 
   ///   Sets the Go package where structs generated from this .proto will be
@@ -2016,7 +2292,17 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///     - The basename of the package import path, if provided.
   ///     - Otherwise, the package statement in the .proto file, if present.
   ///     - Otherwise, the basename of the .proto file, without extension.
-  public var goPackage: String? = nil
+  private var _goPackage: String? = nil
+  public var goPackage: String {
+    get {return _goPackage ?? ""}
+    set {_goPackage = newValue}
+  }
+  public var hasGoPackage: Bool {
+    return _goPackage != nil
+  }
+  public mutating func clearGoPackage() {
+    return _goPackage = nil
+  }
 
   ///   Should generic services be generated in each language?  "Generic" services
   ///   are not specific to any particular RPC system.  They are generated by the
@@ -2029,21 +2315,39 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   these default to false.  Old code which depends on generic services should
   ///   explicitly set them to true.
   private var _ccGenericServices: Bool? = nil
-  public var ccGenericServices: Bool? {
+  public var ccGenericServices: Bool {
     get {return _ccGenericServices ?? false}
     set {_ccGenericServices = newValue}
   }
+  public var hasCcGenericServices: Bool {
+    return _ccGenericServices != nil
+  }
+  public mutating func clearCcGenericServices() {
+    return _ccGenericServices = nil
+  }
 
   private var _javaGenericServices: Bool? = nil
-  public var javaGenericServices: Bool? {
+  public var javaGenericServices: Bool {
     get {return _javaGenericServices ?? false}
     set {_javaGenericServices = newValue}
   }
+  public var hasJavaGenericServices: Bool {
+    return _javaGenericServices != nil
+  }
+  public mutating func clearJavaGenericServices() {
+    return _javaGenericServices = nil
+  }
 
   private var _pyGenericServices: Bool? = nil
-  public var pyGenericServices: Bool? {
+  public var pyGenericServices: Bool {
     get {return _pyGenericServices ?? false}
     set {_pyGenericServices = newValue}
+  }
+  public var hasPyGenericServices: Bool {
+    return _pyGenericServices != nil
+  }
+  public mutating func clearPyGenericServices() {
+    return _pyGenericServices = nil
   }
 
   ///   Is this file deprecated?
@@ -2051,29 +2355,71 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   ///   for everything in the file, or it will be completely ignored; in the very
   ///   least, this is a formalization for deprecating files.
   private var _deprecated: Bool? = nil
-  public var deprecated: Bool? {
+  public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
+  }
+  public var hasDeprecated: Bool {
+    return _deprecated != nil
+  }
+  public mutating func clearDeprecated() {
+    return _deprecated = nil
   }
 
   ///   Enables the use of arenas for the proto messages in this file. This applies
   ///   only to generated classes for C++.
   private var _ccEnableArenas: Bool? = nil
-  public var ccEnableArenas: Bool? {
+  public var ccEnableArenas: Bool {
     get {return _ccEnableArenas ?? false}
     set {_ccEnableArenas = newValue}
+  }
+  public var hasCcEnableArenas: Bool {
+    return _ccEnableArenas != nil
+  }
+  public mutating func clearCcEnableArenas() {
+    return _ccEnableArenas = nil
   }
 
   ///   Sets the objective c class prefix which is prepended to all objective c
   ///   generated classes from this .proto. There is no default.
-  public var objcClassPrefix: String? = nil
+  private var _objcClassPrefix: String? = nil
+  public var objcClassPrefix: String {
+    get {return _objcClassPrefix ?? ""}
+    set {_objcClassPrefix = newValue}
+  }
+  public var hasObjcClassPrefix: Bool {
+    return _objcClassPrefix != nil
+  }
+  public mutating func clearObjcClassPrefix() {
+    return _objcClassPrefix = nil
+  }
 
   ///   Namespace for generated classes; defaults to the package.
-  public var csharpNamespace: String? = nil
+  private var _csharpNamespace: String? = nil
+  public var csharpNamespace: String {
+    get {return _csharpNamespace ?? ""}
+    set {_csharpNamespace = newValue}
+  }
+  public var hasCsharpNamespace: Bool {
+    return _csharpNamespace != nil
+  }
+  public mutating func clearCsharpNamespace() {
+    return _csharpNamespace = nil
+  }
 
   ///   Prefix prepended to all Swift generated top-level types.
   ///   Default is CamelCased package name.
-  public var swiftPrefix: String? = nil
+  private var _swiftPrefix: String? = nil
+  public var swiftPrefix: String {
+    get {return _swiftPrefix ?? ""}
+    set {_swiftPrefix = newValue}
+  }
+  public var hasSwiftPrefix: Bool {
+    return _swiftPrefix != nil
+  }
+  public mutating func clearSwiftPrefix() {
+    return _swiftPrefix = nil
+  }
 
   ///   The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -2083,21 +2429,21 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &javaPackage)
-    case 8: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &javaOuterClassname)
-    case 10: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &javaMultipleFiles)
-    case 20: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &javaGenerateEqualsAndHash)
-    case 27: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &javaStringCheckUtf8)
-    case 9: handled = try setter.decodeOptionalField(fieldType: Google_Protobuf_FileOptions.OptimizeMode.self, value: &optimizeFor)
-    case 11: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &goPackage)
-    case 16: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &ccGenericServices)
-    case 17: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &javaGenericServices)
-    case 18: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &pyGenericServices)
-    case 23: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &deprecated)
-    case 31: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &ccEnableArenas)
-    case 36: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &objcClassPrefix)
-    case 37: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &csharpNamespace)
-    case 39: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &swiftPrefix)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_javaPackage)
+    case 8: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_javaOuterClassname)
+    case 10: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_javaMultipleFiles)
+    case 20: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_javaGenerateEqualsAndHash)
+    case 27: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_javaStringCheckUtf8)
+    case 9: handled = try setter.decodeSingularField(fieldType: Google_Protobuf_FileOptions.OptimizeMode.self, value: &_optimizeFor)
+    case 11: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_goPackage)
+    case 16: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_ccGenericServices)
+    case 17: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_javaGenericServices)
+    case 18: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_pyGenericServices)
+    case 23: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
+    case 31: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_ccEnableArenas)
+    case 36: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_objcClassPrefix)
+    case 37: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_csharpNamespace)
+    case 39: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_swiftPrefix)
     case 999: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -2114,49 +2460,49 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = javaPackage {
+    if let v = _javaPackage {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "java_package", jsonFieldName: "javaPackage", swiftFieldName: "javaPackage")
     }
-    if let v = javaOuterClassname {
+    if let v = _javaOuterClassname {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 8, protoFieldName: "java_outer_classname", jsonFieldName: "javaOuterClassname", swiftFieldName: "javaOuterClassname")
     }
-    if let v = optimizeFor {
+    if let v = _optimizeFor {
       try visitor.visitSingularField(fieldType: Google_Protobuf_FileOptions.OptimizeMode.self, value: v, protoFieldNumber: 9, protoFieldName: "optimize_for", jsonFieldName: "optimizeFor", swiftFieldName: "optimizeFor")
     }
-    if let v = javaMultipleFiles {
+    if let v = _javaMultipleFiles {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 10, protoFieldName: "java_multiple_files", jsonFieldName: "javaMultipleFiles", swiftFieldName: "javaMultipleFiles")
     }
-    if let v = goPackage {
+    if let v = _goPackage {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 11, protoFieldName: "go_package", jsonFieldName: "goPackage", swiftFieldName: "goPackage")
     }
-    if let v = ccGenericServices {
+    if let v = _ccGenericServices {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 16, protoFieldName: "cc_generic_services", jsonFieldName: "ccGenericServices", swiftFieldName: "ccGenericServices")
     }
-    if let v = javaGenericServices {
+    if let v = _javaGenericServices {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 17, protoFieldName: "java_generic_services", jsonFieldName: "javaGenericServices", swiftFieldName: "javaGenericServices")
     }
-    if let v = pyGenericServices {
+    if let v = _pyGenericServices {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 18, protoFieldName: "py_generic_services", jsonFieldName: "pyGenericServices", swiftFieldName: "pyGenericServices")
     }
-    if let v = javaGenerateEqualsAndHash {
+    if let v = _javaGenerateEqualsAndHash {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 20, protoFieldName: "java_generate_equals_and_hash", jsonFieldName: "javaGenerateEqualsAndHash", swiftFieldName: "javaGenerateEqualsAndHash")
     }
-    if let v = deprecated {
+    if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 23, protoFieldName: "deprecated", jsonFieldName: "deprecated", swiftFieldName: "deprecated")
     }
-    if let v = javaStringCheckUtf8 {
+    if let v = _javaStringCheckUtf8 {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 27, protoFieldName: "java_string_check_utf8", jsonFieldName: "javaStringCheckUtf8", swiftFieldName: "javaStringCheckUtf8")
     }
-    if let v = ccEnableArenas {
+    if let v = _ccEnableArenas {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 31, protoFieldName: "cc_enable_arenas", jsonFieldName: "ccEnableArenas", swiftFieldName: "ccEnableArenas")
     }
-    if let v = objcClassPrefix {
+    if let v = _objcClassPrefix {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 36, protoFieldName: "objc_class_prefix", jsonFieldName: "objcClassPrefix", swiftFieldName: "objcClassPrefix")
     }
-    if let v = csharpNamespace {
+    if let v = _csharpNamespace {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 37, protoFieldName: "csharp_namespace", jsonFieldName: "csharpNamespace", swiftFieldName: "csharpNamespace")
     }
-    if let v = swiftPrefix {
+    if let v = _swiftPrefix {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 39, protoFieldName: "swift_prefix", jsonFieldName: "swiftPrefix", swiftFieldName: "swiftPrefix")
     }
     if !uninterpretedOption.isEmpty {
@@ -2167,21 +2513,21 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
-    if ((javaPackage != nil || other.javaPackage != nil) && (javaPackage == nil || other.javaPackage == nil || javaPackage! != other.javaPackage!)) {return false}
-    if ((javaOuterClassname != nil || other.javaOuterClassname != nil) && (javaOuterClassname == nil || other.javaOuterClassname == nil || javaOuterClassname! != other.javaOuterClassname!)) {return false}
-    if (((javaMultipleFiles != nil && javaMultipleFiles! != false) || (other.javaMultipleFiles != nil && other.javaMultipleFiles! != false)) && (javaMultipleFiles == nil || other.javaMultipleFiles == nil || javaMultipleFiles! != other.javaMultipleFiles!)) {return false}
-    if (((javaGenerateEqualsAndHash != nil && javaGenerateEqualsAndHash! != false) || (other.javaGenerateEqualsAndHash != nil && other.javaGenerateEqualsAndHash! != false)) && (javaGenerateEqualsAndHash == nil || other.javaGenerateEqualsAndHash == nil || javaGenerateEqualsAndHash! != other.javaGenerateEqualsAndHash!)) {return false}
-    if (((javaStringCheckUtf8 != nil && javaStringCheckUtf8! != false) || (other.javaStringCheckUtf8 != nil && other.javaStringCheckUtf8! != false)) && (javaStringCheckUtf8 == nil || other.javaStringCheckUtf8 == nil || javaStringCheckUtf8! != other.javaStringCheckUtf8!)) {return false}
-    if (((optimizeFor != nil && optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed) || (other.optimizeFor != nil && other.optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed)) && (optimizeFor == nil || other.optimizeFor == nil || optimizeFor! != other.optimizeFor!)) {return false}
-    if ((goPackage != nil || other.goPackage != nil) && (goPackage == nil || other.goPackage == nil || goPackage! != other.goPackage!)) {return false}
-    if (((ccGenericServices != nil && ccGenericServices! != false) || (other.ccGenericServices != nil && other.ccGenericServices! != false)) && (ccGenericServices == nil || other.ccGenericServices == nil || ccGenericServices! != other.ccGenericServices!)) {return false}
-    if (((javaGenericServices != nil && javaGenericServices! != false) || (other.javaGenericServices != nil && other.javaGenericServices! != false)) && (javaGenericServices == nil || other.javaGenericServices == nil || javaGenericServices! != other.javaGenericServices!)) {return false}
-    if (((pyGenericServices != nil && pyGenericServices! != false) || (other.pyGenericServices != nil && other.pyGenericServices! != false)) && (pyGenericServices == nil || other.pyGenericServices == nil || pyGenericServices! != other.pyGenericServices!)) {return false}
-    if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
-    if (((ccEnableArenas != nil && ccEnableArenas! != false) || (other.ccEnableArenas != nil && other.ccEnableArenas! != false)) && (ccEnableArenas == nil || other.ccEnableArenas == nil || ccEnableArenas! != other.ccEnableArenas!)) {return false}
-    if ((objcClassPrefix != nil || other.objcClassPrefix != nil) && (objcClassPrefix == nil || other.objcClassPrefix == nil || objcClassPrefix! != other.objcClassPrefix!)) {return false}
-    if ((csharpNamespace != nil || other.csharpNamespace != nil) && (csharpNamespace == nil || other.csharpNamespace == nil || csharpNamespace! != other.csharpNamespace!)) {return false}
-    if ((swiftPrefix != nil || other.swiftPrefix != nil) && (swiftPrefix == nil || other.swiftPrefix == nil || swiftPrefix! != other.swiftPrefix!)) {return false}
+    if (javaPackage != other.javaPackage) {return false}
+    if (javaOuterClassname != other.javaOuterClassname) {return false}
+    if (((_javaMultipleFiles != nil && _javaMultipleFiles! != false) || (other._javaMultipleFiles != nil && other._javaMultipleFiles! != false)) && (_javaMultipleFiles == nil || other._javaMultipleFiles == nil || _javaMultipleFiles! != other._javaMultipleFiles!)) {return false}
+    if (((_javaGenerateEqualsAndHash != nil && _javaGenerateEqualsAndHash! != false) || (other._javaGenerateEqualsAndHash != nil && other._javaGenerateEqualsAndHash! != false)) && (_javaGenerateEqualsAndHash == nil || other._javaGenerateEqualsAndHash == nil || _javaGenerateEqualsAndHash! != other._javaGenerateEqualsAndHash!)) {return false}
+    if (((_javaStringCheckUtf8 != nil && _javaStringCheckUtf8! != false) || (other._javaStringCheckUtf8 != nil && other._javaStringCheckUtf8! != false)) && (_javaStringCheckUtf8 == nil || other._javaStringCheckUtf8 == nil || _javaStringCheckUtf8! != other._javaStringCheckUtf8!)) {return false}
+    if (((_optimizeFor != nil && _optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed) || (other._optimizeFor != nil && other._optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed)) && (_optimizeFor == nil || other._optimizeFor == nil || _optimizeFor! != other._optimizeFor!)) {return false}
+    if (goPackage != other.goPackage) {return false}
+    if (((_ccGenericServices != nil && _ccGenericServices! != false) || (other._ccGenericServices != nil && other._ccGenericServices! != false)) && (_ccGenericServices == nil || other._ccGenericServices == nil || _ccGenericServices! != other._ccGenericServices!)) {return false}
+    if (((_javaGenericServices != nil && _javaGenericServices! != false) || (other._javaGenericServices != nil && other._javaGenericServices! != false)) && (_javaGenericServices == nil || other._javaGenericServices == nil || _javaGenericServices! != other._javaGenericServices!)) {return false}
+    if (((_pyGenericServices != nil && _pyGenericServices! != false) || (other._pyGenericServices != nil && other._pyGenericServices! != false)) && (_pyGenericServices == nil || other._pyGenericServices == nil || _pyGenericServices! != other._pyGenericServices!)) {return false}
+    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
+    if (((_ccEnableArenas != nil && _ccEnableArenas! != false) || (other._ccEnableArenas != nil && other._ccEnableArenas! != false)) && (_ccEnableArenas == nil || other._ccEnableArenas == nil || _ccEnableArenas! != other._ccEnableArenas!)) {return false}
+    if (objcClassPrefix != other.objcClassPrefix) {return false}
+    if (csharpNamespace != other.csharpNamespace) {return false}
+    if (swiftPrefix != other.swiftPrefix) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -2194,11 +2540,19 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_FileOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_FileOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_FileOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -2242,18 +2596,30 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   ///   Because this is an option, the above two restrictions are not enforced by
   ///   the protocol compiler.
   private var _messageSetWireFormat: Bool? = nil
-  public var messageSetWireFormat: Bool? {
+  public var messageSetWireFormat: Bool {
     get {return _messageSetWireFormat ?? false}
     set {_messageSetWireFormat = newValue}
+  }
+  public var hasMessageSetWireFormat: Bool {
+    return _messageSetWireFormat != nil
+  }
+  public mutating func clearMessageSetWireFormat() {
+    return _messageSetWireFormat = nil
   }
 
   ///   Disables the generation of the standard "descriptor()" accessor, which can
   ///   conflict with a field of the same name.  This is meant to make migration
   ///   from proto1 easier; new code should avoid fields named "descriptor".
   private var _noStandardDescriptorAccessor: Bool? = nil
-  public var noStandardDescriptorAccessor: Bool? {
+  public var noStandardDescriptorAccessor: Bool {
     get {return _noStandardDescriptorAccessor ?? false}
     set {_noStandardDescriptorAccessor = newValue}
+  }
+  public var hasNoStandardDescriptorAccessor: Bool {
+    return _noStandardDescriptorAccessor != nil
+  }
+  public mutating func clearNoStandardDescriptorAccessor() {
+    return _noStandardDescriptorAccessor = nil
   }
 
   ///   Is this message deprecated?
@@ -2261,9 +2627,15 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   ///   for the message, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating messages.
   private var _deprecated: Bool? = nil
-  public var deprecated: Bool? {
+  public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
+  }
+  public var hasDeprecated: Bool {
+    return _deprecated != nil
+  }
+  public mutating func clearDeprecated() {
+    return _deprecated = nil
   }
 
   ///   Whether the message is an automatically generated map entry type for the
@@ -2287,7 +2659,17 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   ///   NOTE: Do not set the option in .proto files. Always use the maps syntax
   ///   instead. The option should only be implicitly set by the proto compiler
   ///   parser.
-  public var mapEntry: Bool? = nil
+  private var _mapEntry: Bool? = nil
+  public var mapEntry: Bool {
+    get {return _mapEntry ?? false}
+    set {_mapEntry = newValue}
+  }
+  public var hasMapEntry: Bool {
+    return _mapEntry != nil
+  }
+  public mutating func clearMapEntry() {
+    return _mapEntry = nil
+  }
 
   ///   The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -2297,10 +2679,10 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &messageSetWireFormat)
-    case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &noStandardDescriptorAccessor)
-    case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &deprecated)
-    case 7: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &mapEntry)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_messageSetWireFormat)
+    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_noStandardDescriptorAccessor)
+    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
+    case 7: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_mapEntry)
     case 999: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -2317,16 +2699,16 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = messageSetWireFormat {
+    if let v = _messageSetWireFormat {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 1, protoFieldName: "message_set_wire_format", jsonFieldName: "messageSetWireFormat", swiftFieldName: "messageSetWireFormat")
     }
-    if let v = noStandardDescriptorAccessor {
+    if let v = _noStandardDescriptorAccessor {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 2, protoFieldName: "no_standard_descriptor_accessor", jsonFieldName: "noStandardDescriptorAccessor", swiftFieldName: "noStandardDescriptorAccessor")
     }
-    if let v = deprecated {
+    if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 3, protoFieldName: "deprecated", jsonFieldName: "deprecated", swiftFieldName: "deprecated")
     }
-    if let v = mapEntry {
+    if let v = _mapEntry {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 7, protoFieldName: "map_entry", jsonFieldName: "mapEntry", swiftFieldName: "mapEntry")
     }
     if !uninterpretedOption.isEmpty {
@@ -2337,10 +2719,10 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MessageOptions) -> Bool {
-    if (((messageSetWireFormat != nil && messageSetWireFormat! != false) || (other.messageSetWireFormat != nil && other.messageSetWireFormat! != false)) && (messageSetWireFormat == nil || other.messageSetWireFormat == nil || messageSetWireFormat! != other.messageSetWireFormat!)) {return false}
-    if (((noStandardDescriptorAccessor != nil && noStandardDescriptorAccessor! != false) || (other.noStandardDescriptorAccessor != nil && other.noStandardDescriptorAccessor! != false)) && (noStandardDescriptorAccessor == nil || other.noStandardDescriptorAccessor == nil || noStandardDescriptorAccessor! != other.noStandardDescriptorAccessor!)) {return false}
-    if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
-    if ((mapEntry != nil || other.mapEntry != nil) && (mapEntry == nil || other.mapEntry == nil || mapEntry! != other.mapEntry!)) {return false}
+    if (((_messageSetWireFormat != nil && _messageSetWireFormat! != false) || (other._messageSetWireFormat != nil && other._messageSetWireFormat! != false)) && (_messageSetWireFormat == nil || other._messageSetWireFormat == nil || _messageSetWireFormat! != other._messageSetWireFormat!)) {return false}
+    if (((_noStandardDescriptorAccessor != nil && _noStandardDescriptorAccessor! != false) || (other._noStandardDescriptorAccessor != nil && other._noStandardDescriptorAccessor! != false)) && (_noStandardDescriptorAccessor == nil || other._noStandardDescriptorAccessor == nil || _noStandardDescriptorAccessor! != other._noStandardDescriptorAccessor!)) {return false}
+    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
+    if (mapEntry != other.mapEntry) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -2353,11 +2735,19 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_MessageOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_MessageOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_MessageOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -2559,9 +2949,15 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   options below.  This option is not yet implemented in the open source
   ///   release -- sorry, we'll try to include it in a future version!
   private var _ctype: Google_Protobuf_FieldOptions.CType? = nil
-  public var ctype: Google_Protobuf_FieldOptions.CType? {
+  public var ctype: Google_Protobuf_FieldOptions.CType {
     get {return _ctype ?? Google_Protobuf_FieldOptions.CType.string}
     set {_ctype = newValue}
+  }
+  public var hasCtype: Bool {
+    return _ctype != nil
+  }
+  public mutating func clearCtype() {
+    return _ctype = nil
   }
 
   ///   The packed option can be enabled for repeated primitive fields to enable
@@ -2569,7 +2965,17 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   writing the tag and type for each element, the entire array is encoded as
   ///   a single length-delimited blob. In proto3, only explicit setting it to
   ///   false will avoid using packed encoding.
-  public var packed: Bool? = nil
+  private var _packed: Bool? = nil
+  public var packed: Bool {
+    get {return _packed ?? false}
+    set {_packed = newValue}
+  }
+  public var hasPacked: Bool {
+    return _packed != nil
+  }
+  public mutating func clearPacked() {
+    return _packed = nil
+  }
 
   ///   The jstype option determines the JavaScript type used for values of the
   ///   field.  The option is permitted only for 64 bit integral and fixed types
@@ -2581,9 +2987,15 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   This option is an enum to permit additional types to be added,
   ///   e.g. goog.math.Integer.
   private var _jstype: Google_Protobuf_FieldOptions.JSType? = nil
-  public var jstype: Google_Protobuf_FieldOptions.JSType? {
+  public var jstype: Google_Protobuf_FieldOptions.JSType {
     get {return _jstype ?? Google_Protobuf_FieldOptions.JSType.jsNormal}
     set {_jstype = newValue}
+  }
+  public var hasJstype: Bool {
+    return _jstype != nil
+  }
+  public mutating func clearJstype() {
+    return _jstype = nil
   }
 
   ///   Should this field be parsed lazily?  Lazy applies only to message-type
@@ -2615,9 +3027,15 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   check its required fields, regardless of whether or not the message has
   ///   been parsed.
   private var _lazy: Bool? = nil
-  public var lazy: Bool? {
+  public var lazy: Bool {
     get {return _lazy ?? false}
     set {_lazy = newValue}
+  }
+  public var hasLazy: Bool {
+    return _lazy != nil
+  }
+  public mutating func clearLazy() {
+    return _lazy = nil
   }
 
   ///   Is this field deprecated?
@@ -2625,16 +3043,28 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   ///   for accessors, or it will be completely ignored; in the very least, this
   ///   is a formalization for deprecating fields.
   private var _deprecated: Bool? = nil
-  public var deprecated: Bool? {
+  public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
+  }
+  public var hasDeprecated: Bool {
+    return _deprecated != nil
+  }
+  public mutating func clearDeprecated() {
+    return _deprecated = nil
   }
 
   ///   For Google-internal migration only. Do not use.
   private var _weak: Bool? = nil
-  public var weak: Bool? {
+  public var weak: Bool {
     get {return _weak ?? false}
     set {_weak = newValue}
+  }
+  public var hasWeak: Bool {
+    return _weak != nil
+  }
+  public mutating func clearWeak() {
+    return _weak = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2645,12 +3075,12 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: Google_Protobuf_FieldOptions.CType.self, value: &ctype)
-    case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &packed)
-    case 6: handled = try setter.decodeOptionalField(fieldType: Google_Protobuf_FieldOptions.JSType.self, value: &jstype)
-    case 5: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &lazy)
-    case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &deprecated)
-    case 10: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &weak)
+    case 1: handled = try setter.decodeSingularField(fieldType: Google_Protobuf_FieldOptions.CType.self, value: &_ctype)
+    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_packed)
+    case 6: handled = try setter.decodeSingularField(fieldType: Google_Protobuf_FieldOptions.JSType.self, value: &_jstype)
+    case 5: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_lazy)
+    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
+    case 10: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_weak)
     case 999: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -2667,22 +3097,22 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = ctype {
+    if let v = _ctype {
       try visitor.visitSingularField(fieldType: Google_Protobuf_FieldOptions.CType.self, value: v, protoFieldNumber: 1, protoFieldName: "ctype", jsonFieldName: "ctype", swiftFieldName: "ctype")
     }
-    if let v = packed {
+    if let v = _packed {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 2, protoFieldName: "packed", jsonFieldName: "packed", swiftFieldName: "packed")
     }
-    if let v = deprecated {
+    if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 3, protoFieldName: "deprecated", jsonFieldName: "deprecated", swiftFieldName: "deprecated")
     }
-    if let v = lazy {
+    if let v = _lazy {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 5, protoFieldName: "lazy", jsonFieldName: "lazy", swiftFieldName: "lazy")
     }
-    if let v = jstype {
+    if let v = _jstype {
       try visitor.visitSingularField(fieldType: Google_Protobuf_FieldOptions.JSType.self, value: v, protoFieldNumber: 6, protoFieldName: "jstype", jsonFieldName: "jstype", swiftFieldName: "jstype")
     }
-    if let v = weak {
+    if let v = _weak {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 10, protoFieldName: "weak", jsonFieldName: "weak", swiftFieldName: "weak")
     }
     if !uninterpretedOption.isEmpty {
@@ -2693,12 +3123,12 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldOptions) -> Bool {
-    if (((ctype != nil && ctype! != Google_Protobuf_FieldOptions.CType.string) || (other.ctype != nil && other.ctype! != Google_Protobuf_FieldOptions.CType.string)) && (ctype == nil || other.ctype == nil || ctype! != other.ctype!)) {return false}
-    if ((packed != nil || other.packed != nil) && (packed == nil || other.packed == nil || packed! != other.packed!)) {return false}
-    if (((jstype != nil && jstype! != Google_Protobuf_FieldOptions.JSType.jsNormal) || (other.jstype != nil && other.jstype! != Google_Protobuf_FieldOptions.JSType.jsNormal)) && (jstype == nil || other.jstype == nil || jstype! != other.jstype!)) {return false}
-    if (((lazy != nil && lazy! != false) || (other.lazy != nil && other.lazy! != false)) && (lazy == nil || other.lazy == nil || lazy! != other.lazy!)) {return false}
-    if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
-    if (((weak != nil && weak! != false) || (other.weak != nil && other.weak! != false)) && (weak == nil || other.weak == nil || weak! != other.weak!)) {return false}
+    if (((_ctype != nil && _ctype! != Google_Protobuf_FieldOptions.CType.string) || (other._ctype != nil && other._ctype! != Google_Protobuf_FieldOptions.CType.string)) && (_ctype == nil || other._ctype == nil || _ctype! != other._ctype!)) {return false}
+    if (packed != other.packed) {return false}
+    if (((_jstype != nil && _jstype! != Google_Protobuf_FieldOptions.JSType.jsNormal) || (other._jstype != nil && other._jstype! != Google_Protobuf_FieldOptions.JSType.jsNormal)) && (_jstype == nil || other._jstype == nil || _jstype! != other._jstype!)) {return false}
+    if (((_lazy != nil && _lazy! != false) || (other._lazy != nil && other._lazy! != false)) && (_lazy == nil || other._lazy == nil || _lazy! != other._lazy!)) {return false}
+    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
+    if (((_weak != nil && _weak! != false) || (other._weak != nil && other._weak! != false)) && (_weak == nil || other._weak == nil || _weak! != other._weak!)) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -2711,11 +3141,19 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_FieldOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_FieldOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_FieldOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -2776,11 +3214,19 @@ public struct Google_Protobuf_OneofOptions: ProtobufGeneratedMessage, ProtobufEx
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_OneofOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_OneofOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_OneofOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -2803,16 +3249,32 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
 
   ///   Set this option to true to allow mapping different tag names to the same
   ///   value.
-  public var allowAlias: Bool? = nil
+  private var _allowAlias: Bool? = nil
+  public var allowAlias: Bool {
+    get {return _allowAlias ?? false}
+    set {_allowAlias = newValue}
+  }
+  public var hasAllowAlias: Bool {
+    return _allowAlias != nil
+  }
+  public mutating func clearAllowAlias() {
+    return _allowAlias = nil
+  }
 
   ///   Is this enum deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the enum, or it will be completely ignored; in the very least, this
   ///   is a formalization for deprecating enums.
   private var _deprecated: Bool? = nil
-  public var deprecated: Bool? {
+  public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
+  }
+  public var hasDeprecated: Bool {
+    return _deprecated != nil
+  }
+  public mutating func clearDeprecated() {
+    return _deprecated = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2823,8 +3285,8 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &allowAlias)
-    case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &deprecated)
+    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_allowAlias)
+    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
     case 999: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -2841,10 +3303,10 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = allowAlias {
+    if let v = _allowAlias {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 2, protoFieldName: "allow_alias", jsonFieldName: "allowAlias", swiftFieldName: "allowAlias")
     }
-    if let v = deprecated {
+    if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 3, protoFieldName: "deprecated", jsonFieldName: "deprecated", swiftFieldName: "deprecated")
     }
     if !uninterpretedOption.isEmpty {
@@ -2855,8 +3317,8 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumOptions) -> Bool {
-    if ((allowAlias != nil || other.allowAlias != nil) && (allowAlias == nil || other.allowAlias == nil || allowAlias! != other.allowAlias!)) {return false}
-    if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
+    if (allowAlias != other.allowAlias) {return false}
+    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -2869,11 +3331,19 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_EnumOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_EnumOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_EnumOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -2897,9 +3367,15 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
   ///   for the enum value, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating enum values.
   private var _deprecated: Bool? = nil
-  public var deprecated: Bool? {
+  public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
+  }
+  public var hasDeprecated: Bool {
+    return _deprecated != nil
+  }
+  public mutating func clearDeprecated() {
+    return _deprecated = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2910,7 +3386,7 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &deprecated)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
     case 999: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -2927,7 +3403,7 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = deprecated {
+    if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 1, protoFieldName: "deprecated", jsonFieldName: "deprecated", swiftFieldName: "deprecated")
     }
     if !uninterpretedOption.isEmpty {
@@ -2938,7 +3414,7 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValueOptions) -> Bool {
-    if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
+    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -2951,11 +3427,19 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_EnumValueOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_EnumValueOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_EnumValueOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -2984,9 +3468,15 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
   ///   for the service, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating services.
   private var _deprecated: Bool? = nil
-  public var deprecated: Bool? {
+  public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
+  }
+  public var hasDeprecated: Bool {
+    return _deprecated != nil
+  }
+  public mutating func clearDeprecated() {
+    return _deprecated = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2997,7 +3487,7 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 33: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &deprecated)
+    case 33: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
     case 999: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -3014,7 +3504,7 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = deprecated {
+    if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 33, protoFieldName: "deprecated", jsonFieldName: "deprecated", swiftFieldName: "deprecated")
     }
     if !uninterpretedOption.isEmpty {
@@ -3025,7 +3515,7 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_ServiceOptions) -> Bool {
-    if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
+    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -3038,11 +3528,19 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_ServiceOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_ServiceOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_ServiceOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -3071,9 +3569,15 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
   ///   for the method, or it will be completely ignored; in the very least,
   ///   this is a formalization for deprecating methods.
   private var _deprecated: Bool? = nil
-  public var deprecated: Bool? {
+  public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
+  }
+  public var hasDeprecated: Bool {
+    return _deprecated != nil
+  }
+  public mutating func clearDeprecated() {
+    return _deprecated = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -3084,7 +3588,7 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 33: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &deprecated)
+    case 33: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
     case 999: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default:
       if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -3101,7 +3605,7 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = deprecated {
+    if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 33, protoFieldName: "deprecated", jsonFieldName: "deprecated", swiftFieldName: "deprecated")
     }
     if !uninterpretedOption.isEmpty {
@@ -3112,7 +3616,7 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodOptions) -> Bool {
-    if (((deprecated != nil && deprecated! != false) || (other.deprecated != nil && other.deprecated! != false)) && (deprecated == nil || other.deprecated == nil || deprecated! != other.deprecated!)) {return false}
+    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -3125,11 +3629,19 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
     extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_MethodOptions>) {
+    extensionFieldValues[ext.protoFieldNumber] = nil
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_MethodOptions>) -> F.ValueType {
     if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_MethodOptions>) -> Bool {
+    return extensionFieldValues[ext.protoFieldNumber] is F
   }
 }
 
@@ -3184,17 +3696,37 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public var namePart: String = ""
+    private var _namePart: String? = nil
+    public var namePart: String {
+      get {return _namePart ?? ""}
+      set {_namePart = newValue}
+    }
+    public var hasNamePart: Bool {
+      return _namePart != nil
+    }
+    public mutating func clearNamePart() {
+      return _namePart = nil
+    }
 
-    public var isExtension: Bool = false
+    private var _isExtension: Bool? = nil
+    public var isExtension: Bool {
+      get {return _isExtension ?? false}
+      set {_isExtension = newValue}
+    }
+    public var hasIsExtension: Bool {
+      return _isExtension != nil
+    }
+    public mutating func clearIsExtension() {
+      return _isExtension = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &namePart)
-      case 2: handled = try setter.decodeRequiredField(fieldType: ProtobufBool.self, value: &isExtension)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_namePart)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_isExtension)
       default:
         handled = false
       }
@@ -3206,14 +3738,14 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: namePart, protoFieldNumber: 1, protoFieldName: "name_part", jsonFieldName: "namePart", swiftFieldName: "namePart")
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: isExtension, protoFieldNumber: 2, protoFieldName: "is_extension", jsonFieldName: "isExtension", swiftFieldName: "isExtension")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _namePart ?? "", protoFieldNumber: 1, protoFieldName: "name_part", jsonFieldName: "namePart", swiftFieldName: "namePart")
+      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _isExtension ?? false, protoFieldNumber: 2, protoFieldName: "is_extension", jsonFieldName: "isExtension", swiftFieldName: "isExtension")
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
-      if namePart != other.namePart {return false}
-      if isExtension != other.isExtension {return false}
+      if (namePart != other.namePart) {return false}
+      if (isExtension != other.isExtension) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -3223,17 +3755,77 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
 
   ///   The value of the uninterpreted option, in whatever type the tokenizer
   ///   identified it as during parsing. Exactly one of these should be set.
-  public var identifierValue: String? = nil
+  private var _identifierValue: String? = nil
+  public var identifierValue: String {
+    get {return _identifierValue ?? ""}
+    set {_identifierValue = newValue}
+  }
+  public var hasIdentifierValue: Bool {
+    return _identifierValue != nil
+  }
+  public mutating func clearIdentifierValue() {
+    return _identifierValue = nil
+  }
 
-  public var positiveIntValue: UInt64? = nil
+  private var _positiveIntValue: UInt64? = nil
+  public var positiveIntValue: UInt64 {
+    get {return _positiveIntValue ?? 0}
+    set {_positiveIntValue = newValue}
+  }
+  public var hasPositiveIntValue: Bool {
+    return _positiveIntValue != nil
+  }
+  public mutating func clearPositiveIntValue() {
+    return _positiveIntValue = nil
+  }
 
-  public var negativeIntValue: Int64? = nil
+  private var _negativeIntValue: Int64? = nil
+  public var negativeIntValue: Int64 {
+    get {return _negativeIntValue ?? 0}
+    set {_negativeIntValue = newValue}
+  }
+  public var hasNegativeIntValue: Bool {
+    return _negativeIntValue != nil
+  }
+  public mutating func clearNegativeIntValue() {
+    return _negativeIntValue = nil
+  }
 
-  public var doubleValue: Double? = nil
+  private var _doubleValue: Double? = nil
+  public var doubleValue: Double {
+    get {return _doubleValue ?? 0}
+    set {_doubleValue = newValue}
+  }
+  public var hasDoubleValue: Bool {
+    return _doubleValue != nil
+  }
+  public mutating func clearDoubleValue() {
+    return _doubleValue = nil
+  }
 
-  public var stringValue: Data? = nil
+  private var _stringValue: Data? = nil
+  public var stringValue: Data {
+    get {return _stringValue ?? Data()}
+    set {_stringValue = newValue}
+  }
+  public var hasStringValue: Bool {
+    return _stringValue != nil
+  }
+  public mutating func clearStringValue() {
+    return _stringValue = nil
+  }
 
-  public var aggregateValue: String? = nil
+  private var _aggregateValue: String? = nil
+  public var aggregateValue: String {
+    get {return _aggregateValue ?? ""}
+    set {_aggregateValue = newValue}
+  }
+  public var hasAggregateValue: Bool {
+    return _aggregateValue != nil
+  }
+  public mutating func clearAggregateValue() {
+    return _aggregateValue = nil
+  }
 
   public init() {}
 
@@ -3241,12 +3833,12 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
     let handled: Bool
     switch protoFieldNumber {
     case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.NamePart.self, value: &name)
-    case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &identifierValue)
-    case 4: handled = try setter.decodeOptionalField(fieldType: ProtobufUInt64.self, value: &positiveIntValue)
-    case 5: handled = try setter.decodeOptionalField(fieldType: ProtobufInt64.self, value: &negativeIntValue)
-    case 6: handled = try setter.decodeOptionalField(fieldType: ProtobufDouble.self, value: &doubleValue)
-    case 7: handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &stringValue)
-    case 8: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &aggregateValue)
+    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_identifierValue)
+    case 4: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_positiveIntValue)
+    case 5: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_negativeIntValue)
+    case 6: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_doubleValue)
+    case 7: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_stringValue)
+    case 8: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_aggregateValue)
     default:
       handled = false
     }
@@ -3261,22 +3853,22 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
     if !name.isEmpty {
       try visitor.visitRepeatedMessageField(value: name, protoFieldNumber: 2, protoFieldName: "name", jsonFieldName: "name", swiftFieldName: "name")
     }
-    if let v = identifierValue {
+    if let v = _identifierValue {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3, protoFieldName: "identifier_value", jsonFieldName: "identifierValue", swiftFieldName: "identifierValue")
     }
-    if let v = positiveIntValue {
+    if let v = _positiveIntValue {
       try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: v, protoFieldNumber: 4, protoFieldName: "positive_int_value", jsonFieldName: "positiveIntValue", swiftFieldName: "positiveIntValue")
     }
-    if let v = negativeIntValue {
+    if let v = _negativeIntValue {
       try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 5, protoFieldName: "negative_int_value", jsonFieldName: "negativeIntValue", swiftFieldName: "negativeIntValue")
     }
-    if let v = doubleValue {
+    if let v = _doubleValue {
       try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, protoFieldNumber: 6, protoFieldName: "double_value", jsonFieldName: "doubleValue", swiftFieldName: "doubleValue")
     }
-    if let v = stringValue {
+    if let v = _stringValue {
       try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 7, protoFieldName: "string_value", jsonFieldName: "stringValue", swiftFieldName: "stringValue")
     }
-    if let v = aggregateValue {
+    if let v = _aggregateValue {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 8, protoFieldName: "aggregate_value", jsonFieldName: "aggregateValue", swiftFieldName: "aggregateValue")
     }
     unknown.traverse(visitor: &visitor)
@@ -3284,12 +3876,12 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption) -> Bool {
     if name != other.name {return false}
-    if ((identifierValue != nil || other.identifierValue != nil) && (identifierValue == nil || other.identifierValue == nil || identifierValue! != other.identifierValue!)) {return false}
-    if ((positiveIntValue != nil || other.positiveIntValue != nil) && (positiveIntValue == nil || other.positiveIntValue == nil || positiveIntValue! != other.positiveIntValue!)) {return false}
-    if ((negativeIntValue != nil || other.negativeIntValue != nil) && (negativeIntValue == nil || other.negativeIntValue == nil || negativeIntValue! != other.negativeIntValue!)) {return false}
-    if ((doubleValue != nil || other.doubleValue != nil) && (doubleValue == nil || other.doubleValue == nil || doubleValue! != other.doubleValue!)) {return false}
-    if ((stringValue != nil || other.stringValue != nil) && (stringValue == nil || other.stringValue == nil || stringValue! != other.stringValue!)) {return false}
-    if ((aggregateValue != nil || other.aggregateValue != nil) && (aggregateValue == nil || other.aggregateValue == nil || aggregateValue! != other.aggregateValue!)) {return false}
+    if (identifierValue != other.identifierValue) {return false}
+    if (positiveIntValue != other.positiveIntValue) {return false}
+    if (negativeIntValue != other.negativeIntValue) {return false}
+    if (doubleValue != other.doubleValue) {return false}
+    if (stringValue != other.stringValue) {return false}
+    if (aggregateValue != other.aggregateValue) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -3413,9 +4005,29 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
     ///     optional int32 grault = 6;
     ///  
     ///     // ignored detached comments.
-    public var leadingComments: String? = nil
+    private var _leadingComments: String? = nil
+    public var leadingComments: String {
+      get {return _leadingComments ?? ""}
+      set {_leadingComments = newValue}
+    }
+    public var hasLeadingComments: Bool {
+      return _leadingComments != nil
+    }
+    public mutating func clearLeadingComments() {
+      return _leadingComments = nil
+    }
 
-    public var trailingComments: String? = nil
+    private var _trailingComments: String? = nil
+    public var trailingComments: String {
+      get {return _trailingComments ?? ""}
+      set {_trailingComments = newValue}
+    }
+    public var hasTrailingComments: Bool {
+      return _trailingComments != nil
+    }
+    public mutating func clearTrailingComments() {
+      return _trailingComments = nil
+    }
 
     public var leadingDetachedComments: [String] = []
 
@@ -3426,8 +4038,8 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
       switch protoFieldNumber {
       case 1: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &path)
       case 2: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &span)
-      case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &leadingComments)
-      case 4: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &trailingComments)
+      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_leadingComments)
+      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_trailingComments)
       case 6: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &leadingDetachedComments)
       default:
         handled = false
@@ -3446,10 +4058,10 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
       if !span.isEmpty {
         try visitor.visitPackedField(fieldType: ProtobufInt32.self, value: span, protoFieldNumber: 2, protoFieldName: "span", jsonFieldName: "span", swiftFieldName: "span")
       }
-      if let v = leadingComments {
+      if let v = _leadingComments {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3, protoFieldName: "leading_comments", jsonFieldName: "leadingComments", swiftFieldName: "leadingComments")
       }
-      if let v = trailingComments {
+      if let v = _trailingComments {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 4, protoFieldName: "trailing_comments", jsonFieldName: "trailingComments", swiftFieldName: "trailingComments")
       }
       if !leadingDetachedComments.isEmpty {
@@ -3461,8 +4073,8 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
       if path != other.path {return false}
       if span != other.span {return false}
-      if ((leadingComments != nil || other.leadingComments != nil) && (leadingComments == nil || other.leadingComments == nil || leadingComments! != other.leadingComments!)) {return false}
-      if ((trailingComments != nil || other.trailingComments != nil) && (trailingComments == nil || other.trailingComments == nil || trailingComments! != other.trailingComments!)) {return false}
+      if (leadingComments != other.leadingComments) {return false}
+      if (trailingComments != other.trailingComments) {return false}
       if leadingDetachedComments != other.leadingDetachedComments {return false}
       if unknown != other.unknown {return false}
       return true
@@ -3584,16 +4196,46 @@ public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
     public var path: [Int32] = []
 
     ///   Identifies the filesystem path to the original source .proto.
-    public var sourceFile: String? = nil
+    private var _sourceFile: String? = nil
+    public var sourceFile: String {
+      get {return _sourceFile ?? ""}
+      set {_sourceFile = newValue}
+    }
+    public var hasSourceFile: Bool {
+      return _sourceFile != nil
+    }
+    public mutating func clearSourceFile() {
+      return _sourceFile = nil
+    }
 
     ///   Identifies the starting offset in bytes in the generated code
     ///   that relates to the identified object.
-    public var begin: Int32? = nil
+    private var _begin: Int32? = nil
+    public var begin: Int32 {
+      get {return _begin ?? 0}
+      set {_begin = newValue}
+    }
+    public var hasBegin: Bool {
+      return _begin != nil
+    }
+    public mutating func clearBegin() {
+      return _begin = nil
+    }
 
     ///   Identifies the ending offset in bytes in the generated code that
     ///   relates to the identified offset. The end offset should be one past
     ///   the last relevant byte (so the length of the text = end - begin).
-    public var end: Int32? = nil
+    private var _end: Int32? = nil
+    public var end: Int32 {
+      get {return _end ?? 0}
+      set {_end = newValue}
+    }
+    public var hasEnd: Bool {
+      return _end != nil
+    }
+    public mutating func clearEnd() {
+      return _end = nil
+    }
 
     public init() {}
 
@@ -3601,9 +4243,9 @@ public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
       let handled: Bool
       switch protoFieldNumber {
       case 1: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &path)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &sourceFile)
-      case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &begin)
-      case 4: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &end)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_sourceFile)
+      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_begin)
+      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_end)
       default:
         handled = false
       }
@@ -3618,13 +4260,13 @@ public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
       if !path.isEmpty {
         try visitor.visitPackedField(fieldType: ProtobufInt32.self, value: path, protoFieldNumber: 1, protoFieldName: "path", jsonFieldName: "path", swiftFieldName: "path")
       }
-      if let v = sourceFile {
+      if let v = _sourceFile {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "source_file", jsonFieldName: "sourceFile", swiftFieldName: "sourceFile")
       }
-      if let v = begin {
+      if let v = _begin {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 3, protoFieldName: "begin", jsonFieldName: "begin", swiftFieldName: "begin")
       }
-      if let v = end {
+      if let v = _end {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 4, protoFieldName: "end", jsonFieldName: "end", swiftFieldName: "end")
       }
       unknown.traverse(visitor: &visitor)
@@ -3632,9 +4274,9 @@ public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
       if path != other.path {return false}
-      if ((sourceFile != nil || other.sourceFile != nil) && (sourceFile == nil || other.sourceFile == nil || sourceFile! != other.sourceFile!)) {return false}
-      if ((begin != nil || other.begin != nil) && (begin == nil || other.begin == nil || begin! != other.begin!)) {return false}
-      if ((end != nil || other.end != nil) && (end == nil || other.end == nil || end! != other.end!)) {return false}
+      if (sourceFile != other.sourceFile) {return false}
+      if (begin != other.begin) {return false}
+      if (end != other.end) {return false}
       if unknown != other.unknown {return false}
       return true
     }

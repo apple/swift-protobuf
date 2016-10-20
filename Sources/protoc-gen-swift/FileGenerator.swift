@@ -28,13 +28,13 @@ import SwiftProtobuf
 extension Google_Protobuf_FileDescriptorProto {
     func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
         let base: String
-        if let p = package {
-            base = "." + p
+        if !package.isEmpty {
+            base = "." + package
         } else {
             base = ""
         }
         for m in messageType {
-            let messagePath = base + "." + m.name!
+            let messagePath = base + "." + m.name
             if messagePath == path {
                 return m
             }
@@ -47,14 +47,14 @@ extension Google_Protobuf_FileDescriptorProto {
 
     func getMessageNameForPath(path: String) -> String? {
         let base: String
-        if let p = package {
-            base = "." + p
+        if !package.isEmpty {
+            base = "." + package
         } else {
             base = ""
         }
         for m in messageType {
-            let messagePath = base + "." + m.name!
-            let messageSwiftPath = sanitizeMessageTypeName(swiftPrefix + m.name!)
+            let messagePath = base + "." + m.name
+            let messageSwiftPath = sanitizeMessageTypeName(swiftPrefix + m.name)
             if messagePath == path {
                 return messageSwiftPath
             }
@@ -67,20 +67,20 @@ extension Google_Protobuf_FileDescriptorProto {
 
     func getEnumNameForPath(path: String) -> String? {
         let base: String
-        if let p = package {
-            base = "." + p
+        if !package.isEmpty {
+            base = "." + package
         } else {
             base = ""
         }
         for e in enumType {
-            let enumPath = base + "." + e.name!
+            let enumPath = base + "." + e.name
             if enumPath == path {
-                return sanitizeEnumTypeName(swiftPrefix + e.name!)
+                return sanitizeEnumTypeName(swiftPrefix + e.name)
             }
         }
         for m in messageType {
-            let messagePath = base + "." + m.name!
-            let messageSwiftPath = sanitizeMessageTypeName(swiftPrefix + m.name!)
+            let messagePath = base + "." + m.name
+            let messageSwiftPath = sanitizeMessageTypeName(swiftPrefix + m.name)
             if let n = m.getEnumNameForPath(path: path, parentPath: messagePath, swiftPrefix: messageSwiftPath) {
                 return n
             }
@@ -90,21 +90,21 @@ extension Google_Protobuf_FileDescriptorProto {
 
     func getSwiftNameForEnumCase(path: String, caseName: String) -> String? {
         let base: String
-        if let p = package {
-            base = "." + p
+        if !package.isEmpty {
+            base = "." + package
         } else {
             base = ""
         }
         for e in enumType {
-            let enumPath = base + "." + e.name!
+            let enumPath = base + "." + e.name
             if enumPath == path {
-                let enumSwiftName = swiftPrefix + sanitizeEnumTypeName(e.name!)
+                let enumSwiftName = swiftPrefix + sanitizeEnumTypeName(e.name)
                 return enumSwiftName + "." + e.getSwiftNameForEnumCase(caseName: caseName)
             }
         }
         for m in messageType {
-            let messagePath = base + "." + m.name!
-            let messageSwiftPath = sanitizeMessageTypeName(swiftPrefix + m.name!)
+            let messagePath = base + "." + m.name
+            let messageSwiftPath = sanitizeMessageTypeName(swiftPrefix + m.name)
             if let n = m.getSwiftNameForEnumCase(path: path, caseName: caseName, parentPath: messagePath, swiftPrefix: messageSwiftPath) {
                 return n
             }
@@ -112,18 +112,18 @@ extension Google_Protobuf_FileDescriptorProto {
         return nil
     }
 
-    var isProto3: Bool {return syntax != nil && syntax! == "proto3"}
+    var isProto3: Bool {return syntax == "proto3"}
 
     var protoPath: String {
-        if let pkg = package {
-            return "." + pkg
+        if !package.isEmpty {
+            return "." + package
         } else {
             return ""
         }
     }
 
     var baseFilename: String {
-        return splitPath(pathname: name ?? "").base
+        return splitPath(pathname: name).base
     }
 
     var isWellKnownType : Bool {
@@ -133,14 +133,16 @@ extension Google_Protobuf_FileDescriptorProto {
     }
 
     var swiftPrefix: String {
-        if let p = options?.swiftPrefix {
-            return p
-        } else if let p = options?.appleSwiftPrefix {
-            return p
-        } else if let pkg = package, pkg != "" {
+        if options.hasSwiftPrefix {
+            return options.swiftPrefix
+        }
+        if !options.appleSwiftPrefix.isEmpty {
+            return options.appleSwiftPrefix
+        }
+        if !package.isEmpty {
             var makeUpper = true
             var prefix = ""
-            for c in pkg.characters {
+            for c in package.characters {
                 if c == "_" {
                     makeUpper = true
                 } else if c == "." {
@@ -160,8 +162,8 @@ extension Google_Protobuf_FileDescriptorProto {
     }
 
     func locationFor(path: [Int32]) -> Google_Protobuf_SourceCodeInfo.Location? {
-        if let codeInfo = sourceCodeInfo {
-            for l in codeInfo.location {
+        if hasSourceCodeInfo {
+            for l in sourceCodeInfo.location {
                 if l.path == path {
                     return l
                 }
@@ -183,15 +185,15 @@ class FileGenerator {
 
     func messageNameForPath(path: String) -> String? {
         let base: String
-        if let p = descriptor.package {
-            base = "." + p
+        if !descriptor.package.isEmpty {
+            base = "." + descriptor.package
         } else {
             base = ""
         }
         for m in descriptor.messageType {
-            let messagePath = base + "." + m.name!
+            let messagePath = base + "." + m.name
             if messagePath == path {
-                let swiftName = swiftPrefix + m.name!
+                let swiftName = swiftPrefix + m.name
                 return swiftName
             }
         }
@@ -200,7 +202,7 @@ class FileGenerator {
         return nil
     }
 
-    var protoPackageName: String {return descriptor.package ?? ""}
+    var protoPackageName: String {return descriptor.package}
     var swiftPrefix: String {return descriptor.swiftPrefix}
     var isProto3: Bool {return descriptor.isProto3}
     var isWellKnownType: Bool {return descriptor.isWellKnownType}
@@ -208,7 +210,7 @@ class FileGenerator {
 
     var outputFilename: String {
         let ext = ".pb.swift"
-        let pathParts = splitPath(pathname: descriptor.name ?? "")
+        let pathParts = splitPath(pathname: descriptor.name)
         switch generatorOptions.outputNaming {
         case .FullPath:
             return pathParts.dir + pathParts.base + ext
@@ -265,7 +267,7 @@ class FileGenerator {
                 }
             }
 
-            let comments = location.leadingComments ?? location.trailingComments ?? ""
+            let comments = location.hasLeadingComments ? location.leadingComments : location.trailingComments
             result += prefixLines(text: escapeMarkup(comments), prefix: "///  ")
             return result
         }
@@ -273,7 +275,7 @@ class FileGenerator {
     }
 
     func generateOutputFile(printer p: inout CodePrinter, context: Context) {
-        let inputFilename = descriptor.name ?? "<No name>";
+        let inputFilename = descriptor.hasName ? descriptor.name : "<No name>"
         p.print(
             "/*\n",
             " * DO NOT EDIT.\n",

@@ -114,7 +114,7 @@ private func splitIdentifier(_ s: String) -> [String] {
   return [String](out.dropFirst(1))
 }
 
-private func uppercaseFirst(_ s: String) -> String {
+func uppercaseFirst(_ s: String) -> String {
   var out = s.characters
   if let first = out.popFirst() {
     return String(first).uppercased() + String(out)

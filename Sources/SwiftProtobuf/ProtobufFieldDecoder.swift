@@ -36,17 +36,13 @@ public protocol ProtobufFieldDecoder {
     mutating func asProtobufUnknown() throws -> [UInt8]?
 
     // Generic decode methods; defaults are provided below
-    mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool
+    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool
     mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool
     mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool
-    mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool
-    mutating func decodeRequiredMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool
     mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool
     mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws -> Bool
-    mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool
-    mutating func decodeRequiredGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool
+    mutating func decodeSingularGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool
     mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool
     mutating func decodeMapField<KeyType: ProtobufTypeProperties, ValueType: ProtobufTypeProperties>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws -> Bool  where KeyType: ProtobufMapKeyType, KeyType.BaseType: Hashable, ValueType: ProtobufMapValueType
     mutating func decodeExtensionField(values: inout ProtobufExtensionFieldValueSet, messageType: ProtobufMessage.Type, protoFieldNumber: Int) throws -> Bool
@@ -59,12 +55,12 @@ public extension ProtobufFieldDecoder {
         return nil
     }
 
-    public mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
+    public mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         throw ProtobufDecodingError.schemaMismatch
     }
     public mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
         var t: S.BaseType? = value
-        if try decodeOptionalField(fieldType: fieldType, value: &t) {
+        if try decodeSingularField(fieldType: fieldType, value: &t) {
             if let newValue = t {
                 value = newValue
             }
@@ -73,32 +69,20 @@ public extension ProtobufFieldDecoder {
         }
         throw ProtobufDecodingError.schemaMismatch
     }
-    public mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        return try decodeSingularField(fieldType: fieldType, value: &value)
-    }
     public mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
         throw ProtobufDecodingError.schemaMismatch
     }
     public mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
         throw ProtobufDecodingError.schemaMismatch
     }
-    public mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
-        throw ProtobufDecodingError.schemaMismatch
-    }
-    public mutating func decodeRequiredMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
-        return try decodeOptionalMessageField(fieldType: fieldType, value: &value)
-    }
     public mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
-        return try decodeOptionalMessageField(fieldType: fieldType, value: &value)
+        throw ProtobufDecodingError.schemaMismatch
     }
     public mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws -> Bool {
         throw ProtobufDecodingError.schemaMismatch
     }
-    public mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
+    public mutating func decodeSingularGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
         throw ProtobufDecodingError.schemaMismatch
-    }
-    public mutating func decodeRequiredGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
-        return try decodeOptionalGroupField(fieldType: fieldType, value: &value)
     }
     public mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool {
         throw ProtobufDecodingError.schemaMismatch

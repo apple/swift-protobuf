@@ -312,108 +312,84 @@ public struct Google_Protobuf_Value: ProtobufGeneratedMessage {
   }
 
   ///   Represents a null value.
-  public var nullValue: Google_Protobuf_NullValue? {
+  public var nullValue: Google_Protobuf_NullValue {
     get {
       if case .nullValue(let v) = _storage._kind {
         return v
       }
-      return nil
+      return Google_Protobuf_NullValue.nullValue
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._kind = .nullValue(newValue)
-      } else {
-        _uniqueStorage()._kind = .None
-      }
+      _uniqueStorage()._kind = .nullValue(newValue)
     }
   }
 
   ///   Represents a double value.
-  public var numberValue: Double? {
+  public var numberValue: Double {
     get {
       if case .numberValue(let v) = _storage._kind {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._kind = .numberValue(newValue)
-      } else {
-        _uniqueStorage()._kind = .None
-      }
+      _uniqueStorage()._kind = .numberValue(newValue)
     }
   }
 
   ///   Represents a string value.
-  public var stringValue: String? {
+  public var stringValue: String {
     get {
       if case .stringValue(let v) = _storage._kind {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._kind = .stringValue(newValue)
-      } else {
-        _uniqueStorage()._kind = .None
-      }
+      _uniqueStorage()._kind = .stringValue(newValue)
     }
   }
 
   ///   Represents a boolean value.
-  public var boolValue: Bool? {
+  public var boolValue: Bool {
     get {
       if case .boolValue(let v) = _storage._kind {
         return v
       }
-      return nil
+      return false
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._kind = .boolValue(newValue)
-      } else {
-        _uniqueStorage()._kind = .None
-      }
+      _uniqueStorage()._kind = .boolValue(newValue)
     }
   }
 
   ///   Represents a structured value.
-  public var structValue: Google_Protobuf_Struct? {
+  public var structValue: Google_Protobuf_Struct {
     get {
       if case .structValue(let v) = _storage._kind {
         return v
       }
-      return nil
+      return Google_Protobuf_Struct()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._kind = .structValue(newValue)
-      } else {
-        _uniqueStorage()._kind = .None
-      }
+      _uniqueStorage()._kind = .structValue(newValue)
     }
   }
 
   ///   Represents a repeated `Value`.
-  public var listValue: Google_Protobuf_ListValue? {
+  public var listValue: Google_Protobuf_ListValue {
     get {
       if case .listValue(let v) = _storage._kind {
         return v
       }
-      return nil
+      return Google_Protobuf_ListValue()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._kind = .listValue(newValue)
-      } else {
-        _uniqueStorage()._kind = .None
-      }
+      _uniqueStorage()._kind = .listValue(newValue)
     }
   }
 
-  public var _kind: OneOf_Kind {
+  public var kind: OneOf_Kind {
     get {return _storage._kind}
     set {
       _uniqueStorage()._kind = newValue

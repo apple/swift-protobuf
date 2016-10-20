@@ -953,6 +953,12 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     get {return _storage._optionalMessage ?? ProtobufUnittest_Message3()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
+  public var hasOptionalMessage: Bool {
+    return _storage._optionalMessage != nil
+  }
+  public mutating func clearOptionalMessage() {
+    return _storage._optionalMessage = nil
+  }
 
   public var optionalEnum: ProtobufUnittest_Message3.Enum {
     get {return _storage._optionalEnum}
@@ -1045,276 +1051,208 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     set {_uniqueStorage()._repeatedEnum = newValue}
   }
 
-  public var oneofInt32: Int32? {
+  public var oneofInt32: Int32 {
     get {
       if case .oneofInt32(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofInt32(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofInt32(newValue)
     }
   }
 
-  public var oneofInt64: Int64? {
+  public var oneofInt64: Int64 {
     get {
       if case .oneofInt64(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofInt64(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofInt64(newValue)
     }
   }
 
-  public var oneofUint32: UInt32? {
+  public var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofUint32(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofUint32(newValue)
     }
   }
 
-  public var oneofUint64: UInt64? {
+  public var oneofUint64: UInt64 {
     get {
       if case .oneofUint64(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofUint64(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofUint64(newValue)
     }
   }
 
-  public var oneofSint32: Int32? {
+  public var oneofSint32: Int32 {
     get {
       if case .oneofSint32(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofSint32(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofSint32(newValue)
     }
   }
 
-  public var oneofSint64: Int64? {
+  public var oneofSint64: Int64 {
     get {
       if case .oneofSint64(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofSint64(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofSint64(newValue)
     }
   }
 
-  public var oneofFixed32: UInt32? {
+  public var oneofFixed32: UInt32 {
     get {
       if case .oneofFixed32(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofFixed32(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofFixed32(newValue)
     }
   }
 
-  public var oneofFixed64: UInt64? {
+  public var oneofFixed64: UInt64 {
     get {
       if case .oneofFixed64(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofFixed64(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofFixed64(newValue)
     }
   }
 
-  public var oneofSfixed32: Int32? {
+  public var oneofSfixed32: Int32 {
     get {
       if case .oneofSfixed32(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofSfixed32(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofSfixed32(newValue)
     }
   }
 
-  public var oneofSfixed64: Int64? {
+  public var oneofSfixed64: Int64 {
     get {
       if case .oneofSfixed64(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofSfixed64(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofSfixed64(newValue)
     }
   }
 
-  public var oneofFloat: Float? {
+  public var oneofFloat: Float {
     get {
       if case .oneofFloat(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofFloat(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofFloat(newValue)
     }
   }
 
-  public var oneofDouble: Double? {
+  public var oneofDouble: Double {
     get {
       if case .oneofDouble(let v) = _storage._o {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofDouble(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofDouble(newValue)
     }
   }
 
-  public var oneofBool: Bool? {
+  public var oneofBool: Bool {
     get {
       if case .oneofBool(let v) = _storage._o {
         return v
       }
-      return nil
+      return false
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofBool(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofBool(newValue)
     }
   }
 
-  public var oneofString: String? {
+  public var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._o {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofString(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofString(newValue)
     }
   }
 
-  public var oneofBytes: Data? {
+  public var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._o {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofBytes(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofBytes(newValue)
     }
   }
 
   ///   No 'group' in proto3.
-  public var oneofMessage: ProtobufUnittest_Message3? {
+  public var oneofMessage: ProtobufUnittest_Message3 {
     get {
       if case .oneofMessage(let v) = _storage._o {
         return v
       }
-      return nil
+      return ProtobufUnittest_Message3()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofMessage(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofMessage(newValue)
     }
   }
 
-  public var oneofEnum: ProtobufUnittest_Message3.Enum? {
+  public var oneofEnum: ProtobufUnittest_Message3.Enum {
     get {
       if case .oneofEnum(let v) = _storage._o {
         return v
       }
-      return nil
+      return ProtobufUnittest_Message3.Enum.foo
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._o = .oneofEnum(newValue)
-      } else {
-        _uniqueStorage()._o = .None
-      }
+      _uniqueStorage()._o = .oneofEnum(newValue)
     }
   }
 
@@ -1414,7 +1352,7 @@ public struct ProtobufUnittest_Message3: ProtobufGeneratedMessage {
     set {_uniqueStorage()._mapInt32Message = newValue}
   }
 
-  public var _o: OneOf_O {
+  public var o: OneOf_O {
     get {return _storage._o}
     set {
       _uniqueStorage()._o = newValue

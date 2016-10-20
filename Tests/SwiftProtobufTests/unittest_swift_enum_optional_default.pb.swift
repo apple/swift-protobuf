@@ -59,8 +59,8 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
       func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
         let handled: Bool
         switch protoFieldNumber {
-        case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.self, value: &_message)
-        case 17: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.self, value: &_optionalEnum)
+        case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.self, value: &_message)
+        case 17: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.self, value: &_optionalEnum)
         default:
           handled = false
         }
@@ -165,14 +165,26 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
 
     ///   The circular reference here forces the generator to
     ///   implement heap-backed storage.
-    public var message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? {
-      get {return _storage._message}
+    public var message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage {
+      get {return _storage._message ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage()}
       set {_uniqueStorage()._message = newValue}
     }
+    public var hasMessage: Bool {
+      return _storage._message != nil
+    }
+    public mutating func clearMessage() {
+      return _storage._message = nil
+    }
 
-    public var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? {
+    public var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum {
       get {return _storage._optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo}
       set {_uniqueStorage()._optionalEnum = newValue}
+    }
+    public var hasOptionalEnum: Bool {
+      return _storage._optionalEnum != nil
+    }
+    public mutating func clearOptionalEnum() {
+      return _storage._optionalEnum = nil
     }
 
     public init() {}
@@ -275,9 +287,15 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     }
 
     private var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
-    public var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? {
+    public var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum {
       get {return _optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo}
       set {_optionalEnum = newValue}
+    }
+    public var hasOptionalEnum: Bool {
+      return _optionalEnum != nil
+    }
+    public mutating func clearOptionalEnum() {
+      return _optionalEnum = nil
     }
 
     public init() {}
@@ -285,7 +303,7 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 17: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: &optionalEnum)
+      case 17: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: &_optionalEnum)
       default:
         handled = false
       }
@@ -297,14 +315,14 @@ public struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMess
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      if let v = optionalEnum {
+      if let v = _optionalEnum {
         try visitor.visitSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: v, protoFieldNumber: 17, protoFieldName: "optional_enum", jsonFieldName: "optionalEnum", swiftFieldName: "optionalEnum")
       }
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
-      if (((optionalEnum != nil && optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo) || (other.optionalEnum != nil && other.optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo)) && (optionalEnum == nil || other.optionalEnum == nil || optionalEnum! != other.optionalEnum!)) {return false}
+      if (((_optionalEnum != nil && _optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo) || (other._optionalEnum != nil && other._optionalEnum! != ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo)) && (_optionalEnum == nil || other._optionalEnum == nil || _optionalEnum! != other._optionalEnum!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }

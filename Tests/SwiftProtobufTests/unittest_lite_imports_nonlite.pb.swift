@@ -65,7 +65,7 @@ public struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage 
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_TestAllTypes.self, value: &_message)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllTypes.self, value: &_message)
       default:
         handled = false
       }
@@ -99,9 +99,15 @@ public struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage 
 
   private var _storage = _StorageClass()
 
-  public var message: ProtobufUnittest_TestAllTypes? {
-    get {return _storage._message}
+  public var message: ProtobufUnittest_TestAllTypes {
+    get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
+  }
+  public var hasMessage: Bool {
+    return _storage._message != nil
+  }
+  public mutating func clearMessage() {
+    return _storage._message = nil
   }
 
   public init() {}

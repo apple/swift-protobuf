@@ -154,52 +154,52 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestAllRequiredTypes
     var unknown = ProtobufUnknownStorage()
-    var _requiredInt32: Int32 = 0
-    var _requiredInt64: Int64 = 0
-    var _requiredUint32: UInt32 = 0
-    var _requiredUint64: UInt64 = 0
-    var _requiredSint32: Int32 = 0
-    var _requiredSint64: Int64 = 0
-    var _requiredFixed32: UInt32 = 0
-    var _requiredFixed64: UInt64 = 0
-    var _requiredSfixed32: Int32 = 0
-    var _requiredSfixed64: Int64 = 0
-    var _requiredFloat: Float = 0
-    var _requiredDouble: Double = 0
-    var _requiredBool: Bool = false
-    var _requiredString: String = ""
-    var _requiredBytes: Data = Data()
+    var _requiredInt32: Int32? = nil
+    var _requiredInt64: Int64? = nil
+    var _requiredUint32: UInt32? = nil
+    var _requiredUint64: UInt64? = nil
+    var _requiredSint32: Int32? = nil
+    var _requiredSint64: Int64? = nil
+    var _requiredFixed32: UInt32? = nil
+    var _requiredFixed64: UInt64? = nil
+    var _requiredSfixed32: Int32? = nil
+    var _requiredSfixed64: Int64? = nil
+    var _requiredFloat: Float? = nil
+    var _requiredDouble: Double? = nil
+    var _requiredBool: Bool? = nil
+    var _requiredString: String? = nil
+    var _requiredBytes: Data? = nil
     var _requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil
     var _requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
     var _requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil
     var _requiredImportMessage: ProtobufUnittestImport_ImportMessage? = nil
-    var _requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum = ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo
-    var _requiredForeignEnum: ProtobufUnittest_ForeignEnum = ProtobufUnittest_ForeignEnum.foreignFoo
-    var _requiredImportEnum: ProtobufUnittestImport_ImportEnum = ProtobufUnittestImport_ImportEnum.importFoo
-    var _requiredStringPiece: String = ""
-    var _requiredCord: String = ""
+    var _requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
+    var _requiredForeignEnum: ProtobufUnittest_ForeignEnum? = nil
+    var _requiredImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _requiredStringPiece: String? = nil
+    var _requiredCord: String? = nil
     var _requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
     var _requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
-    var _defaultInt32: Int32 = 41
-    var _defaultInt64: Int64 = 42
-    var _defaultUint32: UInt32 = 43
-    var _defaultUint64: UInt64 = 44
-    var _defaultSint32: Int32 = -45
-    var _defaultSint64: Int64 = 46
-    var _defaultFixed32: UInt32 = 47
-    var _defaultFixed64: UInt64 = 48
-    var _defaultSfixed32: Int32 = 49
-    var _defaultSfixed64: Int64 = -50
-    var _defaultFloat: Float = 51.5
-    var _defaultDouble: Double = 52000
-    var _defaultBool: Bool = true
-    var _defaultString: String = "hello"
-    var _defaultBytes: Data = Data(bytes: [119, 111, 114, 108, 100])
-    var _defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum = ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar
-    var _defaultForeignEnum: ProtobufUnittest_ForeignEnum = ProtobufUnittest_ForeignEnum.foreignBar
-    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum = ProtobufUnittestImport_ImportEnum.importBar
-    var _defaultStringPiece: String = "abc"
-    var _defaultCord: String = "123"
+    var _defaultInt32: Int32? = nil
+    var _defaultInt64: Int64? = nil
+    var _defaultUint32: UInt32? = nil
+    var _defaultUint64: UInt64? = nil
+    var _defaultSint32: Int32? = nil
+    var _defaultSint64: Int64? = nil
+    var _defaultFixed32: UInt32? = nil
+    var _defaultFixed64: UInt64? = nil
+    var _defaultSfixed32: Int32? = nil
+    var _defaultSfixed64: Int64? = nil
+    var _defaultFloat: Float? = nil
+    var _defaultDouble: Double? = nil
+    var _defaultBool: Bool? = nil
+    var _defaultString: String? = nil
+    var _defaultBytes: Data? = nil
+    var _defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
+    var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
+    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _defaultStringPiece: String? = nil
+    var _defaultCord: String? = nil
     var _oneofField = ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField()
 
     init() {}
@@ -207,52 +207,52 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeRequiredField(fieldType: ProtobufInt32.self, value: &_requiredInt32)
-      case 2: handled = try setter.decodeRequiredField(fieldType: ProtobufInt64.self, value: &_requiredInt64)
-      case 3: handled = try setter.decodeRequiredField(fieldType: ProtobufUInt32.self, value: &_requiredUint32)
-      case 4: handled = try setter.decodeRequiredField(fieldType: ProtobufUInt64.self, value: &_requiredUint64)
-      case 5: handled = try setter.decodeRequiredField(fieldType: ProtobufSInt32.self, value: &_requiredSint32)
-      case 6: handled = try setter.decodeRequiredField(fieldType: ProtobufSInt64.self, value: &_requiredSint64)
-      case 7: handled = try setter.decodeRequiredField(fieldType: ProtobufFixed32.self, value: &_requiredFixed32)
-      case 8: handled = try setter.decodeRequiredField(fieldType: ProtobufFixed64.self, value: &_requiredFixed64)
-      case 9: handled = try setter.decodeRequiredField(fieldType: ProtobufSFixed32.self, value: &_requiredSfixed32)
-      case 10: handled = try setter.decodeRequiredField(fieldType: ProtobufSFixed64.self, value: &_requiredSfixed64)
-      case 11: handled = try setter.decodeRequiredField(fieldType: ProtobufFloat.self, value: &_requiredFloat)
-      case 12: handled = try setter.decodeRequiredField(fieldType: ProtobufDouble.self, value: &_requiredDouble)
-      case 13: handled = try setter.decodeRequiredField(fieldType: ProtobufBool.self, value: &_requiredBool)
-      case 14: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &_requiredString)
-      case 15: handled = try setter.decodeRequiredField(fieldType: ProtobufBytes.self, value: &_requiredBytes)
-      case 16: handled = try setter.decodeRequiredGroupField(fieldType: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup.self, value: &_requiredGroup)
-      case 18: handled = try setter.decodeRequiredMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &_requiredNestedMessage)
-      case 19: handled = try setter.decodeRequiredMessageField(fieldType: ProtobufUnittest_ForeignMessage.self, value: &_requiredForeignMessage)
-      case 20: handled = try setter.decodeRequiredMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_requiredImportMessage)
-      case 21: handled = try setter.decodeRequiredField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: &_requiredNestedEnum)
-      case 22: handled = try setter.decodeRequiredField(fieldType: ProtobufUnittest_ForeignEnum.self, value: &_requiredForeignEnum)
-      case 23: handled = try setter.decodeRequiredField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_requiredImportEnum)
-      case 24: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &_requiredStringPiece)
-      case 25: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &_requiredCord)
-      case 26: handled = try setter.decodeRequiredMessageField(fieldType: ProtobufUnittestImport_PublicImportMessage.self, value: &_requiredPublicImportMessage)
-      case 27: handled = try setter.decodeRequiredMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &_requiredLazyMessage)
-      case 61: handled = try setter.decodeRequiredField(fieldType: ProtobufInt32.self, value: &_defaultInt32)
-      case 62: handled = try setter.decodeRequiredField(fieldType: ProtobufInt64.self, value: &_defaultInt64)
-      case 63: handled = try setter.decodeRequiredField(fieldType: ProtobufUInt32.self, value: &_defaultUint32)
-      case 64: handled = try setter.decodeRequiredField(fieldType: ProtobufUInt64.self, value: &_defaultUint64)
-      case 65: handled = try setter.decodeRequiredField(fieldType: ProtobufSInt32.self, value: &_defaultSint32)
-      case 66: handled = try setter.decodeRequiredField(fieldType: ProtobufSInt64.self, value: &_defaultSint64)
-      case 67: handled = try setter.decodeRequiredField(fieldType: ProtobufFixed32.self, value: &_defaultFixed32)
-      case 68: handled = try setter.decodeRequiredField(fieldType: ProtobufFixed64.self, value: &_defaultFixed64)
-      case 69: handled = try setter.decodeRequiredField(fieldType: ProtobufSFixed32.self, value: &_defaultSfixed32)
-      case 70: handled = try setter.decodeRequiredField(fieldType: ProtobufSFixed64.self, value: &_defaultSfixed64)
-      case 71: handled = try setter.decodeRequiredField(fieldType: ProtobufFloat.self, value: &_defaultFloat)
-      case 72: handled = try setter.decodeRequiredField(fieldType: ProtobufDouble.self, value: &_defaultDouble)
-      case 73: handled = try setter.decodeRequiredField(fieldType: ProtobufBool.self, value: &_defaultBool)
-      case 74: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &_defaultString)
-      case 75: handled = try setter.decodeRequiredField(fieldType: ProtobufBytes.self, value: &_defaultBytes)
-      case 81: handled = try setter.decodeRequiredField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: &_defaultNestedEnum)
-      case 82: handled = try setter.decodeRequiredField(fieldType: ProtobufUnittest_ForeignEnum.self, value: &_defaultForeignEnum)
-      case 83: handled = try setter.decodeRequiredField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_defaultImportEnum)
-      case 84: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &_defaultStringPiece)
-      case 85: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &_defaultCord)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_requiredInt32)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_requiredInt64)
+      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_requiredUint32)
+      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_requiredUint64)
+      case 5: handled = try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_requiredSint32)
+      case 6: handled = try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_requiredSint64)
+      case 7: handled = try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_requiredFixed32)
+      case 8: handled = try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_requiredFixed64)
+      case 9: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_requiredSfixed32)
+      case 10: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_requiredSfixed64)
+      case 11: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_requiredFloat)
+      case 12: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_requiredDouble)
+      case 13: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_requiredBool)
+      case 14: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredString)
+      case 15: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_requiredBytes)
+      case 16: handled = try setter.decodeSingularGroupField(fieldType: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup.self, value: &_requiredGroup)
+      case 18: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &_requiredNestedMessage)
+      case 19: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_ForeignMessage.self, value: &_requiredForeignMessage)
+      case 20: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_requiredImportMessage)
+      case 21: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: &_requiredNestedEnum)
+      case 22: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: &_requiredForeignEnum)
+      case 23: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_requiredImportEnum)
+      case 24: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredStringPiece)
+      case 25: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredCord)
+      case 26: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_PublicImportMessage.self, value: &_requiredPublicImportMessage)
+      case 27: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &_requiredLazyMessage)
+      case 61: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_defaultInt32)
+      case 62: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_defaultInt64)
+      case 63: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_defaultUint32)
+      case 64: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_defaultUint64)
+      case 65: handled = try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_defaultSint32)
+      case 66: handled = try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_defaultSint64)
+      case 67: handled = try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_defaultFixed32)
+      case 68: handled = try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_defaultFixed64)
+      case 69: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_defaultSfixed32)
+      case 70: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_defaultSfixed64)
+      case 71: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_defaultFloat)
+      case 72: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_defaultDouble)
+      case 73: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_defaultBool)
+      case 74: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultString)
+      case 75: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_defaultBytes)
+      case 81: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: &_defaultNestedEnum)
+      case 82: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: &_defaultForeignEnum)
+      case 83: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_defaultImportEnum)
+      case 84: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultStringPiece)
+      case 85: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultCord)
       case 111, 112, 113, 114:
         handled = try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default:
@@ -266,21 +266,21 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _requiredInt32, protoFieldNumber: 1, protoFieldName: "required_int32", jsonFieldName: "requiredInt32", swiftFieldName: "requiredInt32")
-      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _requiredInt64, protoFieldNumber: 2, protoFieldName: "required_int64", jsonFieldName: "requiredInt64", swiftFieldName: "requiredInt64")
-      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _requiredUint32, protoFieldNumber: 3, protoFieldName: "required_uint32", jsonFieldName: "requiredUint32", swiftFieldName: "requiredUint32")
-      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _requiredUint64, protoFieldNumber: 4, protoFieldName: "required_uint64", jsonFieldName: "requiredUint64", swiftFieldName: "requiredUint64")
-      try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _requiredSint32, protoFieldNumber: 5, protoFieldName: "required_sint32", jsonFieldName: "requiredSint32", swiftFieldName: "requiredSint32")
-      try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _requiredSint64, protoFieldNumber: 6, protoFieldName: "required_sint64", jsonFieldName: "requiredSint64", swiftFieldName: "requiredSint64")
-      try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _requiredFixed32, protoFieldNumber: 7, protoFieldName: "required_fixed32", jsonFieldName: "requiredFixed32", swiftFieldName: "requiredFixed32")
-      try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _requiredFixed64, protoFieldNumber: 8, protoFieldName: "required_fixed64", jsonFieldName: "requiredFixed64", swiftFieldName: "requiredFixed64")
-      try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _requiredSfixed32, protoFieldNumber: 9, protoFieldName: "required_sfixed32", jsonFieldName: "requiredSfixed32", swiftFieldName: "requiredSfixed32")
-      try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _requiredSfixed64, protoFieldNumber: 10, protoFieldName: "required_sfixed64", jsonFieldName: "requiredSfixed64", swiftFieldName: "requiredSfixed64")
-      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _requiredFloat, protoFieldNumber: 11, protoFieldName: "required_float", jsonFieldName: "requiredFloat", swiftFieldName: "requiredFloat")
-      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _requiredDouble, protoFieldNumber: 12, protoFieldName: "required_double", jsonFieldName: "requiredDouble", swiftFieldName: "requiredDouble")
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _requiredBool, protoFieldNumber: 13, protoFieldName: "required_bool", jsonFieldName: "requiredBool", swiftFieldName: "requiredBool")
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredString, protoFieldNumber: 14, protoFieldName: "required_string", jsonFieldName: "requiredString", swiftFieldName: "requiredString")
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _requiredBytes, protoFieldNumber: 15, protoFieldName: "required_bytes", jsonFieldName: "requiredBytes", swiftFieldName: "requiredBytes")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _requiredInt32 ?? 0, protoFieldNumber: 1, protoFieldName: "required_int32", jsonFieldName: "requiredInt32", swiftFieldName: "requiredInt32")
+      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _requiredInt64 ?? 0, protoFieldNumber: 2, protoFieldName: "required_int64", jsonFieldName: "requiredInt64", swiftFieldName: "requiredInt64")
+      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _requiredUint32 ?? 0, protoFieldNumber: 3, protoFieldName: "required_uint32", jsonFieldName: "requiredUint32", swiftFieldName: "requiredUint32")
+      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _requiredUint64 ?? 0, protoFieldNumber: 4, protoFieldName: "required_uint64", jsonFieldName: "requiredUint64", swiftFieldName: "requiredUint64")
+      try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _requiredSint32 ?? 0, protoFieldNumber: 5, protoFieldName: "required_sint32", jsonFieldName: "requiredSint32", swiftFieldName: "requiredSint32")
+      try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _requiredSint64 ?? 0, protoFieldNumber: 6, protoFieldName: "required_sint64", jsonFieldName: "requiredSint64", swiftFieldName: "requiredSint64")
+      try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _requiredFixed32 ?? 0, protoFieldNumber: 7, protoFieldName: "required_fixed32", jsonFieldName: "requiredFixed32", swiftFieldName: "requiredFixed32")
+      try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _requiredFixed64 ?? 0, protoFieldNumber: 8, protoFieldName: "required_fixed64", jsonFieldName: "requiredFixed64", swiftFieldName: "requiredFixed64")
+      try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _requiredSfixed32 ?? 0, protoFieldNumber: 9, protoFieldName: "required_sfixed32", jsonFieldName: "requiredSfixed32", swiftFieldName: "requiredSfixed32")
+      try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _requiredSfixed64 ?? 0, protoFieldNumber: 10, protoFieldName: "required_sfixed64", jsonFieldName: "requiredSfixed64", swiftFieldName: "requiredSfixed64")
+      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _requiredFloat ?? 0, protoFieldNumber: 11, protoFieldName: "required_float", jsonFieldName: "requiredFloat", swiftFieldName: "requiredFloat")
+      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _requiredDouble ?? 0, protoFieldNumber: 12, protoFieldName: "required_double", jsonFieldName: "requiredDouble", swiftFieldName: "requiredDouble")
+      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _requiredBool ?? false, protoFieldNumber: 13, protoFieldName: "required_bool", jsonFieldName: "requiredBool", swiftFieldName: "requiredBool")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredString ?? "", protoFieldNumber: 14, protoFieldName: "required_string", jsonFieldName: "requiredString", swiftFieldName: "requiredString")
+      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _requiredBytes ?? Data(), protoFieldNumber: 15, protoFieldName: "required_bytes", jsonFieldName: "requiredBytes", swiftFieldName: "requiredBytes")
       if let v = _requiredGroup {
         try visitor.visitSingularGroupField(value: v, protoFieldNumber: 16, protoFieldName: "requiredgroup", jsonFieldName: "requiredgroup", swiftFieldName: "requiredGroup")
       }
@@ -293,88 +293,88 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
       if let v = _requiredImportMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 20, protoFieldName: "required_import_message", jsonFieldName: "requiredImportMessage", swiftFieldName: "requiredImportMessage")
       }
-      try visitor.visitSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: _requiredNestedEnum, protoFieldNumber: 21, protoFieldName: "required_nested_enum", jsonFieldName: "requiredNestedEnum", swiftFieldName: "requiredNestedEnum")
-      try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _requiredForeignEnum, protoFieldNumber: 22, protoFieldName: "required_foreign_enum", jsonFieldName: "requiredForeignEnum", swiftFieldName: "requiredForeignEnum")
-      try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: _requiredImportEnum, protoFieldNumber: 23, protoFieldName: "required_import_enum", jsonFieldName: "requiredImportEnum", swiftFieldName: "requiredImportEnum")
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredStringPiece, protoFieldNumber: 24, protoFieldName: "required_string_piece", jsonFieldName: "requiredStringPiece", swiftFieldName: "requiredStringPiece")
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredCord, protoFieldNumber: 25, protoFieldName: "required_cord", jsonFieldName: "requiredCord", swiftFieldName: "requiredCord")
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: _requiredNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo, protoFieldNumber: 21, protoFieldName: "required_nested_enum", jsonFieldName: "requiredNestedEnum", swiftFieldName: "requiredNestedEnum")
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _requiredForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo, protoFieldNumber: 22, protoFieldName: "required_foreign_enum", jsonFieldName: "requiredForeignEnum", swiftFieldName: "requiredForeignEnum")
+      try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: _requiredImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo, protoFieldNumber: 23, protoFieldName: "required_import_enum", jsonFieldName: "requiredImportEnum", swiftFieldName: "requiredImportEnum")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredStringPiece ?? "", protoFieldNumber: 24, protoFieldName: "required_string_piece", jsonFieldName: "requiredStringPiece", swiftFieldName: "requiredStringPiece")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredCord ?? "", protoFieldNumber: 25, protoFieldName: "required_cord", jsonFieldName: "requiredCord", swiftFieldName: "requiredCord")
       if let v = _requiredPublicImportMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 26, protoFieldName: "required_public_import_message", jsonFieldName: "requiredPublicImportMessage", swiftFieldName: "requiredPublicImportMessage")
       }
       if let v = _requiredLazyMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 27, protoFieldName: "required_lazy_message", jsonFieldName: "requiredLazyMessage", swiftFieldName: "requiredLazyMessage")
       }
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _defaultInt32, protoFieldNumber: 61, protoFieldName: "default_int32", jsonFieldName: "defaultInt32", swiftFieldName: "defaultInt32")
-      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _defaultInt64, protoFieldNumber: 62, protoFieldName: "default_int64", jsonFieldName: "defaultInt64", swiftFieldName: "defaultInt64")
-      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _defaultUint32, protoFieldNumber: 63, protoFieldName: "default_uint32", jsonFieldName: "defaultUint32", swiftFieldName: "defaultUint32")
-      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _defaultUint64, protoFieldNumber: 64, protoFieldName: "default_uint64", jsonFieldName: "defaultUint64", swiftFieldName: "defaultUint64")
-      try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _defaultSint32, protoFieldNumber: 65, protoFieldName: "default_sint32", jsonFieldName: "defaultSint32", swiftFieldName: "defaultSint32")
-      try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _defaultSint64, protoFieldNumber: 66, protoFieldName: "default_sint64", jsonFieldName: "defaultSint64", swiftFieldName: "defaultSint64")
-      try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _defaultFixed32, protoFieldNumber: 67, protoFieldName: "default_fixed32", jsonFieldName: "defaultFixed32", swiftFieldName: "defaultFixed32")
-      try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _defaultFixed64, protoFieldNumber: 68, protoFieldName: "default_fixed64", jsonFieldName: "defaultFixed64", swiftFieldName: "defaultFixed64")
-      try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _defaultSfixed32, protoFieldNumber: 69, protoFieldName: "default_sfixed32", jsonFieldName: "defaultSfixed32", swiftFieldName: "defaultSfixed32")
-      try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _defaultSfixed64, protoFieldNumber: 70, protoFieldName: "default_sfixed64", jsonFieldName: "defaultSfixed64", swiftFieldName: "defaultSfixed64")
-      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _defaultFloat, protoFieldNumber: 71, protoFieldName: "default_float", jsonFieldName: "defaultFloat", swiftFieldName: "defaultFloat")
-      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _defaultDouble, protoFieldNumber: 72, protoFieldName: "default_double", jsonFieldName: "defaultDouble", swiftFieldName: "defaultDouble")
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _defaultBool, protoFieldNumber: 73, protoFieldName: "default_bool", jsonFieldName: "defaultBool", swiftFieldName: "defaultBool")
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultString, protoFieldNumber: 74, protoFieldName: "default_string", jsonFieldName: "defaultString", swiftFieldName: "defaultString")
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _defaultBytes, protoFieldNumber: 75, protoFieldName: "default_bytes", jsonFieldName: "defaultBytes", swiftFieldName: "defaultBytes")
-      try visitor.visitSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: _defaultNestedEnum, protoFieldNumber: 81, protoFieldName: "default_nested_enum", jsonFieldName: "defaultNestedEnum", swiftFieldName: "defaultNestedEnum")
-      try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _defaultForeignEnum, protoFieldNumber: 82, protoFieldName: "default_foreign_enum", jsonFieldName: "defaultForeignEnum", swiftFieldName: "defaultForeignEnum")
-      try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: _defaultImportEnum, protoFieldNumber: 83, protoFieldName: "default_import_enum", jsonFieldName: "defaultImportEnum", swiftFieldName: "defaultImportEnum")
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultStringPiece, protoFieldNumber: 84, protoFieldName: "default_string_piece", jsonFieldName: "defaultStringPiece", swiftFieldName: "defaultStringPiece")
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultCord, protoFieldNumber: 85, protoFieldName: "default_cord", jsonFieldName: "defaultCord", swiftFieldName: "defaultCord")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _defaultInt32 ?? 41, protoFieldNumber: 61, protoFieldName: "default_int32", jsonFieldName: "defaultInt32", swiftFieldName: "defaultInt32")
+      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _defaultInt64 ?? 42, protoFieldNumber: 62, protoFieldName: "default_int64", jsonFieldName: "defaultInt64", swiftFieldName: "defaultInt64")
+      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _defaultUint32 ?? 43, protoFieldNumber: 63, protoFieldName: "default_uint32", jsonFieldName: "defaultUint32", swiftFieldName: "defaultUint32")
+      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _defaultUint64 ?? 44, protoFieldNumber: 64, protoFieldName: "default_uint64", jsonFieldName: "defaultUint64", swiftFieldName: "defaultUint64")
+      try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _defaultSint32 ?? -45, protoFieldNumber: 65, protoFieldName: "default_sint32", jsonFieldName: "defaultSint32", swiftFieldName: "defaultSint32")
+      try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _defaultSint64 ?? 46, protoFieldNumber: 66, protoFieldName: "default_sint64", jsonFieldName: "defaultSint64", swiftFieldName: "defaultSint64")
+      try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _defaultFixed32 ?? 47, protoFieldNumber: 67, protoFieldName: "default_fixed32", jsonFieldName: "defaultFixed32", swiftFieldName: "defaultFixed32")
+      try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _defaultFixed64 ?? 48, protoFieldNumber: 68, protoFieldName: "default_fixed64", jsonFieldName: "defaultFixed64", swiftFieldName: "defaultFixed64")
+      try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _defaultSfixed32 ?? 49, protoFieldNumber: 69, protoFieldName: "default_sfixed32", jsonFieldName: "defaultSfixed32", swiftFieldName: "defaultSfixed32")
+      try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _defaultSfixed64 ?? -50, protoFieldNumber: 70, protoFieldName: "default_sfixed64", jsonFieldName: "defaultSfixed64", swiftFieldName: "defaultSfixed64")
+      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _defaultFloat ?? 51.5, protoFieldNumber: 71, protoFieldName: "default_float", jsonFieldName: "defaultFloat", swiftFieldName: "defaultFloat")
+      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _defaultDouble ?? 52000, protoFieldNumber: 72, protoFieldName: "default_double", jsonFieldName: "defaultDouble", swiftFieldName: "defaultDouble")
+      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _defaultBool ?? true, protoFieldNumber: 73, protoFieldName: "default_bool", jsonFieldName: "defaultBool", swiftFieldName: "defaultBool")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultString ?? "hello", protoFieldNumber: 74, protoFieldName: "default_string", jsonFieldName: "defaultString", swiftFieldName: "defaultString")
+      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100]), protoFieldNumber: 75, protoFieldName: "default_bytes", jsonFieldName: "defaultBytes", swiftFieldName: "defaultBytes")
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: _defaultNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar, protoFieldNumber: 81, protoFieldName: "default_nested_enum", jsonFieldName: "defaultNestedEnum", swiftFieldName: "defaultNestedEnum")
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _defaultForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignBar, protoFieldNumber: 82, protoFieldName: "default_foreign_enum", jsonFieldName: "defaultForeignEnum", swiftFieldName: "defaultForeignEnum")
+      try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: _defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar, protoFieldNumber: 83, protoFieldName: "default_import_enum", jsonFieldName: "defaultImportEnum", swiftFieldName: "defaultImportEnum")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultStringPiece ?? "abc", protoFieldNumber: 84, protoFieldName: "default_string_piece", jsonFieldName: "defaultStringPiece", swiftFieldName: "defaultStringPiece")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultCord ?? "123", protoFieldNumber: 85, protoFieldName: "default_cord", jsonFieldName: "defaultCord", swiftFieldName: "defaultCord")
       try _oneofField.traverse(visitor: &visitor, start: 111, end: 115)
       unknown.traverse(visitor: &visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if _requiredInt32 != other._requiredInt32 {return false}
-      if _requiredInt64 != other._requiredInt64 {return false}
-      if _requiredUint32 != other._requiredUint32 {return false}
-      if _requiredUint64 != other._requiredUint64 {return false}
-      if _requiredSint32 != other._requiredSint32 {return false}
-      if _requiredSint64 != other._requiredSint64 {return false}
-      if _requiredFixed32 != other._requiredFixed32 {return false}
-      if _requiredFixed64 != other._requiredFixed64 {return false}
-      if _requiredSfixed32 != other._requiredSfixed32 {return false}
-      if _requiredSfixed64 != other._requiredSfixed64 {return false}
-      if _requiredFloat != other._requiredFloat {return false}
-      if _requiredDouble != other._requiredDouble {return false}
-      if _requiredBool != other._requiredBool {return false}
-      if _requiredString != other._requiredString {return false}
-      if _requiredBytes != other._requiredBytes {return false}
-      if _requiredGroup != other._requiredGroup {return false}
-      if _requiredNestedMessage != other._requiredNestedMessage {return false}
-      if _requiredForeignMessage != other._requiredForeignMessage {return false}
-      if _requiredImportMessage != other._requiredImportMessage {return false}
-      if _requiredNestedEnum != other._requiredNestedEnum {return false}
-      if _requiredForeignEnum != other._requiredForeignEnum {return false}
-      if _requiredImportEnum != other._requiredImportEnum {return false}
-      if _requiredStringPiece != other._requiredStringPiece {return false}
-      if _requiredCord != other._requiredCord {return false}
-      if _requiredPublicImportMessage != other._requiredPublicImportMessage {return false}
-      if _requiredLazyMessage != other._requiredLazyMessage {return false}
-      if _defaultInt32 != other._defaultInt32 {return false}
-      if _defaultInt64 != other._defaultInt64 {return false}
-      if _defaultUint32 != other._defaultUint32 {return false}
-      if _defaultUint64 != other._defaultUint64 {return false}
-      if _defaultSint32 != other._defaultSint32 {return false}
-      if _defaultSint64 != other._defaultSint64 {return false}
-      if _defaultFixed32 != other._defaultFixed32 {return false}
-      if _defaultFixed64 != other._defaultFixed64 {return false}
-      if _defaultSfixed32 != other._defaultSfixed32 {return false}
-      if _defaultSfixed64 != other._defaultSfixed64 {return false}
-      if _defaultFloat != other._defaultFloat {return false}
-      if _defaultDouble != other._defaultDouble {return false}
-      if _defaultBool != other._defaultBool {return false}
-      if _defaultString != other._defaultString {return false}
-      if _defaultBytes != other._defaultBytes {return false}
-      if _defaultNestedEnum != other._defaultNestedEnum {return false}
-      if _defaultForeignEnum != other._defaultForeignEnum {return false}
-      if _defaultImportEnum != other._defaultImportEnum {return false}
-      if _defaultStringPiece != other._defaultStringPiece {return false}
-      if _defaultCord != other._defaultCord {return false}
+      if (_requiredInt32 != other._requiredInt32) {return false}
+      if (_requiredInt64 != other._requiredInt64) {return false}
+      if (_requiredUint32 != other._requiredUint32) {return false}
+      if (_requiredUint64 != other._requiredUint64) {return false}
+      if (_requiredSint32 != other._requiredSint32) {return false}
+      if (_requiredSint64 != other._requiredSint64) {return false}
+      if (_requiredFixed32 != other._requiredFixed32) {return false}
+      if (_requiredFixed64 != other._requiredFixed64) {return false}
+      if (_requiredSfixed32 != other._requiredSfixed32) {return false}
+      if (_requiredSfixed64 != other._requiredSfixed64) {return false}
+      if (_requiredFloat != other._requiredFloat) {return false}
+      if (_requiredDouble != other._requiredDouble) {return false}
+      if (_requiredBool != other._requiredBool) {return false}
+      if (_requiredString != other._requiredString) {return false}
+      if (_requiredBytes != other._requiredBytes) {return false}
+      if ((_requiredGroup != nil || other._requiredGroup != nil) && (_requiredGroup == nil || other._requiredGroup == nil || _requiredGroup! != other._requiredGroup!)) {return false}
+      if ((_requiredNestedMessage != nil || other._requiredNestedMessage != nil) && (_requiredNestedMessage == nil || other._requiredNestedMessage == nil || _requiredNestedMessage! != other._requiredNestedMessage!)) {return false}
+      if ((_requiredForeignMessage != nil || other._requiredForeignMessage != nil) && (_requiredForeignMessage == nil || other._requiredForeignMessage == nil || _requiredForeignMessage! != other._requiredForeignMessage!)) {return false}
+      if ((_requiredImportMessage != nil || other._requiredImportMessage != nil) && (_requiredImportMessage == nil || other._requiredImportMessage == nil || _requiredImportMessage! != other._requiredImportMessage!)) {return false}
+      if (_requiredNestedEnum != other._requiredNestedEnum) {return false}
+      if (_requiredForeignEnum != other._requiredForeignEnum) {return false}
+      if (_requiredImportEnum != other._requiredImportEnum) {return false}
+      if (_requiredStringPiece != other._requiredStringPiece) {return false}
+      if (_requiredCord != other._requiredCord) {return false}
+      if ((_requiredPublicImportMessage != nil || other._requiredPublicImportMessage != nil) && (_requiredPublicImportMessage == nil || other._requiredPublicImportMessage == nil || _requiredPublicImportMessage! != other._requiredPublicImportMessage!)) {return false}
+      if ((_requiredLazyMessage != nil || other._requiredLazyMessage != nil) && (_requiredLazyMessage == nil || other._requiredLazyMessage == nil || _requiredLazyMessage! != other._requiredLazyMessage!)) {return false}
+      if (((_defaultInt32 != nil && _defaultInt32! != 41) || (other._defaultInt32 != nil && other._defaultInt32! != 41)) && (_defaultInt32 == nil || other._defaultInt32 == nil || _defaultInt32! != other._defaultInt32!)) {return false}
+      if (((_defaultInt64 != nil && _defaultInt64! != 42) || (other._defaultInt64 != nil && other._defaultInt64! != 42)) && (_defaultInt64 == nil || other._defaultInt64 == nil || _defaultInt64! != other._defaultInt64!)) {return false}
+      if (((_defaultUint32 != nil && _defaultUint32! != 43) || (other._defaultUint32 != nil && other._defaultUint32! != 43)) && (_defaultUint32 == nil || other._defaultUint32 == nil || _defaultUint32! != other._defaultUint32!)) {return false}
+      if (((_defaultUint64 != nil && _defaultUint64! != 44) || (other._defaultUint64 != nil && other._defaultUint64! != 44)) && (_defaultUint64 == nil || other._defaultUint64 == nil || _defaultUint64! != other._defaultUint64!)) {return false}
+      if (((_defaultSint32 != nil && _defaultSint32! != -45) || (other._defaultSint32 != nil && other._defaultSint32! != -45)) && (_defaultSint32 == nil || other._defaultSint32 == nil || _defaultSint32! != other._defaultSint32!)) {return false}
+      if (((_defaultSint64 != nil && _defaultSint64! != 46) || (other._defaultSint64 != nil && other._defaultSint64! != 46)) && (_defaultSint64 == nil || other._defaultSint64 == nil || _defaultSint64! != other._defaultSint64!)) {return false}
+      if (((_defaultFixed32 != nil && _defaultFixed32! != 47) || (other._defaultFixed32 != nil && other._defaultFixed32! != 47)) && (_defaultFixed32 == nil || other._defaultFixed32 == nil || _defaultFixed32! != other._defaultFixed32!)) {return false}
+      if (((_defaultFixed64 != nil && _defaultFixed64! != 48) || (other._defaultFixed64 != nil && other._defaultFixed64! != 48)) && (_defaultFixed64 == nil || other._defaultFixed64 == nil || _defaultFixed64! != other._defaultFixed64!)) {return false}
+      if (((_defaultSfixed32 != nil && _defaultSfixed32! != 49) || (other._defaultSfixed32 != nil && other._defaultSfixed32! != 49)) && (_defaultSfixed32 == nil || other._defaultSfixed32 == nil || _defaultSfixed32! != other._defaultSfixed32!)) {return false}
+      if (((_defaultSfixed64 != nil && _defaultSfixed64! != -50) || (other._defaultSfixed64 != nil && other._defaultSfixed64! != -50)) && (_defaultSfixed64 == nil || other._defaultSfixed64 == nil || _defaultSfixed64! != other._defaultSfixed64!)) {return false}
+      if (((_defaultFloat != nil && _defaultFloat! != 51.5) || (other._defaultFloat != nil && other._defaultFloat! != 51.5)) && (_defaultFloat == nil || other._defaultFloat == nil || _defaultFloat! != other._defaultFloat!)) {return false}
+      if (((_defaultDouble != nil && _defaultDouble! != 52000) || (other._defaultDouble != nil && other._defaultDouble! != 52000)) && (_defaultDouble == nil || other._defaultDouble == nil || _defaultDouble! != other._defaultDouble!)) {return false}
+      if (((_defaultBool != nil && _defaultBool! != true) || (other._defaultBool != nil && other._defaultBool! != true)) && (_defaultBool == nil || other._defaultBool == nil || _defaultBool! != other._defaultBool!)) {return false}
+      if (((_defaultString != nil && _defaultString! != "hello") || (other._defaultString != nil && other._defaultString! != "hello")) && (_defaultString == nil || other._defaultString == nil || _defaultString! != other._defaultString!)) {return false}
+      if (((_defaultBytes != nil && _defaultBytes! != Data(bytes: [119, 111, 114, 108, 100])) || (other._defaultBytes != nil && other._defaultBytes! != Data(bytes: [119, 111, 114, 108, 100]))) && (_defaultBytes == nil || other._defaultBytes == nil || _defaultBytes! != other._defaultBytes!)) {return false}
+      if (((_defaultNestedEnum != nil && _defaultNestedEnum! != ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar) || (other._defaultNestedEnum != nil && other._defaultNestedEnum! != ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar)) && (_defaultNestedEnum == nil || other._defaultNestedEnum == nil || _defaultNestedEnum! != other._defaultNestedEnum!)) {return false}
+      if (((_defaultForeignEnum != nil && _defaultForeignEnum! != ProtobufUnittest_ForeignEnum.foreignBar) || (other._defaultForeignEnum != nil && other._defaultForeignEnum! != ProtobufUnittest_ForeignEnum.foreignBar)) && (_defaultForeignEnum == nil || other._defaultForeignEnum == nil || _defaultForeignEnum! != other._defaultForeignEnum!)) {return false}
+      if (((_defaultImportEnum != nil && _defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar) || (other._defaultImportEnum != nil && other._defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar)) && (_defaultImportEnum == nil || other._defaultImportEnum == nil || _defaultImportEnum! != other._defaultImportEnum!)) {return false}
+      if (((_defaultStringPiece != nil && _defaultStringPiece! != "abc") || (other._defaultStringPiece != nil && other._defaultStringPiece! != "abc")) && (_defaultStringPiece == nil || other._defaultStringPiece == nil || _defaultStringPiece! != other._defaultStringPiece!)) {return false}
+      if (((_defaultCord != nil && _defaultCord! != "123") || (other._defaultCord != nil && other._defaultCord! != "123")) && (_defaultCord == nil || other._defaultCord == nil || _defaultCord! != other._defaultCord!)) {return false}
       if _oneofField != other._oneofField {return false}
       if unknown != other.unknown {return false}
       return true
@@ -459,25 +459,25 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
       switch protoFieldNumber {
       case 111:
         var value: UInt32?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufUInt32.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
         if let value = value, handled {
           self = .oneofUint32(value)
         }
       case 112:
         var value: ProtobufUnittest_TestAllRequiredTypes.NestedMessage?
-        handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }
       case 113:
         var value: String?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         if let value = value, handled {
           self = .oneofString(value)
         }
       case 114:
         var value: Data?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         if let value = value, handled {
           self = .oneofBytes(value)
         }
@@ -618,14 +618,24 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
-    public var bb: Int32 = 0
+    private var _bb: Int32? = nil
+    public var bb: Int32 {
+      get {return _bb ?? 0}
+      set {_bb = newValue}
+    }
+    public var hasBb: Bool {
+      return _bb != nil
+    }
+    public mutating func clearBb() {
+      return _bb = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeRequiredField(fieldType: ProtobufInt32.self, value: &bb)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_bb)
       default:
         handled = false
       }
@@ -637,12 +647,12 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: bb, protoFieldNumber: 1, protoFieldName: "bb", jsonFieldName: "bb", swiftFieldName: "bb")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bb ?? 0, protoFieldNumber: 1, protoFieldName: "bb", jsonFieldName: "bb", swiftFieldName: "bb")
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
-      if bb != other.bb {return false}
+      if (bb != other.bb) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -661,14 +671,24 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public var a: Int32 = 0
+    private var _a: Int32? = nil
+    public var a: Int32 {
+      get {return _a ?? 0}
+      set {_a = newValue}
+    }
+    public var hasA: Bool {
+      return _a != nil
+    }
+    public mutating func clearA() {
+      return _a = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 17: handled = try setter.decodeRequiredField(fieldType: ProtobufInt32.self, value: &a)
+      case 17: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
       default:
         handled = false
       }
@@ -680,12 +700,12 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 17, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _a ?? 0, protoFieldNumber: 17, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
-      if a != other.a {return false}
+      if (a != other.a) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -693,123 +713,267 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
 
   ///   Singular
   public var requiredInt32: Int32 {
-    get {return _storage._requiredInt32}
+    get {return _storage._requiredInt32 ?? 0}
     set {_uniqueStorage()._requiredInt32 = newValue}
+  }
+  public var hasRequiredInt32: Bool {
+    return _storage._requiredInt32 != nil
+  }
+  public mutating func clearRequiredInt32() {
+    return _storage._requiredInt32 = nil
   }
 
   public var requiredInt64: Int64 {
-    get {return _storage._requiredInt64}
+    get {return _storage._requiredInt64 ?? 0}
     set {_uniqueStorage()._requiredInt64 = newValue}
+  }
+  public var hasRequiredInt64: Bool {
+    return _storage._requiredInt64 != nil
+  }
+  public mutating func clearRequiredInt64() {
+    return _storage._requiredInt64 = nil
   }
 
   public var requiredUint32: UInt32 {
-    get {return _storage._requiredUint32}
+    get {return _storage._requiredUint32 ?? 0}
     set {_uniqueStorage()._requiredUint32 = newValue}
+  }
+  public var hasRequiredUint32: Bool {
+    return _storage._requiredUint32 != nil
+  }
+  public mutating func clearRequiredUint32() {
+    return _storage._requiredUint32 = nil
   }
 
   public var requiredUint64: UInt64 {
-    get {return _storage._requiredUint64}
+    get {return _storage._requiredUint64 ?? 0}
     set {_uniqueStorage()._requiredUint64 = newValue}
+  }
+  public var hasRequiredUint64: Bool {
+    return _storage._requiredUint64 != nil
+  }
+  public mutating func clearRequiredUint64() {
+    return _storage._requiredUint64 = nil
   }
 
   public var requiredSint32: Int32 {
-    get {return _storage._requiredSint32}
+    get {return _storage._requiredSint32 ?? 0}
     set {_uniqueStorage()._requiredSint32 = newValue}
+  }
+  public var hasRequiredSint32: Bool {
+    return _storage._requiredSint32 != nil
+  }
+  public mutating func clearRequiredSint32() {
+    return _storage._requiredSint32 = nil
   }
 
   public var requiredSint64: Int64 {
-    get {return _storage._requiredSint64}
+    get {return _storage._requiredSint64 ?? 0}
     set {_uniqueStorage()._requiredSint64 = newValue}
+  }
+  public var hasRequiredSint64: Bool {
+    return _storage._requiredSint64 != nil
+  }
+  public mutating func clearRequiredSint64() {
+    return _storage._requiredSint64 = nil
   }
 
   public var requiredFixed32: UInt32 {
-    get {return _storage._requiredFixed32}
+    get {return _storage._requiredFixed32 ?? 0}
     set {_uniqueStorage()._requiredFixed32 = newValue}
+  }
+  public var hasRequiredFixed32: Bool {
+    return _storage._requiredFixed32 != nil
+  }
+  public mutating func clearRequiredFixed32() {
+    return _storage._requiredFixed32 = nil
   }
 
   public var requiredFixed64: UInt64 {
-    get {return _storage._requiredFixed64}
+    get {return _storage._requiredFixed64 ?? 0}
     set {_uniqueStorage()._requiredFixed64 = newValue}
+  }
+  public var hasRequiredFixed64: Bool {
+    return _storage._requiredFixed64 != nil
+  }
+  public mutating func clearRequiredFixed64() {
+    return _storage._requiredFixed64 = nil
   }
 
   public var requiredSfixed32: Int32 {
-    get {return _storage._requiredSfixed32}
+    get {return _storage._requiredSfixed32 ?? 0}
     set {_uniqueStorage()._requiredSfixed32 = newValue}
+  }
+  public var hasRequiredSfixed32: Bool {
+    return _storage._requiredSfixed32 != nil
+  }
+  public mutating func clearRequiredSfixed32() {
+    return _storage._requiredSfixed32 = nil
   }
 
   public var requiredSfixed64: Int64 {
-    get {return _storage._requiredSfixed64}
+    get {return _storage._requiredSfixed64 ?? 0}
     set {_uniqueStorage()._requiredSfixed64 = newValue}
+  }
+  public var hasRequiredSfixed64: Bool {
+    return _storage._requiredSfixed64 != nil
+  }
+  public mutating func clearRequiredSfixed64() {
+    return _storage._requiredSfixed64 = nil
   }
 
   public var requiredFloat: Float {
-    get {return _storage._requiredFloat}
+    get {return _storage._requiredFloat ?? 0}
     set {_uniqueStorage()._requiredFloat = newValue}
+  }
+  public var hasRequiredFloat: Bool {
+    return _storage._requiredFloat != nil
+  }
+  public mutating func clearRequiredFloat() {
+    return _storage._requiredFloat = nil
   }
 
   public var requiredDouble: Double {
-    get {return _storage._requiredDouble}
+    get {return _storage._requiredDouble ?? 0}
     set {_uniqueStorage()._requiredDouble = newValue}
+  }
+  public var hasRequiredDouble: Bool {
+    return _storage._requiredDouble != nil
+  }
+  public mutating func clearRequiredDouble() {
+    return _storage._requiredDouble = nil
   }
 
   public var requiredBool: Bool {
-    get {return _storage._requiredBool}
+    get {return _storage._requiredBool ?? false}
     set {_uniqueStorage()._requiredBool = newValue}
+  }
+  public var hasRequiredBool: Bool {
+    return _storage._requiredBool != nil
+  }
+  public mutating func clearRequiredBool() {
+    return _storage._requiredBool = nil
   }
 
   public var requiredString: String {
-    get {return _storage._requiredString}
+    get {return _storage._requiredString ?? ""}
     set {_uniqueStorage()._requiredString = newValue}
+  }
+  public var hasRequiredString: Bool {
+    return _storage._requiredString != nil
+  }
+  public mutating func clearRequiredString() {
+    return _storage._requiredString = nil
   }
 
   public var requiredBytes: Data {
-    get {return _storage._requiredBytes}
+    get {return _storage._requiredBytes ?? Data()}
     set {_uniqueStorage()._requiredBytes = newValue}
+  }
+  public var hasRequiredBytes: Bool {
+    return _storage._requiredBytes != nil
+  }
+  public mutating func clearRequiredBytes() {
+    return _storage._requiredBytes = nil
   }
 
   public var requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup {
     get {return _storage._requiredGroup ?? ProtobufUnittest_TestAllRequiredTypes.RequiredGroup()}
     set {_uniqueStorage()._requiredGroup = newValue}
   }
+  public var hasRequiredGroup: Bool {
+    return _storage._requiredGroup != nil
+  }
+  public mutating func clearRequiredGroup() {
+    return _storage._requiredGroup = nil
+  }
 
   public var requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
     get {return _storage._requiredNestedMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredNestedMessage = newValue}
+  }
+  public var hasRequiredNestedMessage: Bool {
+    return _storage._requiredNestedMessage != nil
+  }
+  public mutating func clearRequiredNestedMessage() {
+    return _storage._requiredNestedMessage = nil
   }
 
   public var requiredForeignMessage: ProtobufUnittest_ForeignMessage {
     get {return _storage._requiredForeignMessage ?? ProtobufUnittest_ForeignMessage()}
     set {_uniqueStorage()._requiredForeignMessage = newValue}
   }
+  public var hasRequiredForeignMessage: Bool {
+    return _storage._requiredForeignMessage != nil
+  }
+  public mutating func clearRequiredForeignMessage() {
+    return _storage._requiredForeignMessage = nil
+  }
 
   public var requiredImportMessage: ProtobufUnittestImport_ImportMessage {
     get {return _storage._requiredImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._requiredImportMessage = newValue}
   }
+  public var hasRequiredImportMessage: Bool {
+    return _storage._requiredImportMessage != nil
+  }
+  public mutating func clearRequiredImportMessage() {
+    return _storage._requiredImportMessage = nil
+  }
 
   public var requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
-    get {return _storage._requiredNestedEnum}
+    get {return _storage._requiredNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo}
     set {_uniqueStorage()._requiredNestedEnum = newValue}
+  }
+  public var hasRequiredNestedEnum: Bool {
+    return _storage._requiredNestedEnum != nil
+  }
+  public mutating func clearRequiredNestedEnum() {
+    return _storage._requiredNestedEnum = nil
   }
 
   public var requiredForeignEnum: ProtobufUnittest_ForeignEnum {
-    get {return _storage._requiredForeignEnum}
+    get {return _storage._requiredForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo}
     set {_uniqueStorage()._requiredForeignEnum = newValue}
+  }
+  public var hasRequiredForeignEnum: Bool {
+    return _storage._requiredForeignEnum != nil
+  }
+  public mutating func clearRequiredForeignEnum() {
+    return _storage._requiredForeignEnum = nil
   }
 
   public var requiredImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._requiredImportEnum}
+    get {return _storage._requiredImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo}
     set {_uniqueStorage()._requiredImportEnum = newValue}
+  }
+  public var hasRequiredImportEnum: Bool {
+    return _storage._requiredImportEnum != nil
+  }
+  public mutating func clearRequiredImportEnum() {
+    return _storage._requiredImportEnum = nil
   }
 
   public var requiredStringPiece: String {
-    get {return _storage._requiredStringPiece}
+    get {return _storage._requiredStringPiece ?? ""}
     set {_uniqueStorage()._requiredStringPiece = newValue}
+  }
+  public var hasRequiredStringPiece: Bool {
+    return _storage._requiredStringPiece != nil
+  }
+  public mutating func clearRequiredStringPiece() {
+    return _storage._requiredStringPiece = nil
   }
 
   public var requiredCord: String {
-    get {return _storage._requiredCord}
+    get {return _storage._requiredCord ?? ""}
     set {_uniqueStorage()._requiredCord = newValue}
+  }
+  public var hasRequiredCord: Bool {
+    return _storage._requiredCord != nil
+  }
+  public mutating func clearRequiredCord() {
+    return _storage._requiredCord = nil
   }
 
   ///   Defined in unittest_import_public.proto
@@ -817,178 +981,294 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     get {return _storage._requiredPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._requiredPublicImportMessage = newValue}
   }
+  public var hasRequiredPublicImportMessage: Bool {
+    return _storage._requiredPublicImportMessage != nil
+  }
+  public mutating func clearRequiredPublicImportMessage() {
+    return _storage._requiredPublicImportMessage = nil
+  }
 
   public var requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
     get {return _storage._requiredLazyMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredLazyMessage = newValue}
   }
+  public var hasRequiredLazyMessage: Bool {
+    return _storage._requiredLazyMessage != nil
+  }
+  public mutating func clearRequiredLazyMessage() {
+    return _storage._requiredLazyMessage = nil
+  }
 
   ///   Singular with defaults
   public var defaultInt32: Int32 {
-    get {return _storage._defaultInt32}
+    get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
+  }
+  public var hasDefaultInt32: Bool {
+    return _storage._defaultInt32 != nil
+  }
+  public mutating func clearDefaultInt32() {
+    return _storage._defaultInt32 = nil
   }
 
   public var defaultInt64: Int64 {
-    get {return _storage._defaultInt64}
+    get {return _storage._defaultInt64 ?? 42}
     set {_uniqueStorage()._defaultInt64 = newValue}
+  }
+  public var hasDefaultInt64: Bool {
+    return _storage._defaultInt64 != nil
+  }
+  public mutating func clearDefaultInt64() {
+    return _storage._defaultInt64 = nil
   }
 
   public var defaultUint32: UInt32 {
-    get {return _storage._defaultUint32}
+    get {return _storage._defaultUint32 ?? 43}
     set {_uniqueStorage()._defaultUint32 = newValue}
+  }
+  public var hasDefaultUint32: Bool {
+    return _storage._defaultUint32 != nil
+  }
+  public mutating func clearDefaultUint32() {
+    return _storage._defaultUint32 = nil
   }
 
   public var defaultUint64: UInt64 {
-    get {return _storage._defaultUint64}
+    get {return _storage._defaultUint64 ?? 44}
     set {_uniqueStorage()._defaultUint64 = newValue}
+  }
+  public var hasDefaultUint64: Bool {
+    return _storage._defaultUint64 != nil
+  }
+  public mutating func clearDefaultUint64() {
+    return _storage._defaultUint64 = nil
   }
 
   public var defaultSint32: Int32 {
-    get {return _storage._defaultSint32}
+    get {return _storage._defaultSint32 ?? -45}
     set {_uniqueStorage()._defaultSint32 = newValue}
+  }
+  public var hasDefaultSint32: Bool {
+    return _storage._defaultSint32 != nil
+  }
+  public mutating func clearDefaultSint32() {
+    return _storage._defaultSint32 = nil
   }
 
   public var defaultSint64: Int64 {
-    get {return _storage._defaultSint64}
+    get {return _storage._defaultSint64 ?? 46}
     set {_uniqueStorage()._defaultSint64 = newValue}
+  }
+  public var hasDefaultSint64: Bool {
+    return _storage._defaultSint64 != nil
+  }
+  public mutating func clearDefaultSint64() {
+    return _storage._defaultSint64 = nil
   }
 
   public var defaultFixed32: UInt32 {
-    get {return _storage._defaultFixed32}
+    get {return _storage._defaultFixed32 ?? 47}
     set {_uniqueStorage()._defaultFixed32 = newValue}
+  }
+  public var hasDefaultFixed32: Bool {
+    return _storage._defaultFixed32 != nil
+  }
+  public mutating func clearDefaultFixed32() {
+    return _storage._defaultFixed32 = nil
   }
 
   public var defaultFixed64: UInt64 {
-    get {return _storage._defaultFixed64}
+    get {return _storage._defaultFixed64 ?? 48}
     set {_uniqueStorage()._defaultFixed64 = newValue}
+  }
+  public var hasDefaultFixed64: Bool {
+    return _storage._defaultFixed64 != nil
+  }
+  public mutating func clearDefaultFixed64() {
+    return _storage._defaultFixed64 = nil
   }
 
   public var defaultSfixed32: Int32 {
-    get {return _storage._defaultSfixed32}
+    get {return _storage._defaultSfixed32 ?? 49}
     set {_uniqueStorage()._defaultSfixed32 = newValue}
+  }
+  public var hasDefaultSfixed32: Bool {
+    return _storage._defaultSfixed32 != nil
+  }
+  public mutating func clearDefaultSfixed32() {
+    return _storage._defaultSfixed32 = nil
   }
 
   public var defaultSfixed64: Int64 {
-    get {return _storage._defaultSfixed64}
+    get {return _storage._defaultSfixed64 ?? -50}
     set {_uniqueStorage()._defaultSfixed64 = newValue}
+  }
+  public var hasDefaultSfixed64: Bool {
+    return _storage._defaultSfixed64 != nil
+  }
+  public mutating func clearDefaultSfixed64() {
+    return _storage._defaultSfixed64 = nil
   }
 
   public var defaultFloat: Float {
-    get {return _storage._defaultFloat}
+    get {return _storage._defaultFloat ?? 51.5}
     set {_uniqueStorage()._defaultFloat = newValue}
+  }
+  public var hasDefaultFloat: Bool {
+    return _storage._defaultFloat != nil
+  }
+  public mutating func clearDefaultFloat() {
+    return _storage._defaultFloat = nil
   }
 
   public var defaultDouble: Double {
-    get {return _storage._defaultDouble}
+    get {return _storage._defaultDouble ?? 52000}
     set {_uniqueStorage()._defaultDouble = newValue}
+  }
+  public var hasDefaultDouble: Bool {
+    return _storage._defaultDouble != nil
+  }
+  public mutating func clearDefaultDouble() {
+    return _storage._defaultDouble = nil
   }
 
   public var defaultBool: Bool {
-    get {return _storage._defaultBool}
+    get {return _storage._defaultBool ?? true}
     set {_uniqueStorage()._defaultBool = newValue}
+  }
+  public var hasDefaultBool: Bool {
+    return _storage._defaultBool != nil
+  }
+  public mutating func clearDefaultBool() {
+    return _storage._defaultBool = nil
   }
 
   public var defaultString: String {
-    get {return _storage._defaultString}
+    get {return _storage._defaultString ?? "hello"}
     set {_uniqueStorage()._defaultString = newValue}
+  }
+  public var hasDefaultString: Bool {
+    return _storage._defaultString != nil
+  }
+  public mutating func clearDefaultString() {
+    return _storage._defaultString = nil
   }
 
   public var defaultBytes: Data {
-    get {return _storage._defaultBytes}
+    get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
+  }
+  public var hasDefaultBytes: Bool {
+    return _storage._defaultBytes != nil
+  }
+  public mutating func clearDefaultBytes() {
+    return _storage._defaultBytes = nil
   }
 
   public var defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
-    get {return _storage._defaultNestedEnum}
+    get {return _storage._defaultNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
+  }
+  public var hasDefaultNestedEnum: Bool {
+    return _storage._defaultNestedEnum != nil
+  }
+  public mutating func clearDefaultNestedEnum() {
+    return _storage._defaultNestedEnum = nil
   }
 
   public var defaultForeignEnum: ProtobufUnittest_ForeignEnum {
-    get {return _storage._defaultForeignEnum}
+    get {return _storage._defaultForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
+  }
+  public var hasDefaultForeignEnum: Bool {
+    return _storage._defaultForeignEnum != nil
+  }
+  public mutating func clearDefaultForeignEnum() {
+    return _storage._defaultForeignEnum = nil
   }
 
   public var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._defaultImportEnum}
+    get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
+  }
+  public var hasDefaultImportEnum: Bool {
+    return _storage._defaultImportEnum != nil
+  }
+  public mutating func clearDefaultImportEnum() {
+    return _storage._defaultImportEnum = nil
   }
 
   public var defaultStringPiece: String {
-    get {return _storage._defaultStringPiece}
+    get {return _storage._defaultStringPiece ?? "abc"}
     set {_uniqueStorage()._defaultStringPiece = newValue}
+  }
+  public var hasDefaultStringPiece: Bool {
+    return _storage._defaultStringPiece != nil
+  }
+  public mutating func clearDefaultStringPiece() {
+    return _storage._defaultStringPiece = nil
   }
 
   public var defaultCord: String {
-    get {return _storage._defaultCord}
+    get {return _storage._defaultCord ?? "123"}
     set {_uniqueStorage()._defaultCord = newValue}
   }
+  public var hasDefaultCord: Bool {
+    return _storage._defaultCord != nil
+  }
+  public mutating func clearDefaultCord() {
+    return _storage._defaultCord = nil
+  }
 
-  public var oneofUint32: UInt32? {
+  public var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofUint32(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofUint32(newValue)
     }
   }
 
-  public var oneofNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? {
+  public var oneofNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ProtobufUnittest_TestAllRequiredTypes.NestedMessage()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
     }
   }
 
-  public var oneofString: String? {
+  public var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofString(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofString(newValue)
     }
   }
 
-  public var oneofBytes: Data? {
+  public var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofBytes(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofBytes(newValue)
     }
   }
 
-  public var _oneofField: OneOf_OneofField {
+  public var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -1105,29 +1385,89 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
   }
 
   ///   Singular
-  public var requiredInt32: Int32 = 0
+  private var _requiredInt32: Int32? = nil
+  public var requiredInt32: Int32 {
+    get {return _requiredInt32 ?? 0}
+    set {_requiredInt32 = newValue}
+  }
+  public var hasRequiredInt32: Bool {
+    return _requiredInt32 != nil
+  }
+  public mutating func clearRequiredInt32() {
+    return _requiredInt32 = nil
+  }
 
-  public var requiredFloat: Float = 0
+  private var _requiredFloat: Float? = nil
+  public var requiredFloat: Float {
+    get {return _requiredFloat ?? 0}
+    set {_requiredFloat = newValue}
+  }
+  public var hasRequiredFloat: Bool {
+    return _requiredFloat != nil
+  }
+  public mutating func clearRequiredFloat() {
+    return _requiredFloat = nil
+  }
 
-  public var requiredBool: Bool = false
+  private var _requiredBool: Bool? = nil
+  public var requiredBool: Bool {
+    get {return _requiredBool ?? false}
+    set {_requiredBool = newValue}
+  }
+  public var hasRequiredBool: Bool {
+    return _requiredBool != nil
+  }
+  public mutating func clearRequiredBool() {
+    return _requiredBool = nil
+  }
 
-  public var requiredString: String = ""
+  private var _requiredString: String? = nil
+  public var requiredString: String {
+    get {return _requiredString ?? ""}
+    set {_requiredString = newValue}
+  }
+  public var hasRequiredString: Bool {
+    return _requiredString != nil
+  }
+  public mutating func clearRequiredString() {
+    return _requiredString = nil
+  }
 
-  public var requiredBytes: Data = Data()
+  private var _requiredBytes: Data? = nil
+  public var requiredBytes: Data {
+    get {return _requiredBytes ?? Data()}
+    set {_requiredBytes = newValue}
+  }
+  public var hasRequiredBytes: Bool {
+    return _requiredBytes != nil
+  }
+  public mutating func clearRequiredBytes() {
+    return _requiredBytes = nil
+  }
 
-  public var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum = ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo
+  private var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
+  public var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum {
+    get {return _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo}
+    set {_requiredNestedEnum = newValue}
+  }
+  public var hasRequiredNestedEnum: Bool {
+    return _requiredNestedEnum != nil
+  }
+  public mutating func clearRequiredNestedEnum() {
+    return _requiredNestedEnum = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeRequiredField(fieldType: ProtobufInt32.self, value: &requiredInt32)
-    case 2: handled = try setter.decodeRequiredField(fieldType: ProtobufFloat.self, value: &requiredFloat)
-    case 3: handled = try setter.decodeRequiredField(fieldType: ProtobufBool.self, value: &requiredBool)
-    case 4: handled = try setter.decodeRequiredField(fieldType: ProtobufString.self, value: &requiredString)
-    case 5: handled = try setter.decodeRequiredField(fieldType: ProtobufBytes.self, value: &requiredBytes)
-    case 6: handled = try setter.decodeRequiredField(fieldType: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.self, value: &requiredNestedEnum)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_requiredInt32)
+    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_requiredFloat)
+    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_requiredBool)
+    case 4: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredString)
+    case 5: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_requiredBytes)
+    case 6: handled = try setter.decodeSingularField(fieldType: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.self, value: &_requiredNestedEnum)
     default:
       handled = false
     }
@@ -1139,22 +1479,22 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: requiredInt32, protoFieldNumber: 1, protoFieldName: "required_int32", jsonFieldName: "requiredInt32", swiftFieldName: "requiredInt32")
-    try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: requiredFloat, protoFieldNumber: 2, protoFieldName: "required_float", jsonFieldName: "requiredFloat", swiftFieldName: "requiredFloat")
-    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: requiredBool, protoFieldNumber: 3, protoFieldName: "required_bool", jsonFieldName: "requiredBool", swiftFieldName: "requiredBool")
-    try visitor.visitSingularField(fieldType: ProtobufString.self, value: requiredString, protoFieldNumber: 4, protoFieldName: "required_string", jsonFieldName: "requiredString", swiftFieldName: "requiredString")
-    try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: requiredBytes, protoFieldNumber: 5, protoFieldName: "required_bytes", jsonFieldName: "requiredBytes", swiftFieldName: "requiredBytes")
-    try visitor.visitSingularField(fieldType: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.self, value: requiredNestedEnum, protoFieldNumber: 6, protoFieldName: "required_nested_enum", jsonFieldName: "requiredNestedEnum", swiftFieldName: "requiredNestedEnum")
+    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _requiredInt32 ?? 0, protoFieldNumber: 1, protoFieldName: "required_int32", jsonFieldName: "requiredInt32", swiftFieldName: "requiredInt32")
+    try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _requiredFloat ?? 0, protoFieldNumber: 2, protoFieldName: "required_float", jsonFieldName: "requiredFloat", swiftFieldName: "requiredFloat")
+    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _requiredBool ?? false, protoFieldNumber: 3, protoFieldName: "required_bool", jsonFieldName: "requiredBool", swiftFieldName: "requiredBool")
+    try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredString ?? "", protoFieldNumber: 4, protoFieldName: "required_string", jsonFieldName: "requiredString", swiftFieldName: "requiredString")
+    try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _requiredBytes ?? Data(), protoFieldNumber: 5, protoFieldName: "required_bytes", jsonFieldName: "requiredBytes", swiftFieldName: "requiredBytes")
+    try visitor.visitSingularField(fieldType: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.self, value: _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo, protoFieldNumber: 6, protoFieldName: "required_nested_enum", jsonFieldName: "requiredNestedEnum", swiftFieldName: "requiredNestedEnum")
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {
-    if requiredInt32 != other.requiredInt32 {return false}
-    if requiredFloat != other.requiredFloat {return false}
-    if requiredBool != other.requiredBool {return false}
-    if requiredString != other.requiredString {return false}
-    if requiredBytes != other.requiredBytes {return false}
-    if requiredNestedEnum != other.requiredNestedEnum {return false}
+    if (requiredInt32 != other.requiredInt32) {return false}
+    if (requiredFloat != other.requiredFloat) {return false}
+    if (requiredBool != other.requiredBool) {return false}
+    if (requiredString != other.requiredString) {return false}
+    if (requiredBytes != other.requiredBytes) {return false}
+    if (requiredNestedEnum != other.requiredNestedEnum) {return false}
     if unknown != other.unknown {return false}
     return true
   }

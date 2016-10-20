@@ -164,13 +164,13 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
       switch protoFieldNumber {
       case 5:
         var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
-        handled = try setter.decodeOptionalField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
         if let value = value, handled {
           self = .oneofE1(value)
         }
       case 6:
         var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
-        handled = try setter.decodeOptionalField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
         if let value = value, handled {
           self = .oneofE2(value)
         }
@@ -197,7 +197,17 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
     }
   }
 
-  public var e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
+  private var _e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
+  public var e: Proto2PreserveUnknownEnumUnittest_MyEnum {
+    get {return _e ?? Proto2PreserveUnknownEnumUnittest_MyEnum.foo}
+    set {_e = newValue}
+  }
+  public var hasE: Bool {
+    return _e != nil
+  }
+  public mutating func clearE() {
+    return _e = nil
+  }
 
   public var repeatedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] = []
 
@@ -206,37 +216,29 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
   ///   not packed
   public var repeatedPackedUnexpectedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] = []
 
-  public var oneofE1: Proto2PreserveUnknownEnumUnittest_MyEnum? {
+  public var oneofE1: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE1(let v) = o {
         return v
       }
-      return nil
+      return Proto2PreserveUnknownEnumUnittest_MyEnum.foo
     }
     set {
-      if let newValue = newValue {
-        o = .oneofE1(newValue)
-      } else {
-        o = .None
-      }
+      o = .oneofE1(newValue)
     }
   }
 
   public var o: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
 
-  public var oneofE2: Proto2PreserveUnknownEnumUnittest_MyEnum? {
+  public var oneofE2: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE2(let v) = o {
         return v
       }
-      return nil
+      return Proto2PreserveUnknownEnumUnittest_MyEnum.foo
     }
     set {
-      if let newValue = newValue {
-        o = .oneofE2(newValue)
-      } else {
-        o = .None
-      }
+      o = .oneofE2(newValue)
     }
   }
 
@@ -245,7 +247,7 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &e)
+    case 1: handled = try setter.decodeSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &_e)
     case 2: handled = try setter.decodeRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedE)
     case 3: handled = try setter.decodePackedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedE)
     case 4: handled = try setter.decodeRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedUnexpectedE)
@@ -262,7 +264,7 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = e {
+    if let v = _e {
       try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 1, protoFieldName: "e", jsonFieldName: "e", swiftFieldName: "e")
     }
     if !repeatedE.isEmpty {
@@ -279,7 +281,7 @@ public struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
   }
 
   public func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
-    if ((e != nil || other.e != nil) && (e == nil || other.e == nil || e! != other.e!)) {return false}
+    if (e != other.e) {return false}
     if repeatedE != other.repeatedE {return false}
     if repeatedPackedE != other.repeatedPackedE {return false}
     if repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}

@@ -20,29 +20,27 @@ import SwiftProtobuf
 
 extension Google_Protobuf_FieldDescriptorProto {
 
-    var isRepeated: Bool {return label! == .repeated}
-    var isOptional: Bool {return label! == .optional}
-    var isRequired: Bool {return label! == .required}
-    var isMessage: Bool {return type! == .message}
-    var isGroup: Bool {return type! == .group}
+    var isRepeated: Bool {return label == .repeated}
+    var isMessage: Bool {return type == .message}
+    var isGroup: Bool {return type == .group}
 
     var isPackable: Bool {
-        switch type! {
+        switch type {
         case .string,.bytes,.group,.message:
             return false
         default:
-            return label! == .repeated
+            return label == .repeated
         }
     }
 
     func getIsMap(context: Context) -> Bool {
-        if type! != .message {return false}
-        let m = context.getMessageForPath(path: typeName!)!
-        return m.options?.mapEntry ?? false
+        if type != .message {return false}
+        let m = context.getMessageForPath(path: typeName)!
+        return m.options.mapEntry
     }
 
     func getSwiftBaseType(context: Context) -> String {
-        switch type! {
+        switch type {
         case .double: return "Double"
         case .float: return "Float"
         case .int64: return "Int64"
@@ -52,11 +50,11 @@ extension Google_Protobuf_FieldDescriptorProto {
         case .fixed32: return "UInt32"
         case .bool: return "Bool"
         case .string: return "String"
-        case .group: return context.getMessageNameForPath(path: typeName!)!
-        case .message: return context.getMessageNameForPath(path: typeName!)!
+        case .group: return context.getMessageNameForPath(path: typeName)!
+        case .message: return context.getMessageNameForPath(path: typeName)!
         case .bytes: return "Data"
         case .uint32: return "UInt32"
-        case .enum: return context.getEnumNameForPath(path: typeName!)!
+        case .enum: return context.getEnumNameForPath(path: typeName)!
         case .sfixed32: return "Int32"
         case .sfixed64: return "Int64"
         case .sint32: return "Int32"
@@ -66,28 +64,23 @@ extension Google_Protobuf_FieldDescriptorProto {
 
     func getSwiftApiType(context: Context, isProto3: Bool) -> String {
         if getIsMap(context: context) {
-            let m = context.getMessageForPath(path: typeName!)!
+            let m = context.getMessageForPath(path: typeName)!
             let keyField = m.field[0]
             let keyType = keyField.getSwiftBaseType(context: context)
             let valueField = m.field[1]
             let valueType = valueField.getSwiftBaseType(context: context)
             return "Dictionary<" + keyType + "," + valueType + ">"
         }
-        switch label! {
+        switch label {
         case .repeated: return "[" + getSwiftBaseType(context: context) + "]"
-        case .required: return getSwiftBaseType(context: context)
-        case .optional:
-            if !isProto3 || oneofIndex != nil {
-                return getSwiftBaseType(context: context) + "?"
-            } else {
-                return getSwiftBaseType(context: context)
-            }
+        case .required, .optional:
+            return getSwiftBaseType(context: context)
         }
     }
 
     func getSwiftStorageType(context: Context, isProto3: Bool) -> String {
         if getIsMap(context: context) {
-            let m = context.getMessageForPath(path: typeName!)!
+            let m = context.getMessageForPath(path: typeName)!
             let keyField = m.field[0]
             let keyType = keyField.getSwiftBaseType(context: context)
             let valueField = m.field[1]
@@ -99,10 +92,8 @@ extension Google_Protobuf_FieldDescriptorProto {
             return getSwiftBaseType(context: context) + "?"
         } else if isProto3 {
             return getSwiftBaseType(context: context)
-        } else if isOptional {
-            return getSwiftBaseType(context: context) + "?"
         } else {
-            return getSwiftBaseType(context: context)
+            return getSwiftBaseType(context: context) + "?"
         }
     }
 
@@ -111,12 +102,10 @@ extension Google_Protobuf_FieldDescriptorProto {
             return "[:]"
         } else if isRepeated {
             return "[]"
-        } else if isMessage || isGroup {
+        } else if isMessage || isGroup || !isProto3 {
             return "nil"
-        } else if isProto3 || !isOptional {
-            return getSwiftDefaultValue(context: context, isProto3: isProto3)
         } else {
-            return "nil"
+            return getSwiftDefaultValue(context: context, isProto3: isProto3)
         }
     }
 
@@ -126,23 +115,19 @@ extension Google_Protobuf_FieldDescriptorProto {
         if let d = getSwiftProto2DefaultValue(context: context) {
             return d
         }
-        switch type! {
+        switch type {
         case .bool: return "false"
         case .string: return "\"\""
         case .bytes: return "Data()"
         case .group, .message:
-            if isRequired || isProto3 {
-                return context.getMessageNameForPath(path: typeName!)! + "()"
-            } else {
-                return "nil"
-            }
+            return context.getMessageNameForPath(path: typeName)! + "()"
         case .enum:
-            let e = context.enumByProtoName[typeName!]!
+            let e = context.enumByProtoName[typeName]!
             if e.value.count == 0 {
                 return ".None"
             } else {
-                let defaultCase = e.value[0].name!
-                return context.getSwiftNameForEnumCase(path: typeName!, caseName: defaultCase)
+                let defaultCase = e.value[0].name
+                return context.getSwiftNameForEnumCase(path: typeName, caseName: defaultCase)
             }
         default: return "0"
         }
@@ -150,14 +135,14 @@ extension Google_Protobuf_FieldDescriptorProto {
 
     func getTraitsType(context: Context) -> String {
         if getIsMap(context: context) {
-            let m = context.getMessageForPath(path: typeName!)!
+            let m = context.getMessageForPath(path: typeName)!
             let keyField = m.field[0]
             let keyTraits = keyField.getTraitsType(context: context)
             let valueField = m.field[1]
             let valueTraits = valueField.getTraitsType(context: context)
             return "ProtobufMap<" + keyTraits + "," + valueTraits + ">"
         }
-        switch type! {
+        switch type {
         case .double: return "ProtobufDouble"
         case .float: return "ProtobufFloat"
         case .int64: return "ProtobufInt64"
@@ -180,28 +165,28 @@ extension Google_Protobuf_FieldDescriptorProto {
     }
 
     func getSwiftProto2DefaultValue(context: Context) -> String? {
-        guard let valueText = defaultValue else {return nil}
-        switch type! {
+        guard hasDefaultValue else {return nil}
+        switch type {
         case .double:
-           switch valueText {
+           switch defaultValue {
            case "inf": return "Double.infinity"
            case "-inf": return "-Double.infinity"
            case "nan": return "Double.nan"
-           default: return valueText
+           default: return defaultValue
            }
         case .float:
-           switch valueText {
+           switch defaultValue {
            case "inf": return "Float.infinity"
            case "-inf": return "-Float.infinity"
            case "nan": return "Float.nan"
-           default: return valueText
+           default: return defaultValue
            }
-        case .bool: return valueText
-        case .string: return stringToEscapedStringLiteral(valueText)
-        case .bytes: return escapedToDataLiteral(valueText)
+        case .bool: return defaultValue
+        case .string: return stringToEscapedStringLiteral(defaultValue)
+        case .bytes: return escapedToDataLiteral(defaultValue)
         case .enum:
-            return context.getSwiftNameForEnumCase(path: typeName!, caseName: valueText)
-        default: return valueText
+            return context.getSwiftNameForEnumCase(path: typeName, caseName: defaultValue)
+        default: return defaultValue
         }
     }
 }
@@ -212,9 +197,11 @@ struct MessageFieldGenerator {
     let messageDescriptor: Google_Protobuf_DescriptorProto
     let jsonName: String?
     let swiftName: String
+    let swiftHasName: String
+    let swiftClearName: String
     let swiftStorageName: String
-    var protoName: String {return descriptor.name!}
-    var number: Int {return Int(descriptor.number!)}
+    var protoName: String {return descriptor.name}
+    var number: Int {return Int(descriptor.number)}
     let path: [Int32]
     let comments: String
     let isProto3: Bool
@@ -228,14 +215,18 @@ struct MessageFieldGenerator {
     {
         self.descriptor = descriptor
         self.jsonName = descriptor.jsonName
-        if descriptor.type! == .group {
-            let g = context.getMessageForPath(path: descriptor.typeName!)!
-            self.swiftName = sanitizeFieldName(toLowerCamelCase(g.name!))
+        if descriptor.type == .group {
+            let g = context.getMessageForPath(path: descriptor.typeName)!
+            self.swiftName = sanitizeFieldName(toLowerCamelCase(g.name))
+            self.swiftHasName = sanitizeFieldName("has" + toUpperCamelCase(g.name))
+            self.swiftClearName = sanitizeFieldName("clear" + toUpperCamelCase(g.name))
         } else {
-            self.swiftName = sanitizeFieldName(toLowerCamelCase(descriptor.name!))
+            self.swiftName = sanitizeFieldName(toLowerCamelCase(descriptor.name))
+            self.swiftHasName = sanitizeFieldName("has" + toUpperCamelCase(descriptor.name))
+            self.swiftClearName = sanitizeFieldName("clear" + toUpperCamelCase(descriptor.name))
         }
-        if let oneofIndex = descriptor.oneofIndex {
-            self.oneof = messageDescriptor.oneofDecl[Int(oneofIndex)]
+        if descriptor.hasOneofIndex {
+            self.oneof = messageDescriptor.oneofDecl[Int(descriptor.oneofIndex)]
         } else {
             self.oneof = nil
         }
@@ -250,12 +241,11 @@ struct MessageFieldGenerator {
     var isGroup: Bool {return descriptor.isGroup}
     var isMap: Bool {return descriptor.getIsMap(context: context)}
     var isMessage: Bool {return descriptor.isMessage}
-    var isOptional: Bool {return descriptor.isOptional}
-    var isPacked: Bool {return descriptor.isPackable && (descriptor.options?.packed ?? isProto3)}
+    var isPacked: Bool {return descriptor.isPackable &&
+        (descriptor.options.hasPacked ? descriptor.options.packed : isProto3)}
     var isRepeated: Bool {return descriptor.isRepeated}
-    var isRequired: Bool {return descriptor.isRequired}
 
-    var name: String {return descriptor.name!}
+    var name: String {return descriptor.name}
 
     var swiftBaseType: String {return descriptor.getSwiftBaseType(context: context)}
     var swiftApiType: String {return descriptor.getSwiftApiType(context: context, isProto3: isProto3)}
@@ -275,9 +265,7 @@ struct MessageFieldGenerator {
         } else {
             let modifier = (isPacked ? "Packed"
                          : isRepeated ? "Repeated"
-                         : isProto3 ? "Singular"
-                         : isOptional ? "Optional"
-                         : "Required")
+                         : "Singular")
             let special = isGroup ? "Group"
                          : isMessage ? "Message"
                          : ""
@@ -293,44 +281,21 @@ struct MessageFieldGenerator {
         return descriptor.getSwiftStorageDefaultValue(context: context, isProto3: isProto3)
     }
 
-    var convenienceInitType: String {
-        // if map, return baseType
-        if isMap {
-            return swiftApiType
-        } else if isRepeated {
-            return "[\(swiftBaseType)]"
-        } else if isProto3 {
-            return swiftBaseType + "?"
-        } else if isOptional || isGroup || isMessage {
-            return swiftBaseType + "?"
-        } else {
-            return swiftBaseType
-        }
-    }
-
-    var convenienceInitDefault: String {
-        if isMap {
-            return "[:]"
-        } else if isRepeated {
-            return "[]"
-        } else if isProto3 || isOptional || isGroup || isMessage {
-            return "nil"
-        } else {
-            return descriptor.getSwiftDefaultValue(context: context, isProto3: isProto3)
-        }
-    }
-
     var traitsType: String {return descriptor.getTraitsType(context: context)}
 
-    func generateNotEqual(name: String) -> String {
-        if isProto3 || isRepeated || !isOptional {
+    func generateNotEqual(name: String, usesHeapStorage: Bool) -> String {
+        if isProto3 || isRepeated {
             return "\(name) != other.\(name)"
         } else if isGroup || isMessage {
             return "((\(name) != nil || other.\(name) != nil) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
         } else if let def = swiftProto2DefaultValue {
+            var name = name
+            if !usesHeapStorage {
+                name = "_" + name
+            }
             return "(((\(name) != nil && \(name)! != \(def)) || (other.\(name) != nil && other.\(name)! != \(def))) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
         } else {
-            return "((\(name) != nil || other.\(name) != nil) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
+            return "(\(name) != other.\(name))"
         }
     }
 
@@ -349,29 +314,21 @@ struct MessageFieldGenerator {
             p.print("return v\n")
             p.outdent()
             p.print("}\n")
-            p.print("return nil\n")
+            p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
             p.print("set {\n")
             p.indent()
-            p.print("if let newValue = newValue {\n")
-            p.indent()
             p.print("\(oneof.swiftFieldName) = .\(swiftName)(newValue)\n")
             p.outdent()
-            p.print("} else {\n")
-            p.indent()
-            p.print("\(oneof.swiftFieldName) = .None\n")
-            p.outdent()
             p.print("}\n")
             p.outdent()
             p.print("}\n")
-            p.outdent()
-            p.print("}\n")
-        } else if let defaultClause = swiftProto2DefaultValue {
+        } else if !isRepeated && !isMap && !isProto3 {
             p.print("private var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
             p.print("public var \(swiftName): \(swiftApiType) {\n")
             p.indent()
-            p.print("get {return \(swiftStorageName) ?? \(defaultClause)}\n")
+            p.print("get {return \(swiftStorageName) ?? \(swiftDefaultValue)}\n")
             p.print("set {\(swiftStorageName) = newValue}\n")
             p.outdent()
             p.print("}\n")
@@ -395,34 +352,24 @@ struct MessageFieldGenerator {
             p.print("return v\n")
             p.outdent()
             p.print("}\n")
-            p.print("return nil\n")
+            p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
             p.print("set {\n")
             p.indent()
-            p.print("if let newValue = newValue {\n")
-            p.indent()
             p.print("_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)\n")
-            p.outdent()
-            p.print("} else {\n")
-            p.indent()
-            p.print("_uniqueStorage().\(oneof.swiftStorageFieldName) = .None\n")
-            p.outdent()
-            p.print("}\n")
             p.outdent()
             p.print("}\n")
         } else {
             let defaultClause: String
             if isMap || isRepeated {
                 defaultClause = ""
-            } else if (isMessage || isGroup) && (isProto3 || isRequired) {
+            } else if isMessage || isGroup {
                 defaultClause = " ?? " + swiftDefaultValue
-            } else if isRequired {
-                defaultClause = ""
             } else if let d = swiftProto2DefaultValue {
                 defaultClause = " ?? " + d
             } else {
-                defaultClause = ""
+                defaultClause = isProto3 ? "" : " ?? " + swiftDefaultValue
             }
             p.print("get {return _storage.\(swiftStorageName)\(defaultClause)}\n")
             p.print("set {_uniqueStorage().\(swiftStorageName) = newValue}\n")
@@ -431,11 +378,44 @@ struct MessageFieldGenerator {
         p.print("}\n")
     }
 
+    func generateHasProperty(printer p: inout CodePrinter, usesHeapStorage: Bool) {
+        if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
+            return
+        }
+        let storagePrefix = usesHeapStorage ? "_storage." : ""
+        p.print("public var \(swiftHasName): Bool {\n")
+        p.indent()
+        p.print("return \(storagePrefix)\(swiftStorageName) != nil\n")
+        p.outdent()
+        p.print("}\n")
+    }
+
+    func generateClearMethod(printer p: inout CodePrinter, usesHeapStorage: Bool) {
+        if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
+            return
+        }
+        let storagePrefix = usesHeapStorage ? "_storage." : ""
+        p.print("public mutating func \(swiftClearName)() {\n")
+        p.indent()
+        p.print("return \(storagePrefix)\(swiftStorageName) = nil\n")
+        p.outdent()
+        p.print("}\n")
+    }
+
     func generateDecodeFieldCase(printer p: inout CodePrinter, prefix: String = "") {
+        var prefix = prefix
+        if prefix == "" && !isRepeated && !isMap && !isProto3 {
+            prefix = "_"
+        }
         p.print("case \(number): handled = try setter.\(swiftDecoderMethod)(fieldType: \(traitsType).self, value: &\(prefix)\(swiftName))\n")
     }
 
     func generateTraverse(printer p: inout CodePrinter, prefix: String = "") {
+        var prefix = prefix
+        if prefix == "" && !isRepeated && !isMap && !isProto3 {
+            prefix = "_"
+        }
+
         let visitMethod: String
         if isMap {
             visitMethod = "visitMapField"
@@ -456,24 +436,33 @@ struct MessageFieldGenerator {
             fieldTypeArg = ""
         }
 
+        let isOptional = !isProto3 && descriptor.label == .optional
         let varName: String
         let conditional: Bool
         if isRepeated {
             p.print("if !\(prefix)\(swiftName).isEmpty {\n")
             varName = prefix + swiftName
             conditional = true
-        } else if isGroup || isMessage || (isOptional && !isProto3) {
+        } else if isGroup || isMessage || !isProto3 && isOptional {
             p.print("if let v = \(prefix)\(swiftName) {\n")
             varName = "v"
             conditional = true
-        } else if isOptional && isProto3 {
+        } else if isProto3 {
             let def = swiftDefaultValue
             p.print("if \(prefix)\(swiftName) != \(def) {\n")
             varName = prefix + swiftName
             conditional = true
         } else {
-            varName = prefix + swiftName
+            var value = prefix + swiftName
             conditional = false
+            if !isProto3 && !isOptional {
+                // Special handling for required fields to keep the tests
+                // passing (that is, keep the existing behavior) since their
+                // storage type has changed. This will be fixed in the future.
+                let def = swiftDefaultValue
+                value += " ?? " + def
+            }
+            varName = value
         }
 
         if conditional {

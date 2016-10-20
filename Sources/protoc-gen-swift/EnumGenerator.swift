@@ -31,7 +31,7 @@ extension Google_Protobuf_EnumValueDescriptorProto {
     }
 
     func getSwiftBareName(stripLength: Int) -> String {
-        let baseName = toLowerCamelCase(name!)
+        let baseName = toLowerCamelCase(name)
         let swiftName: String
         if stripLength == 0 {
             swiftName = baseName
@@ -54,9 +54,9 @@ extension Google_Protobuf_EnumValueDescriptorProto {
 ///
 extension Google_Protobuf_EnumDescriptorProto {
     var stripPrefixLength: Int {
-        let enumName = toUpperCamelCase(name!).uppercased()
+        let enumName = toUpperCamelCase(name).uppercased()
         for f in value {
-            let fieldName = toUpperCamelCase(f.name!).uppercased()
+            let fieldName = toUpperCamelCase(f.name).uppercased()
 #if os(Linux)
             let enumChars = [Character](enumName.characters)
             let fieldChars = [Character](fieldName.characters)
@@ -80,11 +80,11 @@ extension Google_Protobuf_EnumDescriptorProto {
     func getSwiftNameForEnumCase(caseName: String) -> String {
         let stripLength = stripPrefixLength
         for f in value {
-            if f.name! == caseName {
+            if f.name == caseName {
                 return f.getSwiftName(stripLength: stripLength)
             }
         }
-        fatalError("Cannot find case `\(caseName)` in enum \(name!)")
+        fatalError("Cannot find case `\(caseName)` in enum \(name)")
     }
 }
 
@@ -96,8 +96,8 @@ class EnumCaseGenerator {
     fileprivate var swiftDisplayName: String
     fileprivate var swiftName: String
     fileprivate var jsonName: String
-    fileprivate var protoName: String {return descriptor.name!}
-    fileprivate var number: Int {return Int(descriptor.number!)}
+    fileprivate var protoName: String {return descriptor.name}
+    fileprivate var number: Int {return Int(descriptor.number)}
     fileprivate let path: [Int32]
     fileprivate let comments: String
 
@@ -105,7 +105,7 @@ class EnumCaseGenerator {
        self.descriptor = descriptor
        self.swiftName = descriptor.getSwiftName(stripLength: stripLength)
        self.swiftDisplayName = descriptor.getSwiftDisplayName(stripLength: stripLength)
-       self.jsonName = descriptor.name!
+       self.jsonName = descriptor.name
        self.path = path
        self.comments = file.commentsFor(path: path)
     }
@@ -134,10 +134,10 @@ class EnumGenerator {
         self.descriptor = descriptor
         self.isProto3 = file.isProto3
         if parentSwiftName == nil {
-            swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + descriptor.name!)
+            swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + descriptor.name)
             swiftFullName = swiftRelativeName
         } else {
-            swiftRelativeName = sanitizeEnumTypeName(descriptor.name!)
+            swiftRelativeName = sanitizeEnumTypeName(descriptor.name)
             swiftFullName = parentSwiftName! + "." + swiftRelativeName
         }
 

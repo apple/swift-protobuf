@@ -70,7 +70,7 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
       case 2: handled = try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_repeatedMessage)
       default:
         handled = false
@@ -112,9 +112,15 @@ public struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessa
 
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
   ///   one optimized for speed works.
-  public var optionalMessage: ProtobufUnittest_TestOptimizedForSize? {
-    get {return _storage._optionalMessage}
+  public var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
+    get {return _storage._optionalMessage ?? ProtobufUnittest_TestOptimizedForSize()}
     set {_uniqueStorage()._optionalMessage = newValue}
+  }
+  public var hasOptionalMessage: Bool {
+    return _storage._optionalMessage != nil
+  }
+  public mutating func clearOptionalMessage() {
+    return _storage._optionalMessage = nil
   }
 
   public var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {

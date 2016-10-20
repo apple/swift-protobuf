@@ -76,8 +76,8 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_i)
-      case 19: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_ForeignMessage.self, value: &_msg)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_i)
+      case 19: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_ForeignMessage.self, value: &_msg)
       case 2, 3:
         handled = try _foo.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default:
@@ -107,7 +107,7 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_i != nil || other._i != nil) && (_i == nil || other._i == nil || _i! != other._i!)) {return false}
+      if (_i != other._i) {return false}
       if ((_msg != nil || other._msg != nil) && (_msg == nil || other._msg == nil || _msg! != other._msg!)) {return false}
       if _foo != other._foo {return false}
       if unknown != other.unknown {return false}
@@ -149,13 +149,13 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
       switch protoFieldNumber {
       case 2:
         var value: Int32?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
         if let value = value, handled {
           self = .integerField(value)
         }
       case 3:
         var value: String?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         if let value = value, handled {
           self = .stringField(value)
         }
@@ -184,54 +184,58 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
 
   struct Extensions {
 
-    static let ProtobufUnittest_TestOptimizedForSize_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1234, protoFieldName: "test_extension", jsonFieldName: "testExtension", swiftFieldName: "ProtobufUnittest_TestOptimizedForSize_testExtension", defaultValue: nil)
+    static let ProtobufUnittest_TestOptimizedForSize_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1234, protoFieldName: "test_extension", jsonFieldName: "testExtension", swiftFieldName: "ProtobufUnittest_TestOptimizedForSize_testExtension", defaultValue: 0)
 
-    static let ProtobufUnittest_TestOptimizedForSize_testExtension2 = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1235, protoFieldName: "test_extension2", jsonFieldName: "testExtension2", swiftFieldName: "ProtobufUnittest_TestOptimizedForSize_testExtension2", defaultValue: nil)
+    static let ProtobufUnittest_TestOptimizedForSize_testExtension2 = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1235, protoFieldName: "test_extension2", jsonFieldName: "testExtension2", swiftFieldName: "ProtobufUnittest_TestOptimizedForSize_testExtension2", defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize())
   }
 
-  public var i: Int32? {
-    get {return _storage._i}
+  public var i: Int32 {
+    get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
   }
-
-  public var msg: ProtobufUnittest_ForeignMessage? {
-    get {return _storage._msg}
-    set {_uniqueStorage()._msg = newValue}
+  public var hasI: Bool {
+    return _storage._i != nil
+  }
+  public mutating func clearI() {
+    return _storage._i = nil
   }
 
-  public var integerField: Int32? {
+  public var msg: ProtobufUnittest_ForeignMessage {
+    get {return _storage._msg ?? ProtobufUnittest_ForeignMessage()}
+    set {_uniqueStorage()._msg = newValue}
+  }
+  public var hasMsg: Bool {
+    return _storage._msg != nil
+  }
+  public mutating func clearMsg() {
+    return _storage._msg = nil
+  }
+
+  public var integerField: Int32 {
     get {
       if case .integerField(let v) = _storage._foo {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._foo = .integerField(newValue)
-      } else {
-        _uniqueStorage()._foo = .None
-      }
+      _uniqueStorage()._foo = .integerField(newValue)
     }
   }
 
-  public var stringField: String? {
+  public var stringField: String {
     get {
       if case .stringField(let v) = _storage._foo {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._foo = .stringField(newValue)
-      } else {
-        _uniqueStorage()._foo = .None
-      }
+      _uniqueStorage()._foo = .stringField(newValue)
     }
   }
 
-  public var _foo: OneOf_Foo {
+  public var foo: OneOf_Foo {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
@@ -263,8 +267,16 @@ public struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, P
     return _uniqueStorage().setExtensionValue(ext: ext, value: value)
   }
 
+  public mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) {
+    return _storage.clearExtensionValue(ext: ext)
+  }
+
   public func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> F.ValueType {
     return _storage.getExtensionValue(ext: ext)
+  }
+
+  public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> Bool {
+    return _storage.hasExtensionValue(ext: ext)
   }
 }
 
@@ -281,14 +293,24 @@ public struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMe
 
   var unknown = ProtobufUnknownStorage()
 
-  public var x: Int32 = 0
+  private var _x: Int32? = nil
+  public var x: Int32 {
+    get {return _x ?? 0}
+    set {_x = newValue}
+  }
+  public var hasX: Bool {
+    return _x != nil
+  }
+  public mutating func clearX() {
+    return _x = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeRequiredField(fieldType: ProtobufInt32.self, value: &x)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_x)
     default:
       handled = false
     }
@@ -300,12 +322,12 @@ public struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMe
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: x, protoFieldNumber: 1, protoFieldName: "x", jsonFieldName: "x", swiftFieldName: "x")
+    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _x ?? 0, protoFieldNumber: 1, protoFieldName: "x", jsonFieldName: "x", swiftFieldName: "x")
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOptimizedForSize) -> Bool {
-    if x != other.x {return false}
+    if (x != other.x) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -332,7 +354,7 @@ public struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMe
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittest_TestRequiredOptimizedForSize.self, value: &_o)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestRequiredOptimizedForSize.self, value: &_o)
       default:
         handled = false
       }
@@ -366,9 +388,15 @@ public struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMe
 
   private var _storage = _StorageClass()
 
-  public var o: ProtobufUnittest_TestRequiredOptimizedForSize? {
-    get {return _storage._o}
+  public var o: ProtobufUnittest_TestRequiredOptimizedForSize {
+    get {return _storage._o ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {_uniqueStorage()._o = newValue}
+  }
+  public var hasO: Bool {
+    return _storage._o != nil
+  }
+  public mutating func clearO() {
+    return _storage._o = nil
   }
 
   public init() {}
@@ -403,16 +431,28 @@ public func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: Protob
 }
 
 extension ProtobufUnittest_TestOptimizedForSize {
-  public var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32? {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension)}
+  public var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension, value: newValue)}
+  }
+  public var hasProtobufUnittest_TestOptimizedForSize_testExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension)
+  }
+  public mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension)
   }
 }
 
 extension ProtobufUnittest_TestOptimizedForSize {
-  public var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize? {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2)}
+  public var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2, value: newValue)}
+  }
+  public var hasProtobufUnittest_TestOptimizedForSize_testExtension2: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2)
+  }
+  public mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension2() {
+    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.ProtobufUnittest_TestOptimizedForSize_testExtension2)
   }
 }
 

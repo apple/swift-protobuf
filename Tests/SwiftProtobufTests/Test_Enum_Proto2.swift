@@ -35,11 +35,10 @@ class Test_Enum_Proto2: XCTestCase, PBTestHelpers {
             // If it fails to compile because it's missing an "UNRECOGNIZED" case,
             // the code generator has created an UNRECOGNIZED case that should not be there.
             switch m.optionalNestedEnum {
-            case .some(.foo): return true
-            case .some(.bar): return false
-            case .some(.baz): return false
-            case .some(.neg): return false
-            case .none: return false
+            case .foo: return true
+            case .bar: return false
+            case .baz: return false
+            case .neg: return false
             // DO NOT ADD A DEFAULT CASE TO THIS SWITCH!!!
             }
         }

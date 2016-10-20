@@ -132,6 +132,9 @@
 		AA28A4AA1DA40B0900C866D9 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A81DA40B0900C866D9 /* Varint.swift */; };
 		AA28A4AC1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */; };
 		AA28A4AD1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */; };
+		AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
+		AA6CF6F61DB6D228007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
+		AA6CF6F71DB6D229007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
 		AAEA52201DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */; };
 		AAEA52211DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */; };
 		AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
@@ -447,6 +450,7 @@
 		AA28A4A51DA30E5900C866D9 /* ZigZag.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ZigZag.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AA28A4A81DA40B0900C866D9 /* Varint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Varint.swift; sourceTree = "<group>"; };
 		AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufBinarySizeVisitor.swift; sourceTree = "<group>"; tabWidth = 4; };
+		AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Enum_Proto2.swift; sourceTree = "<group>"; };
 		AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift"; sourceTree = "<group>"; };
 		AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Wrappers+Extensions.swift"; sourceTree = "<group>"; };
 		AAEA52731DA80DEA003F318F /* wrappers.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wrappers.pb.swift; sourceTree = "<group>"; };
@@ -711,6 +715,7 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_Descriptor.swift /* Test_Descriptor.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Duration.swift /* Test_Duration.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Empty.swift /* Test_Empty.swift */,
+				AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Enum.swift /* Test_Enum.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Extensions.swift /* Test_Extensions.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_ExtremeDefaultValues.swift /* Test_ExtremeDefaultValues.swift */,
@@ -1021,6 +1026,7 @@
 				9C8CDA521D7A28F600E207CA /* unittest_mset_wire_format.pb.swift in Sources */,
 				9C8CDA531D7A28F600E207CA /* unittest_no_arena.pb.swift in Sources */,
 				9C8CDA541D7A28F600E207CA /* unittest_no_arena_import.pb.swift in Sources */,
+				AA6CF6F61DB6D228007DF26B /* Test_Enum_Proto2.swift in Sources */,
 				9C8CDA551D7A28F600E207CA /* unittest_no_arena_lite.pb.swift in Sources */,
 				9C8CDA561D7A28F600E207CA /* unittest_no_field_presence.pb.swift in Sources */,
 				9C8CDA571D7A28F600E207CA /* unittest_no_generic_services.pb.swift in Sources */,
@@ -1204,6 +1210,7 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift in Sources */,
+				AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */,
@@ -1339,6 +1346,7 @@
 				F44F93F71DAEA8C900BC5B85 /* unittest_well_known_types.pb.swift in Sources */,
 				F44F93D01DAEA8C900BC5B85 /* Test_Wrappers.swift in Sources */,
 				F44F93DA1DAEA8C900BC5B85 /* unittest_import_public.pb.swift in Sources */,
+				AA6CF6F71DB6D229007DF26B /* Test_Enum_Proto2.swift in Sources */,
 				F44F93C71DAEA8C900BC5B85 /* Test_ReallyLargeTagNumber.swift in Sources */,
 				F44F93C41DAEA8C900BC5B85 /* Test_Packed.swift in Sources */,
 				F44F93B21DAEA8C900BC5B85 /* Test_AllTypes.swift in Sources */,

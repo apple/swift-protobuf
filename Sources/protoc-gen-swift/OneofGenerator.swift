@@ -20,13 +20,13 @@ import SwiftProtobuf
 
 extension Google_Protobuf_OneofDescriptorProto {
     var swiftFieldName: String {
-        return toLowerCamelCase(name!)
+        return toLowerCamelCase(name)
     }
     var swiftStorageFieldName: String {
-        return "_" + toLowerCamelCase(name!)
+        return "_" + toLowerCamelCase(name)
     }
     var swiftRelativeType: String {
-        return "OneOf_" + toUpperCamelCase(name!)
+        return "OneOf_" + toUpperCamelCase(name)
     }
 }
 
@@ -88,7 +88,7 @@ class OneofGenerator {
             } else {
                 p.print("var value: \(f.swiftStorageType)\n")
                 let special = f.isGroup ? "Group" : f.isMessage ? "Message" : "";
-                let modifier = (isProto3 ? "Singular" : "Optional")
+                let modifier = "Singular"
                 let decoderMethod = "decode\(modifier)\(special)Field"
                 p.print("handled = try setter.\(decoderMethod)(fieldType: \(f.traitsType).self, value: &value)\n")
                 p.print("if let value = value, handled {\n")
@@ -138,7 +138,7 @@ class OneofGenerator {
 
     func generateProxyIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("public var \(descriptor.swiftStorageFieldName): \(swiftRelativeName) {\n")
+        p.print("public var \(descriptor.swiftFieldName): \(swiftRelativeName) {\n")
         p.indent()
         p.print("get {return _storage.\(descriptor.swiftStorageFieldName)}\n")
         p.print("set {\n")

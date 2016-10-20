@@ -191,6 +191,12 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
+  public var hasSourceContext: Bool {
+    return _storage._sourceContext != nil
+  }
+  public mutating func clearSourceContext() {
+    return _storage._sourceContext = nil
+  }
 
   ///   Included APIs. See [Mixin][].
   public var mixins: [Google_Protobuf_Mixin] {

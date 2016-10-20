@@ -372,32 +372,32 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
-      case 2: handled = try setter.decodeOptionalField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
-      case 3: handled = try setter.decodeOptionalField(fieldType: ProtobufUInt32.self, value: &_optionalUint32)
-      case 4: handled = try setter.decodeOptionalField(fieldType: ProtobufUInt64.self, value: &_optionalUint64)
-      case 5: handled = try setter.decodeOptionalField(fieldType: ProtobufSInt32.self, value: &_optionalSint32)
-      case 6: handled = try setter.decodeOptionalField(fieldType: ProtobufSInt64.self, value: &_optionalSint64)
-      case 7: handled = try setter.decodeOptionalField(fieldType: ProtobufFixed32.self, value: &_optionalFixed32)
-      case 8: handled = try setter.decodeOptionalField(fieldType: ProtobufFixed64.self, value: &_optionalFixed64)
-      case 9: handled = try setter.decodeOptionalField(fieldType: ProtobufSFixed32.self, value: &_optionalSfixed32)
-      case 10: handled = try setter.decodeOptionalField(fieldType: ProtobufSFixed64.self, value: &_optionalSfixed64)
-      case 11: handled = try setter.decodeOptionalField(fieldType: ProtobufFloat.self, value: &_optionalFloat)
-      case 12: handled = try setter.decodeOptionalField(fieldType: ProtobufDouble.self, value: &_optionalDouble)
-      case 13: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &_optionalBool)
-      case 14: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_optionalString)
-      case 15: handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
-      case 16: handled = try setter.decodeOptionalGroupField(fieldType: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup.self, value: &_optionalGroup)
-      case 18: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_optionalNestedMessage)
-      case 19: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittestNoArena_ForeignMessage.self, value: &_optionalForeignMessage)
-      case 20: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_optionalImportMessage)
-      case 21: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: &_optionalNestedEnum)
-      case 22: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: &_optionalForeignEnum)
-      case 23: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_optionalImportEnum)
-      case 24: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_optionalStringPiece)
-      case 25: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_optionalCord)
-      case 26: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittestImport_PublicImportMessage.self, value: &_optionalPublicImportMessage)
-      case 27: handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_optionalMessage)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
+      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
+      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_optionalUint32)
+      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_optionalUint64)
+      case 5: handled = try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_optionalSint32)
+      case 6: handled = try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_optionalSint64)
+      case 7: handled = try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_optionalFixed32)
+      case 8: handled = try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_optionalFixed64)
+      case 9: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_optionalSfixed32)
+      case 10: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_optionalSfixed64)
+      case 11: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_optionalFloat)
+      case 12: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_optionalDouble)
+      case 13: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_optionalBool)
+      case 14: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalString)
+      case 15: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
+      case 16: handled = try setter.decodeSingularGroupField(fieldType: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup.self, value: &_optionalGroup)
+      case 18: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_optionalNestedMessage)
+      case 19: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_ForeignMessage.self, value: &_optionalForeignMessage)
+      case 20: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_optionalImportMessage)
+      case 21: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: &_optionalNestedEnum)
+      case 22: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: &_optionalForeignEnum)
+      case 23: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_optionalImportEnum)
+      case 24: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalStringPiece)
+      case 25: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalCord)
+      case 26: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_PublicImportMessage.self, value: &_optionalPublicImportMessage)
+      case 27: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_optionalMessage)
       case 31: handled = try setter.decodeRepeatedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
       case 32: handled = try setter.decodeRepeatedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
       case 33: handled = try setter.decodeRepeatedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
@@ -423,26 +423,26 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
       case 54: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedStringPiece)
       case 55: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedCord)
       case 57: handled = try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_repeatedLazyMessage)
-      case 61: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &_defaultInt32)
-      case 62: handled = try setter.decodeOptionalField(fieldType: ProtobufInt64.self, value: &_defaultInt64)
-      case 63: handled = try setter.decodeOptionalField(fieldType: ProtobufUInt32.self, value: &_defaultUint32)
-      case 64: handled = try setter.decodeOptionalField(fieldType: ProtobufUInt64.self, value: &_defaultUint64)
-      case 65: handled = try setter.decodeOptionalField(fieldType: ProtobufSInt32.self, value: &_defaultSint32)
-      case 66: handled = try setter.decodeOptionalField(fieldType: ProtobufSInt64.self, value: &_defaultSint64)
-      case 67: handled = try setter.decodeOptionalField(fieldType: ProtobufFixed32.self, value: &_defaultFixed32)
-      case 68: handled = try setter.decodeOptionalField(fieldType: ProtobufFixed64.self, value: &_defaultFixed64)
-      case 69: handled = try setter.decodeOptionalField(fieldType: ProtobufSFixed32.self, value: &_defaultSfixed32)
-      case 70: handled = try setter.decodeOptionalField(fieldType: ProtobufSFixed64.self, value: &_defaultSfixed64)
-      case 71: handled = try setter.decodeOptionalField(fieldType: ProtobufFloat.self, value: &_defaultFloat)
-      case 72: handled = try setter.decodeOptionalField(fieldType: ProtobufDouble.self, value: &_defaultDouble)
-      case 73: handled = try setter.decodeOptionalField(fieldType: ProtobufBool.self, value: &_defaultBool)
-      case 74: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_defaultString)
-      case 75: handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &_defaultBytes)
-      case 81: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: &_defaultNestedEnum)
-      case 82: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: &_defaultForeignEnum)
-      case 83: handled = try setter.decodeOptionalField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_defaultImportEnum)
-      case 84: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_defaultStringPiece)
-      case 85: handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &_defaultCord)
+      case 61: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_defaultInt32)
+      case 62: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_defaultInt64)
+      case 63: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_defaultUint32)
+      case 64: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_defaultUint64)
+      case 65: handled = try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_defaultSint32)
+      case 66: handled = try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_defaultSint64)
+      case 67: handled = try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_defaultFixed32)
+      case 68: handled = try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_defaultFixed64)
+      case 69: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_defaultSfixed32)
+      case 70: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_defaultSfixed64)
+      case 71: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_defaultFloat)
+      case 72: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_defaultDouble)
+      case 73: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_defaultBool)
+      case 74: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultString)
+      case 75: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_defaultBytes)
+      case 81: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: &_defaultNestedEnum)
+      case 82: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: &_defaultForeignEnum)
+      case 83: handled = try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_defaultImportEnum)
+      case 84: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultStringPiece)
+      case 85: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultCord)
       case 111, 112, 113, 114, 115:
         handled = try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default:
@@ -674,30 +674,30 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_optionalInt32 != nil || other._optionalInt32 != nil) && (_optionalInt32 == nil || other._optionalInt32 == nil || _optionalInt32! != other._optionalInt32!)) {return false}
-      if ((_optionalInt64 != nil || other._optionalInt64 != nil) && (_optionalInt64 == nil || other._optionalInt64 == nil || _optionalInt64! != other._optionalInt64!)) {return false}
-      if ((_optionalUint32 != nil || other._optionalUint32 != nil) && (_optionalUint32 == nil || other._optionalUint32 == nil || _optionalUint32! != other._optionalUint32!)) {return false}
-      if ((_optionalUint64 != nil || other._optionalUint64 != nil) && (_optionalUint64 == nil || other._optionalUint64 == nil || _optionalUint64! != other._optionalUint64!)) {return false}
-      if ((_optionalSint32 != nil || other._optionalSint32 != nil) && (_optionalSint32 == nil || other._optionalSint32 == nil || _optionalSint32! != other._optionalSint32!)) {return false}
-      if ((_optionalSint64 != nil || other._optionalSint64 != nil) && (_optionalSint64 == nil || other._optionalSint64 == nil || _optionalSint64! != other._optionalSint64!)) {return false}
-      if ((_optionalFixed32 != nil || other._optionalFixed32 != nil) && (_optionalFixed32 == nil || other._optionalFixed32 == nil || _optionalFixed32! != other._optionalFixed32!)) {return false}
-      if ((_optionalFixed64 != nil || other._optionalFixed64 != nil) && (_optionalFixed64 == nil || other._optionalFixed64 == nil || _optionalFixed64! != other._optionalFixed64!)) {return false}
-      if ((_optionalSfixed32 != nil || other._optionalSfixed32 != nil) && (_optionalSfixed32 == nil || other._optionalSfixed32 == nil || _optionalSfixed32! != other._optionalSfixed32!)) {return false}
-      if ((_optionalSfixed64 != nil || other._optionalSfixed64 != nil) && (_optionalSfixed64 == nil || other._optionalSfixed64 == nil || _optionalSfixed64! != other._optionalSfixed64!)) {return false}
-      if ((_optionalFloat != nil || other._optionalFloat != nil) && (_optionalFloat == nil || other._optionalFloat == nil || _optionalFloat! != other._optionalFloat!)) {return false}
-      if ((_optionalDouble != nil || other._optionalDouble != nil) && (_optionalDouble == nil || other._optionalDouble == nil || _optionalDouble! != other._optionalDouble!)) {return false}
-      if ((_optionalBool != nil || other._optionalBool != nil) && (_optionalBool == nil || other._optionalBool == nil || _optionalBool! != other._optionalBool!)) {return false}
-      if ((_optionalString != nil || other._optionalString != nil) && (_optionalString == nil || other._optionalString == nil || _optionalString! != other._optionalString!)) {return false}
-      if ((_optionalBytes != nil || other._optionalBytes != nil) && (_optionalBytes == nil || other._optionalBytes == nil || _optionalBytes! != other._optionalBytes!)) {return false}
+      if (_optionalInt32 != other._optionalInt32) {return false}
+      if (_optionalInt64 != other._optionalInt64) {return false}
+      if (_optionalUint32 != other._optionalUint32) {return false}
+      if (_optionalUint64 != other._optionalUint64) {return false}
+      if (_optionalSint32 != other._optionalSint32) {return false}
+      if (_optionalSint64 != other._optionalSint64) {return false}
+      if (_optionalFixed32 != other._optionalFixed32) {return false}
+      if (_optionalFixed64 != other._optionalFixed64) {return false}
+      if (_optionalSfixed32 != other._optionalSfixed32) {return false}
+      if (_optionalSfixed64 != other._optionalSfixed64) {return false}
+      if (_optionalFloat != other._optionalFloat) {return false}
+      if (_optionalDouble != other._optionalDouble) {return false}
+      if (_optionalBool != other._optionalBool) {return false}
+      if (_optionalString != other._optionalString) {return false}
+      if (_optionalBytes != other._optionalBytes) {return false}
       if ((_optionalGroup != nil || other._optionalGroup != nil) && (_optionalGroup == nil || other._optionalGroup == nil || _optionalGroup! != other._optionalGroup!)) {return false}
       if ((_optionalNestedMessage != nil || other._optionalNestedMessage != nil) && (_optionalNestedMessage == nil || other._optionalNestedMessage == nil || _optionalNestedMessage! != other._optionalNestedMessage!)) {return false}
       if ((_optionalForeignMessage != nil || other._optionalForeignMessage != nil) && (_optionalForeignMessage == nil || other._optionalForeignMessage == nil || _optionalForeignMessage! != other._optionalForeignMessage!)) {return false}
       if ((_optionalImportMessage != nil || other._optionalImportMessage != nil) && (_optionalImportMessage == nil || other._optionalImportMessage == nil || _optionalImportMessage! != other._optionalImportMessage!)) {return false}
-      if ((_optionalNestedEnum != nil || other._optionalNestedEnum != nil) && (_optionalNestedEnum == nil || other._optionalNestedEnum == nil || _optionalNestedEnum! != other._optionalNestedEnum!)) {return false}
-      if ((_optionalForeignEnum != nil || other._optionalForeignEnum != nil) && (_optionalForeignEnum == nil || other._optionalForeignEnum == nil || _optionalForeignEnum! != other._optionalForeignEnum!)) {return false}
-      if ((_optionalImportEnum != nil || other._optionalImportEnum != nil) && (_optionalImportEnum == nil || other._optionalImportEnum == nil || _optionalImportEnum! != other._optionalImportEnum!)) {return false}
-      if ((_optionalStringPiece != nil || other._optionalStringPiece != nil) && (_optionalStringPiece == nil || other._optionalStringPiece == nil || _optionalStringPiece! != other._optionalStringPiece!)) {return false}
-      if ((_optionalCord != nil || other._optionalCord != nil) && (_optionalCord == nil || other._optionalCord == nil || _optionalCord! != other._optionalCord!)) {return false}
+      if (_optionalNestedEnum != other._optionalNestedEnum) {return false}
+      if (_optionalForeignEnum != other._optionalForeignEnum) {return false}
+      if (_optionalImportEnum != other._optionalImportEnum) {return false}
+      if (_optionalStringPiece != other._optionalStringPiece) {return false}
+      if (_optionalCord != other._optionalCord) {return false}
       if ((_optionalPublicImportMessage != nil || other._optionalPublicImportMessage != nil) && (_optionalPublicImportMessage == nil || other._optionalPublicImportMessage == nil || _optionalPublicImportMessage! != other._optionalPublicImportMessage!)) {return false}
       if ((_optionalMessage != nil || other._optionalMessage != nil) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
       if _repeatedInt32 != other._repeatedInt32 {return false}
@@ -855,31 +855,31 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
       switch protoFieldNumber {
       case 111:
         var value: UInt32?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufUInt32.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
         if let value = value, handled {
           self = .oneofUint32(value)
         }
       case 112:
         var value: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
-        handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .oneofNestedMessage(value)
         }
       case 113:
         var value: String?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufString.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         if let value = value, handled {
           self = .oneofString(value)
         }
       case 114:
         var value: Data?
-        handled = try setter.decodeOptionalField(fieldType: ProtobufBytes.self, value: &value)
+        handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         if let value = value, handled {
           self = .oneofBytes(value)
         }
       case 115:
         var value: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
-        handled = try setter.decodeOptionalMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &value)
+        handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &value)
         if let value = value, handled {
           self = .lazyOneofNestedMessage(value)
         }
@@ -1024,14 +1024,24 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
-    public var bb: Int32? = nil
+    private var _bb: Int32? = nil
+    public var bb: Int32 {
+      get {return _bb ?? 0}
+      set {_bb = newValue}
+    }
+    public var hasBb: Bool {
+      return _bb != nil
+    }
+    public mutating func clearBb() {
+      return _bb = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &bb)
+      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_bb)
       default:
         handled = false
       }
@@ -1043,14 +1053,14 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      if let v = bb {
+      if let v = _bb {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "bb", jsonFieldName: "bb", swiftFieldName: "bb")
       }
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.NestedMessage) -> Bool {
-      if ((bb != nil || other.bb != nil) && (bb == nil || other.bb == nil || bb! != other.bb!)) {return false}
+      if (bb != other.bb) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1069,14 +1079,24 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public var a: Int32? = nil
+    private var _a: Int32? = nil
+    public var a: Int32 {
+      get {return _a ?? 0}
+      set {_a = newValue}
+    }
+    public var hasA: Bool {
+      return _a != nil
+    }
+    public mutating func clearA() {
+      return _a = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 17: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &a)
+      case 17: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
       default:
         handled = false
       }
@@ -1088,14 +1108,14 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      if let v = a {
+      if let v = _a {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 17, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup) -> Bool {
-      if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
+      if (a != other.a) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1114,14 +1134,24 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public var a: Int32? = nil
+    private var _a: Int32? = nil
+    public var a: Int32 {
+      get {return _a ?? 0}
+      set {_a = newValue}
+    }
+    public var hasA: Bool {
+      return _a != nil
+    }
+    public mutating func clearA() {
+      return _a = nil
+    }
 
     public init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 47: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &a)
+      case 47: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
       default:
         handled = false
       }
@@ -1133,149 +1163,305 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      if let v = a {
+      if let v = _a {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 47, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
       unknown.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup) -> Bool {
-      if ((a != nil || other.a != nil) && (a == nil || other.a == nil || a! != other.a!)) {return false}
+      if (a != other.a) {return false}
       if unknown != other.unknown {return false}
       return true
     }
   }
 
   ///   Singular
-  public var optionalInt32: Int32? {
-    get {return _storage._optionalInt32}
+  public var optionalInt32: Int32 {
+    get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
+  public var hasOptionalInt32: Bool {
+    return _storage._optionalInt32 != nil
+  }
+  public mutating func clearOptionalInt32() {
+    return _storage._optionalInt32 = nil
+  }
 
-  public var optionalInt64: Int64? {
-    get {return _storage._optionalInt64}
+  public var optionalInt64: Int64 {
+    get {return _storage._optionalInt64 ?? 0}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
+  public var hasOptionalInt64: Bool {
+    return _storage._optionalInt64 != nil
+  }
+  public mutating func clearOptionalInt64() {
+    return _storage._optionalInt64 = nil
+  }
 
-  public var optionalUint32: UInt32? {
-    get {return _storage._optionalUint32}
+  public var optionalUint32: UInt32 {
+    get {return _storage._optionalUint32 ?? 0}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
+  public var hasOptionalUint32: Bool {
+    return _storage._optionalUint32 != nil
+  }
+  public mutating func clearOptionalUint32() {
+    return _storage._optionalUint32 = nil
+  }
 
-  public var optionalUint64: UInt64? {
-    get {return _storage._optionalUint64}
+  public var optionalUint64: UInt64 {
+    get {return _storage._optionalUint64 ?? 0}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
+  public var hasOptionalUint64: Bool {
+    return _storage._optionalUint64 != nil
+  }
+  public mutating func clearOptionalUint64() {
+    return _storage._optionalUint64 = nil
+  }
 
-  public var optionalSint32: Int32? {
-    get {return _storage._optionalSint32}
+  public var optionalSint32: Int32 {
+    get {return _storage._optionalSint32 ?? 0}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
+  public var hasOptionalSint32: Bool {
+    return _storage._optionalSint32 != nil
+  }
+  public mutating func clearOptionalSint32() {
+    return _storage._optionalSint32 = nil
+  }
 
-  public var optionalSint64: Int64? {
-    get {return _storage._optionalSint64}
+  public var optionalSint64: Int64 {
+    get {return _storage._optionalSint64 ?? 0}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
+  public var hasOptionalSint64: Bool {
+    return _storage._optionalSint64 != nil
+  }
+  public mutating func clearOptionalSint64() {
+    return _storage._optionalSint64 = nil
+  }
 
-  public var optionalFixed32: UInt32? {
-    get {return _storage._optionalFixed32}
+  public var optionalFixed32: UInt32 {
+    get {return _storage._optionalFixed32 ?? 0}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
+  public var hasOptionalFixed32: Bool {
+    return _storage._optionalFixed32 != nil
+  }
+  public mutating func clearOptionalFixed32() {
+    return _storage._optionalFixed32 = nil
+  }
 
-  public var optionalFixed64: UInt64? {
-    get {return _storage._optionalFixed64}
+  public var optionalFixed64: UInt64 {
+    get {return _storage._optionalFixed64 ?? 0}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
+  public var hasOptionalFixed64: Bool {
+    return _storage._optionalFixed64 != nil
+  }
+  public mutating func clearOptionalFixed64() {
+    return _storage._optionalFixed64 = nil
+  }
 
-  public var optionalSfixed32: Int32? {
-    get {return _storage._optionalSfixed32}
+  public var optionalSfixed32: Int32 {
+    get {return _storage._optionalSfixed32 ?? 0}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
+  public var hasOptionalSfixed32: Bool {
+    return _storage._optionalSfixed32 != nil
+  }
+  public mutating func clearOptionalSfixed32() {
+    return _storage._optionalSfixed32 = nil
+  }
 
-  public var optionalSfixed64: Int64? {
-    get {return _storage._optionalSfixed64}
+  public var optionalSfixed64: Int64 {
+    get {return _storage._optionalSfixed64 ?? 0}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
+  public var hasOptionalSfixed64: Bool {
+    return _storage._optionalSfixed64 != nil
+  }
+  public mutating func clearOptionalSfixed64() {
+    return _storage._optionalSfixed64 = nil
+  }
 
-  public var optionalFloat: Float? {
-    get {return _storage._optionalFloat}
+  public var optionalFloat: Float {
+    get {return _storage._optionalFloat ?? 0}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
+  public var hasOptionalFloat: Bool {
+    return _storage._optionalFloat != nil
+  }
+  public mutating func clearOptionalFloat() {
+    return _storage._optionalFloat = nil
+  }
 
-  public var optionalDouble: Double? {
-    get {return _storage._optionalDouble}
+  public var optionalDouble: Double {
+    get {return _storage._optionalDouble ?? 0}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
+  public var hasOptionalDouble: Bool {
+    return _storage._optionalDouble != nil
+  }
+  public mutating func clearOptionalDouble() {
+    return _storage._optionalDouble = nil
+  }
 
-  public var optionalBool: Bool? {
-    get {return _storage._optionalBool}
+  public var optionalBool: Bool {
+    get {return _storage._optionalBool ?? false}
     set {_uniqueStorage()._optionalBool = newValue}
   }
+  public var hasOptionalBool: Bool {
+    return _storage._optionalBool != nil
+  }
+  public mutating func clearOptionalBool() {
+    return _storage._optionalBool = nil
+  }
 
-  public var optionalString: String? {
-    get {return _storage._optionalString}
+  public var optionalString: String {
+    get {return _storage._optionalString ?? ""}
     set {_uniqueStorage()._optionalString = newValue}
   }
+  public var hasOptionalString: Bool {
+    return _storage._optionalString != nil
+  }
+  public mutating func clearOptionalString() {
+    return _storage._optionalString = nil
+  }
 
-  public var optionalBytes: Data? {
-    get {return _storage._optionalBytes}
+  public var optionalBytes: Data {
+    get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
+  public var hasOptionalBytes: Bool {
+    return _storage._optionalBytes != nil
+  }
+  public mutating func clearOptionalBytes() {
+    return _storage._optionalBytes = nil
+  }
 
-  public var optionalGroup: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup? {
-    get {return _storage._optionalGroup}
+  public var optionalGroup: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup {
+    get {return _storage._optionalGroup ?? ProtobufUnittestNoArena_TestAllTypes.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
+  public var hasOptionalGroup: Bool {
+    return _storage._optionalGroup != nil
+  }
+  public mutating func clearOptionalGroup() {
+    return _storage._optionalGroup = nil
+  }
 
-  public var optionalNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
-    get {return _storage._optionalNestedMessage}
+  public var optionalNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage {
+    get {return _storage._optionalNestedMessage ?? ProtobufUnittestNoArena_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
+  public var hasOptionalNestedMessage: Bool {
+    return _storage._optionalNestedMessage != nil
+  }
+  public mutating func clearOptionalNestedMessage() {
+    return _storage._optionalNestedMessage = nil
+  }
 
-  public var optionalForeignMessage: ProtobufUnittestNoArena_ForeignMessage? {
-    get {return _storage._optionalForeignMessage}
+  public var optionalForeignMessage: ProtobufUnittestNoArena_ForeignMessage {
+    get {return _storage._optionalForeignMessage ?? ProtobufUnittestNoArena_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
+  public var hasOptionalForeignMessage: Bool {
+    return _storage._optionalForeignMessage != nil
+  }
+  public mutating func clearOptionalForeignMessage() {
+    return _storage._optionalForeignMessage = nil
+  }
 
-  public var optionalImportMessage: ProtobufUnittestImport_ImportMessage? {
-    get {return _storage._optionalImportMessage}
+  public var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
+    get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
+  public var hasOptionalImportMessage: Bool {
+    return _storage._optionalImportMessage != nil
+  }
+  public mutating func clearOptionalImportMessage() {
+    return _storage._optionalImportMessage = nil
+  }
 
-  public var optionalNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum? {
-    get {return _storage._optionalNestedEnum}
+  public var optionalNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum {
+    get {return _storage._optionalNestedEnum ?? ProtobufUnittestNoArena_TestAllTypes.NestedEnum.foo}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
+  public var hasOptionalNestedEnum: Bool {
+    return _storage._optionalNestedEnum != nil
+  }
+  public mutating func clearOptionalNestedEnum() {
+    return _storage._optionalNestedEnum = nil
+  }
 
-  public var optionalForeignEnum: ProtobufUnittestNoArena_ForeignEnum? {
-    get {return _storage._optionalForeignEnum}
+  public var optionalForeignEnum: ProtobufUnittestNoArena_ForeignEnum {
+    get {return _storage._optionalForeignEnum ?? ProtobufUnittestNoArena_ForeignEnum.foreignFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
+  public var hasOptionalForeignEnum: Bool {
+    return _storage._optionalForeignEnum != nil
+  }
+  public mutating func clearOptionalForeignEnum() {
+    return _storage._optionalForeignEnum = nil
+  }
 
-  public var optionalImportEnum: ProtobufUnittestImport_ImportEnum? {
-    get {return _storage._optionalImportEnum}
+  public var optionalImportEnum: ProtobufUnittestImport_ImportEnum {
+    get {return _storage._optionalImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
-
-  public var optionalStringPiece: String? {
-    get {return _storage._optionalStringPiece}
-    set {_uniqueStorage()._optionalStringPiece = newValue}
+  public var hasOptionalImportEnum: Bool {
+    return _storage._optionalImportEnum != nil
+  }
+  public mutating func clearOptionalImportEnum() {
+    return _storage._optionalImportEnum = nil
   }
 
-  public var optionalCord: String? {
-    get {return _storage._optionalCord}
+  public var optionalStringPiece: String {
+    get {return _storage._optionalStringPiece ?? ""}
+    set {_uniqueStorage()._optionalStringPiece = newValue}
+  }
+  public var hasOptionalStringPiece: Bool {
+    return _storage._optionalStringPiece != nil
+  }
+  public mutating func clearOptionalStringPiece() {
+    return _storage._optionalStringPiece = nil
+  }
+
+  public var optionalCord: String {
+    get {return _storage._optionalCord ?? ""}
     set {_uniqueStorage()._optionalCord = newValue}
+  }
+  public var hasOptionalCord: Bool {
+    return _storage._optionalCord != nil
+  }
+  public mutating func clearOptionalCord() {
+    return _storage._optionalCord = nil
   }
 
   ///   Defined in unittest_import_public.proto
-  public var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? {
-    get {return _storage._optionalPublicImportMessage}
+  public var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
+    get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
+  public var hasOptionalPublicImportMessage: Bool {
+    return _storage._optionalPublicImportMessage != nil
+  }
+  public mutating func clearOptionalPublicImportMessage() {
+    return _storage._optionalPublicImportMessage = nil
+  }
 
-  public var optionalMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
-    get {return _storage._optionalMessage}
+  public var optionalMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage {
+    get {return _storage._optionalMessage ?? ProtobufUnittestNoArena_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalMessage = newValue}
+  }
+  public var hasOptionalMessage: Bool {
+    return _storage._optionalMessage != nil
+  }
+  public mutating func clearOptionalMessage() {
+    return _storage._optionalMessage = nil
   }
 
   ///   Repeated
@@ -1405,187 +1591,287 @@ public struct ProtobufUnittestNoArena_TestAllTypes: ProtobufGeneratedMessage {
   }
 
   ///   Singular with defaults
-  public var defaultInt32: Int32? {
+  public var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
   }
+  public var hasDefaultInt32: Bool {
+    return _storage._defaultInt32 != nil
+  }
+  public mutating func clearDefaultInt32() {
+    return _storage._defaultInt32 = nil
+  }
 
-  public var defaultInt64: Int64? {
+  public var defaultInt64: Int64 {
     get {return _storage._defaultInt64 ?? 42}
     set {_uniqueStorage()._defaultInt64 = newValue}
   }
+  public var hasDefaultInt64: Bool {
+    return _storage._defaultInt64 != nil
+  }
+  public mutating func clearDefaultInt64() {
+    return _storage._defaultInt64 = nil
+  }
 
-  public var defaultUint32: UInt32? {
+  public var defaultUint32: UInt32 {
     get {return _storage._defaultUint32 ?? 43}
     set {_uniqueStorage()._defaultUint32 = newValue}
   }
+  public var hasDefaultUint32: Bool {
+    return _storage._defaultUint32 != nil
+  }
+  public mutating func clearDefaultUint32() {
+    return _storage._defaultUint32 = nil
+  }
 
-  public var defaultUint64: UInt64? {
+  public var defaultUint64: UInt64 {
     get {return _storage._defaultUint64 ?? 44}
     set {_uniqueStorage()._defaultUint64 = newValue}
   }
+  public var hasDefaultUint64: Bool {
+    return _storage._defaultUint64 != nil
+  }
+  public mutating func clearDefaultUint64() {
+    return _storage._defaultUint64 = nil
+  }
 
-  public var defaultSint32: Int32? {
+  public var defaultSint32: Int32 {
     get {return _storage._defaultSint32 ?? -45}
     set {_uniqueStorage()._defaultSint32 = newValue}
   }
+  public var hasDefaultSint32: Bool {
+    return _storage._defaultSint32 != nil
+  }
+  public mutating func clearDefaultSint32() {
+    return _storage._defaultSint32 = nil
+  }
 
-  public var defaultSint64: Int64? {
+  public var defaultSint64: Int64 {
     get {return _storage._defaultSint64 ?? 46}
     set {_uniqueStorage()._defaultSint64 = newValue}
   }
+  public var hasDefaultSint64: Bool {
+    return _storage._defaultSint64 != nil
+  }
+  public mutating func clearDefaultSint64() {
+    return _storage._defaultSint64 = nil
+  }
 
-  public var defaultFixed32: UInt32? {
+  public var defaultFixed32: UInt32 {
     get {return _storage._defaultFixed32 ?? 47}
     set {_uniqueStorage()._defaultFixed32 = newValue}
   }
+  public var hasDefaultFixed32: Bool {
+    return _storage._defaultFixed32 != nil
+  }
+  public mutating func clearDefaultFixed32() {
+    return _storage._defaultFixed32 = nil
+  }
 
-  public var defaultFixed64: UInt64? {
+  public var defaultFixed64: UInt64 {
     get {return _storage._defaultFixed64 ?? 48}
     set {_uniqueStorage()._defaultFixed64 = newValue}
   }
+  public var hasDefaultFixed64: Bool {
+    return _storage._defaultFixed64 != nil
+  }
+  public mutating func clearDefaultFixed64() {
+    return _storage._defaultFixed64 = nil
+  }
 
-  public var defaultSfixed32: Int32? {
+  public var defaultSfixed32: Int32 {
     get {return _storage._defaultSfixed32 ?? 49}
     set {_uniqueStorage()._defaultSfixed32 = newValue}
   }
+  public var hasDefaultSfixed32: Bool {
+    return _storage._defaultSfixed32 != nil
+  }
+  public mutating func clearDefaultSfixed32() {
+    return _storage._defaultSfixed32 = nil
+  }
 
-  public var defaultSfixed64: Int64? {
+  public var defaultSfixed64: Int64 {
     get {return _storage._defaultSfixed64 ?? -50}
     set {_uniqueStorage()._defaultSfixed64 = newValue}
   }
+  public var hasDefaultSfixed64: Bool {
+    return _storage._defaultSfixed64 != nil
+  }
+  public mutating func clearDefaultSfixed64() {
+    return _storage._defaultSfixed64 = nil
+  }
 
-  public var defaultFloat: Float? {
+  public var defaultFloat: Float {
     get {return _storage._defaultFloat ?? 51.5}
     set {_uniqueStorage()._defaultFloat = newValue}
   }
+  public var hasDefaultFloat: Bool {
+    return _storage._defaultFloat != nil
+  }
+  public mutating func clearDefaultFloat() {
+    return _storage._defaultFloat = nil
+  }
 
-  public var defaultDouble: Double? {
+  public var defaultDouble: Double {
     get {return _storage._defaultDouble ?? 52000}
     set {_uniqueStorage()._defaultDouble = newValue}
   }
+  public var hasDefaultDouble: Bool {
+    return _storage._defaultDouble != nil
+  }
+  public mutating func clearDefaultDouble() {
+    return _storage._defaultDouble = nil
+  }
 
-  public var defaultBool: Bool? {
+  public var defaultBool: Bool {
     get {return _storage._defaultBool ?? true}
     set {_uniqueStorage()._defaultBool = newValue}
   }
+  public var hasDefaultBool: Bool {
+    return _storage._defaultBool != nil
+  }
+  public mutating func clearDefaultBool() {
+    return _storage._defaultBool = nil
+  }
 
-  public var defaultString: String? {
+  public var defaultString: String {
     get {return _storage._defaultString ?? "hello"}
     set {_uniqueStorage()._defaultString = newValue}
   }
+  public var hasDefaultString: Bool {
+    return _storage._defaultString != nil
+  }
+  public mutating func clearDefaultString() {
+    return _storage._defaultString = nil
+  }
 
-  public var defaultBytes: Data? {
+  public var defaultBytes: Data {
     get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
+  public var hasDefaultBytes: Bool {
+    return _storage._defaultBytes != nil
+  }
+  public mutating func clearDefaultBytes() {
+    return _storage._defaultBytes = nil
+  }
 
-  public var defaultNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum? {
+  public var defaultNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum {
     get {return _storage._defaultNestedEnum ?? ProtobufUnittestNoArena_TestAllTypes.NestedEnum.bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
+  public var hasDefaultNestedEnum: Bool {
+    return _storage._defaultNestedEnum != nil
+  }
+  public mutating func clearDefaultNestedEnum() {
+    return _storage._defaultNestedEnum = nil
+  }
 
-  public var defaultForeignEnum: ProtobufUnittestNoArena_ForeignEnum? {
+  public var defaultForeignEnum: ProtobufUnittestNoArena_ForeignEnum {
     get {return _storage._defaultForeignEnum ?? ProtobufUnittestNoArena_ForeignEnum.foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
+  public var hasDefaultForeignEnum: Bool {
+    return _storage._defaultForeignEnum != nil
+  }
+  public mutating func clearDefaultForeignEnum() {
+    return _storage._defaultForeignEnum = nil
+  }
 
-  public var defaultImportEnum: ProtobufUnittestImport_ImportEnum? {
+  public var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
     get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
+  public var hasDefaultImportEnum: Bool {
+    return _storage._defaultImportEnum != nil
+  }
+  public mutating func clearDefaultImportEnum() {
+    return _storage._defaultImportEnum = nil
+  }
 
-  public var defaultStringPiece: String? {
+  public var defaultStringPiece: String {
     get {return _storage._defaultStringPiece ?? "abc"}
     set {_uniqueStorage()._defaultStringPiece = newValue}
   }
+  public var hasDefaultStringPiece: Bool {
+    return _storage._defaultStringPiece != nil
+  }
+  public mutating func clearDefaultStringPiece() {
+    return _storage._defaultStringPiece = nil
+  }
 
-  public var defaultCord: String? {
+  public var defaultCord: String {
     get {return _storage._defaultCord ?? "123"}
     set {_uniqueStorage()._defaultCord = newValue}
   }
+  public var hasDefaultCord: Bool {
+    return _storage._defaultCord != nil
+  }
+  public mutating func clearDefaultCord() {
+    return _storage._defaultCord = nil
+  }
 
-  public var oneofUint32: UInt32? {
+  public var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofUint32(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofUint32(newValue)
     }
   }
 
-  public var oneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
+  public var oneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ProtobufUnittestNoArena_TestAllTypes.NestedMessage()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
     }
   }
 
-  public var oneofString: String? {
+  public var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofString(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofString(newValue)
     }
   }
 
-  public var oneofBytes: Data? {
+  public var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofBytes(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofBytes(newValue)
     }
   }
 
-  public var lazyOneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage? {
+  public var lazyOneofNestedMessage: ProtobufUnittestNoArena_TestAllTypes.NestedMessage {
     get {
       if case .lazyOneofNestedMessage(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ProtobufUnittestNoArena_TestAllTypes.NestedMessage()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .lazyOneofNestedMessage(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .lazyOneofNestedMessage(newValue)
     }
   }
 
-  public var _oneofField: OneOf_OneofField {
+  public var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -1629,14 +1915,24 @@ public struct ProtobufUnittestNoArena_ForeignMessage: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public var c: Int32? = nil
+  private var _c: Int32? = nil
+  public var c: Int32 {
+    get {return _c ?? 0}
+    set {_c = newValue}
+  }
+  public var hasC: Bool {
+    return _c != nil
+  }
+  public mutating func clearC() {
+    return _c = nil
+  }
 
   public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
     let handled: Bool
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeOptionalField(fieldType: ProtobufInt32.self, value: &c)
+    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
     default:
       handled = false
     }
@@ -1648,14 +1944,14 @@ public struct ProtobufUnittestNoArena_ForeignMessage: ProtobufGeneratedMessage {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    if let v = c {
+    if let v = _c {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
     }
     unknown.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessage) -> Bool {
-    if ((c != nil || other.c != nil) && (c == nil || other.c == nil || c! != other.c!)) {return false}
+    if (c != other.c) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -1682,7 +1978,7 @@ public struct ProtobufUnittestNoArena_TestNoArenaMessage: ProtobufGeneratedMessa
     func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
       let handled: Bool
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeOptionalMessageField(fieldType: Proto2ArenaUnittest_ArenaMessage.self, value: &_arenaMessage)
+      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto2ArenaUnittest_ArenaMessage.self, value: &_arenaMessage)
       default:
         handled = false
       }
@@ -1716,9 +2012,15 @@ public struct ProtobufUnittestNoArena_TestNoArenaMessage: ProtobufGeneratedMessa
 
   private var _storage = _StorageClass()
 
-  public var arenaMessage: Proto2ArenaUnittest_ArenaMessage? {
-    get {return _storage._arenaMessage}
+  public var arenaMessage: Proto2ArenaUnittest_ArenaMessage {
+    get {return _storage._arenaMessage ?? Proto2ArenaUnittest_ArenaMessage()}
     set {_uniqueStorage()._arenaMessage = newValue}
+  }
+  public var hasArenaMessage: Bool {
+    return _storage._arenaMessage != nil
+  }
+  public mutating func clearArenaMessage() {
+    return _storage._arenaMessage = nil
   }
 
   public init() {}

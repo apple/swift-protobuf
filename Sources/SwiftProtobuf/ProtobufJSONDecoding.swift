@@ -363,10 +363,7 @@ private struct ProtobufJSONNullFieldDecoder: ProtobufJSONFieldDecoder {
     let scanner: ProtobufJSONScanner
     var rejectConflictingOneof: Bool {return true}
 
-    mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
-        return true
-    }
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
+    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         return true
     }
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
@@ -375,14 +372,14 @@ private struct ProtobufJSONNullFieldDecoder: ProtobufJSONFieldDecoder {
     mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
         return true
     }
-    mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
+    mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
         value = try M.decodeFromJSONNull()
         return true
     }
     mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws -> Bool {
         return true
     }
-    mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
+    mutating func decodeSingularGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
         return true
     }
     mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool {
@@ -402,23 +399,12 @@ private struct ProtobufJSONSingleTokenFieldDecoder: ProtobufJSONFieldDecoder {
     var token: ProtobufJSONToken
     var scanner: ProtobufJSONScanner
 
-    mutating func decodeOptionalField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
+    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws -> Bool {
         try S.setFromJSONToken(token: token, value: &value)
         return true
     }
 
-    mutating func decodeRequiredField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType) throws -> Bool {
-        var t: S.BaseType?
-        try S.setFromJSONToken(token: token, value: &t)
-        if let t = t {
-            value = t
-            return true
-        } else {
-            throw ProtobufDecodingError.malformedJSON
-        }
-    }
-    
-    mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
+    mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
         var m = M()
         try m.decodeFromJSONToken(token: token)
         value = m
@@ -431,7 +417,7 @@ private struct ProtobufJSONObjectFieldDecoder: ProtobufJSONFieldDecoder {
 
     var scanner: ProtobufJSONScanner
 
-    mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
+    mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
         var message = M()
         var subDecoder = ProtobufJSONDecoder(scanner: scanner)
         try message.decodeFromJSONObject(jsonDecoder: &subDecoder)
@@ -439,7 +425,7 @@ private struct ProtobufJSONObjectFieldDecoder: ProtobufJSONFieldDecoder {
         return true
     }
 
-    mutating func decodeOptionalGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
+    mutating func decodeSingularGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws -> Bool {
         var group = G()
         var subDecoder = ProtobufJSONDecoder(scanner: scanner)
         try group.decodeFromJSONObject(jsonDecoder: &subDecoder)
@@ -544,7 +530,7 @@ internal struct ProtobufJSONArrayFieldDecoder: ProtobufJSONFieldDecoder {
         return try decodeRepeatedField(fieldType: fieldType, value: &value)
     }
     
-    mutating func decodeOptionalMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
+    mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws -> Bool {
         var m = value ?? M()
         var subDecoder = ProtobufJSONDecoder(scanner: scanner)
         try m.decodeFromJSONArray(jsonDecoder: &subDecoder)

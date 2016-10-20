@@ -297,37 +297,29 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
     }
   }
 
-  public var protobufPayload: Data? {
+  public var protobufPayload: Data {
     get {
       if case .protobufPayload(let v) = payload {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        payload = .protobufPayload(newValue)
-      } else {
-        payload = .None
-      }
+      payload = .protobufPayload(newValue)
     }
   }
 
   public var payload: Conformance_ConformanceRequest.OneOf_Payload = .None
 
-  public var jsonPayload: String? {
+  public var jsonPayload: String {
     get {
       if case .jsonPayload(let v) = payload {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        payload = .jsonPayload(newValue)
-      } else {
-        payload = .None
-      }
+      payload = .jsonPayload(newValue)
     }
   }
 
@@ -475,19 +467,15 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
   ///  
   ///   Setting this string does not necessarily mean the testee failed the
   ///   test.  Some of the test cases are intentionally invalid input.
-  public var parseError: String? {
+  public var parseError: String {
     get {
       if case .parseError(let v) = result {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        result = .parseError(newValue)
-      } else {
-        result = .None
-      }
+      result = .parseError(newValue)
     }
   }
 
@@ -496,92 +484,72 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
   ///   If the input was successfully parsed but errors occurred when
   ///   serializing it to the requested output format, set the error message in
   ///   this field.
-  public var serializeError: String? {
+  public var serializeError: String {
     get {
       if case .serializeError(let v) = result {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        result = .serializeError(newValue)
-      } else {
-        result = .None
-      }
+      result = .serializeError(newValue)
     }
   }
 
   ///   This should be set if some other error occurred.  This will always
   ///   indicate that the test failed.  The string can provide more information
   ///   about the failure.
-  public var runtimeError: String? {
+  public var runtimeError: String {
     get {
       if case .runtimeError(let v) = result {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        result = .runtimeError(newValue)
-      } else {
-        result = .None
-      }
+      result = .runtimeError(newValue)
     }
   }
 
   ///   If the input was successfully parsed and the requested output was
   ///   protobuf, serialize it to protobuf and set it in this field.
-  public var protobufPayload: Data? {
+  public var protobufPayload: Data {
     get {
       if case .protobufPayload(let v) = result {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        result = .protobufPayload(newValue)
-      } else {
-        result = .None
-      }
+      result = .protobufPayload(newValue)
     }
   }
 
   ///   If the input was successfully parsed and the requested output was JSON,
   ///   serialize to JSON and set it in this field.
-  public var jsonPayload: String? {
+  public var jsonPayload: String {
     get {
       if case .jsonPayload(let v) = result {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        result = .jsonPayload(newValue)
-      } else {
-        result = .None
-      }
+      result = .jsonPayload(newValue)
     }
   }
 
   ///   For when the testee skipped the test, likely because a certain feature
   ///   wasn't supported, like JSON input/output.
-  public var skipped: String? {
+  public var skipped: String {
     get {
       if case .skipped(let v) = result {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        result = .skipped(newValue)
-      } else {
-        result = .None
-      }
+      result = .skipped(newValue)
     }
   }
 
@@ -1827,6 +1795,12 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       get {return _storage._corecursive ?? Conformance_TestAllTypes()}
       set {_uniqueStorage()._corecursive = newValue}
     }
+    public var hasCorecursive: Bool {
+      return _storage._corecursive != nil
+    }
+    public mutating func clearCorecursive() {
+      return _storage._corecursive = nil
+    }
 
     public init() {}
 
@@ -1930,10 +1904,22 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._optionalNestedMessage ?? Conformance_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
+  public var hasOptionalNestedMessage: Bool {
+    return _storage._optionalNestedMessage != nil
+  }
+  public mutating func clearOptionalNestedMessage() {
+    return _storage._optionalNestedMessage = nil
+  }
 
   public var optionalForeignMessage: Conformance_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? Conformance_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
+  }
+  public var hasOptionalForeignMessage: Bool {
+    return _storage._optionalForeignMessage != nil
+  }
+  public mutating func clearOptionalForeignMessage() {
+    return _storage._optionalForeignMessage = nil
   }
 
   public var optionalNestedEnum: Conformance_TestAllTypes.NestedEnum {
@@ -1959,6 +1945,12 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   public var recursiveMessage: Conformance_TestAllTypes {
     get {return _storage._recursiveMessage ?? Conformance_TestAllTypes()}
     set {_uniqueStorage()._recursiveMessage = newValue}
+  }
+  public var hasRecursiveMessage: Bool {
+    return _storage._recursiveMessage != nil
+  }
+  public mutating func clearRecursiveMessage() {
+    return _storage._recursiveMessage = nil
   }
 
   ///   Repeated
@@ -2163,67 +2155,51 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
 
-  public var oneofUint32: UInt32? {
+  public var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return 0
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofUint32(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofUint32(newValue)
     }
   }
 
-  public var oneofNestedMessage: Conformance_TestAllTypes.NestedMessage? {
+  public var oneofNestedMessage: Conformance_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Conformance_TestAllTypes.NestedMessage()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
     }
   }
 
-  public var oneofString: String? {
+  public var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return ""
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofString(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofString(newValue)
     }
   }
 
-  public var oneofBytes: Data? {
+  public var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
       }
-      return nil
+      return Data()
     }
     set {
-      if let newValue = newValue {
-        _uniqueStorage()._oneofField = .oneofBytes(newValue)
-      } else {
-        _uniqueStorage()._oneofField = .None
-      }
+      _uniqueStorage()._oneofField = .oneofBytes(newValue)
     }
   }
 
@@ -2232,45 +2208,99 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
   }
+  public var hasOptionalBoolWrapper: Bool {
+    return _storage._optionalBoolWrapper != nil
+  }
+  public mutating func clearOptionalBoolWrapper() {
+    return _storage._optionalBoolWrapper = nil
+  }
 
   public var optionalInt32Wrapper: Google_Protobuf_Int32Value {
     get {return _storage._optionalInt32Wrapper ?? Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._optionalInt32Wrapper = newValue}
+  }
+  public var hasOptionalInt32Wrapper: Bool {
+    return _storage._optionalInt32Wrapper != nil
+  }
+  public mutating func clearOptionalInt32Wrapper() {
+    return _storage._optionalInt32Wrapper = nil
   }
 
   public var optionalInt64Wrapper: Google_Protobuf_Int64Value {
     get {return _storage._optionalInt64Wrapper ?? Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._optionalInt64Wrapper = newValue}
   }
+  public var hasOptionalInt64Wrapper: Bool {
+    return _storage._optionalInt64Wrapper != nil
+  }
+  public mutating func clearOptionalInt64Wrapper() {
+    return _storage._optionalInt64Wrapper = nil
+  }
 
   public var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
     get {return _storage._optionalUint32Wrapper ?? Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._optionalUint32Wrapper = newValue}
+  }
+  public var hasOptionalUint32Wrapper: Bool {
+    return _storage._optionalUint32Wrapper != nil
+  }
+  public mutating func clearOptionalUint32Wrapper() {
+    return _storage._optionalUint32Wrapper = nil
   }
 
   public var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
     get {return _storage._optionalUint64Wrapper ?? Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._optionalUint64Wrapper = newValue}
   }
+  public var hasOptionalUint64Wrapper: Bool {
+    return _storage._optionalUint64Wrapper != nil
+  }
+  public mutating func clearOptionalUint64Wrapper() {
+    return _storage._optionalUint64Wrapper = nil
+  }
 
   public var optionalFloatWrapper: Google_Protobuf_FloatValue {
     get {return _storage._optionalFloatWrapper ?? Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._optionalFloatWrapper = newValue}
+  }
+  public var hasOptionalFloatWrapper: Bool {
+    return _storage._optionalFloatWrapper != nil
+  }
+  public mutating func clearOptionalFloatWrapper() {
+    return _storage._optionalFloatWrapper = nil
   }
 
   public var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
     get {return _storage._optionalDoubleWrapper ?? Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._optionalDoubleWrapper = newValue}
   }
+  public var hasOptionalDoubleWrapper: Bool {
+    return _storage._optionalDoubleWrapper != nil
+  }
+  public mutating func clearOptionalDoubleWrapper() {
+    return _storage._optionalDoubleWrapper = nil
+  }
 
   public var optionalStringWrapper: Google_Protobuf_StringValue {
     get {return _storage._optionalStringWrapper ?? Google_Protobuf_StringValue()}
     set {_uniqueStorage()._optionalStringWrapper = newValue}
   }
+  public var hasOptionalStringWrapper: Bool {
+    return _storage._optionalStringWrapper != nil
+  }
+  public mutating func clearOptionalStringWrapper() {
+    return _storage._optionalStringWrapper = nil
+  }
 
   public var optionalBytesWrapper: Google_Protobuf_BytesValue {
     get {return _storage._optionalBytesWrapper ?? Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._optionalBytesWrapper = newValue}
+  }
+  public var hasOptionalBytesWrapper: Bool {
+    return _storage._optionalBytesWrapper != nil
+  }
+  public mutating func clearOptionalBytesWrapper() {
+    return _storage._optionalBytesWrapper = nil
   }
 
   public var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
@@ -2322,30 +2352,66 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     get {return _storage._optionalDuration ?? Google_Protobuf_Duration()}
     set {_uniqueStorage()._optionalDuration = newValue}
   }
+  public var hasOptionalDuration: Bool {
+    return _storage._optionalDuration != nil
+  }
+  public mutating func clearOptionalDuration() {
+    return _storage._optionalDuration = nil
+  }
 
   public var optionalTimestamp: Google_Protobuf_Timestamp {
     get {return _storage._optionalTimestamp ?? Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._optionalTimestamp = newValue}
+  }
+  public var hasOptionalTimestamp: Bool {
+    return _storage._optionalTimestamp != nil
+  }
+  public mutating func clearOptionalTimestamp() {
+    return _storage._optionalTimestamp = nil
   }
 
   public var optionalFieldMask: Google_Protobuf_FieldMask {
     get {return _storage._optionalFieldMask ?? Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._optionalFieldMask = newValue}
   }
+  public var hasOptionalFieldMask: Bool {
+    return _storage._optionalFieldMask != nil
+  }
+  public mutating func clearOptionalFieldMask() {
+    return _storage._optionalFieldMask = nil
+  }
 
   public var optionalStruct: Google_Protobuf_Struct {
     get {return _storage._optionalStruct ?? Google_Protobuf_Struct()}
     set {_uniqueStorage()._optionalStruct = newValue}
+  }
+  public var hasOptionalStruct: Bool {
+    return _storage._optionalStruct != nil
+  }
+  public mutating func clearOptionalStruct() {
+    return _storage._optionalStruct = nil
   }
 
   public var optionalAny: Google_Protobuf_Any {
     get {return _storage._optionalAny ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._optionalAny = newValue}
   }
+  public var hasOptionalAny: Bool {
+    return _storage._optionalAny != nil
+  }
+  public mutating func clearOptionalAny() {
+    return _storage._optionalAny = nil
+  }
 
   public var optionalValue: Google_Protobuf_Value {
     get {return _storage._optionalValue ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._optionalValue = newValue}
+  }
+  public var hasOptionalValue: Bool {
+    return _storage._optionalValue != nil
+  }
+  public mutating func clearOptionalValue() {
+    return _storage._optionalValue = nil
   }
 
   public var repeatedDuration: [Google_Protobuf_Duration] {
@@ -2439,7 +2505,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     set {_uniqueStorage()._fieldName12 = newValue}
   }
 
-  public var _oneofField: OneOf_OneofField {
+  public var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
