@@ -30,11 +30,11 @@ public protocol ProtobufTextCodableType: ProtobufTypePropertiesBase {
 
 extension ProtobufTextCodableType {
     public static func setFromTextToken(token: ProtobufTextToken, value: inout BaseType?) throws {
-        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
+        throw ProtobufDecodingError.schemaMismatch
     }
     
     public static func setFromTextToken(token: ProtobufTextToken, value: inout [BaseType]) throws {
-        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
+        throw ProtobufDecodingError.schemaMismatch
     }
 }
 
@@ -859,7 +859,7 @@ public extension ProtobufTextMessageBase {
         var textDecoder = ProtobufTextDecoder(text: text)
         try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
         if !textDecoder.complete {
-            throw logAndReturnError(ProtobufDecodingError.trailingGarbage)
+            throw ProtobufDecodingError.trailingGarbage
         }
     }
     
@@ -868,7 +868,7 @@ public extension ProtobufTextMessageBase {
         var textDecoder = ProtobufTextDecoder(text: text, extensions: extensions)
         try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
         if !textDecoder.complete {
-            throw logAndReturnError(ProtobufDecodingError.trailingGarbage)
+            throw ProtobufDecodingError.trailingGarbage
         }
     }
     
@@ -877,11 +877,11 @@ public extension ProtobufTextMessageBase {
     }
     
     public mutating func decodeFromTextToken(token: ProtobufTextToken) throws {
-        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
+        throw ProtobufDecodingError.schemaMismatch
     }
     
     public mutating func decodeFromTextArray(textDecoder: inout ProtobufTextDecoder) throws {
-        throw logAndReturnError(ProtobufDecodingError.schemaMismatch)
+        throw ProtobufDecodingError.schemaMismatch
     }
 }
 
@@ -891,33 +891,32 @@ extension ProtobufMessage {
         var key = ""
         var state = ProtobufTextDecoder.ObjectParseState.expectFirstKey
         while let token = try textDecoder.nextToken(expectKey:(state == .expectKey) || (state == .expectFirstKey)) {
-            print("TOKEN2: \(token)")
             switch token {
             case .beginObject:
                 try textDecoder.decodeValue(key: key, message: &self, parsingObject: true)
                 state = .expectKey
             case .string(let s): // This is a key
                 if state != .expectKey && state != .expectFirstKey {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 key = s
                 state = .expectColon
             case .colon:
                 if state != .expectColon {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 try textDecoder.decodeValue(key: key, message: &self)
                 state = .expectKey
             case .comma:
                 if state != .expectComma {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 state = .expectKey
             case .endObject:
                 state = .expectKey
                 return
             default:
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             }
         }
         //throw ProtobufDecodingError.truncatedInput

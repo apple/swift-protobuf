@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufJSONDecoding.swift - JSON decoding
+// ProtobufRuntime/Sources/Protobuf/ProtobufTextDecoding.swift - Text format decoding
 //
 // This source file is part of the Swift.org open source project
 //
@@ -40,23 +40,6 @@ private func fromHexDigit(_ c: Character?) -> UInt32? {
         }
     }
     return nil
-}
-
-public func printCallstack(file: StaticString = #file, line: UInt = #line, function: StaticString = #function) {
-//    #if DEBUG
-        print("<< Call stack at \((String(describing:file) as NSString).lastPathComponent): \(function): \(line) >>")
-        for symbol in Thread.callStackSymbols {
-            print("- \(symbol)")
-        }
-//    #endif
-}
-
-public func logAndReturnError<T:Error>(_ error:T, file: StaticString = #file, line: UInt = #line, function: StaticString = #function) -> T {
-//    #if DEBUG
-        print("ERROR: \(error) --> \((String(describing:file) as NSString).lastPathComponent): \(function): \(line)")
-        printCallstack(file:file, line:line, function:function)
-//    #endif
-    return error
 }
 
 ///
@@ -103,7 +86,7 @@ public struct ProtobufTextDecoder {
         if alreadyInsideObject {
             try message.decodeFromTextObject(textDecoder: &self)
             if !complete {
-                throw logAndReturnError(ProtobufDecodingError.trailingGarbage)
+                throw ProtobufDecodingError.trailingGarbage
             }
         } else {
             guard let token = try nextToken(expectKey:true) else {throw ProtobufDecodingError.truncatedInput}
@@ -113,20 +96,19 @@ public struct ProtobufTextDecoder {
             case .beginArray:
                 try message.decodeFromTextArray(textDecoder: &self)
                 if !complete {
-                    throw logAndReturnError(ProtobufDecodingError.trailingGarbage)
+                    throw ProtobufDecodingError.trailingGarbage
                 }
             case .beginObject:
                 try message.decodeFromTextObject(textDecoder: &self)
                 if !complete {
-                    throw logAndReturnError(ProtobufDecodingError.trailingGarbage)
+                    throw ProtobufDecodingError.trailingGarbage
                 }
             case .string(_), .number(_), .boolean(_):
                 // Some special types can decode themselves
                 // from a single token (e.g., Timestamp)
-                print("TEXT TOKEN: |\(token)|")
                 try message.decodeFromTextToken(token: token)
             default:
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             }
         }
     }
@@ -134,15 +116,12 @@ public struct ProtobufTextDecoder {
     // TODO: ProtobufMessage here should be ProtobufFieldDecodableType to encompass both groups and messages
     // then this can merge with the decodeValue below...
     public mutating func decodeValue<M: ProtobufMessage>(key: String, message: inout M, parsingObject:Bool = false) throws {
-        print("DECODE VALUE: \(key) - \(message)")
         var handled = false
         let protoFieldNumber = (message.jsonFieldNames[key]
             ?? message.protoFieldNames[key]
             ?? scanner.extensions?.fieldNumberForJson(messageType: M.self, jsonFieldName: key))
 
         if parsingObject {
-            print("OBJECT: at key |\(key)|")
-            
             var fieldDecoder:ProtobufFieldDecoder = ProtobufTextObjectFieldDecoder(scanner: scanner)
             if let protoFieldNumber = protoFieldNumber {
                 handled = try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
@@ -155,7 +134,7 @@ public struct ProtobufTextDecoder {
             if let token = try nextToken() {
                 switch token {
                 case .colon, .comma, .endObject, .endArray:
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 case .beginObject:
                     break
                 case .beginArray:
@@ -182,7 +161,7 @@ public struct ProtobufTextDecoder {
                         // Token was already implicitly skipped, but we
                         // need to handle one deferred failure check:
                         if case .number(_) = token, token.asDouble == nil {
-                            throw logAndReturnError(ProtobufDecodingError.malformedJSONNumber)
+                            throw ProtobufDecodingError.malformedJSONNumber
                         }
                     }
                 }
@@ -200,7 +179,7 @@ public struct ProtobufTextDecoder {
             //?? scanner.extensions?.fieldNumberForJson(messageType: G.self, jsonFieldName: key))
             switch token {
             case .colon, .comma, .endObject, .endArray:
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             case .beginObject:
                 var handled = false
                 var fieldDecoder:ProtobufFieldDecoder = ProtobufTextObjectFieldDecoder(scanner: scanner)
@@ -237,7 +216,7 @@ public struct ProtobufTextDecoder {
                     // Token was already implicitly skipped, but we
                     // need to handle one deferred failure check:
                     if case .number(_) = token, token.asDouble == nil {
-                        throw logAndReturnError(ProtobufDecodingError.malformedJSONNumber)
+                        throw ProtobufDecodingError.malformedJSONNumber
                     }
                 }
             }
@@ -265,11 +244,11 @@ public struct ProtobufTextDecoder {
             case .beginArray:
                 try skipArray(tokens: &tokens)
             case .endObject, .endArray, .comma, .colon:
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             case .number(_):
                 // Make sure numbers are actually syntactically valid
                 if token.asDouble == nil {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSONNumber)
+                    throw ProtobufDecodingError.malformedJSONNumber
                 }
                 tokens.append(token)
             default:
@@ -291,7 +270,7 @@ public struct ProtobufTextDecoder {
             case .string(_):
                 pushback(token: token)
             default:
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             }
         } else {
             throw ProtobufDecodingError.truncatedInput
@@ -302,7 +281,7 @@ public struct ProtobufTextDecoder {
                 if case .string(_) = token {
                     tokens.append(token)
                 } else {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
             }
             
@@ -310,7 +289,7 @@ public struct ProtobufTextDecoder {
                 if case .colon = token {
                     tokens.append(token)
                 } else {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
             }
             
@@ -324,7 +303,7 @@ public struct ProtobufTextDecoder {
                     tokens.append(token)
                     return
                 default:
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
             }
         }
@@ -355,7 +334,7 @@ public struct ProtobufTextDecoder {
                     tokens.append(token)
                     return
                 default:
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
             }
         }
@@ -435,7 +414,7 @@ private struct ProtobufTextSingleTokenFieldDecoder: ProtobufTextFieldDecoder {
             value = t
             return true
         } else {
-            throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+            throw ProtobufDecodingError.malformedJSON
         }
     }
     
@@ -443,6 +422,29 @@ private struct ProtobufTextSingleTokenFieldDecoder: ProtobufTextFieldDecoder {
         var m = M()
         try m.decodeFromTextToken(token: token)
         value = m
+        return true
+    }
+    
+    mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
+        try S.setFromTextToken(token: token, value: &value)
+        return true
+//        return try S.setFromProtobufVarint(varint: varint, value: &value)
+//
+    }
+    
+    mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
+        return try decodeRepeatedField(fieldType: fieldType, value: &value)
+    }
+    
+    mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws -> Bool {
+        var m = M()
+        try m.decodeFromTextToken(token: token)
+        value.append(m)
+        return true
+    }
+    
+    mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool {
+        // TODO: Complete this
         return true
     }
 }
@@ -468,20 +470,19 @@ private struct ProtobufTextObjectFieldDecoder: ProtobufTextFieldDecoder {
         return true
     }
     mutating func decodeMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws -> Bool where KeyType.BaseType: Hashable {
-        print("MAP FIELD")
         var keyToken: ProtobufTextToken?
         var state = ProtobufTextDecoder.ObjectParseState.expectFirstKey
         while let token = try scanner.next() {
             switch token {
             case .string(_): // This is a key
                 if state != .expectKey && state != .expectFirstKey {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 keyToken = token
                 state = .expectColon
             case .colon:
                 if state != .expectColon {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 if let keyToken = keyToken,
                     let mapKey = try KeyType.decodeTextMapKeyValue(token: keyToken),
@@ -494,32 +495,46 @@ private struct ProtobufTextObjectFieldDecoder: ProtobufTextFieldDecoder {
                     case .beginObject, .boolean(_), .string(_), .number(_):
                         mapValue = try ValueType.decodeTextMapFieldValue(textDecoder: &subDecoder)
                         if mapValue == nil {
-                            throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                            throw ProtobufDecodingError.malformedJSON
                         }
                     default:
-                        throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                        throw ProtobufDecodingError.malformedJSON
                     }
                     value[mapKey] = mapValue
                 } else {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 state = .expectComma
             case .comma:
                 if state != .expectComma {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 state = .expectKey
             case .endObject:
                 if state != .expectFirstKey && state != .expectComma {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
                 return true
             default:
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             }
         }
         throw ProtobufDecodingError.truncatedInput
     }
+    
+    mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws -> Bool {
+        var message = M()
+        var subDecoder = ProtobufTextDecoder(scanner: scanner)
+        try message.decodeFromTextObject(textDecoder: &subDecoder)
+        value.append(message)
+        return true
+    }
+    
+    mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws -> Bool {
+        // TODO: Complete this
+        return true
+    }
+
 }
 
 internal struct ProtobufTextArrayFieldDecoder: ProtobufTextFieldDecoder {
@@ -542,7 +557,7 @@ internal struct ProtobufTextArrayFieldDecoder: ProtobufTextFieldDecoder {
             case .boolean(_), .string(_), .number(_):
                 try S.setFromTextToken(token: token, value: &value)
             default:
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             }
             if let separatorToken = try scanner.next() {
                 switch separatorToken {
@@ -1112,7 +1127,6 @@ public class ProtobufTextScanner {
             return t
         }
         while let next = characterPushback ?? charGenerator.next() {
-            print("CHARACTER: |\(next)|, expectKey: \(expectKey)")
             characterPushback = nil
             switch next {
             case " ", "\t", "\r", "\n":
@@ -1140,11 +1154,10 @@ public class ProtobufTextScanner {
                 if wordSeparator {
                     wordSeparator = false
                     if let s = parseUnquotedString(firstCharacter: next, charGenerator: &charGenerator) {
-                        print("UNQUOTED STRING: \(s)")
                         return .string(s)
                     }
                 }
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             case "n": // null
                 if wordSeparator {
                     wordSeparator = false
@@ -1156,7 +1169,7 @@ public class ProtobufTextScanner {
                         }
                     }
                 }
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             case "t": // true
                 if wordSeparator {
                     wordSeparator = false
@@ -1168,7 +1181,7 @@ public class ProtobufTextScanner {
                         }
                     }
                 }
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             case "f": // false
                 if wordSeparator {
                     wordSeparator = false
@@ -1182,7 +1195,7 @@ public class ProtobufTextScanner {
                         }
                     }
                 }
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             case "\"": // string
                 if wordSeparator {
                     wordSeparator = false
@@ -1190,7 +1203,7 @@ public class ProtobufTextScanner {
                         return .string(s)
                     }
                 }
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             case "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
                 if wordSeparator {
                     wordSeparator = false
@@ -1206,13 +1219,12 @@ public class ProtobufTextScanner {
                     }
                     return .number(s)
                 }
-                throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                throw ProtobufDecodingError.malformedJSON
             default:
                 if let s = parseUnquotedString(firstCharacter: next, charGenerator: &charGenerator) {
-                    print("DEFAULT UNQUOTED STRING: \(s)")
                     return .string(s)
                 } else {
-                    throw logAndReturnError(ProtobufDecodingError.malformedJSON)
+                    throw ProtobufDecodingError.malformedJSON
                 }
             }
         }

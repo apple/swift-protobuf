@@ -61,11 +61,16 @@ class Test_Text: XCTestCase, PBTestHelpers {
             XCTAssertEqualWithAccuracy(messageTest2.singleFloat, 11.0, accuracy:0.01)
             
             let messageTest3 = try MessageTestType(text:"single_int32: 41\n" + "single_nested_message {\n" + "  bb: 7\n" + "}\n" + "single_float: 11\n")
-            print("MESSAGE: \n\(try messageTest3.serializeText())")
 
             XCTAssertEqual(messageTest3.singleInt32, 41)
             XCTAssertEqualWithAccuracy(messageTest3.singleFloat, 11.0, accuracy:0.01)
             XCTAssertEqual(messageTest3.singleNestedMessage.bb, 7)
+
+            let messageTest4 = try MessageTestType(text:"single_int32: 41\n" + "repeated_int32: 1\n" + "repeated_int32: 2\n")
+            XCTAssertEqual(messageTest4.singleInt32, 41)
+            XCTAssertEqual(messageTest4.repeatedInt32.count, 2)
+            XCTAssertEqual(messageTest4.repeatedInt32[0], 1)
+            XCTAssertEqual(messageTest4.repeatedInt32[1], 2)
         } catch {
             XCTFail("Parsing should not have failed, error: \(error)")
         }

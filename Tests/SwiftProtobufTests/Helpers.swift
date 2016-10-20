@@ -111,17 +111,16 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializeText()
-
-//            print("==== Begin Encoding ====")
-//            print("\(encoded)")
-//            print("==== End Encoding ====")
             
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(text: encoded)
+//                print("==== Begin Decoding ====")
+//                print("\(try decoded.serializeText())")
+//                print("==== End Decoding ====")
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
-                XCTFail("Encode/decode cycle should not throw error, decoding: \(encoded)", file: file, line: line)
+                XCTFail("Encode/decode cycle should not throw error, decoding: \(error)", file: file, line: line)
             }
         } catch let e {
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
