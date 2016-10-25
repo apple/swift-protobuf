@@ -1067,7 +1067,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
     private var _a: Int32? = nil
     public var a: Int32 {
-      get {return _a ?? 0}
+      get {return _a ?? 116}
       set {_a = newValue}
     }
     public var hasA: Bool {
@@ -1117,7 +1117,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OneofGroup) -> Bool {
-      if (a != other.a) {return false}
+      if (((_a != nil && _a! != 116) || (other._a != nil && other._a! != 116)) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
       if (b != other.b) {return false}
       if unknown != other.unknown {return false}
       return true
