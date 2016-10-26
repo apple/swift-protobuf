@@ -115,9 +115,6 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(text: encoded)
-//                print("==== Begin Decoding ====")
-//                print("\(try decoded.serializeText())")
-//                print("==== End Decoding ====")
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
                 XCTFail("Encode/decode cycle should not throw error, decoding: \(error)", file: file, line: line)
@@ -154,6 +151,15 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
         do {
             let _ = try MessageTestType(json: json)
             XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
+        } catch {
+            // Yay! It failed!
+        }
+    }
+
+    func assertTextDecodeFails(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let _ = try MessageTestType(text: text)
+            XCTFail("Swift decode should have failed: \(text)", file: file, line: line)
         } catch {
             // Yay! It failed!
         }

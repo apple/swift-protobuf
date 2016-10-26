@@ -643,7 +643,7 @@ public extension ProtobufString {
             return s
         case .some(.null):
             return nil
-        case .some(_):
+        case .some:
             throw ProtobufDecodingError.malformedJSON
         default:
             throw ProtobufDecodingError.truncatedInput
@@ -688,7 +688,7 @@ public extension ProtobufBytes {
     public static func decodeTextMapFieldValue(textDecoder: inout ProtobufTextDecoder) throws -> Data? {
         if let token = try textDecoder.nextToken() {
             switch token {
-            case .string(_):
+            case .string:
                 if let bytes = token.asBytes {
                     return bytes
                 }
@@ -714,7 +714,7 @@ extension ProtobufEnum where RawValue == Int {
             } else {
                 throw ProtobufDecodingError.unrecognizedEnumValue
             }
-        case .number(_):
+        case .number:
             if let n = token.asInt32 {
                 value = Self(rawValue: Int(n))
             } else {
@@ -733,7 +733,7 @@ extension ProtobufEnum where RawValue == Int {
             } else {
                 throw ProtobufDecodingError.unrecognizedEnumValue
             }
-        case .number(_):
+        case .number:
             if let n = token.asInt32 {
                 let e = Self(rawValue: Int(n))! // Note: Can never fail!
                 value.append(e)
@@ -758,7 +758,7 @@ extension ProtobufEnum where RawValue == Int {
                     return b
                 }
                 throw ProtobufDecodingError.unrecognizedEnumValue
-            case .number(_):
+            case .number:
                 if let n = token.asInt32 {
                     return Self(rawValue: Int(n))
                 }

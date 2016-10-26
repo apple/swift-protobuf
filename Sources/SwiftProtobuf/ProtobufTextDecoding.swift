@@ -112,7 +112,7 @@ public struct ProtobufTextDecoder {
                 if !complete {
                     throw ProtobufDecodingError.trailingGarbage
                 }
-            case .string(_), .number(_), .boolean(_):
+            case .string, .number, .boolean:
                 // Some special types can decode themselves
                 // from a single token (e.g., Timestamp)
                 try message.decodeFromTextToken(token: token)
@@ -161,7 +161,7 @@ public struct ProtobufTextDecoder {
                         handled = try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
                     }
                 // Don't need to handle false case here; null token is already skipped
-                case .boolean(_), .string(_), .number(_):
+                case .boolean, .string, .number:
                     var fieldDecoder:ProtobufFieldDecoder = ProtobufTextSingleTokenFieldDecoder(token: token, scanner: scanner)
                     if let protoFieldNumber = protoFieldNumber {
                         handled = try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
@@ -169,7 +169,7 @@ public struct ProtobufTextDecoder {
                     if !handled {
                         // Token was already implicitly skipped, but we
                         // need to handle one deferred failure check:
-                        if case .number(_) = token, token.asDouble == nil {
+                        if case .number = token, token.asDouble == nil {
                             throw ProtobufDecodingError.malformedJSONNumber
                         }
                     }
@@ -215,7 +215,7 @@ public struct ProtobufTextDecoder {
                     _ = try group.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
                 }
             // Don't need to handle false case here; null token is already skipped
-            case .boolean(_), .string(_), .number(_):
+            case .boolean, .string, .number:
                 var handled = false
                 var fieldDecoder:ProtobufFieldDecoder = ProtobufTextSingleTokenFieldDecoder(token: token, scanner: scanner)
                 if let protoFieldNumber = protoFieldNumber {
@@ -224,7 +224,7 @@ public struct ProtobufTextDecoder {
                 if !handled {
                     // Token was already implicitly skipped, but we
                     // need to handle one deferred failure check:
-                    if case .number(_) = token, token.asDouble == nil {
+                    if case .number = token, token.asDouble == nil {
                         throw ProtobufDecodingError.malformedJSONNumber
                     }
                 }
@@ -254,7 +254,7 @@ public struct ProtobufTextDecoder {
                 try skipArray(tokens: &tokens)
             case .endObject, .endArray, .comma, .colon:
                 throw ProtobufDecodingError.malformedJSON
-            case .number(_):
+            case .number:
                 // Make sure numbers are actually syntactically valid
                 if token.asDouble == nil {
                     throw ProtobufDecodingError.malformedJSONNumber
@@ -276,7 +276,7 @@ public struct ProtobufTextDecoder {
             case .endObject:
                 tokens.append(token)
                 return
-            case .string(_):
+            case .string:
                 pushback(token: token)
             default:
                 throw ProtobufDecodingError.malformedJSON
@@ -287,7 +287,7 @@ public struct ProtobufTextDecoder {
         
         while true {
             if let token = try nextToken() {
-                if case .string(_) = token {
+                if case .string = token {
                     tokens.append(token)
                 } else {
                     throw ProtobufDecodingError.malformedJSON
@@ -423,8 +423,6 @@ private struct ProtobufTextSingleTokenFieldDecoder: ProtobufTextFieldDecoder {
     mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
         try S.setFromTextToken(token: token, value: &value)
         return true
-//        return try S.setFromProtobufVarint(varint: varint, value: &value)
-//
     }
     
     mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws -> Bool {
@@ -469,7 +467,7 @@ private struct ProtobufTextObjectFieldDecoder: ProtobufTextFieldDecoder {
         var state = ProtobufTextDecoder.ObjectParseState.expectFirstKey
         while let token = try scanner.next() {
             switch token {
-            case .string(_): // This is a key
+            case .string: // This is a key
                 if state != .expectKey && state != .expectFirstKey {
                     throw ProtobufDecodingError.malformedJSON
                 }
@@ -487,7 +485,7 @@ private struct ProtobufTextObjectFieldDecoder: ProtobufTextFieldDecoder {
                     scanner.pushback(token: token)
                     var subDecoder = ProtobufTextDecoder(scanner: scanner)
                     switch token {
-                    case .beginObject, .boolean(_), .string(_), .number(_):
+                    case .beginObject, .boolean, .string, .number:
                         mapValue = try ValueType.decodeTextMapFieldValue(textDecoder: &subDecoder)
                         if mapValue == nil {
                             throw ProtobufDecodingError.malformedJSON
@@ -549,7 +547,7 @@ internal struct ProtobufTextArrayFieldDecoder: ProtobufTextFieldDecoder {
         
         while true {
             switch token {
-            case .boolean(_), .string(_), .number(_):
+            case .boolean, .string, .number:
                 try S.setFromTextToken(token: token, value: &value)
             default:
                 throw ProtobufDecodingError.malformedJSON
@@ -602,7 +600,7 @@ internal struct ProtobufTextArrayFieldDecoder: ProtobufTextFieldDecoder {
                 var subDecoder = ProtobufTextDecoder(scanner: scanner)
                 try message.decodeFromTextObject(textDecoder: &subDecoder)
                 value.append(message)
-            case .boolean(_), .string(_), .number(_):
+            case .boolean, .string, .number:
                 var message = M()
                 try message.decodeFromTextToken(token: token)
                 value.append(message)
