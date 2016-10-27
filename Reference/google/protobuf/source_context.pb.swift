@@ -41,7 +41,7 @@ import Foundation
 
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
-public struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage {
+struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_SourceContext"}
   public var protoMessageName: String {return "SourceContext"}
   public var protoPackageName: String {return "google.protobuf"}

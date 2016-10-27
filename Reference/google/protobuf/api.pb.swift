@@ -40,7 +40,7 @@ import Foundation
 
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
-public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
+struct Google_Protobuf_Api: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Api"}
   public var protoMessageName: String {return "Api"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -233,7 +233,7 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage {
 }
 
 ///   Method represents a method of an api.
-public struct Google_Protobuf_Method: ProtobufGeneratedMessage {
+struct Google_Protobuf_Method: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Method"}
   public var protoMessageName: String {return "Method"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -408,7 +408,7 @@ public struct Google_Protobuf_Method: ProtobufGeneratedMessage {
 ///         }
 ///         ...
 ///       }
-public struct Google_Protobuf_Mixin: ProtobufGeneratedMessage {
+struct Google_Protobuf_Mixin: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Mixin"}
   public var protoMessageName: String {return "Mixin"}
   public var protoPackageName: String {return "google.protobuf"}

@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestAllRequiredTypes"}
   public var protoMessageName: String {return "TestAllRequiredTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -436,7 +436,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllRequiredTypes.NestedMessage)
     case oneofString(String)
@@ -512,7 +512,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 1
     case bar // = 2
@@ -602,7 +602,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
 
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllRequiredTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -658,7 +658,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RequiredGroup: ProtobufGeneratedMessage {
+  struct RequiredGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllRequiredTypes.RequiredGroup"}
     public var protoMessageName: String {return "RequiredGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1297,7 +1297,7 @@ public struct ProtobufUnittest_TestAllRequiredTypes: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestSomeRequiredTypes"}
   public var protoMessageName: String {return "TestSomeRequiredTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1320,7 +1320,7 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 1
 
@@ -1500,7 +1500,7 @@ public struct ProtobufUnittest_TestSomeRequiredTypes: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r

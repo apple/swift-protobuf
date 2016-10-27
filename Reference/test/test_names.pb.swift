@@ -10,7 +10,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage {
+struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest"}
   public var protoMessageName: String {return "NamesTest"}
   public var protoPackageName: String {return "swift.protobuf.test"}
@@ -65,7 +65,7 @@ public struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage {
   }
 }
 
-public struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage {
+struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest2"}
   public var protoMessageName: String {return "NamesTest2"}
   public var protoPackageName: String {return "swift.protobuf.test"}
@@ -111,7 +111,7 @@ public struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage {
   }
 }
 
-public struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage {
+struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest3"}
   public var protoMessageName: String {return "NamesTest3"}
   public var protoPackageName: String {return "swift.protobuf.test"}

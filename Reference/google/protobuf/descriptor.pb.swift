@@ -50,7 +50,7 @@ import SwiftProtobuf
 
 ///   The protocol compiler can output a FileDescriptorSet containing the .proto
 ///   files it parses.
-public struct Google_Protobuf_FileDescriptorSet: ProtobufGeneratedMessage {
+struct Google_Protobuf_FileDescriptorSet: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_FileDescriptorSet"}
   public var protoMessageName: String {return "FileDescriptorSet"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -96,7 +96,7 @@ public struct Google_Protobuf_FileDescriptorSet: ProtobufGeneratedMessage {
 }
 
 ///   Describes a complete .proto file.
-public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_FileDescriptorProto"}
   public var protoMessageName: String {return "FileDescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -376,7 +376,7 @@ public struct Google_Protobuf_FileDescriptorProto: ProtobufGeneratedMessage {
 }
 
 ///   Describes a message type.
-public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_DescriptorProto"}
   public var protoMessageName: String {return "DescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -512,7 +512,7 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public struct ExtensionRange: ProtobufGeneratedMessage {
+  struct ExtensionRange: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Google_Protobuf_DescriptorProto.ExtensionRange"}
     public var protoMessageName: String {return "ExtensionRange"}
     public var protoPackageName: String {return "google.protobuf"}
@@ -589,7 +589,7 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
   ///   Range of reserved tag numbers. Reserved tag numbers may not be used by
   ///   fields or extension ranges in the same message. Reserved ranges may
   ///   not overlap.
-  public struct ReservedRange: ProtobufGeneratedMessage {
+  struct ReservedRange: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Google_Protobuf_DescriptorProto.ReservedRange"}
     public var protoMessageName: String {return "ReservedRange"}
     public var protoPackageName: String {return "google.protobuf"}
@@ -752,7 +752,7 @@ public struct Google_Protobuf_DescriptorProto: ProtobufGeneratedMessage {
 }
 
 ///   Describes a field within a message.
-public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_FieldDescriptorProto"}
   public var protoMessageName: String {return "FieldDescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -888,7 +888,7 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum TypeEnum: ProtobufEnum {
+  enum TypeEnum: ProtobufEnum {
     public typealias RawValue = Int
 
     ///   0 is reserved for errors.
@@ -1107,7 +1107,7 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
 
   }
 
-  public enum Label: ProtobufEnum {
+  enum Label: ProtobufEnum {
     public typealias RawValue = Int
 
     ///   0 is reserved for errors
@@ -1344,7 +1344,7 @@ public struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage {
 }
 
 ///   Describes a oneof.
-public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_OneofDescriptorProto"}
   public var protoMessageName: String {return "OneofDescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -1453,7 +1453,7 @@ public struct Google_Protobuf_OneofDescriptorProto: ProtobufGeneratedMessage {
 }
 
 ///   Describes an enum type.
-public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_EnumDescriptorProto"}
   public var protoMessageName: String {return "EnumDescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -1576,7 +1576,7 @@ public struct Google_Protobuf_EnumDescriptorProto: ProtobufGeneratedMessage {
 }
 
 ///   Describes a value within an enum.
-public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_EnumValueDescriptorProto"}
   public var protoMessageName: String {return "EnumValueDescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -1705,7 +1705,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: ProtobufGeneratedMessage
 }
 
 ///   Describes a service.
-public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_ServiceDescriptorProto"}
   public var protoMessageName: String {return "ServiceDescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -1828,7 +1828,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: ProtobufGeneratedMessage {
 }
 
 ///   Describes a method of a service.
-public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
+struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_MethodDescriptorProto"}
   public var protoMessageName: String {return "MethodDescriptorProto"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -2052,7 +2052,7 @@ public struct Google_Protobuf_MethodDescriptorProto: ProtobufGeneratedMessage {
 //    If this turns out to be popular, a web service will be set up
 //    to automatically assign option numbers.
 
-public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_FileOptions"}
   public var protoMessageName: String {return "FileOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -2096,7 +2096,7 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   var unknown = ProtobufUnknownStorage()
 
   ///   Generated classes can be optimized for speed or code size.
-  public enum OptimizeMode: ProtobufEnum {
+  enum OptimizeMode: ProtobufEnum {
     public typealias RawValue = Int
 
     ///   Generate complete code for parsing, serialization,
@@ -2556,7 +2556,7 @@ public struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufExt
   }
 }
 
-public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_MessageOptions"}
   public var protoMessageName: String {return "MessageOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -2751,7 +2751,7 @@ public struct Google_Protobuf_MessageOptions: ProtobufGeneratedMessage, Protobuf
   }
 }
 
-public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_FieldOptions"}
   public var protoMessageName: String {return "FieldOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -2776,7 +2776,7 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum CType: ProtobufEnum {
+  enum CType: ProtobufEnum {
     public typealias RawValue = Int
 
     ///   Default mode.
@@ -2858,7 +2858,7 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
 
   }
 
-  public enum JSType: ProtobufEnum {
+  enum JSType: ProtobufEnum {
     public typealias RawValue = Int
 
     ///   Use the default type.
@@ -3157,7 +3157,7 @@ public struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufEx
   }
 }
 
-public struct Google_Protobuf_OneofOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_OneofOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_OneofOptions"}
   public var protoMessageName: String {return "OneofOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -3230,7 +3230,7 @@ public struct Google_Protobuf_OneofOptions: ProtobufGeneratedMessage, ProtobufEx
   }
 }
 
-public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_EnumOptions"}
   public var protoMessageName: String {return "EnumOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -3347,7 +3347,7 @@ public struct Google_Protobuf_EnumOptions: ProtobufGeneratedMessage, ProtobufExt
   }
 }
 
-public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_EnumValueOptions"}
   public var protoMessageName: String {return "EnumValueOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -3443,7 +3443,7 @@ public struct Google_Protobuf_EnumValueOptions: ProtobufGeneratedMessage, Protob
   }
 }
 
-public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_ServiceOptions"}
   public var protoMessageName: String {return "ServiceOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -3544,7 +3544,7 @@ public struct Google_Protobuf_ServiceOptions: ProtobufGeneratedMessage, Protobuf
   }
 }
 
-public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_MethodOptions"}
   public var protoMessageName: String {return "MethodOptions"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -3651,7 +3651,7 @@ public struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufE
 ///   options protos in descriptor objects (e.g. returned by Descriptor::options(),
 ///   or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
 ///   in them.
-public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
+struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_UninterpretedOption"}
   public var protoMessageName: String {return "UninterpretedOption"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -3681,7 +3681,7 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
   ///   extension (denoted with parentheses in options specs in .proto files).
   ///   E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
   ///   "foo.(bar.baz).qux".
-  public struct NamePart: ProtobufGeneratedMessage {
+  struct NamePart: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Google_Protobuf_UninterpretedOption.NamePart"}
     public var protoMessageName: String {return "NamePart"}
     public var protoPackageName: String {return "google.protobuf"}
@@ -3892,7 +3892,7 @@ public struct Google_Protobuf_UninterpretedOption: ProtobufGeneratedMessage {
 
 ///   Encapsulates information about the original source file from which a
 ///   FileDescriptorProto was generated.
-public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
+struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_SourceCodeInfo"}
   public var protoMessageName: String {return "SourceCodeInfo"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -3905,7 +3905,7 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public struct Location: ProtobufGeneratedMessage {
+  struct Location: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Google_Protobuf_SourceCodeInfo.Location"}
     public var protoMessageName: String {return "Location"}
     public var protoPackageName: String {return "google.protobuf"}
@@ -4159,7 +4159,7 @@ public struct Google_Protobuf_SourceCodeInfo: ProtobufGeneratedMessage {
 ///   Describes the relationship between generated code and its original source
 ///   file. A GeneratedCodeInfo message is associated with only one generated
 ///   source file, but may contain references to different source .proto files.
-public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
+struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_GeneratedCodeInfo"}
   public var protoMessageName: String {return "GeneratedCodeInfo"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -4172,7 +4172,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public struct Annotation: ProtobufGeneratedMessage {
+  struct Annotation: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Google_Protobuf_GeneratedCodeInfo.Annotation"}
     public var protoMessageName: String {return "Annotation"}
     public var protoPackageName: String {return "google.protobuf"}

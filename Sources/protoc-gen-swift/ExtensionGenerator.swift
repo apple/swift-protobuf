@@ -22,6 +22,7 @@ import SwiftProtobuf
 
 struct ExtensionGenerator {
     let descriptor: Google_Protobuf_FieldDescriptorProto
+    let generatorOptions: GeneratorOptions
     let path: [Int32]
     let declaringMessageName: String?
     let extendedMessage: Google_Protobuf_DescriptorProto
@@ -67,6 +68,7 @@ struct ExtensionGenerator {
 
     init(descriptor: Google_Protobuf_FieldDescriptorProto, path: [Int32], declaringMessageName: String?, file: FileGenerator, context: Context) {
         self.descriptor = descriptor
+        self.generatorOptions = file.generatorOptions
         self.path = path
         self.declaringMessageName = declaringMessageName
         self.extendedMessage = context.getMessageForPath(path: descriptor.extendee)!
@@ -119,7 +121,7 @@ struct ExtensionGenerator {
         if comments != "" {
             p.print(comments)
         }
-        p.print("public var \(swiftFieldName): \(apiType) {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(apiType) {\n")
         p.indent()
         if descriptor.label == .repeated {
             p.print("get {return getExtensionValue(ext: \(swiftFullExtensionName))}\n")
@@ -129,12 +131,12 @@ struct ExtensionGenerator {
         p.print("set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
         p.outdent()
         p.print("}\n")
-        p.print("public var \(swiftHasPropertyName): Bool {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftHasPropertyName): Bool {\n")
         p.indent()
         p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
         p.outdent()
         p.print("}\n")
-        p.print("public mutating func \(swiftClearMethodName)() {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearMethodName)() {\n")
         p.indent()
         p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
         p.outdent()

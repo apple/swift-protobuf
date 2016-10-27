@@ -92,7 +92,7 @@ import Foundation
 ///       seconds = int(now)
 ///       nanos = int((now - seconds) * 10**9)
 ///       timestamp = Timestamp(seconds=seconds, nanos=nanos)
-public struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage {
+struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Timestamp"}
   public var protoMessageName: String {return "Timestamp"}
   public var protoPackageName: String {return "google.protobuf"}

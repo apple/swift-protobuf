@@ -26,7 +26,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest"}
   public var protoMessageName: String {return "SwiftReservedTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -35,7 +35,7 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum Enum: ProtobufEnum {
+  enum Enum: ProtobufEnum {
     public typealias RawValue = Int
     case double // = 1
     case json_ // = 2
@@ -139,7 +139,7 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
   }
 
-  public enum ProtocolEnum: ProtobufEnum {
+  enum ProtocolEnum: ProtobufEnum {
     public typealias RawValue = Int
     case a // = 1
 
@@ -203,7 +203,7 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
   }
 
-  public struct classMessage: ProtobufGeneratedMessage {
+  struct classMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -228,7 +228,7 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     }
   }
 
-  public struct TypeMessage: ProtobufGeneratedMessage {
+  struct TypeMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -253,7 +253,7 @@ public struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     }
   }
 
-  public struct isEqualMessage: ProtobufGeneratedMessage {
+  struct isEqualMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.isEqualMessage"}
     public var protoMessageName: String {return "isEqual"}
     public var protoPackageName: String {return "protobuf_unittest"}

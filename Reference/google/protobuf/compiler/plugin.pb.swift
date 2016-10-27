@@ -57,7 +57,7 @@ import SwiftProtobuf
 
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage {
+struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorRequest"}
   public var protoMessageName: String {return "CodeGeneratorRequest"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -146,7 +146,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMe
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage {
+struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse"}
   public var protoMessageName: String {return "CodeGeneratorResponse"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -162,7 +162,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedM
   var unknown = ProtobufUnknownStorage()
 
   ///   Represents a single generated file.
-  public struct File: ProtobufGeneratedMessage {
+  struct File: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse.File"}
     public var protoMessageName: String {return "File"}
     public var protoPackageName: String {return "google.protobuf.compiler"}

@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum Proto3LiteUnittest_ForeignEnum: ProtobufEnum {
+enum Proto3LiteUnittest_ForeignEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foreignZero // = 0
   case foreignFoo // = 4
@@ -134,7 +134,7 @@ public enum Proto3LiteUnittest_ForeignEnum: ProtobufEnum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
+struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -609,7 +609,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3LiteUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -679,7 +679,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case zero // = 0
     case foo // = 1
@@ -781,7 +781,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
 
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Proto3LiteUnittest_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1188,7 +1188,7 @@ public struct Proto3LiteUnittest_TestAllTypes: ProtobufGeneratedMessage {
 
 //  Test messages for packed fields
 
-public struct Proto3LiteUnittest_TestPackedTypes: ProtobufGeneratedMessage {
+struct Proto3LiteUnittest_TestPackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1343,7 +1343,7 @@ public struct Proto3LiteUnittest_TestPackedTypes: ProtobufGeneratedMessage {
 }
 
 ///   Explicitly set packed to false
-public struct Proto3LiteUnittest_TestUnpackedTypes: ProtobufGeneratedMessage {
+struct Proto3LiteUnittest_TestUnpackedTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestUnpackedTypes"}
   public var protoMessageName: String {return "TestUnpackedTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1498,7 +1498,7 @@ public struct Proto3LiteUnittest_TestUnpackedTypes: ProtobufGeneratedMessage {
 }
 
 ///   This proto includes a recusively nested message.
-public struct Proto3LiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage {
+struct Proto3LiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3LiteUnittest_NestedTestAllTypes"}
   public var protoMessageName: String {return "NestedTestAllTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1600,7 +1600,7 @@ public struct Proto3LiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage {
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-public struct Proto3LiteUnittest_ForeignMessage: ProtobufGeneratedMessage {
+struct Proto3LiteUnittest_ForeignMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3LiteUnittest_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1638,7 +1638,7 @@ public struct Proto3LiteUnittest_ForeignMessage: ProtobufGeneratedMessage {
 }
 
 ///   TestEmptyMessage is used to test behavior of unknown fields.
-public struct Proto3LiteUnittest_TestEmptyMessage: ProtobufGeneratedMessage {
+struct Proto3LiteUnittest_TestEmptyMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestEmptyMessage"}
   public var protoMessageName: String {return "TestEmptyMessage"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1659,7 +1659,7 @@ public struct Proto3LiteUnittest_TestEmptyMessage: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: Proto3LiteUnittest_TestAllTypes.OneOf_OneofField, rhs: Proto3LiteUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: Proto3LiteUnittest_TestAllTypes.OneOf_OneofField, rhs: Proto3LiteUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r

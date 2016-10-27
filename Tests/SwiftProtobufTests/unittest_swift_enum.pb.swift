@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftEnumTest"}
   public var protoMessageName: String {return "SwiftEnumTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -49,7 +49,7 @@ public struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum EnumTest1: ProtobufEnum {
+  enum EnumTest1: ProtobufEnum {
     public typealias RawValue = Int
     case firstValue // = 1
     case secondValue // = 2
@@ -121,7 +121,7 @@ public struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage {
 
   }
 
-  public enum EnumTest2: ProtobufEnum {
+  enum EnumTest2: ProtobufEnum {
     public typealias RawValue = Int
     case enumTest2FirstValue // = 1
     case secondValue // = 2
