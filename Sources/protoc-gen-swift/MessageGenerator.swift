@@ -405,7 +405,11 @@ class MessageGenerator {
         self.path = path
         self.comments = file.commentsFor(path: path)
 
-        let useHeapStorage = hasMessageField(descriptor: descriptor, context: context) || fields.count > 16
+        // NOTE: This check for fields.count likely isn't completely correct
+        // when the message has one or more oneof{}s. As that will efficively
+        // reduce the real number of fields and the message might not need heap
+        // storage yet.
+        let useHeapStorage = fields.count > 16 || hasMessageField(descriptor: descriptor, context: context)
         if useHeapStorage {
             self.storage = StorageClassGenerator(descriptor: descriptor, fields: fields, file: file, messageSwiftName: self.swiftFullName, isExtensible: isExtensible)
         } else {
