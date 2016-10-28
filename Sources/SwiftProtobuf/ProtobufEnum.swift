@@ -25,6 +25,3 @@ public protocol ProtobufEnum: RawRepresentable, Hashable, CustomDebugStringConve
     var json: String { get }
     var rawValue: Int { get }
 }
-
-// TODO: This is a transition aid, remove this in August 2016.
-public typealias ProtobufEnumType = ProtobufEnum

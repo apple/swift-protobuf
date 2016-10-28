@@ -39,9 +39,6 @@ public protocol ProtobufExtensionField: CustomDebugStringConvertible {
     func traverse(visitor: inout ProtobufVisitor) throws
 }
 
-// Backwards compatibility; Remove in August 2016
-public typealias ProtobufExtensionFieldType = ProtobufExtensionField
-
 ///
 /// A "typed" FieldType includes all the necessary generic information
 /// needed to work with the contained value.
