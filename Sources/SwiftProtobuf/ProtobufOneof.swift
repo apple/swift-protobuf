@@ -21,6 +21,3 @@ public protocol ProtobufOneofEnum: Equatable {
     func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws
     mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool
 }
-
-// TODO: This is a transition aid, remove this in August 2016.
-public typealias ProtobufOneofEnumType = ProtobufOneofEnum
