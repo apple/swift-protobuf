@@ -38,7 +38,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     }
 
 
-    mutating func visitUnknown(bytes: [UInt8]) {
+    mutating func visitUnknown(bytes: Data) {
         // JSON encoding has no provision for carrying proto2 unknown fields
     }
 

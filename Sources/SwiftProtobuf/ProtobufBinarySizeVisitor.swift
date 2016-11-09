@@ -36,7 +36,7 @@ struct ProtobufBinarySizeVisitor: ProtobufVisitor {
         serializedSize = (visitor as! ProtobufBinarySizeVisitor).serializedSize
     }
 
-    mutating func visitUnknown(bytes: [UInt8]) {
+    mutating func visitUnknown(bytes: Data) {
         serializedSize += bytes.count
     }
 

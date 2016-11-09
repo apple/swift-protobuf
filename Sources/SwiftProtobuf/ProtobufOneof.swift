@@ -19,5 +19,5 @@ import Swift
 public protocol ProtobufOneofEnum: Equatable {
     init()
     func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws
-    mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool
+    mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws
 }

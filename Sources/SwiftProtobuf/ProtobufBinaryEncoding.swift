@@ -34,8 +34,8 @@ struct ProtobufBinaryEncodingVisitor: ProtobufVisitor {
         encoder = (visitor as! ProtobufBinaryEncodingVisitor).encoder
     }
 
-    mutating func visitUnknown(bytes: [UInt8]) {
-        encoder.appendUnknown(bytes: bytes)
+    mutating func visitUnknown(bytes: Data) {
+        encoder.appendUnknown(data: bytes)
     }
 
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
@@ -130,11 +130,9 @@ public struct ProtobufBinaryEncoder {
         pointer = pointer.successor()
     }
 
-    private mutating func append(contentsOf bytes: [UInt8]) {
-        let count = bytes.count
-        bytes.withUnsafeBufferPointer { source in
-            self.pointer.assign(from: source.baseAddress!, count: count)
-        }
+    private mutating func append(contentsOf data: Data) {
+        let count = data.count
+        data.copyBytes(to: pointer, count: count)
         pointer = pointer.advanced(by: count)
     }
 
@@ -144,15 +142,18 @@ public struct ProtobufBinaryEncoder {
         pointer = pointer.advanced(by: count)
     }
 
-    public mutating func appendUnknown(bytes: [UInt8]) {
-        append(contentsOf: bytes)
+    public mutating func appendUnknown(data: Data) {
+        append(contentsOf: data)
     }
 
     mutating func startField(fieldNumber: Int, wireFormat: WireFormat) {
-        let tag = FieldTag(fieldNumber: fieldNumber, wireFormat: wireFormat)
+        startField(tag: FieldTag(fieldNumber: fieldNumber, wireFormat: wireFormat))
+    }
+    
+    mutating func startField(tag: FieldTag) {
         putVarInt(value: UInt64(tag.rawValue))
     }
-
+    
     mutating func putVarInt(value: UInt64) {
         var v = value
         while v > 127 {
@@ -239,14 +240,8 @@ public struct ProtobufBinaryEncoder {
         }
     }
 
-    mutating func putBytesValue(value: [UInt8]) {
+    mutating func putBytesValue(value: Data) {
         putVarInt(value: value.count)
         append(contentsOf: value)
-    }
-
-    mutating func putBytesValue(value: Data) {
-        let bytes = [UInt8](value)
-        putVarInt(value: bytes.count)
-        append(contentsOf: bytes)
     }
 }

@@ -92,7 +92,7 @@ import Foundation
 ///       seconds = int(now)
 ///       nanos = int((now - seconds) * 10**9)
 ///       timestamp = Timestamp(seconds=seconds, nanos=nanos)
-public struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage {
+public struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Google_Protobuf_Timestamp"}
   public var protoMessageName: String {return "Timestamp"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -104,6 +104,7 @@ public struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage {
     "seconds": 1,
     "nanos": 2,
   ]}
+
 
   ///   Represents seconds of UTC time since Unix epoch
   ///   1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to
@@ -118,15 +119,12 @@ public struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &seconds)
-    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &nanos)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &seconds)
+    case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &nanos)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

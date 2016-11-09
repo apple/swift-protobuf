@@ -33,7 +33,7 @@ public protocol ProtobufExtensionField: CustomDebugStringConvertible {
     func isEqual(other: ProtobufExtensionField) -> Bool
 
     /// General field decoding
-    mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool
+    mutating func decodeField(setter: inout ProtobufFieldDecoder) throws
 
     /// Fields know their own type, so can dispatch to a visitor
     func traverse(visitor: inout ProtobufVisitor) throws
@@ -89,8 +89,8 @@ public struct ProtobufOptionalField<T: ProtobufTypeProperties>: ProtobufTypedExt
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeSingularField(fieldType: T.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeSingularField(fieldType: T.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -145,8 +145,8 @@ public struct ProtobufRepeatedField<T: ProtobufTypeProperties>: ProtobufTypedExt
         return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeRepeatedField(fieldType: T.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeRepeatedField(fieldType: T.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -204,8 +204,8 @@ public struct ProtobufPackedField<T: ProtobufTypeProperties>: ProtobufTypedExten
         return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodePackedField(fieldType: T.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodePackedField(fieldType: T.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -258,8 +258,8 @@ public struct ProtobufOptionalMessageField<M: ProtobufAbstractMessage>: Protobuf
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeSingularMessageField(fieldType: M.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeSingularMessageField(fieldType: M.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -310,8 +310,8 @@ public struct ProtobufRepeatedMessageField<M: ProtobufAbstractMessage>: Protobuf
         return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeRepeatedMessageField(fieldType: M.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeRepeatedMessageField(fieldType: M.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -358,8 +358,8 @@ public struct ProtobufOptionalGroupField<G: ProtobufMessage & Hashable>: Protobu
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeSingularGroupField(fieldType: G.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeSingularGroupField(fieldType: G.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
@@ -409,8 +409,8 @@ public struct ProtobufRepeatedGroupField<G: ProtobufMessage & Hashable>: Protobu
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeRepeatedGroupField(fieldType: G.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeRepeatedGroupField(fieldType: G.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {

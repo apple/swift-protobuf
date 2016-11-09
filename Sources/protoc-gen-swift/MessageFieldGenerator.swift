@@ -407,7 +407,7 @@ struct MessageFieldGenerator {
         if prefix == "" && !isRepeated && !isMap && !isProto3 {
             prefix = "_"
         }
-        p.print("case \(number): handled = try setter.\(swiftDecoderMethod)(fieldType: \(traitsType).self, value: &\(prefix)\(swiftName))\n")
+        p.print("case \(number): try setter.\(swiftDecoderMethod)(fieldType: \(traitsType).self, value: &\(prefix)\(swiftName))\n")
     }
 
     func generateTraverse(printer p: inout CodePrinter, prefix: String = "") {

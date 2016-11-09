@@ -16,6 +16,7 @@
 // -----------------------------------------------------------------------------
 
 import Swift
+import Foundation
 
 struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
     var description = ""
@@ -43,7 +44,7 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         }
     }
 
-    mutating func visitUnknown(bytes: [UInt8]) {}
+    mutating func visitUnknown(bytes: Data) {}
 
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
