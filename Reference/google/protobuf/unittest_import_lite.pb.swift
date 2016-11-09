@@ -124,7 +124,7 @@ enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
 
 }
 
-struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage {
+struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessageLite"}
   public var protoMessageName: String {return "ImportMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
@@ -135,7 +135,7 @@ struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage {
     "d": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _d: Int32? = nil
   public var d: Int32 {
@@ -151,17 +151,10 @@ struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
+    default: break
     }
   }
 

@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: ProtobufGeneratedMessage {
+struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "Proto2ArenaUnittest_ImportNoArenaNestedMessage"}
   public var protoMessageName: String {return "ImportNoArenaNestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
@@ -51,7 +51,7 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: ProtobufGeneratedMessage 
     "d": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _d: Int32? = nil
   public var d: Int32 {
@@ -67,17 +67,10 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: ProtobufGeneratedMessage 
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
+    default: break
     }
   }
 

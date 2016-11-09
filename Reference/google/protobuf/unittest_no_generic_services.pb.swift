@@ -108,7 +108,7 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
 
 //  *_generic_services are false by default.
 
-struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_NoGenericServicesTest_TestMessage"}
   public var protoMessageName: String {return "TestMessage"}
   public var protoPackageName: String {return "google.protobuf.no_generic_services_test"}
@@ -119,7 +119,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessa
     "a": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
   public var a: Int32 {
@@ -135,21 +135,12 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessa
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-    default:
-      if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
-        handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, protoFieldNumber: protoFieldNumber)
-      } else {
-        handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    default: if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
+        try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, protoFieldNumber: protoFieldNumber)
       }
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
     }
   }
 

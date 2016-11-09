@@ -240,7 +240,7 @@ import Foundation
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage {
+struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Google_Protobuf_FieldMask"}
   public var protoMessageName: String {return "FieldMask"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -251,19 +251,17 @@ struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage {
     "paths": 1,
   ]}
 
+
   ///   The set of field mask paths.
   public var paths: [String] = []
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &paths)
-    default:
-      handled = false
+    case 1: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &paths)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

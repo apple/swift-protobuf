@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
+struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Swift_Performance_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "swift.performance"}
@@ -150,45 +150,42 @@ struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
-      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_optionalUint32)
-      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_optionalUint64)
-      case 5: handled = try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_optionalSint32)
-      case 6: handled = try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_optionalSint64)
-      case 7: handled = try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_optionalFixed32)
-      case 8: handled = try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_optionalFixed64)
-      case 9: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_optionalSfixed32)
-      case 10: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_optionalSfixed64)
-      case 11: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_optionalFloat)
-      case 12: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_optionalDouble)
-      case 13: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_optionalBool)
-      case 14: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalString)
-      case 15: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
-      case 27: handled = try setter.decodeRepeatedMessageField(fieldType: Swift_Performance_TestAllTypes.self, value: &_repeatedRecursiveMessage)
-      case 31: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
-      case 32: handled = try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
-      case 33: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
-      case 34: handled = try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &_repeatedUint64)
-      case 35: handled = try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &_repeatedSint32)
-      case 36: handled = try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &_repeatedSint64)
-      case 37: handled = try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &_repeatedFixed32)
-      case 38: handled = try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &_repeatedFixed64)
-      case 39: handled = try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &_repeatedSfixed32)
-      case 40: handled = try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &_repeatedSfixed64)
-      case 41: handled = try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &_repeatedFloat)
-      case 42: handled = try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &_repeatedDouble)
-      case 43: handled = try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
-      case 44: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
-      case 45: handled = try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
-      case 71: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Swift_Performance_TestAllTypes>.self, value: &_mapStringMessage)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
+      case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
+      case 3: try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_optionalUint32)
+      case 4: try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_optionalUint64)
+      case 5: try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_optionalSint32)
+      case 6: try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_optionalSint64)
+      case 7: try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_optionalFixed32)
+      case 8: try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_optionalFixed64)
+      case 9: try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_optionalSfixed32)
+      case 10: try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_optionalSfixed64)
+      case 11: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_optionalFloat)
+      case 12: try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_optionalDouble)
+      case 13: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_optionalBool)
+      case 14: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalString)
+      case 15: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
+      case 27: try setter.decodeRepeatedMessageField(fieldType: Swift_Performance_TestAllTypes.self, value: &_repeatedRecursiveMessage)
+      case 31: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
+      case 32: try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
+      case 33: try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
+      case 34: try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &_repeatedUint64)
+      case 35: try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &_repeatedSint32)
+      case 36: try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &_repeatedSint64)
+      case 37: try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &_repeatedFixed32)
+      case 38: try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &_repeatedFixed64)
+      case 39: try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &_repeatedSfixed32)
+      case 40: try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &_repeatedSfixed64)
+      case 41: try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &_repeatedFloat)
+      case 42: try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &_repeatedDouble)
+      case 43: try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
+      case 44: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
+      case 45: try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
+      case 71: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Swift_Performance_TestAllTypes>.self, value: &_mapStringMessage)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -366,6 +363,7 @@ struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   ///   One of every singular field type
   public var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
@@ -531,8 +529,8 @@ struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

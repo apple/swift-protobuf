@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestEmbedOptimizedForSize"}
   public var protoMessageName: String {return "TestEmbedOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -67,18 +67,11 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
-      case 2: handled = try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_repeatedMessage)
-      default:
-        handled = false
-      }
-      if handled {
-          return true
-      } else {
-          return try unknown.decodeField(setter: &setter)
+      case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
+      case 2: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_repeatedMessage)
+      default: break
       }
     }
 
@@ -110,6 +103,11 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+  public var unknown: ProtobufUnknownStorage {
+    get {return _storage.unknown}
+    set {_storage.unknown = newValue}
+  }
+
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
   ///   one optimized for speed works.
   public var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
@@ -130,8 +128,8 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

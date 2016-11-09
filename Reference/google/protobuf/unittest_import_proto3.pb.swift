@@ -138,7 +138,7 @@ enum Proto3ImportEnum: ProtobufEnum {
 
 }
 
-struct Proto3ImportMessage: ProtobufGeneratedMessage {
+struct Proto3ImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
@@ -149,18 +149,16 @@ struct Proto3ImportMessage: ProtobufGeneratedMessage {
     "d": 1,
   ]}
 
+
   public var d: Int32 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &d)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &d)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

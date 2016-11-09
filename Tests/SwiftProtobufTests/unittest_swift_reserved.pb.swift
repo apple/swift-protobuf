@@ -26,14 +26,14 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest"}
   public var protoMessageName: String {return "SwiftReservedTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   enum Enum: ProtobufEnum {
     public typealias RawValue = Int
@@ -203,19 +203,18 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
   }
 
-  struct classMessage: ProtobufGeneratedMessage {
+  struct classMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public var jsonFieldNames: [String: Int] {return [:]}
     public var protoFieldNames: [String: Int] {return [:]}
 
-    var unknown = ProtobufUnknownStorage()
+    public var unknown = ProtobufUnknownStorage()
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      return try unknown.decodeField(setter: &setter)
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -228,19 +227,18 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     }
   }
 
-  struct TypeMessage: ProtobufGeneratedMessage {
+  struct TypeMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public var jsonFieldNames: [String: Int] {return [:]}
     public var protoFieldNames: [String: Int] {return [:]}
 
-    var unknown = ProtobufUnknownStorage()
+    public var unknown = ProtobufUnknownStorage()
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      return try unknown.decodeField(setter: &setter)
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -253,19 +251,18 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     }
   }
 
-  struct isEqualMessage: ProtobufGeneratedMessage {
+  struct isEqualMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.isEqualMessage"}
     public var protoMessageName: String {return "isEqual"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public var jsonFieldNames: [String: Int] {return [:]}
     public var protoFieldNames: [String: Int] {return [:]}
 
-    var unknown = ProtobufUnknownStorage()
+    public var unknown = ProtobufUnknownStorage()
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      return try unknown.decodeField(setter: &setter)
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -280,8 +277,7 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try unknown.decodeField(setter: &setter)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
