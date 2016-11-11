@@ -79,7 +79,7 @@ Once you pick the version you will use, set your local state to match, and
 build the protoc plugin:
 
 ```
-$ git checkout tag/[tag_name]
+$ git checkout tags/[tag_name]
 $ swift build
 ```
 
