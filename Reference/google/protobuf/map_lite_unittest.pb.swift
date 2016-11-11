@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
   public typealias RawValue = Int
   case proto2MapEnumFooLite // = 0
   case proto2MapEnumBarLite // = 1
@@ -120,7 +120,7 @@ public enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
 
 }
 
-public enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
   public typealias RawValue = Int
   case eProto2MapEnumFooLite // = 0
   case eProto2MapEnumBarLite // = 1
@@ -208,7 +208,7 @@ public enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
 
 }
 
-public enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
+enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
   public typealias RawValue = Int
   case mapEnumFooLite // = 0
   case mapEnumBarLite // = 1
@@ -288,7 +288,7 @@ public enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
 
 }
 
-public struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMapLite"}
   public var protoMessageName: String {return "TestMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -608,7 +608,7 @@ public struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestArenaMapLite"}
   public var protoMessageName: String {return "TestArenaMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -929,7 +929,7 @@ public struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
 }
 
 ///   Test embedded message with required fields
-public struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredMessageMapLite"}
   public var protoMessageName: String {return "TestRequiredMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -974,7 +974,7 @@ public struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMess
   }
 }
 
-public struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapLite"}
   public var protoMessageName: String {return "TestEnumMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1028,7 +1028,7 @@ public struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtraLite"}
   public var protoMessageName: String {return "TestEnumMapPlusExtraLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1082,7 +1082,7 @@ public struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessag
   }
 }
 
-public struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageMapLite"}
   public var protoMessageName: String {return "TestMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1127,7 +1127,7 @@ public struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredLite"}
   public var protoMessageName: String {return "TestRequiredLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1214,7 +1214,7 @@ public struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ForeignMessageArenaLite"}
   public var protoMessageName: String {return "ForeignMessageArenaLite"}
   public var protoPackageName: String {return "protobuf_unittest"}

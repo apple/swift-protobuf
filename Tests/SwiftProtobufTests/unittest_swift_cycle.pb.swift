@@ -47,7 +47,7 @@ import SwiftProtobuf
 //  You can't make a object graph that spans files, so this can only be done
 //  within a single proto file.
 
-public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CycleFoo"}
   public var protoMessageName: String {return "CycleFoo"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -175,7 +175,7 @@ public struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBar"}
   public var protoMessageName: String {return "CycleBar"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -303,7 +303,7 @@ public struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBaz"}
   public var protoMessageName: String {return "CycleBaz"}
   public var protoPackageName: String {return "protobuf_unittest"}

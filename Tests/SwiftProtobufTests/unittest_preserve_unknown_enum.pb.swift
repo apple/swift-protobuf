@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
+enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -124,7 +124,7 @@ public enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
 
 }
 
-public enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
+enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
   public typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1
@@ -216,7 +216,7 @@ public enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
 
 }
 
-public struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage {
+struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
@@ -237,7 +237,7 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
     "oneof_e_2": 6,
   ]}
 
-  public enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case None
@@ -365,7 +365,7 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMess
   }
 }
 
-public struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMessage {
+struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra"}
   public var protoMessageName: String {return "MyMessagePlusExtra"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
@@ -386,7 +386,7 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGene
     "oneof_e_2": 6,
   ]}
 
-  public enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case None
@@ -513,7 +513,7 @@ public struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGene
   }
 }
 
-public func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
+func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
   switch (lhs, rhs) {
   case (.oneofE1(let l), .oneofE1(let r)): return l == r
   case (.oneofE2(let l), .oneofE2(let r)): return l == r
@@ -522,7 +522,7 @@ public func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Pr
   }
 }
 
-public func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O) -> Bool {
+func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O) -> Bool {
   switch (lhs, rhs) {
   case (.oneofE1(let l), .oneofE1(let r)): return l == r
   case (.oneofE2(let l), .oneofE2(let r)): return l == r

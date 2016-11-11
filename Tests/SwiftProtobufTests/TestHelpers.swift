@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Helpers.swift - Test helpers
+// Test/Sources/TestSuite/TestHelpers.swift - Test helpers
 //
 // This source file is part of the Swift.org open source project
 //
@@ -111,7 +111,7 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializeText()
-            
+
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(text: encoded)
@@ -123,7 +123,7 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
         }
     }
-    
+
     func assertJSONDecodeSucceeds(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
             let decoded: MessageTestType = try MessageTestType(json: json)
@@ -143,6 +143,29 @@ extension PBTestHelpers where MessageTestType: ProtobufMessage & Equatable {
             }
         } catch {
             XCTFail("Swift should have decoded without error: \(json)", file: file, line: line)
+            return
+        }
+    }
+
+    func assertTextDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+        do {
+            let decoded: MessageTestType = try MessageTestType(text: text)
+            XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
+
+            do {
+                let encoded = try decoded.serializeText()
+                do {
+                    let redecoded = try MessageTestType(text: text)
+                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
+                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
+                } catch {
+                    XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
+                }
+            } catch let e {
+                XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
+            }
+        } catch {
+            XCTFail("Swift should have decoded without error: \(text)", file: file, line: line)
             return
         }
     }

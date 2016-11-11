@@ -26,7 +26,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -35,7 +35,7 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public struct Bar: ProtobufGeneratedMessage {
+  struct Bar: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo.Bar"}
     public var protoMessageName: String {return "Bar"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -44,7 +44,7 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
 
     var unknown = ProtobufUnknownStorage()
 
-    public struct Baz: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+    struct Baz: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
       public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo.Bar.Baz"}
       public var protoMessageName: String {return "Baz"}
       public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -158,7 +158,7 @@ public struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_C"}
   public var protoMessageName: String {return "C"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -219,32 +219,32 @@ let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<Prot
 let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c", defaultValue: ProtobufUnittest_Extend_C())
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  public var b: String {
+  var b: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b, value: newValue)}
   }
-  public var hasB: Bool {
+  var hasB: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
   }
-  public mutating func clearB() {
+  mutating func clearB() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
   }
 }
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  public var c: ProtobufUnittest_Extend_C {
+  var c: ProtobufUnittest_Extend_C {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c) ?? ProtobufUnittest_Extend_C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c, value: newValue)}
   }
-  public var hasC: Bool {
+  var hasC: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
   }
-  public mutating func clearC() {
+  mutating func clearC() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
   }
 }
 
-public let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: ProtobufExtensionSet = [
+let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: ProtobufExtensionSet = [
   ProtobufUnittest_Extend_Foo_Bar_Baz_b,
   ProtobufUnittest_Extend_Foo_Bar_Baz_c
 ]

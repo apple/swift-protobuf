@@ -40,7 +40,7 @@ import Foundation
 
 
 ///   The syntax in which a protocol buffer element is defined.
-public enum Google_Protobuf_Syntax: ProtobufEnum {
+enum Google_Protobuf_Syntax: ProtobufEnum {
   public typealias RawValue = Int
 
   ///   Syntax `proto2`.
@@ -121,7 +121,7 @@ public enum Google_Protobuf_Syntax: ProtobufEnum {
 }
 
 ///   A protocol buffer message type.
-public struct Google_Protobuf_Type: ProtobufGeneratedMessage {
+struct Google_Protobuf_Type: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Type"}
   public var protoMessageName: String {return "Type"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -278,7 +278,7 @@ public struct Google_Protobuf_Type: ProtobufGeneratedMessage {
 }
 
 ///   A single field of a message type.
-public struct Google_Protobuf_Field: ProtobufGeneratedMessage {
+struct Google_Protobuf_Field: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Field"}
   public var protoMessageName: String {return "Field"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -308,7 +308,7 @@ public struct Google_Protobuf_Field: ProtobufGeneratedMessage {
   ]}
 
   ///   Basic field types.
-  public enum Kind: ProtobufEnum {
+  enum Kind: ProtobufEnum {
     public typealias RawValue = Int
 
     ///   Field type unknown.
@@ -559,7 +559,7 @@ public struct Google_Protobuf_Field: ProtobufGeneratedMessage {
   }
 
   ///   Whether a field is optional, required, or repeated.
-  public enum Cardinality: ProtobufEnum {
+  enum Cardinality: ProtobufEnum {
     public typealias RawValue = Int
 
     ///   For fields with unknown cardinality.
@@ -761,7 +761,7 @@ public struct Google_Protobuf_Field: ProtobufGeneratedMessage {
 }
 
 ///   Enum type definition.
-public struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
+struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Enum"}
   public var protoMessageName: String {return "Enum"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -903,7 +903,7 @@ public struct Google_Protobuf_Enum: ProtobufGeneratedMessage {
 }
 
 ///   Enum value definition.
-public struct Google_Protobuf_EnumValue: ProtobufGeneratedMessage {
+struct Google_Protobuf_EnumValue: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_EnumValue"}
   public var protoMessageName: String {return "EnumValue"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -963,7 +963,7 @@ public struct Google_Protobuf_EnumValue: ProtobufGeneratedMessage {
 
 ///   A protocol buffer option, which can be attached to a message, field,
 ///   enumeration, etc.
-public struct Google_Protobuf_Option: ProtobufGeneratedMessage {
+struct Google_Protobuf_Option: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Option"}
   public var protoMessageName: String {return "Option"}
   public var protoPackageName: String {return "google.protobuf"}

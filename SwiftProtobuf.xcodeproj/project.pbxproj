@@ -43,7 +43,7 @@
 		9C8CDA1D1D7A28F600E207CA /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
 		9C8CDA1E1D7A28F600E207CA /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
 		9C8CDA1F1D7A28F600E207CA /* descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F23781D778003008524F2 /* descriptor.pb.swift */; };
-		9C8CDA201D7A28F600E207CA /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Helpers.swift /* Helpers.swift */; };
+		9C8CDA201D7A28F600E207CA /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */; };
 		9C8CDA211D7A28F600E207CA /* map_unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */; };
 		9C8CDA221D7A28F600E207CA /* map_unittest_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest_proto3.pb.swift /* map_unittest_proto3.pb.swift */; };
 		9C8CDA231D7A28F600E207CA /* Test_AllTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */; };
@@ -196,7 +196,7 @@
 		F44F93AA1DAEA8C900BC5B85 /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
 		F44F93AB1DAEA8C900BC5B85 /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
 		F44F93AC1DAEA8C900BC5B85 /* descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F23781D778003008524F2 /* descriptor.pb.swift */; };
-		F44F93AD1DAEA8C900BC5B85 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Helpers.swift /* Helpers.swift */; };
+		F44F93AD1DAEA8C900BC5B85 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */; };
 		F44F93AE1DAEA8C900BC5B85 /* map_unittest_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest_proto3.pb.swift /* map_unittest_proto3.pb.swift */; };
 		F44F93AF1DAEA8C900BC5B85 /* map_unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */; };
 		F44F93B01DAEA8C900BC5B85 /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */; };
@@ -308,6 +308,24 @@
 		F44F94271DAEB23500BC5B85 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A81DA40B0900C866D9 /* Varint.swift */; };
 		F44F94281DAEB23500BC5B85 /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
 		F44F94291DAEB23500BC5B85 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A51DA30E5900C866D9 /* ZigZag.swift */; };
+		F44F94351DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94341DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift */; };
+		F44F94361DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94341DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift */; };
+		F44F94371DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94341DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift */; };
+		F44F943A1DBFBB7400BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94381DBFBB6800BC5B85 /* Test_BasicFields_Access_Proto3.swift */; };
+		F44F943B1DBFBB7500BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94381DBFBB6800BC5B85 /* Test_BasicFields_Access_Proto3.swift */; };
+		F44F943C1DBFBB7700BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94381DBFBB6800BC5B85 /* Test_BasicFields_Access_Proto3.swift */; };
+		F44F943E1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F943D1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift */; };
+		F44F943F1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F943D1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift */; };
+		F44F94401DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F943D1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift */; };
+		F44F94431DBFE0BE00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */; };
+		F44F94441DBFE0BF00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */; };
+		F44F94451DBFE0C000BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */; };
+		F44F94481DBFF17F00BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94461DBFF17B00BC5B85 /* Test_MapFields_Access_Proto2.swift */; };
+		F44F94491DBFF18000BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94461DBFF17B00BC5B85 /* Test_MapFields_Access_Proto2.swift */; };
+		F44F944A1DBFF18100BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F94461DBFF17B00BC5B85 /* Test_MapFields_Access_Proto2.swift */; };
+		F44F944D1DBFF8DB00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
+		F44F944E1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
+		F44F944F1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
 		_LinkFileRef_Protobuf_via_ProtobufTestSuite /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift */; };
@@ -340,7 +358,7 @@
 		__src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		__src_cc_ref_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		__src_cc_ref_Sources/Protobuf/type.pb.swift /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/Helpers.swift /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Helpers.swift /* Helpers.swift */; };
+		__src_cc_ref_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_AllTypes_Proto3.swift /* Test_AllTypes_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_AllTypes_Proto3.swift /* Test_AllTypes_Proto3.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift */; };
@@ -461,6 +479,12 @@
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTestSuite_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44F94341DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_BasicFields_Access_Proto2.swift; sourceTree = "<group>"; };
+		F44F94381DBFBB6800BC5B85 /* Test_BasicFields_Access_Proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_BasicFields_Access_Proto3.swift; sourceTree = "<group>"; };
+		F44F943D1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_OneofFields_Access_Proto2.swift; sourceTree = "<group>"; };
+		F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_OneofFields_Access_Proto3.swift; sourceTree = "<group>"; };
+		F44F94461DBFF17B00BC5B85 /* Test_MapFields_Access_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_MapFields_Access_Proto2.swift; sourceTree = "<group>"; };
+		F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_MapFields_Access_Proto3.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		__PBXFileRef_ProtobufTestSuite_Info.plist /* ProtobufTestSuite_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ProtobufTestSuite_Info.plist; path = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist; sourceTree = SOURCE_ROOT; };
 		__PBXFileRef_Protobuf_Info.plist /* Protobuf_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Protobuf_Info.plist; path = SwiftProtobuf.xcodeproj/Protobuf_Info.plist; sourceTree = SOURCE_ROOT; };
@@ -495,7 +519,7 @@
 		__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = source_context.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timestamp.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = type.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/Helpers.swift /* Helpers.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; tabWidth = 4; };
+		__PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; tabWidth = 4; };
 		__PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_AllTypes.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_AllTypes_Proto3.swift /* Test_AllTypes_Proto3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_AllTypes_Proto3.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Any.swift; sourceTree = "<group>"; };
@@ -703,7 +727,6 @@
 				__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */,
 				9C2F23781D778003008524F2 /* descriptor.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/Helpers.swift /* Helpers.swift */,
 				__PBXFileRef_Tests/ProtobufTests/map_unittest_proto3.pb.swift /* map_unittest_proto3.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */,
 				AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */,
@@ -711,6 +734,8 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Api.swift /* Test_Api.swift */,
+				F44F94341DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift */,
+				F44F94381DBFBB6800BC5B85 /* Test_BasicFields_Access_Proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Conformance.swift /* Test_Conformance.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Descriptor.swift /* Test_Descriptor.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Duration.swift /* Test_Duration.swift */,
@@ -728,6 +753,10 @@
 				BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Map_JSON.swift /* Test_Map_JSON.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Map.swift /* Test_Map.swift */,
+				F44F94461DBFF17B00BC5B85 /* Test_MapFields_Access_Proto2.swift */,
+				F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */,
+				F44F943D1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift */,
+				F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift */,
@@ -741,6 +770,7 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto2.swift /* Test_Unknown_proto2.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift */,
+				__PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift */,
@@ -971,7 +1001,7 @@
 				9C8CDA1D1D7A28F600E207CA /* any_test.pb.swift in Sources */,
 				9C8CDA1E1D7A28F600E207CA /* conformance.pb.swift in Sources */,
 				9C8CDA1F1D7A28F600E207CA /* descriptor.pb.swift in Sources */,
-				9C8CDA201D7A28F600E207CA /* Helpers.swift in Sources */,
+				9C8CDA201D7A28F600E207CA /* TestHelpers.swift in Sources */,
 				9C8CDA211D7A28F600E207CA /* map_unittest.pb.swift in Sources */,
 				9C8CDA221D7A28F600E207CA /* map_unittest_proto3.pb.swift in Sources */,
 				9C8CDA231D7A28F600E207CA /* Test_AllTypes.swift in Sources */,
@@ -982,6 +1012,7 @@
 				9C8CDA281D7A28F600E207CA /* Test_Descriptor.swift in Sources */,
 				9C8CDA291D7A28F600E207CA /* Test_Duration.swift in Sources */,
 				9C8CDA2A1D7A28F600E207CA /* Test_Empty.swift in Sources */,
+				F44F94441DBFE0BF00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
 				9C8CDA2B1D7A28F600E207CA /* Test_Enum.swift in Sources */,
 				9C8CDA2C1D7A28F600E207CA /* Test_Extensions.swift in Sources */,
 				9C8CDA2D1D7A28F600E207CA /* Test_ExtremeDefaultValues.swift in Sources */,
@@ -1007,6 +1038,7 @@
 				9C8CDA401D7A28F600E207CA /* Test_Unknown_proto2.swift in Sources */,
 				9C8CDA411D7A28F600E207CA /* Test_Unknown_proto3.swift in Sources */,
 				9C8CDA421D7A28F600E207CA /* Test_Wrappers.swift in Sources */,
+				F44F94491DBFF18000BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */,
 				9C8CDA431D7A28F600E207CA /* unittest.pb.swift in Sources */,
 				9C8CDA441D7A28F600E207CA /* unittest_arena.pb.swift in Sources */,
 				9C8CDA451D7A28F600E207CA /* unittest_custom_options.pb.swift in Sources */,
@@ -1018,6 +1050,7 @@
 				9C8CDA4A1D7A28F600E207CA /* unittest_import_lite.pb.swift in Sources */,
 				9C8CDA4B1D7A28F600E207CA /* unittest_import_proto3.pb.swift in Sources */,
 				9C8CDA4C1D7A28F600E207CA /* unittest_import_public.pb.swift in Sources */,
+				F44F943B1DBFBB7500BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				9C8CDA4D1D7A28F600E207CA /* unittest_import_public_lite.pb.swift in Sources */,
 				9C8CDA4E1D7A28F600E207CA /* unittest_import_public_proto3.pb.swift in Sources */,
 				9C8CDA4F1D7A28F600E207CA /* unittest_lite.pb.swift in Sources */,
@@ -1027,6 +1060,7 @@
 				9C8CDA531D7A28F600E207CA /* unittest_no_arena.pb.swift in Sources */,
 				9C8CDA541D7A28F600E207CA /* unittest_no_arena_import.pb.swift in Sources */,
 				AA6CF6F61DB6D228007DF26B /* Test_Enum_Proto2.swift in Sources */,
+				F44F94361DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				9C8CDA551D7A28F600E207CA /* unittest_no_arena_lite.pb.swift in Sources */,
 				9C8CDA561D7A28F600E207CA /* unittest_no_field_presence.pb.swift in Sources */,
 				9C8CDA571D7A28F600E207CA /* unittest_no_generic_services.pb.swift in Sources */,
@@ -1042,9 +1076,11 @@
 				9C8CDA611D7A28F600E207CA /* unittest_swift_extension.pb.swift in Sources */,
 				9C8CDA621D7A28F600E207CA /* unittest_swift_fieldorder.pb.swift in Sources */,
 				9C8CDA631D7A28F600E207CA /* unittest_swift_groups.pb.swift in Sources */,
+				F44F944E1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */,
 				9C8CDA651D7A28F600E207CA /* unittest_swift_performance.pb.swift in Sources */,
 				9C8CDA661D7A28F600E207CA /* unittest_swift_reserved.pb.swift in Sources */,
 				9C8CDA671D7A28F600E207CA /* unittest_swift_runtime_proto2.pb.swift in Sources */,
+				F44F943F1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */,
 				9C8CDA681D7A28F600E207CA /* unittest_swift_runtime_proto3.pb.swift in Sources */,
 				9C8CDA691D7A28F600E207CA /* unittest_swift_startup.pb.swift in Sources */,
 				9C8CDA6A1D7A28F600E207CA /* unittest_well_known_types.pb.swift in Sources */,
@@ -1155,7 +1191,7 @@
 				__src_cc_ref_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift in Sources */,
 				9C2F237A1D77807E008524F2 /* descriptor.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/Helpers.swift /* Helpers.swift in Sources */,
+				__src_cc_ref_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/map_unittest_proto3.pb.swift /* map_unittest_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift in Sources */,
@@ -1166,6 +1202,7 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Descriptor.swift /* Test_Descriptor.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Duration.swift /* Test_Duration.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Empty.swift /* Test_Empty.swift in Sources */,
+				F44F94431DBFE0BE00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Enum.swift /* Test_Enum.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Extensions.swift /* Test_Extensions.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_ExtremeDefaultValues.swift /* Test_ExtremeDefaultValues.swift in Sources */,
@@ -1191,6 +1228,7 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Unknown_proto2.swift /* Test_Unknown_proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift in Sources */,
+				F44F94481DBFF17F00BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift in Sources */,
@@ -1202,6 +1240,7 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_proto3.pb.swift /* unittest_import_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift in Sources */,
+				F44F943A1DBFBB7400BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public_proto3.pb.swift /* unittest_import_public_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift in Sources */,
@@ -1211,6 +1250,7 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift in Sources */,
 				AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */,
+				F44F94351DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */,
@@ -1226,9 +1266,11 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_extension.pb.swift /* unittest_swift_extension.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift in Sources */,
+				F44F944D1DBFF8DB00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift in Sources */,
+				F44F943E1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift in Sources */,
@@ -1302,6 +1344,7 @@
 				F44F93E01DAEA8C900BC5B85 /* unittest_no_arena_import.pb.swift in Sources */,
 				F44F93B81DAEA8C900BC5B85 /* Test_Empty.swift in Sources */,
 				F44F93B11DAEA8C900BC5B85 /* Test_AllTypes_Proto3.swift in Sources */,
+				F44F94451DBFE0C000BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
 				F44F93DC1DAEA8C900BC5B85 /* unittest_lite_imports_nonlite.pb.swift in Sources */,
 				F44F93F01DAEA8C900BC5B85 /* unittest_swift_groups.pb.swift in Sources */,
 				F44F93AE1DAEA8C900BC5B85 /* map_unittest_proto3.pb.swift in Sources */,
@@ -1327,6 +1370,7 @@
 				F44F93F21DAEA8C900BC5B85 /* unittest_swift_performance.pb.swift in Sources */,
 				F44F93B41DAEA8C900BC5B85 /* Test_Api.swift in Sources */,
 				F44F93E41DAEA8C900BC5B85 /* unittest_no_generic_services.pb.swift in Sources */,
+				F44F944A1DBFF18100BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */,
 				F44F93CF1DAEA8C900BC5B85 /* Test_Unknown_proto3.swift in Sources */,
 				F44F93AC1DAEA8C900BC5B85 /* descriptor.pb.swift in Sources */,
 				F44F93C61DAEA8C900BC5B85 /* Test_Performance.swift in Sources */,
@@ -1338,6 +1382,7 @@
 				F44F93BF1DAEA8C900BC5B85 /* Test_JSON_Group.swift in Sources */,
 				F44F93E61DAEA8C900BC5B85 /* unittest_preserve_unknown_enum.pb.swift in Sources */,
 				F44F93E51DAEA8C900BC5B85 /* unittest_optimize_for.pb.swift in Sources */,
+				F44F943C1DBFBB7700BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				F44F93DB1DAEA8C900BC5B85 /* unittest_import.pb.swift in Sources */,
 				F44F93D91DAEA8C900BC5B85 /* unittest_import_public_proto3.pb.swift in Sources */,
 				F44F93BC1DAEA8C900BC5B85 /* Test_FieldMask.swift in Sources */,
@@ -1347,6 +1392,7 @@
 				F44F93D01DAEA8C900BC5B85 /* Test_Wrappers.swift in Sources */,
 				F44F93DA1DAEA8C900BC5B85 /* unittest_import_public.pb.swift in Sources */,
 				AA6CF6F71DB6D229007DF26B /* Test_Enum_Proto2.swift in Sources */,
+				F44F94371DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				F44F93C71DAEA8C900BC5B85 /* Test_ReallyLargeTagNumber.swift in Sources */,
 				F44F93C41DAEA8C900BC5B85 /* Test_Packed.swift in Sources */,
 				F44F93B21DAEA8C900BC5B85 /* Test_AllTypes.swift in Sources */,
@@ -1354,7 +1400,7 @@
 				F44F93B01DAEA8C900BC5B85 /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */,
 				F44F93F41DAEA8C900BC5B85 /* unittest_swift_runtime_proto2.pb.swift in Sources */,
 				F44F93CE1DAEA8C900BC5B85 /* Test_Unknown_proto2.swift in Sources */,
-				F44F93AD1DAEA8C900BC5B85 /* Helpers.swift in Sources */,
+				F44F93AD1DAEA8C900BC5B85 /* TestHelpers.swift in Sources */,
 				F44F93F61DAEA8C900BC5B85 /* unittest_swift_startup.pb.swift in Sources */,
 				F44F93C51DAEA8C900BC5B85 /* Test_ParsingMerge.swift in Sources */,
 				F44F93E91DAEA8C900BC5B85 /* unittest_proto3.pb.swift in Sources */,
@@ -1362,9 +1408,11 @@
 				F44F93B91DAEA8C900BC5B85 /* Test_Enum.swift in Sources */,
 				F44F93DE1DAEA8C900BC5B85 /* unittest_mset_wire_format.pb.swift in Sources */,
 				F44F93CB1DAEA8C900BC5B85 /* Test_Struct.swift in Sources */,
+				F44F944F1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */,
 				F44F93CC1DAEA8C900BC5B85 /* Test_Timestamp.swift in Sources */,
 				F44F93F31DAEA8C900BC5B85 /* unittest_swift_reserved.pb.swift in Sources */,
 				F44F93B61DAEA8C900BC5B85 /* Test_Descriptor.swift in Sources */,
+				F44F94401DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */,
 				F44F93F11DAEA8C900BC5B85 /* unittest_swift_naming.pb.swift in Sources */,
 				F44F93F51DAEA8C900BC5B85 /* unittest_swift_runtime_proto3.pb.swift in Sources */,
 				F44F93ED1DAEA8C900BC5B85 /* unittest_swift_enum.pb.swift in Sources */,

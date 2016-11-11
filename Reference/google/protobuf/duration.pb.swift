@@ -79,7 +79,7 @@ import Foundation
 ///         end.seconds += 1;
 ///         end.nanos -= 1000000000;
 ///       }
-public struct Google_Protobuf_Duration: ProtobufGeneratedMessage {
+struct Google_Protobuf_Duration: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Google_Protobuf_Duration"}
   public var protoMessageName: String {return "Duration"}
   public var protoPackageName: String {return "google.protobuf"}

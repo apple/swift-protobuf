@@ -60,14 +60,33 @@ The `protoc` program will automatically look for `protoc-gen-swift` in your
 Each `.proto` input file will get translated to a corresponding `.pb.swift` file
 in the output directory.
 
-#### Naming of the Generated Source
+#### Changing how Source is Generated
+
+The plugin tries to use reasonable default behaviors for the code it generates,
+but there are a few things that can be configured to specific needs.
+
+`protoc` supports passing generator options to the plugins, and the Swift plugin
+uses these to communicate changes from the default behaviors.
+
+The options are given as part of the `--swift-out` argument like this:
+
+```
+$ protoc --swift_out=[NAME]=[VALUE]:. foo/bar/*.proto mumble/*.proto
+```
+
+And more than one _NAME/VALUE_ pair can be passed by using a comma to seperate
+them:
+
+```
+$ protoc --swift_out=[NAME1]=[VALUE1],[NAME2]=[VALUE2]:. foo/bar/*.proto mumble/*.proto
+```
+
+##### Generation Option: `FileNaming` - Naming of Generated Sources
 
 By default, the paths to the proto files are maintained on the generated files.
 So if you pass `foo/bar/my.proto`, you will get `foo/bar/my.pb.swift` in the
-output directory. `protoc` supports passing generator options to the plugins,
-and the Swift plugin supports an option to control the generated file names.
-
-The option is given as part of the `--swift-out` argument like this:
+output directory. The Swift plugin supports an option to control the generated
+file names, the option is given as part of the `--swift-out` argument like this:
 
 ```
 $ protoc --swift_out=FileNaming=[value]:. foo/bar/*.proto mumble/*.proto
@@ -82,6 +101,23 @@ The possible values for `FileNaming` are:
    makes "foo_bar_baz.pb.swift".
  * `DropPath`: Drop the path from the input and just write all files into the
    output directory; "foo/bar/baz.proto" makes "baz.pb.swift".
+
+##### Generation Option: `Visibility` - Visibility of Generated Types
+
+By default, the types created in the generated source will end up as internal
+because no visibility is set on them.  If you want the types to be made public
+the option can be given as:
+
+```
+$ protoc --swift_out=Visibility=[value]:. foo/bar/*.proto mumble/*.proto
+```
+
+The possible values for `Visibility` are:
+
+ * `Internal` (default): No visibility is set for the types, so they get the
+   default internal visibility.
+ * `Public`: The visibility on the types is set to `public` so the types will
+   be exposed outside the module they are compiled into.
 
 ### Building your project
 

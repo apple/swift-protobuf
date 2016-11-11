@@ -13,7 +13,7 @@ import SwiftProtobuf
 ///   Test that we can include all well-known types.
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
-public struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestWellKnownTypes"}
   public var protoMessageName: String {return "TestWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -455,7 +455,7 @@ public struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
 }
 
 ///   A repeated field for each well-known type.
-public struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_RepeatedWellKnownTypes"}
   public var protoMessageName: String {return "RepeatedWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -768,7 +768,7 @@ public struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage 
   }
 }
 
-public struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_OneofWellKnownTypes"}
   public var protoMessageName: String {return "OneofWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -848,7 +848,7 @@ public struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case anyField(Google_Protobuf_Any)
     case apiField(Google_Protobuf_Api)
     case durationField(Google_Protobuf_Duration)
@@ -1326,7 +1326,7 @@ public struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
 ///   A map field for each well-known type. We only
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
-public struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_MapWellKnownTypes"}
   public var protoMessageName: String {return "MapWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1638,7 +1638,7 @@ public struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField, rhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField, rhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.anyField(let l), .anyField(let r)): return l == r
   case (.apiField(let l), .apiField(let r)): return l == r

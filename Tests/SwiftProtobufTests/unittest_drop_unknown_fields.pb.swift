@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
+struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "UnittestDropUnknownFields_Foo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
@@ -53,7 +53,7 @@ public struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
     "enum_value": 2,
   ]}
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -170,7 +170,7 @@ public struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
   }
 }
 
-public struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
+struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "UnittestDropUnknownFields_FooWithExtraFields"}
   public var protoMessageName: String {return "FooWithExtraFields"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
@@ -185,7 +185,7 @@ public struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMes
     "extra_int32_value": 3,
   ]}
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1

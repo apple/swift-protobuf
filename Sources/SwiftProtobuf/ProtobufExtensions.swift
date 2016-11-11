@@ -72,9 +72,6 @@ public protocol ProtobufExtensibleMessage: ProtobufMessage {
     mutating func clearExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Self>)
 }
 
-// Backwards compatibility shim:  Remove in August 2016
-public typealias ProtobufExtensibleMessageType = ProtobufExtensibleMessage
-
 // Common support for storage classes to handle extension fields
 public protocol ProtobufExtensibleMessageStorage: class {
     associatedtype ProtobufExtendedMessage: ProtobufMessage
@@ -82,9 +79,6 @@ public protocol ProtobufExtensibleMessageStorage: class {
     func setExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufExtendedMessage>, value: F.ValueType)
     func getExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufExtendedMessage>) -> F.ValueType
 }
-
-// Backwards compatibility shim:  Remove in August 2016
-public typealias ProtobufExtensibleMessageStorageType = ProtobufExtensibleMessageStorage
 
 public extension ProtobufExtensibleMessageStorage {
     public func setExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufExtendedMessage>, value: F.ValueType) {

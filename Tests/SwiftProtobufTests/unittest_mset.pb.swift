@@ -47,7 +47,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetContainer"}
   public var protoMessageName: String {return "TestMessageSetContainer"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -135,7 +135,7 @@ public struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage
   }
 }
 
-public struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension1"}
   public var protoMessageName: String {return "TestMessageSetExtension1"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -195,7 +195,7 @@ public struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessag
   }
 }
 
-public struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension2"}
   public var protoMessageName: String {return "TestMessageSetExtension2"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -267,7 +267,7 @@ public struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessag
 //  }
 
 ///   MessageSet wire format is equivalent to this.
-public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
+struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet"}
   public var protoMessageName: String {return "RawMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -280,7 +280,7 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public struct Item: ProtobufGeneratedMessage {
+  struct Item: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet.Item"}
     public var protoMessageName: String {return "Item"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -383,32 +383,32 @@ public struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage {
 }
 
 extension Proto2WireformatUnittest_TestMessageSet {
-  public var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
+  var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension) ?? ProtobufUnittest_TestMessageSetExtension1()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension, value: newValue)}
   }
-  public var hasProtobufUnittest_TestMessageSetExtension1_messageSetExtension: Bool {
+  var hasProtobufUnittest_TestMessageSetExtension1_messageSetExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
   }
-  public mutating func clearProtobufUnittest_TestMessageSetExtension1_messageSetExtension() {
+  mutating func clearProtobufUnittest_TestMessageSetExtension1_messageSetExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
   }
 }
 
 extension Proto2WireformatUnittest_TestMessageSet {
-  public var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2 {
+  var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension) ?? ProtobufUnittest_TestMessageSetExtension2()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension, value: newValue)}
   }
-  public var hasProtobufUnittest_TestMessageSetExtension2_messageSetExtension: Bool {
+  var hasProtobufUnittest_TestMessageSetExtension2_messageSetExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
   }
-  public mutating func clearProtobufUnittest_TestMessageSetExtension2_messageSetExtension() {
+  mutating func clearProtobufUnittest_TestMessageSetExtension2_messageSetExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension)
   }
 }
 
-public let ProtobufUnittest_UnittestMset_Extensions: ProtobufExtensionSet = [
+let ProtobufUnittest_UnittestMset_Extensions: ProtobufExtensionSet = [
   ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension
 ]

@@ -47,7 +47,7 @@ import SwiftProtobuf
 
 
 ///   A message with message_set_wire_format.
-public struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSet"}
   public var protoMessageName: String {return "TestMessageSet"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
@@ -105,7 +105,7 @@ public struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage,
   }
 }
 
-public struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGeneratedMessage {
+struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSetWireFormatContainer"}
   public var protoMessageName: String {return "TestMessageSetWireFormatContainer"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}

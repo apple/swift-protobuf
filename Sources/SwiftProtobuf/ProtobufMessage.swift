@@ -196,6 +196,3 @@ public extension ProtobufGeneratedMessage {
     return _protoc_generated_isEqualTo(other: other)
   }
 }
-
-// TODO: This is a transition aid, remove this in August 2016.
-public typealias ProtobufGeneratedMessageType = ProtobufGeneratedMessage

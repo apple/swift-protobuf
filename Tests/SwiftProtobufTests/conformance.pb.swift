@@ -59,7 +59,7 @@ import SwiftProtobuf
 //    - running as a sub-process may be more tricky in unusual environments like
 //      iOS apps, where fork/stdin/stdout are not available.
 
-public enum Conformance_WireFormat: ProtobufEnum {
+enum Conformance_WireFormat: ProtobufEnum {
   public typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
@@ -143,7 +143,7 @@ public enum Conformance_WireFormat: ProtobufEnum {
 
 }
 
-public enum Conformance_ForeignEnum: ProtobufEnum {
+enum Conformance_ForeignEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -232,7 +232,7 @@ public enum Conformance_ForeignEnum: ProtobufEnum {
 ///     1. parse this proto (which should always succeed)
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
-public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
+struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Conformance_ConformanceRequest"}
   public var protoMessageName: String {return "ConformanceRequest"}
   public var protoPackageName: String {return "conformance"}
@@ -247,7 +247,7 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
     "requested_output_format": 3,
   ]}
 
-  public enum OneOf_Payload: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Payload: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case protobufPayload(Data)
     case jsonPayload(String)
     case None
@@ -355,7 +355,7 @@ public struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
 }
 
 ///   Represents a single test case's output.
-public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
+struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Conformance_ConformanceResponse"}
   public var protoMessageName: String {return "ConformanceResponse"}
   public var protoPackageName: String {return "conformance"}
@@ -376,7 +376,7 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
     "skipped": 5,
   ]}
 
-  public enum OneOf_Result: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Result: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case parseError(String)
     case serializeError(String)
     case runtimeError(String)
@@ -578,7 +578,7 @@ public struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
+struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Conformance_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "conformance"}
@@ -1566,7 +1566,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Conformance_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -1636,7 +1636,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -1730,7 +1730,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Conformance_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "conformance"}
@@ -2534,7 +2534,7 @@ public struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   }
 }
 
-public struct Conformance_ForeignMessage: ProtobufGeneratedMessage {
+struct Conformance_ForeignMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Conformance_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "conformance"}
@@ -2571,7 +2571,7 @@ public struct Conformance_ForeignMessage: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
+func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
   switch (lhs, rhs) {
   case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
   case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
@@ -2580,7 +2580,7 @@ public func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conforman
   }
 }
 
-public func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
+func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
   switch (lhs, rhs) {
   case (.parseError(let l), .parseError(let r)): return l == r
   case (.serializeError(let l), .serializeError(let r)): return l == r
@@ -2593,7 +2593,7 @@ public func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conforman
   }
 }
 
-public func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAllTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAllTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r

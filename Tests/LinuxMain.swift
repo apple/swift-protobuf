@@ -203,6 +203,132 @@ extension Test_Api {
     }
 }
 
+extension Test_BasicFields_Access_Proto2 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testOptionalInt32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalInt32)}),
+            ("testOptionalInt64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalInt64)}),
+            ("testOptionalUint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalUint32)}),
+            ("testOptionalUint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalUint64)}),
+            ("testOptionalSint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalSint32)}),
+            ("testOptionalSint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalSint64)}),
+            ("testOptionalFixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalFixed32)}),
+            ("testOptionalFixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalFixed64)}),
+            ("testOptionalSfixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalSfixed32)}),
+            ("testOptionalSfixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalSfixed64)}),
+            ("testOptionalFloat", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalFloat)}),
+            ("testOptionalDouble", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalDouble)}),
+            ("testOptionalBool", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalBool)}),
+            ("testOptionalString", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalString)}),
+            ("testOptionalBytes", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalBytes)}),
+            ("testOptionalGroup", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalGroup)}),
+            ("testOptionalNestedMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalNestedMessage)}),
+            ("testOptionalForeignMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalForeignMessage)}),
+            ("testOptionalImportMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalImportMessage)}),
+            ("testOptionalNestedEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalNestedEnum)}),
+            ("testOptionalForeignEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalForeignEnum)}),
+            ("testOptionalImportEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalImportEnum)}),
+            ("testOptionalStringPiece", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalStringPiece)}),
+            ("testOptionalCord", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalCord)}),
+            ("testOptionalPublicImportMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalPublicImportMessage)}),
+            ("testOptionalLazyMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testOptionalLazyMessage)}),
+            ("testDefaultInt32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultInt32)}),
+            ("testDefaultInt64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultInt64)}),
+            ("testDefaultUint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultUint32)}),
+            ("testDefaultUint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultUint64)}),
+            ("testDefaultSint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultSint32)}),
+            ("testDefaultSint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultSint64)}),
+            ("testDefaultFixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultFixed32)}),
+            ("testDefaultFixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultFixed64)}),
+            ("testDefaultSfixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultSfixed32)}),
+            ("testDefaultSfixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultSfixed64)}),
+            ("testDefaultFloat", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultFloat)}),
+            ("testDefaultDouble", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultDouble)}),
+            ("testDefaultBool", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultBool)}),
+            ("testDefaultString", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultString)}),
+            ("testDefaultBytes", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultBytes)}),
+            ("testDefaultNestedEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultNestedEnum)}),
+            ("testDefaultForeignEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultForeignEnum)}),
+            ("testDefaultImportEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultImportEnum)}),
+            ("testDefaultStringPiece", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultStringPiece)}),
+            ("testDefaultCord", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testDefaultCord)}),
+            ("testRepeatedInt32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedInt32)}),
+            ("testRepeatedInt64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedInt64)}),
+            ("testRepeatedUint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedUint32)}),
+            ("testRepeatedUint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedUint64)}),
+            ("testRepeatedSint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedSint32)}),
+            ("testRepeatedSint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedSint64)}),
+            ("testRepeatedFixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedFixed32)}),
+            ("testRepeatedFixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedFixed64)}),
+            ("testRepeatedSfixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedSfixed32)}),
+            ("testRepeatedSfixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedSfixed64)}),
+            ("testRepeatedFloat", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedFloat)}),
+            ("testRepeatedDouble", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedDouble)}),
+            ("testRepeatedBool", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedBool)}),
+            ("testRepeatedString", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedString)}),
+            ("testRepeatedBytes", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedBytes)}),
+            ("testRepeatedGroup", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedGroup)}),
+            ("testRepeatedNestedMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedNestedMessage)}),
+            ("testRepeatedForeignMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedForeignMessage)}),
+            ("testRepeatedImportMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedImportMessage)}),
+            ("testRepeatedNestedEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedNestedEnum)}),
+            ("testRepeatedForeignEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedForeignEnum)}),
+            ("testRepeatedImportEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedImportEnum)}),
+            ("testRepeatedStringPiece", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedStringPiece)}),
+            ("testRepeatedCord", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedCord)}),
+            ("testRepeatedLazyMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto2).testRepeatedLazyMessage)})        ]
+    }
+}
+
+extension Test_BasicFields_Access_Proto3 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testOptionalInt32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalInt32)}),
+            ("testOptionalInt64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalInt64)}),
+            ("testOptionalUint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalUint32)}),
+            ("testOptionalUint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalUint64)}),
+            ("testOptionalSint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalSint32)}),
+            ("testOptionalSint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalSint64)}),
+            ("testOptionalFixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalFixed32)}),
+            ("testOptionalFixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalFixed64)}),
+            ("testOptionalSfixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalSfixed32)}),
+            ("testOptionalSfixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalSfixed64)}),
+            ("testOptionalFloat", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalFloat)}),
+            ("testOptionalDouble", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalDouble)}),
+            ("testOptionalBool", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalBool)}),
+            ("testOptionalString", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalString)}),
+            ("testOptionalBytes", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalBytes)}),
+            ("testOptionalNestedMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalNestedMessage)}),
+            ("testOptionalForeignMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalForeignMessage)}),
+            ("testOptionalImportMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalImportMessage)}),
+            ("testOptionalNestedEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalNestedEnum)}),
+            ("testOptionalForeignEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalForeignEnum)}),
+            ("testOptionalImportEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalImportEnum)}),
+            ("testOptionalPublicImportMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testOptionalPublicImportMessage)}),
+            ("testRepeatedInt32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedInt32)}),
+            ("testRepeatedInt64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedInt64)}),
+            ("testRepeatedUint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedUint32)}),
+            ("testRepeatedUint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedUint64)}),
+            ("testRepeatedSint32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedSint32)}),
+            ("testRepeatedSint64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedSint64)}),
+            ("testRepeatedFixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedFixed32)}),
+            ("testRepeatedFixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedFixed64)}),
+            ("testRepeatedSfixed32", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedSfixed32)}),
+            ("testRepeatedSfixed64", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedSfixed64)}),
+            ("testRepeatedFloat", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedFloat)}),
+            ("testRepeatedDouble", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedDouble)}),
+            ("testRepeatedBool", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedBool)}),
+            ("testRepeatedString", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedString)}),
+            ("testRepeatedBytes", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedBytes)}),
+            ("testRepeatedNestedMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedNestedMessage)}),
+            ("testRepeatedForeignMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedForeignMessage)}),
+            ("testRepeatedImportMessage", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedImportMessage)}),
+            ("testRepeatedNestedEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedNestedEnum)}),
+            ("testRepeatedForeignEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedForeignEnum)}),
+            ("testRepeatedImportEnum", {try run_test(test:($0 as! Test_BasicFields_Access_Proto3).testRepeatedImportEnum)})        ]
+    }
+}
+
 extension Test_Conformance {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -428,6 +554,56 @@ extension Test_Map {
     }
 }
 
+extension Test_MapFields_Access_Proto2 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testMapInt32Int32", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapInt32Int32)}),
+            ("testMapInt64Int64", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapInt64Int64)}),
+            ("testMapUint32Uint32", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapUint32Uint32)}),
+            ("testMapUint64Uint64", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapUint64Uint64)}),
+            ("testMapSint32Sint32", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapSint32Sint32)}),
+            ("testMapSint64Sint64", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapSint64Sint64)}),
+            ("testMapFixed32Fixed32", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapFixed32Fixed32)}),
+            ("testMapFixed64Fixed64", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapFixed64Fixed64)}),
+            ("testMapSfixed32Sfixed32", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapSfixed32Sfixed32)}),
+            ("testMapSfixed64Sfixed64", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapSfixed64Sfixed64)}),
+            ("testMapInt32Float", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapInt32Float)}),
+            ("testMapInt32Double", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapInt32Double)}),
+            ("testMapBoolBool", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapBoolBool)}),
+            ("testMapStringString", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapStringString)}),
+            ("testMapStringBytes", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapStringBytes)}),
+            ("testMapStringMessage", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapStringMessage)}),
+            ("testMapInt32Bytes", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapInt32Bytes)}),
+            ("testMapInt32Enum", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapInt32Enum)}),
+            ("testMapInt32Message", {try run_test(test:($0 as! Test_MapFields_Access_Proto2).testMapInt32Message)})        ]
+    }
+}
+
+extension Test_MapFields_Access_Proto3 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testMapInt32Int32", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapInt32Int32)}),
+            ("testMapInt64Int64", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapInt64Int64)}),
+            ("testMapUint32Uint32", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapUint32Uint32)}),
+            ("testMapUint64Uint64", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapUint64Uint64)}),
+            ("testMapSint32Sint32", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapSint32Sint32)}),
+            ("testMapSint64Sint64", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapSint64Sint64)}),
+            ("testMapFixed32Fixed32", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapFixed32Fixed32)}),
+            ("testMapFixed64Fixed64", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapFixed64Fixed64)}),
+            ("testMapSfixed32Sfixed32", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapSfixed32Sfixed32)}),
+            ("testMapSfixed64Sfixed64", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapSfixed64Sfixed64)}),
+            ("testMapInt32Float", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapInt32Float)}),
+            ("testMapInt32Double", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapInt32Double)}),
+            ("testMapBoolBool", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapBoolBool)}),
+            ("testMapStringString", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapStringString)}),
+            ("testMapStringBytes", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapStringBytes)}),
+            ("testMapStringMessage", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapStringMessage)}),
+            ("testMapInt32Bytes", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapInt32Bytes)}),
+            ("testMapInt32Enum", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapInt32Enum)}),
+            ("testMapInt32Message", {try run_test(test:($0 as! Test_MapFields_Access_Proto3).testMapInt32Message)})        ]
+    }
+}
+
 extension Test_Map_JSON {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -436,6 +612,55 @@ extension Test_Map_JSON {
             ("testMapInt32Bytes", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Bytes)}),
             ("testMapInt32Message", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Message)}),
             ("test_mapBoolBool", {try run_test(test:($0 as! Test_Map_JSON).test_mapBoolBool)})        ]
+    }
+}
+
+extension Test_OneofFields_Access_Proto2 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testOneofInt32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofInt32)}),
+            ("testOneofInt64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofInt64)}),
+            ("testOneofUint32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofUint32)}),
+            ("testOneofUint64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofUint64)}),
+            ("testOneofSint32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofSint32)}),
+            ("testOneofSint64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofSint64)}),
+            ("testOneofFixed32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofFixed32)}),
+            ("testOneofFixed64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofFixed64)}),
+            ("testOneofSfixed32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofSfixed32)}),
+            ("testOneofSfixed64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofSfixed64)}),
+            ("testOneofFloat", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofFloat)}),
+            ("testOneofDouble", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofDouble)}),
+            ("testOneofBool", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofBool)}),
+            ("testOneofString", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofString)}),
+            ("testOneofBytes", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofBytes)}),
+            ("testOneofGroup", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofGroup)}),
+            ("testOneofMessage", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofMessage)}),
+            ("testOneofEnum", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofEnum)}),
+            ("testOneofOnlyOneSet", {try run_test(test:($0 as! Test_OneofFields_Access_Proto2).testOneofOnlyOneSet)})        ]
+    }
+}
+
+extension Test_OneofFields_Access_Proto3 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testOneofInt32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofInt32)}),
+            ("testOneofInt64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofInt64)}),
+            ("testOneofUint32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofUint32)}),
+            ("testOneofUint64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofUint64)}),
+            ("testOneofSint32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofSint32)}),
+            ("testOneofSint64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofSint64)}),
+            ("testOneofFixed32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofFixed32)}),
+            ("testOneofFixed64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofFixed64)}),
+            ("testOneofSfixed32", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofSfixed32)}),
+            ("testOneofSfixed64", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofSfixed64)}),
+            ("testOneofFloat", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofFloat)}),
+            ("testOneofDouble", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofDouble)}),
+            ("testOneofBool", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofBool)}),
+            ("testOneofString", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofString)}),
+            ("testOneofBytes", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofBytes)}),
+            ("testOneofMessage", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofMessage)}),
+            ("testOneofEnum", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofEnum)}),
+            ("testOneofOnlyOneSet", {try run_test(test:($0 as! Test_OneofFields_Access_Proto3).testOneofOnlyOneSet)})        ]
     }
 }
 
@@ -548,6 +773,58 @@ extension Test_JSON_Value {
     }
 }
 
+extension Test_Text {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEncoding_singleInt32", {try run_test(test:($0 as! Test_Text).testEncoding_singleInt32)}),
+            ("testEncoding_singleInt64", {try run_test(test:($0 as! Test_Text).testEncoding_singleInt64)}),
+            ("testEncoding_singleUint32", {try run_test(test:($0 as! Test_Text).testEncoding_singleUint32)}),
+            ("testEncoding_singleUint64", {try run_test(test:($0 as! Test_Text).testEncoding_singleUint64)}),
+            ("testEncoding_singleSint32", {try run_test(test:($0 as! Test_Text).testEncoding_singleSint32)}),
+            ("testEncoding_singleSint64", {try run_test(test:($0 as! Test_Text).testEncoding_singleSint64)}),
+            ("testEncoding_singleFixed32", {try run_test(test:($0 as! Test_Text).testEncoding_singleFixed32)}),
+            ("testEncoding_singleFixed64", {try run_test(test:($0 as! Test_Text).testEncoding_singleFixed64)}),
+            ("testEncoding_singleSfixed32", {try run_test(test:($0 as! Test_Text).testEncoding_singleSfixed32)}),
+            ("testEncoding_singleSfixed64", {try run_test(test:($0 as! Test_Text).testEncoding_singleSfixed64)}),
+            ("testEncoding_singleFloat", {try run_test(test:($0 as! Test_Text).testEncoding_singleFloat)}),
+            ("testEncoding_singleDouble", {try run_test(test:($0 as! Test_Text).testEncoding_singleDouble)}),
+            ("testEncoding_singleBool", {try run_test(test:($0 as! Test_Text).testEncoding_singleBool)}),
+            ("testEncoding_singleString", {try run_test(test:($0 as! Test_Text).testEncoding_singleString)}),
+            ("testEncoding_singleBytes", {try run_test(test:($0 as! Test_Text).testEncoding_singleBytes)}),
+            ("testEncoding_singleNestedMessage", {try run_test(test:($0 as! Test_Text).testEncoding_singleNestedMessage)}),
+            ("testEncoding_singleForeignMessage", {try run_test(test:($0 as! Test_Text).testEncoding_singleForeignMessage)}),
+            ("testEncoding_singleImportMessage", {try run_test(test:($0 as! Test_Text).testEncoding_singleImportMessage)}),
+            ("testEncoding_singleNestedEnum", {try run_test(test:($0 as! Test_Text).testEncoding_singleNestedEnum)}),
+            ("testEncoding_singleForeignEnum", {try run_test(test:($0 as! Test_Text).testEncoding_singleForeignEnum)}),
+            ("testEncoding_singleImportEnum", {try run_test(test:($0 as! Test_Text).testEncoding_singleImportEnum)}),
+            ("testEncoding_singlePublicImportMessage", {try run_test(test:($0 as! Test_Text).testEncoding_singlePublicImportMessage)}),
+            ("testEncoding_repeatedInt32", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedInt32)}),
+            ("testEncoding_repeatedInt64", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedInt64)}),
+            ("testEncoding_repeatedUint32", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedUint32)}),
+            ("testEncoding_repeatedUint64", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedUint64)}),
+            ("testEncoding_repeatedSint32", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedSint32)}),
+            ("testEncoding_repeatedSint64", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedSint64)}),
+            ("testEncoding_repeatedFixed32", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedFixed32)}),
+            ("testEncoding_repeatedFixed64", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedFixed64)}),
+            ("testEncoding_repeatedSfixed32", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedSfixed32)}),
+            ("testEncoding_repeatedSfixed64", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedSfixed64)}),
+            ("testEncoding_repeatedFloat", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedFloat)}),
+            ("testEncoding_repeatedDouble", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedDouble)}),
+            ("testEncoding_repeatedBool", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedBool)}),
+            ("testEncoding_repeatedString", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedString)}),
+            ("testEncoding_repeatedBytes", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedBytes)}),
+            ("testEncoding_repeatedNestedMessage", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedNestedMessage)}),
+            ("testEncoding_repeatedForeignMessage", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedForeignMessage)}),
+            ("testEncoding_repeatedImportMessage", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedImportMessage)}),
+            ("testEncoding_repeatedNestedEnum", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedNestedEnum)}),
+            ("testEncoding_repeatedForeignEnum", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedForeignEnum)}),
+            ("testEncoding_repeatedImportEnum", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedImportEnum)}),
+            ("testEncoding_repeatedPublicImportMessage", {try run_test(test:($0 as! Test_Text).testEncoding_repeatedPublicImportMessage)}),
+            ("testEncoding_oneofUint32", {try run_test(test:($0 as! Test_Text).testEncoding_oneofUint32)}),
+            ("testMultipleFields", {try run_test(test:($0 as! Test_Text).testMultipleFields)})        ]
+    }
+}
+
 extension Test_Timestamp {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -607,6 +884,8 @@ XCTMain(
         (testCaseClass: Test_AllTypes_Proto3.self, allTests: Test_AllTypes_Proto3.allTests),
         (testCaseClass: Test_Any.self, allTests: Test_Any.allTests),
         (testCaseClass: Test_Api.self, allTests: Test_Api.allTests),
+        (testCaseClass: Test_BasicFields_Access_Proto2.self, allTests: Test_BasicFields_Access_Proto2.allTests),
+        (testCaseClass: Test_BasicFields_Access_Proto3.self, allTests: Test_BasicFields_Access_Proto3.allTests),
         (testCaseClass: Test_Conformance.self, allTests: Test_Conformance.allTests),
         (testCaseClass: Test_Descriptor.self, allTests: Test_Descriptor.allTests),
         (testCaseClass: Test_Duration.self, allTests: Test_Duration.allTests),
@@ -624,7 +903,11 @@ XCTMain(
         (testCaseClass: Test_JSON_Group.self, allTests: Test_JSON_Group.allTests),
         (testCaseClass: Test_Scanner.self, allTests: Test_Scanner.allTests),
         (testCaseClass: Test_Map.self, allTests: Test_Map.allTests),
+        (testCaseClass: Test_MapFields_Access_Proto2.self, allTests: Test_MapFields_Access_Proto2.allTests),
+        (testCaseClass: Test_MapFields_Access_Proto3.self, allTests: Test_MapFields_Access_Proto3.allTests),
         (testCaseClass: Test_Map_JSON.self, allTests: Test_Map_JSON.allTests),
+        (testCaseClass: Test_OneofFields_Access_Proto2.self, allTests: Test_OneofFields_Access_Proto2.allTests),
+        (testCaseClass: Test_OneofFields_Access_Proto3.self, allTests: Test_OneofFields_Access_Proto3.allTests),
         (testCaseClass: Test_Packed.self, allTests: Test_Packed.allTests),
         (testCaseClass: Test_ParsingMerge.self, allTests: Test_ParsingMerge.allTests),
         (testCaseClass: Test_Performance.self, allTests: Test_Performance.allTests),
@@ -636,6 +919,7 @@ XCTMain(
         (testCaseClass: Test_Struct.self, allTests: Test_Struct.allTests),
         (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
         (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
+        (testCaseClass: Test_Text.self, allTests: Test_Text.allTests),
         (testCaseClass: Test_Timestamp.self, allTests: Test_Timestamp.allTests),
         (testCaseClass: Test_Type.self, allTests: Test_Type.allTests),
         (testCaseClass: Test_Unknown_proto2.self, allTests: Test_Unknown_proto2.allTests),

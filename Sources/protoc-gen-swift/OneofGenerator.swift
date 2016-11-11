@@ -31,14 +31,16 @@ extension Google_Protobuf_OneofDescriptorProto {
 }
 
 class OneofGenerator {
-    let fields: [MessageFieldGenerator]
     let descriptor: Google_Protobuf_OneofDescriptorProto
+    let generatorOptions: GeneratorOptions
+    let fields: [MessageFieldGenerator]
     let swiftRelativeName: String
     let swiftFullName: String
     let isProto3: Bool
 
-    init(descriptor: Google_Protobuf_OneofDescriptorProto, fields: [MessageFieldGenerator], swiftMessageFullName: String, isProto3: Bool) {
+    init(descriptor: Google_Protobuf_OneofDescriptorProto, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String, isProto3: Bool) {
         self.descriptor = descriptor
+        self.generatorOptions = generatorOptions
         self.fields = fields
         self.isProto3 = isProto3
         self.swiftRelativeName = sanitizeOneofTypeName(descriptor.swiftRelativeType)
@@ -47,7 +49,7 @@ class OneofGenerator {
 
     func generateNested(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("public enum \(swiftRelativeName): ExpressibleByNilLiteral, ProtobufOneofEnum {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): ExpressibleByNilLiteral, ProtobufOneofEnum {\n")
         p.indent()
 
         // Oneof case for each ivar
@@ -157,7 +159,7 @@ class OneofGenerator {
 
     func generateTopLevel(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("public func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
         p.indent()
         p.print("switch (lhs, rhs) {\n")
         for f in fields {

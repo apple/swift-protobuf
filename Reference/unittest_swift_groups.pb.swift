@@ -41,7 +41,7 @@ import SwiftProtobuf
 
 
 ///   Same field number appears inside and outside of the group.
-public struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "SwiftTestGroupExtensions"}
   public var protoMessageName: String {return "SwiftTestGroupExtensions"}
   public var protoPackageName: String {return ""}
@@ -123,7 +123,7 @@ public struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtens
   }
 }
 
-public struct ExtensionGroup: ProtobufGeneratedMessage {
+struct ExtensionGroup: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ExtensionGroup"}
   public var protoMessageName: String {return "ExtensionGroup"}
   public var protoPackageName: String {return ""}
@@ -178,7 +178,7 @@ public struct ExtensionGroup: ProtobufGeneratedMessage {
   }
 }
 
-public struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
+struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "RepeatedExtensionGroup"}
   public var protoMessageName: String {return "RepeatedExtensionGroup"}
   public var protoPackageName: String {return ""}
@@ -233,7 +233,7 @@ public struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
   }
 }
 
-public struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
+struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "SwiftTestGroupUnextended"}
   public var protoMessageName: String {return "SwiftTestGroupUnextended"}
   public var protoPackageName: String {return ""}
@@ -293,32 +293,32 @@ let SwiftTestGroupExtensions_extensionGroup = ProtobufGenericMessageExtension<Pr
 let SwiftTestGroupExtensions_repeatedExtensionGroup = ProtobufGenericMessageExtension<ProtobufRepeatedGroupField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 3, protoFieldName: "repeatedextensiongroup", jsonFieldName: "repeatedextensiongroup", swiftFieldName: "repeatedExtensionGroup", defaultValue: [])
 
 extension SwiftTestGroupExtensions {
-  public var extensionGroup: ExtensionGroup {
+  var extensionGroup: ExtensionGroup {
     get {return getExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup) ?? ExtensionGroup()}
     set {setExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup, value: newValue)}
   }
-  public var hasExtensionGroup: Bool {
+  var hasExtensionGroup: Bool {
     return hasExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup)
   }
-  public mutating func clearExtensionGroup() {
+  mutating func clearExtensionGroup() {
     clearExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup)
   }
 }
 
 extension SwiftTestGroupExtensions {
-  public var repeatedExtensionGroup: [RepeatedExtensionGroup] {
+  var repeatedExtensionGroup: [RepeatedExtensionGroup] {
     get {return getExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup)}
     set {setExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup, value: newValue)}
   }
-  public var hasRepeatedExtensionGroup: Bool {
+  var hasRepeatedExtensionGroup: Bool {
     return hasExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup)
   }
-  public mutating func clearRepeatedExtensionGroup() {
+  mutating func clearRepeatedExtensionGroup() {
     clearExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup)
   }
 }
 
-public let UnittestSwiftGroups_Extensions: ProtobufExtensionSet = [
+let UnittestSwiftGroups_Extensions: ProtobufExtensionSet = [
   SwiftTestGroupExtensions_extensionGroup,
   SwiftTestGroupExtensions_repeatedExtensionGroup
 ]

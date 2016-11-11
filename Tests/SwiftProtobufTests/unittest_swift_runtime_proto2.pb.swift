@@ -39,7 +39,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Message2"}
   public var protoMessageName: String {return "Message2"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -622,7 +622,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -852,7 +852,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
   }
 
-  public enum Enum: ProtobufEnum {
+  enum Enum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -940,7 +940,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
   }
 
-  public struct OptionalGroup: ProtobufGeneratedMessage {
+  struct OptionalGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -995,7 +995,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
   }
 
-  public struct RepeatedGroup: ProtobufGeneratedMessage {
+  struct RepeatedGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1050,7 +1050,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
   }
 
-  public struct OneofGroup: ProtobufGeneratedMessage {
+  struct OneofGroup: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.OneofGroup"}
     public var protoMessageName: String {return "OneofGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1067,7 +1067,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
 
     private var _a: Int32? = nil
     public var a: Int32 {
-      get {return _a ?? 0}
+      get {return _a ?? 116}
       set {_a = newValue}
     }
     public var hasA: Bool {
@@ -1117,7 +1117,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OneofGroup) -> Bool {
-      if (a != other.a) {return false}
+      if (((_a != nil && _a! != 116) || (other._a != nil && other._a! != 116)) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
       if (b != other.b) {return false}
       if unknown != other.unknown {return false}
       return true
@@ -1753,7 +1753,7 @@ public struct ProtobufUnittest_Message2: ProtobufGeneratedMessage {
   }
 }
 
-public func ==(lhs: ProtobufUnittest_Message2.OneOf_O, rhs: ProtobufUnittest_Message2.OneOf_O) -> Bool {
+func ==(lhs: ProtobufUnittest_Message2.OneOf_O, rhs: ProtobufUnittest_Message2.OneOf_O) -> Bool {
   switch (lhs, rhs) {
   case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
   case (.oneofInt64(let l), .oneofInt64(let r)): return l == r

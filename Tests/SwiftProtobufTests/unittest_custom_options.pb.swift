@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
+enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
   public typealias RawValue = Int
   case val1 // = 1
   case val2 // = 2
@@ -118,7 +118,7 @@ public enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
 
 }
 
-public enum ProtobufUnittest_AggregateEnum: ProtobufEnum {
+enum ProtobufUnittest_AggregateEnum: ProtobufEnum {
   public typealias RawValue = Int
   case value // = 1
 
@@ -184,7 +184,7 @@ public enum ProtobufUnittest_AggregateEnum: ProtobufEnum {
 
 ///   A test message with custom options at all possible locations (and also some
 ///   regular options, to make sure they interact nicely).
-public struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageWithCustomOptions"}
   public var protoMessageName: String {return "TestMessageWithCustomOptions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -199,7 +199,7 @@ public struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMe
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum OneOf_AnOneof: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_AnOneof: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofField(Int32)
     case None
 
@@ -242,7 +242,7 @@ public struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMe
     }
   }
 
-  public enum AnEnum: ProtobufEnum {
+  enum AnEnum: ProtobufEnum {
     public typealias RawValue = Int
     case val1 // = 1
     case val2 // = 2
@@ -376,7 +376,7 @@ public struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMe
 
 ///   A test RPC service with custom options at all possible locations (and also
 ///   some regular options, to make sure they interact nicely).
-public struct ProtobufUnittest_CustomOptionFooRequest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CustomOptionFooRequest: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooRequest"}
   public var protoMessageName: String {return "CustomOptionFooRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -401,7 +401,7 @@ public struct ProtobufUnittest_CustomOptionFooRequest: ProtobufGeneratedMessage 
   }
 }
 
-public struct ProtobufUnittest_CustomOptionFooResponse: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CustomOptionFooResponse: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooResponse"}
   public var protoMessageName: String {return "CustomOptionFooResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -426,7 +426,7 @@ public struct ProtobufUnittest_CustomOptionFooResponse: ProtobufGeneratedMessage
   }
 }
 
-public struct ProtobufUnittest_CustomOptionFooClientMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CustomOptionFooClientMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooClientMessage"}
   public var protoMessageName: String {return "CustomOptionFooClientMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -451,7 +451,7 @@ public struct ProtobufUnittest_CustomOptionFooClientMessage: ProtobufGeneratedMe
   }
 }
 
-public struct ProtobufUnittest_CustomOptionFooServerMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CustomOptionFooServerMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooServerMessage"}
   public var protoMessageName: String {return "CustomOptionFooServerMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -478,7 +478,7 @@ public struct ProtobufUnittest_CustomOptionFooServerMessage: ProtobufGeneratedMe
 
 //  Options of every possible field type, so we can test them all exhaustively.
 
-public struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage {
+struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_DummyMessageContainingEnum"}
   public var protoMessageName: String {return "DummyMessageContainingEnum"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -487,7 +487,7 @@ public struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMess
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum TestEnumType: ProtobufEnum {
+  enum TestEnumType: ProtobufEnum {
     public typealias RawValue = Int
     case testOptionEnumType1 // = 22
     case testOptionEnumType2 // = -23
@@ -575,7 +575,7 @@ public struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMess
   }
 }
 
-public struct ProtobufUnittest_DummyMessageInvalidAsOptionType: ProtobufGeneratedMessage {
+struct ProtobufUnittest_DummyMessageInvalidAsOptionType: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_DummyMessageInvalidAsOptionType"}
   public var protoMessageName: String {return "DummyMessageInvalidAsOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -600,7 +600,7 @@ public struct ProtobufUnittest_DummyMessageInvalidAsOptionType: ProtobufGenerate
   }
 }
 
-public struct ProtobufUnittest_CustomOptionMinIntegerValues: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CustomOptionMinIntegerValues: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionMinIntegerValues"}
   public var protoMessageName: String {return "CustomOptionMinIntegerValues"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -625,7 +625,7 @@ public struct ProtobufUnittest_CustomOptionMinIntegerValues: ProtobufGeneratedMe
   }
 }
 
-public struct ProtobufUnittest_CustomOptionMaxIntegerValues: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CustomOptionMaxIntegerValues: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionMaxIntegerValues"}
   public var protoMessageName: String {return "CustomOptionMaxIntegerValues"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -650,7 +650,7 @@ public struct ProtobufUnittest_CustomOptionMaxIntegerValues: ProtobufGeneratedMe
   }
 }
 
-public struct ProtobufUnittest_CustomOptionOtherValues: ProtobufGeneratedMessage {
+struct ProtobufUnittest_CustomOptionOtherValues: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionOtherValues"}
   public var protoMessageName: String {return "CustomOptionOtherValues"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -675,7 +675,7 @@ public struct ProtobufUnittest_CustomOptionOtherValues: ProtobufGeneratedMessage
   }
 }
 
-public struct ProtobufUnittest_SettingRealsFromPositiveInts: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SettingRealsFromPositiveInts: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_SettingRealsFromPositiveInts"}
   public var protoMessageName: String {return "SettingRealsFromPositiveInts"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -700,7 +700,7 @@ public struct ProtobufUnittest_SettingRealsFromPositiveInts: ProtobufGeneratedMe
   }
 }
 
-public struct ProtobufUnittest_SettingRealsFromNegativeInts: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SettingRealsFromNegativeInts: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_SettingRealsFromNegativeInts"}
   public var protoMessageName: String {return "SettingRealsFromNegativeInts"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -728,7 +728,7 @@ public struct ProtobufUnittest_SettingRealsFromNegativeInts: ProtobufGeneratedMe
 //  Options of complex message types, themselves combined and extended in
 //  various ways.
 
-public struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType1"}
   public var protoMessageName: String {return "ComplexOptionType1"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -857,7 +857,7 @@ public struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, Pro
   }
 }
 
-public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType2"}
   public var protoMessageName: String {return "ComplexOptionType2"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -947,7 +947,7 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
 
   private var _storage = _StorageClass()
 
-  public struct ComplexOptionType4: ProtobufGeneratedMessage {
+  struct ComplexOptionType4: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType2.ComplexOptionType4"}
     public var protoMessageName: String {return "ComplexOptionType4"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1083,7 +1083,7 @@ public struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, Pro
   }
 }
 
-public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
+struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType3"}
   public var protoMessageName: String {return "ComplexOptionType3"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1147,7 +1147,7 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  public struct ComplexOptionType5: ProtobufGeneratedMessage {
+  struct ComplexOptionType5: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType3.ComplexOptionType5"}
     public var protoMessageName: String {return "ComplexOptionType5"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1246,7 +1246,7 @@ public struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedMessage {
+struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOpt6"}
   public var protoMessageName: String {return "ComplexOpt6"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1302,7 +1302,7 @@ public struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedMessage {
 }
 
 ///   Note that we try various different ways of naming the same extension.
-public struct ProtobufUnittest_VariousComplexOptions: ProtobufGeneratedMessage {
+struct ProtobufUnittest_VariousComplexOptions: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_VariousComplexOptions"}
   public var protoMessageName: String {return "VariousComplexOptions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1331,7 +1331,7 @@ public struct ProtobufUnittest_VariousComplexOptions: ProtobufGeneratedMessage {
 //  Definitions for testing aggregate option parsing.
 //  See descriptor_unittest.cc.
 
-public struct ProtobufUnittest_AggregateMessageSet: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufUnittest_AggregateMessageSet: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufUnittest_AggregateMessageSet"}
   public var protoMessageName: String {return "AggregateMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1389,7 +1389,7 @@ public struct ProtobufUnittest_AggregateMessageSet: ProtobufGeneratedMessage, Pr
   }
 }
 
-public struct ProtobufUnittest_AggregateMessageSetElement: ProtobufGeneratedMessage {
+struct ProtobufUnittest_AggregateMessageSetElement: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_AggregateMessageSetElement"}
   public var protoMessageName: String {return "AggregateMessageSetElement"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1450,7 +1450,7 @@ public struct ProtobufUnittest_AggregateMessageSetElement: ProtobufGeneratedMess
 }
 
 ///   A helper type used to test aggregate option parsing
-public struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
+struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_Aggregate"}
   public var protoMessageName: String {return "Aggregate"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1626,7 +1626,7 @@ public struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage {
   }
 }
 
-public struct ProtobufUnittest_AggregateMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittest_AggregateMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_AggregateMessage"}
   public var protoMessageName: String {return "AggregateMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1682,7 +1682,7 @@ public struct ProtobufUnittest_AggregateMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test custom options for nested type.
-public struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
+struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_NestedOptionType"}
   public var protoMessageName: String {return "NestedOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1691,7 +1691,7 @@ public struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case value // = 1
 
@@ -1755,7 +1755,7 @@ public struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
 
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "ProtobufUnittest_NestedOptionType.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1833,7 +1833,7 @@ public struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage {
 
 ///   Custom message option that has a required enum field.
 ///   WARNING: this is strongly discouraged!
-public struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage {
+struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_OldOptionType"}
   public var protoMessageName: String {return "OldOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1846,7 +1846,7 @@ public struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum TestEnum: ProtobufEnum {
+  enum TestEnum: ProtobufEnum {
     public typealias RawValue = Int
     case oldValue // = 0
 
@@ -1951,7 +1951,7 @@ public struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage {
 }
 
 ///   Updated version of the custom option above.
-public struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage {
+struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_NewOptionType"}
   public var protoMessageName: String {return "NewOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1964,7 +1964,7 @@ public struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage {
 
   var unknown = ProtobufUnknownStorage()
 
-  public enum TestEnum: ProtobufEnum {
+  enum TestEnum: ProtobufEnum {
     public typealias RawValue = Int
     case oldValue // = 0
     case newValue // = 1
@@ -2077,7 +2077,7 @@ public struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage {
 }
 
 ///   Test message using the "required_enum_opt" option defined above.
-public struct ProtobufUnittest_TestMessageWithRequiredEnumOption: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMessageWithRequiredEnumOption: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageWithRequiredEnumOption"}
   public var protoMessageName: String {return "TestMessageWithRequiredEnumOption"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2188,7 +2188,7 @@ let Google_Protobuf_MethodOptions_methodopt = ProtobufGenericMessageExtension<Pr
 
 let Google_Protobuf_MessageOptions_requiredEnumOpt = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_OldOptionType>, Google_Protobuf_MessageOptions>(protoFieldNumber: 106161807, protoFieldName: "required_enum_opt", jsonFieldName: "requiredEnumOpt", swiftFieldName: "requiredEnumOpt", defaultValue: ProtobufUnittest_OldOptionType())
 
-public func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof, rhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof) -> Bool {
+func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof, rhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof) -> Bool {
   switch (lhs, rhs) {
   case (.oneofField(let l), .oneofField(let r)): return l == r
   case (.None, .None): return true
@@ -2197,92 +2197,92 @@ public func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof,
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var ProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
+  var ProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.Google_Protobuf_MessageOptions_complexOpt4) ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.Google_Protobuf_MessageOptions_complexOpt4, value: newValue)}
   }
-  public var hasProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: Bool {
+  var hasProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.Google_Protobuf_MessageOptions_complexOpt4)
   }
-  public mutating func clearProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4() {
+  mutating func clearProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4() {
     clearExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.Google_Protobuf_MessageOptions_complexOpt4)
   }
 }
 
 extension ProtobufUnittest_AggregateMessageSet {
-  public var ProtobufUnittest_AggregateMessageSetElement_messageSetExtension: ProtobufUnittest_AggregateMessageSetElement {
+  var ProtobufUnittest_AggregateMessageSetElement_messageSetExtension: ProtobufUnittest_AggregateMessageSetElement {
     get {return getExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.ProtobufUnittest_AggregateMessageSet_messageSetExtension) ?? ProtobufUnittest_AggregateMessageSetElement()}
     set {setExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.ProtobufUnittest_AggregateMessageSet_messageSetExtension, value: newValue)}
   }
-  public var hasProtobufUnittest_AggregateMessageSetElement_messageSetExtension: Bool {
+  var hasProtobufUnittest_AggregateMessageSetElement_messageSetExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.ProtobufUnittest_AggregateMessageSet_messageSetExtension)
   }
-  public mutating func clearProtobufUnittest_AggregateMessageSetElement_messageSetExtension() {
+  mutating func clearProtobufUnittest_AggregateMessageSetElement_messageSetExtension() {
     clearExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.ProtobufUnittest_AggregateMessageSet_messageSetExtension)
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  public var ProtobufUnittest_Aggregate_nested: ProtobufUnittest_Aggregate {
+  var ProtobufUnittest_Aggregate_nested: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.Google_Protobuf_FileOptions_nested) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.Google_Protobuf_FileOptions_nested, value: newValue)}
   }
-  public var hasProtobufUnittest_Aggregate_nested: Bool {
+  var hasProtobufUnittest_Aggregate_nested: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.Google_Protobuf_FileOptions_nested)
   }
-  public mutating func clearProtobufUnittest_Aggregate_nested() {
+  mutating func clearProtobufUnittest_Aggregate_nested() {
     clearExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.Google_Protobuf_FileOptions_nested)
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  public var ProtobufUnittest_NestedOptionType_nestedExtension: Int32 {
+  var ProtobufUnittest_NestedOptionType_nestedExtension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.Google_Protobuf_FileOptions_nestedExtension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.Google_Protobuf_FileOptions_nestedExtension, value: newValue)}
   }
-  public var hasProtobufUnittest_NestedOptionType_nestedExtension: Bool {
+  var hasProtobufUnittest_NestedOptionType_nestedExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.Google_Protobuf_FileOptions_nestedExtension)
   }
-  public mutating func clearProtobufUnittest_NestedOptionType_nestedExtension() {
+  mutating func clearProtobufUnittest_NestedOptionType_nestedExtension() {
     clearExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.Google_Protobuf_FileOptions_nestedExtension)
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  public var fileOpt1: UInt64 {
+  var fileOpt1: UInt64 {
     get {return getExtensionValue(ext: Google_Protobuf_FileOptions_fileOpt1) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_FileOptions_fileOpt1, value: newValue)}
   }
-  public var hasFileOpt1: Bool {
+  var hasFileOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_FileOptions_fileOpt1)
   }
-  public mutating func clearFileOpt1() {
+  mutating func clearFileOpt1() {
     clearExtensionValue(ext: Google_Protobuf_FileOptions_fileOpt1)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var messageOpt1: Int32 {
+  var messageOpt1: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_messageOpt1) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_messageOpt1, value: newValue)}
   }
-  public var hasMessageOpt1: Bool {
+  var hasMessageOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_messageOpt1)
   }
-  public mutating func clearMessageOpt1() {
+  mutating func clearMessageOpt1() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_messageOpt1)
   }
 }
 
 extension Google_Protobuf_FieldOptions {
-  public var fieldOpt1: UInt64 {
+  var fieldOpt1: UInt64 {
     get {return getExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt1) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt1, value: newValue)}
   }
-  public var hasFieldOpt1: Bool {
+  var hasFieldOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt1)
   }
-  public mutating func clearFieldOpt1() {
+  mutating func clearFieldOpt1() {
     clearExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt1)
   }
 }
@@ -2290,513 +2290,513 @@ extension Google_Protobuf_FieldOptions {
 extension Google_Protobuf_FieldOptions {
   ///   This is useful for testing that we correctly register default values for
   ///   extension options.
-  public var fieldOpt2: Int32 {
+  var fieldOpt2: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt2) ?? 42}
     set {setExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt2, value: newValue)}
   }
-  public var hasFieldOpt2: Bool {
+  var hasFieldOpt2: Bool {
     return hasExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt2)
   }
-  public mutating func clearFieldOpt2() {
+  mutating func clearFieldOpt2() {
     clearExtensionValue(ext: Google_Protobuf_FieldOptions_fieldOpt2)
   }
 }
 
 extension Google_Protobuf_OneofOptions {
-  public var oneofOpt1: Int32 {
+  var oneofOpt1: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_OneofOptions_oneofOpt1) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_OneofOptions_oneofOpt1, value: newValue)}
   }
-  public var hasOneofOpt1: Bool {
+  var hasOneofOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_OneofOptions_oneofOpt1)
   }
-  public mutating func clearOneofOpt1() {
+  mutating func clearOneofOpt1() {
     clearExtensionValue(ext: Google_Protobuf_OneofOptions_oneofOpt1)
   }
 }
 
 extension Google_Protobuf_EnumOptions {
-  public var enumOpt1: Int32 {
+  var enumOpt1: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_EnumOptions_enumOpt1) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_EnumOptions_enumOpt1, value: newValue)}
   }
-  public var hasEnumOpt1: Bool {
+  var hasEnumOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_EnumOptions_enumOpt1)
   }
-  public mutating func clearEnumOpt1() {
+  mutating func clearEnumOpt1() {
     clearExtensionValue(ext: Google_Protobuf_EnumOptions_enumOpt1)
   }
 }
 
 extension Google_Protobuf_EnumValueOptions {
-  public var enumValueOpt1: Int32 {
+  var enumValueOpt1: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumValueOpt1) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumValueOpt1, value: newValue)}
   }
-  public var hasEnumValueOpt1: Bool {
+  var hasEnumValueOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumValueOpt1)
   }
-  public mutating func clearEnumValueOpt1() {
+  mutating func clearEnumValueOpt1() {
     clearExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumValueOpt1)
   }
 }
 
 extension Google_Protobuf_ServiceOptions {
-  public var serviceOpt1: Int64 {
+  var serviceOpt1: Int64 {
     get {return getExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceOpt1) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceOpt1, value: newValue)}
   }
-  public var hasServiceOpt1: Bool {
+  var hasServiceOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceOpt1)
   }
-  public mutating func clearServiceOpt1() {
+  mutating func clearServiceOpt1() {
     clearExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceOpt1)
   }
 }
 
 extension Google_Protobuf_MethodOptions {
-  public var methodOpt1: ProtobufUnittest_MethodOpt1 {
+  var methodOpt1: ProtobufUnittest_MethodOpt1 {
     get {return getExtensionValue(ext: Google_Protobuf_MethodOptions_methodOpt1) ?? ProtobufUnittest_MethodOpt1.val1}
     set {setExtensionValue(ext: Google_Protobuf_MethodOptions_methodOpt1, value: newValue)}
   }
-  public var hasMethodOpt1: Bool {
+  var hasMethodOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MethodOptions_methodOpt1)
   }
-  public mutating func clearMethodOpt1() {
+  mutating func clearMethodOpt1() {
     clearExtensionValue(ext: Google_Protobuf_MethodOptions_methodOpt1)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var boolOpt: Bool {
+  var boolOpt: Bool {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_boolOpt) ?? false}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_boolOpt, value: newValue)}
   }
-  public var hasBoolOpt: Bool {
+  var hasBoolOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_boolOpt)
   }
-  public mutating func clearBoolOpt() {
+  mutating func clearBoolOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_boolOpt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var int32Opt: Int32 {
+  var int32Opt: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_int32Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_int32Opt, value: newValue)}
   }
-  public var hasInt32Opt: Bool {
+  var hasInt32Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_int32Opt)
   }
-  public mutating func clearInt32Opt() {
+  mutating func clearInt32Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_int32Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var int64Opt: Int64 {
+  var int64Opt: Int64 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_int64Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_int64Opt, value: newValue)}
   }
-  public var hasInt64Opt: Bool {
+  var hasInt64Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_int64Opt)
   }
-  public mutating func clearInt64Opt() {
+  mutating func clearInt64Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_int64Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var uint32Opt: UInt32 {
+  var uint32Opt: UInt32 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_uint32Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_uint32Opt, value: newValue)}
   }
-  public var hasUint32Opt: Bool {
+  var hasUint32Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_uint32Opt)
   }
-  public mutating func clearUint32Opt() {
+  mutating func clearUint32Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_uint32Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var uint64Opt: UInt64 {
+  var uint64Opt: UInt64 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_uint64Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_uint64Opt, value: newValue)}
   }
-  public var hasUint64Opt: Bool {
+  var hasUint64Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_uint64Opt)
   }
-  public mutating func clearUint64Opt() {
+  mutating func clearUint64Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_uint64Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var sint32Opt: Int32 {
+  var sint32Opt: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sint32Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sint32Opt, value: newValue)}
   }
-  public var hasSint32Opt: Bool {
+  var hasSint32Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_sint32Opt)
   }
-  public mutating func clearSint32Opt() {
+  mutating func clearSint32Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_sint32Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var sint64Opt: Int64 {
+  var sint64Opt: Int64 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sint64Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sint64Opt, value: newValue)}
   }
-  public var hasSint64Opt: Bool {
+  var hasSint64Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_sint64Opt)
   }
-  public mutating func clearSint64Opt() {
+  mutating func clearSint64Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_sint64Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var fixed32Opt: UInt32 {
+  var fixed32Opt: UInt32 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_fixed32Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_fixed32Opt, value: newValue)}
   }
-  public var hasFixed32Opt: Bool {
+  var hasFixed32Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_fixed32Opt)
   }
-  public mutating func clearFixed32Opt() {
+  mutating func clearFixed32Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_fixed32Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var fixed64Opt: UInt64 {
+  var fixed64Opt: UInt64 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_fixed64Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_fixed64Opt, value: newValue)}
   }
-  public var hasFixed64Opt: Bool {
+  var hasFixed64Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_fixed64Opt)
   }
-  public mutating func clearFixed64Opt() {
+  mutating func clearFixed64Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_fixed64Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var sfixed32Opt: Int32 {
+  var sfixed32Opt: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed32Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed32Opt, value: newValue)}
   }
-  public var hasSfixed32Opt: Bool {
+  var hasSfixed32Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed32Opt)
   }
-  public mutating func clearSfixed32Opt() {
+  mutating func clearSfixed32Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed32Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var sfixed64Opt: Int64 {
+  var sfixed64Opt: Int64 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed64Opt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed64Opt, value: newValue)}
   }
-  public var hasSfixed64Opt: Bool {
+  var hasSfixed64Opt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed64Opt)
   }
-  public mutating func clearSfixed64Opt() {
+  mutating func clearSfixed64Opt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_sfixed64Opt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var floatOpt: Float {
+  var floatOpt: Float {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_floatOpt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_floatOpt, value: newValue)}
   }
-  public var hasFloatOpt: Bool {
+  var hasFloatOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_floatOpt)
   }
-  public mutating func clearFloatOpt() {
+  mutating func clearFloatOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_floatOpt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var doubleOpt: Double {
+  var doubleOpt: Double {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_doubleOpt) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_doubleOpt, value: newValue)}
   }
-  public var hasDoubleOpt: Bool {
+  var hasDoubleOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_doubleOpt)
   }
-  public mutating func clearDoubleOpt() {
+  mutating func clearDoubleOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_doubleOpt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var stringOpt: String {
+  var stringOpt: String {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_stringOpt) ?? ""}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_stringOpt, value: newValue)}
   }
-  public var hasStringOpt: Bool {
+  var hasStringOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_stringOpt)
   }
-  public mutating func clearStringOpt() {
+  mutating func clearStringOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_stringOpt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var bytesOpt: Data {
+  var bytesOpt: Data {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt) ?? Data()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt, value: newValue)}
   }
-  public var hasBytesOpt: Bool {
+  var hasBytesOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt)
   }
-  public mutating func clearBytesOpt() {
+  mutating func clearBytesOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_bytesOpt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var enumOpt: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType {
+  var enumOpt: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_enumOpt) ?? ProtobufUnittest_DummyMessageContainingEnum.TestEnumType.testOptionEnumType1}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_enumOpt, value: newValue)}
   }
-  public var hasEnumOpt: Bool {
+  var hasEnumOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_enumOpt)
   }
-  public mutating func clearEnumOpt() {
+  mutating func clearEnumOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_enumOpt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var messageTypeOpt: ProtobufUnittest_DummyMessageInvalidAsOptionType {
+  var messageTypeOpt: ProtobufUnittest_DummyMessageInvalidAsOptionType {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_messageTypeOpt) ?? ProtobufUnittest_DummyMessageInvalidAsOptionType()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_messageTypeOpt, value: newValue)}
   }
-  public var hasMessageTypeOpt: Bool {
+  var hasMessageTypeOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_messageTypeOpt)
   }
-  public mutating func clearMessageTypeOpt() {
+  mutating func clearMessageTypeOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_messageTypeOpt)
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType1 {
-  public var quux: Int32 {
+  var quux: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_quux) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_quux, value: newValue)}
   }
-  public var hasQuux: Bool {
+  var hasQuux: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_quux)
   }
-  public mutating func clearQuux() {
+  mutating func clearQuux() {
     clearExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_quux)
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType1 {
-  public var corge: ProtobufUnittest_ComplexOptionType3 {
+  var corge: ProtobufUnittest_ComplexOptionType3 {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_corge) ?? ProtobufUnittest_ComplexOptionType3()}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_corge, value: newValue)}
   }
-  public var hasCorge: Bool {
+  var hasCorge: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_corge)
   }
-  public mutating func clearCorge() {
+  mutating func clearCorge() {
     clearExtensionValue(ext: ProtobufUnittest_ComplexOptionType1_corge)
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType2 {
-  public var grault: Int32 {
+  var grault: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_grault) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_grault, value: newValue)}
   }
-  public var hasGrault: Bool {
+  var hasGrault: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_grault)
   }
-  public mutating func clearGrault() {
+  mutating func clearGrault() {
     clearExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_grault)
   }
 }
 
 extension ProtobufUnittest_ComplexOptionType2 {
-  public var garply: ProtobufUnittest_ComplexOptionType1 {
+  var garply: ProtobufUnittest_ComplexOptionType1 {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_garply) ?? ProtobufUnittest_ComplexOptionType1()}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_garply, value: newValue)}
   }
-  public var hasGarply: Bool {
+  var hasGarply: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_garply)
   }
-  public mutating func clearGarply() {
+  mutating func clearGarply() {
     clearExtensionValue(ext: ProtobufUnittest_ComplexOptionType2_garply)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var complexOpt1: ProtobufUnittest_ComplexOptionType1 {
+  var complexOpt1: ProtobufUnittest_ComplexOptionType1 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt1) ?? ProtobufUnittest_ComplexOptionType1()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt1, value: newValue)}
   }
-  public var hasComplexOpt1: Bool {
+  var hasComplexOpt1: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt1)
   }
-  public mutating func clearComplexOpt1() {
+  mutating func clearComplexOpt1() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt1)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var complexOpt2: ProtobufUnittest_ComplexOptionType2 {
+  var complexOpt2: ProtobufUnittest_ComplexOptionType2 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt2) ?? ProtobufUnittest_ComplexOptionType2()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt2, value: newValue)}
   }
-  public var hasComplexOpt2: Bool {
+  var hasComplexOpt2: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt2)
   }
-  public mutating func clearComplexOpt2() {
+  mutating func clearComplexOpt2() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt2)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var complexOpt3: ProtobufUnittest_ComplexOptionType3 {
+  var complexOpt3: ProtobufUnittest_ComplexOptionType3 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt3) ?? ProtobufUnittest_ComplexOptionType3()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt3, value: newValue)}
   }
-  public var hasComplexOpt3: Bool {
+  var hasComplexOpt3: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt3)
   }
-  public mutating func clearComplexOpt3() {
+  mutating func clearComplexOpt3() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt3)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var complexOpt6: ProtobufUnittest_ComplexOpt6 {
+  var complexOpt6: ProtobufUnittest_ComplexOpt6 {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt6) ?? ProtobufUnittest_ComplexOpt6()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt6, value: newValue)}
   }
-  public var hasComplexOpt6: Bool {
+  var hasComplexOpt6: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt6)
   }
-  public mutating func clearComplexOpt6() {
+  mutating func clearComplexOpt6() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_complexOpt6)
   }
 }
 
 extension Google_Protobuf_FileOptions {
-  public var fileopt: ProtobufUnittest_Aggregate {
+  var fileopt: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: Google_Protobuf_FileOptions_fileopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: Google_Protobuf_FileOptions_fileopt, value: newValue)}
   }
-  public var hasFileopt: Bool {
+  var hasFileopt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_FileOptions_fileopt)
   }
-  public mutating func clearFileopt() {
+  mutating func clearFileopt() {
     clearExtensionValue(ext: Google_Protobuf_FileOptions_fileopt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var msgopt: ProtobufUnittest_Aggregate {
+  var msgopt: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_msgopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_msgopt, value: newValue)}
   }
-  public var hasMsgopt: Bool {
+  var hasMsgopt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_msgopt)
   }
-  public mutating func clearMsgopt() {
+  mutating func clearMsgopt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_msgopt)
   }
 }
 
 extension Google_Protobuf_FieldOptions {
-  public var fieldopt: ProtobufUnittest_Aggregate {
+  var fieldopt: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: Google_Protobuf_FieldOptions_fieldopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: Google_Protobuf_FieldOptions_fieldopt, value: newValue)}
   }
-  public var hasFieldopt: Bool {
+  var hasFieldopt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_FieldOptions_fieldopt)
   }
-  public mutating func clearFieldopt() {
+  mutating func clearFieldopt() {
     clearExtensionValue(ext: Google_Protobuf_FieldOptions_fieldopt)
   }
 }
 
 extension Google_Protobuf_EnumOptions {
-  public var enumopt: ProtobufUnittest_Aggregate {
+  var enumopt: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: Google_Protobuf_EnumOptions_enumopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: Google_Protobuf_EnumOptions_enumopt, value: newValue)}
   }
-  public var hasEnumopt: Bool {
+  var hasEnumopt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_EnumOptions_enumopt)
   }
-  public mutating func clearEnumopt() {
+  mutating func clearEnumopt() {
     clearExtensionValue(ext: Google_Protobuf_EnumOptions_enumopt)
   }
 }
 
 extension Google_Protobuf_EnumValueOptions {
-  public var enumvalopt: ProtobufUnittest_Aggregate {
+  var enumvalopt: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumvalopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumvalopt, value: newValue)}
   }
-  public var hasEnumvalopt: Bool {
+  var hasEnumvalopt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumvalopt)
   }
-  public mutating func clearEnumvalopt() {
+  mutating func clearEnumvalopt() {
     clearExtensionValue(ext: Google_Protobuf_EnumValueOptions_enumvalopt)
   }
 }
 
 extension Google_Protobuf_ServiceOptions {
-  public var serviceopt: ProtobufUnittest_Aggregate {
+  var serviceopt: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceopt, value: newValue)}
   }
-  public var hasServiceopt: Bool {
+  var hasServiceopt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceopt)
   }
-  public mutating func clearServiceopt() {
+  mutating func clearServiceopt() {
     clearExtensionValue(ext: Google_Protobuf_ServiceOptions_serviceopt)
   }
 }
 
 extension Google_Protobuf_MethodOptions {
-  public var methodopt: ProtobufUnittest_Aggregate {
+  var methodopt: ProtobufUnittest_Aggregate {
     get {return getExtensionValue(ext: Google_Protobuf_MethodOptions_methodopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: Google_Protobuf_MethodOptions_methodopt, value: newValue)}
   }
-  public var hasMethodopt: Bool {
+  var hasMethodopt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MethodOptions_methodopt)
   }
-  public mutating func clearMethodopt() {
+  mutating func clearMethodopt() {
     clearExtensionValue(ext: Google_Protobuf_MethodOptions_methodopt)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  public var requiredEnumOpt: ProtobufUnittest_OldOptionType {
+  var requiredEnumOpt: ProtobufUnittest_OldOptionType {
     get {return getExtensionValue(ext: Google_Protobuf_MessageOptions_requiredEnumOpt) ?? ProtobufUnittest_OldOptionType()}
     set {setExtensionValue(ext: Google_Protobuf_MessageOptions_requiredEnumOpt, value: newValue)}
   }
-  public var hasRequiredEnumOpt: Bool {
+  var hasRequiredEnumOpt: Bool {
     return hasExtensionValue(ext: Google_Protobuf_MessageOptions_requiredEnumOpt)
   }
-  public mutating func clearRequiredEnumOpt() {
+  mutating func clearRequiredEnumOpt() {
     clearExtensionValue(ext: Google_Protobuf_MessageOptions_requiredEnumOpt)
   }
 }
 
-public let ProtobufUnittest_UnittestCustomOptions_Extensions: ProtobufExtensionSet = [
+let ProtobufUnittest_UnittestCustomOptions_Extensions: ProtobufExtensionSet = [
   Google_Protobuf_FileOptions_fileOpt1,
   Google_Protobuf_MessageOptions_messageOpt1,
   Google_Protobuf_FieldOptions_fieldOpt1,

@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
+struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Swift_Performance_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "swift.performance"}

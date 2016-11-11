@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum Proto2NofieldpresenceUnittest_ForeignEnum: ProtobufEnum {
+enum Proto2NofieldpresenceUnittest_ForeignEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -128,7 +128,7 @@ public enum Proto2NofieldpresenceUnittest_ForeignEnum: ProtobufEnum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessage {
+struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
@@ -594,7 +594,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
 
   private var _storage = _StorageClass()
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -664,7 +664,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
     }
   }
 
-  public enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: ProtobufEnum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -748,7 +748,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
 
   }
 
-  public struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage {
     public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
@@ -1123,7 +1123,7 @@ public struct Proto2NofieldpresenceUnittest_TestAllTypes: ProtobufGeneratedMessa
   }
 }
 
-public struct Proto2NofieldpresenceUnittest_TestProto2Required: ProtobufGeneratedMessage {
+struct Proto2NofieldpresenceUnittest_TestProto2Required: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_TestProto2Required"}
   public var protoMessageName: String {return "TestProto2Required"}
   public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
@@ -1205,7 +1205,7 @@ public struct Proto2NofieldpresenceUnittest_TestProto2Required: ProtobufGenerate
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-public struct Proto2NofieldpresenceUnittest_ForeignMessage: ProtobufGeneratedMessage {
+struct Proto2NofieldpresenceUnittest_ForeignMessage: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
@@ -1242,7 +1242,7 @@ public struct Proto2NofieldpresenceUnittest_ForeignMessage: ProtobufGeneratedMes
   }
 }
 
-public func ==(lhs: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField, rhs: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField, rhs: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r

@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
+enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
   public typealias RawValue = Int
   case foo // = 1
 
@@ -108,7 +108,7 @@ public enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
 
 //  *_generic_services are false by default.
 
-public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Google_Protobuf_NoGenericServicesTest_TestMessage"}
   public var protoMessageName: String {return "TestMessage"}
   public var protoPackageName: String {return "google.protobuf.no_generic_services_test"}
@@ -193,18 +193,18 @@ public struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGenerat
 let Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(protoFieldNumber: 1000, protoFieldName: "test_extension", jsonFieldName: "testExtension", swiftFieldName: "testExtension", defaultValue: 0)
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
-  public var testExtension: Int32 {
+  var testExtension: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension, value: newValue)}
   }
-  public var hasTestExtension: Bool {
+  var hasTestExtension: Bool {
     return hasExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension)
   }
-  public mutating func clearTestExtension() {
+  mutating func clearTestExtension() {
     clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension)
   }
 }
 
-public let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: ProtobufExtensionSet = [
+let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: ProtobufExtensionSet = [
   Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension
 ]

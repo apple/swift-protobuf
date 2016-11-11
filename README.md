@@ -66,11 +66,25 @@ Building the plugin should be simple on any supported Swift platform:
 ```
 $ git clone https://github.com/apple/swift-protobuf.git
 $ cd swift-protobuf
+```
+
+Pick what released version of SwiftProtobuf you are going to use.  You can get
+a list of tags with:
+
+```
+$ git tag -l
+```
+
+Once you pick the version you will use, set your local state to match, and
+build the protoc plugin:
+
+```
+$ git checkout tag/[tag_name]
 $ swift build
 ```
 
 This will create a binary called `protoc-gen-swift` in the `.build/debug`
-directory.  To install, just copy this one executable anywhere in your PATH.
+directory.  To install, just copy this one executable anywhere in your `PATH`.
 
 ### Converting .proto files into Swift
 
@@ -92,16 +106,9 @@ file in the output directory.
 After copying the `.pb.swift` files into your project, you will need to add the
 [SwiftProtobuf library](https://github.com/apple/swift-protobuf) to your
 project to support the generated code.
-If you are using the Swift Package Manager, you should first check
-what version of `protoc-gen-swift` you are currently using:
-
-```
-$ protoc-gen-swift --version
-protoc-gen-swift 0.9.23
-```
-
-And then add a dependency to your Package.swift file.  Adjust the `Version()`
-here to match the `protoc-gen-swift` version you checked above:
+If you are using the Swift Package Manager, add a dependency to your
+`Package.swift` file.  Adjust the `Version()` here to match the `[tag_name]`
+you used to build the plugin above:
 
 ```swift
 dependencies: [
@@ -119,10 +126,11 @@ If you are using Xcode, then you should:
 
 ## Using the library with CocoaPods
 
-If you're using CocoaPods, add this to your `Podfile`:
+If you're using CocoaPods, add this to your `Podfile` but adjust the `:tag` to
+match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git'
+pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.23'
 ```
 
 And run `pod install`.

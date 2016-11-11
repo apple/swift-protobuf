@@ -98,7 +98,7 @@ message Message2 {
       string oneof_string   = 64 [default = "string"];
        bytes oneof_bytes    = 65 [default = "data"];
        group OneofGroup     = 66 {
-         optional int32 a = 67;
+         optional int32 a = 67 [default = 116];
          optional int32 b = 167;
        }
      Message2 oneof_message = 68;

@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessage {
+struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "ProtobufUnittestNoArena_ForeignMessageLite"}
   public var protoMessageName: String {return "ForeignMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_no_arena"}

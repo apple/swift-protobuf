@@ -304,11 +304,11 @@ regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-p
 
 # Rebuild just the protos included in the runtime library
 regenerate-library-protos: build
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/SwiftProtobuf ${LIBRARY_PROTOS}
+	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/SwiftProtobuf ${LIBRARY_PROTOS}
 
 # Rebuild just the protos used by the plugin
 regenerate-plugin-protos: build
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/PluginLibrary ${PLUGIN_PROTOS}
+	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/PluginLibrary ${PLUGIN_PROTOS}
 
 # Rebuild just the protos used by the runtime test suite
 # Note: Some of these protos define the same package.(message|enum)s, so they

@@ -10,7 +10,7 @@ import Foundation
 import SwiftProtobuf
 
 
-public struct TestFoo: ProtobufGeneratedMessage {
+struct TestFoo: ProtobufGeneratedMessage {
   public var swiftClassName: String {return "TestFoo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "wrong.name.here"}
