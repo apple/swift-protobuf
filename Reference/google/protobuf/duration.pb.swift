@@ -79,7 +79,7 @@ import Foundation
 ///         end.seconds += 1;
 ///         end.nanos -= 1000000000;
 ///       }
-struct Google_Protobuf_Duration: ProtobufGeneratedMessage {
+struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Google_Protobuf_Duration"}
   public var protoMessageName: String {return "Duration"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -91,6 +91,7 @@ struct Google_Protobuf_Duration: ProtobufGeneratedMessage {
     "seconds": 1,
     "nanos": 2,
   ]}
+
 
   ///   Signed seconds of the span of time. Must be from -315,576,000,000
   ///   to +315,576,000,000 inclusive.
@@ -106,15 +107,12 @@ struct Google_Protobuf_Duration: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &seconds)
-    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &nanos)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &seconds)
+    case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &nanos)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

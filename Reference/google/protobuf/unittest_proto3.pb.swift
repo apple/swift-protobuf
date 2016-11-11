@@ -367,7 +367,7 @@ enum Proto3TestSparseEnum: ProtobufEnum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct Proto3TestAllTypes: ProtobufGeneratedMessage {
+struct Proto3TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -522,59 +522,55 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_singleInt32)
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_singleInt64)
-      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_singleUint32)
-      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_singleUint64)
-      case 5: handled = try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_singleSint32)
-      case 6: handled = try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_singleSint64)
-      case 7: handled = try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_singleFixed32)
-      case 8: handled = try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_singleFixed64)
-      case 9: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_singleSfixed32)
-      case 10: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_singleSfixed64)
-      case 11: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_singleFloat)
-      case 12: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_singleDouble)
-      case 13: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_singleBool)
-      case 14: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_singleString)
-      case 15: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_singleBytes)
-      case 18: handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &_singleNestedMessage)
-      case 19: handled = try setter.decodeSingularMessageField(fieldType: Proto3ForeignMessage.self, value: &_singleForeignMessage)
-      case 20: handled = try setter.decodeSingularMessageField(fieldType: Proto3ImportMessage.self, value: &_singleImportMessage)
-      case 21: handled = try setter.decodeSingularField(fieldType: Proto3TestAllTypes.NestedEnum.self, value: &_singleNestedEnum)
-      case 22: handled = try setter.decodeSingularField(fieldType: Proto3ForeignEnum.self, value: &_singleForeignEnum)
-      case 23: handled = try setter.decodeSingularField(fieldType: Proto3ImportEnum.self, value: &_singleImportEnum)
-      case 26: handled = try setter.decodeSingularMessageField(fieldType: Proto3PublicImportMessage.self, value: &_singlePublicImportMessage)
-      case 31: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
-      case 32: handled = try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
-      case 33: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
-      case 34: handled = try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &_repeatedUint64)
-      case 35: handled = try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &_repeatedSint32)
-      case 36: handled = try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &_repeatedSint64)
-      case 37: handled = try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &_repeatedFixed32)
-      case 38: handled = try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &_repeatedFixed64)
-      case 39: handled = try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &_repeatedSfixed32)
-      case 40: handled = try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &_repeatedSfixed64)
-      case 41: handled = try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &_repeatedFloat)
-      case 42: handled = try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &_repeatedDouble)
-      case 43: handled = try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
-      case 44: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
-      case 45: handled = try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
-      case 48: handled = try setter.decodeRepeatedMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &_repeatedNestedMessage)
-      case 49: handled = try setter.decodeRepeatedMessageField(fieldType: Proto3ForeignMessage.self, value: &_repeatedForeignMessage)
-      case 50: handled = try setter.decodeRepeatedMessageField(fieldType: Proto3ImportMessage.self, value: &_repeatedImportMessage)
-      case 51: handled = try setter.decodePackedField(fieldType: Proto3TestAllTypes.NestedEnum.self, value: &_repeatedNestedEnum)
-      case 52: handled = try setter.decodePackedField(fieldType: Proto3ForeignEnum.self, value: &_repeatedForeignEnum)
-      case 53: handled = try setter.decodePackedField(fieldType: Proto3ImportEnum.self, value: &_repeatedImportEnum)
-      case 54: handled = try setter.decodeRepeatedMessageField(fieldType: Proto3PublicImportMessage.self, value: &_repeatedPublicImportMessage)
-      case 111, 112, 113, 114:
-        handled = try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_singleInt32)
+      case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_singleInt64)
+      case 3: try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_singleUint32)
+      case 4: try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_singleUint64)
+      case 5: try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_singleSint32)
+      case 6: try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_singleSint64)
+      case 7: try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_singleFixed32)
+      case 8: try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_singleFixed64)
+      case 9: try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_singleSfixed32)
+      case 10: try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_singleSfixed64)
+      case 11: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_singleFloat)
+      case 12: try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_singleDouble)
+      case 13: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_singleBool)
+      case 14: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_singleString)
+      case 15: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_singleBytes)
+      case 18: try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &_singleNestedMessage)
+      case 19: try setter.decodeSingularMessageField(fieldType: Proto3ForeignMessage.self, value: &_singleForeignMessage)
+      case 20: try setter.decodeSingularMessageField(fieldType: Proto3ImportMessage.self, value: &_singleImportMessage)
+      case 21: try setter.decodeSingularField(fieldType: Proto3TestAllTypes.NestedEnum.self, value: &_singleNestedEnum)
+      case 22: try setter.decodeSingularField(fieldType: Proto3ForeignEnum.self, value: &_singleForeignEnum)
+      case 23: try setter.decodeSingularField(fieldType: Proto3ImportEnum.self, value: &_singleImportEnum)
+      case 26: try setter.decodeSingularMessageField(fieldType: Proto3PublicImportMessage.self, value: &_singlePublicImportMessage)
+      case 31: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
+      case 32: try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
+      case 33: try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
+      case 34: try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &_repeatedUint64)
+      case 35: try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &_repeatedSint32)
+      case 36: try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &_repeatedSint64)
+      case 37: try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &_repeatedFixed32)
+      case 38: try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &_repeatedFixed64)
+      case 39: try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &_repeatedSfixed32)
+      case 40: try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &_repeatedSfixed64)
+      case 41: try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &_repeatedFloat)
+      case 42: try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &_repeatedDouble)
+      case 43: try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
+      case 44: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
+      case 45: try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
+      case 48: try setter.decodeRepeatedMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &_repeatedNestedMessage)
+      case 49: try setter.decodeRepeatedMessageField(fieldType: Proto3ForeignMessage.self, value: &_repeatedForeignMessage)
+      case 50: try setter.decodeRepeatedMessageField(fieldType: Proto3ImportMessage.self, value: &_repeatedImportMessage)
+      case 51: try setter.decodePackedField(fieldType: Proto3TestAllTypes.NestedEnum.self, value: &_repeatedNestedEnum)
+      case 52: try setter.decodePackedField(fieldType: Proto3ForeignEnum.self, value: &_repeatedForeignEnum)
+      case 53: try setter.decodePackedField(fieldType: Proto3ImportEnum.self, value: &_repeatedImportEnum)
+      case 54: try setter.decodeRepeatedMessageField(fieldType: Proto3PublicImportMessage.self, value: &_repeatedPublicImportMessage)
+      case 111, 112, 113, 114: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -815,6 +811,7 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3TestAllTypes.NestedMessage)
@@ -830,35 +827,32 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 111:
         var value = UInt32()
-        handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
         self = .oneofUint32(value)
       case 112:
         var value: Proto3TestAllTypes.NestedMessage?
-        handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &value)
+        if let value = value {
           self = .oneofNestedMessage(value)
         }
       case 113:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .oneofString(value)
       case 114:
         var value = Data()
-        handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
@@ -987,7 +981,7 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   }
 
-  struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
     public var swiftClassName: String {return "Proto3TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -998,6 +992,7 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
       "bb": 1,
     ]}
 
+
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
@@ -1005,14 +1000,11 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &bb)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &bb)
+      default: break
       }
-      return handled
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1332,8 +1324,8 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1353,7 +1345,7 @@ struct Proto3TestAllTypes: ProtobufGeneratedMessage {
 }
 
 ///   This proto includes a recusively nested message.
-struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
+struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3NestedTestAllTypes"}
   public var protoMessageName: String {return "NestedTestAllTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1376,16 +1368,13 @@ struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto3NestedTestAllTypes.self, value: &_child)
-      case 2: handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.self, value: &_payload)
-      case 3: handled = try setter.decodeRepeatedMessageField(fieldType: Proto3NestedTestAllTypes.self, value: &_repeatedChild)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularMessageField(fieldType: Proto3NestedTestAllTypes.self, value: &_child)
+      case 2: try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.self, value: &_payload)
+      case 3: try setter.decodeRepeatedMessageField(fieldType: Proto3NestedTestAllTypes.self, value: &_repeatedChild)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -1418,6 +1407,7 @@ struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var child: Proto3NestedTestAllTypes {
     get {return _storage._child ?? Proto3NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
@@ -1447,8 +1437,8 @@ struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1467,7 +1457,7 @@ struct Proto3NestedTestAllTypes: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
+struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestDeprecatedFields"}
   public var protoMessageName: String {return "TestDeprecatedFields"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1478,18 +1468,16 @@ struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
     "deprecated_int32": 1,
   ]}
 
+
   public var deprecatedInt32: Int32 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &deprecatedInt32)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &deprecatedInt32)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1506,7 +1494,7 @@ struct Proto3TestDeprecatedFields: ProtobufGeneratedMessage {
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-struct Proto3ForeignMessage: ProtobufGeneratedMessage {
+struct Proto3ForeignMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1517,18 +1505,16 @@ struct Proto3ForeignMessage: ProtobufGeneratedMessage {
     "c": 1,
   ]}
 
+
   public var c: Int32 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &c)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &c)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1543,17 +1529,17 @@ struct Proto3ForeignMessage: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3TestReservedFields: ProtobufGeneratedMessage {
+struct Proto3TestReservedFields: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestReservedFields"}
   public var protoMessageName: String {return "TestReservedFields"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
+
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return false // Proto3 ignores unknown fields
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1565,7 +1551,7 @@ struct Proto3TestReservedFields: ProtobufGeneratedMessage {
 }
 
 ///   Test that we can use NestedMessage from outside TestAllTypes.
-struct Proto3TestForeignNested: ProtobufGeneratedMessage {
+struct Proto3TestForeignNested: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestForeignNested"}
   public var protoMessageName: String {return "TestForeignNested"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1582,14 +1568,11 @@ struct Proto3TestForeignNested: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &_foreignNested)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.NestedMessage.self, value: &_foreignNested)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -1612,6 +1595,7 @@ struct Proto3TestForeignNested: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var foreignNested: Proto3TestAllTypes.NestedMessage {
     get {return _storage._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._foreignNested = newValue}
@@ -1625,8 +1609,8 @@ struct Proto3TestForeignNested: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1646,7 +1630,7 @@ struct Proto3TestForeignNested: ProtobufGeneratedMessage {
 }
 
 ///   Test that really large tag numbers don't break anything.
-struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
+struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestReallyLargeTagNumber"}
   public var protoMessageName: String {return "TestReallyLargeTagNumber"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1659,6 +1643,7 @@ struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
     "bb": 268435455,
   ]}
 
+
   ///   The largest possible tag number is 2^28 - 1, since the wire format uses
   ///   three bits to communicate wire type.
   public var a: Int32 = 0
@@ -1667,15 +1652,12 @@ struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &a)
-    case 268435455: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &bb)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &a)
+    case 268435455: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &bb)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1694,7 +1676,7 @@ struct Proto3TestReallyLargeTagNumber: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
+struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestRecursiveMessage"}
   public var protoMessageName: String {return "TestRecursiveMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1714,15 +1696,12 @@ struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto3TestRecursiveMessage.self, value: &_a)
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_i)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularMessageField(fieldType: Proto3TestRecursiveMessage.self, value: &_a)
+      case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_i)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -1750,6 +1729,7 @@ struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var a: Proto3TestRecursiveMessage {
     get {return _storage._a ?? Proto3TestRecursiveMessage()}
     set {_uniqueStorage()._a = newValue}
@@ -1768,8 +1748,8 @@ struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1789,7 +1769,7 @@ struct Proto3TestRecursiveMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test that mutual recursion works.
-struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
+struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestMutualRecursionA"}
   public var protoMessageName: String {return "TestMutualRecursionA"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1806,14 +1786,11 @@ struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto3TestMutualRecursionB.self, value: &_bb)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularMessageField(fieldType: Proto3TestMutualRecursionB.self, value: &_bb)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -1836,6 +1813,7 @@ struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var bb: Proto3TestMutualRecursionB {
     get {return _storage._bb ?? Proto3TestMutualRecursionB()}
     set {_uniqueStorage()._bb = newValue}
@@ -1849,8 +1827,8 @@ struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1869,7 +1847,7 @@ struct Proto3TestMutualRecursionA: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
+struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestMutualRecursionB"}
   public var protoMessageName: String {return "TestMutualRecursionB"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1889,15 +1867,12 @@ struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto3TestMutualRecursionA.self, value: &_a)
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularMessageField(fieldType: Proto3TestMutualRecursionA.self, value: &_a)
+      case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -1925,6 +1900,7 @@ struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var a: Proto3TestMutualRecursionA {
     get {return _storage._a ?? Proto3TestMutualRecursionA()}
     set {_uniqueStorage()._a = newValue}
@@ -1943,8 +1919,8 @@ struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1965,7 +1941,7 @@ struct Proto3TestMutualRecursionB: ProtobufGeneratedMessage {
 
 ///   Test message with CamelCase field names.  This violates Protocol Buffer
 ///   standard style.
-struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
+struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestCamelCaseFieldNames"}
   public var protoMessageName: String {return "TestCamelCaseFieldNames"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2003,21 +1979,18 @@ struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_primitiveField)
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_stringField)
-      case 3: handled = try setter.decodeSingularField(fieldType: Proto3ForeignEnum.self, value: &_enumField)
-      case 4: handled = try setter.decodeSingularMessageField(fieldType: Proto3ForeignMessage.self, value: &_messageField)
-      case 7: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedPrimitiveField)
-      case 8: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedStringField)
-      case 9: handled = try setter.decodePackedField(fieldType: Proto3ForeignEnum.self, value: &_repeatedEnumField)
-      case 10: handled = try setter.decodeRepeatedMessageField(fieldType: Proto3ForeignMessage.self, value: &_repeatedMessageField)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_primitiveField)
+      case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_stringField)
+      case 3: try setter.decodeSingularField(fieldType: Proto3ForeignEnum.self, value: &_enumField)
+      case 4: try setter.decodeSingularMessageField(fieldType: Proto3ForeignMessage.self, value: &_messageField)
+      case 7: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedPrimitiveField)
+      case 8: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedStringField)
+      case 9: try setter.decodePackedField(fieldType: Proto3ForeignEnum.self, value: &_repeatedEnumField)
+      case 10: try setter.decodeRepeatedMessageField(fieldType: Proto3ForeignMessage.self, value: &_repeatedMessageField)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -2075,6 +2048,7 @@ struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var primitiveField: Int32 {
     get {return _storage._primitiveField}
     set {_uniqueStorage()._primitiveField = newValue}
@@ -2123,8 +2097,8 @@ struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2145,7 +2119,7 @@ struct Proto3TestCamelCaseFieldNames: ProtobufGeneratedMessage {
 
 ///   We list fields out of order, to ensure that we're using field number and not
 ///   field index to determine serialization order.
-struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
+struct Proto3TestFieldOrderings: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestFieldOrderings"}
   public var protoMessageName: String {return "TestFieldOrderings"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2171,17 +2145,14 @@ struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 11: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_myString)
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_myInt)
-      case 101: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_myFloat)
-      case 200: handled = try setter.decodeSingularMessageField(fieldType: Proto3TestFieldOrderings.NestedMessage.self, value: &_singleNestedMessage)
-      default:
-        handled = false
+      case 11: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_myString)
+      case 1: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_myInt)
+      case 101: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_myFloat)
+      case 200: try setter.decodeSingularMessageField(fieldType: Proto3TestFieldOrderings.NestedMessage.self, value: &_singleNestedMessage)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -2219,7 +2190,8 @@ struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
-  struct NestedMessage: ProtobufGeneratedMessage {
+
+  struct NestedMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
     public var swiftClassName: String {return "Proto3TestFieldOrderings.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -2232,6 +2204,7 @@ struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
       "bb": 1,
     ]}
 
+
     public var oo: Int64 = 0
 
     ///   The field name "b" fails to compile in proto1 because it conflicts with
@@ -2241,15 +2214,12 @@ struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &oo)
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &bb)
-      default:
-        handled = false
+      case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &oo)
+      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &bb)
+      default: break
       }
-      return handled
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2296,8 +2266,8 @@ struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2316,7 +2286,7 @@ struct Proto3TestFieldOrderings: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
+struct Proto3SparseEnumMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3SparseEnumMessage"}
   public var protoMessageName: String {return "SparseEnumMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2327,18 +2297,16 @@ struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
     "sparse_enum": 1,
   ]}
 
+
   public var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.testSparseEnumUnspecified
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: Proto3TestSparseEnum.self, value: &sparseEnum)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: Proto3TestSparseEnum.self, value: &sparseEnum)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2354,7 +2322,7 @@ struct Proto3SparseEnumMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test String and Bytes: string is for valid UTF-8 strings
-struct Proto3OneString: ProtobufGeneratedMessage {
+struct Proto3OneString: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3OneString"}
   public var protoMessageName: String {return "OneString"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2365,18 +2333,16 @@ struct Proto3OneString: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: String = ""
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2391,7 +2357,7 @@ struct Proto3OneString: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3MoreString: ProtobufGeneratedMessage {
+struct Proto3MoreString: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3MoreString"}
   public var protoMessageName: String {return "MoreString"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2402,18 +2368,16 @@ struct Proto3MoreString: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: [String] = []
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2428,7 +2392,7 @@ struct Proto3MoreString: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3OneBytes: ProtobufGeneratedMessage {
+struct Proto3OneBytes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3OneBytes"}
   public var protoMessageName: String {return "OneBytes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2439,18 +2403,16 @@ struct Proto3OneBytes: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: Data = Data()
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2465,7 +2427,7 @@ struct Proto3OneBytes: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3MoreBytes: ProtobufGeneratedMessage {
+struct Proto3MoreBytes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3MoreBytes"}
   public var protoMessageName: String {return "MoreBytes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2476,18 +2438,16 @@ struct Proto3MoreBytes: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: Data = Data()
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2503,7 +2463,7 @@ struct Proto3MoreBytes: ProtobufGeneratedMessage {
 }
 
 ///   Test int32, uint32, int64, uint64, and bool are all compatible
-struct Proto3Int32Message: ProtobufGeneratedMessage {
+struct Proto3Int32Message: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3Int32Message"}
   public var protoMessageName: String {return "Int32Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2514,18 +2474,16 @@ struct Proto3Int32Message: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: Int32 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2540,7 +2498,7 @@ struct Proto3Int32Message: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3Uint32Message: ProtobufGeneratedMessage {
+struct Proto3Uint32Message: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3Uint32Message"}
   public var protoMessageName: String {return "Uint32Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2551,18 +2509,16 @@ struct Proto3Uint32Message: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: UInt32 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2577,7 +2533,7 @@ struct Proto3Uint32Message: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3Int64Message: ProtobufGeneratedMessage {
+struct Proto3Int64Message: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3Int64Message"}
   public var protoMessageName: String {return "Int64Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2588,18 +2544,16 @@ struct Proto3Int64Message: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: Int64 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2614,7 +2568,7 @@ struct Proto3Int64Message: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3Uint64Message: ProtobufGeneratedMessage {
+struct Proto3Uint64Message: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3Uint64Message"}
   public var protoMessageName: String {return "Uint64Message"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2625,18 +2579,16 @@ struct Proto3Uint64Message: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: UInt64 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2651,7 +2603,7 @@ struct Proto3Uint64Message: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3BoolMessage: ProtobufGeneratedMessage {
+struct Proto3BoolMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3BoolMessage"}
   public var protoMessageName: String {return "BoolMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2662,18 +2614,16 @@ struct Proto3BoolMessage: ProtobufGeneratedMessage {
     "data": 1,
   ]}
 
+
   public var data: Bool = false
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &data)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &data)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2689,7 +2639,7 @@ struct Proto3BoolMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test oneofs.
-struct Proto3TestOneof: ProtobufGeneratedMessage {
+struct Proto3TestOneof: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestOneof"}
   public var protoMessageName: String {return "TestOneof"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2710,15 +2660,11 @@ struct Proto3TestOneof: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1, 2, 3:
-        handled = try _foo.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-      default:
-        handled = false
+      case 1, 2, 3: try _foo.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -2739,6 +2685,7 @@ struct Proto3TestOneof: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   enum OneOf_Foo: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case fooInt(Int32)
     case fooString(String)
@@ -2753,31 +2700,28 @@ struct Proto3TestOneof: ProtobufGeneratedMessage {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 1:
         var value = Int32()
-        handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
         self = .fooInt(value)
       case 2:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .fooString(value)
       case 3:
         var value: Proto3TestAllTypes?
-        handled = try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Proto3TestAllTypes.self, value: &value)
+        if let value = value {
           self = .fooMessage(value)
         }
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
@@ -2845,8 +2789,8 @@ struct Proto3TestOneof: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2867,7 +2811,7 @@ struct Proto3TestOneof: ProtobufGeneratedMessage {
 
 //  Test messages for packed fields
 
-struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
+struct Proto3TestPackedTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -2904,6 +2848,7 @@ struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
     "packed_enum": 103,
   ]}
 
+
   public var packedInt32: [Int32] = []
 
   public var packedInt64: [Int64] = []
@@ -2934,27 +2879,24 @@ struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 90: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &packedInt32)
-    case 91: handled = try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &packedInt64)
-    case 92: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &packedUint32)
-    case 93: handled = try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &packedUint64)
-    case 94: handled = try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &packedSint32)
-    case 95: handled = try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &packedSint64)
-    case 96: handled = try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &packedFixed32)
-    case 97: handled = try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &packedFixed64)
-    case 98: handled = try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &packedSfixed32)
-    case 99: handled = try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &packedSfixed64)
-    case 100: handled = try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &packedFloat)
-    case 101: handled = try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &packedDouble)
-    case 102: handled = try setter.decodePackedField(fieldType: ProtobufBool.self, value: &packedBool)
-    case 103: handled = try setter.decodePackedField(fieldType: Proto3ForeignEnum.self, value: &packedEnum)
-    default:
-      handled = false
+    case 90: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &packedInt32)
+    case 91: try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &packedInt64)
+    case 92: try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &packedUint32)
+    case 93: try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &packedUint64)
+    case 94: try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &packedSint32)
+    case 95: try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &packedSint64)
+    case 96: try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &packedFixed32)
+    case 97: try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &packedFixed64)
+    case 98: try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &packedSfixed32)
+    case 99: try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &packedSfixed64)
+    case 100: try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &packedFloat)
+    case 101: try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &packedDouble)
+    case 102: try setter.decodePackedField(fieldType: ProtobufBool.self, value: &packedBool)
+    case 103: try setter.decodePackedField(fieldType: Proto3ForeignEnum.self, value: &packedEnum)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3023,7 +2965,7 @@ struct Proto3TestPackedTypes: ProtobufGeneratedMessage {
 
 ///   A message with the same fields as TestPackedTypes, but without packing. Used
 ///   to test packed <-> unpacked wire compatibility.
-struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
+struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestUnpackedTypes"}
   public var protoMessageName: String {return "TestUnpackedTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3060,6 +3002,7 @@ struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
     "unpacked_enum": 103,
   ]}
 
+
   public var unpackedInt32: [Int32] = []
 
   public var unpackedInt64: [Int64] = []
@@ -3090,27 +3033,24 @@ struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 90: handled = try setter.decodeRepeatedField(fieldType: ProtobufInt32.self, value: &unpackedInt32)
-    case 91: handled = try setter.decodeRepeatedField(fieldType: ProtobufInt64.self, value: &unpackedInt64)
-    case 92: handled = try setter.decodeRepeatedField(fieldType: ProtobufUInt32.self, value: &unpackedUint32)
-    case 93: handled = try setter.decodeRepeatedField(fieldType: ProtobufUInt64.self, value: &unpackedUint64)
-    case 94: handled = try setter.decodeRepeatedField(fieldType: ProtobufSInt32.self, value: &unpackedSint32)
-    case 95: handled = try setter.decodeRepeatedField(fieldType: ProtobufSInt64.self, value: &unpackedSint64)
-    case 96: handled = try setter.decodeRepeatedField(fieldType: ProtobufFixed32.self, value: &unpackedFixed32)
-    case 97: handled = try setter.decodeRepeatedField(fieldType: ProtobufFixed64.self, value: &unpackedFixed64)
-    case 98: handled = try setter.decodeRepeatedField(fieldType: ProtobufSFixed32.self, value: &unpackedSfixed32)
-    case 99: handled = try setter.decodeRepeatedField(fieldType: ProtobufSFixed64.self, value: &unpackedSfixed64)
-    case 100: handled = try setter.decodeRepeatedField(fieldType: ProtobufFloat.self, value: &unpackedFloat)
-    case 101: handled = try setter.decodeRepeatedField(fieldType: ProtobufDouble.self, value: &unpackedDouble)
-    case 102: handled = try setter.decodeRepeatedField(fieldType: ProtobufBool.self, value: &unpackedBool)
-    case 103: handled = try setter.decodeRepeatedField(fieldType: Proto3ForeignEnum.self, value: &unpackedEnum)
-    default:
-      handled = false
+    case 90: try setter.decodeRepeatedField(fieldType: ProtobufInt32.self, value: &unpackedInt32)
+    case 91: try setter.decodeRepeatedField(fieldType: ProtobufInt64.self, value: &unpackedInt64)
+    case 92: try setter.decodeRepeatedField(fieldType: ProtobufUInt32.self, value: &unpackedUint32)
+    case 93: try setter.decodeRepeatedField(fieldType: ProtobufUInt64.self, value: &unpackedUint64)
+    case 94: try setter.decodeRepeatedField(fieldType: ProtobufSInt32.self, value: &unpackedSint32)
+    case 95: try setter.decodeRepeatedField(fieldType: ProtobufSInt64.self, value: &unpackedSint64)
+    case 96: try setter.decodeRepeatedField(fieldType: ProtobufFixed32.self, value: &unpackedFixed32)
+    case 97: try setter.decodeRepeatedField(fieldType: ProtobufFixed64.self, value: &unpackedFixed64)
+    case 98: try setter.decodeRepeatedField(fieldType: ProtobufSFixed32.self, value: &unpackedSfixed32)
+    case 99: try setter.decodeRepeatedField(fieldType: ProtobufSFixed64.self, value: &unpackedSfixed64)
+    case 100: try setter.decodeRepeatedField(fieldType: ProtobufFloat.self, value: &unpackedFloat)
+    case 101: try setter.decodeRepeatedField(fieldType: ProtobufDouble.self, value: &unpackedDouble)
+    case 102: try setter.decodeRepeatedField(fieldType: ProtobufBool.self, value: &unpackedBool)
+    case 103: try setter.decodeRepeatedField(fieldType: Proto3ForeignEnum.self, value: &unpackedEnum)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3177,7 +3117,7 @@ struct Proto3TestUnpackedTypes: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
+struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestRepeatedScalarDifferentTagSizes"}
   public var protoMessageName: String {return "TestRepeatedScalarDifferentTagSizes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3197,6 +3137,7 @@ struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
     "repeated_float": 262142,
     "repeated_uint64": 262143,
   ]}
+
 
   ///   Parsing repeated fixed size values used to fail. This message needs to be
   ///   used in order to get a tag of the right size; all of the repeated fields
@@ -3218,19 +3159,16 @@ struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 12: handled = try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &repeatedFixed32)
-    case 13: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &repeatedInt32)
-    case 2046: handled = try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &repeatedFixed64)
-    case 2047: handled = try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &repeatedInt64)
-    case 262142: handled = try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &repeatedFloat)
-    case 262143: handled = try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &repeatedUint64)
-    default:
-      handled = false
+    case 12: try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &repeatedFixed32)
+    case 13: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &repeatedInt32)
+    case 2046: try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &repeatedFixed64)
+    case 2047: try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &repeatedInt64)
+    case 262142: try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &repeatedFloat)
+    case 262143: try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &repeatedUint64)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3265,7 +3203,7 @@ struct Proto3TestRepeatedScalarDifferentTagSizes: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
+struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3TestCommentInjectionMessage"}
   public var protoMessageName: String {return "TestCommentInjectionMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -3276,19 +3214,17 @@ struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
     "a": 1,
   ]}
 
+
   ///   */ <- This should not close the generated doc comment
   public var a: String = ""
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &a)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &a)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3304,17 +3240,17 @@ struct Proto3TestCommentInjectionMessage: ProtobufGeneratedMessage {
 }
 
 ///   Test that RPC services work.
-struct Proto3FooRequest: ProtobufGeneratedMessage {
+struct Proto3FooRequest: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3FooRequest"}
   public var protoMessageName: String {return "FooRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
+
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return false // Proto3 ignores unknown fields
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3325,17 +3261,17 @@ struct Proto3FooRequest: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3FooResponse: ProtobufGeneratedMessage {
+struct Proto3FooResponse: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3FooResponse"}
   public var protoMessageName: String {return "FooResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
+
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return false // Proto3 ignores unknown fields
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3346,17 +3282,17 @@ struct Proto3FooResponse: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3FooClientMessage: ProtobufGeneratedMessage {
+struct Proto3FooClientMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3FooClientMessage"}
   public var protoMessageName: String {return "FooClientMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
+
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return false // Proto3 ignores unknown fields
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3367,17 +3303,17 @@ struct Proto3FooClientMessage: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3FooServerMessage: ProtobufGeneratedMessage {
+struct Proto3FooServerMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3FooServerMessage"}
   public var protoMessageName: String {return "FooServerMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
+
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return false // Proto3 ignores unknown fields
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3388,17 +3324,17 @@ struct Proto3FooServerMessage: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3BarRequest: ProtobufGeneratedMessage {
+struct Proto3BarRequest: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3BarRequest"}
   public var protoMessageName: String {return "BarRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
+
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return false // Proto3 ignores unknown fields
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -3409,17 +3345,17 @@ struct Proto3BarRequest: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3BarResponse: ProtobufGeneratedMessage {
+struct Proto3BarResponse: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3BarResponse"}
   public var protoMessageName: String {return "BarResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
+
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return false // Proto3 ignores unknown fields
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

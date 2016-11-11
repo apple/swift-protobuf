@@ -17,18 +17,14 @@
 // -----------------------------------------------------------------------------
 
 import Swift
+import Foundation
 
 public struct ProtobufUnknownStorage: Equatable {
-    fileprivate var data: [UInt8] = []
+    internal var data = Data()
     public init() {}
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        if let u = try setter.asProtobufUnknown() {
-            data.append(contentsOf: u)
-            return true
-        } else {
-            return false
-        }
+    public mutating func append(protobufData: Data) {
+        data.append(protobufData)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) {

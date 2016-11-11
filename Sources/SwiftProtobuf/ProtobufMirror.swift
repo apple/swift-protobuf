@@ -18,6 +18,7 @@
 // -----------------------------------------------------------------------------
 
 import Swift
+import Foundation
 
 struct ProtobufMirrorVisitor: ProtobufVisitor {
     private var mirrorChildren: [Mirror.Child] = []
@@ -44,7 +45,7 @@ struct ProtobufMirrorVisitor: ProtobufVisitor {
         mirrorChildren.append(contentsOf: (visitor as! ProtobufMirrorVisitor).mirrorChildren)
     }
 
-    mutating func visitUnknown(bytes: [UInt8]) {}
+    mutating func visitUnknown(bytes: Data) {}
 
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         mirrorChildren.append((label: swiftFieldName, value: value))

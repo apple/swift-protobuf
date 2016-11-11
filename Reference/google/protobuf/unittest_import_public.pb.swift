@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittestImport_PublicImportMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittestImport_PublicImportMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittestImport_PublicImportMessage"}
   public var protoMessageName: String {return "PublicImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
@@ -53,7 +53,7 @@ struct ProtobufUnittestImport_PublicImportMessage: ProtobufGeneratedMessage {
     "e": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _e: Int32? = nil
   public var e: Int32 {
@@ -69,17 +69,10 @@ struct ProtobufUnittestImport_PublicImportMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_e)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_e)
+    default: break
     }
   }
 

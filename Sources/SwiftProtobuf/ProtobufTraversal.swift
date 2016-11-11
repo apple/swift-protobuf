@@ -27,6 +27,7 @@
 // -----------------------------------------------------------------------------
 
 import Swift
+import Foundation
 
 public protocol ProtobufTraversable {
     func traverse(visitor: inout ProtobufVisitor) throws
@@ -34,7 +35,7 @@ public protocol ProtobufTraversable {
 
 public protocol ProtobufVisitor {
     /// For proto2, visitors get to see the raw bytes for any unknown fields
-    mutating func visitUnknown(bytes: [UInt8])
+    mutating func visitUnknown(bytes: Data)
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws
     mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws
     mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws

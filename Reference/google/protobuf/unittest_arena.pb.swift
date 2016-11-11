@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
+struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "Proto2ArenaUnittest_NestedMessage"}
   public var protoMessageName: String {return "NestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
@@ -51,7 +51,7 @@ struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
     "d": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _d: Int32? = nil
   public var d: Int32 {
@@ -67,17 +67,10 @@ struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
+    default: break
     }
   }
 
@@ -95,7 +88,7 @@ struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage {
+struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "Proto2ArenaUnittest_ArenaMessage"}
   public var protoMessageName: String {return "ArenaMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
@@ -108,7 +101,7 @@ struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage {
     "repeated_import_no_arena_message": 2,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   public var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
 
@@ -116,18 +109,11 @@ struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_NestedMessage.self, value: &repeatedNestedMessage)
-    case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_ImportNoArenaNestedMessage.self, value: &repeatedImportNoArenaMessage)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_NestedMessage.self, value: &repeatedNestedMessage)
+    case 2: try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_ImportNoArenaNestedMessage.self, value: &repeatedImportNoArenaMessage)
+    default: break
     }
   }
 

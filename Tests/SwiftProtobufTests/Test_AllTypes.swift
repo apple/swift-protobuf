@@ -1347,6 +1347,12 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertEqual(decoded2.repeatedNestedEnum, [.bar])
         let recoded2 = try decoded2.serializeProtobufBytes()
         XCTAssertEqual(recoded2, [152, 3, 2, 152, 3, 128, 1])
+
+        // Unknown enums within packed behave as if it were plain repeated
+        let decoded3 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [154, 3, 3, 128, 1, 2]))
+        XCTAssertEqual(decoded3.repeatedNestedEnum, [.bar])
+        let recoded3 = try decoded3.serializeProtobufBytes()
+        XCTAssertEqual(recoded3, [152, 3, 2, 154, 3, 2, 128, 1])
     }
 
     //

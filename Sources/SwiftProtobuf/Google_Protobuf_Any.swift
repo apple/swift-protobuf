@@ -112,7 +112,7 @@ fileprivate func typeName(fromMessage message: ProtobufMessage) -> String {
 /// without having the type information available.  This is a basic
 /// limitation of Google's spec for google.protobuf.Any.
 ///
-public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable, CustomReflectable {
+public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Message, Hashable, Equatable, CustomReflectable {
     public var swiftClassName: String {return "Google_Protobuf_Any"}
     public var protoPackageName: String {return "google.protobuf"}
     public var protoMessageName: String {return "Any"}
@@ -227,11 +227,11 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         typeURL = message.anyTypeURL
     }
 
-    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
-        case 1: return try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
-        case 2: return try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
-        default: return false
+        case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
+        case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
+        default: break
         }
     }
 

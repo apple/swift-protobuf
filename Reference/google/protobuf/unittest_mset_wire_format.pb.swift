@@ -47,28 +47,20 @@ import SwiftProtobuf
 
 
 ///   A message with message_set_wire_format.
-struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSet"}
   public var protoMessageName: String {return "TestMessageSet"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    var handled = false
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     if (4 <= protoFieldNumber && protoFieldNumber < 2147483647) {
-      handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Proto2WireformatUnittest_TestMessageSet.self, protoFieldNumber: protoFieldNumber)
-    } else {
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+      try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Proto2WireformatUnittest_TestMessageSet.self, protoFieldNumber: protoFieldNumber)
     }
   }
 
@@ -105,7 +97,7 @@ struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, Protob
   }
 }
 
-struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGeneratedMessage {
+struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSetWireFormatContainer"}
   public var protoMessageName: String {return "TestMessageSetWireFormatContainer"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
@@ -123,17 +115,10 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGener
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
-      default:
-        handled = false
-      }
-      if handled {
-          return true
-      } else {
-          return try unknown.decodeField(setter: &setter)
+      case 1: try setter.decodeSingularMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
+      default: break
       }
     }
 
@@ -160,6 +145,11 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGener
 
   private var _storage = _StorageClass()
 
+  public var unknown: ProtobufUnknownStorage {
+    get {return _storage.unknown}
+    set {_storage.unknown = newValue}
+  }
+
   public var messageSet: Proto2WireformatUnittest_TestMessageSet {
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
@@ -173,8 +163,8 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGener
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

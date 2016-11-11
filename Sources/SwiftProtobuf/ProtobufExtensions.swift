@@ -46,7 +46,7 @@ public func ==(lhs: ProtobufMessageExtension, rhs: ProtobufMessageExtension) -> 
 
 /// A "Generic Message Extension" augments the base Extension type
 /// with generic information about the type of the message being
-/// extended.  These generic constrints enable compile-time checks on
+/// extended.  These generic constraints enable compile-time checks on
 /// compatibility.
 public class ProtobufGenericMessageExtension<FieldType: ProtobufTypedExtensionField, MessageType: ProtobufMessage>: ProtobufMessageExtension {
     public init(protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String, defaultValue: FieldType.ValueType) {

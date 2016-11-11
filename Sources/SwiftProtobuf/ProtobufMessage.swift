@@ -56,7 +56,7 @@ public protocol ProtobufMessageBase:
   /// textual identifiers translate those to protoFieldNumbers and then invoke
   /// this to decode the field value.
   mutating func decodeField(setter: inout ProtobufFieldDecoder,
-                            protoFieldNumber: Int) throws -> Bool
+                            protoFieldNumber: Int) throws
 
   // The corresponding serialization support is the traverse() method
   // declared in ProtobufTraversable
@@ -161,6 +161,13 @@ public func ==<M: ProtobufAbstractMessage>(lhs: M, rhs: M) -> Bool {
   return lhs.isEqualTo(other: rhs)
 }
 
+public protocol ProtobufProto2Message: ProtobufMessage {
+  var unknown: ProtobufUnknownStorage { get set }
+}
+
+public protocol ProtobufProto3Message: ProtobufMessage {
+}
+
 ///
 /// Base type for generated message types.
 ///
@@ -173,7 +180,7 @@ public protocol ProtobufGeneratedMessage: ProtobufAbstractMessage {
   // to override the standard names to customize the behavior.
   mutating func _protoc_generated_decodeField(
     setter: inout ProtobufFieldDecoder,
-    protoFieldNumber: Int) throws -> Bool
+    protoFieldNumber: Int) throws
 
   func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws
 
@@ -187,9 +194,9 @@ public extension ProtobufGeneratedMessage {
   }
 
   mutating func decodeField(setter: inout ProtobufFieldDecoder,
-                            protoFieldNumber: Int) throws -> Bool {
-    return try _protoc_generated_decodeField(setter: &setter,
-                                             protoFieldNumber: protoFieldNumber)
+                            protoFieldNumber: Int) throws {
+      try _protoc_generated_decodeField(setter: &setter,
+                                        protoFieldNumber: protoFieldNumber)
   }
 
   func isEqualTo(other: Self) -> Bool {

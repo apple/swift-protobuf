@@ -57,7 +57,7 @@ import SwiftProtobuf
 
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage {
+struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorRequest"}
   public var protoMessageName: String {return "CodeGeneratorRequest"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -72,7 +72,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage {
     "proto_file": 15,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   ///   The .proto files that were explicitly listed on the command-line.  The
   ///   code generator should generate code only for these files.  Each file's
@@ -107,19 +107,12 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &fileToGenerate)
-    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_parameter)
-    case 15: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &protoFile)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &fileToGenerate)
+    case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_parameter)
+    case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &protoFile)
+    default: break
     }
   }
 
@@ -146,7 +139,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage {
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage {
+struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse"}
   public var protoMessageName: String {return "CodeGeneratorResponse"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -159,10 +152,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage 
     "file": 15,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   ///   Represents a single generated file.
-  struct File: ProtobufGeneratedMessage {
+  struct File: ProtobufGeneratedMessage, ProtobufProto2Message {
     public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse.File"}
     public var protoMessageName: String {return "File"}
     public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -177,7 +170,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage 
       "content": 15,
     ]}
 
-    var unknown = ProtobufUnknownStorage()
+    public var unknown = ProtobufUnknownStorage()
 
     ///   The file name, relative to the output directory.  The name must not
     ///   contain "." or ".." components and must be relative, not be absolute (so,
@@ -266,19 +259,12 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage 
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_insertionPoint)
-      case 15: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_content)
-      default:
-        handled = false
-      }
-      if handled {
-          return true
-      } else {
-          return try unknown.decodeField(setter: &setter)
+      case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_insertionPoint)
+      case 15: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_content)
+      default: break
       }
     }
 
@@ -328,18 +314,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage 
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_error)
-    case 15: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Compiler_CodeGeneratorResponse.File.self, value: &file)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_error)
+    case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Compiler_CodeGeneratorResponse.File.self, value: &file)
+    default: break
     }
   }
 

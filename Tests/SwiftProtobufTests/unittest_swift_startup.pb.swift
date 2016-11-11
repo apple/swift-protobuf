@@ -40,28 +40,20 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufObjcUnittest_TestObjCStartupMessage: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct ProtobufObjcUnittest_TestObjCStartupMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage {
   public var swiftClassName: String {return "ProtobufObjcUnittest_TestObjCStartupMessage"}
   public var protoMessageName: String {return "TestObjCStartupMessage"}
   public var protoPackageName: String {return "protobuf_objc_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    var handled = false
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     if (1 <= protoFieldNumber && protoFieldNumber < 536870912) {
-      handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufObjcUnittest_TestObjCStartupMessage.self, protoFieldNumber: protoFieldNumber)
-    } else {
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+      try setter.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufObjcUnittest_TestObjCStartupMessage.self, protoFieldNumber: protoFieldNumber)
     }
   }
 
@@ -98,14 +90,14 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: ProtobufGeneratedMessage, Pr
   }
 }
 
-struct ProtobufObjcUnittest_TestObjCStartupNested: ProtobufGeneratedMessage {
+struct ProtobufObjcUnittest_TestObjCStartupNested: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufObjcUnittest_TestObjCStartupNested"}
   public var protoMessageName: String {return "TestObjCStartupNested"}
   public var protoPackageName: String {return "protobuf_objc_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   struct Extensions {
 
@@ -114,8 +106,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try unknown.decodeField(setter: &setter)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

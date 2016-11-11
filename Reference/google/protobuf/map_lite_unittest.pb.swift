@@ -288,7 +288,7 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
 
 }
 
-struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestMapLite"}
   public var protoMessageName: String {return "TestMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -357,34 +357,27 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
-      case 2: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
-      case 3: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
-      case 4: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
-      case 5: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
-      case 6: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
-      case 7: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
-      case 8: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
-      case 9: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
-      case 10: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
-      case 11: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
-      case 12: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
-      case 13: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
-      case 14: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: &_mapStringString)
-      case 15: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: &_mapInt32Bytes)
-      case 16: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: &_mapInt32Enum)
-      case 17: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageLite>.self, value: &_mapInt32ForeignMessage)
-      case 18: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_teboring)
-      default:
-        handled = false
-      }
-      if handled {
-          return true
-      } else {
-          return try unknown.decodeField(setter: &setter)
+      case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
+      case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
+      case 3: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
+      case 4: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
+      case 5: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
+      case 6: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
+      case 7: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
+      case 8: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
+      case 9: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
+      case 10: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
+      case 11: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
+      case 12: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
+      case 13: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
+      case 14: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: &_mapStringString)
+      case 15: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: &_mapInt32Bytes)
+      case 16: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: &_mapInt32Enum)
+      case 17: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageLite>.self, value: &_mapInt32ForeignMessage)
+      case 18: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_teboring)
+      default: break
       }
     }
 
@@ -496,6 +489,11 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+  public var unknown: ProtobufUnknownStorage {
+    get {return _storage.unknown}
+    set {_storage.unknown = newValue}
+  }
+
   public var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
@@ -588,8 +586,8 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -608,7 +606,7 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage {
   }
 }
 
-struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestArenaMapLite"}
   public var protoMessageName: String {return "TestArenaMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -677,34 +675,27 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
-      case 2: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
-      case 3: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
-      case 4: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
-      case 5: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
-      case 6: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
-      case 7: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
-      case 8: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
-      case 9: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
-      case 10: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
-      case 11: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
-      case 12: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
-      case 13: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
-      case 14: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: &_mapStringString)
-      case 15: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: &_mapInt32Bytes)
-      case 16: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: &_mapInt32Enum)
-      case 17: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageArenaLite>.self, value: &_mapInt32ForeignMessage)
-      case 18: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestNoArena_ForeignMessageLite>.self, value: &_mapInt32ForeignMessageNoArena)
-      default:
-        handled = false
-      }
-      if handled {
-          return true
-      } else {
-          return try unknown.decodeField(setter: &setter)
+      case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
+      case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
+      case 3: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
+      case 4: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
+      case 5: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
+      case 6: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
+      case 7: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
+      case 8: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
+      case 9: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
+      case 10: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
+      case 11: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
+      case 12: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
+      case 13: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
+      case 14: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: &_mapStringString)
+      case 15: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: &_mapInt32Bytes)
+      case 16: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: &_mapInt32Enum)
+      case 17: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageArenaLite>.self, value: &_mapInt32ForeignMessage)
+      case 18: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestNoArena_ForeignMessageLite>.self, value: &_mapInt32ForeignMessageNoArena)
+      default: break
       }
     }
 
@@ -816,6 +807,11 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+  public var unknown: ProtobufUnknownStorage {
+    get {return _storage.unknown}
+    set {_storage.unknown = newValue}
+  }
+
   public var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
@@ -908,8 +904,8 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -929,7 +925,7 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage {
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredMessageMapLite"}
   public var protoMessageName: String {return "TestRequiredMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -940,23 +936,16 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage {
     "map_field": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   public var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: &mapField)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: &mapField)
+    default: break
     }
   }
 
@@ -974,7 +963,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage {
   }
 }
 
-struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapLite"}
   public var protoMessageName: String {return "TestEnumMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -987,7 +976,7 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
     "unknown_map_field": 102,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
@@ -995,18 +984,11 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 101: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &knownMapField)
-    case 102: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &unknownMapField)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 101: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &knownMapField)
+    case 102: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &unknownMapField)
+    default: break
     }
   }
 
@@ -1028,7 +1010,7 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage {
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtraLite"}
   public var protoMessageName: String {return "TestEnumMapPlusExtraLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1041,7 +1023,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage {
     "unknown_map_field": 102,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
 
@@ -1049,18 +1031,11 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 101: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &knownMapField)
-    case 102: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &unknownMapField)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 101: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &knownMapField)
+    case 102: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &unknownMapField)
+    default: break
     }
   }
 
@@ -1082,7 +1057,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage {
   }
 }
 
-struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageMapLite"}
   public var protoMessageName: String {return "TestMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1093,23 +1068,16 @@ struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage {
     "map_int32_message": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   public var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: &mapInt32Message)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: &mapInt32Message)
+    default: break
     }
   }
 
@@ -1127,7 +1095,7 @@ struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage {
   }
 }
 
-struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredLite"}
   public var protoMessageName: String {return "TestRequiredLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1142,7 +1110,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
     "c": 3,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
   public var a: Int32 {
@@ -1182,19 +1150,12 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_b)
-    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_b)
+    case 3: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
+    default: break
     }
   }
 
@@ -1214,7 +1175,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage {
   }
 }
 
-struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_ForeignMessageArenaLite"}
   public var protoMessageName: String {return "ForeignMessageArenaLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1225,7 +1186,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage {
     "c": 1,
   ]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _c: Int32? = nil
   public var c: Int32 {
@@ -1241,17 +1202,10 @@ struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
+    default: break
     }
   }
 

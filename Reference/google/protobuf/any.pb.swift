@@ -108,7 +108,7 @@ import Foundation
 ///         "@type": "type.googleapis.com/google.protobuf.Duration",
 ///         "value": "1.212s"
 ///       }
-struct Google_Protobuf_Any: ProtobufGeneratedMessage {
+struct Google_Protobuf_Any: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Google_Protobuf_Any"}
   public var protoMessageName: String {return "Any"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -120,6 +120,7 @@ struct Google_Protobuf_Any: ProtobufGeneratedMessage {
     "type_url": 1,
     "value": 2,
   ]}
+
 
   ///   A URL/resource name whose content describes the type of the
   ///   serialized protocol buffer message.
@@ -149,15 +150,12 @@ struct Google_Protobuf_Any: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
-    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
+    case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

@@ -13,7 +13,7 @@ import SwiftProtobuf
 ///   Test that we can include all well-known types.
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestWellKnownTypes"}
   public var protoMessageName: String {return "TestWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -84,32 +84,29 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyField)
-      case 2: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Api.self, value: &_apiField)
-      case 3: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Duration.self, value: &_durationField)
-      case 4: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Empty.self, value: &_emptyField)
-      case 5: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_fieldMaskField)
-      case 6: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &_sourceContextField)
-      case 7: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &_structField)
-      case 8: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_timestampField)
-      case 9: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Type.self, value: &_typeField)
-      case 10: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_doubleField)
-      case 11: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_floatField)
-      case 12: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_int64Field)
-      case 13: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_uint64Field)
-      case 14: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_int32Field)
-      case 15: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_uint32Field)
-      case 16: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_boolField)
-      case 17: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_stringField)
-      case 18: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_bytesField)
-      case 19: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Value.self, value: &_valueField)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyField)
+      case 2: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Api.self, value: &_apiField)
+      case 3: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Duration.self, value: &_durationField)
+      case 4: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Empty.self, value: &_emptyField)
+      case 5: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_fieldMaskField)
+      case 6: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &_sourceContextField)
+      case 7: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &_structField)
+      case 8: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_timestampField)
+      case 9: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Type.self, value: &_typeField)
+      case 10: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_doubleField)
+      case 11: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_floatField)
+      case 12: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_int64Field)
+      case 13: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_uint64Field)
+      case 14: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_int32Field)
+      case 15: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_uint32Field)
+      case 16: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_boolField)
+      case 17: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_stringField)
+      case 18: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_bytesField)
+      case 19: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Value.self, value: &_valueField)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -221,6 +218,7 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
   }
 
   private var _storage = _StorageClass()
+
 
   public var anyField: Google_Protobuf_Any {
     get {return _storage._anyField ?? Google_Protobuf_Any()}
@@ -434,8 +432,8 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -455,7 +453,7 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage {
 }
 
 ///   A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "ProtobufUnittest_RepeatedWellKnownTypes"}
   public var protoMessageName: String {return "RepeatedWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -523,31 +521,28 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyField)
-      case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Api.self, value: &_apiField)
-      case 3: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Duration.self, value: &_durationField)
-      case 4: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Empty.self, value: &_emptyField)
-      case 5: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_fieldMaskField)
-      case 6: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &_sourceContextField)
-      case 7: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Struct.self, value: &_structField)
-      case 8: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_timestampField)
-      case 9: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Type.self, value: &_typeField)
-      case 10: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_doubleField)
-      case 11: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_floatField)
-      case 12: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_int64Field)
-      case 13: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_uint64Field)
-      case 14: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_int32Field)
-      case 15: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_uint32Field)
-      case 16: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_boolField)
-      case 17: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_stringField)
-      case 18: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_bytesField)
-      default:
-        handled = false
+      case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyField)
+      case 2: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Api.self, value: &_apiField)
+      case 3: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Duration.self, value: &_durationField)
+      case 4: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Empty.self, value: &_emptyField)
+      case 5: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_fieldMaskField)
+      case 6: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &_sourceContextField)
+      case 7: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Struct.self, value: &_structField)
+      case 8: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_timestampField)
+      case 9: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Type.self, value: &_typeField)
+      case 10: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_doubleField)
+      case 11: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_floatField)
+      case 12: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_int64Field)
+      case 13: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_uint64Field)
+      case 14: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_int32Field)
+      case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_uint32Field)
+      case 16: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_boolField)
+      case 17: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_stringField)
+      case 18: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_bytesField)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -655,6 +650,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var anyField: [Google_Protobuf_Any] {
     get {return _storage._anyField}
     set {_uniqueStorage()._anyField = newValue}
@@ -748,8 +744,8 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -768,7 +764,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage {
   }
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "ProtobufUnittest_OneofWellKnownTypes"}
   public var protoMessageName: String {return "OneofWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -819,15 +815,11 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18:
-        handled = try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-      default:
-        handled = false
+      case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -847,6 +839,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
   }
 
   private var _storage = _StorageClass()
+
 
   enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case anyField(Google_Protobuf_Any)
@@ -877,125 +870,122 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 1:
         var value: Google_Protobuf_Any?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &value)
+        if let value = value {
           self = .anyField(value)
         }
       case 2:
         var value: Google_Protobuf_Api?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Api.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Api.self, value: &value)
+        if let value = value {
           self = .apiField(value)
         }
       case 3:
         var value: Google_Protobuf_Duration?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Duration.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Duration.self, value: &value)
+        if let value = value {
           self = .durationField(value)
         }
       case 4:
         var value: Google_Protobuf_Empty?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Empty.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Empty.self, value: &value)
+        if let value = value {
           self = .emptyField(value)
         }
       case 5:
         var value: Google_Protobuf_FieldMask?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &value)
+        if let value = value {
           self = .fieldMaskField(value)
         }
       case 6:
         var value: Google_Protobuf_SourceContext?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &value)
+        if let value = value {
           self = .sourceContextField(value)
         }
       case 7:
         var value: Google_Protobuf_Struct?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
+        if let value = value {
           self = .structField(value)
         }
       case 8:
         var value: Google_Protobuf_Timestamp?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &value)
+        if let value = value {
           self = .timestampField(value)
         }
       case 9:
         var value: Google_Protobuf_Type?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Type.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Type.self, value: &value)
+        if let value = value {
           self = .typeField(value)
         }
       case 10:
         var value: Google_Protobuf_DoubleValue?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &value)
+        if let value = value {
           self = .doubleField(value)
         }
       case 11:
         var value: Google_Protobuf_FloatValue?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &value)
+        if let value = value {
           self = .floatField(value)
         }
       case 12:
         var value: Google_Protobuf_Int64Value?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &value)
+        if let value = value {
           self = .int64Field(value)
         }
       case 13:
         var value: Google_Protobuf_UInt64Value?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &value)
+        if let value = value {
           self = .uint64Field(value)
         }
       case 14:
         var value: Google_Protobuf_Int32Value?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &value)
+        if let value = value {
           self = .int32Field(value)
         }
       case 15:
         var value: Google_Protobuf_UInt32Value?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &value)
+        if let value = value {
           self = .uint32Field(value)
         }
       case 16:
         var value: Google_Protobuf_BoolValue?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &value)
+        if let value = value {
           self = .boolField(value)
         }
       case 17:
         var value: Google_Protobuf_StringValue?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_StringValue.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_StringValue.self, value: &value)
+        if let value = value {
           self = .stringField(value)
         }
       case 18:
         var value: Google_Protobuf_BytesValue?
-        handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &value)
+        if let value = value {
           self = .bytesField(value)
         }
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
@@ -1303,8 +1293,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1326,7 +1316,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage {
 ///   A map field for each well-known type. We only
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage {
+struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "ProtobufUnittest_MapWellKnownTypes"}
   public var protoMessageName: String {return "MapWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1394,31 +1384,28 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: &_anyField)
-      case 2: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Api>.self, value: &_apiField)
-      case 3: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Duration>.self, value: &_durationField)
-      case 4: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Empty>.self, value: &_emptyField)
-      case 5: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: &_fieldMaskField)
-      case 6: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: &_sourceContextField)
-      case 7: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Struct>.self, value: &_structField)
-      case 8: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: &_timestampField)
-      case 9: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Type>.self, value: &_typeField)
-      case 10: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: &_doubleField)
-      case 11: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: &_floatField)
-      case 12: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: &_int64Field)
-      case 13: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: &_uint64Field)
-      case 14: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: &_int32Field)
-      case 15: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: &_uint32Field)
-      case 16: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: &_boolField)
-      case 17: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_StringValue>.self, value: &_stringField)
-      case 18: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: &_bytesField)
-      default:
-        handled = false
+      case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: &_anyField)
+      case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Api>.self, value: &_apiField)
+      case 3: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Duration>.self, value: &_durationField)
+      case 4: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Empty>.self, value: &_emptyField)
+      case 5: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: &_fieldMaskField)
+      case 6: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: &_sourceContextField)
+      case 7: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Struct>.self, value: &_structField)
+      case 8: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: &_timestampField)
+      case 9: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Type>.self, value: &_typeField)
+      case 10: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: &_doubleField)
+      case 11: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: &_floatField)
+      case 12: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: &_int64Field)
+      case 13: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: &_uint64Field)
+      case 14: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: &_int32Field)
+      case 15: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: &_uint32Field)
+      case 16: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: &_boolField)
+      case 17: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_StringValue>.self, value: &_stringField)
+      case 18: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: &_bytesField)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -1526,6 +1513,7 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+
   public var anyField: Dictionary<Int32,Google_Protobuf_Any> {
     get {return _storage._anyField}
     set {_uniqueStorage()._anyField = newValue}
@@ -1618,8 +1606,8 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto3PublicImportMessage: ProtobufGeneratedMessage {
+struct Proto3PublicImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3PublicImportMessage"}
   public var protoMessageName: String {return "PublicImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
@@ -53,18 +53,16 @@ struct Proto3PublicImportMessage: ProtobufGeneratedMessage {
     "e": 1,
   ]}
 
+
   public var e: Int32 = 0
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &e)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &e)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

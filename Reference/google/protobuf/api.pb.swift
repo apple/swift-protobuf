@@ -40,7 +40,7 @@ import Foundation
 
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
-struct Google_Protobuf_Api: ProtobufGeneratedMessage {
+struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Google_Protobuf_Api"}
   public var protoMessageName: String {return "Api"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -75,20 +75,17 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
-      case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Method.self, value: &_methods)
-      case 3: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Option.self, value: &_options)
-      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_version)
-      case 5: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &_sourceContext)
-      case 6: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Mixin.self, value: &_mixins)
-      case 7: handled = try setter.decodeSingularField(fieldType: Google_Protobuf_Syntax.self, value: &_syntax)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 2: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Method.self, value: &_methods)
+      case 3: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Option.self, value: &_options)
+      case 4: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_version)
+      case 5: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &_sourceContext)
+      case 6: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Mixin.self, value: &_mixins)
+      case 7: try setter.decodeSingularField(fieldType: Google_Protobuf_Syntax.self, value: &_syntax)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
@@ -140,6 +137,7 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage {
   }
 
   private var _storage = _StorageClass()
+
 
   ///   The fully qualified name of this api, including package name
   ///   followed by the api's simple name.
@@ -212,8 +210,8 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -233,7 +231,7 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage {
 }
 
 ///   Method represents a method of an api.
-struct Google_Protobuf_Method: ProtobufGeneratedMessage {
+struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Google_Protobuf_Method"}
   public var protoMessageName: String {return "Method"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -255,6 +253,7 @@ struct Google_Protobuf_Method: ProtobufGeneratedMessage {
     "options": 6,
     "syntax": 7,
   ]}
+
 
   ///   The simple name of this method.
   public var name: String = ""
@@ -279,20 +278,17 @@ struct Google_Protobuf_Method: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &name)
-    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &requestTypeURL)
-    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &requestStreaming)
-    case 4: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &responseTypeURL)
-    case 5: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &responseStreaming)
-    case 6: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Option.self, value: &options)
-    case 7: handled = try setter.decodeSingularField(fieldType: Google_Protobuf_Syntax.self, value: &syntax)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &name)
+    case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &requestTypeURL)
+    case 3: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &requestStreaming)
+    case 4: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &responseTypeURL)
+    case 5: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &responseStreaming)
+    case 6: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Option.self, value: &options)
+    case 7: try setter.decodeSingularField(fieldType: Google_Protobuf_Syntax.self, value: &syntax)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -408,7 +404,7 @@ struct Google_Protobuf_Method: ProtobufGeneratedMessage {
 ///         }
 ///         ...
 ///       }
-struct Google_Protobuf_Mixin: ProtobufGeneratedMessage {
+struct Google_Protobuf_Mixin: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Google_Protobuf_Mixin"}
   public var protoMessageName: String {return "Mixin"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -421,6 +417,7 @@ struct Google_Protobuf_Mixin: ProtobufGeneratedMessage {
     "root": 2,
   ]}
 
+
   ///   The fully qualified name of the API which is included.
   public var name: String = ""
 
@@ -430,15 +427,12 @@ struct Google_Protobuf_Mixin: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &name)
-    case 2: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &root)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &name)
+    case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &root)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

@@ -16,19 +16,10 @@
 // -----------------------------------------------------------------------------
 
 import Swift
-
+import Foundation
 
 private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
-
-/// Utility hash function for a [UInt8]
-public func ProtobufHash(bytes: [UInt8]) -> Int {
-    var byteHash = i_2166136261
-    for b in bytes {
-        byteHash = (byteHash &* i_16777619) ^ Int(b)
-    }
-    return byteHash
-}
 
 //
 // The hashValue property is computed with a visitor that
@@ -57,8 +48,8 @@ struct ProtobufHashVisitor: ProtobufVisitor {
         hashValue = (visitor as! ProtobufHashVisitor).hashValue
     }
 
-    mutating func visitUnknown(bytes: [UInt8]) {
-        mix(ProtobufHash(bytes: bytes))
+    mutating func visitUnknown(bytes: Data) {
+        mix(bytes.hashValue)
     }
 
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {

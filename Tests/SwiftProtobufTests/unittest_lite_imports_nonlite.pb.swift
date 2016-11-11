@@ -44,7 +44,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_TestLiteImportsNonlite"}
   public var protoMessageName: String {return "TestLiteImportsNonlite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -62,17 +62,10 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllTypes.self, value: &_message)
-      default:
-        handled = false
-      }
-      if handled {
-          return true
-      } else {
-          return try unknown.decodeField(setter: &setter)
+      case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllTypes.self, value: &_message)
+      default: break
       }
     }
 
@@ -99,6 +92,11 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+  public var unknown: ProtobufUnknownStorage {
+    get {return _storage.unknown}
+    set {_storage.unknown = newValue}
+  }
+
   public var message: ProtobufUnittest_TestAllTypes {
     get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
@@ -112,8 +110,8 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

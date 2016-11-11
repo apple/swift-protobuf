@@ -216,7 +216,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
 
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage {
+struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
@@ -237,6 +237,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage {
     "oneof_e_2": 6,
   ]}
 
+
   enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
@@ -250,25 +251,22 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 5:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
-        handled = try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
+        try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
         self = .oneofE1(value)
       case 6:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
-        handled = try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
+        try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &value)
         self = .oneofE2(value)
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
@@ -324,19 +322,15 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &e)
-    case 2: handled = try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedE)
-    case 3: handled = try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedE)
-    case 4: handled = try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
-    case 5, 6:
-      handled = try o.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &e)
+    case 2: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedE)
+    case 3: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedE)
+    case 4: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
+    case 5, 6: try o.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -365,7 +359,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMessage {
+struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra"}
   public var protoMessageName: String {return "MyMessagePlusExtra"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
@@ -386,6 +380,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
     "oneof_e_2": 6,
   ]}
 
+
   enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
@@ -399,25 +394,22 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 5:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
-        handled = try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &value)
+        try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &value)
         self = .oneofE1(value)
       case 6:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
-        handled = try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &value)
+        try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &value)
         self = .oneofE2(value)
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
@@ -472,19 +464,15 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &e)
-    case 2: handled = try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedE)
-    case 3: handled = try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedE)
-    case 4: handled = try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
-    case 5, 6:
-      handled = try o.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &e)
+    case 2: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedE)
+    case 3: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedE)
+    case 4: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
+    case 5, 6: try o.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

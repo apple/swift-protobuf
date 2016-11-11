@@ -40,14 +40,14 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftEnumTest"}
   public var protoMessageName: String {return "SwiftEnumTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   enum EnumTest1: ProtobufEnum {
     public typealias RawValue = Int
@@ -195,8 +195,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try unknown.decodeField(setter: &setter)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
