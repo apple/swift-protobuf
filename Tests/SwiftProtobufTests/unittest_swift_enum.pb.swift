@@ -192,7 +192,79 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   }
 
-  init() {}
+  enum EnumTestNoStem: ProtobufEnum {
+    public typealias RawValue = Int
+    case enumTestNoStem1 // = 1
+    case enumTestNoStem2 // = 2
+
+    public init() {
+      self = .enumTestNoStem1
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 1: self = .enumTestNoStem1
+      case 2: self = .enumTestNoStem2
+      default: return nil
+      }
+    }
+
+    public init?(name: String) {
+      switch name {
+      case "enumTestNoStem1": self = .enumTestNoStem1
+      case "enumTestNoStem2": self = .enumTestNoStem2
+      default: return nil
+      }
+    }
+
+    public init?(jsonName: String) {
+      switch jsonName {
+      case "ENUM_TEST_NO_STEM_1": self = .enumTestNoStem1
+      case "ENUM_TEST_NO_STEM_2": self = .enumTestNoStem2
+      default: return nil
+      }
+    }
+
+    public init?(protoName: String) {
+      switch protoName {
+      case "ENUM_TEST_NO_STEM_1": self = .enumTestNoStem1
+      case "ENUM_TEST_NO_STEM_2": self = .enumTestNoStem2
+      default: return nil
+      }
+    }
+
+    public var rawValue: Int {
+      get {
+        switch self {
+        case .enumTestNoStem1: return 1
+        case .enumTestNoStem2: return 2
+        }
+      }
+    }
+
+    public var json: String {
+      get {
+        switch self {
+        case .enumTestNoStem1: return "\"ENUM_TEST_NO_STEM_1\""
+        case .enumTestNoStem2: return "\"ENUM_TEST_NO_STEM_2\""
+        }
+      }
+    }
+
+    public var hashValue: Int { return rawValue }
+
+    public var debugDescription: String {
+      get {
+        switch self {
+        case .enumTestNoStem1: return ".enumTestNoStem1"
+        case .enumTestNoStem2: return ".enumTestNoStem2"
+        }
+      }
+    }
+
+  }
+
+  public init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
   }
