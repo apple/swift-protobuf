@@ -56,10 +56,10 @@ public extension FieldType {
     }
 }
 
-public protocol ProtobufMapValueType: FieldType {
+protocol ProtobufMapValueType: MapValueType {
 }
 
-public extension ProtobufMapValueType {
+extension ProtobufMapValueType {
     public static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout BaseType?) throws {
         try decoder.decodeSingularField(fieldType: Self.self, value: &value)
         assert(value != nil)
