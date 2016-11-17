@@ -946,25 +946,25 @@ struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
       case 52: try setter.decodePackedField(fieldType: Conformance_ForeignEnum.self, value: &_repeatedForeignEnum)
       case 54: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedStringPiece)
       case 55: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedCord)
-      case 56: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
-      case 57: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
-      case 58: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
-      case 59: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
-      case 60: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
-      case 61: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
-      case 62: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
-      case 63: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
-      case 64: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
-      case 65: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
-      case 66: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
-      case 67: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
-      case 68: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
-      case 69: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: &_mapStringString)
-      case 70: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufBytes>.self, value: &_mapStringBytes)
-      case 71: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: &_mapStringNestedMessage)
-      case 72: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignMessage>.self, value: &_mapStringForeignMessage)
-      case 73: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: &_mapStringNestedEnum)
-      case 74: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: &_mapStringForeignEnum)
+      case 56: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
+      case 57: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
+      case 58: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
+      case 59: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
+      case 60: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
+      case 61: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
+      case 62: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
+      case 63: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
+      case 64: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
+      case 65: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
+      case 66: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
+      case 67: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
+      case 68: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
+      case 69: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,ProtobufString>.self, value: &_mapStringString)
+      case 70: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,ProtobufBytes>.self, value: &_mapStringBytes)
+      case 71: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: &_mapStringNestedMessage)
+      case 72: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_ForeignMessage>.self, value: &_mapStringForeignMessage)
+      case 73: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: &_mapStringNestedEnum)
+      case 74: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_ForeignEnum>.self, value: &_mapStringForeignEnum)
       case 111, 112, 113, 114: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       case 201: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_optionalBoolWrapper)
       case 202: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_optionalInt32Wrapper)
@@ -1143,61 +1143,61 @@ struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
         try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedCord, protoFieldNumber: 55, protoFieldName: "repeated_cord", jsonFieldName: "repeatedCord", swiftFieldName: "repeatedCord")
       }
       if !_mapInt32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 56, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 56, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
       }
       if !_mapInt64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 57, protoFieldName: "map_int64_int64", jsonFieldName: "mapInt64Int64", swiftFieldName: "mapInt64Int64")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 57, protoFieldName: "map_int64_int64", jsonFieldName: "mapInt64Int64", swiftFieldName: "mapInt64Int64")
       }
       if !_mapUint32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 58, protoFieldName: "map_uint32_uint32", jsonFieldName: "mapUint32Uint32", swiftFieldName: "mapUint32Uint32")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 58, protoFieldName: "map_uint32_uint32", jsonFieldName: "mapUint32Uint32", swiftFieldName: "mapUint32Uint32")
       }
       if !_mapUint64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 59, protoFieldName: "map_uint64_uint64", jsonFieldName: "mapUint64Uint64", swiftFieldName: "mapUint64Uint64")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 59, protoFieldName: "map_uint64_uint64", jsonFieldName: "mapUint64Uint64", swiftFieldName: "mapUint64Uint64")
       }
       if !_mapSint32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 60, protoFieldName: "map_sint32_sint32", jsonFieldName: "mapSint32Sint32", swiftFieldName: "mapSint32Sint32")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 60, protoFieldName: "map_sint32_sint32", jsonFieldName: "mapSint32Sint32", swiftFieldName: "mapSint32Sint32")
       }
       if !_mapSint64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 61, protoFieldName: "map_sint64_sint64", jsonFieldName: "mapSint64Sint64", swiftFieldName: "mapSint64Sint64")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 61, protoFieldName: "map_sint64_sint64", jsonFieldName: "mapSint64Sint64", swiftFieldName: "mapSint64Sint64")
       }
       if !_mapFixed32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 62, protoFieldName: "map_fixed32_fixed32", jsonFieldName: "mapFixed32Fixed32", swiftFieldName: "mapFixed32Fixed32")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 62, protoFieldName: "map_fixed32_fixed32", jsonFieldName: "mapFixed32Fixed32", swiftFieldName: "mapFixed32Fixed32")
       }
       if !_mapFixed64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 63, protoFieldName: "map_fixed64_fixed64", jsonFieldName: "mapFixed64Fixed64", swiftFieldName: "mapFixed64Fixed64")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 63, protoFieldName: "map_fixed64_fixed64", jsonFieldName: "mapFixed64Fixed64", swiftFieldName: "mapFixed64Fixed64")
       }
       if !_mapSfixed32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 64, protoFieldName: "map_sfixed32_sfixed32", jsonFieldName: "mapSfixed32Sfixed32", swiftFieldName: "mapSfixed32Sfixed32")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 64, protoFieldName: "map_sfixed32_sfixed32", jsonFieldName: "mapSfixed32Sfixed32", swiftFieldName: "mapSfixed32Sfixed32")
       }
       if !_mapSfixed64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 65, protoFieldName: "map_sfixed64_sfixed64", jsonFieldName: "mapSfixed64Sfixed64", swiftFieldName: "mapSfixed64Sfixed64")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 65, protoFieldName: "map_sfixed64_sfixed64", jsonFieldName: "mapSfixed64Sfixed64", swiftFieldName: "mapSfixed64Sfixed64")
       }
       if !_mapInt32Float.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 66, protoFieldName: "map_int32_float", jsonFieldName: "mapInt32Float", swiftFieldName: "mapInt32Float")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 66, protoFieldName: "map_int32_float", jsonFieldName: "mapInt32Float", swiftFieldName: "mapInt32Float")
       }
       if !_mapInt32Double.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 67, protoFieldName: "map_int32_double", jsonFieldName: "mapInt32Double", swiftFieldName: "mapInt32Double")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 67, protoFieldName: "map_int32_double", jsonFieldName: "mapInt32Double", swiftFieldName: "mapInt32Double")
       }
       if !_mapBoolBool.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 68, protoFieldName: "map_bool_bool", jsonFieldName: "mapBoolBool", swiftFieldName: "mapBoolBool")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 68, protoFieldName: "map_bool_bool", jsonFieldName: "mapBoolBool", swiftFieldName: "mapBoolBool")
       }
       if !_mapStringString.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 69, protoFieldName: "map_string_string", jsonFieldName: "mapStringString", swiftFieldName: "mapStringString")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 69, protoFieldName: "map_string_string", jsonFieldName: "mapStringString", swiftFieldName: "mapStringString")
       }
       if !_mapStringBytes.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufBytes>.self, value: _mapStringBytes, protoFieldNumber: 70, protoFieldName: "map_string_bytes", jsonFieldName: "mapStringBytes", swiftFieldName: "mapStringBytes")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,ProtobufBytes>.self, value: _mapStringBytes, protoFieldNumber: 70, protoFieldName: "map_string_bytes", jsonFieldName: "mapStringBytes", swiftFieldName: "mapStringBytes")
       }
       if !_mapStringNestedMessage.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: _mapStringNestedMessage, protoFieldNumber: 71, protoFieldName: "map_string_nested_message", jsonFieldName: "mapStringNestedMessage", swiftFieldName: "mapStringNestedMessage")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: _mapStringNestedMessage, protoFieldNumber: 71, protoFieldName: "map_string_nested_message", jsonFieldName: "mapStringNestedMessage", swiftFieldName: "mapStringNestedMessage")
       }
       if !_mapStringForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignMessage>.self, value: _mapStringForeignMessage, protoFieldNumber: 72, protoFieldName: "map_string_foreign_message", jsonFieldName: "mapStringForeignMessage", swiftFieldName: "mapStringForeignMessage")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_ForeignMessage>.self, value: _mapStringForeignMessage, protoFieldNumber: 72, protoFieldName: "map_string_foreign_message", jsonFieldName: "mapStringForeignMessage", swiftFieldName: "mapStringForeignMessage")
       }
       if !_mapStringNestedEnum.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: _mapStringNestedEnum, protoFieldNumber: 73, protoFieldName: "map_string_nested_enum", jsonFieldName: "mapStringNestedEnum", swiftFieldName: "mapStringNestedEnum")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: _mapStringNestedEnum, protoFieldNumber: 73, protoFieldName: "map_string_nested_enum", jsonFieldName: "mapStringNestedEnum", swiftFieldName: "mapStringNestedEnum")
       }
       if !_mapStringForeignEnum.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: _mapStringForeignEnum, protoFieldNumber: 74, protoFieldName: "map_string_foreign_enum", jsonFieldName: "mapStringForeignEnum", swiftFieldName: "mapStringForeignEnum")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Conformance_ForeignEnum>.self, value: _mapStringForeignEnum, protoFieldNumber: 74, protoFieldName: "map_string_foreign_enum", jsonFieldName: "mapStringForeignEnum", swiftFieldName: "mapStringForeignEnum")
       }
       try _oneofField.traverse(visitor: &visitor, start: 111, end: 115)
       if let v = _optionalBoolWrapper {

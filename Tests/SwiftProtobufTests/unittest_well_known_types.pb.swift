@@ -1386,82 +1386,82 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
 
     func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: &_anyField)
-      case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Api>.self, value: &_apiField)
-      case 3: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Duration>.self, value: &_durationField)
-      case 4: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Empty>.self, value: &_emptyField)
-      case 5: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: &_fieldMaskField)
-      case 6: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: &_sourceContextField)
-      case 7: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Struct>.self, value: &_structField)
-      case 8: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: &_timestampField)
-      case 9: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Type>.self, value: &_typeField)
-      case 10: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: &_doubleField)
-      case 11: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: &_floatField)
-      case 12: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: &_int64Field)
-      case 13: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: &_uint64Field)
-      case 14: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: &_int32Field)
-      case 15: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: &_uint32Field)
-      case 16: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: &_boolField)
-      case 17: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_StringValue>.self, value: &_stringField)
-      case 18: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: &_bytesField)
+      case 1: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Any>.self, value: &_anyField)
+      case 2: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Api>.self, value: &_apiField)
+      case 3: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Duration>.self, value: &_durationField)
+      case 4: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Empty>.self, value: &_emptyField)
+      case 5: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: &_fieldMaskField)
+      case 6: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: &_sourceContextField)
+      case 7: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Struct>.self, value: &_structField)
+      case 8: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: &_timestampField)
+      case 9: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Type>.self, value: &_typeField)
+      case 10: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: &_doubleField)
+      case 11: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: &_floatField)
+      case 12: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: &_int64Field)
+      case 13: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: &_uint64Field)
+      case 14: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: &_int32Field)
+      case 15: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: &_uint32Field)
+      case 16: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: &_boolField)
+      case 17: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_StringValue>.self, value: &_stringField)
+      case 18: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: &_bytesField)
       default: break
       }
     }
 
     func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if !_anyField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
       }
       if !_apiField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Api>.self, value: _apiField, protoFieldNumber: 2, protoFieldName: "api_field", jsonFieldName: "apiField", swiftFieldName: "apiField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Api>.self, value: _apiField, protoFieldNumber: 2, protoFieldName: "api_field", jsonFieldName: "apiField", swiftFieldName: "apiField")
       }
       if !_durationField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Duration>.self, value: _durationField, protoFieldNumber: 3, protoFieldName: "duration_field", jsonFieldName: "durationField", swiftFieldName: "durationField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Duration>.self, value: _durationField, protoFieldNumber: 3, protoFieldName: "duration_field", jsonFieldName: "durationField", swiftFieldName: "durationField")
       }
       if !_emptyField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Empty>.self, value: _emptyField, protoFieldNumber: 4, protoFieldName: "empty_field", jsonFieldName: "emptyField", swiftFieldName: "emptyField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Empty>.self, value: _emptyField, protoFieldNumber: 4, protoFieldName: "empty_field", jsonFieldName: "emptyField", swiftFieldName: "emptyField")
       }
       if !_fieldMaskField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: _fieldMaskField, protoFieldNumber: 5, protoFieldName: "field_mask_field", jsonFieldName: "fieldMaskField", swiftFieldName: "fieldMaskField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: _fieldMaskField, protoFieldNumber: 5, protoFieldName: "field_mask_field", jsonFieldName: "fieldMaskField", swiftFieldName: "fieldMaskField")
       }
       if !_sourceContextField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: _sourceContextField, protoFieldNumber: 6, protoFieldName: "source_context_field", jsonFieldName: "sourceContextField", swiftFieldName: "sourceContextField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: _sourceContextField, protoFieldNumber: 6, protoFieldName: "source_context_field", jsonFieldName: "sourceContextField", swiftFieldName: "sourceContextField")
       }
       if !_structField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Struct>.self, value: _structField, protoFieldNumber: 7, protoFieldName: "struct_field", jsonFieldName: "structField", swiftFieldName: "structField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Struct>.self, value: _structField, protoFieldNumber: 7, protoFieldName: "struct_field", jsonFieldName: "structField", swiftFieldName: "structField")
       }
       if !_timestampField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: _timestampField, protoFieldNumber: 8, protoFieldName: "timestamp_field", jsonFieldName: "timestampField", swiftFieldName: "timestampField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: _timestampField, protoFieldNumber: 8, protoFieldName: "timestamp_field", jsonFieldName: "timestampField", swiftFieldName: "timestampField")
       }
       if !_typeField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Type>.self, value: _typeField, protoFieldNumber: 9, protoFieldName: "type_field", jsonFieldName: "typeField", swiftFieldName: "typeField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Type>.self, value: _typeField, protoFieldNumber: 9, protoFieldName: "type_field", jsonFieldName: "typeField", swiftFieldName: "typeField")
       }
       if !_doubleField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: _doubleField, protoFieldNumber: 10, protoFieldName: "double_field", jsonFieldName: "doubleField", swiftFieldName: "doubleField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: _doubleField, protoFieldNumber: 10, protoFieldName: "double_field", jsonFieldName: "doubleField", swiftFieldName: "doubleField")
       }
       if !_floatField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: _floatField, protoFieldNumber: 11, protoFieldName: "float_field", jsonFieldName: "floatField", swiftFieldName: "floatField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: _floatField, protoFieldNumber: 11, protoFieldName: "float_field", jsonFieldName: "floatField", swiftFieldName: "floatField")
       }
       if !_int64Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: _int64Field, protoFieldNumber: 12, protoFieldName: "int64_field", jsonFieldName: "int64Field", swiftFieldName: "int64Field")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: _int64Field, protoFieldNumber: 12, protoFieldName: "int64_field", jsonFieldName: "int64Field", swiftFieldName: "int64Field")
       }
       if !_uint64Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: _uint64Field, protoFieldNumber: 13, protoFieldName: "uint64_field", jsonFieldName: "uint64Field", swiftFieldName: "uint64Field")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: _uint64Field, protoFieldNumber: 13, protoFieldName: "uint64_field", jsonFieldName: "uint64Field", swiftFieldName: "uint64Field")
       }
       if !_int32Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: _int32Field, protoFieldNumber: 14, protoFieldName: "int32_field", jsonFieldName: "int32Field", swiftFieldName: "int32Field")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: _int32Field, protoFieldNumber: 14, protoFieldName: "int32_field", jsonFieldName: "int32Field", swiftFieldName: "int32Field")
       }
       if !_uint32Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: _uint32Field, protoFieldNumber: 15, protoFieldName: "uint32_field", jsonFieldName: "uint32Field", swiftFieldName: "uint32Field")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: _uint32Field, protoFieldNumber: 15, protoFieldName: "uint32_field", jsonFieldName: "uint32Field", swiftFieldName: "uint32Field")
       }
       if !_boolField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: _boolField, protoFieldNumber: 16, protoFieldName: "bool_field", jsonFieldName: "boolField", swiftFieldName: "boolField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: _boolField, protoFieldNumber: 16, protoFieldName: "bool_field", jsonFieldName: "boolField", swiftFieldName: "boolField")
       }
       if !_stringField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_StringValue>.self, value: _stringField, protoFieldNumber: 17, protoFieldName: "string_field", jsonFieldName: "stringField", swiftFieldName: "stringField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_StringValue>.self, value: _stringField, protoFieldNumber: 17, protoFieldName: "string_field", jsonFieldName: "stringField", swiftFieldName: "stringField")
       }
       if !_bytesField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _bytesField, protoFieldNumber: 18, protoFieldName: "bytes_field", jsonFieldName: "bytesField", swiftFieldName: "bytesField")
+        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _bytesField, protoFieldNumber: 18, protoFieldName: "bytes_field", jsonFieldName: "bytesField", swiftFieldName: "bytesField")
       }
     }
 
