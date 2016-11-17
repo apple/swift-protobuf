@@ -149,7 +149,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 
     public mutating func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
-        case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
+        case 1: try setter.decodeMapField(fieldType: Map<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
         default:
             break
         }
@@ -157,7 +157,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 
     public func _protoc_generated_traverse(visitor: inout Visitor) throws {
         if !fields.isEmpty {
-            try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1, protoFieldName: "fields", jsonFieldName: "fields", swiftFieldName: "fields")
+            try visitor.visitMapField(fieldType: Map<ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1, protoFieldName: "fields", jsonFieldName: "fields", swiftFieldName: "fields")
         }
     }
 

@@ -101,7 +101,7 @@ struct ProtobufEncodingSizeVisitor: Visitor {
         }
     }
 
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: Map<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
         let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: .lengthDelimited).encodedSize
         let keyTagSize = FieldTag(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat).encodedSize
         let valueTagSize = FieldTag(fieldNumber: 2, wireFormat: ValueType.protobufWireFormat).encodedSize

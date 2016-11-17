@@ -878,5 +878,5 @@ public extension Message {
 ///
 /// Maps
 ///
-public extension ProtobufMap {
+public extension Map {
 }

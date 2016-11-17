@@ -94,7 +94,7 @@ struct ProtobufEncodingVisitor: Visitor {
         }
     }
     
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: Map<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
         for (k,v) in value {
             encoder.startField(fieldNumber: protoFieldNumber, wireFormat: .lengthDelimited)
             let keyTagSize = Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))

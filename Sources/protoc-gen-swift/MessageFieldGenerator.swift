@@ -140,7 +140,7 @@ extension Google_Protobuf_FieldDescriptorProto {
             let keyTraits = keyField.getTraitsType(context: context)
             let valueField = m.field[1]
             let valueTraits = valueField.getTraitsType(context: context)
-            return "ProtobufMap<" + keyTraits + "," + valueTraits + ">"
+            return "SwiftProtobuf.Map<" + keyTraits + "," + valueTraits + ">"
         }
         switch type {
         case .double: return "ProtobufDouble"
