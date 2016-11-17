@@ -47,7 +47,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetContainer"}
   public var protoMessageName: String {return "TestMessageSetContainer"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -59,20 +59,20 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestMessageSetContainer
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_TestMessageSetContainer
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _messageSet {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message_set", jsonFieldName: "messageSet", swiftFieldName: "messageSet")
       }
@@ -95,7 +95,7 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -113,11 +113,11 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -133,7 +133,7 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
   }
 }
 
-struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension1"}
   public var protoMessageName: String {return "TestMessageSetExtension1"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -144,11 +144,11 @@ struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, Prot
     "i": 15,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Extensions {
 
-    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension1())
+    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension1())
   }
 
   private var _i: Int32? = nil
@@ -165,14 +165,14 @@ struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, Prot
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 15: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_i)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _i {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 15, protoFieldName: "i", jsonFieldName: "i", swiftFieldName: "i")
     }
@@ -186,7 +186,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, Prot
   }
 }
 
-struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension2"}
   public var protoMessageName: String {return "TestMessageSetExtension2"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -197,11 +197,11 @@ struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, Prot
     "str": 25,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Extensions {
 
-    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension2())
+    static let Proto2WireformatUnittest_TestMessageSet_messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension2())
   }
 
   private var _str: String? = nil
@@ -218,14 +218,14 @@ struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, Prot
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 25: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_str)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _str {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 25, protoFieldName: "str", jsonFieldName: "str", swiftFieldName: "str")
     }
@@ -251,7 +251,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, Prot
 //  }
 
 ///   MessageSet wire format is equivalent to this.
-struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet"}
   public var protoMessageName: String {return "RawMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -262,9 +262,9 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
     "item": 1,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
-  struct Item: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct Item: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
     public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet.Item"}
     public var protoMessageName: String {return "Item"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -277,7 +277,7 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
       "message": 3,
     ]}
 
-    public var unknown = ProtobufUnknownStorage()
+    public var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _typeId: Int32? = nil
     public var typeId: Int32 {
@@ -305,7 +305,7 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_typeId)
       case 3: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_message)
@@ -313,7 +313,7 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typeId ?? 0, protoFieldNumber: 2, protoFieldName: "type_id", jsonFieldName: "typeId", swiftFieldName: "typeId")
       try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _message ?? Data(), protoFieldNumber: 3, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
       unknown.traverse(visitor: &visitor)
@@ -331,14 +331,14 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeRepeatedGroupField(fieldType: ProtobufUnittest_RawMessageSet.Item.self, value: &item)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !item.isEmpty {
       try visitor.visitRepeatedGroupField(value: item, protoFieldNumber: 1, protoFieldName: "item", jsonFieldName: "item", swiftFieldName: "item")
     }
@@ -378,7 +378,7 @@ extension Proto2WireformatUnittest_TestMessageSet {
   }
 }
 
-let ProtobufUnittest_UnittestMset_Extensions: ProtobufExtensionSet = [
+let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.ExtensionSet = [
   ProtobufUnittest_TestMessageSetExtension1.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.Proto2WireformatUnittest_TestMessageSet_messageSetExtension
 ]

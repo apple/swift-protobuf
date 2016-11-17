@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Swift_Performance_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "swift.performance"}
@@ -114,7 +114,7 @@ struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3M
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Swift_Performance_TestAllTypes
+    typealias ExtendedMessage = Swift_Performance_TestAllTypes
     var _optionalInt32: Int32 = 0
     var _optionalInt64: Int64 = 0
     var _optionalUint32: UInt32 = 0
@@ -150,7 +150,7 @@ struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3M
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
       case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
@@ -188,7 +188,7 @@ struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3M
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if _optionalInt32 != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionalInt32, protoFieldNumber: 1, protoFieldName: "optional_int32", jsonFieldName: "optionalInt32", swiftFieldName: "optionalInt32")
       }
@@ -529,11 +529,11 @@ struct Swift_Performance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3M
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

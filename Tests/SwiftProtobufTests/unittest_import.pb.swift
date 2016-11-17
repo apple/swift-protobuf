@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
+enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case importFoo // = 7
   case importBar // = 8
@@ -127,7 +127,7 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
 }
 
 ///   To use an enum in a map, it must has the first value as 0.
-enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
+enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case unknown // = 0
   case foo // = 1
@@ -207,7 +207,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
 
 }
 
-struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
@@ -218,7 +218,7 @@ struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage, ProtobufP
     "d": 1,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _d: Int32? = nil
   public var d: Int32 {
@@ -234,14 +234,14 @@ struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage, ProtobufP
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _d {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
     }

@@ -47,7 +47,7 @@ import SwiftProtobuf
 //  You can't make a object graph that spans files, so this can only be done
 //  within a single proto file.
 
-struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_CycleFoo"}
   public var protoMessageName: String {return "CycleFoo"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -63,15 +63,15 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_CycleFoo
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_CycleFoo
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
       case 2: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
@@ -80,7 +80,7 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _aFoo {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "a_foo", jsonFieldName: "aFoo", swiftFieldName: "aFoo")
       }
@@ -113,7 +113,7 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -153,11 +153,11 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -173,7 +173,7 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
   }
 }
 
-struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBar"}
   public var protoMessageName: String {return "CycleBar"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -189,15 +189,15 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_CycleBar
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_CycleBar
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
       case 2: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
@@ -206,7 +206,7 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _aBar {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "a_bar", jsonFieldName: "aBar", swiftFieldName: "aBar")
       }
@@ -239,7 +239,7 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -279,11 +279,11 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -299,7 +299,7 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
   }
 }
 
-struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBaz"}
   public var protoMessageName: String {return "CycleBaz"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -315,15 +315,15 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_CycleBaz
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_CycleBaz
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
       case 2: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
@@ -332,7 +332,7 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _aBaz {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "a_baz", jsonFieldName: "aBaz", swiftFieldName: "aBaz")
       }
@@ -365,7 +365,7 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -405,11 +405,11 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittestNoArena_ForeignMessageLite"}
   public var protoMessageName: String {return "ForeignMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_no_arena"}
@@ -51,7 +51,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessage, Pro
     "c": 1,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int32? = nil
   public var c: Int32 {
@@ -67,14 +67,14 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessage, Pro
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _c {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
     }

@@ -43,7 +43,7 @@ import Foundation
 ///   `Value` type union.
 ///  
 ///    The JSON representation for `NullValue` is JSON `null`.
-enum Google_Protobuf_NullValue: ProtobufEnum {
+enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
   ///   Null value.
@@ -121,7 +121,7 @@ enum Google_Protobuf_NullValue: ProtobufEnum {
 ///   with the proto support for the language.
 ///  
 ///   The JSON representation for `Struct` is JSON object.
-struct Google_Protobuf_Struct: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Google_Protobuf_Struct"}
   public var protoMessageName: String {return "Struct"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -138,14 +138,14 @@ struct Google_Protobuf_Struct: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !fields.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1, protoFieldName: "fields", jsonFieldName: "fields", swiftFieldName: "fields")
     }
@@ -163,7 +163,7 @@ struct Google_Protobuf_Struct: ProtobufGeneratedMessage, ProtobufProto3Message {
 ///   variants, absence of any variant indicates an error.
 ///  
 ///   The JSON representation for `Value` is JSON value.
-struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Google_Protobuf_Value"}
   public var protoMessageName: String {return "Value"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -185,19 +185,19 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Google_Protobuf_Value
+    typealias ExtendedMessage = Google_Protobuf_Value
     var _kind = Google_Protobuf_Value.OneOf_Kind()
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1, 2, 3, 4, 5, 6: try _kind.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       try _kind.traverse(visitor: &visitor, start: 1, end: 7)
     }
 
@@ -216,7 +216,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   private var _storage = _StorageClass()
 
 
-  enum OneOf_Kind: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_Kind: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case nullValue(Google_Protobuf_NullValue)
     case numberValue(Double)
     case stringValue(String)
@@ -233,9 +233,9 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
-        throw ProtobufDecodingError.duplicatedOneOf
+        throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
       switch protoFieldNumber {
       case 1:
@@ -271,7 +271,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
+    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .nullValue(let v):
         if start <= 1 && 1 < end {
@@ -390,11 +390,11 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -413,7 +413,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
-struct Google_Protobuf_ListValue: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Google_Protobuf_ListValue"}
   public var protoMessageName: String {return "ListValue"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -430,14 +430,14 @@ struct Google_Protobuf_ListValue: ProtobufGeneratedMessage, ProtobufProto3Messag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &values)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !values.isEmpty {
       try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1, protoFieldName: "values", jsonFieldName: "values", swiftFieldName: "values")
     }

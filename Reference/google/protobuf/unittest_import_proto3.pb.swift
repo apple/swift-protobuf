@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-enum Proto3ImportEnum: ProtobufEnum {
+enum Proto3ImportEnum: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case importEnumUnspecified // = 0
   case importFoo // = 7
@@ -138,7 +138,7 @@ enum Proto3ImportEnum: ProtobufEnum {
 
 }
 
-struct Proto3ImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Proto3ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
@@ -154,14 +154,14 @@ struct Proto3ImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &d)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if d != 0 {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: d, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
     }

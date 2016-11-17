@@ -39,7 +39,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_Message2"}
   public var protoMessageName: String {return "Message2"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -195,8 +195,8 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_Message2
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_Message2
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _optionalInt32: Int32? = nil
     var _optionalInt64: Int64? = nil
     var _optionalUint32: UInt32? = nil
@@ -256,7 +256,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
       case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
@@ -318,7 +318,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _optionalInt32 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "optional_int32", jsonFieldName: "optionalInt32", swiftFieldName: "optionalInt32")
       }
@@ -614,12 +614,12 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -648,9 +648,9 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
-        throw ProtobufDecodingError.duplicatedOneOf
+        throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
       switch protoFieldNumber {
       case 51:
@@ -766,7 +766,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
       }
     }
 
-    public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
+    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofInt32(let v):
         if start <= 51 && 51 < end {
@@ -846,7 +846,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
     }
   }
 
-  enum Enum: ProtobufEnum {
+  enum Enum: SwiftProtobuf.Enum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -934,7 +934,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   }
 
-  struct OptionalGroup: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -945,7 +945,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
       "a": 17,
     ]}
 
-    public var unknown = ProtobufUnknownStorage()
+    public var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     public var a: Int32 {
@@ -961,14 +961,14 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 17: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _a {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 17, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
@@ -982,7 +982,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
     }
   }
 
-  struct RepeatedGroup: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -993,7 +993,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
       "a": 47,
     ]}
 
-    public var unknown = ProtobufUnknownStorage()
+    public var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     public var a: Int32 {
@@ -1009,14 +1009,14 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 47: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _a {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 47, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
@@ -1030,7 +1030,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
     }
   }
 
-  struct OneofGroup: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct OneofGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
     public var swiftClassName: String {return "ProtobufUnittest_Message2.OneofGroup"}
     public var protoMessageName: String {return "OneofGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1043,7 +1043,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
       "b": 167,
     ]}
 
-    public var unknown = ProtobufUnknownStorage()
+    public var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     public var a: Int32 {
@@ -1071,7 +1071,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
 
     public init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 67: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
       case 167: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_b)
@@ -1079,7 +1079,7 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _a {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 67, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
       }
@@ -1706,11 +1706,11 @@ struct ProtobufUnittest_Message2: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

@@ -44,7 +44,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestLiteImportsNonlite"}
   public var protoMessageName: String {return "TestLiteImportsNonlite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -56,20 +56,20 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, Protob
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestLiteImportsNonlite
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_TestLiteImportsNonlite
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _message: ProtobufUnittest_TestAllTypes? = nil
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllTypes.self, value: &_message)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _message {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
       }
@@ -92,7 +92,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, Protob
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -110,11 +110,11 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, Protob
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

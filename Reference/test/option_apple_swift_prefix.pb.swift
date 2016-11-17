@@ -10,7 +10,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct TestFoo: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct TestFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "TestFoo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "wrong.name.here"}
@@ -20,10 +20,10 @@ struct TestFoo: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
   }
 
   public func _protoc_generated_isEqualTo(other: TestFoo) -> Bool {

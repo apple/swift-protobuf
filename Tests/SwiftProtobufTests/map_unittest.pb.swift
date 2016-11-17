@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-enum ProtobufUnittest_MapEnum: ProtobufEnum {
+enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -125,7 +125,7 @@ enum ProtobufUnittest_MapEnum: ProtobufEnum {
 }
 
 ///   Tests maps.
-struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMap"}
   public var protoMessageName: String {return "TestMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -171,7 +171,7 @@ struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage, ProtobufProto3Message
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestMap
+    typealias ExtendedMessage = ProtobufUnittest_TestMap
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -193,7 +193,7 @@ struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage, ProtobufProto3Message
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
       case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
@@ -217,7 +217,7 @@ struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage, ProtobufProto3Message
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if !_mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
       }
@@ -415,11 +415,11 @@ struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage, ProtobufProto3Message
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -435,7 +435,7 @@ struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage, ProtobufProto3Message
   }
 }
 
-struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMapSubmessage"}
   public var protoMessageName: String {return "TestMapSubmessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -447,19 +447,19 @@ struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage, ProtobufPro
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestMapSubmessage
+    typealias ExtendedMessage = ProtobufUnittest_TestMapSubmessage
     var _testMap: ProtobufUnittest_TestMap? = nil
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestMap.self, value: &_testMap)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _testMap {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "test_map", jsonFieldName: "testMap", swiftFieldName: "testMap")
       }
@@ -493,11 +493,11 @@ struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage, ProtobufPro
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -513,7 +513,7 @@ struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage, ProtobufPro
   }
 }
 
-struct ProtobufUnittest_TestMessageMap: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageMap"}
   public var protoMessageName: String {return "TestMessageMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -529,14 +529,14 @@ struct ProtobufUnittest_TestMessageMap: ProtobufGeneratedMessage, ProtobufProto3
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypes>.self, value: &mapInt32Message)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !mapInt32Message.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypes>.self, value: mapInt32Message, protoFieldNumber: 1, protoFieldName: "map_int32_message", jsonFieldName: "mapInt32Message", swiftFieldName: "mapInt32Message")
     }
@@ -549,7 +549,7 @@ struct ProtobufUnittest_TestMessageMap: ProtobufGeneratedMessage, ProtobufProto3
 }
 
 ///   Two map fields share the same entry default instance.
-struct ProtobufUnittest_TestSameTypeMap: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestSameTypeMap"}
   public var protoMessageName: String {return "TestSameTypeMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -569,7 +569,7 @@ struct ProtobufUnittest_TestSameTypeMap: ProtobufGeneratedMessage, ProtobufProto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &map1)
     case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &map2)
@@ -577,7 +577,7 @@ struct ProtobufUnittest_TestSameTypeMap: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !map1.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: map1, protoFieldNumber: 1, protoFieldName: "map1", jsonFieldName: "map1", swiftFieldName: "map1")
     }
@@ -594,7 +594,7 @@ struct ProtobufUnittest_TestSameTypeMap: ProtobufGeneratedMessage, ProtobufProto
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMap: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredMessageMap"}
   public var protoMessageName: String {return "TestRequiredMessageMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -610,14 +610,14 @@ struct ProtobufUnittest_TestRequiredMessageMap: ProtobufGeneratedMessage, Protob
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequired>.self, value: &mapField)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !mapField.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequired>.self, value: mapField, protoFieldNumber: 1, protoFieldName: "map_field", jsonFieldName: "mapField", swiftFieldName: "mapField")
     }
@@ -629,7 +629,7 @@ struct ProtobufUnittest_TestRequiredMessageMap: ProtobufGeneratedMessage, Protob
   }
 }
 
-struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestArenaMap"}
   public var protoMessageName: String {return "TestArenaMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -675,7 +675,7 @@ struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage, ProtobufProto3Me
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestArenaMap
+    typealias ExtendedMessage = ProtobufUnittest_TestArenaMap
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -697,7 +697,7 @@ struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage, ProtobufProto3Me
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
       case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
@@ -721,7 +721,7 @@ struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if !_mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
       }
@@ -919,11 +919,11 @@ struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage, ProtobufProto3Me
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -941,7 +941,7 @@ struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage, ProtobufProto3Me
 
 ///   Previously, message containing enum called Type cannot be used as value of
 ///   map field.
-struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_MessageContainingEnumCalledType"}
   public var protoMessageName: String {return "MessageContainingEnumCalledType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -953,7 +953,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessag
   ]}
 
 
-  enum TypeEnum: ProtobufEnum {
+  enum TypeEnum: SwiftProtobuf.Enum {
     public typealias RawValue = Int
     case foo // = 0
     case UNRECOGNIZED(Int)
@@ -1025,14 +1025,14 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufUnittest_MessageContainingEnumCalledType>.self, value: &type)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !type.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufUnittest_MessageContainingEnumCalledType>.self, value: type, protoFieldNumber: 1, protoFieldName: "type", jsonFieldName: "type", swiftFieldName: "type")
     }
@@ -1045,7 +1045,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessag
 }
 
 ///   Previously, message cannot contain map field called "entry".
-struct ProtobufUnittest_MessageContainingMapCalledEntry: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_MessageContainingMapCalledEntry"}
   public var protoMessageName: String {return "MessageContainingMapCalledEntry"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1061,14 +1061,14 @@ struct ProtobufUnittest_MessageContainingMapCalledEntry: ProtobufGeneratedMessag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &entry)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !entry.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: entry, protoFieldNumber: 1, protoFieldName: "entry", jsonFieldName: "entry", swiftFieldName: "entry")
     }
@@ -1080,7 +1080,7 @@ struct ProtobufUnittest_MessageContainingMapCalledEntry: ProtobufGeneratedMessag
   }
 }
 
-struct ProtobufUnittest_TestRecursiveMapMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestRecursiveMapMessage"}
   public var protoMessageName: String {return "TestRecursiveMapMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1096,14 +1096,14 @@ struct ProtobufUnittest_TestRecursiveMapMessage: ProtobufGeneratedMessage, Proto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: &a)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !a.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
     }

@@ -13,7 +13,7 @@ import SwiftProtobuf
 ///   Test that we can include all well-known types.
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestWellKnownTypes"}
   public var protoMessageName: String {return "TestWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -61,7 +61,7 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufPr
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestWellKnownTypes
+    typealias ExtendedMessage = ProtobufUnittest_TestWellKnownTypes
     var _anyField: Google_Protobuf_Any? = nil
     var _apiField: Google_Protobuf_Api? = nil
     var _durationField: Google_Protobuf_Duration? = nil
@@ -84,7 +84,7 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufPr
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyField)
       case 2: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Api.self, value: &_apiField)
@@ -109,7 +109,7 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufPr
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _anyField {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
       }
@@ -432,11 +432,11 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufPr
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -453,7 +453,7 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufPr
 }
 
 ///   A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_RepeatedWellKnownTypes"}
   public var protoMessageName: String {return "RepeatedWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -499,7 +499,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, Protob
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_RepeatedWellKnownTypes
+    typealias ExtendedMessage = ProtobufUnittest_RepeatedWellKnownTypes
     var _anyField: [Google_Protobuf_Any] = []
     var _apiField: [Google_Protobuf_Api] = []
     var _durationField: [Google_Protobuf_Duration] = []
@@ -521,7 +521,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, Protob
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyField)
       case 2: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Api.self, value: &_apiField)
@@ -545,7 +545,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, Protob
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if !_anyField.isEmpty {
         try visitor.visitRepeatedMessageField(value: _anyField, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
       }
@@ -744,11 +744,11 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, Protob
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -764,7 +764,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, Protob
   }
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_OneofWellKnownTypes"}
   public var protoMessageName: String {return "OneofWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -810,19 +810,19 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_OneofWellKnownTypes
+    typealias ExtendedMessage = ProtobufUnittest_OneofWellKnownTypes
     var _oneofField = ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField()
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       try _oneofField.traverse(visitor: &visitor, start: 1, end: 19)
     }
 
@@ -841,7 +841,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
   private var _storage = _StorageClass()
 
 
-  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case anyField(Google_Protobuf_Any)
     case apiField(Google_Protobuf_Api)
     case durationField(Google_Protobuf_Duration)
@@ -870,9 +870,9 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
-        throw ProtobufDecodingError.duplicatedOneOf
+        throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
       switch protoFieldNumber {
       case 1:
@@ -988,7 +988,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
       }
     }
 
-    public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
+    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .anyField(let v):
         if start <= 1 && 1 < end {
@@ -1293,11 +1293,11 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -1316,7 +1316,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
 ///   A map field for each well-known type. We only
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_MapWellKnownTypes"}
   public var protoMessageName: String {return "MapWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1362,7 +1362,7 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufPro
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_MapWellKnownTypes
+    typealias ExtendedMessage = ProtobufUnittest_MapWellKnownTypes
     var _anyField: Dictionary<Int32,Google_Protobuf_Any> = [:]
     var _apiField: Dictionary<Int32,Google_Protobuf_Api> = [:]
     var _durationField: Dictionary<Int32,Google_Protobuf_Duration> = [:]
@@ -1384,7 +1384,7 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufPro
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: &_anyField)
       case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Api>.self, value: &_apiField)
@@ -1408,7 +1408,7 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufPro
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if !_anyField.isEmpty {
         try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
       }
@@ -1606,11 +1606,11 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufPro
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

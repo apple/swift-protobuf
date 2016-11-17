@@ -46,7 +46,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestEmbedOptimizedForSize"}
   public var protoMessageName: String {return "TestEmbedOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -60,14 +60,14 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, Pro
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestEmbedOptimizedForSize
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_TestEmbedOptimizedForSize
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
     var _repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
       case 2: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_repeatedMessage)
@@ -75,7 +75,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, Pro
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _optionalMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "optional_message", jsonFieldName: "optionalMessage", swiftFieldName: "optionalMessage")
       }
@@ -103,7 +103,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, Pro
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -128,11 +128,11 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, Pro
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

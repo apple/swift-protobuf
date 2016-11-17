@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -120,7 +120,7 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
 
 }
 
-enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case eProto2MapEnumFoo // = 0
   case eProto2MapEnumBar // = 1
@@ -208,7 +208,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
 
 }
 
-struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMap"}
   public var protoMessageName: String {return "TestEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -221,7 +221,7 @@ struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Mes
     "unknown_map_field": 102,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
@@ -229,7 +229,7 @@ struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Mes
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 101: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &knownMapField)
     case 102: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &unknownMapField)
@@ -237,7 +237,7 @@ struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Mes
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !knownMapField.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
     }
@@ -255,7 +255,7 @@ struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Mes
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtra"}
   public var protoMessageName: String {return "TestEnumMapPlusExtra"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -268,7 +268,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, Protobuf
     "unknown_map_field": 102,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
@@ -276,7 +276,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, Protobuf
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 101: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &knownMapField)
     case 102: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &unknownMapField)
@@ -284,7 +284,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, Protobuf
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !knownMapField.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
     }
@@ -302,7 +302,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, Protobuf
   }
 }
 
-struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestImportEnumMap"}
   public var protoMessageName: String {return "TestImportEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -313,20 +313,20 @@ struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage, ProtobufPro
     "import_enum_amp": 1,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   public var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: &importEnumAmp)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !importEnumAmp.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, protoFieldNumber: 1, protoFieldName: "import_enum_amp", jsonFieldName: "importEnumAmp", swiftFieldName: "importEnumAmp")
     }

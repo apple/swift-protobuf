@@ -39,7 +39,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_Message3"}
   public var protoMessageName: String {return "Message3"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -189,7 +189,7 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_Message3
+    typealias ExtendedMessage = ProtobufUnittest_Message3
     var _optionalInt32: Int32 = 0
     var _optionalInt64: Int64 = 0
     var _optionalUint32: UInt32 = 0
@@ -247,7 +247,7 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
       case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
@@ -307,7 +307,7 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if _optionalInt32 != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionalInt32, protoFieldNumber: 1, protoFieldName: "optional_int32", jsonFieldName: "optionalInt32", swiftFieldName: "optionalInt32")
       }
@@ -591,7 +591,7 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
   private var _storage = _StorageClass()
 
 
-  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -619,9 +619,9 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
-        throw ProtobufDecodingError.duplicatedOneOf
+        throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
       switch protoFieldNumber {
       case 51:
@@ -699,7 +699,7 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
       }
     }
 
-    public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
+    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofInt32(let v):
         if start <= 51 && 51 < end {
@@ -775,7 +775,7 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
     }
   }
 
-  enum Enum: ProtobufEnum {
+  enum Enum: SwiftProtobuf.Enum {
     public typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -1355,11 +1355,11 @@ struct ProtobufUnittest_Message3: ProtobufGeneratedMessage, ProtobufProto3Messag
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

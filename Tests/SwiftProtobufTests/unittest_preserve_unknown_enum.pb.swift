@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
+enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -124,7 +124,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
 
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
+enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1
@@ -216,7 +216,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
 
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
@@ -238,7 +238,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
   ]}
 
 
-  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case None
@@ -251,9 +251,9 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
-        throw ProtobufDecodingError.duplicatedOneOf
+        throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
       switch protoFieldNumber {
       case 5:
@@ -269,7 +269,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
       }
     }
 
-    public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
+    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofE1(let v):
         if start <= 5 && 5 < end {
@@ -322,7 +322,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &e)
     case 2: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedE)
@@ -333,7 +333,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if e != Proto3PreserveUnknownEnumUnittest_MyEnum.foo {
       try visitor.visitSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: e, protoFieldNumber: 1, protoFieldName: "e", jsonFieldName: "e", swiftFieldName: "e")
     }
@@ -359,7 +359,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
   }
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra"}
   public var protoMessageName: String {return "MyMessagePlusExtra"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
@@ -381,7 +381,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
   ]}
 
 
-  enum OneOf_O: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case None
@@ -394,9 +394,9 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
-        throw ProtobufDecodingError.duplicatedOneOf
+        throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
       switch protoFieldNumber {
       case 5:
@@ -412,7 +412,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
       }
     }
 
-    public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
+    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofE1(let v):
         if start <= 5 && 5 < end {
@@ -464,7 +464,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &e)
     case 2: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedE)
@@ -475,7 +475,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if e != Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo {
       try visitor.visitSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: e, protoFieldNumber: 1, protoFieldName: "e", jsonFieldName: "e", swiftFieldName: "e")
     }

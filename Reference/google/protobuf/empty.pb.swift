@@ -48,7 +48,7 @@ import Foundation
 ///       }
 ///  
 ///   The JSON representation for `Empty` is empty JSON object `{}`.
-struct Google_Protobuf_Empty: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Google_Protobuf_Empty"}
   public var protoMessageName: String {return "Empty"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -58,10 +58,10 @@ struct Google_Protobuf_Empty: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Empty) -> Bool {

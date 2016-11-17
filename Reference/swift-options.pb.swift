@@ -10,7 +10,7 @@ import Foundation
 import SwiftProtobuf
 
 
-let Google_Protobuf_FileOptions_appleSwiftPrefix = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, Google_Protobuf_FileOptions>(protoFieldNumber: 50138, protoFieldName: "apple_swift_prefix", jsonFieldName: "appleSwiftPrefix", swiftFieldName: "appleSwiftPrefix", defaultValue: "")
+let Google_Protobuf_FileOptions_appleSwiftPrefix = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufString>, Google_Protobuf_FileOptions>(protoFieldNumber: 50138, protoFieldName: "apple_swift_prefix", jsonFieldName: "appleSwiftPrefix", swiftFieldName: "appleSwiftPrefix", defaultValue: "")
 
 extension Google_Protobuf_FileOptions {
   var appleSwiftPrefix: String {
@@ -25,6 +25,6 @@ extension Google_Protobuf_FileOptions {
   }
 }
 
-let SwiftOptions_Extensions: ProtobufExtensionSet = [
+let SwiftOptions_Extensions: SwiftProtobuf.ExtensionSet = [
   Google_Protobuf_FileOptions_appleSwiftPrefix
 ]

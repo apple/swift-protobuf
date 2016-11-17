@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case proto2MapEnumFooLite // = 0
   case proto2MapEnumBarLite // = 1
@@ -120,7 +120,7 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
 
 }
 
-enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
+enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case eProto2MapEnumFooLite // = 0
   case eProto2MapEnumBarLite // = 1
@@ -208,7 +208,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
 
 }
 
-enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
+enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
   public typealias RawValue = Int
   case mapEnumFooLite // = 0
   case mapEnumBarLite // = 1
@@ -288,7 +288,7 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
 
 }
 
-struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMapLite"}
   public var protoMessageName: String {return "TestMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -334,8 +334,8 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestMapLite
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_TestMapLite
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -357,7 +357,7 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
       case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
@@ -381,7 +381,7 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if !_mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
       }
@@ -489,7 +489,7 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -586,11 +586,11 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -606,7 +606,7 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
   }
 }
 
-struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestArenaMapLite"}
   public var protoMessageName: String {return "TestArenaMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -652,8 +652,8 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestArenaMapLite
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = ProtobufUnittest_TestArenaMapLite
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -675,7 +675,7 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
       case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
@@ -699,7 +699,7 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if !_mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
       }
@@ -807,7 +807,7 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -904,11 +904,11 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -925,7 +925,7 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredMessageMapLite"}
   public var protoMessageName: String {return "TestRequiredMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -936,20 +936,20 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, Pr
     "map_field": 1,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   public var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: &mapField)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !mapField.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: mapField, protoFieldNumber: 1, protoFieldName: "map_field", jsonFieldName: "mapField", swiftFieldName: "mapField")
     }
@@ -963,7 +963,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, Pr
   }
 }
 
-struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapLite"}
   public var protoMessageName: String {return "TestEnumMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -976,7 +976,7 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto
     "unknown_map_field": 102,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
@@ -984,7 +984,7 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 101: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &knownMapField)
     case 102: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &unknownMapField)
@@ -992,7 +992,7 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !knownMapField.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
     }
@@ -1010,7 +1010,7 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtraLite"}
   public var protoMessageName: String {return "TestEnumMapPlusExtraLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1023,7 +1023,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, Prot
     "unknown_map_field": 102,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
 
@@ -1031,7 +1031,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, Prot
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 101: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &knownMapField)
     case 102: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &unknownMapField)
@@ -1039,7 +1039,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, Prot
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !knownMapField.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
     }
@@ -1057,7 +1057,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, Prot
   }
 }
 
-struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageMapLite"}
   public var protoMessageName: String {return "TestMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1068,20 +1068,20 @@ struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufPr
     "map_int32_message": 1,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   public var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: &mapInt32Message)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !mapInt32Message.isEmpty {
       try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: mapInt32Message, protoFieldNumber: 1, protoFieldName: "map_int32_message", jsonFieldName: "mapInt32Message", swiftFieldName: "mapInt32Message")
     }
@@ -1095,7 +1095,7 @@ struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufPr
   }
 }
 
-struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredLite"}
   public var protoMessageName: String {return "TestRequiredLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1110,7 +1110,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
     "c": 3,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   public var a: Int32 {
@@ -1150,7 +1150,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
     case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_b)
@@ -1159,7 +1159,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _a ?? 0, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
     try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _b ?? 0, protoFieldNumber: 2, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "b")
     try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _c ?? 0, protoFieldNumber: 3, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
@@ -1175,7 +1175,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
   }
 }
 
-struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_ForeignMessageArenaLite"}
   public var protoMessageName: String {return "ForeignMessageArenaLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1186,7 +1186,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, Proto
     "c": 1,
   ]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int32? = nil
   public var c: Int32 {
@@ -1202,14 +1202,14 @@ struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, Proto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_c)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _c {
       try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
     }

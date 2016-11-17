@@ -47,7 +47,7 @@
 import Foundation
 
 
-struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Google_Protobuf_TestEnormousDescriptor"}
   public var protoMessageName: String {return "TestEnormousDescriptor"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -2057,8 +2057,8 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
   ]}
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Google_Protobuf_TestEnormousDescriptor
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = Google_Protobuf_TestEnormousDescriptor
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1: String? = nil
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2: String? = nil
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3: String? = nil
@@ -3062,7 +3062,7 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1)
       case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2)
@@ -4068,7 +4068,7 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 {
         try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "long_field_name_is_looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong_1", jsonFieldName: "longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1", swiftFieldName: "longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1")
       }
@@ -9086,7 +9086,7 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -20093,11 +20093,11 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

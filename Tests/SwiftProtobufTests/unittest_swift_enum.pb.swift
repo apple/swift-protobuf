@@ -40,16 +40,16 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftEnumTest"}
   public var protoMessageName: String {return "SwiftEnumTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public var jsonFieldNames: [String: Int] {return [:]}
   public var protoFieldNames: [String: Int] {return [:]}
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
-  enum EnumTest1: ProtobufEnum {
+  enum EnumTest1: SwiftProtobuf.Enum {
     public typealias RawValue = Int
     case firstValue // = 1
     case secondValue // = 2
@@ -121,7 +121,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
 
   }
 
-  enum EnumTest2: ProtobufEnum {
+  enum EnumTest2: SwiftProtobuf.Enum {
     public typealias RawValue = Int
     case enumTest2FirstValue // = 1
     case secondValue // = 2
@@ -195,10 +195,10 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     unknown.traverse(visitor: &visitor)
   }
 
