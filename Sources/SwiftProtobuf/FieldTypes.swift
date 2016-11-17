@@ -34,7 +34,7 @@ public protocol FieldType {
     // Default here is appropriate for enums and messages
     // Other types will override this
     associatedtype BaseType: Hashable = Self
-    
+
     //
     // Protobuf coding for basic types
     //
@@ -88,7 +88,8 @@ public protocol MapKeyType: FieldType {
     //
 
     //
-    // JSON encoding for map keys
+    // JSON encoding for map keys: JSON requires map keys
+    // to be quoted, so needs special handling.
     //
     static func serializeJSONMapKey(encoder: inout JSONEncoder, value: BaseType)
     static func decodeJSONMapKey(token: JSONToken) throws -> BaseType?
@@ -98,7 +99,7 @@ public protocol MapKeyType: FieldType {
 /// Protocol for types that can be used as map values.
 ///
 public protocol MapValueType: FieldType {
-    // Special interface for decoding a value of this type as a map value.
+    /// Special interface for decoding a value of this type as a map value.
     static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout BaseType?) throws
 
     /// Consume tokens from a JSON decoder, only used in map decoding
@@ -107,7 +108,7 @@ public protocol MapValueType: FieldType {
 
 //
 // We have a struct for every basic proto field type which provides
-// serialization/deserialization support for that type.
+// serialization/deserialization support as static methods.
 //
 
 ///
@@ -197,23 +198,23 @@ public struct ProtobufSFixed64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int64
 }
 
-//
-// ========= Bool =========
-//
+///
+/// Bool
+///
 public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Bool
 }
 
-//
-// ========== String ==========
-//
+///
+/// String
+///
 public struct ProtobufString: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = String
 }
 
-//
-// ========== Bytes ==========
-//
+///
+/// Bytes
+///
 public struct ProtobufBytes: FieldType, MapValueType {
     public typealias BaseType = Data
 }
