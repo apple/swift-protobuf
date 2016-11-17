@@ -19,7 +19,7 @@
 
 import Swift
 
-public enum ProtobufDecodingError: Error {
+public enum DecodingError: Error {
     /// An unspecified decoding failure
     case failure
     /// JSON format does not allow a oneof field to be specified more than once
@@ -53,7 +53,7 @@ public enum ProtobufDecodingError: Error {
     /// TODO: More here?
 }
 
-public enum ProtobufEncodingError: Error {
+public enum EncodingError: Error {
     /// An unspecified encoding failure
     case failure
     /// Any fields cannot be transcoded between JSON and protobuf unless

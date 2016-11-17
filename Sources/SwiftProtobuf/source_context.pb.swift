@@ -41,7 +41,7 @@ import Foundation
 
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
-public struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage, ProtobufProto3Message {
+public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Google_Protobuf_SourceContext"}
   public var protoMessageName: String {return "SourceContext"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -59,14 +59,14 @@ public struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage, ProtobufP
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &fileName)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if fileName != "" {
       try visitor.visitSingularField(fieldType: ProtobufString.self, value: fileName, protoFieldNumber: 1, protoFieldName: "file_name", jsonFieldName: "fileName", swiftFieldName: "fileName")
     }

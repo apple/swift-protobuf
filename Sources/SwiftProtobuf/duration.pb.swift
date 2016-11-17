@@ -79,7 +79,7 @@ import Foundation
 ///         end.seconds += 1;
 ///         end.nanos -= 1000000000;
 ///       }
-public struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3Message {
+public struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
   public var swiftClassName: String {return "Google_Protobuf_Duration"}
   public var protoMessageName: String {return "Duration"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -107,7 +107,7 @@ public struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &seconds)
     case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &nanos)
@@ -115,7 +115,7 @@ public struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if seconds != 0 {
       try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: seconds, protoFieldNumber: 1, protoFieldName: "seconds", jsonFieldName: "seconds", swiftFieldName: "seconds")
     }

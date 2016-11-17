@@ -17,23 +17,23 @@
 import Foundation
 import Swift
 
-struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
-    private var encoder = ProtobufJSONEncoder()
+struct JSONEncodingVisitor: Visitor {
+    private var encoder = JSONEncoder()
     var result: String {return encoder.result}
 
     init() {}
 
-    init(message: ProtobufJSONMessageBase) throws {
-        try withAbstractVisitor {(visitor: inout ProtobufVisitor) in
+    init(message: Message) throws {
+        try withAbstractVisitor {(visitor: inout Visitor) in
             try message.traverse(visitor: &visitor)
         }
     }
 
-    mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) throws {
+    mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) throws {
         encoder.startObject()
-        var visitor: ProtobufVisitor = self
+        var visitor: Visitor = self
         try clause(&visitor)
-        encoder.json = (visitor as! ProtobufJSONEncodingVisitor).encoder.json
+        encoder.json = (visitor as! JSONEncodingVisitor).encoder.json
         encoder.endObject()
     }
 
@@ -42,12 +42,12 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
         // JSON encoding has no provision for carrying proto2 unknown fields
     }
 
-    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         try S.serializeJSONValue(encoder: &encoder, value: value)
     }
 
-    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
@@ -59,26 +59,26 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
         encoder.append(text: "]")
     }
 
-    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         try visitRepeatedField(fieldType: fieldType, value: value, protoFieldNumber: protoFieldNumber, protoFieldName: protoFieldName, jsonFieldName: jsonFieldName, swiftFieldName: swiftFieldName)
     }
 
-    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         // Note: We ask the message to serialize itself instead of
-        // using ProtobufJSONEncodingVisitor(message:) since
+        // using JSONEncodingVisitor(message:) since
         // some messages override the JSON format at this point.
         try M.serializeJSONValue(encoder: &encoder, value: value)
     }
 
-    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
         for v in value {
             encoder.append(text: arraySeparator)
             // Note: We ask the message to serialize itself instead of
-            // using ProtobufJSONEncodingVisitor(message:) since
+            // using JSONEncodingVisitor(message:) since
             // some messages override the JSON format at this point.
             try M.serializeJSONValue(encoder: &encoder, value: v)
             arraySeparator = ","
@@ -88,34 +88,34 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
 
     // Note that JSON encoding for groups is not officially supported
     // by any Google spec.  But it's trivial to support it here.
-    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         // Groups have no special JSON support, so we use only the generic traversal mechanism here
-        let t = try ProtobufJSONEncodingVisitor(message: value).result
+        let t = try JSONEncodingVisitor(message: value).result
         encoder.append(text: t)
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
         for v in value {
             encoder.append(text: arraySeparator)
             // Groups have no special JSON support, so we use only the generic traversal mechanism here
-            let t = try ProtobufJSONEncodingVisitor(message: v).result
+            let t = try JSONEncodingVisitor(message: v).result
             encoder.append(text: t)
             arraySeparator = ","
         }
         encoder.append(text: "]")
     }
 
-    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws  where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws  where KeyType.BaseType: Hashable {
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "{")
         for (k,v) in value {
             encoder.append(text: arraySeparator)
-            KeyType.serializeJSONMapKeyValue(encoder: &encoder, value: k)
+            KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
             encoder.append(text: ":")
             try ValueType.serializeJSONValue(encoder: &encoder, value: v)
             arraySeparator = ","
@@ -125,7 +125,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
 }
 
 
-public struct ProtobufJSONEncoder {
+public struct JSONEncoder {
     fileprivate var json: [String] = []
     private var separator: String = ""
     public init() {}
@@ -134,7 +134,7 @@ public struct ProtobufJSONEncoder {
     mutating func append(text: String) {
         json.append(text)
     }
-    mutating func appendTokens(tokens: [ProtobufJSONToken]) {
+    mutating func appendTokens(tokens: [JSONToken]) {
         for t in tokens {
             switch t {
             case .beginArray: append(text: "[")

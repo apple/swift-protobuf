@@ -18,41 +18,41 @@
 import Swift
 import Foundation
 
-struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
+struct DebugDescriptionVisitor: Visitor {
     var description = ""
     private var separator = ""
 
     init() {}
 
-    init(message: ProtobufMessageBase) {
+    init(message: Message) {
         description.append(message.swiftClassName)
         description.append("(")
-        withAbstractVisitor {(visitor: inout ProtobufVisitor) in
+        withAbstractVisitor {(visitor: inout Visitor) in
             try message.traverse(visitor: &visitor)
         }
         description.append(")")
     }
 
-  mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) {
-        var visitor: ProtobufVisitor = self
+  mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) {
+        var visitor: Visitor = self
         do {
             try clause(&visitor)
-            description = (visitor as! ProtobufDebugDescriptionVisitor).description
+            description = (visitor as! DebugDescriptionVisitor).description
         } catch let e {
-            description = (visitor as! ProtobufDebugDescriptionVisitor).description
+            description = (visitor as! DebugDescriptionVisitor).description
             description.append("\(e)")
         }
     }
 
     mutating func visitUnknown(bytes: Data) {}
 
-    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         separator = ","
         description.append(swiftFieldName + ":" + String(reflecting: value))
     }
 
-    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -66,7 +66,7 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -80,23 +80,23 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":")
-        let messageDescription = ProtobufDebugDescriptionVisitor(message: value).description
+        let messageDescription = DebugDescriptionVisitor(message: value).description
         description.append(messageDescription)
         separator = ","
     }
 
-    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
         var arraySeparator = ""
         for v in value {
             description.append(arraySeparator)
-            let messageDescription = ProtobufDebugDescriptionVisitor(message: v).description
+            let messageDescription = DebugDescriptionVisitor(message: v).description
             description.append(messageDescription)
             arraySeparator = ","
         }
@@ -105,23 +105,23 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
    }
 
 
-    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":")
-        let groupDescription = ProtobufDebugDescriptionVisitor(message: value).description
+        let groupDescription = DebugDescriptionVisitor(message: value).description
         description.append(groupDescription)
         separator = ","
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
         var arraySeparator = ""
         for v in value {
             description.append(arraySeparator)
-            let groupDescription = ProtobufDebugDescriptionVisitor(message: v).description
+            let groupDescription = DebugDescriptionVisitor(message: v).description
             description.append(groupDescription)
             arraySeparator = ","
         }
@@ -129,7 +129,7 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":{")

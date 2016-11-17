@@ -34,7 +34,7 @@ fileprivate func typeName(fromURL s: String) -> String {
     return s[typeStart..<s.endIndex]
 }
 
-fileprivate func typeName(fromMessage message: ProtobufMessage) -> String {
+fileprivate func typeName(fromMessage message: Message) -> String {
     if message.protoPackageName == "" {
         return message.protoMessageName
     } else {
@@ -42,6 +42,12 @@ fileprivate func typeName(fromMessage message: ProtobufMessage) -> String {
     }
 }
 
+public extension Message {
+  public init(any: Google_Protobuf_Any) throws {
+    self.init()
+    try any.unpackTo(target: &self)
+  }
+}
 
 ///   `Any` contains an arbitrary serialized message along with a URL
 ///   that describes the type of the serialized message.
@@ -112,13 +118,13 @@ fileprivate func typeName(fromMessage message: ProtobufMessage) -> String {
 /// without having the type information available.  This is a basic
 /// limitation of Google's spec for google.protobuf.Any.
 ///
-public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Message, Hashable, Equatable, CustomReflectable {
+public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase {
     public var swiftClassName: String {return "Google_Protobuf_Any"}
     public var protoPackageName: String {return "google.protobuf"}
     public var protoMessageName: String {return "Any"}
     public var jsonFieldNames: [String:Int] {return ["@type":1,"value":2]}
     public var protoFieldNames: [String:Int] {return ["type_url":1,"value":2]}
-    
+
     ///   A URL/resource name whose content describes the type of the
     ///   serialized message.
     ///
@@ -191,10 +197,10 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
     }
     private var _value: Data?
 
-    private var _message: ProtobufMessage?
-    private var _jsonFields: [String:[ProtobufJSONToken]]?
+    private var _message: Message?
+    private var _jsonFields: [String:[JSONToken]]?
 
-    static private var wellKnownTypes: [String:ProtobufMessage.Type] = [
+    static private var wellKnownTypes: [String:Message.Type] = [
         "google.protobuf.Any": Google_Protobuf_Any.self,
         "google.protobuf.BoolValue": Google_Protobuf_BoolValue.self,
         "google.protobuf.BytesValue": Google_Protobuf_BytesValue.self,
@@ -213,8 +219,8 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
         "google.protobuf.Value": Google_Protobuf_Value.self,
     ]
 
-    static private var knownTypes = [String:ProtobufMessage.Type]()
-    static public func register(messageType: ProtobufMessage.Type) {
+    static private var knownTypes = [String:Message.Type]()
+    static public func register(messageType: Message.Type) {
         let m = messageType.init()
         let messageTypeName = typeName(fromMessage: m)
         knownTypes[messageTypeName] = messageType
@@ -222,12 +228,12 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
 
     public init() {}
 
-    public init(message: ProtobufMessage) {
+    public init(message: Message) {
         _message = message
         typeURL = message.anyTypeURL
     }
 
-    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    mutating public func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
         case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
         case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
@@ -235,22 +241,22 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
         }
     }
 
-    public mutating func decodeFromJSONObject(jsonDecoder: inout ProtobufJSONDecoder) throws {
+    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
         var key = ""
-        var state = ProtobufJSONDecoder.ObjectParseState.expectFirstKey
+        var state = JSONDecoder.ObjectParseState.expectFirstKey
         _jsonFields = nil
-        var jsonFields = [String:[ProtobufJSONToken]]()
+        var jsonFields = [String:[JSONToken]]()
         while let token = try jsonDecoder.nextToken() {
             switch token {
             case .string(let s): // This is a key
                 if state != .expectKey && state != .expectFirstKey {
-                    throw ProtobufDecodingError.malformedJSON
+                    throw DecodingError.malformedJSON
                 }
                 key = s
                 state = .expectColon
             case .colon:
                 if state != .expectColon {
-                    throw ProtobufDecodingError.malformedJSON
+                    throw DecodingError.malformedJSON
                 }
                 if key == "@type" {
                     try jsonDecoder.decodeValue(key: key, message: &self)
@@ -260,20 +266,20 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
                 state = .expectComma
             case .comma:
                 if state != .expectComma {
-                    throw ProtobufDecodingError.malformedJSON
+                    throw DecodingError.malformedJSON
                 }
                 state = .expectKey
             case .endObject:
                 if state != .expectFirstKey && state != .expectComma {
-                    throw ProtobufDecodingError.malformedJSON
+                    throw DecodingError.malformedJSON
                 }
                 _jsonFields = jsonFields
                 return
             default:
-                throw ProtobufDecodingError.malformedJSON
+                throw DecodingError.malformedJSON
             }
         }
-        throw ProtobufDecodingError.malformedJSON
+        throw DecodingError.malformedJSON
     }
 
     /// Update the provided object from the data in the Any container.
@@ -281,17 +287,17 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
     /// may hold protobuf bytes or JSON fields depending on how the Any
     /// was itself deserialized.
     ///
-    public func unpackTo<M: ProtobufMessage>(target: inout M) throws {
+    public func unpackTo<M: Message>(target: inout M) throws {
         if typeURL == nil {
-            throw ProtobufDecodingError.malformedAnyField
+            throw DecodingError.malformedAnyField
         }
         let encodedType = typeName(fromURL: typeURL!)
         if encodedType == "" {
-            throw ProtobufDecodingError.malformedAnyField
+            throw DecodingError.malformedAnyField
         }
         let messageType = typeName(fromMessage: target)
         if encodedType != messageType {
-            throw ProtobufDecodingError.malformedAnyField
+            throw DecodingError.malformedAnyField
         }
         var protobuf: Data?
         if let message = _message {
@@ -303,7 +309,7 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
             // Decode protobuf from the stored bytes
             try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
                 let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
-                var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: bp)
+                var protobufDecoder = ProtobufDecoder(protobufPointer: bp)
                 try protobufDecoder.decodeFullObject(message: &target)
             }
             return
@@ -312,22 +318,22 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
             if Google_Protobuf_Any.wellKnownTypes[targetType] != nil {
                 // If it's a well-known type, the JSON coding must have a single 'value' field
                 if jsonFields.count != 1 || jsonFields["value"] == nil {
-                    throw ProtobufDecodingError.schemaMismatch
+                    throw DecodingError.schemaMismatch
                 }
                 var v = jsonFields["value"]!
                 guard v.count > 0 else {
-                    throw ProtobufDecodingError.schemaMismatch
+                    throw DecodingError.schemaMismatch
                 }
                 switch v[0] {
                 case .beginObject:
-                    var decoder = ProtobufJSONDecoder(tokens: v)
+                    var decoder = JSONDecoder(tokens: v)
                     let _ = try decoder.nextToken() // Discard {
                     try target.decodeFromJSONObject(jsonDecoder: &decoder)
                     if !decoder.complete {
-                        throw ProtobufDecodingError.trailingGarbage
+                        throw DecodingError.trailingGarbage
                     }
                 case .beginArray:
-                    var decoder = ProtobufJSONDecoder(tokens: v)
+                    var decoder = JSONDecoder(tokens: v)
                     let _ = try decoder.nextToken() // Discard [
                     try target.decodeFromJSONArray(jsonDecoder: &decoder)
                 case .number(_), .string(_), .boolean(_):
@@ -336,24 +342,24 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
                     if let n = try M.decodeFromJSONNull() {
                         target = n
                     } else {
-                        throw ProtobufDecodingError.malformedJSON
+                        throw DecodingError.malformedJSON
                     }
                 default:
-                    throw ProtobufDecodingError.malformedJSON
+                    throw DecodingError.malformedJSON
                 }
             } else {
                 // Decode JSON from the stored tokens for generated messages
                 for (k,v) in jsonFields {
-                    var decoder = ProtobufJSONDecoder(tokens: v)
+                    var decoder = JSONDecoder(tokens: v)
                     try decoder.decodeValue(key: k, message: &target)
                     if !decoder.complete {
-                        throw ProtobufDecodingError.trailingGarbage
+                        throw DecodingError.trailingGarbage
                     }
                 }
             }
             return
         }
-        throw ProtobufDecodingError.malformedAnyField
+        throw DecodingError.malformedAnyField
     }
 
     public var hashValue: Int {
@@ -424,9 +430,9 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
                 // The big problem here is fetching the type:  Types not in the executable must be fetched from somewhere; Google says we should do an HTTPS fetch against the typeURL, which assumes that everyone will publish all their types and that everyone running this code will have reliable network access.  That seems ... optimistic.
 
                 // ProtobufDynamicMessage() is non-trivial to write but desirable for other reasons.  It's a class that can be instantiated with any protobuf type or descriptor and provides access to protos of the corresponding type.  (Not to be confused with ProtobufRaw which can decode any message but does not use a type descriptor and therefore cannot provide fully-typed access to fields.)
-                throw ProtobufEncodingError.anyTranscodeFailure
+                throw EncodingError.anyTranscodeFailure
             } else {
-                var jsonEncoder = ProtobufJSONEncoder()
+                var jsonEncoder = JSONEncoder()
                 jsonEncoder.startObject()
                 jsonEncoder.startField(name: "@type")
                 jsonEncoder.putStringValue(value: typeURL)
@@ -449,8 +455,8 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
         let value = try serializeJSON()
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
-    
-    public func isEqualTo(other: Google_Protobuf_Any) -> Bool {
+
+    public func _protoc_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
         // TODO: Fix this for case where Any holds a message or jsonFields or the two Any hold different stuff... <ugh>  This seems unsolvable in the general case.  <ugh>
         if ((typeURL != nil && typeURL != "") || (other.typeURL != nil && other.typeURL != "")) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
             return false
@@ -461,13 +467,13 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Messag
         return true
     }
 
-    public func traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
         if let typeURL = typeURL {
             try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1, protoFieldName: "type_url", jsonFieldName: "@type", swiftFieldName: "typeURL")
             if let value = value {
                 try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
             } else {
-                throw ProtobufEncodingError.anyTranscodeFailure
+                throw EncodingError.anyTranscodeFailure
             }
         }
     }
