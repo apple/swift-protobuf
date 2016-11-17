@@ -55,7 +55,7 @@ struct ExtensionGenerator {
         case .message: modifier = "Message"
         default: modifier = ""
         }
-        return "Protobuf\(label)\(modifier)Field"
+        return "\(label)\(modifier)ExtensionField"
     }
 
     var defaultValue: String {
@@ -111,7 +111,7 @@ struct ExtensionGenerator {
         }
         let scope = declaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
-        p.print("\(scope)let \(swiftRelativeExtensionName) = ProtobufGenericMessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number), protoFieldName: \"\(descriptor.name)\", jsonFieldName: \"\(descriptor.jsonName)\", swiftFieldName: \"\(swiftFieldName)\", defaultValue: \(defaultValue))\n")
+        p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number), protoFieldName: \"\(descriptor.name)\", jsonFieldName: \"\(descriptor.jsonName)\", swiftFieldName: \"\(swiftFieldName)\", defaultValue: \(defaultValue))\n")
     }
 
     func generateTopLevel(printer p: inout CodePrinter) {

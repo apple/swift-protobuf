@@ -162,7 +162,7 @@ class EnumGenerator {
     func generateNested(printer: inout CodePrinter) {
         printer.print("\n")
         printer.print(comments)
-        printer.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): ProtobufEnum {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): SwiftProtobuf.Enum {\n")
         printer.indent()
         printer.print("public typealias RawValue = Int\n")
 
