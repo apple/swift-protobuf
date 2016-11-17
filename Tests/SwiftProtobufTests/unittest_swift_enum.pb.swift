@@ -264,6 +264,78 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   }
 
+  enum EnumTestReservedWord: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case `var` // = 1
+    case notReserved // = 2
+
+    init() {
+      self = .`var`
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 1: self = .`var`
+      case 2: self = .notReserved
+      default: return nil
+      }
+    }
+
+    init?(name: String) {
+      switch name {
+      case "var": self = .`var`
+      case "notReserved": self = .notReserved
+      default: return nil
+      }
+    }
+
+    init?(jsonName: String) {
+      switch jsonName {
+      case "ENUM_TEST_RESERVED_WORD_VAR": self = .`var`
+      case "ENUM_TEST_RESERVED_WORD_NOT_RESERVED": self = .notReserved
+      default: return nil
+      }
+    }
+
+    init?(protoName: String) {
+      switch protoName {
+      case "ENUM_TEST_RESERVED_WORD_VAR": self = .`var`
+      case "ENUM_TEST_RESERVED_WORD_NOT_RESERVED": self = .notReserved
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      get {
+        switch self {
+        case .`var`: return 1
+        case .notReserved: return 2
+        }
+      }
+    }
+
+    var json: String {
+      get {
+        switch self {
+        case .`var`: return "\"ENUM_TEST_RESERVED_WORD_VAR\""
+        case .notReserved: return "\"ENUM_TEST_RESERVED_WORD_NOT_RESERVED\""
+        }
+      }
+    }
+
+    var hashValue: Int { return rawValue }
+
+    var debugDescription: String {
+      get {
+        switch self {
+        case .`var`: return ".var"
+        case .notReserved: return ".notReserved"
+        }
+      }
+    }
+
+  }
+
   init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {

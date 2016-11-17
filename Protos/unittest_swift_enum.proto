@@ -45,4 +45,8 @@ message SwiftEnumTest {
         ENUM_TEST_NO_STEM_1 = 1;
         ENUM_TEST_NO_STEM_2 = 2;
     }
+    enum EnumTestReservedWord {
+        ENUM_TEST_RESERVED_WORD_VAR = 1;
+        ENUM_TEST_RESERVED_WORD_NOT_RESERVED = 2;
+    }
 }
