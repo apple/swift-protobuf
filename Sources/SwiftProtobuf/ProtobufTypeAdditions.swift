@@ -734,24 +734,14 @@ public extension Message {
     }
 
     init(protobuf: Data) throws {
-        self.init()
-        if !protobuf.isEmpty {
-            try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
-                let bufferPointer = UnsafeBufferPointer<UInt8>(start: pointer, count: protobuf.count)
-                try decodeIntoSelf(protobuf: bufferPointer, extensions: nil)
-            }
-        }
+        try self.init(protobuf: protobuf, extensions: nil)
     }
 
     init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws {
-        self.init()
-        try decodeIntoSelf(protobuf: protobufBuffer, extensions: nil)
+        try self.init(protobufBuffer: protobufBuffer, extensions: nil)
     }
-}
 
-/// Proto2 messages preserve unknown fields and support extensions
-public extension Proto2Message {
-    init(protobuf: Data, extensions: ExtensionSet? = nil) throws {
+    init(protobuf: Data, extensions: ExtensionSet?) throws {
         self.init()
         if !protobuf.isEmpty {
             try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
@@ -761,11 +751,14 @@ public extension Proto2Message {
         }
     }
 
-    init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet? = nil) throws {
+    init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws {
         self.init()
         try decodeIntoSelf(protobuf: protobufBuffer, extensions: extensions)
     }
+}
 
+/// Proto2 messages preserve unknown fields
+public extension Proto2Message {
     public mutating func decodeIntoSelf(protobuf bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws {
         var protobufDecoder = ProtobufDecoder(protobufPointer: bufferPointer, extensions: extensions)
         try protobufDecoder.decodeFullObject(message: &self)
@@ -773,7 +766,7 @@ public extension Proto2Message {
     }
 }
 
-// Proto3 messages ignore unknown fields and do not support extensions
+// Proto3 messages ignore unknown fields
 public extension Proto3Message {
     public mutating func decodeIntoSelf(protobuf bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws {
         var protobufDecoder = ProtobufDecoder(protobufPointer: bufferPointer, extensions: extensions)
