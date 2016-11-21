@@ -73,7 +73,7 @@ extension Google_Protobuf_EnumDescriptorProto {
                 return 0
             }
 #endif
-            if !isValidSwiftIdentifier(f.getSwiftBareName(stripLength: enumName.characters.count)) {
+            if !isUsableSwiftIdentifier(f.getSwiftBareName(stripLength: enumName.characters.count)) {
                 return 0
             }
         }
