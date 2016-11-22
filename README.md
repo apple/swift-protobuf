@@ -112,7 +112,7 @@ you used to build the plugin above:
 
 ```swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,23))
+        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,24))
 ]
 ```
 
@@ -130,7 +130,7 @@ If you're using CocoaPods, add this to your `Podfile` but adjust the `:tag` to
 match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.23'
+pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.24'
 ```
 
 And run `pod install`.
