@@ -578,12 +578,9 @@ private class ProtobufScanner {
 
     // Returns tagType for the field being skipped
     // Recursively processes groups; returns the start group marker
-    func skipOver(tagType: UInt64) throws {
-        if tagType < 8 || tagType > UInt64(UInt32.max) {
-            throw ProtobufDecodingError.malformedProtobuf
-        }
-        switch tagType % 8 {
-        case 0:
+    func skipOver(tag: FieldTag) throws {
+        switch tag.wireFormat {
+        case .varint:
             if available < 1 {
                 throw ProtobufDecodingError.truncatedInput
             }
@@ -598,41 +595,39 @@ private class ProtobufScanner {
             }
             p += 1
             available -= 1
-        case 1:
+        case .fixed64:
             if available < 8 {
                 throw ProtobufDecodingError.truncatedInput
             }
             p += 8
             available -= 8
-        case 2:
+        case .lengthDelimited:
             if let n = try getRawVarint(), n <= UInt64(available) {
                 p += Int(n)
                 available -= Int(n)
             } else {
                 throw ProtobufDecodingError.malformedProtobuf
             }
-        case 3:
+        case .startGroup:
             while true {
-                if let innerTagType = try getRawVarint() {
-                    if innerTagType == tagType + 1 {
+                if let innerTag = try getTagWithoutUpdatingFieldStart() {
+                    if innerTag.fieldNumber == tag.fieldNumber && innerTag.wireFormat == .endGroup {
                         break
-                    } else if innerTagType / 8 != tagType / 8 {
-                        try skipOver(tagType: innerTagType)
+                    } else if innerTag.fieldNumber != tag.fieldNumber {
+                        try skipOver(tag: innerTag)
                     }
                 } else {
                     throw ProtobufDecodingError.truncatedInput
                 }
             }
-        case 4:
+        case .endGroup:
             throw ProtobufDecodingError.malformedProtobuf
-        case 5:
+        case .fixed32:
             if available < 4 {
                 throw ProtobufDecodingError.truncatedInput
             }
             p += 4
             available -= 4
-        default:
-            throw ProtobufDecodingError.malformedProtobuf
         }
     }
 
@@ -643,10 +638,10 @@ private class ProtobufScanner {
     func skip() throws -> UnsafeBufferPointer<UInt8> {
         p = fieldStartP
         available = fieldStartAvailable
-        guard let tagType = try getRawVarint() else {
+        guard let tag = try getTagWithoutUpdatingFieldStart() else {
             throw ProtobufDecodingError.truncatedInput
         }
-        try skipOver(tagType: tagType)
+        try skipOver(tag: tag)
         return UnsafeBufferPointer<UInt8>(start: fieldStartP, count: p - fieldStartP)
     }
 
@@ -682,6 +677,12 @@ private class ProtobufScanner {
     func getTag() throws -> FieldTag? {
         fieldStartP = p
         fieldStartAvailable = available
+        return try getTagWithoutUpdatingFieldStart()
+    }
+
+    // Parse index/type marker that starts each field.
+    // Used during skipping to avoid updating the field start offset.
+    private func getTagWithoutUpdatingFieldStart() throws -> FieldTag? {
         if let t = try getRawVarint() {
             if t < UInt64(UInt32.max) {
                 guard let tag = FieldTag(rawValue: UInt32(truncatingBitPattern: t)) else {
