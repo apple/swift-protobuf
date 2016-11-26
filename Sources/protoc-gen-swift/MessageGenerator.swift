@@ -523,7 +523,7 @@ class MessageGenerator {
 
         // Default init
         p.print("\n")
-        p.print("public init() {}\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
 
         // Field-addressable decoding
         p.print("\n")
