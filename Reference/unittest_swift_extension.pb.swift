@@ -196,37 +196,37 @@ struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage, ProtobufProto2Messag
   }
 }
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 100, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "b", defaultValue: "")
+let ProtobufUnittest_Extend_Extensions_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 100, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "ProtobufUnittest_Extend_b", defaultValue: "")
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c", defaultValue: ProtobufUnittest_Extend_C())
+let ProtobufUnittest_Extend_Extensions_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "ProtobufUnittest_Extend_c", defaultValue: ProtobufUnittest_Extend_C())
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b) ?? ""}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b, value: newValue)}
+  var ProtobufUnittest_Extend_b: String {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? ""}
+    set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b, value: newValue)}
   }
-  var hasB: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
+  var hasProtobufUnittest_Extend_b: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b)
   }
-  mutating func clearB() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
+  mutating func clearProtobufUnittest_Extend_b() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b)
   }
 }
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var c: ProtobufUnittest_Extend_C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c) ?? ProtobufUnittest_Extend_C()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c, value: newValue)}
+  var ProtobufUnittest_Extend_c: ProtobufUnittest_Extend_C {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_c) ?? ProtobufUnittest_Extend_C()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_c, value: newValue)}
   }
-  var hasC: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
+  var hasProtobufUnittest_Extend_c: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_c)
   }
-  mutating func clearC() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
+  mutating func clearProtobufUnittest_Extend_c() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_c)
   }
 }
 
 let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: ProtobufExtensionSet = [
-  ProtobufUnittest_Extend_Foo_Bar_Baz_b,
-  ProtobufUnittest_Extend_Foo_Bar_Baz_c
+  ProtobufUnittest_Extend_Extensions_b,
+  ProtobufUnittest_Extend_Extensions_c
 ]
