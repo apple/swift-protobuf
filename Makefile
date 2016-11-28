@@ -103,6 +103,9 @@ TEST_PROTOS= \
 	Protos/unittest_swift_enum.proto \
 	Protos/unittest_swift_enum_optional_default.proto \
 	Protos/unittest_swift_extension.proto \
+	Protos/unittest_swift_extension2.proto \
+	Protos/unittest_swift_extension3.proto \
+	Protos/unittest_swift_extension4.proto \
 	Protos/unittest_swift_fieldorder.proto \
 	Protos/unittest_swift_groups.proto \
 	Protos/unittest_swift_naming.proto \
