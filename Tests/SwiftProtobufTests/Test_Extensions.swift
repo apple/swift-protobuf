@@ -131,17 +131,17 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Append an array of extensions
         extensions.insert(contentsOf:
             [
-                SwiftTestGroupExtensions_repeatedExtensionGroup,
-                SwiftTestGroupExtensions_extensionGroup
+                Extensions_repeatedExtensionGroup,
+                Extensions_extensionGroup
             ]
         )
     }
 
     func test_optionalInt32Extension() throws {
         assertEncode([8, 17]) { (o: inout MessageTestType) in
-            o.optionalInt32Extension = 17
+            o.ProtobufUnittest_optionalInt32Extension = 17
         }
-        assertDecodeSucceeds([8, 99]) {$0.optionalInt32Extension == 99}
+        assertDecodeSucceeds([8, 99]) {$0.ProtobufUnittest_optionalInt32Extension == 99}
         assertDecodeFails([9])
         assertDecodeFails([9, 0])
         assertDecodeFails([9, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -163,12 +163,12 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Decoded extension should correctly compare to a manually-set extension
         let m1 = try ProtobufUnittest_TestAllExtensions(protobuf: Data(bytes: [8, 17]), extensions: extensions)
         var m2 = ProtobufUnittest_TestAllExtensions()
-        m2.optionalInt32Extension = 17
+        m2.ProtobufUnittest_optionalInt32Extension = 17
         XCTAssertEqual(m1, m2)
-        m2.optionalInt32Extension = 18
+        m2.ProtobufUnittest_optionalInt32Extension = 18
         XCTAssertNotEqual(m1, m2)
 
-        XCTAssertEqual(m2.debugDescription, "ProtobufUnittest_TestAllExtensions(optionalInt32Extension:18)")
+        XCTAssertEqual(m2.debugDescription, "ProtobufUnittest_TestAllExtensions(ProtobufUnittest_optionalInt32Extension:18)")
         XCTAssertNotEqual(m1.hashValue, m2.hashValue)
     }
 
@@ -176,102 +176,102 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
     // TODO: Verify that JSON extensions work with proto field names as well.
     func test_optionalInt32Extension_JSON() throws {
         var m = MessageTestType()
-        m.optionalInt32Extension = 18
+        m.ProtobufUnittest_optionalInt32Extension = 18
         let json = try m.serializeJSON()
         XCTAssertEqual("{\"optionalInt32Extension\":18}", json)
 
-        assertJSONEncode("{\"optionalInt32Extension\":18}") {(o: inout MessageTestType) in o.optionalInt32Extension = 18}
+        assertJSONEncode("{\"optionalInt32Extension\":18}") {(o: inout MessageTestType) in o.ProtobufUnittest_optionalInt32Extension = 18}
     }
 
     func test_extensionMessageSpecificity() throws {
         // An extension set with two extensions for field #5, but for
         // different messages and with different types
         var extensions = ProtobufExtensionSet()
-        extensions.insert(ProtobufUnittest_TestAllExtensions_optionalSint32Extension)
-        extensions.insert(ProtobufUnittest_TestFieldOrderings_myExtensionInt)
+        extensions.insert(ProtobufUnittest_Extensions_optionalSint32Extension)
+        extensions.insert(ProtobufUnittest_Extensions_myExtensionInt)
 
         // This should decode with optionalSint32Extension
         let m1 = try ProtobufUnittest_TestAllExtensions(protobuf: Data(bytes: [40, 1]), extensions: extensions)
-        XCTAssertEqual(m1.optionalSint32Extension, -1)
+        XCTAssertEqual(m1.ProtobufUnittest_optionalSint32Extension, -1)
 
         // This should decode with myExtensionInt
         let m2 = try ProtobufUnittest_TestFieldOrderings(protobuf: Data(bytes: [40, 1]), extensions: extensions)
-        XCTAssertEqual(m2.myExtensionInt, 1)
+        XCTAssertEqual(m2.ProtobufUnittest_myExtensionInt, 1)
     }
 
     func test_optionalStringExtension() throws {
         assertEncode([114, 5, 104, 101, 108, 108, 111]) { (o: inout MessageTestType) in
-            o.optionalStringExtension = "hello"
+            o.ProtobufUnittest_optionalStringExtension = "hello"
         }
-        assertDecodeSucceeds([114, 2, 97, 98]) {$0.optionalStringExtension == "ab"}
+        assertDecodeSucceeds([114, 2, 97, 98]) {$0.ProtobufUnittest_optionalStringExtension == "ab"}
 
         var m1 = ProtobufUnittest_TestAllExtensions()
-        m1.optionalStringExtension = "ab"
-        XCTAssertEqual(m1.debugDescription, "ProtobufUnittest_TestAllExtensions(optionalStringExtension:\"ab\")")
+        m1.ProtobufUnittest_optionalStringExtension = "ab"
+        XCTAssertEqual(m1.debugDescription, "ProtobufUnittest_TestAllExtensions(ProtobufUnittest_optionalStringExtension:\"ab\")")
     }
 
     func test_repeatedInt32Extension() throws {
         assertEncode([248, 1, 7, 248, 1, 8]) { (o: inout MessageTestType) in
-            o.repeatedInt32Extension = [7, 8]
+            o.ProtobufUnittest_repeatedInt32Extension = [7, 8]
         }
-        assertDecodeSucceeds([248, 1, 7]) {$0.repeatedInt32Extension == [7]}
-        assertDecodeSucceeds([248, 1, 7, 248, 1, 8]) {$0.repeatedInt32Extension == [7, 8]}
-        assertDecodeSucceeds([250, 1, 2, 7, 8]) {$0.repeatedInt32Extension == [7, 8]}
+        assertDecodeSucceeds([248, 1, 7]) {$0.ProtobufUnittest_repeatedInt32Extension == [7]}
+        assertDecodeSucceeds([248, 1, 7, 248, 1, 8]) {$0.ProtobufUnittest_repeatedInt32Extension == [7, 8]}
+        assertDecodeSucceeds([250, 1, 2, 7, 8]) {$0.ProtobufUnittest_repeatedInt32Extension == [7, 8]}
 
         // Verify that the usual array access/modification operations work correctly
         var m = ProtobufUnittest_TestAllExtensions()
-        m.repeatedInt32Extension = [7]
-        m.repeatedInt32Extension.append(8)
-        XCTAssertEqual(m.repeatedInt32Extension, [7, 8])
-        XCTAssertEqual(m.repeatedInt32Extension[0], 7)
-        m.repeatedInt32Extension[1] = 9
-        XCTAssertNotEqual(m.repeatedInt32Extension, [7, 8])
-        XCTAssertEqual(m.repeatedInt32Extension, [7, 9])
+        m.ProtobufUnittest_repeatedInt32Extension = [7]
+        m.ProtobufUnittest_repeatedInt32Extension.append(8)
+        XCTAssertEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 8])
+        XCTAssertEqual(m.ProtobufUnittest_repeatedInt32Extension[0], 7)
+        m.ProtobufUnittest_repeatedInt32Extension[1] = 9
+        XCTAssertNotEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 8])
+        XCTAssertEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 9])
 
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(repeatedInt32Extension:[7,9])")
+        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(ProtobufUnittest_repeatedInt32Extension:[7,9])")
     }
 
     func test_defaultInt32Extension() throws {
         var m = ProtobufUnittest_TestAllExtensions()
-        XCTAssertEqual(m.defaultInt32Extension, 41)
+        XCTAssertEqual(m.ProtobufUnittest_defaultInt32Extension, 41)
         XCTAssertEqual(try m.serializeProtobufBytes(), [])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions()")
-        m.defaultInt32Extension = 100
+        m.ProtobufUnittest_defaultInt32Extension = 100
         XCTAssertEqual(try m.serializeProtobufBytes(), [232, 3, 100])
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(defaultInt32Extension:100)")
-        m.clearDefaultInt32Extension()
+        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(ProtobufUnittest_defaultInt32Extension:100)")
+        m.clearProtobufUnittest_defaultInt32Extension()
         XCTAssertEqual(try m.serializeProtobufBytes(), [])
         XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions()")
-        m.defaultInt32Extension = 41 // Default value
+        m.ProtobufUnittest_defaultInt32Extension = 41 // Default value
         XCTAssertEqual(try m.serializeProtobufBytes(), [232, 3, 41])
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(defaultInt32Extension:41)")
+        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions(ProtobufUnittest_defaultInt32Extension:41)")
 
         assertEncode([232, 3, 17]) { (o: inout MessageTestType) in
-            o.defaultInt32Extension = 17
+            o.ProtobufUnittest_defaultInt32Extension = 17
         }
     }
 
     func test_reflection() throws {
         var m = ProtobufUnittest_TestAllExtensions()
-        m.defaultInt32Extension = 1
+        m.ProtobufUnittest_defaultInt32Extension = 1
         let mirror1 = Mirror(reflecting: m)
 
         XCTAssertEqual(mirror1.children.count, 1)
         if let (name, value) = mirror1.children.first {
-            XCTAssertEqual(name!, "defaultInt32Extension")
+            XCTAssertEqual(name!, "ProtobufUnittest_defaultInt32Extension")
             XCTAssertEqual((value as! Int32), 1)
         }
 
-        m.repeatedInt32Extension = [1, 2, 3]
+        m.ProtobufUnittest_repeatedInt32Extension = [1, 2, 3]
         let mirror2 = Mirror(reflecting: m)
 
         XCTAssertEqual(mirror2.children.count, 2)
 
         for (name, value) in mirror2.children {
             switch name! {
-            case "defaultInt32Extension":
+            case "ProtobufUnittest_defaultInt32Extension":
                 XCTAssertEqual((value as! Int32), 1)
-            case "repeatedInt32Extension":
+            case "ProtobufUnittest_repeatedInt32Extension":
                 XCTAssertEqual((value as! [Int32]), [1, 2, 3])
             default:
                 XCTFail("Unexpected child element \(name)")
@@ -318,7 +318,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual(json, "{\"extensiongroup\":{\"a\":7}}")
 
-        let m2 = try SwiftTestGroupExtensions(json: json, extensions: [SwiftTestGroupExtensions_extensionGroup])
+        let m2 = try SwiftTestGroupExtensions(json: json, extensions: [Extensions_extensionGroup])
         XCTAssertNotNil(m2.extensionGroup)
         if m.hasExtensionGroup {
             XCTAssertEqual(m.extensionGroup.a, 7)
@@ -368,7 +368,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual(json, "{\"repeatedextensiongroup\":[{\"a\":7},{\"a\":8}]}")
 
-        let m2 = try SwiftTestGroupExtensions(json: json, extensions: [SwiftTestGroupExtensions_repeatedExtensionGroup])
+        let m2 = try SwiftTestGroupExtensions(json: json, extensions: [Extensions_repeatedExtensionGroup])
         XCTAssertEqual(m2.repeatedExtensionGroup.count, 2)
         if m2.repeatedExtensionGroup.count == 2 {
             XCTAssertEqual(m2.repeatedExtensionGroup[0].a, 7)

@@ -87,9 +87,9 @@ struct Ext4MyMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
 
   struct Extensions {
 
-    static let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 410, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "Ext4MyMessage_b", defaultValue: "")
+    static let b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 410, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "Ext4MyMessage_b", defaultValue: "")
 
-    static let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 411, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "Ext4MyMessage_c", defaultValue: Ext4MyMessage.C())
+    static let c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 411, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "Ext4MyMessage_c", defaultValue: Ext4MyMessage.C())
   }
 
   public init() {}
@@ -155,65 +155,65 @@ struct Ext4C: ProtobufGeneratedMessage, ProtobufProto2Message {
   }
 }
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 420, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "b", defaultValue: "")
+let Ext4Extensions_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 420, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "Ext4b", defaultValue: "")
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 421, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c", defaultValue: Ext4C())
+let Ext4Extensions_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 421, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "Ext4c", defaultValue: Ext4C())
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_b: String {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_b) ?? ""}
-    set {setExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_b, value: newValue)}
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? ""}
+    set {setExtensionValue(ext: Ext4MyMessage.Extensions.b, value: newValue)}
   }
   var hasExt4MyMessage_b: Bool {
-    return hasExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_b)
+    return hasExtensionValue(ext: Ext4MyMessage.Extensions.b)
   }
   mutating func clearExt4MyMessage_b() {
-    clearExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_b)
+    clearExtensionValue(ext: Ext4MyMessage.Extensions.b)
   }
 }
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_c: Ext4MyMessage.C {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_c) ?? Ext4MyMessage.C()}
-    set {setExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_c, value: newValue)}
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.c) ?? Ext4MyMessage.C()}
+    set {setExtensionValue(ext: Ext4MyMessage.Extensions.c, value: newValue)}
   }
   var hasExt4MyMessage_c: Bool {
-    return hasExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_c)
+    return hasExtensionValue(ext: Ext4MyMessage.Extensions.c)
   }
   mutating func clearExt4MyMessage_c() {
-    clearExtensionValue(ext: Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_c)
+    clearExtensionValue(ext: Ext4MyMessage.Extensions.c)
   }
 }
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b) ?? ""}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b, value: newValue)}
+  var Ext4b: String {
+    get {return getExtensionValue(ext: Ext4Extensions_b) ?? ""}
+    set {setExtensionValue(ext: Ext4Extensions_b, value: newValue)}
   }
-  var hasB: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
+  var hasExt4b: Bool {
+    return hasExtensionValue(ext: Ext4Extensions_b)
   }
-  mutating func clearB() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_b)
+  mutating func clearExt4b() {
+    clearExtensionValue(ext: Ext4Extensions_b)
   }
 }
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var c: Ext4C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c) ?? Ext4C()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c, value: newValue)}
+  var Ext4c: Ext4C {
+    get {return getExtensionValue(ext: Ext4Extensions_c) ?? Ext4C()}
+    set {setExtensionValue(ext: Ext4Extensions_c, value: newValue)}
   }
-  var hasC: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
+  var hasExt4c: Bool {
+    return hasExtensionValue(ext: Ext4Extensions_c)
   }
-  mutating func clearC() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend_Foo_Bar_Baz_c)
+  mutating func clearExt4c() {
+    clearExtensionValue(ext: Ext4Extensions_c)
   }
 }
 
 let Ext4UnittestSwiftExtension4_Extensions: ProtobufExtensionSet = [
-  ProtobufUnittest_Extend_Foo_Bar_Baz_b,
-  ProtobufUnittest_Extend_Foo_Bar_Baz_c,
-  Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_b,
-  Ext4MyMessage.Extensions.ProtobufUnittest_Extend_Foo_Bar_Baz_c
+  Ext4Extensions_b,
+  Ext4Extensions_c,
+  Ext4MyMessage.Extensions.b,
+  Ext4MyMessage.Extensions.c
 ]
