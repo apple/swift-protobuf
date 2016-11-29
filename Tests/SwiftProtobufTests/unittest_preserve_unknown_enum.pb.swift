@@ -41,17 +41,17 @@ import SwiftProtobuf
 
 
 enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .foo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .foo
     case 1: self = .bar
@@ -60,7 +60,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foo": self = .foo
     case "bar": self = .bar
@@ -69,7 +69,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo
     case "BAR": self = .bar
@@ -78,7 +78,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "FOO": self = .foo
     case "BAR": self = .bar
@@ -87,7 +87,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foo: return 0
@@ -98,7 +98,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foo: return "\"FOO\""
@@ -109,9 +109,9 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foo: return ".foo"
@@ -125,18 +125,18 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
 }
 
 enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1
   case eBaz // = 2
   case eExtra // = 3
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .eFoo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .eFoo
     case 1: self = .eBar
@@ -146,7 +146,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "eFoo": self = .eFoo
     case "eBar": self = .eBar
@@ -156,7 +156,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "E_FOO": self = .eFoo
     case "E_BAR": self = .eBar
@@ -166,7 +166,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "E_FOO": self = .eFoo
     case "E_BAR": self = .eBar
@@ -176,7 +176,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .eFoo: return 0
@@ -188,7 +188,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .eFoo: return "\"E_FOO\""
@@ -200,9 +200,9 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .eFoo: return ".eFoo"
@@ -285,16 +285,16 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
     }
   }
 
-  public var e: Proto3PreserveUnknownEnumUnittest_MyEnum = Proto3PreserveUnknownEnumUnittest_MyEnum.foo
+  var e: Proto3PreserveUnknownEnumUnittest_MyEnum = Proto3PreserveUnknownEnumUnittest_MyEnum.foo
 
-  public var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
+  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
 
-  public var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
+  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
 
   ///   not packed
-  public var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
-  public var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
+  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE1(let v) = o {
         return v
@@ -308,7 +308,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
 
   public var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
 
-  public var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
+  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE2(let v) = o {
         return v
@@ -320,7 +320,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -428,15 +428,15 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
     }
   }
 
-  public var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
+  var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
 
-  public var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
-  public var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
-  public var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
-  public var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
+  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
       if case .oneofE1(let v) = o {
         return v
@@ -450,7 +450,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
 
   public var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O = .None
 
-  public var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
+  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
       if case .oneofE2(let v) = o {
         return v
@@ -462,7 +462,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: ProtobufGeneratedMe
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

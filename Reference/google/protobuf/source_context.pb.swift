@@ -55,9 +55,9 @@ struct Google_Protobuf_SourceContext: ProtobufGeneratedMessage, ProtobufProto3Me
 
   ///   The path-qualified name of the .proto file that contained the associated
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
-  public var fileName: String = ""
+  var fileName: String = ""
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

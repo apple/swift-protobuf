@@ -54,9 +54,9 @@ struct Proto3PublicImportMessage: ProtobufGeneratedMessage, ProtobufProto3Messag
   ]}
 
 
-  public var e: Int32 = 0
+  var e: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

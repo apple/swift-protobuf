@@ -109,15 +109,15 @@ struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage, ProtobufProto3Messag
   ///   Represents seconds of UTC time since Unix epoch
   ///   1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to
   ///   9999-12-31T23:59:59Z inclusive.
-  public var seconds: Int64 = 0
+  var seconds: Int64 = 0
 
   ///   Non-negative fractions of a second at nanosecond resolution. Negative
   ///   second values with fractions must still have non-negative nanos values
   ///   that count forward in time. Must be from 0 to 999,999,999
   ///   inclusive.
-  public var nanos: Int32 = 0
+  var nanos: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

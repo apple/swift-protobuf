@@ -41,18 +41,18 @@ import SwiftProtobuf
 
 
 enum Proto3ArenaUnittest_ForeignEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foreignZero // = 0
   case foreignFoo // = 4
   case foreignBar // = 5
   case foreignBaz // = 6
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .foreignZero
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .foreignZero
     case 4: self = .foreignFoo
@@ -62,7 +62,7 @@ enum Proto3ArenaUnittest_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foreignZero": self = .foreignZero
     case "foreignFoo": self = .foreignFoo
@@ -72,7 +72,7 @@ enum Proto3ArenaUnittest_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_ZERO": self = .foreignZero
     case "FOREIGN_FOO": self = .foreignFoo
@@ -82,7 +82,7 @@ enum Proto3ArenaUnittest_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "FOREIGN_ZERO": self = .foreignZero
     case "FOREIGN_FOO": self = .foreignFoo
@@ -92,7 +92,7 @@ enum Proto3ArenaUnittest_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foreignZero: return 0
@@ -104,7 +104,7 @@ enum Proto3ArenaUnittest_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foreignZero: return "\"FOREIGN_ZERO\""
@@ -116,9 +116,9 @@ enum Proto3ArenaUnittest_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foreignZero: return ".foreignZero"
@@ -674,7 +674,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
   }
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case zero // = 0
     case foo // = 1
     case bar // = 2
@@ -684,11 +684,11 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     case neg // = -1
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .zero
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .zero
       case 1: self = .foo
@@ -699,7 +699,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "zero": self = .zero
       case "foo": self = .foo
@@ -710,7 +710,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ZERO": self = .zero
       case "FOO": self = .foo
@@ -721,7 +721,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ZERO": self = .zero
       case "FOO": self = .foo
@@ -732,7 +732,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .zero: return 0
@@ -745,7 +745,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .zero: return "\"ZERO\""
@@ -758,9 +758,9 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .zero: return ".zero"
@@ -790,9 +790,9 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
-    public var bb: Int32 = 0
+    var bb: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -814,77 +814,77 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
   }
 
   ///   Singular
-  public var optionalInt32: Int32 {
+  var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
-  public var optionalInt64: Int64 {
+  var optionalInt64: Int64 {
     get {return _storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
-  public var optionalUint32: UInt32 {
+  var optionalUint32: UInt32 {
     get {return _storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
-  public var optionalUint64: UInt64 {
+  var optionalUint64: UInt64 {
     get {return _storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
-  public var optionalSint32: Int32 {
+  var optionalSint32: Int32 {
     get {return _storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
-  public var optionalSint64: Int64 {
+  var optionalSint64: Int64 {
     get {return _storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
-  public var optionalFixed32: UInt32 {
+  var optionalFixed32: UInt32 {
     get {return _storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
-  public var optionalFixed64: UInt64 {
+  var optionalFixed64: UInt64 {
     get {return _storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
-  public var optionalSfixed32: Int32 {
+  var optionalSfixed32: Int32 {
     get {return _storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
-  public var optionalSfixed64: Int64 {
+  var optionalSfixed64: Int64 {
     get {return _storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
-  public var optionalFloat: Float {
+  var optionalFloat: Float {
     get {return _storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
-  public var optionalDouble: Double {
+  var optionalDouble: Double {
     get {return _storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
-  public var optionalBool: Bool {
+  var optionalBool: Bool {
     get {return _storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
-  public var optionalString: String {
+  var optionalString: String {
     get {return _storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: Data {
+  var optionalBytes: Data {
     get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -894,7 +894,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
   //    optional int32 a = 17;
   //  }
 
-  public var optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
+  var optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalNestedMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
@@ -905,7 +905,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     return _storage._optionalNestedMessage = nil
   }
 
-  public var optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage {
+  var optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? Proto3ArenaUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
@@ -916,7 +916,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     return _storage._optionalForeignMessage = nil
   }
 
-  public var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
+  var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
     get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
@@ -927,12 +927,12 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     return _storage._optionalImportMessage = nil
   }
 
-  public var optionalNestedEnum: Proto3ArenaUnittest_TestAllTypes.NestedEnum {
+  var optionalNestedEnum: Proto3ArenaUnittest_TestAllTypes.NestedEnum {
     get {return _storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
-  public var optionalForeignEnum: Proto3ArenaUnittest_ForeignEnum {
+  var optionalForeignEnum: Proto3ArenaUnittest_ForeignEnum {
     get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
@@ -942,18 +942,18 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
   // 
   //  optional protobuf_unittest_import.ImportEnum    optional_import_enum  = 23;
 
-  public var optionalStringPiece: String {
+  var optionalStringPiece: String {
     get {return _storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
 
-  public var optionalCord: String {
+  var optionalCord: String {
     get {return _storage._optionalCord}
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
   ///   Defined in unittest_import_public.proto
-  public var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
+  var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
@@ -964,7 +964,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     return _storage._optionalPublicImportMessage = nil
   }
 
-  public var optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
+  var optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalLazyMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
@@ -976,77 +976,77 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
   }
 
   ///   Repeated
-  public var repeatedInt32: [Int32] {
+  var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
-  public var repeatedInt64: [Int64] {
+  var repeatedInt64: [Int64] {
     get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
-  public var repeatedUint32: [UInt32] {
+  var repeatedUint32: [UInt32] {
     get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
-  public var repeatedUint64: [UInt64] {
+  var repeatedUint64: [UInt64] {
     get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
-  public var repeatedSint32: [Int32] {
+  var repeatedSint32: [Int32] {
     get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
-  public var repeatedSint64: [Int64] {
+  var repeatedSint64: [Int64] {
     get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
-  public var repeatedFixed32: [UInt32] {
+  var repeatedFixed32: [UInt32] {
     get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
-  public var repeatedFixed64: [UInt64] {
+  var repeatedFixed64: [UInt64] {
     get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
-  public var repeatedSfixed32: [Int32] {
+  var repeatedSfixed32: [Int32] {
     get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
-  public var repeatedSfixed64: [Int64] {
+  var repeatedSfixed64: [Int64] {
     get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
-  public var repeatedFloat: [Float] {
+  var repeatedFloat: [Float] {
     get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
-  public var repeatedDouble: [Double] {
+  var repeatedDouble: [Double] {
     get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
-  public var repeatedBool: [Bool] {
+  var repeatedBool: [Bool] {
     get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
-  public var repeatedString: [String] {
+  var repeatedString: [String] {
     get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [Data] {
+  var repeatedBytes: [Data] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1056,27 +1056,27 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
   //    optional int32 a = 47;
   //  }
 
-  public var repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
+  var repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  public var repeatedForeignMessage: [Proto3ArenaUnittest_ForeignMessage] {
+  var repeatedForeignMessage: [Proto3ArenaUnittest_ForeignMessage] {
     get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  public var repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] {
+  var repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] {
     get {return _storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
 
-  public var repeatedNestedEnum: [Proto3ArenaUnittest_TestAllTypes.NestedEnum] {
+  var repeatedNestedEnum: [Proto3ArenaUnittest_TestAllTypes.NestedEnum] {
     get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
-  public var repeatedForeignEnum: [Proto3ArenaUnittest_ForeignEnum] {
+  var repeatedForeignEnum: [Proto3ArenaUnittest_ForeignEnum] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
@@ -1086,22 +1086,22 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
   // 
   //  repeated protobuf_unittest_import.ImportEnum    repeated_import_enum  = 53;
 
-  public var repeatedStringPiece: [String] {
+  var repeatedStringPiece: [String] {
     get {return _storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
-  public var repeatedCord: [String] {
+  var repeatedCord: [String] {
     get {return _storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
-  public var repeatedLazyMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
+  var repeatedLazyMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedLazyMessage}
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
-  public var oneofUint32: UInt32 {
+  var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
@@ -1113,7 +1113,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  public var oneofNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
+  var oneofNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
@@ -1125,7 +1125,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  public var oneofString: String {
+  var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
@@ -1137,7 +1137,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  public var oneofBytes: Data {
+  var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
@@ -1156,7 +1156,7 @@ struct Proto3ArenaUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1218,35 +1218,35 @@ struct Proto3ArenaUnittest_TestPackedTypes: ProtobufGeneratedMessage, ProtobufPr
   ]}
 
 
-  public var packedInt32: [Int32] = []
+  var packedInt32: [Int32] = []
 
-  public var packedInt64: [Int64] = []
+  var packedInt64: [Int64] = []
 
-  public var packedUint32: [UInt32] = []
+  var packedUint32: [UInt32] = []
 
-  public var packedUint64: [UInt64] = []
+  var packedUint64: [UInt64] = []
 
-  public var packedSint32: [Int32] = []
+  var packedSint32: [Int32] = []
 
-  public var packedSint64: [Int64] = []
+  var packedSint64: [Int64] = []
 
-  public var packedFixed32: [UInt32] = []
+  var packedFixed32: [UInt32] = []
 
-  public var packedFixed64: [UInt64] = []
+  var packedFixed64: [UInt64] = []
 
-  public var packedSfixed32: [Int32] = []
+  var packedSfixed32: [Int32] = []
 
-  public var packedSfixed64: [Int64] = []
+  var packedSfixed64: [Int64] = []
 
-  public var packedFloat: [Float] = []
+  var packedFloat: [Float] = []
 
-  public var packedDouble: [Double] = []
+  var packedDouble: [Double] = []
 
-  public var packedBool: [Bool] = []
+  var packedBool: [Bool] = []
 
-  public var packedEnum: [Proto3ArenaUnittest_ForeignEnum] = []
+  var packedEnum: [Proto3ArenaUnittest_ForeignEnum] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1371,35 +1371,35 @@ struct Proto3ArenaUnittest_TestUnpackedTypes: ProtobufGeneratedMessage, Protobuf
   ]}
 
 
-  public var repeatedInt32: [Int32] = []
+  var repeatedInt32: [Int32] = []
 
-  public var repeatedInt64: [Int64] = []
+  var repeatedInt64: [Int64] = []
 
-  public var repeatedUint32: [UInt32] = []
+  var repeatedUint32: [UInt32] = []
 
-  public var repeatedUint64: [UInt64] = []
+  var repeatedUint64: [UInt64] = []
 
-  public var repeatedSint32: [Int32] = []
+  var repeatedSint32: [Int32] = []
 
-  public var repeatedSint64: [Int64] = []
+  var repeatedSint64: [Int64] = []
 
-  public var repeatedFixed32: [UInt32] = []
+  var repeatedFixed32: [UInt32] = []
 
-  public var repeatedFixed64: [UInt64] = []
+  var repeatedFixed64: [UInt64] = []
 
-  public var repeatedSfixed32: [Int32] = []
+  var repeatedSfixed32: [Int32] = []
 
-  public var repeatedSfixed64: [Int64] = []
+  var repeatedSfixed64: [Int64] = []
 
-  public var repeatedFloat: [Float] = []
+  var repeatedFloat: [Float] = []
 
-  public var repeatedDouble: [Double] = []
+  var repeatedDouble: [Double] = []
 
-  public var repeatedBool: [Bool] = []
+  var repeatedBool: [Bool] = []
 
-  public var repeatedNestedEnum: [Proto3ArenaUnittest_TestAllTypes.NestedEnum] = []
+  var repeatedNestedEnum: [Proto3ArenaUnittest_TestAllTypes.NestedEnum] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1540,7 +1540,7 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, Protobu
   private var _storage = _StorageClass()
 
 
-  public var child: Proto3ArenaUnittest_NestedTestAllTypes {
+  var child: Proto3ArenaUnittest_NestedTestAllTypes {
     get {return _storage._child ?? Proto3ArenaUnittest_NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
@@ -1551,7 +1551,7 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, Protobu
     return _storage._child = nil
   }
 
-  public var payload: Proto3ArenaUnittest_TestAllTypes {
+  var payload: Proto3ArenaUnittest_TestAllTypes {
     get {return _storage._payload ?? Proto3ArenaUnittest_TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
   }
@@ -1562,7 +1562,7 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, Protobu
     return _storage._payload = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1598,9 +1598,9 @@ struct Proto3ArenaUnittest_ForeignMessage: ProtobufGeneratedMessage, ProtobufPro
   ]}
 
 
-  public var c: Int32 = 0
+  var c: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1630,7 +1630,7 @@ struct Proto3ArenaUnittest_TestEmptyMessage: ProtobufGeneratedMessage, ProtobufP
   public var protoFieldNames: [String: Int] {return [:]}
 
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }

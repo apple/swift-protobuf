@@ -77,11 +77,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage, 
   ///   The .proto files that were explicitly listed on the command-line.  The
   ///   code generator should generate code only for these files.  Each file's
   ///   descriptor will be included in proto_file, below.
-  public var fileToGenerate: [String] = []
+  var fileToGenerate: [String] = []
 
   ///   The generator parameter passed on the command-line.
   private var _parameter: String? = nil
-  public var parameter: String {
+  var parameter: String {
     get {return _parameter ?? ""}
     set {_parameter = newValue}
   }
@@ -103,9 +103,9 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage, 
   ///   the entire set into memory at once.  However, as of this writing, this
   ///   is not similarly optimized on protoc's end -- it will store all fields in
   ///   memory at once before sending them to the plugin.
-  public var protoFile: [Google_Protobuf_FileDescriptorProto] = []
+  var protoFile: [Google_Protobuf_FileDescriptorProto] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -184,7 +184,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
     ///   this writing protoc does not optimize for this -- it will read the entire
     ///   CodeGeneratorResponse before writing files to disk.
     private var _name: String? = nil
-    public var name: String {
+    var name: String {
       get {return _name ?? ""}
       set {_name = newValue}
     }
@@ -233,7 +233,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
     ///  
     ///   If |insertion_point| is present, |name| must also be present.
     private var _insertionPoint: String? = nil
-    public var insertionPoint: String {
+    var insertionPoint: String {
       get {return _insertionPoint ?? ""}
       set {_insertionPoint = newValue}
     }
@@ -246,7 +246,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
 
     ///   The file contents.
     private var _content: String? = nil
-    public var content: String {
+    var content: String {
       get {return _content ?? ""}
       set {_content = newValue}
     }
@@ -257,7 +257,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
       return _content = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -299,7 +299,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
   ///   unparseable -- should be reported by writing a message to stderr and
   ///   exiting with a non-zero status code.
   private var _error: String? = nil
-  public var error: String {
+  var error: String {
     get {return _error ?? ""}
     set {_error = newValue}
   }
@@ -310,9 +310,9 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
     return _error = nil
   }
 
-  public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
+  var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

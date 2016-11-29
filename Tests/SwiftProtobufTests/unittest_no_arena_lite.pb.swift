@@ -54,7 +54,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessage, Pro
   public var unknown = ProtobufUnknownStorage()
 
   private var _c: Int32? = nil
-  public var c: Int32 {
+  var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
@@ -65,7 +65,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: ProtobufGeneratedMessage, Pro
     return _c = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

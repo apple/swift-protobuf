@@ -181,7 +181,7 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
     static let ProtobufUnittest_TestOptimizedForSize_testExtension2 = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1235, protoFieldName: "test_extension2", jsonFieldName: "testExtension2", swiftFieldName: "ProtobufUnittest_TestOptimizedForSize_testExtension2", defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize())
   }
 
-  public var i: Int32 {
+  var i: Int32 {
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
   }
@@ -192,7 +192,7 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
     return _storage._i = nil
   }
 
-  public var msg: ProtobufUnittest_ForeignMessage {
+  var msg: ProtobufUnittest_ForeignMessage {
     get {return _storage._msg ?? ProtobufUnittest_ForeignMessage()}
     set {_uniqueStorage()._msg = newValue}
   }
@@ -203,7 +203,7 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
     return _storage._msg = nil
   }
 
-  public var integerField: Int32 {
+  var integerField: Int32 {
     get {
       if case .integerField(let v) = _storage._foo {
         return v
@@ -215,7 +215,7 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
     }
   }
 
-  public var stringField: String {
+  var stringField: String {
     get {
       if case .stringField(let v) = _storage._foo {
         return v
@@ -234,7 +234,7 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -286,7 +286,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMessage, 
   public var unknown = ProtobufUnknownStorage()
 
   private var _x: Int32? = nil
-  public var x: Int32 {
+  var x: Int32 {
     get {return _x ?? 0}
     set {_x = newValue}
   }
@@ -297,7 +297,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMessage, 
     return _x = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -371,7 +371,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMessage, 
     set {_storage.unknown = newValue}
   }
 
-  public var o: ProtobufUnittest_TestRequiredOptimizedForSize {
+  var o: ProtobufUnittest_TestRequiredOptimizedForSize {
     get {return _storage._o ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {_uniqueStorage()._o = newValue}
   }
@@ -382,7 +382,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMessage, 
     return _storage._o = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

@@ -44,45 +44,45 @@ import Foundation
 ///  
 ///    The JSON representation for `NullValue` is JSON `null`.
 enum Google_Protobuf_NullValue: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
 
   ///   Null value.
   case nullValue // = 0
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .nullValue
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .nullValue
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "nullValue": self = .nullValue
     default: return nil
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "NULL_VALUE": self = .nullValue
     default: return nil
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "NULL_VALUE": self = .nullValue
     default: return nil
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .nullValue: return 0
@@ -91,7 +91,7 @@ enum Google_Protobuf_NullValue: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .nullValue: return "\"NULL_VALUE\""
@@ -100,9 +100,9 @@ enum Google_Protobuf_NullValue: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .nullValue: return ".nullValue"
@@ -134,9 +134,9 @@ struct Google_Protobuf_Struct: ProtobufGeneratedMessage, ProtobufProto3Message {
 
 
   ///   Unordered map of dynamically typed values.
-  public var fields: Dictionary<String,Google_Protobuf_Value> = [:]
+  var fields: Dictionary<String,Google_Protobuf_Value> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -304,7 +304,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   Represents a null value.
-  public var nullValue: Google_Protobuf_NullValue {
+  var nullValue: Google_Protobuf_NullValue {
     get {
       if case .nullValue(let v) = _storage._kind {
         return v
@@ -317,7 +317,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   Represents a double value.
-  public var numberValue: Double {
+  var numberValue: Double {
     get {
       if case .numberValue(let v) = _storage._kind {
         return v
@@ -330,7 +330,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   Represents a string value.
-  public var stringValue: String {
+  var stringValue: String {
     get {
       if case .stringValue(let v) = _storage._kind {
         return v
@@ -343,7 +343,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   Represents a boolean value.
-  public var boolValue: Bool {
+  var boolValue: Bool {
     get {
       if case .boolValue(let v) = _storage._kind {
         return v
@@ -356,7 +356,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   Represents a structured value.
-  public var structValue: Google_Protobuf_Struct {
+  var structValue: Google_Protobuf_Struct {
     get {
       if case .structValue(let v) = _storage._kind {
         return v
@@ -369,7 +369,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   Represents a repeated `Value`.
-  public var listValue: Google_Protobuf_ListValue {
+  var listValue: Google_Protobuf_ListValue {
     get {
       if case .listValue(let v) = _storage._kind {
         return v
@@ -388,7 +388,7 @@ struct Google_Protobuf_Value: ProtobufGeneratedMessage, ProtobufProto3Message {
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -426,9 +426,9 @@ struct Google_Protobuf_ListValue: ProtobufGeneratedMessage, ProtobufProto3Messag
 
 
   ///   Repeated field of dynamically typed values.
-  public var values: [Google_Protobuf_Value] = []
+  var values: [Google_Protobuf_Value] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

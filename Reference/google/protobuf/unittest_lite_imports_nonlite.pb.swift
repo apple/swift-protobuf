@@ -97,7 +97,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, Protob
     set {_storage.unknown = newValue}
   }
 
-  public var message: ProtobufUnittest_TestAllTypes {
+  var message: ProtobufUnittest_TestAllTypes {
     get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
   }
@@ -108,7 +108,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, Protob
     return _storage._message = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

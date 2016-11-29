@@ -58,7 +58,7 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
       public var unknown = ProtobufUnknownStorage()
 
       private var _a: Int32? = nil
-      public var a: Int32 {
+      var a: Int32 {
         get {return _a ?? 0}
         set {_a = newValue}
       }
@@ -69,7 +69,7 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
         return _a = nil
       }
 
-      public init() {}
+      init() {}
 
       public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
@@ -117,7 +117,7 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
       }
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     }
@@ -132,7 +132,7 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -162,7 +162,7 @@ struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   ///        extensions 10 to 20;
   private var _c: Int64? = nil
-  public var c: Int64 {
+  var c: Int64 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
@@ -173,7 +173,7 @@ struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _c = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

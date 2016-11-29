@@ -47,15 +47,15 @@ import SwiftProtobuf
 
 
 enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case val1 // = 1
   case val2 // = 2
 
-  public init() {
+  init() {
     self = .val1
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .val1
     case 2: self = .val2
@@ -63,7 +63,7 @@ enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "val1": self = .val1
     case "val2": self = .val2
@@ -71,7 +71,7 @@ enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "METHODOPT1_VAL1": self = .val1
     case "METHODOPT1_VAL2": self = .val2
@@ -79,7 +79,7 @@ enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "METHODOPT1_VAL1": self = .val1
     case "METHODOPT1_VAL2": self = .val2
@@ -87,7 +87,7 @@ enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .val1: return 1
@@ -96,7 +96,7 @@ enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .val1: return "\"METHODOPT1_VAL1\""
@@ -105,9 +105,9 @@ enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .val1: return ".val1"
@@ -119,42 +119,42 @@ enum ProtobufUnittest_MethodOpt1: ProtobufEnum {
 }
 
 enum ProtobufUnittest_AggregateEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case value // = 1
 
-  public init() {
+  init() {
     self = .value
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .value
     default: return nil
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "value": self = .value
     default: return nil
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "VALUE": self = .value
     default: return nil
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "VALUE": self = .value
     default: return nil
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .value: return 1
@@ -162,7 +162,7 @@ enum ProtobufUnittest_AggregateEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .value: return "\"VALUE\""
@@ -170,9 +170,9 @@ enum ProtobufUnittest_AggregateEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .value: return ".value"
@@ -240,15 +240,15 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
   }
 
   enum AnEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case val1 // = 1
     case val2 // = 2
 
-    public init() {
+    init() {
       self = .val1
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .val1
       case 2: self = .val2
@@ -256,7 +256,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "val1": self = .val1
       case "val2": self = .val2
@@ -264,7 +264,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ANENUM_VAL1": self = .val1
       case "ANENUM_VAL2": self = .val2
@@ -272,7 +272,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ANENUM_VAL1": self = .val1
       case "ANENUM_VAL2": self = .val2
@@ -280,7 +280,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .val1: return 1
@@ -289,7 +289,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .val1: return "\"ANENUM_VAL1\""
@@ -298,9 +298,9 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .val1: return ".val1"
@@ -312,7 +312,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
   }
 
   private var _field1: String? = nil
-  public var field1: String {
+  var field1: String {
     get {return _field1 ?? ""}
     set {_field1 = newValue}
   }
@@ -323,7 +323,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
     return _field1 = nil
   }
 
-  public var oneofField: Int32 {
+  var oneofField: Int32 {
     get {
       if case .oneofField(let v) = anOneof {
         return v
@@ -337,7 +337,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: ProtobufGeneratedMessage, 
 
   public var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof = .None
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -374,7 +374,7 @@ struct ProtobufUnittest_CustomOptionFooRequest: ProtobufGeneratedMessage, Protob
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -398,7 +398,7 @@ struct ProtobufUnittest_CustomOptionFooResponse: ProtobufGeneratedMessage, Proto
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -422,7 +422,7 @@ struct ProtobufUnittest_CustomOptionFooClientMessage: ProtobufGeneratedMessage, 
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -446,7 +446,7 @@ struct ProtobufUnittest_CustomOptionFooServerMessage: ProtobufGeneratedMessage, 
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -473,15 +473,15 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
   public var unknown = ProtobufUnknownStorage()
 
   enum TestEnumType: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case testOptionEnumType1 // = 22
     case testOptionEnumType2 // = -23
 
-    public init() {
+    init() {
       self = .testOptionEnumType1
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 22: self = .testOptionEnumType1
       case -23: self = .testOptionEnumType2
@@ -489,7 +489,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "testOptionEnumType1": self = .testOptionEnumType1
       case "testOptionEnumType2": self = .testOptionEnumType2
@@ -497,7 +497,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "TEST_OPTION_ENUM_TYPE1": self = .testOptionEnumType1
       case "TEST_OPTION_ENUM_TYPE2": self = .testOptionEnumType2
@@ -505,7 +505,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "TEST_OPTION_ENUM_TYPE1": self = .testOptionEnumType1
       case "TEST_OPTION_ENUM_TYPE2": self = .testOptionEnumType2
@@ -513,7 +513,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .testOptionEnumType1: return 22
@@ -522,7 +522,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .testOptionEnumType1: return "\"TEST_OPTION_ENUM_TYPE1\""
@@ -531,9 +531,9 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .testOptionEnumType1: return ".testOptionEnumType1"
@@ -544,7 +544,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: ProtobufGeneratedMessage, Pr
 
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -568,7 +568,7 @@ struct ProtobufUnittest_DummyMessageInvalidAsOptionType: ProtobufGeneratedMessag
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -592,7 +592,7 @@ struct ProtobufUnittest_CustomOptionMinIntegerValues: ProtobufGeneratedMessage, 
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -616,7 +616,7 @@ struct ProtobufUnittest_CustomOptionMaxIntegerValues: ProtobufGeneratedMessage, 
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -640,7 +640,7 @@ struct ProtobufUnittest_CustomOptionOtherValues: ProtobufGeneratedMessage, Proto
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -664,7 +664,7 @@ struct ProtobufUnittest_SettingRealsFromPositiveInts: ProtobufGeneratedMessage, 
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -688,7 +688,7 @@ struct ProtobufUnittest_SettingRealsFromNegativeInts: ProtobufGeneratedMessage, 
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -726,7 +726,7 @@ struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufPr
   public var unknown = ProtobufUnknownStorage()
 
   private var _foo: Int32? = nil
-  public var foo: Int32 {
+  var foo: Int32 {
     get {return _foo ?? 0}
     set {_foo = newValue}
   }
@@ -738,7 +738,7 @@ struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufPr
   }
 
   private var _foo2: Int32? = nil
-  public var foo2: Int32 {
+  var foo2: Int32 {
     get {return _foo2 ?? 0}
     set {_foo2 = newValue}
   }
@@ -750,7 +750,7 @@ struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufPr
   }
 
   private var _foo3: Int32? = nil
-  public var foo3: Int32 {
+  var foo3: Int32 {
     get {return _foo3 ?? 0}
     set {_foo3 = newValue}
   }
@@ -761,9 +761,9 @@ struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufPr
     return _foo3 = nil
   }
 
-  public var foo4: [Int32] = []
+  var foo4: [Int32] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -931,7 +931,7 @@ struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufPr
     }
 
     private var _waldo: Int32? = nil
-    public var waldo: Int32 {
+    var waldo: Int32 {
       get {return _waldo ?? 0}
       set {_waldo = newValue}
     }
@@ -942,7 +942,7 @@ struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufPr
       return _waldo = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -965,7 +965,7 @@ struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufPr
     }
   }
 
-  public var bar: ProtobufUnittest_ComplexOptionType1 {
+  var bar: ProtobufUnittest_ComplexOptionType1 {
     get {return _storage._bar ?? ProtobufUnittest_ComplexOptionType1()}
     set {_uniqueStorage()._bar = newValue}
   }
@@ -976,7 +976,7 @@ struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufPr
     return _storage._bar = nil
   }
 
-  public var baz: Int32 {
+  var baz: Int32 {
     get {return _storage._baz ?? 0}
     set {_uniqueStorage()._baz = newValue}
   }
@@ -987,7 +987,7 @@ struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufPr
     return _storage._baz = nil
   }
 
-  public var fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
+  var fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
     get {return _storage._fred ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}
     set {_uniqueStorage()._fred = newValue}
   }
@@ -998,12 +998,12 @@ struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufPr
     return _storage._fred = nil
   }
 
-  public var barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] {
+  var barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] {
     get {return _storage._barney}
     set {_uniqueStorage()._barney = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1117,7 +1117,7 @@ struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage, ProtobufPr
     public var unknown = ProtobufUnknownStorage()
 
     private var _plugh: Int32? = nil
-    public var plugh: Int32 {
+    var plugh: Int32 {
       get {return _plugh ?? 0}
       set {_plugh = newValue}
     }
@@ -1128,7 +1128,7 @@ struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage, ProtobufPr
       return _plugh = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1151,7 +1151,7 @@ struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage, ProtobufPr
     }
   }
 
-  public var qux: Int32 {
+  var qux: Int32 {
     get {return _storage._qux ?? 0}
     set {_uniqueStorage()._qux = newValue}
   }
@@ -1162,7 +1162,7 @@ struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage, ProtobufPr
     return _storage._qux = nil
   }
 
-  public var complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5 {
+  var complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5 {
     get {return _storage._complexOptionType5 ?? ProtobufUnittest_ComplexOptionType3.ComplexOptionType5()}
     set {_uniqueStorage()._complexOptionType5 = newValue}
   }
@@ -1173,7 +1173,7 @@ struct ProtobufUnittest_ComplexOptionType3: ProtobufGeneratedMessage, ProtobufPr
     return _storage._complexOptionType5 = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1209,7 +1209,7 @@ struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedMessage, ProtobufProto2Mes
   public var unknown = ProtobufUnknownStorage()
 
   private var _xyzzy: Int32? = nil
-  public var xyzzy: Int32 {
+  var xyzzy: Int32 {
     get {return _xyzzy ?? 0}
     set {_xyzzy = newValue}
   }
@@ -1220,7 +1220,7 @@ struct ProtobufUnittest_ComplexOpt6: ProtobufGeneratedMessage, ProtobufProto2Mes
     return _xyzzy = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1253,7 +1253,7 @@ struct ProtobufUnittest_VariousComplexOptions: ProtobufGeneratedMessage, Protobu
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -1281,7 +1281,7 @@ struct ProtobufUnittest_AggregateMessageSet: ProtobufGeneratedMessage, ProtobufP
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     if (4 <= protoFieldNumber && protoFieldNumber < 2147483647) {
@@ -1341,7 +1341,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: ProtobufGeneratedMessage, Pr
   }
 
   private var _s: String? = nil
-  public var s: String {
+  var s: String {
     get {return _s ?? ""}
     set {_s = newValue}
   }
@@ -1352,7 +1352,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: ProtobufGeneratedMessage, Pr
     return _s = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1470,7 +1470,7 @@ struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage, ProtobufProto2Messa
     static let Google_Protobuf_FileOptions_nested = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_Aggregate>, Google_Protobuf_FileOptions>(protoFieldNumber: 15476903, protoFieldName: "nested", jsonFieldName: "nested", swiftFieldName: "ProtobufUnittest_Aggregate_nested", defaultValue: ProtobufUnittest_Aggregate())
   }
 
-  public var i: Int32 {
+  var i: Int32 {
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
   }
@@ -1481,7 +1481,7 @@ struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage, ProtobufProto2Messa
     return _storage._i = nil
   }
 
-  public var s: String {
+  var s: String {
     get {return _storage._s ?? ""}
     set {_uniqueStorage()._s = newValue}
   }
@@ -1493,7 +1493,7 @@ struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage, ProtobufProto2Messa
   }
 
   ///   A nested object
-  public var sub: ProtobufUnittest_Aggregate {
+  var sub: ProtobufUnittest_Aggregate {
     get {return _storage._sub ?? ProtobufUnittest_Aggregate()}
     set {_uniqueStorage()._sub = newValue}
   }
@@ -1505,7 +1505,7 @@ struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage, ProtobufProto2Messa
   }
 
   ///   To test the parsing of extensions inside aggregate values
-  public var file: Google_Protobuf_FileOptions {
+  var file: Google_Protobuf_FileOptions {
     get {return _storage._file ?? Google_Protobuf_FileOptions()}
     set {_uniqueStorage()._file = newValue}
   }
@@ -1517,7 +1517,7 @@ struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage, ProtobufProto2Messa
   }
 
   ///   An embedded message set
-  public var mset: ProtobufUnittest_AggregateMessageSet {
+  var mset: ProtobufUnittest_AggregateMessageSet {
     get {return _storage._mset ?? ProtobufUnittest_AggregateMessageSet()}
     set {_uniqueStorage()._mset = newValue}
   }
@@ -1528,7 +1528,7 @@ struct ProtobufUnittest_Aggregate: ProtobufGeneratedMessage, ProtobufProto2Messa
     return _storage._mset = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1564,7 +1564,7 @@ struct ProtobufUnittest_AggregateMessage: ProtobufGeneratedMessage, ProtobufProt
   public var unknown = ProtobufUnknownStorage()
 
   private var _fieldname: Int32? = nil
-  public var fieldname: Int32 {
+  var fieldname: Int32 {
     get {return _fieldname ?? 0}
     set {_fieldname = newValue}
   }
@@ -1575,7 +1575,7 @@ struct ProtobufUnittest_AggregateMessage: ProtobufGeneratedMessage, ProtobufProt
     return _fieldname = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1609,42 +1609,42 @@ struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage, ProtobufProt
   public var unknown = ProtobufUnknownStorage()
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case value // = 1
 
-    public init() {
+    init() {
       self = .value
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .value
       default: return nil
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "value": self = .value
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "NESTED_ENUM_VALUE": self = .value
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "NESTED_ENUM_VALUE": self = .value
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .value: return 1
@@ -1652,7 +1652,7 @@ struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .value: return "\"NESTED_ENUM_VALUE\""
@@ -1660,9 +1660,9 @@ struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .value: return ".value"
@@ -1686,7 +1686,7 @@ struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage, ProtobufProt
     public var unknown = ProtobufUnknownStorage()
 
     private var _nestedField: Int32? = nil
-    public var nestedField: Int32 {
+    var nestedField: Int32 {
       get {return _nestedField ?? 0}
       set {_nestedField = newValue}
     }
@@ -1697,7 +1697,7 @@ struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage, ProtobufProt
       return _nestedField = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1725,7 +1725,7 @@ struct ProtobufUnittest_NestedOptionType: ProtobufGeneratedMessage, ProtobufProt
     static let Google_Protobuf_FileOptions_nestedExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, Google_Protobuf_FileOptions>(protoFieldNumber: 7912573, protoFieldName: "nested_extension", jsonFieldName: "nestedExtension", swiftFieldName: "ProtobufUnittest_NestedOptionType_nestedExtension", defaultValue: 0)
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -1756,42 +1756,42 @@ struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage, ProtobufProto2M
   public var unknown = ProtobufUnknownStorage()
 
   enum TestEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case oldValue // = 0
 
-    public init() {
+    init() {
       self = .oldValue
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .oldValue
       default: return nil
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "oldValue": self = .oldValue
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "OLD_VALUE": self = .oldValue
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "OLD_VALUE": self = .oldValue
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .oldValue: return 0
@@ -1799,7 +1799,7 @@ struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .oldValue: return "\"OLD_VALUE\""
@@ -1807,9 +1807,9 @@ struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .oldValue: return ".oldValue"
@@ -1820,7 +1820,7 @@ struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage, ProtobufProto2M
   }
 
   private var _value: ProtobufUnittest_OldOptionType.TestEnum? = nil
-  public var value: ProtobufUnittest_OldOptionType.TestEnum {
+  var value: ProtobufUnittest_OldOptionType.TestEnum {
     get {return _value ?? ProtobufUnittest_OldOptionType.TestEnum.oldValue}
     set {_value = newValue}
   }
@@ -1831,7 +1831,7 @@ struct ProtobufUnittest_OldOptionType: ProtobufGeneratedMessage, ProtobufProto2M
     return _value = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1867,15 +1867,15 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
   public var unknown = ProtobufUnknownStorage()
 
   enum TestEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case oldValue // = 0
     case newValue // = 1
 
-    public init() {
+    init() {
       self = .oldValue
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .oldValue
       case 1: self = .newValue
@@ -1883,7 +1883,7 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "oldValue": self = .oldValue
       case "newValue": self = .newValue
@@ -1891,7 +1891,7 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "OLD_VALUE": self = .oldValue
       case "NEW_VALUE": self = .newValue
@@ -1899,7 +1899,7 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "OLD_VALUE": self = .oldValue
       case "NEW_VALUE": self = .newValue
@@ -1907,7 +1907,7 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .oldValue: return 0
@@ -1916,7 +1916,7 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .oldValue: return "\"OLD_VALUE\""
@@ -1925,9 +1925,9 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .oldValue: return ".oldValue"
@@ -1939,7 +1939,7 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
   }
 
   private var _value: ProtobufUnittest_NewOptionType.TestEnum? = nil
-  public var value: ProtobufUnittest_NewOptionType.TestEnum {
+  var value: ProtobufUnittest_NewOptionType.TestEnum {
     get {return _value ?? ProtobufUnittest_NewOptionType.TestEnum.oldValue}
     set {_value = newValue}
   }
@@ -1950,7 +1950,7 @@ struct ProtobufUnittest_NewOptionType: ProtobufGeneratedMessage, ProtobufProto2M
     return _value = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1981,7 +1981,7 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption: ProtobufGeneratedMess
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }

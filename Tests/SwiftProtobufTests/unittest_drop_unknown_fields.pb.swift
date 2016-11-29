@@ -55,17 +55,17 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
 
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .foo
       case 1: self = .bar
@@ -74,7 +74,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       case "bar": self = .bar
@@ -83,7 +83,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -92,7 +92,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -101,7 +101,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 0
@@ -112,7 +112,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"FOO\""
@@ -123,9 +123,9 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -138,11 +138,11 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
 
   }
 
-  public var int32Value: Int32 = 0
+  var int32Value: Int32 = 0
 
-  public var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
+  var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -185,18 +185,18 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
 
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
     case qux // = 3
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .foo
       case 1: self = .bar
@@ -206,7 +206,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       case "bar": self = .bar
@@ -216,7 +216,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -226,7 +226,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -236,7 +236,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 0
@@ -248,7 +248,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"FOO\""
@@ -260,9 +260,9 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -276,13 +276,13 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
 
   }
 
-  public var int32Value: Int32 = 0
+  var int32Value: Int32 = 0
 
-  public var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
+  var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
 
-  public var extraInt32Value: Int32 = 0
+  var extraInt32Value: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

@@ -41,16 +41,16 @@ import SwiftProtobuf
 
 
 enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case proto2MapEnumFooLite // = 0
   case proto2MapEnumBarLite // = 1
   case proto2MapEnumBazLite // = 2
 
-  public init() {
+  init() {
     self = .proto2MapEnumFooLite
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .proto2MapEnumFooLite
     case 1: self = .proto2MapEnumBarLite
@@ -59,7 +59,7 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "proto2MapEnumFooLite": self = .proto2MapEnumFooLite
     case "proto2MapEnumBarLite": self = .proto2MapEnumBarLite
@@ -68,7 +68,7 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "PROTO2_MAP_ENUM_FOO_LITE": self = .proto2MapEnumFooLite
     case "PROTO2_MAP_ENUM_BAR_LITE": self = .proto2MapEnumBarLite
@@ -77,7 +77,7 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "PROTO2_MAP_ENUM_FOO_LITE": self = .proto2MapEnumFooLite
     case "PROTO2_MAP_ENUM_BAR_LITE": self = .proto2MapEnumBarLite
@@ -86,7 +86,7 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .proto2MapEnumFooLite: return 0
@@ -96,7 +96,7 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .proto2MapEnumFooLite: return "\"PROTO2_MAP_ENUM_FOO_LITE\""
@@ -106,9 +106,9 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .proto2MapEnumFooLite: return ".proto2MapEnumFooLite"
@@ -121,17 +121,17 @@ enum ProtobufUnittest_Proto2MapEnumLite: ProtobufEnum {
 }
 
 enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case eProto2MapEnumFooLite // = 0
   case eProto2MapEnumBarLite // = 1
   case eProto2MapEnumBazLite // = 2
   case eProto2MapEnumExtraLite // = 3
 
-  public init() {
+  init() {
     self = .eProto2MapEnumFooLite
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .eProto2MapEnumFooLite
     case 1: self = .eProto2MapEnumBarLite
@@ -141,7 +141,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "eProto2MapEnumFooLite": self = .eProto2MapEnumFooLite
     case "eProto2MapEnumBarLite": self = .eProto2MapEnumBarLite
@@ -151,7 +151,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "E_PROTO2_MAP_ENUM_FOO_LITE": self = .eProto2MapEnumFooLite
     case "E_PROTO2_MAP_ENUM_BAR_LITE": self = .eProto2MapEnumBarLite
@@ -161,7 +161,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "E_PROTO2_MAP_ENUM_FOO_LITE": self = .eProto2MapEnumFooLite
     case "E_PROTO2_MAP_ENUM_BAR_LITE": self = .eProto2MapEnumBarLite
@@ -171,7 +171,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .eProto2MapEnumFooLite: return 0
@@ -182,7 +182,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .eProto2MapEnumFooLite: return "\"E_PROTO2_MAP_ENUM_FOO_LITE\""
@@ -193,9 +193,9 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .eProto2MapEnumFooLite: return ".eProto2MapEnumFooLite"
@@ -209,16 +209,16 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: ProtobufEnum {
 }
 
 enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case mapEnumFooLite // = 0
   case mapEnumBarLite // = 1
   case mapEnumBazLite // = 2
 
-  public init() {
+  init() {
     self = .mapEnumFooLite
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .mapEnumFooLite
     case 1: self = .mapEnumBarLite
@@ -227,7 +227,7 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "mapEnumFooLite": self = .mapEnumFooLite
     case "mapEnumBarLite": self = .mapEnumBarLite
@@ -236,7 +236,7 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "MAP_ENUM_FOO_LITE": self = .mapEnumFooLite
     case "MAP_ENUM_BAR_LITE": self = .mapEnumBarLite
@@ -245,7 +245,7 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "MAP_ENUM_FOO_LITE": self = .mapEnumFooLite
     case "MAP_ENUM_BAR_LITE": self = .mapEnumBarLite
@@ -254,7 +254,7 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .mapEnumFooLite: return 0
@@ -264,7 +264,7 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .mapEnumFooLite: return "\"MAP_ENUM_FOO_LITE\""
@@ -274,9 +274,9 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .mapEnumFooLite: return ".mapEnumFooLite"
@@ -494,97 +494,97 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
     set {_storage.unknown = newValue}
   }
 
-  public var mapInt32Int32: Dictionary<Int32,Int32> {
+  var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
-  public var mapInt64Int64: Dictionary<Int64,Int64> {
+  var mapInt64Int64: Dictionary<Int64,Int64> {
     get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
-  public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
+  var mapUint32Uint32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
-  public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
+  var mapUint64Uint64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
-  public var mapSint32Sint32: Dictionary<Int32,Int32> {
+  var mapSint32Sint32: Dictionary<Int32,Int32> {
     get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
-  public var mapSint64Sint64: Dictionary<Int64,Int64> {
+  var mapSint64Sint64: Dictionary<Int64,Int64> {
     get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
-  public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
+  var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
-  public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
+  var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
-  public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
+  var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
     get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
-  public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
+  var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
     get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
-  public var mapInt32Float: Dictionary<Int32,Float> {
+  var mapInt32Float: Dictionary<Int32,Float> {
     get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
-  public var mapInt32Double: Dictionary<Int32,Double> {
+  var mapInt32Double: Dictionary<Int32,Double> {
     get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
-  public var mapBoolBool: Dictionary<Bool,Bool> {
+  var mapBoolBool: Dictionary<Bool,Bool> {
     get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
-  public var mapStringString: Dictionary<String,String> {
+  var mapStringString: Dictionary<String,String> {
     get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,Data> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
-  public var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> {
+  var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> {
     get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
-  public var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageLite> {
+  var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageLite> {
     get {return _storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
-  public var teboring: Dictionary<Int32,Int32> {
+  var teboring: Dictionary<Int32,Int32> {
     get {return _storage._teboring}
     set {_uniqueStorage()._teboring = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -812,97 +812,97 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
     set {_storage.unknown = newValue}
   }
 
-  public var mapInt32Int32: Dictionary<Int32,Int32> {
+  var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
-  public var mapInt64Int64: Dictionary<Int64,Int64> {
+  var mapInt64Int64: Dictionary<Int64,Int64> {
     get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
-  public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
+  var mapUint32Uint32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
-  public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
+  var mapUint64Uint64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
-  public var mapSint32Sint32: Dictionary<Int32,Int32> {
+  var mapSint32Sint32: Dictionary<Int32,Int32> {
     get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
-  public var mapSint64Sint64: Dictionary<Int64,Int64> {
+  var mapSint64Sint64: Dictionary<Int64,Int64> {
     get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
-  public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
+  var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
-  public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
+  var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
-  public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
+  var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
     get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
-  public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
+  var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
     get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
-  public var mapInt32Float: Dictionary<Int32,Float> {
+  var mapInt32Float: Dictionary<Int32,Float> {
     get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
-  public var mapInt32Double: Dictionary<Int32,Double> {
+  var mapInt32Double: Dictionary<Int32,Double> {
     get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
-  public var mapBoolBool: Dictionary<Bool,Bool> {
+  var mapBoolBool: Dictionary<Bool,Bool> {
     get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
-  public var mapStringString: Dictionary<String,String> {
+  var mapStringString: Dictionary<String,String> {
     get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,Data> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
-  public var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> {
+  var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> {
     get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
-  public var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageArenaLite> {
+  var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageArenaLite> {
     get {return _storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
-  public var mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessageLite> {
+  var mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessageLite> {
     get {return _storage._mapInt32ForeignMessageNoArena}
     set {_uniqueStorage()._mapInt32ForeignMessageNoArena = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -938,9 +938,9 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, Pr
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
+  var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -978,11 +978,11 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
+  var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
-  public var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
+  var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1025,11 +1025,11 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, Prot
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
+  var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
 
-  public var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
+  var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1070,9 +1070,9 @@ struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufPr
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
+  var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1113,7 +1113,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -1125,7 +1125,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
   }
 
   private var _b: Int32? = nil
-  public var b: Int32 {
+  var b: Int32 {
     get {return _b ?? 0}
     set {_b = newValue}
   }
@@ -1137,7 +1137,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
   }
 
   private var _c: Int32? = nil
-  public var c: Int32 {
+  var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
@@ -1148,7 +1148,7 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
     return _c = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1189,7 +1189,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, Proto
   public var unknown = ProtobufUnknownStorage()
 
   private var _c: Int32? = nil
-  public var c: Int32 {
+  var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
@@ -1200,7 +1200,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, Proto
     return _c = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

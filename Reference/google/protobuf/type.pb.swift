@@ -41,7 +41,7 @@ import Foundation
 
 ///   The syntax in which a protocol buffer element is defined.
 enum Google_Protobuf_Syntax: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
 
   ///   Syntax `proto2`.
   case proto2 // = 0
@@ -50,11 +50,11 @@ enum Google_Protobuf_Syntax: ProtobufEnum {
   case proto3 // = 1
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .proto2
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .proto2
     case 1: self = .proto3
@@ -62,7 +62,7 @@ enum Google_Protobuf_Syntax: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "proto2": self = .proto2
     case "proto3": self = .proto3
@@ -70,7 +70,7 @@ enum Google_Protobuf_Syntax: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "SYNTAX_PROTO2": self = .proto2
     case "SYNTAX_PROTO3": self = .proto3
@@ -78,7 +78,7 @@ enum Google_Protobuf_Syntax: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "SYNTAX_PROTO2": self = .proto2
     case "SYNTAX_PROTO3": self = .proto3
@@ -86,7 +86,7 @@ enum Google_Protobuf_Syntax: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .proto2: return 0
@@ -96,7 +96,7 @@ enum Google_Protobuf_Syntax: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .proto2: return "\"SYNTAX_PROTO2\""
@@ -106,9 +106,9 @@ enum Google_Protobuf_Syntax: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .proto2: return ".proto2"
@@ -212,31 +212,31 @@ struct Google_Protobuf_Type: ProtobufGeneratedMessage, ProtobufProto3Message {
 
 
   ///   The fully qualified message name.
-  public var name: String {
+  var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   The list of fields.
-  public var fields: [Google_Protobuf_Field] {
+  var fields: [Google_Protobuf_Field] {
     get {return _storage._fields}
     set {_uniqueStorage()._fields = newValue}
   }
 
   ///   The list of types appearing in `oneof` definitions in this type.
-  public var oneofs: [String] {
+  var oneofs: [String] {
     get {return _storage._oneofs}
     set {_uniqueStorage()._oneofs = newValue}
   }
 
   ///   The protocol buffer options.
-  public var options: [Google_Protobuf_Option] {
+  var options: [Google_Protobuf_Option] {
     get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
   ///   The source context.
-  public var sourceContext: Google_Protobuf_SourceContext {
+  var sourceContext: Google_Protobuf_SourceContext {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
@@ -248,12 +248,12 @@ struct Google_Protobuf_Type: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   The source syntax.
-  public var syntax: Google_Protobuf_Syntax {
+  var syntax: Google_Protobuf_Syntax {
     get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -308,7 +308,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   ///   Basic field types.
   enum Kind: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
 
     ///   Field type unknown.
     case typeUnknown // = 0
@@ -368,11 +368,11 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
     case typeSint64 // = 18
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .typeUnknown
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .typeUnknown
       case 1: self = .typeDouble
@@ -397,7 +397,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "typeUnknown": self = .typeUnknown
       case "typeDouble": self = .typeDouble
@@ -422,7 +422,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "TYPE_UNKNOWN": self = .typeUnknown
       case "TYPE_DOUBLE": self = .typeDouble
@@ -447,7 +447,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "TYPE_UNKNOWN": self = .typeUnknown
       case "TYPE_DOUBLE": self = .typeDouble
@@ -472,7 +472,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .typeUnknown: return 0
@@ -499,7 +499,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .typeUnknown: return "\"TYPE_UNKNOWN\""
@@ -526,9 +526,9 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .typeUnknown: return ".typeUnknown"
@@ -559,7 +559,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   ///   Whether a field is optional, required, or repeated.
   enum Cardinality: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
 
     ///   For fields with unknown cardinality.
     case unknown // = 0
@@ -574,11 +574,11 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
     case repeated // = 3
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .unknown
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .unknown
       case 1: self = .`optional`
@@ -588,7 +588,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "unknown": self = .unknown
       case "optional": self = .`optional`
@@ -598,7 +598,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "CARDINALITY_UNKNOWN": self = .unknown
       case "CARDINALITY_OPTIONAL": self = .`optional`
@@ -608,7 +608,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "CARDINALITY_UNKNOWN": self = .unknown
       case "CARDINALITY_OPTIONAL": self = .`optional`
@@ -618,7 +618,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .unknown: return 0
@@ -630,7 +630,7 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .unknown: return "\"CARDINALITY_UNKNOWN\""
@@ -642,9 +642,9 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .unknown: return ".unknown"
@@ -659,38 +659,38 @@ struct Google_Protobuf_Field: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   The field type.
-  public var kind: Google_Protobuf_Field.Kind = Google_Protobuf_Field.Kind.typeUnknown
+  var kind: Google_Protobuf_Field.Kind = Google_Protobuf_Field.Kind.typeUnknown
 
   ///   The field cardinality.
-  public var cardinality: Google_Protobuf_Field.Cardinality = Google_Protobuf_Field.Cardinality.unknown
+  var cardinality: Google_Protobuf_Field.Cardinality = Google_Protobuf_Field.Cardinality.unknown
 
   ///   The field number.
-  public var number: Int32 = 0
+  var number: Int32 = 0
 
   ///   The field name.
-  public var name: String = ""
+  var name: String = ""
 
   ///   The field type URL, without the scheme, for message or enumeration
   ///   types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
-  public var typeURL: String = ""
+  var typeURL: String = ""
 
   ///   The index of the field type in `Type.oneofs`, for message or enumeration
   ///   types. The first type has index 1; zero means the type is not in the list.
-  public var oneofIndex: Int32 = 0
+  var oneofIndex: Int32 = 0
 
   ///   Whether to use alternative packed wire representation.
-  public var packed: Bool = false
+  var packed: Bool = false
 
   ///   The protocol buffer options.
-  public var options: [Google_Protobuf_Option] = []
+  var options: [Google_Protobuf_Option] = []
 
   ///   The field JSON name.
-  public var jsonName: String = ""
+  var jsonName: String = ""
 
   ///   The string value of the default value of this field. Proto2 syntax only.
-  public var defaultValue: String = ""
+  var defaultValue: String = ""
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -839,25 +839,25 @@ struct Google_Protobuf_Enum: ProtobufGeneratedMessage, ProtobufProto3Message {
 
 
   ///   Enum type name.
-  public var name: String {
+  var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   Enum value definitions.
-  public var enumvalue: [Google_Protobuf_EnumValue] {
+  var enumvalue: [Google_Protobuf_EnumValue] {
     get {return _storage._enumvalue}
     set {_uniqueStorage()._enumvalue = newValue}
   }
 
   ///   Protocol buffer options.
-  public var options: [Google_Protobuf_Option] {
+  var options: [Google_Protobuf_Option] {
     get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
   ///   The source context.
-  public var sourceContext: Google_Protobuf_SourceContext {
+  var sourceContext: Google_Protobuf_SourceContext {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
@@ -869,12 +869,12 @@ struct Google_Protobuf_Enum: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   The source syntax.
-  public var syntax: Google_Protobuf_Syntax {
+  var syntax: Google_Protobuf_Syntax {
     get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -914,15 +914,15 @@ struct Google_Protobuf_EnumValue: ProtobufGeneratedMessage, ProtobufProto3Messag
 
 
   ///   Enum value name.
-  public var name: String = ""
+  var name: String = ""
 
   ///   Enum value number.
-  public var number: Int32 = 0
+  var number: Int32 = 0
 
   ///   Protocol buffer options.
-  public var options: [Google_Protobuf_Option] = []
+  var options: [Google_Protobuf_Option] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1010,13 +1010,13 @@ struct Google_Protobuf_Option: ProtobufGeneratedMessage, ProtobufProto3Message {
 
 
   ///   The option's name. For example, `"java_package"`.
-  public var name: String {
+  var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   The option's value. For example, `"com.google.protobuf"`.
-  public var value: Google_Protobuf_Any {
+  var value: Google_Protobuf_Any {
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
   }
@@ -1027,7 +1027,7 @@ struct Google_Protobuf_Option: ProtobufGeneratedMessage, ProtobufProto3Message {
     return _storage._value = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

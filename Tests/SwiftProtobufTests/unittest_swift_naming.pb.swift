@@ -27,7 +27,7 @@ import SwiftProtobuf
 
 
 enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case a // = 0
   case string // = 1
   case int // = 2
@@ -238,11 +238,11 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
   case timeRecord // = 243
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .a
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .a
     case 1: self = .string
@@ -456,7 +456,7 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "a": self = .a
     case "string": self = .string
@@ -670,7 +670,7 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "A": self = .a
     case "String": self = .string
@@ -884,7 +884,7 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "A": self = .a
     case "String": self = .string
@@ -1098,7 +1098,7 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .a: return 0
@@ -1314,7 +1314,7 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .a: return "\"A\""
@@ -1530,9 +1530,9 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .a: return ".a"
@@ -1751,7 +1751,7 @@ enum SwiftUnittest_Names_EnumFieldNames: ProtobufEnum {
 }
 
 enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case aa // = 0
 
   ///   protoc no longer allows enum naming that would differ only in underscores.
@@ -1764,11 +1764,11 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
   case ____ // = 1065
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .aa
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .aa
     case 1065: self = .____
@@ -1776,7 +1776,7 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "aa": self = .aa
     case "____": self = .____
@@ -1784,7 +1784,7 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "AA": self = .aa
     case "__": self = .____
@@ -1792,7 +1792,7 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "AA": self = .aa
     case "__": self = .____
@@ -1800,7 +1800,7 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .aa: return 0
@@ -1810,7 +1810,7 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .aa: return "\"AA\""
@@ -1820,9 +1820,9 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .aa: return ".aa"
@@ -3745,1047 +3745,1047 @@ struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage, ProtobufProto3M
   private var _storage = _StorageClass()
 
 
-  public var string: Int32 {
+  var string: Int32 {
     get {return _storage._string}
     set {_uniqueStorage()._string = newValue}
   }
 
-  public var int: Int32 {
+  var int: Int32 {
     get {return _storage._int}
     set {_uniqueStorage()._int = newValue}
   }
 
-  public var double: Int32 {
+  var double: Int32 {
     get {return _storage._double}
     set {_uniqueStorage()._double = newValue}
   }
 
-  public var float: Int32 {
+  var float: Int32 {
     get {return _storage._float}
     set {_uniqueStorage()._float = newValue}
   }
 
-  public var uint: Int32 {
+  var uint: Int32 {
     get {return _storage._uint}
     set {_uniqueStorage()._uint = newValue}
   }
 
-  public var hashValue_p: Int32 {
+  var hashValue_p: Int32 {
     get {return _storage._hashValue_p}
     set {_uniqueStorage()._hashValue_p = newValue}
   }
 
-  public var description_p: Int32 {
+  var description_p: Int32 {
     get {return _storage._description_p}
     set {_uniqueStorage()._description_p = newValue}
   }
 
-  public var debugDescription_p: Int32 {
+  var debugDescription_p: Int32 {
     get {return _storage._debugDescription_p}
     set {_uniqueStorage()._debugDescription_p = newValue}
   }
 
-  public var swift: Int32 {
+  var swift: Int32 {
     get {return _storage._swift}
     set {_uniqueStorage()._swift = newValue}
   }
 
-  public var unrecognized: Int32 {
+  var unrecognized: Int32 {
     get {return _storage._unrecognized}
     set {_uniqueStorage()._unrecognized = newValue}
   }
 
-  public var class_p: Int32 {
+  var class_p: Int32 {
     get {return _storage._class_p}
     set {_uniqueStorage()._class_p = newValue}
   }
 
-  public var deinit_p: Int32 {
+  var deinit_p: Int32 {
     get {return _storage._deinit_p}
     set {_uniqueStorage()._deinit_p = newValue}
   }
 
-  public var enum_p: Int32 {
+  var enum_p: Int32 {
     get {return _storage._enum_p}
     set {_uniqueStorage()._enum_p = newValue}
   }
 
-  public var extension_p: Int32 {
+  var extension_p: Int32 {
     get {return _storage._extension_p}
     set {_uniqueStorage()._extension_p = newValue}
   }
 
-  public var func_p: Int32 {
+  var func_p: Int32 {
     get {return _storage._func_p}
     set {_uniqueStorage()._func_p = newValue}
   }
 
-  public var import_p: Int32 {
+  var import_p: Int32 {
     get {return _storage._import_p}
     set {_uniqueStorage()._import_p = newValue}
   }
 
-  public var init_p: Int32 {
+  var init_p: Int32 {
     get {return _storage._init_p}
     set {_uniqueStorage()._init_p = newValue}
   }
 
-  public var inout_p: Int32 {
+  var inout_p: Int32 {
     get {return _storage._inout_p}
     set {_uniqueStorage()._inout_p = newValue}
   }
 
-  public var internal_p: Int32 {
+  var internal_p: Int32 {
     get {return _storage._internal_p}
     set {_uniqueStorage()._internal_p = newValue}
   }
 
-  public var let_p: Int32 {
+  var let_p: Int32 {
     get {return _storage._let_p}
     set {_uniqueStorage()._let_p = newValue}
   }
 
-  public var operator_p: Int32 {
+  var operator_p: Int32 {
     get {return _storage._operator_p}
     set {_uniqueStorage()._operator_p = newValue}
   }
 
-  public var private_p: Int32 {
+  var private_p: Int32 {
     get {return _storage._private_p}
     set {_uniqueStorage()._private_p = newValue}
   }
 
-  public var protocol_p: Int32 {
+  var protocol_p: Int32 {
     get {return _storage._protocol_p}
     set {_uniqueStorage()._protocol_p = newValue}
   }
 
-  public var public_p: Int32 {
+  var public_p: Int32 {
     get {return _storage._public_p}
     set {_uniqueStorage()._public_p = newValue}
   }
 
-  public var static_p: Int32 {
+  var static_p: Int32 {
     get {return _storage._static_p}
     set {_uniqueStorage()._static_p = newValue}
   }
 
-  public var struct_p: Int32 {
+  var struct_p: Int32 {
     get {return _storage._struct_p}
     set {_uniqueStorage()._struct_p = newValue}
   }
 
-  public var subscript_p: Int32 {
+  var subscript_p: Int32 {
     get {return _storage._subscript_p}
     set {_uniqueStorage()._subscript_p = newValue}
   }
 
-  public var typealias_p: Int32 {
+  var typealias_p: Int32 {
     get {return _storage._typealias_p}
     set {_uniqueStorage()._typealias_p = newValue}
   }
 
-  public var var_p: Int32 {
+  var var_p: Int32 {
     get {return _storage._var_p}
     set {_uniqueStorage()._var_p = newValue}
   }
 
-  public var break_p: Int32 {
+  var break_p: Int32 {
     get {return _storage._break_p}
     set {_uniqueStorage()._break_p = newValue}
   }
 
-  public var case_p: Int32 {
+  var case_p: Int32 {
     get {return _storage._case_p}
     set {_uniqueStorage()._case_p = newValue}
   }
 
-  public var continue_p: Int32 {
+  var continue_p: Int32 {
     get {return _storage._continue_p}
     set {_uniqueStorage()._continue_p = newValue}
   }
 
-  public var default_p: Int32 {
+  var default_p: Int32 {
     get {return _storage._default_p}
     set {_uniqueStorage()._default_p = newValue}
   }
 
-  public var defer_p: Int32 {
+  var defer_p: Int32 {
     get {return _storage._defer_p}
     set {_uniqueStorage()._defer_p = newValue}
   }
 
-  public var do_p: Int32 {
+  var do_p: Int32 {
     get {return _storage._do_p}
     set {_uniqueStorage()._do_p = newValue}
   }
 
-  public var else_p: Int32 {
+  var else_p: Int32 {
     get {return _storage._else_p}
     set {_uniqueStorage()._else_p = newValue}
   }
 
-  public var fallthrough_p: Int32 {
+  var fallthrough_p: Int32 {
     get {return _storage._fallthrough_p}
     set {_uniqueStorage()._fallthrough_p = newValue}
   }
 
-  public var for_p: Int32 {
+  var for_p: Int32 {
     get {return _storage._for_p}
     set {_uniqueStorage()._for_p = newValue}
   }
 
-  public var guard_p: Int32 {
+  var guard_p: Int32 {
     get {return _storage._guard_p}
     set {_uniqueStorage()._guard_p = newValue}
   }
 
-  public var if_p: Int32 {
+  var if_p: Int32 {
     get {return _storage._if_p}
     set {_uniqueStorage()._if_p = newValue}
   }
 
-  public var in_p: Int32 {
+  var in_p: Int32 {
     get {return _storage._in_p}
     set {_uniqueStorage()._in_p = newValue}
   }
 
-  public var repeat_p: Int32 {
+  var repeat_p: Int32 {
     get {return _storage._repeat_p}
     set {_uniqueStorage()._repeat_p = newValue}
   }
 
-  public var return_p: Int32 {
+  var return_p: Int32 {
     get {return _storage._return_p}
     set {_uniqueStorage()._return_p = newValue}
   }
 
-  public var switch_p: Int32 {
+  var switch_p: Int32 {
     get {return _storage._switch_p}
     set {_uniqueStorage()._switch_p = newValue}
   }
 
-  public var where_p: Int32 {
+  var where_p: Int32 {
     get {return _storage._where_p}
     set {_uniqueStorage()._where_p = newValue}
   }
 
-  public var while_p: Int32 {
+  var while_p: Int32 {
     get {return _storage._while_p}
     set {_uniqueStorage()._while_p = newValue}
   }
 
-  public var as_p: Int32 {
+  var as_p: Int32 {
     get {return _storage._as_p}
     set {_uniqueStorage()._as_p = newValue}
   }
 
-  public var catch_p: Int32 {
+  var catch_p: Int32 {
     get {return _storage._catch_p}
     set {_uniqueStorage()._catch_p = newValue}
   }
 
-  public var dynamicType_p: Int32 {
+  var dynamicType_p: Int32 {
     get {return _storage._dynamicType_p}
     set {_uniqueStorage()._dynamicType_p = newValue}
   }
 
-  public var false_p: Int32 {
+  var false_p: Int32 {
     get {return _storage._false_p}
     set {_uniqueStorage()._false_p = newValue}
   }
 
-  public var is_p: Int32 {
+  var is_p: Int32 {
     get {return _storage._is_p}
     set {_uniqueStorage()._is_p = newValue}
   }
 
-  public var nil_p: Int32 {
+  var nil_p: Int32 {
     get {return _storage._nil_p}
     set {_uniqueStorage()._nil_p = newValue}
   }
 
-  public var rethrows_p: Int32 {
+  var rethrows_p: Int32 {
     get {return _storage._rethrows_p}
     set {_uniqueStorage()._rethrows_p = newValue}
   }
 
-  public var super_p: Int32 {
+  var super_p: Int32 {
     get {return _storage._super_p}
     set {_uniqueStorage()._super_p = newValue}
   }
 
-  public var self_p: Int32 {
+  var self_p: Int32 {
     get {return _storage._self_p}
     set {_uniqueStorage()._self_p = newValue}
   }
 
-  public var throw_p: Int32 {
+  var throw_p: Int32 {
     get {return _storage._throw_p}
     set {_uniqueStorage()._throw_p = newValue}
   }
 
-  public var throws_p: Int32 {
+  var throws_p: Int32 {
     get {return _storage._throws_p}
     set {_uniqueStorage()._throws_p = newValue}
   }
 
-  public var true_p: Int32 {
+  var true_p: Int32 {
     get {return _storage._true_p}
     set {_uniqueStorage()._true_p = newValue}
   }
 
-  public var try_p: Int32 {
+  var try_p: Int32 {
     get {return _storage._try_p}
     set {_uniqueStorage()._try_p = newValue}
   }
 
-  public var _Column__: Int32 {
+  var _Column__: Int32 {
     get {return _storage.__Column__}
     set {_uniqueStorage().__Column__ = newValue}
   }
 
-  public var _File__: Int32 {
+  var _File__: Int32 {
     get {return _storage.__File__}
     set {_uniqueStorage().__File__ = newValue}
   }
 
-  public var _Function__: Int32 {
+  var _Function__: Int32 {
     get {return _storage.__Function__}
     set {_uniqueStorage().__Function__ = newValue}
   }
 
-  public var _Line__: Int32 {
+  var _Line__: Int32 {
     get {return _storage.__Line__}
     set {_uniqueStorage().__Line__ = newValue}
   }
 
-  public var ___: Int32 {
+  var ___: Int32 {
     get {return _storage.____}
     set {_uniqueStorage().____ = newValue}
   }
 
-  public var associativity: Int32 {
+  var associativity: Int32 {
     get {return _storage._associativity}
     set {_uniqueStorage()._associativity = newValue}
   }
 
-  public var convenience: Int32 {
+  var convenience: Int32 {
     get {return _storage._convenience}
     set {_uniqueStorage()._convenience = newValue}
   }
 
-  public var dynamic: Int32 {
+  var dynamic: Int32 {
     get {return _storage._dynamic}
     set {_uniqueStorage()._dynamic = newValue}
   }
 
-  public var didSet: Int32 {
+  var didSet: Int32 {
     get {return _storage._didSet}
     set {_uniqueStorage()._didSet = newValue}
   }
 
-  public var final: Int32 {
+  var final: Int32 {
     get {return _storage._final}
     set {_uniqueStorage()._final = newValue}
   }
 
-  public var get: Int32 {
+  var get: Int32 {
     get {return _storage._get}
     set {_uniqueStorage()._get = newValue}
   }
 
-  public var infix: Int32 {
+  var infix: Int32 {
     get {return _storage._infix}
     set {_uniqueStorage()._infix = newValue}
   }
 
-  public var indirect: Int32 {
+  var indirect: Int32 {
     get {return _storage._indirect}
     set {_uniqueStorage()._indirect = newValue}
   }
 
-  public var lazy: Int32 {
+  var lazy: Int32 {
     get {return _storage._lazy}
     set {_uniqueStorage()._lazy = newValue}
   }
 
-  public var left: Int32 {
+  var left: Int32 {
     get {return _storage._left}
     set {_uniqueStorage()._left = newValue}
   }
 
-  public var mutating: Int32 {
+  var mutating: Int32 {
     get {return _storage._mutating}
     set {_uniqueStorage()._mutating = newValue}
   }
 
-  public var none: Int32 {
+  var none: Int32 {
     get {return _storage._none}
     set {_uniqueStorage()._none = newValue}
   }
 
-  public var nonmutating: Int32 {
+  var nonmutating: Int32 {
     get {return _storage._nonmutating}
     set {_uniqueStorage()._nonmutating = newValue}
   }
 
-  public var optional: Int32 {
+  var optional: Int32 {
     get {return _storage._optional}
     set {_uniqueStorage()._optional = newValue}
   }
 
-  public var override: Int32 {
+  var override: Int32 {
     get {return _storage._override}
     set {_uniqueStorage()._override = newValue}
   }
 
-  public var postfix: Int32 {
+  var postfix: Int32 {
     get {return _storage._postfix}
     set {_uniqueStorage()._postfix = newValue}
   }
 
-  public var precedence: Int32 {
+  var precedence: Int32 {
     get {return _storage._precedence}
     set {_uniqueStorage()._precedence = newValue}
   }
 
-  public var prefix: Int32 {
+  var prefix: Int32 {
     get {return _storage._prefix}
     set {_uniqueStorage()._prefix = newValue}
   }
 
-  public var required: Int32 {
+  var required: Int32 {
     get {return _storage._required}
     set {_uniqueStorage()._required = newValue}
   }
 
-  public var right: Int32 {
+  var right: Int32 {
     get {return _storage._right}
     set {_uniqueStorage()._right = newValue}
   }
 
-  public var set: Int32 {
+  var set: Int32 {
     get {return _storage._set}
     set {_uniqueStorage()._set = newValue}
   }
 
-  public var type: Int32 {
+  var type: Int32 {
     get {return _storage._type}
     set {_uniqueStorage()._type = newValue}
   }
 
-  public var unowned: Int32 {
+  var unowned: Int32 {
     get {return _storage._unowned}
     set {_uniqueStorage()._unowned = newValue}
   }
 
-  public var weak: Int32 {
+  var weak: Int32 {
     get {return _storage._weak}
     set {_uniqueStorage()._weak = newValue}
   }
 
-  public var willSet: Int32 {
+  var willSet: Int32 {
     get {return _storage._willSet}
     set {_uniqueStorage()._willSet = newValue}
   }
 
-  public var id: Int32 {
+  var id: Int32 {
     get {return _storage._id}
     set {_uniqueStorage()._id = newValue}
   }
 
-  public var cmd: Int32 {
+  var cmd: Int32 {
     get {return _storage._cmd}
     set {_uniqueStorage()._cmd = newValue}
   }
 
-  public var out: Int32 {
+  var out: Int32 {
     get {return _storage._out}
     set {_uniqueStorage()._out = newValue}
   }
 
-  public var bycopy: Int32 {
+  var bycopy: Int32 {
     get {return _storage._bycopy}
     set {_uniqueStorage()._bycopy = newValue}
   }
 
-  public var byref: Int32 {
+  var byref: Int32 {
     get {return _storage._byref}
     set {_uniqueStorage()._byref = newValue}
   }
 
-  public var oneway: Int32 {
+  var oneway: Int32 {
     get {return _storage._oneway}
     set {_uniqueStorage()._oneway = newValue}
   }
 
-  public var and: Int32 {
+  var and: Int32 {
     get {return _storage._and}
     set {_uniqueStorage()._and = newValue}
   }
 
-  public var andEq: Int32 {
+  var andEq: Int32 {
     get {return _storage._andEq}
     set {_uniqueStorage()._andEq = newValue}
   }
 
-  public var alignas: Int32 {
+  var alignas: Int32 {
     get {return _storage._alignas}
     set {_uniqueStorage()._alignas = newValue}
   }
 
-  public var alignof: Int32 {
+  var alignof: Int32 {
     get {return _storage._alignof}
     set {_uniqueStorage()._alignof = newValue}
   }
 
-  public var asm: Int32 {
+  var asm: Int32 {
     get {return _storage._asm}
     set {_uniqueStorage()._asm = newValue}
   }
 
-  public var auto: Int32 {
+  var auto: Int32 {
     get {return _storage._auto}
     set {_uniqueStorage()._auto = newValue}
   }
 
-  public var bitand: Int32 {
+  var bitand: Int32 {
     get {return _storage._bitand}
     set {_uniqueStorage()._bitand = newValue}
   }
 
-  public var bitor: Int32 {
+  var bitor: Int32 {
     get {return _storage._bitor}
     set {_uniqueStorage()._bitor = newValue}
   }
 
-  public var bool: Int32 {
+  var bool: Int32 {
     get {return _storage._bool}
     set {_uniqueStorage()._bool = newValue}
   }
 
-  public var char: Int32 {
+  var char: Int32 {
     get {return _storage._char}
     set {_uniqueStorage()._char = newValue}
   }
 
-  public var char16T: Int32 {
+  var char16T: Int32 {
     get {return _storage._char16T}
     set {_uniqueStorage()._char16T = newValue}
   }
 
-  public var char32T: Int32 {
+  var char32T: Int32 {
     get {return _storage._char32T}
     set {_uniqueStorage()._char32T = newValue}
   }
 
-  public var compl: Int32 {
+  var compl: Int32 {
     get {return _storage._compl}
     set {_uniqueStorage()._compl = newValue}
   }
 
-  public var const: Int32 {
+  var const: Int32 {
     get {return _storage._const}
     set {_uniqueStorage()._const = newValue}
   }
 
-  public var constexpr: Int32 {
+  var constexpr: Int32 {
     get {return _storage._constexpr}
     set {_uniqueStorage()._constexpr = newValue}
   }
 
-  public var constCast: Int32 {
+  var constCast: Int32 {
     get {return _storage._constCast}
     set {_uniqueStorage()._constCast = newValue}
   }
 
-  public var decltype: Int32 {
+  var decltype: Int32 {
     get {return _storage._decltype}
     set {_uniqueStorage()._decltype = newValue}
   }
 
-  public var delete: Int32 {
+  var delete: Int32 {
     get {return _storage._delete}
     set {_uniqueStorage()._delete = newValue}
   }
 
-  public var dynamicCast: Int32 {
+  var dynamicCast: Int32 {
     get {return _storage._dynamicCast}
     set {_uniqueStorage()._dynamicCast = newValue}
   }
 
-  public var explicit: Int32 {
+  var explicit: Int32 {
     get {return _storage._explicit}
     set {_uniqueStorage()._explicit = newValue}
   }
 
-  public var export: Int32 {
+  var export: Int32 {
     get {return _storage._export}
     set {_uniqueStorage()._export = newValue}
   }
 
-  public var extern: Int32 {
+  var extern: Int32 {
     get {return _storage._extern}
     set {_uniqueStorage()._extern = newValue}
   }
 
-  public var friend: Int32 {
+  var friend: Int32 {
     get {return _storage._friend}
     set {_uniqueStorage()._friend = newValue}
   }
 
-  public var goto: Int32 {
+  var goto: Int32 {
     get {return _storage._goto}
     set {_uniqueStorage()._goto = newValue}
   }
 
-  public var inline: Int32 {
+  var inline: Int32 {
     get {return _storage._inline}
     set {_uniqueStorage()._inline = newValue}
   }
 
-  public var long: Int32 {
+  var long: Int32 {
     get {return _storage._long}
     set {_uniqueStorage()._long = newValue}
   }
 
-  public var mutable: Int32 {
+  var mutable: Int32 {
     get {return _storage._mutable}
     set {_uniqueStorage()._mutable = newValue}
   }
 
-  public var namespace: Int32 {
+  var namespace: Int32 {
     get {return _storage._namespace}
     set {_uniqueStorage()._namespace = newValue}
   }
 
-  public var new: Int32 {
+  var new: Int32 {
     get {return _storage._new}
     set {_uniqueStorage()._new = newValue}
   }
 
-  public var noexcept: Int32 {
+  var noexcept: Int32 {
     get {return _storage._noexcept}
     set {_uniqueStorage()._noexcept = newValue}
   }
 
-  public var not: Int32 {
+  var not: Int32 {
     get {return _storage._not}
     set {_uniqueStorage()._not = newValue}
   }
 
-  public var notEq: Int32 {
+  var notEq: Int32 {
     get {return _storage._notEq}
     set {_uniqueStorage()._notEq = newValue}
   }
 
-  public var nullptr: Int32 {
+  var nullptr: Int32 {
     get {return _storage._nullptr}
     set {_uniqueStorage()._nullptr = newValue}
   }
 
-  public var or: Int32 {
+  var or: Int32 {
     get {return _storage._or}
     set {_uniqueStorage()._or = newValue}
   }
 
-  public var orEq: Int32 {
+  var orEq: Int32 {
     get {return _storage._orEq}
     set {_uniqueStorage()._orEq = newValue}
   }
 
-  public var protected: Int32 {
+  var protected: Int32 {
     get {return _storage._protected}
     set {_uniqueStorage()._protected = newValue}
   }
 
-  public var register: Int32 {
+  var register: Int32 {
     get {return _storage._register}
     set {_uniqueStorage()._register = newValue}
   }
 
-  public var reinterpretCast: Int32 {
+  var reinterpretCast: Int32 {
     get {return _storage._reinterpretCast}
     set {_uniqueStorage()._reinterpretCast = newValue}
   }
 
-  public var short: Int32 {
+  var short: Int32 {
     get {return _storage._short}
     set {_uniqueStorage()._short = newValue}
   }
 
-  public var signed: Int32 {
+  var signed: Int32 {
     get {return _storage._signed}
     set {_uniqueStorage()._signed = newValue}
   }
 
-  public var sizeof: Int32 {
+  var sizeof: Int32 {
     get {return _storage._sizeof}
     set {_uniqueStorage()._sizeof = newValue}
   }
 
-  public var staticAssert: Int32 {
+  var staticAssert: Int32 {
     get {return _storage._staticAssert}
     set {_uniqueStorage()._staticAssert = newValue}
   }
 
-  public var staticCast: Int32 {
+  var staticCast: Int32 {
     get {return _storage._staticCast}
     set {_uniqueStorage()._staticCast = newValue}
   }
 
-  public var template: Int32 {
+  var template: Int32 {
     get {return _storage._template}
     set {_uniqueStorage()._template = newValue}
   }
 
-  public var this: Int32 {
+  var this: Int32 {
     get {return _storage._this}
     set {_uniqueStorage()._this = newValue}
   }
 
-  public var threadLocal: Int32 {
+  var threadLocal: Int32 {
     get {return _storage._threadLocal}
     set {_uniqueStorage()._threadLocal = newValue}
   }
 
-  public var typedef: Int32 {
+  var typedef: Int32 {
     get {return _storage._typedef}
     set {_uniqueStorage()._typedef = newValue}
   }
 
-  public var typeid: Int32 {
+  var typeid: Int32 {
     get {return _storage._typeid}
     set {_uniqueStorage()._typeid = newValue}
   }
 
-  public var typename: Int32 {
+  var typename: Int32 {
     get {return _storage._typename}
     set {_uniqueStorage()._typename = newValue}
   }
 
-  public var union: Int32 {
+  var union: Int32 {
     get {return _storage._union}
     set {_uniqueStorage()._union = newValue}
   }
 
-  public var unsigned: Int32 {
+  var unsigned: Int32 {
     get {return _storage._unsigned}
     set {_uniqueStorage()._unsigned = newValue}
   }
 
-  public var using: Int32 {
+  var using: Int32 {
     get {return _storage._using}
     set {_uniqueStorage()._using = newValue}
   }
 
-  public var virtual: Int32 {
+  var virtual: Int32 {
     get {return _storage._virtual}
     set {_uniqueStorage()._virtual = newValue}
   }
 
-  public var void: Int32 {
+  var void: Int32 {
     get {return _storage._void}
     set {_uniqueStorage()._void = newValue}
   }
 
-  public var volatile: Int32 {
+  var volatile: Int32 {
     get {return _storage._volatile}
     set {_uniqueStorage()._volatile = newValue}
   }
 
-  public var wcharT: Int32 {
+  var wcharT: Int32 {
     get {return _storage._wcharT}
     set {_uniqueStorage()._wcharT = newValue}
   }
 
-  public var xor: Int32 {
+  var xor: Int32 {
     get {return _storage._xor}
     set {_uniqueStorage()._xor = newValue}
   }
 
-  public var xorEq: Int32 {
+  var xorEq: Int32 {
     get {return _storage._xorEq}
     set {_uniqueStorage()._xorEq = newValue}
   }
 
-  public var restrict: Int32 {
+  var restrict: Int32 {
     get {return _storage._restrict}
     set {_uniqueStorage()._restrict = newValue}
   }
 
-  public var category: Int32 {
+  var category: Int32 {
     get {return _storage._category}
     set {_uniqueStorage()._category = newValue}
   }
 
-  public var ivar: Int32 {
+  var ivar: Int32 {
     get {return _storage._ivar}
     set {_uniqueStorage()._ivar = newValue}
   }
 
-  public var method: Int32 {
+  var method: Int32 {
     get {return _storage._method}
     set {_uniqueStorage()._method = newValue}
   }
 
-  public var finalize: Int32 {
+  var finalize: Int32 {
     get {return _storage._finalize}
     set {_uniqueStorage()._finalize = newValue}
   }
 
-  public var hash: Int32 {
+  var hash: Int32 {
     get {return _storage._hash}
     set {_uniqueStorage()._hash = newValue}
   }
 
-  public var dealloc: Int32 {
+  var dealloc: Int32 {
     get {return _storage._dealloc}
     set {_uniqueStorage()._dealloc = newValue}
   }
 
-  public var superclass: Int32 {
+  var superclass: Int32 {
     get {return _storage._superclass}
     set {_uniqueStorage()._superclass = newValue}
   }
 
-  public var retain: Int32 {
+  var retain: Int32 {
     get {return _storage._retain}
     set {_uniqueStorage()._retain = newValue}
   }
 
-  public var release: Int32 {
+  var release: Int32 {
     get {return _storage._release}
     set {_uniqueStorage()._release = newValue}
   }
 
-  public var autorelease: Int32 {
+  var autorelease: Int32 {
     get {return _storage._autorelease}
     set {_uniqueStorage()._autorelease = newValue}
   }
 
-  public var retainCount: Int32 {
+  var retainCount: Int32 {
     get {return _storage._retainCount}
     set {_uniqueStorage()._retainCount = newValue}
   }
 
-  public var zone: Int32 {
+  var zone: Int32 {
     get {return _storage._zone}
     set {_uniqueStorage()._zone = newValue}
   }
 
-  public var isProxy: Int32 {
+  var isProxy: Int32 {
     get {return _storage._isProxy}
     set {_uniqueStorage()._isProxy = newValue}
   }
 
-  public var copy: Int32 {
+  var copy: Int32 {
     get {return _storage._copy}
     set {_uniqueStorage()._copy = newValue}
   }
 
-  public var mutableCopy: Int32 {
+  var mutableCopy: Int32 {
     get {return _storage._mutableCopy}
     set {_uniqueStorage()._mutableCopy = newValue}
   }
 
-  public var classForCoder: Int32 {
+  var classForCoder: Int32 {
     get {return _storage._classForCoder}
     set {_uniqueStorage()._classForCoder = newValue}
   }
 
-  public var clear: Int32 {
+  var clear: Int32 {
     get {return _storage._clear}
     set {_uniqueStorage()._clear = newValue}
   }
 
-  public var data: Int32 {
+  var data: Int32 {
     get {return _storage._data}
     set {_uniqueStorage()._data = newValue}
   }
 
-  public var delimitedData: Int32 {
+  var delimitedData: Int32 {
     get {return _storage._delimitedData}
     set {_uniqueStorage()._delimitedData = newValue}
   }
 
-  public var descriptor: Int32 {
+  var descriptor: Int32 {
     get {return _storage._descriptor}
     set {_uniqueStorage()._descriptor = newValue}
   }
 
-  public var extensionRegistry: Int32 {
+  var extensionRegistry: Int32 {
     get {return _storage._extensionRegistry}
     set {_uniqueStorage()._extensionRegistry = newValue}
   }
 
-  public var extensionsCurrentlySet: Int32 {
+  var extensionsCurrentlySet: Int32 {
     get {return _storage._extensionsCurrentlySet}
     set {_uniqueStorage()._extensionsCurrentlySet = newValue}
   }
 
-  public var isInitialized: Int32 {
+  var isInitialized: Int32 {
     get {return _storage._isInitialized}
     set {_uniqueStorage()._isInitialized = newValue}
   }
 
-  public var serializedSize: Int32 {
+  var serializedSize: Int32 {
     get {return _storage._serializedSize}
     set {_uniqueStorage()._serializedSize = newValue}
   }
 
-  public var sortedExtensionsInUse: Int32 {
+  var sortedExtensionsInUse: Int32 {
     get {return _storage._sortedExtensionsInUse}
     set {_uniqueStorage()._sortedExtensionsInUse = newValue}
   }
 
-  public var unknownFields: Int32 {
+  var unknownFields: Int32 {
     get {return _storage._unknownFields}
     set {_uniqueStorage()._unknownFields = newValue}
   }
 
-  public var fixed: Int32 {
+  var fixed: Int32 {
     get {return _storage._fixed}
     set {_uniqueStorage()._fixed = newValue}
   }
 
-  public var fract: Int32 {
+  var fract: Int32 {
     get {return _storage._fract}
     set {_uniqueStorage()._fract = newValue}
   }
 
-  public var size: Int32 {
+  var size: Int32 {
     get {return _storage._size}
     set {_uniqueStorage()._size = newValue}
   }
 
-  public var logicalAddress: Int32 {
+  var logicalAddress: Int32 {
     get {return _storage._logicalAddress}
     set {_uniqueStorage()._logicalAddress = newValue}
   }
 
-  public var physicalAddress: Int32 {
+  var physicalAddress: Int32 {
     get {return _storage._physicalAddress}
     set {_uniqueStorage()._physicalAddress = newValue}
   }
 
-  public var byteCount: Int32 {
+  var byteCount: Int32 {
     get {return _storage._byteCount}
     set {_uniqueStorage()._byteCount = newValue}
   }
 
-  public var byteOffset: Int32 {
+  var byteOffset: Int32 {
     get {return _storage._byteOffset}
     set {_uniqueStorage()._byteOffset = newValue}
   }
 
-  public var duration: Int32 {
+  var duration: Int32 {
     get {return _storage._duration}
     set {_uniqueStorage()._duration = newValue}
   }
 
-  public var absoluteTime: Int32 {
+  var absoluteTime: Int32 {
     get {return _storage._absoluteTime}
     set {_uniqueStorage()._absoluteTime = newValue}
   }
 
-  public var optionBits: Int32 {
+  var optionBits: Int32 {
     get {return _storage._optionBits}
     set {_uniqueStorage()._optionBits = newValue}
   }
 
-  public var itemCount: Int32 {
+  var itemCount: Int32 {
     get {return _storage._itemCount}
     set {_uniqueStorage()._itemCount = newValue}
   }
 
-  public var pbversion: Int32 {
+  var pbversion: Int32 {
     get {return _storage._pbversion}
     set {_uniqueStorage()._pbversion = newValue}
   }
 
-  public var scriptCode: Int32 {
+  var scriptCode: Int32 {
     get {return _storage._scriptCode}
     set {_uniqueStorage()._scriptCode = newValue}
   }
 
-  public var langCode: Int32 {
+  var langCode: Int32 {
     get {return _storage._langCode}
     set {_uniqueStorage()._langCode = newValue}
   }
 
-  public var regionCode: Int32 {
+  var regionCode: Int32 {
     get {return _storage._regionCode}
     set {_uniqueStorage()._regionCode = newValue}
   }
 
-  public var ostype: Int32 {
+  var ostype: Int32 {
     get {return _storage._ostype}
     set {_uniqueStorage()._ostype = newValue}
   }
 
-  public var processSerialNumber: Int32 {
+  var processSerialNumber: Int32 {
     get {return _storage._processSerialNumber}
     set {_uniqueStorage()._processSerialNumber = newValue}
   }
 
-  public var point: Int32 {
+  var point: Int32 {
     get {return _storage._point}
     set {_uniqueStorage()._point = newValue}
   }
 
-  public var rect: Int32 {
+  var rect: Int32 {
     get {return _storage._rect}
     set {_uniqueStorage()._rect = newValue}
   }
 
-  public var fixedPoint: Int32 {
+  var fixedPoint: Int32 {
     get {return _storage._fixedPoint}
     set {_uniqueStorage()._fixedPoint = newValue}
   }
 
-  public var fixedRect: Int32 {
+  var fixedRect: Int32 {
     get {return _storage._fixedRect}
     set {_uniqueStorage()._fixedRect = newValue}
   }
 
-  public var style: Int32 {
+  var style: Int32 {
     get {return _storage._style}
     set {_uniqueStorage()._style = newValue}
   }
 
-  public var styleParameter: Int32 {
+  var styleParameter: Int32 {
     get {return _storage._styleParameter}
     set {_uniqueStorage()._styleParameter = newValue}
   }
 
-  public var styleField: Int32 {
+  var styleField: Int32 {
     get {return _storage._styleField}
     set {_uniqueStorage()._styleField = newValue}
   }
 
-  public var timeScale: Int32 {
+  var timeScale: Int32 {
     get {return _storage._timeScale}
     set {_uniqueStorage()._timeScale = newValue}
   }
 
-  public var timeBase: Int32 {
+  var timeBase: Int32 {
     get {return _storage._timeBase}
     set {_uniqueStorage()._timeBase = newValue}
   }
 
-  public var timeRecord: Int32 {
+  var timeRecord: Int32 {
     get {return _storage._timeRecord}
     set {_uniqueStorage()._timeRecord = newValue}
   }
 
-  public var jsonShouldBeOverriden: Int32 {
+  var jsonShouldBeOverriden: Int32 {
     get {return _storage._jsonShouldBeOverriden}
     set {_uniqueStorage()._jsonShouldBeOverriden = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -4827,9 +4827,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -4862,9 +4862,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -4897,9 +4897,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -4932,9 +4932,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -4967,9 +4967,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5002,9 +5002,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5037,9 +5037,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5072,9 +5072,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5107,9 +5107,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5142,9 +5142,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5177,9 +5177,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5212,9 +5212,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5247,9 +5247,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5282,9 +5282,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5317,9 +5317,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5352,9 +5352,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5387,9 +5387,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5422,9 +5422,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5457,9 +5457,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5492,9 +5492,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5527,9 +5527,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5562,9 +5562,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5597,9 +5597,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5632,9 +5632,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5667,9 +5667,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5702,9 +5702,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5737,9 +5737,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5772,9 +5772,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5807,9 +5807,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5842,9 +5842,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5877,9 +5877,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5912,9 +5912,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5947,9 +5947,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -5982,9 +5982,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6017,9 +6017,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6052,9 +6052,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6087,9 +6087,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6122,9 +6122,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6157,9 +6157,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6192,9 +6192,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6227,9 +6227,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6262,9 +6262,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6297,9 +6297,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6332,9 +6332,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6367,9 +6367,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6402,9 +6402,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6437,9 +6437,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6472,9 +6472,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6507,9 +6507,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6542,9 +6542,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6577,9 +6577,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6612,9 +6612,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6647,9 +6647,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6682,9 +6682,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6717,9 +6717,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6752,9 +6752,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6787,9 +6787,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6822,9 +6822,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6857,9 +6857,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6892,9 +6892,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6927,9 +6927,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6962,9 +6962,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -6997,9 +6997,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7032,9 +7032,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7067,9 +7067,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7102,9 +7102,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7137,9 +7137,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7172,9 +7172,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7207,9 +7207,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7242,9 +7242,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7277,9 +7277,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7312,9 +7312,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7347,9 +7347,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7382,9 +7382,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7417,9 +7417,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7452,9 +7452,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7487,9 +7487,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7522,9 +7522,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7557,9 +7557,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7592,9 +7592,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7627,9 +7627,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7662,9 +7662,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7697,9 +7697,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7732,9 +7732,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7767,9 +7767,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7802,9 +7802,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7837,9 +7837,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7872,9 +7872,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7907,9 +7907,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7942,9 +7942,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -7977,9 +7977,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8012,9 +8012,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8047,9 +8047,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8082,9 +8082,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8117,9 +8117,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8152,9 +8152,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8187,9 +8187,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8222,9 +8222,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8257,9 +8257,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8292,9 +8292,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8327,9 +8327,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8362,9 +8362,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8397,9 +8397,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8432,9 +8432,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8467,9 +8467,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8502,9 +8502,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8537,9 +8537,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8572,9 +8572,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8607,9 +8607,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8642,9 +8642,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8677,9 +8677,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8712,9 +8712,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8747,9 +8747,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8782,9 +8782,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8817,9 +8817,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8852,9 +8852,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8887,9 +8887,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8922,9 +8922,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8957,9 +8957,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -8992,9 +8992,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9027,9 +9027,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9062,9 +9062,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9097,9 +9097,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9132,9 +9132,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9167,9 +9167,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9202,9 +9202,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9237,9 +9237,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9272,9 +9272,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9307,9 +9307,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9342,9 +9342,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9377,9 +9377,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9412,9 +9412,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9447,9 +9447,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9482,9 +9482,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9517,9 +9517,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9552,9 +9552,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9587,9 +9587,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9622,9 +9622,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9657,9 +9657,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9692,9 +9692,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9727,9 +9727,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9762,9 +9762,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9797,9 +9797,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9832,9 +9832,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9867,9 +9867,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9902,9 +9902,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9937,9 +9937,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -9972,9 +9972,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10007,9 +10007,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10042,9 +10042,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10077,9 +10077,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10112,9 +10112,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10147,9 +10147,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10182,9 +10182,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10217,9 +10217,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10252,9 +10252,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10287,9 +10287,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10322,9 +10322,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10357,9 +10357,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10392,9 +10392,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10427,9 +10427,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10462,9 +10462,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10497,9 +10497,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10532,9 +10532,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10567,9 +10567,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10602,9 +10602,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10637,9 +10637,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10672,9 +10672,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10707,9 +10707,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10742,9 +10742,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10777,9 +10777,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10812,9 +10812,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10847,9 +10847,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10882,9 +10882,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10917,9 +10917,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10952,9 +10952,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -10987,9 +10987,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11022,9 +11022,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11057,9 +11057,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11092,9 +11092,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11127,9 +11127,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11162,9 +11162,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11197,9 +11197,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11232,9 +11232,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11267,9 +11267,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11302,9 +11302,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11337,9 +11337,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11372,9 +11372,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11407,9 +11407,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11442,9 +11442,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11477,9 +11477,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11512,9 +11512,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11547,9 +11547,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11582,9 +11582,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11617,9 +11617,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11652,9 +11652,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11687,9 +11687,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11722,9 +11722,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11757,9 +11757,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11792,9 +11792,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11827,9 +11827,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11862,9 +11862,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11897,9 +11897,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11932,9 +11932,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -11967,9 +11967,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -12002,9 +12002,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -12037,9 +12037,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -12072,9 +12072,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -12107,9 +12107,9 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     ]}
 
 
-    public var a: Int32 = 0
+    var a: Int32 = 0
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -12130,7 +12130,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -12152,43 +12152,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
 
 
   enum StringEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aString // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aString
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aString
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aString": self = .aString
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aString": self = .aString
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aString": self = .aString
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aString: return 0
@@ -12197,7 +12197,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aString: return "\"aString\""
@@ -12206,9 +12206,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aString: return ".aString"
@@ -12220,43 +12220,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum ProtocolEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aProtocol // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aProtocol
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aProtocol
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aProtocol": self = .aProtocol
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aProtocol": self = .aProtocol
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aProtocol": self = .aProtocol
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aProtocol: return 0
@@ -12265,7 +12265,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aProtocol: return "\"aProtocol\""
@@ -12274,9 +12274,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aProtocol: return ".aProtocol"
@@ -12288,43 +12288,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum IntEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aInt // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aInt
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aInt
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aInt": self = .aInt
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aInt": self = .aInt
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aInt": self = .aInt
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aInt: return 0
@@ -12333,7 +12333,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aInt: return "\"aInt\""
@@ -12342,9 +12342,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aInt: return ".aInt"
@@ -12356,43 +12356,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum DoubleEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aDouble // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aDouble
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aDouble
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aDouble": self = .aDouble
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aDouble": self = .aDouble
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aDouble": self = .aDouble
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aDouble: return 0
@@ -12401,7 +12401,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aDouble: return "\"aDouble\""
@@ -12410,9 +12410,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aDouble: return ".aDouble"
@@ -12424,43 +12424,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum FloatEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aFloat // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aFloat
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aFloat
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aFloat": self = .aFloat
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aFloat": self = .aFloat
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aFloat": self = .aFloat
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aFloat: return 0
@@ -12469,7 +12469,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aFloat: return "\"aFloat\""
@@ -12478,9 +12478,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aFloat: return ".aFloat"
@@ -12492,43 +12492,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum UIntEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aUint // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aUint
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aUint
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aUint": self = .aUint
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aUInt": self = .aUint
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aUInt": self = .aUint
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aUint: return 0
@@ -12537,7 +12537,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aUint: return "\"aUInt\""
@@ -12546,9 +12546,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aUint: return ".aUint"
@@ -12560,43 +12560,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum hashValueEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ahashValue // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ahashValue
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ahashValue
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ahashValue": self = .ahashValue
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ahashValue": self = .ahashValue
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ahashValue": self = .ahashValue
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ahashValue: return 0
@@ -12605,7 +12605,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ahashValue: return "\"ahashValue\""
@@ -12614,9 +12614,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ahashValue: return ".ahashValue"
@@ -12628,43 +12628,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum descriptionEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adescription // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adescription
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adescription
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adescription": self = .adescription
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adescription": self = .adescription
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adescription": self = .adescription
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adescription: return 0
@@ -12673,7 +12673,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adescription: return "\"adescription\""
@@ -12682,9 +12682,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adescription: return ".adescription"
@@ -12696,43 +12696,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum debugDescriptionEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adebugDescription // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adebugDescription
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adebugDescription
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adebugDescription": self = .adebugDescription
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adebugDescription": self = .adebugDescription
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adebugDescription": self = .adebugDescription
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adebugDescription: return 0
@@ -12741,7 +12741,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adebugDescription: return "\"adebugDescription\""
@@ -12750,9 +12750,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adebugDescription: return ".adebugDescription"
@@ -12764,43 +12764,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Swift: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aSwift // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aSwift
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aSwift
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aSwift": self = .aSwift
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aSwift": self = .aSwift
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aSwift": self = .aSwift
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aSwift: return 0
@@ -12809,7 +12809,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aSwift: return "\"aSwift\""
@@ -12818,9 +12818,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aSwift: return ".aSwift"
@@ -12832,43 +12832,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum UNRECOGNIZED: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aUnrecognized // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aUnrecognized
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aUnrecognized
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aUnrecognized": self = .aUnrecognized
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aUNRECOGNIZED": self = .aUnrecognized
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aUNRECOGNIZED": self = .aUnrecognized
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aUnrecognized: return 0
@@ -12877,7 +12877,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aUnrecognized: return "\"aUNRECOGNIZED\""
@@ -12886,9 +12886,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aUnrecognized: return ".aUnrecognized"
@@ -12900,43 +12900,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum classEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aclass // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aclass
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aclass
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aclass": self = .aclass
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aclass": self = .aclass
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aclass": self = .aclass
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aclass: return 0
@@ -12945,7 +12945,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aclass: return "\"aclass\""
@@ -12954,9 +12954,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aclass: return ".aclass"
@@ -12968,43 +12968,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum deinitEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adeinit // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adeinit
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adeinit
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adeinit": self = .adeinit
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adeinit": self = .adeinit
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adeinit": self = .adeinit
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adeinit: return 0
@@ -13013,7 +13013,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adeinit: return "\"adeinit\""
@@ -13022,9 +13022,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adeinit: return ".adeinit"
@@ -13036,43 +13036,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum enumEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aenum // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aenum
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aenum
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aenum": self = .aenum
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aenum": self = .aenum
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aenum": self = .aenum
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aenum: return 0
@@ -13081,7 +13081,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aenum: return "\"aenum\""
@@ -13090,9 +13090,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aenum: return ".aenum"
@@ -13104,43 +13104,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum extensionEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aextension // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aextension
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aextension
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aextension": self = .aextension
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aextension": self = .aextension
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aextension": self = .aextension
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aextension: return 0
@@ -13149,7 +13149,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aextension: return "\"aextension\""
@@ -13158,9 +13158,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aextension: return ".aextension"
@@ -13172,43 +13172,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum funcEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case afunc // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .afunc
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .afunc
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "afunc": self = .afunc
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "afunc": self = .afunc
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "afunc": self = .afunc
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .afunc: return 0
@@ -13217,7 +13217,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .afunc: return "\"afunc\""
@@ -13226,9 +13226,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .afunc: return ".afunc"
@@ -13240,43 +13240,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum importEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aimport // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aimport
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aimport
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aimport": self = .aimport
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aimport": self = .aimport
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aimport": self = .aimport
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aimport: return 0
@@ -13285,7 +13285,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aimport: return "\"aimport\""
@@ -13294,9 +13294,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aimport: return ".aimport"
@@ -13308,43 +13308,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum initEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ainit // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ainit
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ainit
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ainit": self = .ainit
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ainit": self = .ainit
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ainit": self = .ainit
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ainit: return 0
@@ -13353,7 +13353,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ainit: return "\"ainit\""
@@ -13362,9 +13362,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ainit: return ".ainit"
@@ -13376,43 +13376,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum inoutEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ainout // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ainout
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ainout
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ainout": self = .ainout
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ainout": self = .ainout
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ainout": self = .ainout
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ainout: return 0
@@ -13421,7 +13421,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ainout: return "\"ainout\""
@@ -13430,9 +13430,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ainout: return ".ainout"
@@ -13444,43 +13444,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum internalEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ainternal // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ainternal
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ainternal
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ainternal": self = .ainternal
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ainternal": self = .ainternal
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ainternal": self = .ainternal
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ainternal: return 0
@@ -13489,7 +13489,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ainternal: return "\"ainternal\""
@@ -13498,9 +13498,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ainternal: return ".ainternal"
@@ -13512,43 +13512,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum letEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case alet // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .alet
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .alet
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "alet": self = .alet
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "alet": self = .alet
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "alet": self = .alet
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .alet: return 0
@@ -13557,7 +13557,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .alet: return "\"alet\""
@@ -13566,9 +13566,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .alet: return ".alet"
@@ -13580,43 +13580,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum operatorEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aoperator // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aoperator
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aoperator
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aoperator": self = .aoperator
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aoperator": self = .aoperator
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aoperator": self = .aoperator
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aoperator: return 0
@@ -13625,7 +13625,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aoperator: return "\"aoperator\""
@@ -13634,9 +13634,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aoperator: return ".aoperator"
@@ -13648,43 +13648,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum privateEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aprivate // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aprivate
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aprivate
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aprivate": self = .aprivate
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aprivate": self = .aprivate
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aprivate": self = .aprivate
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aprivate: return 0
@@ -13693,7 +13693,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aprivate: return "\"aprivate\""
@@ -13702,9 +13702,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aprivate: return ".aprivate"
@@ -13716,43 +13716,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum protocolEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aprotocol // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aprotocol
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aprotocol
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aprotocol": self = .aprotocol
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aprotocol": self = .aprotocol
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aprotocol": self = .aprotocol
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aprotocol: return 0
@@ -13761,7 +13761,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aprotocol: return "\"aprotocol\""
@@ -13770,9 +13770,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aprotocol: return ".aprotocol"
@@ -13784,43 +13784,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum publicEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case apublic // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .apublic
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .apublic
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "apublic": self = .apublic
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "apublic": self = .apublic
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "apublic": self = .apublic
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .apublic: return 0
@@ -13829,7 +13829,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .apublic: return "\"apublic\""
@@ -13838,9 +13838,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .apublic: return ".apublic"
@@ -13852,43 +13852,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum staticEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case astatic // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .astatic
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .astatic
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "astatic": self = .astatic
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "astatic": self = .astatic
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "astatic": self = .astatic
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .astatic: return 0
@@ -13897,7 +13897,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .astatic: return "\"astatic\""
@@ -13906,9 +13906,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .astatic: return ".astatic"
@@ -13920,43 +13920,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum structEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case astruct // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .astruct
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .astruct
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "astruct": self = .astruct
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "astruct": self = .astruct
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "astruct": self = .astruct
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .astruct: return 0
@@ -13965,7 +13965,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .astruct: return "\"astruct\""
@@ -13974,9 +13974,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .astruct: return ".astruct"
@@ -13988,43 +13988,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum subscriptEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case asubscript // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .asubscript
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .asubscript
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "asubscript": self = .asubscript
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "asubscript": self = .asubscript
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "asubscript": self = .asubscript
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .asubscript: return 0
@@ -14033,7 +14033,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .asubscript: return "\"asubscript\""
@@ -14042,9 +14042,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .asubscript: return ".asubscript"
@@ -14056,43 +14056,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum typealiasEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case atypealias // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .atypealias
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .atypealias
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "atypealias": self = .atypealias
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "atypealias": self = .atypealias
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "atypealias": self = .atypealias
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .atypealias: return 0
@@ -14101,7 +14101,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .atypealias: return "\"atypealias\""
@@ -14110,9 +14110,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .atypealias: return ".atypealias"
@@ -14124,43 +14124,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum varEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case avar // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .avar
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .avar
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "avar": self = .avar
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "avar": self = .avar
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "avar": self = .avar
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .avar: return 0
@@ -14169,7 +14169,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .avar: return "\"avar\""
@@ -14178,9 +14178,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .avar: return ".avar"
@@ -14192,43 +14192,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum breakEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case abreak // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .abreak
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .abreak
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "abreak": self = .abreak
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "abreak": self = .abreak
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "abreak": self = .abreak
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .abreak: return 0
@@ -14237,7 +14237,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .abreak: return "\"abreak\""
@@ -14246,9 +14246,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .abreak: return ".abreak"
@@ -14260,43 +14260,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum caseEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case acase // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .acase
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .acase
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "acase": self = .acase
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "acase": self = .acase
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "acase": self = .acase
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .acase: return 0
@@ -14305,7 +14305,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .acase: return "\"acase\""
@@ -14314,9 +14314,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .acase: return ".acase"
@@ -14328,43 +14328,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum continueEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case acontinue // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .acontinue
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .acontinue
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "acontinue": self = .acontinue
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "acontinue": self = .acontinue
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "acontinue": self = .acontinue
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .acontinue: return 0
@@ -14373,7 +14373,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .acontinue: return "\"acontinue\""
@@ -14382,9 +14382,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .acontinue: return ".acontinue"
@@ -14396,43 +14396,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum defaultEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adefault // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adefault
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adefault
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adefault": self = .adefault
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adefault": self = .adefault
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adefault": self = .adefault
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adefault: return 0
@@ -14441,7 +14441,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adefault: return "\"adefault\""
@@ -14450,9 +14450,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adefault: return ".adefault"
@@ -14464,43 +14464,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum deferEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adefer // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adefer
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adefer
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adefer": self = .adefer
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adefer": self = .adefer
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adefer": self = .adefer
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adefer: return 0
@@ -14509,7 +14509,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adefer: return "\"adefer\""
@@ -14518,9 +14518,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adefer: return ".adefer"
@@ -14532,43 +14532,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum doEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ado // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ado
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ado
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ado": self = .ado
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ado": self = .ado
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ado": self = .ado
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ado: return 0
@@ -14577,7 +14577,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ado: return "\"ado\""
@@ -14586,9 +14586,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ado: return ".ado"
@@ -14600,43 +14600,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum elseEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aelse // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aelse
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aelse
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aelse": self = .aelse
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aelse": self = .aelse
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aelse": self = .aelse
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aelse: return 0
@@ -14645,7 +14645,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aelse: return "\"aelse\""
@@ -14654,9 +14654,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aelse: return ".aelse"
@@ -14668,43 +14668,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum fallthroughEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case afallthrough // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .afallthrough
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .afallthrough
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "afallthrough": self = .afallthrough
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "afallthrough": self = .afallthrough
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "afallthrough": self = .afallthrough
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .afallthrough: return 0
@@ -14713,7 +14713,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .afallthrough: return "\"afallthrough\""
@@ -14722,9 +14722,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .afallthrough: return ".afallthrough"
@@ -14736,43 +14736,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum forEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case afor // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .afor
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .afor
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "afor": self = .afor
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "afor": self = .afor
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "afor": self = .afor
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .afor: return 0
@@ -14781,7 +14781,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .afor: return "\"afor\""
@@ -14790,9 +14790,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .afor: return ".afor"
@@ -14804,43 +14804,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum guardEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aguard // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aguard
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aguard
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aguard": self = .aguard
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aguard": self = .aguard
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aguard": self = .aguard
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aguard: return 0
@@ -14849,7 +14849,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aguard: return "\"aguard\""
@@ -14858,9 +14858,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aguard: return ".aguard"
@@ -14872,43 +14872,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum ifEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aif // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aif
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aif
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aif": self = .aif
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aif": self = .aif
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aif": self = .aif
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aif: return 0
@@ -14917,7 +14917,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aif: return "\"aif\""
@@ -14926,9 +14926,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aif: return ".aif"
@@ -14940,43 +14940,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum inEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ain // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ain
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ain
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ain": self = .ain
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ain": self = .ain
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ain": self = .ain
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ain: return 0
@@ -14985,7 +14985,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ain: return "\"ain\""
@@ -14994,9 +14994,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ain: return ".ain"
@@ -15008,43 +15008,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum repeatEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case arepeat // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .arepeat
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .arepeat
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "arepeat": self = .arepeat
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "arepeat": self = .arepeat
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "arepeat": self = .arepeat
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .arepeat: return 0
@@ -15053,7 +15053,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .arepeat: return "\"arepeat\""
@@ -15062,9 +15062,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .arepeat: return ".arepeat"
@@ -15076,43 +15076,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum returnEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case areturn // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .areturn
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .areturn
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "areturn": self = .areturn
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "areturn": self = .areturn
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "areturn": self = .areturn
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .areturn: return 0
@@ -15121,7 +15121,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .areturn: return "\"areturn\""
@@ -15130,9 +15130,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .areturn: return ".areturn"
@@ -15144,43 +15144,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum switchEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aswitch // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aswitch
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aswitch
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aswitch": self = .aswitch
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aswitch": self = .aswitch
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aswitch": self = .aswitch
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aswitch: return 0
@@ -15189,7 +15189,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aswitch: return "\"aswitch\""
@@ -15198,9 +15198,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aswitch: return ".aswitch"
@@ -15212,43 +15212,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum whereEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case awhere // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .awhere
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .awhere
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "awhere": self = .awhere
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "awhere": self = .awhere
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "awhere": self = .awhere
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .awhere: return 0
@@ -15257,7 +15257,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .awhere: return "\"awhere\""
@@ -15266,9 +15266,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .awhere: return ".awhere"
@@ -15280,43 +15280,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum whileEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case awhile // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .awhile
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .awhile
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "awhile": self = .awhile
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "awhile": self = .awhile
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "awhile": self = .awhile
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .awhile: return 0
@@ -15325,7 +15325,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .awhile: return "\"awhile\""
@@ -15334,9 +15334,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .awhile: return ".awhile"
@@ -15348,43 +15348,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum asEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aas // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aas
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aas
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aas": self = .aas
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aas": self = .aas
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aas": self = .aas
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aas: return 0
@@ -15393,7 +15393,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aas: return "\"aas\""
@@ -15402,9 +15402,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aas: return ".aas"
@@ -15416,43 +15416,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum catchEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case acatch // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .acatch
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .acatch
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "acatch": self = .acatch
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "acatch": self = .acatch
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "acatch": self = .acatch
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .acatch: return 0
@@ -15461,7 +15461,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .acatch: return "\"acatch\""
@@ -15470,9 +15470,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .acatch: return ".acatch"
@@ -15484,43 +15484,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum dynamicTypeEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adynamicType // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adynamicType
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adynamicType
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adynamicType": self = .adynamicType
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adynamicType": self = .adynamicType
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adynamicType": self = .adynamicType
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adynamicType: return 0
@@ -15529,7 +15529,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adynamicType: return "\"adynamicType\""
@@ -15538,9 +15538,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adynamicType: return ".adynamicType"
@@ -15552,43 +15552,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum falseEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case afalse // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .afalse
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .afalse
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "afalse": self = .afalse
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "afalse": self = .afalse
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "afalse": self = .afalse
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .afalse: return 0
@@ -15597,7 +15597,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .afalse: return "\"afalse\""
@@ -15606,9 +15606,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .afalse: return ".afalse"
@@ -15620,43 +15620,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum isEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ais // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ais
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ais
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ais": self = .ais
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ais": self = .ais
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ais": self = .ais
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ais: return 0
@@ -15665,7 +15665,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ais: return "\"ais\""
@@ -15674,9 +15674,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ais: return ".ais"
@@ -15688,43 +15688,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum nilEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anil // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anil
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anil
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anil": self = .anil
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anil": self = .anil
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anil": self = .anil
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anil: return 0
@@ -15733,7 +15733,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anil: return "\"anil\""
@@ -15742,9 +15742,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anil: return ".anil"
@@ -15756,43 +15756,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum rethrowsEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case arethrows // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .arethrows
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .arethrows
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "arethrows": self = .arethrows
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "arethrows": self = .arethrows
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "arethrows": self = .arethrows
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .arethrows: return 0
@@ -15801,7 +15801,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .arethrows: return "\"arethrows\""
@@ -15810,9 +15810,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .arethrows: return ".arethrows"
@@ -15824,43 +15824,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum superEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case asuper // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .asuper
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .asuper
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "asuper": self = .asuper
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "asuper": self = .asuper
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "asuper": self = .asuper
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .asuper: return 0
@@ -15869,7 +15869,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .asuper: return "\"asuper\""
@@ -15878,9 +15878,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .asuper: return ".asuper"
@@ -15892,43 +15892,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum selfEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aself // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aself
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aself
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aself": self = .aself
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aself": self = .aself
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aself": self = .aself
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aself: return 0
@@ -15937,7 +15937,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aself: return "\"aself\""
@@ -15946,9 +15946,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aself: return ".aself"
@@ -15960,43 +15960,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum throwEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case athrow // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .athrow
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .athrow
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "athrow": self = .athrow
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "athrow": self = .athrow
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "athrow": self = .athrow
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .athrow: return 0
@@ -16005,7 +16005,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .athrow: return "\"athrow\""
@@ -16014,9 +16014,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .athrow: return ".athrow"
@@ -16028,43 +16028,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum throwsEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case athrows // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .athrows
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .athrows
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "athrows": self = .athrows
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "athrows": self = .athrows
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "athrows": self = .athrows
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .athrows: return 0
@@ -16073,7 +16073,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .athrows: return "\"athrows\""
@@ -16082,9 +16082,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .athrows: return ".athrows"
@@ -16096,43 +16096,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum trueEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case atrue // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .atrue
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .atrue
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "atrue": self = .atrue
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "atrue": self = .atrue
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "atrue": self = .atrue
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .atrue: return 0
@@ -16141,7 +16141,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .atrue: return "\"atrue\""
@@ -16150,9 +16150,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .atrue: return ".atrue"
@@ -16164,43 +16164,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum tryEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case atry // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .atry
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .atry
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "atry": self = .atry
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "atry": self = .atry
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "atry": self = .atry
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .atry: return 0
@@ -16209,7 +16209,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .atry: return "\"atry\""
@@ -16218,9 +16218,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .atry: return ".atry"
@@ -16232,43 +16232,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum __COLUMN__Enum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case a_Column__ // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .a_Column__
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .a_Column__
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "a_Column__": self = .a_Column__
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a__COLUMN__": self = .a_Column__
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a__COLUMN__": self = .a_Column__
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .a_Column__: return 0
@@ -16277,7 +16277,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .a_Column__: return "\"a__COLUMN__\""
@@ -16286,9 +16286,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .a_Column__: return ".a_Column__"
@@ -16300,43 +16300,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum __FILE__Enum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case a_File__ // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .a_File__
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .a_File__
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "a_File__": self = .a_File__
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a__FILE__": self = .a_File__
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a__FILE__": self = .a_File__
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .a_File__: return 0
@@ -16345,7 +16345,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .a_File__: return "\"a__FILE__\""
@@ -16354,9 +16354,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .a_File__: return ".a_File__"
@@ -16368,43 +16368,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum __FUNCTION__Enum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case a_Function__ // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .a_Function__
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .a_Function__
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "a_Function__": self = .a_Function__
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a__FUNCTION__": self = .a_Function__
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a__FUNCTION__": self = .a_Function__
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .a_Function__: return 0
@@ -16413,7 +16413,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .a_Function__: return "\"a__FUNCTION__\""
@@ -16422,9 +16422,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .a_Function__: return ".a_Function__"
@@ -16436,43 +16436,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum __LINE__Enum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case a_Line__ // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .a_Line__
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .a_Line__
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "a_Line__": self = .a_Line__
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a__LINE__": self = .a_Line__
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a__LINE__": self = .a_Line__
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .a_Line__: return 0
@@ -16481,7 +16481,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .a_Line__: return "\"a__LINE__\""
@@ -16490,9 +16490,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .a_Line__: return ".a_Line__"
@@ -16504,43 +16504,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum _Enum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case a_ // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .a_
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .a_
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "a_": self = .a_
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a_": self = .a_
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a_": self = .a_
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .a_: return 0
@@ -16549,7 +16549,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .a_: return "\"a_\""
@@ -16558,9 +16558,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .a_: return ".a_"
@@ -16572,43 +16572,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum __Enum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case a__ // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .a__
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .a__
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "a__": self = .a__
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a__": self = .a__
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a__": self = .a__
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .a__: return 0
@@ -16617,7 +16617,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .a__: return "\"a__\""
@@ -16626,9 +16626,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .a__: return ".a__"
@@ -16640,43 +16640,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum associativity: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aassociativity // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aassociativity
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aassociativity
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aassociativity": self = .aassociativity
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aassociativity": self = .aassociativity
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aassociativity": self = .aassociativity
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aassociativity: return 0
@@ -16685,7 +16685,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aassociativity: return "\"aassociativity\""
@@ -16694,9 +16694,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aassociativity: return ".aassociativity"
@@ -16708,43 +16708,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum convenience: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aconvenience // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aconvenience
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aconvenience
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aconvenience": self = .aconvenience
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aconvenience": self = .aconvenience
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aconvenience": self = .aconvenience
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aconvenience: return 0
@@ -16753,7 +16753,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aconvenience: return "\"aconvenience\""
@@ -16762,9 +16762,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aconvenience: return ".aconvenience"
@@ -16776,43 +16776,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum dynamic: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adynamic // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adynamic
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adynamic
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adynamic": self = .adynamic
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adynamic": self = .adynamic
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adynamic": self = .adynamic
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adynamic: return 0
@@ -16821,7 +16821,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adynamic: return "\"adynamic\""
@@ -16830,9 +16830,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adynamic: return ".adynamic"
@@ -16844,43 +16844,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum didSet: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adidSet // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adidSet
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adidSet
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adidSet": self = .adidSet
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adidSet": self = .adidSet
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adidSet": self = .adidSet
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adidSet: return 0
@@ -16889,7 +16889,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adidSet: return "\"adidSet\""
@@ -16898,9 +16898,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adidSet: return ".adidSet"
@@ -16912,43 +16912,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum final: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case afinal // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .afinal
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .afinal
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "afinal": self = .afinal
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "afinal": self = .afinal
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "afinal": self = .afinal
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .afinal: return 0
@@ -16957,7 +16957,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .afinal: return "\"afinal\""
@@ -16966,9 +16966,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .afinal: return ".afinal"
@@ -16980,43 +16980,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum get: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aget // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aget
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aget
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aget": self = .aget
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aget": self = .aget
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aget": self = .aget
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aget: return 0
@@ -17025,7 +17025,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aget: return "\"aget\""
@@ -17034,9 +17034,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aget: return ".aget"
@@ -17048,43 +17048,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum infix: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ainfix // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ainfix
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ainfix
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ainfix": self = .ainfix
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ainfix": self = .ainfix
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ainfix": self = .ainfix
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ainfix: return 0
@@ -17093,7 +17093,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ainfix: return "\"ainfix\""
@@ -17102,9 +17102,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ainfix: return ".ainfix"
@@ -17116,43 +17116,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum indirect: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aindirect // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aindirect
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aindirect
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aindirect": self = .aindirect
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aindirect": self = .aindirect
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aindirect": self = .aindirect
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aindirect: return 0
@@ -17161,7 +17161,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aindirect: return "\"aindirect\""
@@ -17170,9 +17170,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aindirect: return ".aindirect"
@@ -17184,43 +17184,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum lazy: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case alazy // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .alazy
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .alazy
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "alazy": self = .alazy
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "alazy": self = .alazy
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "alazy": self = .alazy
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .alazy: return 0
@@ -17229,7 +17229,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .alazy: return "\"alazy\""
@@ -17238,9 +17238,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .alazy: return ".alazy"
@@ -17252,43 +17252,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum left: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aleft // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aleft
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aleft
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aleft": self = .aleft
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aleft": self = .aleft
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aleft": self = .aleft
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aleft: return 0
@@ -17297,7 +17297,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aleft: return "\"aleft\""
@@ -17306,9 +17306,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aleft: return ".aleft"
@@ -17320,43 +17320,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum mutating: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case amutating // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .amutating
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .amutating
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "amutating": self = .amutating
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "amutating": self = .amutating
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "amutating": self = .amutating
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .amutating: return 0
@@ -17365,7 +17365,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .amutating: return "\"amutating\""
@@ -17374,9 +17374,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .amutating: return ".amutating"
@@ -17388,43 +17388,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum none: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anone // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anone
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anone
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anone": self = .anone
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anone": self = .anone
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anone": self = .anone
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anone: return 0
@@ -17433,7 +17433,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anone: return "\"anone\""
@@ -17442,9 +17442,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anone: return ".anone"
@@ -17456,43 +17456,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum nonmutating: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anonmutating // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anonmutating
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anonmutating
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anonmutating": self = .anonmutating
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anonmutating": self = .anonmutating
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anonmutating": self = .anonmutating
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anonmutating: return 0
@@ -17501,7 +17501,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anonmutating: return "\"anonmutating\""
@@ -17510,9 +17510,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anonmutating: return ".anonmutating"
@@ -17524,43 +17524,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum optional: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aoptional // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aoptional
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aoptional
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aoptional": self = .aoptional
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aoptional": self = .aoptional
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aoptional": self = .aoptional
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aoptional: return 0
@@ -17569,7 +17569,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aoptional: return "\"aoptional\""
@@ -17578,9 +17578,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aoptional: return ".aoptional"
@@ -17592,43 +17592,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum override: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aoverride // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aoverride
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aoverride
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aoverride": self = .aoverride
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aoverride": self = .aoverride
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aoverride": self = .aoverride
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aoverride: return 0
@@ -17637,7 +17637,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aoverride: return "\"aoverride\""
@@ -17646,9 +17646,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aoverride: return ".aoverride"
@@ -17660,43 +17660,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum postfix: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case apostfix // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .apostfix
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .apostfix
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "apostfix": self = .apostfix
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "apostfix": self = .apostfix
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "apostfix": self = .apostfix
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .apostfix: return 0
@@ -17705,7 +17705,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .apostfix: return "\"apostfix\""
@@ -17714,9 +17714,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .apostfix: return ".apostfix"
@@ -17728,43 +17728,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum precedence: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aprecedence // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aprecedence
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aprecedence
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aprecedence": self = .aprecedence
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aprecedence": self = .aprecedence
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aprecedence": self = .aprecedence
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aprecedence: return 0
@@ -17773,7 +17773,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aprecedence: return "\"aprecedence\""
@@ -17782,9 +17782,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aprecedence: return ".aprecedence"
@@ -17796,43 +17796,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum prefix: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aprefix // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aprefix
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aprefix
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aprefix": self = .aprefix
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aprefix": self = .aprefix
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aprefix": self = .aprefix
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aprefix: return 0
@@ -17841,7 +17841,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aprefix: return "\"aprefix\""
@@ -17850,9 +17850,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aprefix: return ".aprefix"
@@ -17864,43 +17864,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum required: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case arequired // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .arequired
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .arequired
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "arequired": self = .arequired
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "arequired": self = .arequired
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "arequired": self = .arequired
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .arequired: return 0
@@ -17909,7 +17909,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .arequired: return "\"arequired\""
@@ -17918,9 +17918,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .arequired: return ".arequired"
@@ -17932,43 +17932,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum right: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aright // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aright
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aright
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aright": self = .aright
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aright": self = .aright
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aright": self = .aright
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aright: return 0
@@ -17977,7 +17977,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aright: return "\"aright\""
@@ -17986,9 +17986,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aright: return ".aright"
@@ -18000,43 +18000,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum set: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aset // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aset
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aset
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aset": self = .aset
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aset": self = .aset
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aset": self = .aset
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aset: return 0
@@ -18045,7 +18045,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aset: return "\"aset\""
@@ -18054,9 +18054,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aset: return ".aset"
@@ -18068,43 +18068,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum TypeEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aType // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aType
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aType
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aType": self = .aType
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aType": self = .aType
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aType": self = .aType
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aType: return 0
@@ -18113,7 +18113,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aType: return "\"aType\""
@@ -18122,9 +18122,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aType: return ".aType"
@@ -18136,43 +18136,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum unowned: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aunowned // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aunowned
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aunowned
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aunowned": self = .aunowned
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aunowned": self = .aunowned
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aunowned": self = .aunowned
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aunowned: return 0
@@ -18181,7 +18181,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aunowned: return "\"aunowned\""
@@ -18190,9 +18190,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aunowned: return ".aunowned"
@@ -18204,43 +18204,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum weak: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aweak // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aweak
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aweak
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aweak": self = .aweak
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aweak": self = .aweak
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aweak": self = .aweak
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aweak: return 0
@@ -18249,7 +18249,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aweak: return "\"aweak\""
@@ -18258,9 +18258,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aweak: return ".aweak"
@@ -18272,43 +18272,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum willSet: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case awillSet // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .awillSet
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .awillSet
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "awillSet": self = .awillSet
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "awillSet": self = .awillSet
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "awillSet": self = .awillSet
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .awillSet: return 0
@@ -18317,7 +18317,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .awillSet: return "\"awillSet\""
@@ -18326,9 +18326,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .awillSet: return ".awillSet"
@@ -18340,43 +18340,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum id: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aid // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aid
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aid
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aid": self = .aid
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aid": self = .aid
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aid": self = .aid
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aid: return 0
@@ -18385,7 +18385,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aid: return "\"aid\""
@@ -18394,9 +18394,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aid: return ".aid"
@@ -18408,43 +18408,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum _cmd: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aCmd // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aCmd
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aCmd
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aCmd": self = .aCmd
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a_cmd": self = .aCmd
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a_cmd": self = .aCmd
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aCmd: return 0
@@ -18453,7 +18453,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aCmd: return "\"a_cmd\""
@@ -18462,9 +18462,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aCmd: return ".aCmd"
@@ -18476,43 +18476,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum out: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aout // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aout
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aout
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aout": self = .aout
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aout": self = .aout
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aout": self = .aout
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aout: return 0
@@ -18521,7 +18521,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aout: return "\"aout\""
@@ -18530,9 +18530,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aout: return ".aout"
@@ -18544,43 +18544,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum bycopy: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case abycopy // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .abycopy
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .abycopy
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "abycopy": self = .abycopy
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "abycopy": self = .abycopy
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "abycopy": self = .abycopy
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .abycopy: return 0
@@ -18589,7 +18589,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .abycopy: return "\"abycopy\""
@@ -18598,9 +18598,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .abycopy: return ".abycopy"
@@ -18612,43 +18612,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum byref: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case abyref // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .abyref
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .abyref
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "abyref": self = .abyref
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "abyref": self = .abyref
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "abyref": self = .abyref
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .abyref: return 0
@@ -18657,7 +18657,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .abyref: return "\"abyref\""
@@ -18666,9 +18666,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .abyref: return ".abyref"
@@ -18680,43 +18680,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum oneway: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aoneway // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aoneway
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aoneway
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aoneway": self = .aoneway
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aoneway": self = .aoneway
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aoneway": self = .aoneway
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aoneway: return 0
@@ -18725,7 +18725,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aoneway: return "\"aoneway\""
@@ -18734,9 +18734,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aoneway: return ".aoneway"
@@ -18748,43 +18748,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum and: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aand // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aand
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aand
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aand": self = .aand
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aand": self = .aand
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aand": self = .aand
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aand: return 0
@@ -18793,7 +18793,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aand: return "\"aand\""
@@ -18802,9 +18802,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aand: return ".aand"
@@ -18816,43 +18816,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum and_eq: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aandEq // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aandEq
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aandEq
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aandEq": self = .aandEq
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aand_eq": self = .aandEq
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aand_eq": self = .aandEq
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aandEq: return 0
@@ -18861,7 +18861,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aandEq: return "\"aand_eq\""
@@ -18870,9 +18870,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aandEq: return ".aandEq"
@@ -18884,43 +18884,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum alignas: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aalignas // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aalignas
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aalignas
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aalignas": self = .aalignas
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aalignas": self = .aalignas
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aalignas": self = .aalignas
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aalignas: return 0
@@ -18929,7 +18929,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aalignas: return "\"aalignas\""
@@ -18938,9 +18938,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aalignas: return ".aalignas"
@@ -18952,43 +18952,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum alignof: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aalignof // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aalignof
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aalignof
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aalignof": self = .aalignof
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aalignof": self = .aalignof
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aalignof": self = .aalignof
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aalignof: return 0
@@ -18997,7 +18997,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aalignof: return "\"aalignof\""
@@ -19006,9 +19006,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aalignof: return ".aalignof"
@@ -19020,43 +19020,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum asm: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aasm // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aasm
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aasm
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aasm": self = .aasm
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aasm": self = .aasm
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aasm": self = .aasm
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aasm: return 0
@@ -19065,7 +19065,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aasm: return "\"aasm\""
@@ -19074,9 +19074,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aasm: return ".aasm"
@@ -19088,43 +19088,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum auto: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aauto // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aauto
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aauto
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aauto": self = .aauto
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aauto": self = .aauto
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aauto": self = .aauto
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aauto: return 0
@@ -19133,7 +19133,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aauto: return "\"aauto\""
@@ -19142,9 +19142,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aauto: return ".aauto"
@@ -19156,43 +19156,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum bitand: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case abitand // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .abitand
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .abitand
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "abitand": self = .abitand
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "abitand": self = .abitand
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "abitand": self = .abitand
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .abitand: return 0
@@ -19201,7 +19201,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .abitand: return "\"abitand\""
@@ -19210,9 +19210,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .abitand: return ".abitand"
@@ -19224,43 +19224,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum bitor: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case abitor // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .abitor
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .abitor
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "abitor": self = .abitor
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "abitor": self = .abitor
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "abitor": self = .abitor
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .abitor: return 0
@@ -19269,7 +19269,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .abitor: return "\"abitor\""
@@ -19278,9 +19278,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .abitor: return ".abitor"
@@ -19292,43 +19292,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum bool: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case abool // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .abool
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .abool
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "abool": self = .abool
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "abool": self = .abool
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "abool": self = .abool
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .abool: return 0
@@ -19337,7 +19337,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .abool: return "\"abool\""
@@ -19346,9 +19346,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .abool: return ".abool"
@@ -19360,43 +19360,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum char: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case achar // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .achar
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .achar
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "achar": self = .achar
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "achar": self = .achar
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "achar": self = .achar
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .achar: return 0
@@ -19405,7 +19405,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .achar: return "\"achar\""
@@ -19414,9 +19414,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .achar: return ".achar"
@@ -19428,43 +19428,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum char16_t: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case achar16T // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .achar16T
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .achar16T
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "achar16T": self = .achar16T
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "achar16_t": self = .achar16T
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "achar16_t": self = .achar16T
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .achar16T: return 0
@@ -19473,7 +19473,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .achar16T: return "\"achar16_t\""
@@ -19482,9 +19482,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .achar16T: return ".achar16T"
@@ -19496,43 +19496,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum char32_t: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case achar32T // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .achar32T
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .achar32T
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "achar32T": self = .achar32T
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "achar32_t": self = .achar32T
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "achar32_t": self = .achar32T
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .achar32T: return 0
@@ -19541,7 +19541,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .achar32T: return "\"achar32_t\""
@@ -19550,9 +19550,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .achar32T: return ".achar32T"
@@ -19564,43 +19564,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum compl: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case acompl // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .acompl
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .acompl
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "acompl": self = .acompl
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "acompl": self = .acompl
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "acompl": self = .acompl
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .acompl: return 0
@@ -19609,7 +19609,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .acompl: return "\"acompl\""
@@ -19618,9 +19618,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .acompl: return ".acompl"
@@ -19632,43 +19632,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum const: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aconst // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aconst
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aconst
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aconst": self = .aconst
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aconst": self = .aconst
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aconst": self = .aconst
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aconst: return 0
@@ -19677,7 +19677,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aconst: return "\"aconst\""
@@ -19686,9 +19686,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aconst: return ".aconst"
@@ -19700,43 +19700,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum constexpr: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aconstexpr // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aconstexpr
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aconstexpr
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aconstexpr": self = .aconstexpr
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aconstexpr": self = .aconstexpr
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aconstexpr": self = .aconstexpr
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aconstexpr: return 0
@@ -19745,7 +19745,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aconstexpr: return "\"aconstexpr\""
@@ -19754,9 +19754,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aconstexpr: return ".aconstexpr"
@@ -19768,43 +19768,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum const_cast: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aconstCast // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aconstCast
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aconstCast
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aconstCast": self = .aconstCast
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aconst_cast": self = .aconstCast
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aconst_cast": self = .aconstCast
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aconstCast: return 0
@@ -19813,7 +19813,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aconstCast: return "\"aconst_cast\""
@@ -19822,9 +19822,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aconstCast: return ".aconstCast"
@@ -19836,43 +19836,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum decltype: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adecltype // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adecltype
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adecltype
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adecltype": self = .adecltype
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adecltype": self = .adecltype
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adecltype": self = .adecltype
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adecltype: return 0
@@ -19881,7 +19881,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adecltype: return "\"adecltype\""
@@ -19890,9 +19890,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adecltype: return ".adecltype"
@@ -19904,43 +19904,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum delete: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adelete // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adelete
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adelete
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adelete": self = .adelete
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adelete": self = .adelete
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adelete": self = .adelete
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adelete: return 0
@@ -19949,7 +19949,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adelete: return "\"adelete\""
@@ -19958,9 +19958,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adelete: return ".adelete"
@@ -19972,43 +19972,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum dynamic_cast: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adynamicCast // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adynamicCast
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adynamicCast
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adynamicCast": self = .adynamicCast
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adynamic_cast": self = .adynamicCast
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adynamic_cast": self = .adynamicCast
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adynamicCast: return 0
@@ -20017,7 +20017,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adynamicCast: return "\"adynamic_cast\""
@@ -20026,9 +20026,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adynamicCast: return ".adynamicCast"
@@ -20040,43 +20040,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum explicit: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aexplicit // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aexplicit
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aexplicit
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aexplicit": self = .aexplicit
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aexplicit": self = .aexplicit
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aexplicit": self = .aexplicit
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aexplicit: return 0
@@ -20085,7 +20085,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aexplicit: return "\"aexplicit\""
@@ -20094,9 +20094,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aexplicit: return ".aexplicit"
@@ -20108,43 +20108,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum export: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aexport // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aexport
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aexport
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aexport": self = .aexport
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aexport": self = .aexport
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aexport": self = .aexport
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aexport: return 0
@@ -20153,7 +20153,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aexport: return "\"aexport\""
@@ -20162,9 +20162,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aexport: return ".aexport"
@@ -20176,43 +20176,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum extern: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aextern // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aextern
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aextern
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aextern": self = .aextern
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aextern": self = .aextern
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aextern": self = .aextern
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aextern: return 0
@@ -20221,7 +20221,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aextern: return "\"aextern\""
@@ -20230,9 +20230,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aextern: return ".aextern"
@@ -20244,43 +20244,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum friend: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case afriend // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .afriend
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .afriend
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "afriend": self = .afriend
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "afriend": self = .afriend
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "afriend": self = .afriend
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .afriend: return 0
@@ -20289,7 +20289,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .afriend: return "\"afriend\""
@@ -20298,9 +20298,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .afriend: return ".afriend"
@@ -20312,43 +20312,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum goto: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case agoto // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .agoto
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .agoto
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "agoto": self = .agoto
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "agoto": self = .agoto
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "agoto": self = .agoto
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .agoto: return 0
@@ -20357,7 +20357,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .agoto: return "\"agoto\""
@@ -20366,9 +20366,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .agoto: return ".agoto"
@@ -20380,43 +20380,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum inline: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ainline // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ainline
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ainline
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ainline": self = .ainline
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ainline": self = .ainline
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ainline": self = .ainline
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ainline: return 0
@@ -20425,7 +20425,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ainline: return "\"ainline\""
@@ -20434,9 +20434,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ainline: return ".ainline"
@@ -20448,43 +20448,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum long: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case along // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .along
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .along
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "along": self = .along
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "along": self = .along
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "along": self = .along
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .along: return 0
@@ -20493,7 +20493,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .along: return "\"along\""
@@ -20502,9 +20502,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .along: return ".along"
@@ -20516,43 +20516,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum mutable: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case amutable // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .amutable
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .amutable
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "amutable": self = .amutable
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "amutable": self = .amutable
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "amutable": self = .amutable
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .amutable: return 0
@@ -20561,7 +20561,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .amutable: return "\"amutable\""
@@ -20570,9 +20570,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .amutable: return ".amutable"
@@ -20584,43 +20584,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum namespace: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anamespace // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anamespace
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anamespace
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anamespace": self = .anamespace
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anamespace": self = .anamespace
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anamespace": self = .anamespace
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anamespace: return 0
@@ -20629,7 +20629,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anamespace: return "\"anamespace\""
@@ -20638,9 +20638,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anamespace: return ".anamespace"
@@ -20652,43 +20652,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum new: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anew // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anew
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anew
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anew": self = .anew
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anew": self = .anew
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anew": self = .anew
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anew: return 0
@@ -20697,7 +20697,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anew: return "\"anew\""
@@ -20706,9 +20706,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anew: return ".anew"
@@ -20720,43 +20720,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum noexcept: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anoexcept // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anoexcept
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anoexcept
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anoexcept": self = .anoexcept
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anoexcept": self = .anoexcept
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anoexcept": self = .anoexcept
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anoexcept: return 0
@@ -20765,7 +20765,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anoexcept: return "\"anoexcept\""
@@ -20774,9 +20774,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anoexcept: return ".anoexcept"
@@ -20788,43 +20788,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum not: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anot // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anot
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anot
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anot": self = .anot
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anot": self = .anot
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anot": self = .anot
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anot: return 0
@@ -20833,7 +20833,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anot: return "\"anot\""
@@ -20842,9 +20842,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anot: return ".anot"
@@ -20856,43 +20856,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum not_eq: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anotEq // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anotEq
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anotEq
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anotEq": self = .anotEq
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anot_eq": self = .anotEq
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anot_eq": self = .anotEq
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anotEq: return 0
@@ -20901,7 +20901,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anotEq: return "\"anot_eq\""
@@ -20910,9 +20910,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anotEq: return ".anotEq"
@@ -20924,43 +20924,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum nullptr: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case anullptr // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .anullptr
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .anullptr
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "anullptr": self = .anullptr
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "anullptr": self = .anullptr
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "anullptr": self = .anullptr
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .anullptr: return 0
@@ -20969,7 +20969,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .anullptr: return "\"anullptr\""
@@ -20978,9 +20978,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .anullptr: return ".anullptr"
@@ -20992,43 +20992,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum or: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aor // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aor
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aor
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aor": self = .aor
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aor": self = .aor
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aor": self = .aor
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aor: return 0
@@ -21037,7 +21037,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aor: return "\"aor\""
@@ -21046,9 +21046,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aor: return ".aor"
@@ -21060,43 +21060,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum or_eq: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aorEq // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aorEq
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aorEq
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aorEq": self = .aorEq
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aor_eq": self = .aorEq
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aor_eq": self = .aorEq
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aorEq: return 0
@@ -21105,7 +21105,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aorEq: return "\"aor_eq\""
@@ -21114,9 +21114,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aorEq: return ".aorEq"
@@ -21128,43 +21128,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum protected: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aprotected // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aprotected
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aprotected
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aprotected": self = .aprotected
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aprotected": self = .aprotected
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aprotected": self = .aprotected
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aprotected: return 0
@@ -21173,7 +21173,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aprotected: return "\"aprotected\""
@@ -21182,9 +21182,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aprotected: return ".aprotected"
@@ -21196,43 +21196,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum register: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aregister // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aregister
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aregister
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aregister": self = .aregister
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aregister": self = .aregister
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aregister": self = .aregister
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aregister: return 0
@@ -21241,7 +21241,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aregister: return "\"aregister\""
@@ -21250,9 +21250,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aregister: return ".aregister"
@@ -21264,43 +21264,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum reinterpret_cast: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case areinterpretCast // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .areinterpretCast
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .areinterpretCast
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "areinterpretCast": self = .areinterpretCast
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "areinterpret_cast": self = .areinterpretCast
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "areinterpret_cast": self = .areinterpretCast
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .areinterpretCast: return 0
@@ -21309,7 +21309,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .areinterpretCast: return "\"areinterpret_cast\""
@@ -21318,9 +21318,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .areinterpretCast: return ".areinterpretCast"
@@ -21332,43 +21332,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum short: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ashort // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ashort
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ashort
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ashort": self = .ashort
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ashort": self = .ashort
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ashort": self = .ashort
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ashort: return 0
@@ -21377,7 +21377,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ashort: return "\"ashort\""
@@ -21386,9 +21386,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ashort: return ".ashort"
@@ -21400,43 +21400,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum signed: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case asigned // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .asigned
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .asigned
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "asigned": self = .asigned
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "asigned": self = .asigned
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "asigned": self = .asigned
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .asigned: return 0
@@ -21445,7 +21445,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .asigned: return "\"asigned\""
@@ -21454,9 +21454,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .asigned: return ".asigned"
@@ -21468,43 +21468,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum sizeof: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case asizeof // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .asizeof
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .asizeof
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "asizeof": self = .asizeof
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "asizeof": self = .asizeof
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "asizeof": self = .asizeof
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .asizeof: return 0
@@ -21513,7 +21513,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .asizeof: return "\"asizeof\""
@@ -21522,9 +21522,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .asizeof: return ".asizeof"
@@ -21536,43 +21536,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum static_assert: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case astaticAssert // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .astaticAssert
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .astaticAssert
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "astaticAssert": self = .astaticAssert
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "astatic_assert": self = .astaticAssert
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "astatic_assert": self = .astaticAssert
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .astaticAssert: return 0
@@ -21581,7 +21581,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .astaticAssert: return "\"astatic_assert\""
@@ -21590,9 +21590,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .astaticAssert: return ".astaticAssert"
@@ -21604,43 +21604,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum static_cast: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case astaticCast // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .astaticCast
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .astaticCast
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "astaticCast": self = .astaticCast
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "astatic_cast": self = .astaticCast
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "astatic_cast": self = .astaticCast
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .astaticCast: return 0
@@ -21649,7 +21649,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .astaticCast: return "\"astatic_cast\""
@@ -21658,9 +21658,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .astaticCast: return ".astaticCast"
@@ -21672,43 +21672,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum template: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case atemplate // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .atemplate
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .atemplate
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "atemplate": self = .atemplate
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "atemplate": self = .atemplate
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "atemplate": self = .atemplate
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .atemplate: return 0
@@ -21717,7 +21717,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .atemplate: return "\"atemplate\""
@@ -21726,9 +21726,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .atemplate: return ".atemplate"
@@ -21740,43 +21740,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum this: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case athis // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .athis
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .athis
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "athis": self = .athis
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "athis": self = .athis
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "athis": self = .athis
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .athis: return 0
@@ -21785,7 +21785,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .athis: return "\"athis\""
@@ -21794,9 +21794,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .athis: return ".athis"
@@ -21808,43 +21808,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum thread_local: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case athreadLocal // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .athreadLocal
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .athreadLocal
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "athreadLocal": self = .athreadLocal
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "athread_local": self = .athreadLocal
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "athread_local": self = .athreadLocal
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .athreadLocal: return 0
@@ -21853,7 +21853,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .athreadLocal: return "\"athread_local\""
@@ -21862,9 +21862,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .athreadLocal: return ".athreadLocal"
@@ -21876,43 +21876,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum typedef: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case atypedef // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .atypedef
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .atypedef
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "atypedef": self = .atypedef
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "atypedef": self = .atypedef
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "atypedef": self = .atypedef
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .atypedef: return 0
@@ -21921,7 +21921,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .atypedef: return "\"atypedef\""
@@ -21930,9 +21930,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .atypedef: return ".atypedef"
@@ -21944,43 +21944,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum typeid: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case atypeid // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .atypeid
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .atypeid
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "atypeid": self = .atypeid
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "atypeid": self = .atypeid
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "atypeid": self = .atypeid
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .atypeid: return 0
@@ -21989,7 +21989,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .atypeid: return "\"atypeid\""
@@ -21998,9 +21998,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .atypeid: return ".atypeid"
@@ -22012,43 +22012,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum typename: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case atypename // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .atypename
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .atypename
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "atypename": self = .atypename
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "atypename": self = .atypename
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "atypename": self = .atypename
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .atypename: return 0
@@ -22057,7 +22057,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .atypename: return "\"atypename\""
@@ -22066,9 +22066,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .atypename: return ".atypename"
@@ -22080,43 +22080,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum union: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aunion // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aunion
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aunion
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aunion": self = .aunion
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aunion": self = .aunion
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aunion": self = .aunion
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aunion: return 0
@@ -22125,7 +22125,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aunion: return "\"aunion\""
@@ -22134,9 +22134,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aunion: return ".aunion"
@@ -22148,43 +22148,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum unsigned: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aunsigned // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aunsigned
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aunsigned
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aunsigned": self = .aunsigned
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aunsigned": self = .aunsigned
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aunsigned": self = .aunsigned
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aunsigned: return 0
@@ -22193,7 +22193,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aunsigned: return "\"aunsigned\""
@@ -22202,9 +22202,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aunsigned: return ".aunsigned"
@@ -22216,43 +22216,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum using: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ausing // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ausing
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ausing
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ausing": self = .ausing
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ausing": self = .ausing
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ausing": self = .ausing
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ausing: return 0
@@ -22261,7 +22261,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ausing: return "\"ausing\""
@@ -22270,9 +22270,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ausing: return ".ausing"
@@ -22284,43 +22284,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum virtual: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case avirtual // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .avirtual
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .avirtual
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "avirtual": self = .avirtual
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "avirtual": self = .avirtual
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "avirtual": self = .avirtual
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .avirtual: return 0
@@ -22329,7 +22329,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .avirtual: return "\"avirtual\""
@@ -22338,9 +22338,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .avirtual: return ".avirtual"
@@ -22352,43 +22352,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum void: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case avoid // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .avoid
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .avoid
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "avoid": self = .avoid
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "avoid": self = .avoid
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "avoid": self = .avoid
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .avoid: return 0
@@ -22397,7 +22397,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .avoid: return "\"avoid\""
@@ -22406,9 +22406,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .avoid: return ".avoid"
@@ -22420,43 +22420,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum volatile: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case avolatile // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .avolatile
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .avolatile
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "avolatile": self = .avolatile
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "avolatile": self = .avolatile
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "avolatile": self = .avolatile
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .avolatile: return 0
@@ -22465,7 +22465,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .avolatile: return "\"avolatile\""
@@ -22474,9 +22474,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .avolatile: return ".avolatile"
@@ -22488,43 +22488,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum wchar_t: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case awcharT // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .awcharT
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .awcharT
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "awcharT": self = .awcharT
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "awchar_t": self = .awcharT
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "awchar_t": self = .awcharT
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .awcharT: return 0
@@ -22533,7 +22533,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .awcharT: return "\"awchar_t\""
@@ -22542,9 +22542,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .awcharT: return ".awcharT"
@@ -22556,43 +22556,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum xor: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case axor // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .axor
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .axor
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "axor": self = .axor
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "axor": self = .axor
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "axor": self = .axor
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .axor: return 0
@@ -22601,7 +22601,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .axor: return "\"axor\""
@@ -22610,9 +22610,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .axor: return ".axor"
@@ -22624,43 +22624,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum xor_eq: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case axorEq // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .axorEq
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .axorEq
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "axorEq": self = .axorEq
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "axor_eq": self = .axorEq
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "axor_eq": self = .axorEq
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .axorEq: return 0
@@ -22669,7 +22669,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .axorEq: return "\"axor_eq\""
@@ -22678,9 +22678,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .axorEq: return ".axorEq"
@@ -22692,43 +22692,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum restrict: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case arestrict // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .arestrict
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .arestrict
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "arestrict": self = .arestrict
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "arestrict": self = .arestrict
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "arestrict": self = .arestrict
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .arestrict: return 0
@@ -22737,7 +22737,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .arestrict: return "\"arestrict\""
@@ -22746,9 +22746,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .arestrict: return ".arestrict"
@@ -22760,43 +22760,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Category: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aCategory // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aCategory
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aCategory
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aCategory": self = .aCategory
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aCategory": self = .aCategory
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aCategory": self = .aCategory
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aCategory: return 0
@@ -22805,7 +22805,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aCategory: return "\"aCategory\""
@@ -22814,9 +22814,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aCategory: return ".aCategory"
@@ -22828,43 +22828,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Ivar: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aIvar // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aIvar
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aIvar
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aIvar": self = .aIvar
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aIvar": self = .aIvar
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aIvar": self = .aIvar
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aIvar: return 0
@@ -22873,7 +22873,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aIvar: return "\"aIvar\""
@@ -22882,9 +22882,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aIvar: return ".aIvar"
@@ -22896,43 +22896,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Method: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aMethod // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aMethod
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aMethod
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aMethod": self = .aMethod
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aMethod": self = .aMethod
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aMethod": self = .aMethod
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aMethod: return 0
@@ -22941,7 +22941,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aMethod: return "\"aMethod\""
@@ -22950,9 +22950,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aMethod: return ".aMethod"
@@ -22964,43 +22964,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum finalize: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case afinalize // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .afinalize
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .afinalize
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "afinalize": self = .afinalize
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "afinalize": self = .afinalize
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "afinalize": self = .afinalize
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .afinalize: return 0
@@ -23009,7 +23009,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .afinalize: return "\"afinalize\""
@@ -23018,9 +23018,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .afinalize: return ".afinalize"
@@ -23032,43 +23032,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum hash: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case ahash // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .ahash
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .ahash
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "ahash": self = .ahash
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ahash": self = .ahash
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ahash": self = .ahash
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .ahash: return 0
@@ -23077,7 +23077,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .ahash: return "\"ahash\""
@@ -23086,9 +23086,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .ahash: return ".ahash"
@@ -23100,43 +23100,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum dealloc: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adealloc // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adealloc
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adealloc
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adealloc": self = .adealloc
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adealloc": self = .adealloc
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adealloc": self = .adealloc
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adealloc: return 0
@@ -23145,7 +23145,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adealloc: return "\"adealloc\""
@@ -23154,9 +23154,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adealloc: return ".adealloc"
@@ -23168,43 +23168,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum superclass: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case asuperclass // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .asuperclass
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .asuperclass
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "asuperclass": self = .asuperclass
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "asuperclass": self = .asuperclass
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "asuperclass": self = .asuperclass
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .asuperclass: return 0
@@ -23213,7 +23213,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .asuperclass: return "\"asuperclass\""
@@ -23222,9 +23222,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .asuperclass: return ".asuperclass"
@@ -23236,43 +23236,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum retain: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aretain // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aretain
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aretain
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aretain": self = .aretain
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aretain": self = .aretain
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aretain": self = .aretain
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aretain: return 0
@@ -23281,7 +23281,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aretain: return "\"aretain\""
@@ -23290,9 +23290,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aretain: return ".aretain"
@@ -23304,43 +23304,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum release: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case arelease // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .arelease
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .arelease
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "arelease": self = .arelease
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "arelease": self = .arelease
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "arelease": self = .arelease
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .arelease: return 0
@@ -23349,7 +23349,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .arelease: return "\"arelease\""
@@ -23358,9 +23358,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .arelease: return ".arelease"
@@ -23372,43 +23372,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum autorelease: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aautorelease // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aautorelease
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aautorelease
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aautorelease": self = .aautorelease
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aautorelease": self = .aautorelease
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aautorelease": self = .aautorelease
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aautorelease: return 0
@@ -23417,7 +23417,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aautorelease: return "\"aautorelease\""
@@ -23426,9 +23426,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aautorelease: return ".aautorelease"
@@ -23440,43 +23440,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum retainCount: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aretainCount // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aretainCount
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aretainCount
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aretainCount": self = .aretainCount
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aretainCount": self = .aretainCount
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aretainCount": self = .aretainCount
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aretainCount: return 0
@@ -23485,7 +23485,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aretainCount: return "\"aretainCount\""
@@ -23494,9 +23494,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aretainCount: return ".aretainCount"
@@ -23508,43 +23508,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum zone: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case azone // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .azone
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .azone
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "azone": self = .azone
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "azone": self = .azone
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "azone": self = .azone
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .azone: return 0
@@ -23553,7 +23553,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .azone: return "\"azone\""
@@ -23562,9 +23562,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .azone: return ".azone"
@@ -23576,43 +23576,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum isProxy: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aisProxy // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aisProxy
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aisProxy
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aisProxy": self = .aisProxy
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aisProxy": self = .aisProxy
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aisProxy": self = .aisProxy
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aisProxy: return 0
@@ -23621,7 +23621,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aisProxy: return "\"aisProxy\""
@@ -23630,9 +23630,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aisProxy: return ".aisProxy"
@@ -23644,43 +23644,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum copy: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case acopy // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .acopy
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .acopy
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "acopy": self = .acopy
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "acopy": self = .acopy
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "acopy": self = .acopy
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .acopy: return 0
@@ -23689,7 +23689,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .acopy: return "\"acopy\""
@@ -23698,9 +23698,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .acopy: return ".acopy"
@@ -23712,43 +23712,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum mutableCopy: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case amutableCopy // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .amutableCopy
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .amutableCopy
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "amutableCopy": self = .amutableCopy
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "amutableCopy": self = .amutableCopy
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "amutableCopy": self = .amutableCopy
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .amutableCopy: return 0
@@ -23757,7 +23757,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .amutableCopy: return "\"amutableCopy\""
@@ -23766,9 +23766,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .amutableCopy: return ".amutableCopy"
@@ -23780,43 +23780,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum classForCoder: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aclassForCoder // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aclassForCoder
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aclassForCoder
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aclassForCoder": self = .aclassForCoder
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aclassForCoder": self = .aclassForCoder
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aclassForCoder": self = .aclassForCoder
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aclassForCoder: return 0
@@ -23825,7 +23825,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aclassForCoder: return "\"aclassForCoder\""
@@ -23834,9 +23834,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aclassForCoder: return ".aclassForCoder"
@@ -23848,43 +23848,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum clear: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aclear // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aclear
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aclear
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aclear": self = .aclear
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aclear": self = .aclear
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aclear": self = .aclear
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aclear: return 0
@@ -23893,7 +23893,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aclear: return "\"aclear\""
@@ -23902,9 +23902,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aclear: return ".aclear"
@@ -23916,43 +23916,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum data: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adata // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adata
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adata
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adata": self = .adata
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adata": self = .adata
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adata": self = .adata
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adata: return 0
@@ -23961,7 +23961,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adata: return "\"adata\""
@@ -23970,9 +23970,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adata: return ".adata"
@@ -23984,43 +23984,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum delimitedData: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adelimitedData // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adelimitedData
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adelimitedData
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adelimitedData": self = .adelimitedData
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adelimitedData": self = .adelimitedData
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adelimitedData": self = .adelimitedData
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adelimitedData: return 0
@@ -24029,7 +24029,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adelimitedData: return "\"adelimitedData\""
@@ -24038,9 +24038,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adelimitedData: return ".adelimitedData"
@@ -24052,43 +24052,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum descriptor: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case adescriptor // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .adescriptor
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .adescriptor
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "adescriptor": self = .adescriptor
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "adescriptor": self = .adescriptor
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "adescriptor": self = .adescriptor
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .adescriptor: return 0
@@ -24097,7 +24097,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .adescriptor: return "\"adescriptor\""
@@ -24106,9 +24106,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .adescriptor: return ".adescriptor"
@@ -24120,43 +24120,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum extensionRegistry: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aextensionRegistry // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aextensionRegistry
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aextensionRegistry
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aextensionRegistry": self = .aextensionRegistry
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aextensionRegistry": self = .aextensionRegistry
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aextensionRegistry": self = .aextensionRegistry
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aextensionRegistry: return 0
@@ -24165,7 +24165,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aextensionRegistry: return "\"aextensionRegistry\""
@@ -24174,9 +24174,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aextensionRegistry: return ".aextensionRegistry"
@@ -24188,43 +24188,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum extensionsCurrentlySet: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aextensionsCurrentlySet // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aextensionsCurrentlySet
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aextensionsCurrentlySet
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aextensionsCurrentlySet": self = .aextensionsCurrentlySet
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aextensionsCurrentlySet": self = .aextensionsCurrentlySet
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aextensionsCurrentlySet": self = .aextensionsCurrentlySet
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aextensionsCurrentlySet: return 0
@@ -24233,7 +24233,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aextensionsCurrentlySet: return "\"aextensionsCurrentlySet\""
@@ -24242,9 +24242,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aextensionsCurrentlySet: return ".aextensionsCurrentlySet"
@@ -24256,43 +24256,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum isInitialized: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aisInitialized // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aisInitialized
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aisInitialized
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aisInitialized": self = .aisInitialized
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aisInitialized": self = .aisInitialized
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aisInitialized": self = .aisInitialized
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aisInitialized: return 0
@@ -24301,7 +24301,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aisInitialized: return "\"aisInitialized\""
@@ -24310,9 +24310,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aisInitialized: return ".aisInitialized"
@@ -24324,43 +24324,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum serializedSize: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aserializedSize // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aserializedSize
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aserializedSize
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aserializedSize": self = .aserializedSize
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aserializedSize": self = .aserializedSize
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aserializedSize": self = .aserializedSize
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aserializedSize: return 0
@@ -24369,7 +24369,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aserializedSize: return "\"aserializedSize\""
@@ -24378,9 +24378,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aserializedSize: return ".aserializedSize"
@@ -24392,43 +24392,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum sortedExtensionsInUse: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case asortedExtensionsInUse // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .asortedExtensionsInUse
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .asortedExtensionsInUse
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "asortedExtensionsInUse": self = .asortedExtensionsInUse
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "asortedExtensionsInUse": self = .asortedExtensionsInUse
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "asortedExtensionsInUse": self = .asortedExtensionsInUse
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .asortedExtensionsInUse: return 0
@@ -24437,7 +24437,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .asortedExtensionsInUse: return "\"asortedExtensionsInUse\""
@@ -24446,9 +24446,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .asortedExtensionsInUse: return ".asortedExtensionsInUse"
@@ -24460,43 +24460,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum unknownFields: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aunknownFields // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aunknownFields
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aunknownFields
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aunknownFields": self = .aunknownFields
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aunknownFields": self = .aunknownFields
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aunknownFields": self = .aunknownFields
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aunknownFields: return 0
@@ -24505,7 +24505,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aunknownFields: return "\"aunknownFields\""
@@ -24514,9 +24514,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aunknownFields: return ".aunknownFields"
@@ -24528,43 +24528,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Fixed: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aFixed // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aFixed
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aFixed
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aFixed": self = .aFixed
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aFixed": self = .aFixed
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aFixed": self = .aFixed
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aFixed: return 0
@@ -24573,7 +24573,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aFixed: return "\"aFixed\""
@@ -24582,9 +24582,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aFixed: return ".aFixed"
@@ -24596,43 +24596,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Fract: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aFract // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aFract
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aFract
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aFract": self = .aFract
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aFract": self = .aFract
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aFract": self = .aFract
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aFract: return 0
@@ -24641,7 +24641,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aFract: return "\"aFract\""
@@ -24650,9 +24650,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aFract: return ".aFract"
@@ -24664,43 +24664,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Size: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aSize // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aSize
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aSize
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aSize": self = .aSize
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aSize": self = .aSize
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aSize": self = .aSize
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aSize: return 0
@@ -24709,7 +24709,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aSize: return "\"aSize\""
@@ -24718,9 +24718,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aSize: return ".aSize"
@@ -24732,43 +24732,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum LogicalAddress: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aLogicalAddress // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aLogicalAddress
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aLogicalAddress
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aLogicalAddress": self = .aLogicalAddress
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aLogicalAddress": self = .aLogicalAddress
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aLogicalAddress": self = .aLogicalAddress
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aLogicalAddress: return 0
@@ -24777,7 +24777,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aLogicalAddress: return "\"aLogicalAddress\""
@@ -24786,9 +24786,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aLogicalAddress: return ".aLogicalAddress"
@@ -24800,43 +24800,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum PhysicalAddress: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aPhysicalAddress // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aPhysicalAddress
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aPhysicalAddress
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aPhysicalAddress": self = .aPhysicalAddress
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aPhysicalAddress": self = .aPhysicalAddress
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aPhysicalAddress": self = .aPhysicalAddress
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aPhysicalAddress: return 0
@@ -24845,7 +24845,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aPhysicalAddress: return "\"aPhysicalAddress\""
@@ -24854,9 +24854,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aPhysicalAddress: return ".aPhysicalAddress"
@@ -24868,43 +24868,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum ByteCount: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aByteCount // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aByteCount
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aByteCount
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aByteCount": self = .aByteCount
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aByteCount": self = .aByteCount
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aByteCount": self = .aByteCount
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aByteCount: return 0
@@ -24913,7 +24913,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aByteCount: return "\"aByteCount\""
@@ -24922,9 +24922,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aByteCount: return ".aByteCount"
@@ -24936,43 +24936,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum ByteOffset: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aByteOffset // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aByteOffset
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aByteOffset
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aByteOffset": self = .aByteOffset
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aByteOffset": self = .aByteOffset
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aByteOffset": self = .aByteOffset
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aByteOffset: return 0
@@ -24981,7 +24981,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aByteOffset: return "\"aByteOffset\""
@@ -24990,9 +24990,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aByteOffset: return ".aByteOffset"
@@ -25004,43 +25004,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Duration: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aDuration // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aDuration
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aDuration
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aDuration": self = .aDuration
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aDuration": self = .aDuration
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aDuration": self = .aDuration
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aDuration: return 0
@@ -25049,7 +25049,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aDuration: return "\"aDuration\""
@@ -25058,9 +25058,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aDuration: return ".aDuration"
@@ -25072,43 +25072,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum AbsoluteTime: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aAbsoluteTime // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aAbsoluteTime
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aAbsoluteTime
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aAbsoluteTime": self = .aAbsoluteTime
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aAbsoluteTime": self = .aAbsoluteTime
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aAbsoluteTime": self = .aAbsoluteTime
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aAbsoluteTime: return 0
@@ -25117,7 +25117,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aAbsoluteTime: return "\"aAbsoluteTime\""
@@ -25126,9 +25126,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aAbsoluteTime: return ".aAbsoluteTime"
@@ -25140,43 +25140,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum OptionBits: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aOptionBits // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aOptionBits
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aOptionBits
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aOptionBits": self = .aOptionBits
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aOptionBits": self = .aOptionBits
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aOptionBits": self = .aOptionBits
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aOptionBits: return 0
@@ -25185,7 +25185,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aOptionBits: return "\"aOptionBits\""
@@ -25194,9 +25194,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aOptionBits: return ".aOptionBits"
@@ -25208,43 +25208,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum ItemCount: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aItemCount // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aItemCount
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aItemCount
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aItemCount": self = .aItemCount
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aItemCount": self = .aItemCount
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aItemCount": self = .aItemCount
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aItemCount: return 0
@@ -25253,7 +25253,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aItemCount: return "\"aItemCount\""
@@ -25262,9 +25262,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aItemCount: return ".aItemCount"
@@ -25276,43 +25276,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum PBVersion: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aPbversion // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aPbversion
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aPbversion
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aPbversion": self = .aPbversion
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aPBVersion": self = .aPbversion
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aPBVersion": self = .aPbversion
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aPbversion: return 0
@@ -25321,7 +25321,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aPbversion: return "\"aPBVersion\""
@@ -25330,9 +25330,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aPbversion: return ".aPbversion"
@@ -25344,43 +25344,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum ScriptCode: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aScriptCode // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aScriptCode
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aScriptCode
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aScriptCode": self = .aScriptCode
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aScriptCode": self = .aScriptCode
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aScriptCode": self = .aScriptCode
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aScriptCode: return 0
@@ -25389,7 +25389,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aScriptCode: return "\"aScriptCode\""
@@ -25398,9 +25398,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aScriptCode: return ".aScriptCode"
@@ -25412,43 +25412,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum LangCode: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aLangCode // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aLangCode
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aLangCode
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aLangCode": self = .aLangCode
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aLangCode": self = .aLangCode
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aLangCode": self = .aLangCode
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aLangCode: return 0
@@ -25457,7 +25457,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aLangCode: return "\"aLangCode\""
@@ -25466,9 +25466,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aLangCode: return ".aLangCode"
@@ -25480,43 +25480,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum RegionCode: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aRegionCode // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aRegionCode
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aRegionCode
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aRegionCode": self = .aRegionCode
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aRegionCode": self = .aRegionCode
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aRegionCode": self = .aRegionCode
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aRegionCode: return 0
@@ -25525,7 +25525,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aRegionCode: return "\"aRegionCode\""
@@ -25534,9 +25534,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aRegionCode: return ".aRegionCode"
@@ -25548,43 +25548,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum OSType: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aOstype // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aOstype
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aOstype
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aOstype": self = .aOstype
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aOSType": self = .aOstype
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aOSType": self = .aOstype
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aOstype: return 0
@@ -25593,7 +25593,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aOstype: return "\"aOSType\""
@@ -25602,9 +25602,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aOstype: return ".aOstype"
@@ -25616,43 +25616,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum ProcessSerialNumber: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aProcessSerialNumber // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aProcessSerialNumber
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aProcessSerialNumber
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aProcessSerialNumber": self = .aProcessSerialNumber
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aProcessSerialNumber": self = .aProcessSerialNumber
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aProcessSerialNumber": self = .aProcessSerialNumber
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aProcessSerialNumber: return 0
@@ -25661,7 +25661,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aProcessSerialNumber: return "\"aProcessSerialNumber\""
@@ -25670,9 +25670,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aProcessSerialNumber: return ".aProcessSerialNumber"
@@ -25684,43 +25684,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Point: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aPoint // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aPoint
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aPoint
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aPoint": self = .aPoint
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aPoint": self = .aPoint
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aPoint": self = .aPoint
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aPoint: return 0
@@ -25729,7 +25729,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aPoint: return "\"aPoint\""
@@ -25738,9 +25738,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aPoint: return ".aPoint"
@@ -25752,43 +25752,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Rect: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aRect // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aRect
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aRect
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aRect": self = .aRect
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aRect": self = .aRect
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aRect": self = .aRect
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aRect: return 0
@@ -25797,7 +25797,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aRect: return "\"aRect\""
@@ -25806,9 +25806,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aRect: return ".aRect"
@@ -25820,43 +25820,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum FixedPoint: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aFixedPoint // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aFixedPoint
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aFixedPoint
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aFixedPoint": self = .aFixedPoint
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aFixedPoint": self = .aFixedPoint
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aFixedPoint": self = .aFixedPoint
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aFixedPoint: return 0
@@ -25865,7 +25865,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aFixedPoint: return "\"aFixedPoint\""
@@ -25874,9 +25874,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aFixedPoint: return ".aFixedPoint"
@@ -25888,43 +25888,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum FixedRect: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aFixedRect // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aFixedRect
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aFixedRect
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aFixedRect": self = .aFixedRect
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aFixedRect": self = .aFixedRect
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aFixedRect": self = .aFixedRect
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aFixedRect: return 0
@@ -25933,7 +25933,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aFixedRect: return "\"aFixedRect\""
@@ -25942,9 +25942,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aFixedRect: return ".aFixedRect"
@@ -25956,43 +25956,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum Style: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aStyle // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aStyle
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aStyle
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aStyle": self = .aStyle
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aStyle": self = .aStyle
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aStyle": self = .aStyle
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aStyle: return 0
@@ -26001,7 +26001,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aStyle: return "\"aStyle\""
@@ -26010,9 +26010,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aStyle: return ".aStyle"
@@ -26024,43 +26024,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum StyleParameter: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aStyleParameter // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aStyleParameter
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aStyleParameter
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aStyleParameter": self = .aStyleParameter
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aStyleParameter": self = .aStyleParameter
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aStyleParameter": self = .aStyleParameter
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aStyleParameter: return 0
@@ -26069,7 +26069,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aStyleParameter: return "\"aStyleParameter\""
@@ -26078,9 +26078,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aStyleParameter: return ".aStyleParameter"
@@ -26092,43 +26092,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum StyleField: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aStyleField // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aStyleField
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aStyleField
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aStyleField": self = .aStyleField
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aStyleField": self = .aStyleField
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aStyleField": self = .aStyleField
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aStyleField: return 0
@@ -26137,7 +26137,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aStyleField: return "\"aStyleField\""
@@ -26146,9 +26146,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aStyleField: return ".aStyleField"
@@ -26160,43 +26160,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum TimeScale: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aTimeScale // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aTimeScale
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aTimeScale
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aTimeScale": self = .aTimeScale
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aTimeScale": self = .aTimeScale
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aTimeScale": self = .aTimeScale
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aTimeScale: return 0
@@ -26205,7 +26205,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aTimeScale: return "\"aTimeScale\""
@@ -26214,9 +26214,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aTimeScale: return ".aTimeScale"
@@ -26228,43 +26228,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum TimeBase: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aTimeBase // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aTimeBase
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aTimeBase
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aTimeBase": self = .aTimeBase
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aTimeBase": self = .aTimeBase
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aTimeBase": self = .aTimeBase
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aTimeBase: return 0
@@ -26273,7 +26273,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aTimeBase: return "\"aTimeBase\""
@@ -26282,9 +26282,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aTimeBase: return ".aTimeBase"
@@ -26296,43 +26296,43 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 
   enum TimeRecord: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case aTimeRecord // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .aTimeRecord
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .aTimeRecord
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "aTimeRecord": self = .aTimeRecord
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "aTimeRecord": self = .aTimeRecord
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "aTimeRecord": self = .aTimeRecord
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .aTimeRecord: return 0
@@ -26341,7 +26341,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .aTimeRecord: return "\"aTimeRecord\""
@@ -26350,9 +26350,9 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .aTimeRecord: return ".aTimeRecord"
@@ -26363,7 +26363,7 @@ struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Me
 
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }

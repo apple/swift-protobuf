@@ -103,12 +103,12 @@ struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message
   private var _storage = _StorageClass()
 
 
-  public var int32Value: Int32 {
+  var int32Value: Int32 {
     get {return _storage._int32Value}
     set {_uniqueStorage()._int32Value = newValue}
   }
 
-  public var anyValue: Google_Protobuf_Any {
+  var anyValue: Google_Protobuf_Any {
     get {return _storage._anyValue ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyValue = newValue}
   }
@@ -119,12 +119,12 @@ struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message
     return _storage._anyValue = nil
   }
 
-  public var repeatedAnyValue: [Google_Protobuf_Any] {
+  var repeatedAnyValue: [Google_Protobuf_Any] {
     get {return _storage._repeatedAnyValue}
     set {_uniqueStorage()._repeatedAnyValue = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
