@@ -26,13 +26,13 @@ struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage, ProtobufProto3Me
   ]}
 
 
-  public var httpRequest: Int32 = 0
+  var httpRequest: Int32 = 0
 
-  public var url: Int32 = 0
+  var url: Int32 = 0
 
-  public var aBC: Int32 = 0
+  var aBC: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -77,11 +77,11 @@ struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage, ProtobufProto3M
   ]}
 
 
-  public var httprequest: Int32 = 0
+  var httprequest: Int32 = 0
 
-  public var url: Int32 = 0
+  var url: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -119,9 +119,9 @@ struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage, ProtobufProto3M
   ]}
 
 
-  public var url: Int32 = 0
+  var url: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

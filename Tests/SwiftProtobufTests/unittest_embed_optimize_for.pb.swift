@@ -110,7 +110,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, Pro
 
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
   ///   one optimized for speed works.
-  public var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
+  var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
     get {return _storage._optionalMessage ?? ProtobufUnittest_TestOptimizedForSize()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
@@ -121,12 +121,12 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, Pro
     return _storage._optionalMessage = nil
   }
 
-  public var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
+  var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
     get {return _storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

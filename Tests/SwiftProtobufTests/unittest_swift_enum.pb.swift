@@ -50,15 +50,15 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
   public var unknown = ProtobufUnknownStorage()
 
   enum EnumTest1: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case firstValue // = 1
     case secondValue // = 2
 
-    public init() {
+    init() {
       self = .firstValue
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .firstValue
       case 2: self = .secondValue
@@ -66,7 +66,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "firstValue": self = .firstValue
       case "secondValue": self = .secondValue
@@ -74,7 +74,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ENUM_TEST_1_FIRST_VALUE": self = .firstValue
       case "ENUM_TEST_1_SECOND_VALUE": self = .secondValue
@@ -82,7 +82,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ENUM_TEST_1_FIRST_VALUE": self = .firstValue
       case "ENUM_TEST_1_SECOND_VALUE": self = .secondValue
@@ -90,7 +90,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .firstValue: return 1
@@ -99,7 +99,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .firstValue: return "\"ENUM_TEST_1_FIRST_VALUE\""
@@ -108,9 +108,9 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .firstValue: return ".firstValue"
@@ -122,15 +122,15 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
   }
 
   enum EnumTest2: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case enumTest2FirstValue // = 1
     case secondValue // = 2
 
-    public init() {
+    init() {
       self = .enumTest2FirstValue
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .enumTest2FirstValue
       case 2: self = .secondValue
@@ -138,7 +138,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "enumTest2FirstValue": self = .enumTest2FirstValue
       case "secondValue": self = .secondValue
@@ -146,7 +146,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "ENUM_TEST_2_FIRST_VALUE": self = .enumTest2FirstValue
       case "SECOND_VALUE": self = .secondValue
@@ -154,7 +154,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "ENUM_TEST_2_FIRST_VALUE": self = .enumTest2FirstValue
       case "SECOND_VALUE": self = .secondValue
@@ -162,7 +162,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .enumTest2FirstValue: return 1
@@ -171,7 +171,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .enumTest2FirstValue: return "\"ENUM_TEST_2_FIRST_VALUE\""
@@ -180,9 +180,9 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .enumTest2FirstValue: return ".enumTest2FirstValue"
@@ -193,7 +193,7 @@ struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2M
 
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }

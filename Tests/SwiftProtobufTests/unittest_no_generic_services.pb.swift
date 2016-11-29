@@ -43,42 +43,42 @@ import SwiftProtobuf
 
 
 enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foo // = 1
 
-  public init() {
+  init() {
     self = .foo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .foo
     default: return nil
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foo": self = .foo
     default: return nil
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo
     default: return nil
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "FOO": self = .foo
     default: return nil
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foo: return 1
@@ -86,7 +86,7 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foo: return "\"FOO\""
@@ -94,9 +94,9 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foo: return ".foo"
@@ -122,7 +122,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessa
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -133,7 +133,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessa
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

@@ -100,7 +100,7 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
     set {_storage.unknown = newValue}
   }
 
-  public var messageSet: Proto2WireformatUnittest_TestMessageSet {
+  var messageSet: Proto2WireformatUnittest_TestMessageSet {
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
   }
@@ -111,7 +111,7 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
     return _storage._messageSet = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -152,7 +152,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, Prot
   }
 
   private var _i: Int32? = nil
-  public var i: Int32 {
+  var i: Int32 {
     get {return _i ?? 0}
     set {_i = newValue}
   }
@@ -163,7 +163,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, Prot
     return _i = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -205,7 +205,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, Prot
   }
 
   private var _str: String? = nil
-  public var str: String {
+  var str: String {
     get {return _str ?? ""}
     set {_str = newValue}
   }
@@ -216,7 +216,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, Prot
     return _str = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -280,7 +280,7 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
     public var unknown = ProtobufUnknownStorage()
 
     private var _typeId: Int32? = nil
-    public var typeId: Int32 {
+    var typeId: Int32 {
       get {return _typeId ?? 0}
       set {_typeId = newValue}
     }
@@ -292,7 +292,7 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
     }
 
     private var _message: Data? = nil
-    public var message: Data {
+    var message: Data {
       get {return _message ?? Data()}
       set {_message = newValue}
     }
@@ -303,7 +303,7 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
       return _message = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -327,9 +327,9 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
     }
   }
 
-  public var item: [ProtobufUnittest_RawMessageSet.Item] = []
+  var item: [ProtobufUnittest_RawMessageSet.Item] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

@@ -41,17 +41,17 @@ import SwiftProtobuf
 
 
 enum ProtobufUnittest_MapEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .foo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .foo
     case 1: self = .bar
@@ -60,7 +60,7 @@ enum ProtobufUnittest_MapEnum: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foo": self = .foo
     case "bar": self = .bar
@@ -69,7 +69,7 @@ enum ProtobufUnittest_MapEnum: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "MAP_ENUM_FOO": self = .foo
     case "MAP_ENUM_BAR": self = .bar
@@ -78,7 +78,7 @@ enum ProtobufUnittest_MapEnum: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "MAP_ENUM_FOO": self = .foo
     case "MAP_ENUM_BAR": self = .bar
@@ -87,7 +87,7 @@ enum ProtobufUnittest_MapEnum: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foo: return 0
@@ -98,7 +98,7 @@ enum ProtobufUnittest_MapEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foo: return "\"MAP_ENUM_FOO\""
@@ -109,9 +109,9 @@ enum ProtobufUnittest_MapEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foo: return ".foo"
@@ -323,97 +323,97 @@ struct ProtobufUnittest_TestMap: ProtobufGeneratedMessage, ProtobufProto3Message
   private var _storage = _StorageClass()
 
 
-  public var mapInt32Int32: Dictionary<Int32,Int32> {
+  var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
-  public var mapInt64Int64: Dictionary<Int64,Int64> {
+  var mapInt64Int64: Dictionary<Int64,Int64> {
     get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
-  public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
+  var mapUint32Uint32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
-  public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
+  var mapUint64Uint64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
-  public var mapSint32Sint32: Dictionary<Int32,Int32> {
+  var mapSint32Sint32: Dictionary<Int32,Int32> {
     get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
-  public var mapSint64Sint64: Dictionary<Int64,Int64> {
+  var mapSint64Sint64: Dictionary<Int64,Int64> {
     get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
-  public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
+  var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
-  public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
+  var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
-  public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
+  var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
     get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
-  public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
+  var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
     get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
-  public var mapInt32Float: Dictionary<Int32,Float> {
+  var mapInt32Float: Dictionary<Int32,Float> {
     get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
-  public var mapInt32Double: Dictionary<Int32,Double> {
+  var mapInt32Double: Dictionary<Int32,Double> {
     get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
-  public var mapBoolBool: Dictionary<Bool,Bool> {
+  var mapBoolBool: Dictionary<Bool,Bool> {
     get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
-  public var mapStringString: Dictionary<String,String> {
+  var mapStringString: Dictionary<String,String> {
     get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,Data> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
-  public var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> {
+  var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> {
     get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
-  public var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> {
+  var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> {
     get {return _storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
-  public var mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> {
+  var mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> {
     get {return _storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -480,7 +480,7 @@ struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage, ProtobufPro
   private var _storage = _StorageClass()
 
 
-  public var testMap: ProtobufUnittest_TestMap {
+  var testMap: ProtobufUnittest_TestMap {
     get {return _storage._testMap ?? ProtobufUnittest_TestMap()}
     set {_uniqueStorage()._testMap = newValue}
   }
@@ -491,7 +491,7 @@ struct ProtobufUnittest_TestMapSubmessage: ProtobufGeneratedMessage, ProtobufPro
     return _storage._testMap = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -525,9 +525,9 @@ struct ProtobufUnittest_TestMessageMap: ProtobufGeneratedMessage, ProtobufProto3
   ]}
 
 
-  public var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypes> = [:]
+  var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypes> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -563,11 +563,11 @@ struct ProtobufUnittest_TestSameTypeMap: ProtobufGeneratedMessage, ProtobufProto
   ]}
 
 
-  public var map1: Dictionary<Int32,Int32> = [:]
+  var map1: Dictionary<Int32,Int32> = [:]
 
-  public var map2: Dictionary<Int32,Int32> = [:]
+  var map2: Dictionary<Int32,Int32> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -606,9 +606,9 @@ struct ProtobufUnittest_TestRequiredMessageMap: ProtobufGeneratedMessage, Protob
   ]}
 
 
-  public var mapField: Dictionary<Int32,ProtobufUnittest_TestRequired> = [:]
+  var mapField: Dictionary<Int32,ProtobufUnittest_TestRequired> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -827,97 +827,97 @@ struct ProtobufUnittest_TestArenaMap: ProtobufGeneratedMessage, ProtobufProto3Me
   private var _storage = _StorageClass()
 
 
-  public var mapInt32Int32: Dictionary<Int32,Int32> {
+  var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
-  public var mapInt64Int64: Dictionary<Int64,Int64> {
+  var mapInt64Int64: Dictionary<Int64,Int64> {
     get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
-  public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
+  var mapUint32Uint32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
-  public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
+  var mapUint64Uint64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
-  public var mapSint32Sint32: Dictionary<Int32,Int32> {
+  var mapSint32Sint32: Dictionary<Int32,Int32> {
     get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
-  public var mapSint64Sint64: Dictionary<Int64,Int64> {
+  var mapSint64Sint64: Dictionary<Int64,Int64> {
     get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
-  public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
+  var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
-  public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
+  var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
-  public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
+  var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
     get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
-  public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
+  var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
     get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
-  public var mapInt32Float: Dictionary<Int32,Float> {
+  var mapInt32Float: Dictionary<Int32,Float> {
     get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
-  public var mapInt32Double: Dictionary<Int32,Double> {
+  var mapInt32Double: Dictionary<Int32,Double> {
     get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
-  public var mapBoolBool: Dictionary<Bool,Bool> {
+  var mapBoolBool: Dictionary<Bool,Bool> {
     get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
-  public var mapStringString: Dictionary<String,String> {
+  var mapStringString: Dictionary<String,String> {
     get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,Data> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
-  public var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> {
+  var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> {
     get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
-  public var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> {
+  var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> {
     get {return _storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
-  public var mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessage> {
+  var mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessage> {
     get {return _storage._mapInt32ForeignMessageNoArena}
     set {_uniqueStorage()._mapInt32ForeignMessageNoArena = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -954,43 +954,43 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessag
 
 
   enum TypeEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case foo // = 0
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .foo
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "TYPE_FOO": self = .foo
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "TYPE_FOO": self = .foo
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 0
@@ -999,7 +999,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessag
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"TYPE_FOO\""
@@ -1008,9 +1008,9 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessag
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -1021,9 +1021,9 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: ProtobufGeneratedMessag
 
   }
 
-  public var type: Dictionary<String,ProtobufUnittest_MessageContainingEnumCalledType> = [:]
+  var type: Dictionary<String,ProtobufUnittest_MessageContainingEnumCalledType> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1057,9 +1057,9 @@ struct ProtobufUnittest_MessageContainingMapCalledEntry: ProtobufGeneratedMessag
   ]}
 
 
-  public var entry: Dictionary<Int32,Int32> = [:]
+  var entry: Dictionary<Int32,Int32> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -1092,9 +1092,9 @@ struct ProtobufUnittest_TestRecursiveMapMessage: ProtobufGeneratedMessage, Proto
   ]}
 
 
-  public var a: Dictionary<String,ProtobufUnittest_TestRecursiveMapMessage> = [:]
+  var a: Dictionary<String,ProtobufUnittest_TestRecursiveMapMessage> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

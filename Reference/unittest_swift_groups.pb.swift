@@ -55,7 +55,7 @@ struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufProto2Message
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -66,7 +66,7 @@ struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufProto2Message
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -128,7 +128,7 @@ struct ExtensionGroup: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -139,7 +139,7 @@ struct ExtensionGroup: ProtobufGeneratedMessage, ProtobufProto2Message {
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -176,7 +176,7 @@ struct RepeatedExtensionGroup: ProtobufGeneratedMessage, ProtobufProto2Message {
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -187,7 +187,7 @@ struct RepeatedExtensionGroup: ProtobufGeneratedMessage, ProtobufProto2Message {
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -224,7 +224,7 @@ struct SwiftTestGroupUnextended: ProtobufGeneratedMessage, ProtobufProto2Message
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -235,7 +235,7 @@ struct SwiftTestGroupUnextended: ProtobufGeneratedMessage, ProtobufProto2Message
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

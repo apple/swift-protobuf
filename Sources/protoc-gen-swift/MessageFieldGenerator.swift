@@ -206,6 +206,7 @@ struct MessageFieldGenerator {
     let comments: String
     let isProto3: Bool
     let context: Context
+    let generatorOptions: GeneratorOptions
 
     init(descriptor: Google_Protobuf_FieldDescriptorProto,
         path: [Int32],
@@ -236,6 +237,7 @@ struct MessageFieldGenerator {
         self.comments = file.commentsFor(path: path)
         self.isProto3 = file.isProto3
         self.context = context
+        self.generatorOptions = file.generatorOptions
     }
 
     var isGroup: Bool {return descriptor.isGroup}
@@ -305,7 +307,7 @@ struct MessageFieldGenerator {
             p.print(comments)
         }
         if let oneof = oneof {
-            p.print("public var \(swiftName): \(swiftApiType) {\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
             p.indent()
             p.print("get {\n")
             p.indent()
@@ -326,14 +328,14 @@ struct MessageFieldGenerator {
             p.print("}\n")
         } else if !isRepeated && !isMap && !isProto3 {
             p.print("private var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
-            p.print("public var \(swiftName): \(swiftApiType) {\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
             p.indent()
             p.print("get {return \(swiftStorageName) ?? \(swiftDefaultValue)}\n")
             p.print("set {\(swiftStorageName) = newValue}\n")
             p.outdent()
             p.print("}\n")
         } else {
-            p.print("public var \(swiftName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
         }
     }
 
@@ -342,7 +344,7 @@ struct MessageFieldGenerator {
         if comments != "" {
             p.print(comments)
         }
-        p.print("public var \(swiftName): \(swiftApiType) {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
         p.indent()
         if let oneof = oneof {
             p.print("get {\n")

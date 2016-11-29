@@ -45,16 +45,16 @@ import SwiftProtobuf
 
 
 enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foreignLiteFoo // = 4
   case foreignLiteBar // = 5
   case foreignLiteBaz // = 6
 
-  public init() {
+  init() {
     self = .foreignLiteFoo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 4: self = .foreignLiteFoo
     case 5: self = .foreignLiteBar
@@ -63,7 +63,7 @@ enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foreignLiteFoo": self = .foreignLiteFoo
     case "foreignLiteBar": self = .foreignLiteBar
@@ -72,7 +72,7 @@ enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_LITE_FOO": self = .foreignLiteFoo
     case "FOREIGN_LITE_BAR": self = .foreignLiteBar
@@ -81,7 +81,7 @@ enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "FOREIGN_LITE_FOO": self = .foreignLiteFoo
     case "FOREIGN_LITE_BAR": self = .foreignLiteBar
@@ -90,7 +90,7 @@ enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foreignLiteFoo: return 4
@@ -100,7 +100,7 @@ enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foreignLiteFoo: return "\"FOREIGN_LITE_FOO\""
@@ -110,9 +110,9 @@ enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foreignLiteFoo: return ".foreignLiteFoo"
@@ -125,42 +125,42 @@ enum ProtobufUnittest_ForeignEnumLite: ProtobufEnum {
 }
 
 enum ProtobufUnittest_V1EnumLite: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case v1First // = 1
 
-  public init() {
+  init() {
     self = .v1First
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .v1First
     default: return nil
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "v1First": self = .v1First
     default: return nil
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "V1_FIRST": self = .v1First
     default: return nil
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "V1_FIRST": self = .v1First
     default: return nil
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .v1First: return 1
@@ -168,7 +168,7 @@ enum ProtobufUnittest_V1EnumLite: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .v1First: return "\"V1_FIRST\""
@@ -176,9 +176,9 @@ enum ProtobufUnittest_V1EnumLite: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .v1First: return ".v1First"
@@ -189,15 +189,15 @@ enum ProtobufUnittest_V1EnumLite: ProtobufEnum {
 }
 
 enum ProtobufUnittest_V2EnumLite: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case v2First // = 1
   case v2Second // = 2
 
-  public init() {
+  init() {
     self = .v2First
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .v2First
     case 2: self = .v2Second
@@ -205,7 +205,7 @@ enum ProtobufUnittest_V2EnumLite: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "v2First": self = .v2First
     case "v2Second": self = .v2Second
@@ -213,7 +213,7 @@ enum ProtobufUnittest_V2EnumLite: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "V2_FIRST": self = .v2First
     case "V2_SECOND": self = .v2Second
@@ -221,7 +221,7 @@ enum ProtobufUnittest_V2EnumLite: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "V2_FIRST": self = .v2First
     case "V2_SECOND": self = .v2Second
@@ -229,7 +229,7 @@ enum ProtobufUnittest_V2EnumLite: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .v2First: return 1
@@ -238,7 +238,7 @@ enum ProtobufUnittest_V2EnumLite: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .v2First: return "\"V2_FIRST\""
@@ -247,9 +247,9 @@ enum ProtobufUnittest_V2EnumLite: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .v2First: return ".v2First"
@@ -1044,16 +1044,16 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
   }
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case foo // = 1
     case bar // = 2
     case baz // = 3
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .foo
       case 2: self = .bar
@@ -1062,7 +1062,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       case "bar": self = .bar
@@ -1071,7 +1071,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -1080,7 +1080,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -1089,7 +1089,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 1
@@ -1099,7 +1099,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"FOO\""
@@ -1109,9 +1109,9 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -1139,7 +1139,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     public var unknown = ProtobufUnknownStorage()
 
     private var _bb: Int32? = nil
-    public var bb: Int32 {
+    var bb: Int32 {
       get {return _bb ?? 0}
       set {_bb = newValue}
     }
@@ -1151,7 +1151,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     }
 
     private var _cc: Int64? = nil
-    public var cc: Int64 {
+    var cc: Int64 {
       get {return _cc ?? 0}
       set {_cc = newValue}
     }
@@ -1162,7 +1162,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       return _cc = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1204,7 +1204,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     public var unknown = ProtobufUnknownStorage()
 
     private var _a: Int32? = nil
-    public var a: Int32 {
+    var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
     }
@@ -1215,7 +1215,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       return _a = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1252,7 +1252,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     public var unknown = ProtobufUnknownStorage()
 
     private var _a: Int32? = nil
-    public var a: Int32 {
+    var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
     }
@@ -1263,7 +1263,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
       return _a = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1287,7 +1287,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
   }
 
   ///   Singular
-  public var optionalInt32: Int32 {
+  var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
@@ -1298,7 +1298,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalInt32 = nil
   }
 
-  public var optionalInt64: Int64 {
+  var optionalInt64: Int64 {
     get {return _storage._optionalInt64 ?? 0}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
@@ -1309,7 +1309,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalInt64 = nil
   }
 
-  public var optionalUint32: UInt32 {
+  var optionalUint32: UInt32 {
     get {return _storage._optionalUint32 ?? 0}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
@@ -1320,7 +1320,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalUint32 = nil
   }
 
-  public var optionalUint64: UInt64 {
+  var optionalUint64: UInt64 {
     get {return _storage._optionalUint64 ?? 0}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
@@ -1331,7 +1331,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalUint64 = nil
   }
 
-  public var optionalSint32: Int32 {
+  var optionalSint32: Int32 {
     get {return _storage._optionalSint32 ?? 0}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
@@ -1342,7 +1342,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalSint32 = nil
   }
 
-  public var optionalSint64: Int64 {
+  var optionalSint64: Int64 {
     get {return _storage._optionalSint64 ?? 0}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
@@ -1353,7 +1353,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalSint64 = nil
   }
 
-  public var optionalFixed32: UInt32 {
+  var optionalFixed32: UInt32 {
     get {return _storage._optionalFixed32 ?? 0}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
@@ -1364,7 +1364,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalFixed32 = nil
   }
 
-  public var optionalFixed64: UInt64 {
+  var optionalFixed64: UInt64 {
     get {return _storage._optionalFixed64 ?? 0}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
@@ -1375,7 +1375,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalFixed64 = nil
   }
 
-  public var optionalSfixed32: Int32 {
+  var optionalSfixed32: Int32 {
     get {return _storage._optionalSfixed32 ?? 0}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
@@ -1386,7 +1386,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalSfixed32 = nil
   }
 
-  public var optionalSfixed64: Int64 {
+  var optionalSfixed64: Int64 {
     get {return _storage._optionalSfixed64 ?? 0}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
@@ -1397,7 +1397,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalSfixed64 = nil
   }
 
-  public var optionalFloat: Float {
+  var optionalFloat: Float {
     get {return _storage._optionalFloat ?? 0}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
@@ -1408,7 +1408,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalFloat = nil
   }
 
-  public var optionalDouble: Double {
+  var optionalDouble: Double {
     get {return _storage._optionalDouble ?? 0}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
@@ -1419,7 +1419,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalDouble = nil
   }
 
-  public var optionalBool: Bool {
+  var optionalBool: Bool {
     get {return _storage._optionalBool ?? false}
     set {_uniqueStorage()._optionalBool = newValue}
   }
@@ -1430,7 +1430,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalBool = nil
   }
 
-  public var optionalString: String {
+  var optionalString: String {
     get {return _storage._optionalString ?? ""}
     set {_uniqueStorage()._optionalString = newValue}
   }
@@ -1441,7 +1441,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalString = nil
   }
 
-  public var optionalBytes: Data {
+  var optionalBytes: Data {
     get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -1452,7 +1452,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalBytes = nil
   }
 
-  public var optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup {
+  var optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup {
     get {return _storage._optionalGroup ?? ProtobufUnittest_TestAllTypesLite.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
@@ -1463,7 +1463,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalGroup = nil
   }
 
-  public var optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+  var optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
     get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
@@ -1474,7 +1474,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalNestedMessage = nil
   }
 
-  public var optionalForeignMessage: ProtobufUnittest_ForeignMessageLite {
+  var optionalForeignMessage: ProtobufUnittest_ForeignMessageLite {
     get {return _storage._optionalForeignMessage ?? ProtobufUnittest_ForeignMessageLite()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
@@ -1485,7 +1485,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalForeignMessage = nil
   }
 
-  public var optionalImportMessage: ProtobufUnittestImport_ImportMessageLite {
+  var optionalImportMessage: ProtobufUnittestImport_ImportMessageLite {
     get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessageLite()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
@@ -1496,7 +1496,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalImportMessage = nil
   }
 
-  public var optionalNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum {
+  var optionalNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum {
     get {return _storage._optionalNestedEnum ?? ProtobufUnittest_TestAllTypesLite.NestedEnum.foo}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
@@ -1507,7 +1507,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalNestedEnum = nil
   }
 
-  public var optionalForeignEnum: ProtobufUnittest_ForeignEnumLite {
+  var optionalForeignEnum: ProtobufUnittest_ForeignEnumLite {
     get {return _storage._optionalForeignEnum ?? ProtobufUnittest_ForeignEnumLite.foreignLiteFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
@@ -1518,7 +1518,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalForeignEnum = nil
   }
 
-  public var optionalImportEnum: ProtobufUnittestImport_ImportEnumLite {
+  var optionalImportEnum: ProtobufUnittestImport_ImportEnumLite {
     get {return _storage._optionalImportEnum ?? ProtobufUnittestImport_ImportEnumLite.importLiteFoo}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
@@ -1529,7 +1529,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalImportEnum = nil
   }
 
-  public var optionalStringPiece: String {
+  var optionalStringPiece: String {
     get {return _storage._optionalStringPiece ?? ""}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
@@ -1540,7 +1540,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalStringPiece = nil
   }
 
-  public var optionalCord: String {
+  var optionalCord: String {
     get {return _storage._optionalCord ?? ""}
     set {_uniqueStorage()._optionalCord = newValue}
   }
@@ -1552,7 +1552,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
   }
 
   ///   Defined in unittest_import_public.proto
-  public var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite {
+  var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessageLite()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
@@ -1563,7 +1563,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._optionalPublicImportMessage = nil
   }
 
-  public var optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+  var optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
     get {return _storage._optionalLazyMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
@@ -1575,133 +1575,133 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
   }
 
   ///   Repeated
-  public var repeatedInt32: [Int32] {
+  var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
-  public var repeatedInt64: [Int64] {
+  var repeatedInt64: [Int64] {
     get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
-  public var repeatedUint32: [UInt32] {
+  var repeatedUint32: [UInt32] {
     get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
-  public var repeatedUint64: [UInt64] {
+  var repeatedUint64: [UInt64] {
     get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
-  public var repeatedSint32: [Int32] {
+  var repeatedSint32: [Int32] {
     get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
-  public var repeatedSint64: [Int64] {
+  var repeatedSint64: [Int64] {
     get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
-  public var repeatedFixed32: [UInt32] {
+  var repeatedFixed32: [UInt32] {
     get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
-  public var repeatedFixed64: [UInt64] {
+  var repeatedFixed64: [UInt64] {
     get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
-  public var repeatedSfixed32: [Int32] {
+  var repeatedSfixed32: [Int32] {
     get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
-  public var repeatedSfixed64: [Int64] {
+  var repeatedSfixed64: [Int64] {
     get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
-  public var repeatedFloat: [Float] {
+  var repeatedFloat: [Float] {
     get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
-  public var repeatedDouble: [Double] {
+  var repeatedDouble: [Double] {
     get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
-  public var repeatedBool: [Bool] {
+  var repeatedBool: [Bool] {
     get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
-  public var repeatedString: [String] {
+  var repeatedString: [String] {
     get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [Data] {
+  var repeatedBytes: [Data] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
-  public var repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] {
+  var repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] {
     get {return _storage._repeatedGroup}
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
-  public var repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
+  var repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  public var repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] {
+  var repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] {
     get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  public var repeatedImportMessage: [ProtobufUnittestImport_ImportMessageLite] {
+  var repeatedImportMessage: [ProtobufUnittestImport_ImportMessageLite] {
     get {return _storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
 
-  public var repeatedNestedEnum: [ProtobufUnittest_TestAllTypesLite.NestedEnum] {
+  var repeatedNestedEnum: [ProtobufUnittest_TestAllTypesLite.NestedEnum] {
     get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
-  public var repeatedForeignEnum: [ProtobufUnittest_ForeignEnumLite] {
+  var repeatedForeignEnum: [ProtobufUnittest_ForeignEnumLite] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
-  public var repeatedImportEnum: [ProtobufUnittestImport_ImportEnumLite] {
+  var repeatedImportEnum: [ProtobufUnittestImport_ImportEnumLite] {
     get {return _storage._repeatedImportEnum}
     set {_uniqueStorage()._repeatedImportEnum = newValue}
   }
 
-  public var repeatedStringPiece: [String] {
+  var repeatedStringPiece: [String] {
     get {return _storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
-  public var repeatedCord: [String] {
+  var repeatedCord: [String] {
     get {return _storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
-  public var repeatedLazyMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
+  var repeatedLazyMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
     get {return _storage._repeatedLazyMessage}
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
   ///   Singular with defaults
-  public var defaultInt32: Int32 {
+  var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
   }
@@ -1712,7 +1712,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultInt32 = nil
   }
 
-  public var defaultInt64: Int64 {
+  var defaultInt64: Int64 {
     get {return _storage._defaultInt64 ?? 42}
     set {_uniqueStorage()._defaultInt64 = newValue}
   }
@@ -1723,7 +1723,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultInt64 = nil
   }
 
-  public var defaultUint32: UInt32 {
+  var defaultUint32: UInt32 {
     get {return _storage._defaultUint32 ?? 43}
     set {_uniqueStorage()._defaultUint32 = newValue}
   }
@@ -1734,7 +1734,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultUint32 = nil
   }
 
-  public var defaultUint64: UInt64 {
+  var defaultUint64: UInt64 {
     get {return _storage._defaultUint64 ?? 44}
     set {_uniqueStorage()._defaultUint64 = newValue}
   }
@@ -1745,7 +1745,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultUint64 = nil
   }
 
-  public var defaultSint32: Int32 {
+  var defaultSint32: Int32 {
     get {return _storage._defaultSint32 ?? -45}
     set {_uniqueStorage()._defaultSint32 = newValue}
   }
@@ -1756,7 +1756,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultSint32 = nil
   }
 
-  public var defaultSint64: Int64 {
+  var defaultSint64: Int64 {
     get {return _storage._defaultSint64 ?? 46}
     set {_uniqueStorage()._defaultSint64 = newValue}
   }
@@ -1767,7 +1767,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultSint64 = nil
   }
 
-  public var defaultFixed32: UInt32 {
+  var defaultFixed32: UInt32 {
     get {return _storage._defaultFixed32 ?? 47}
     set {_uniqueStorage()._defaultFixed32 = newValue}
   }
@@ -1778,7 +1778,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultFixed32 = nil
   }
 
-  public var defaultFixed64: UInt64 {
+  var defaultFixed64: UInt64 {
     get {return _storage._defaultFixed64 ?? 48}
     set {_uniqueStorage()._defaultFixed64 = newValue}
   }
@@ -1789,7 +1789,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultFixed64 = nil
   }
 
-  public var defaultSfixed32: Int32 {
+  var defaultSfixed32: Int32 {
     get {return _storage._defaultSfixed32 ?? 49}
     set {_uniqueStorage()._defaultSfixed32 = newValue}
   }
@@ -1800,7 +1800,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultSfixed32 = nil
   }
 
-  public var defaultSfixed64: Int64 {
+  var defaultSfixed64: Int64 {
     get {return _storage._defaultSfixed64 ?? -50}
     set {_uniqueStorage()._defaultSfixed64 = newValue}
   }
@@ -1811,7 +1811,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultSfixed64 = nil
   }
 
-  public var defaultFloat: Float {
+  var defaultFloat: Float {
     get {return _storage._defaultFloat ?? 51.5}
     set {_uniqueStorage()._defaultFloat = newValue}
   }
@@ -1822,7 +1822,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultFloat = nil
   }
 
-  public var defaultDouble: Double {
+  var defaultDouble: Double {
     get {return _storage._defaultDouble ?? 52000}
     set {_uniqueStorage()._defaultDouble = newValue}
   }
@@ -1833,7 +1833,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultDouble = nil
   }
 
-  public var defaultBool: Bool {
+  var defaultBool: Bool {
     get {return _storage._defaultBool ?? true}
     set {_uniqueStorage()._defaultBool = newValue}
   }
@@ -1844,7 +1844,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultBool = nil
   }
 
-  public var defaultString: String {
+  var defaultString: String {
     get {return _storage._defaultString ?? "hello"}
     set {_uniqueStorage()._defaultString = newValue}
   }
@@ -1855,7 +1855,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultString = nil
   }
 
-  public var defaultBytes: Data {
+  var defaultBytes: Data {
     get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
@@ -1866,7 +1866,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultBytes = nil
   }
 
-  public var defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum {
+  var defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum {
     get {return _storage._defaultNestedEnum ?? ProtobufUnittest_TestAllTypesLite.NestedEnum.bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
@@ -1877,7 +1877,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultNestedEnum = nil
   }
 
-  public var defaultForeignEnum: ProtobufUnittest_ForeignEnumLite {
+  var defaultForeignEnum: ProtobufUnittest_ForeignEnumLite {
     get {return _storage._defaultForeignEnum ?? ProtobufUnittest_ForeignEnumLite.foreignLiteBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
@@ -1888,7 +1888,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultForeignEnum = nil
   }
 
-  public var defaultImportEnum: ProtobufUnittestImport_ImportEnumLite {
+  var defaultImportEnum: ProtobufUnittestImport_ImportEnumLite {
     get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnumLite.importLiteBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
@@ -1899,7 +1899,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultImportEnum = nil
   }
 
-  public var defaultStringPiece: String {
+  var defaultStringPiece: String {
     get {return _storage._defaultStringPiece ?? "abc"}
     set {_uniqueStorage()._defaultStringPiece = newValue}
   }
@@ -1910,7 +1910,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultStringPiece = nil
   }
 
-  public var defaultCord: String {
+  var defaultCord: String {
     get {return _storage._defaultCord ?? "123"}
     set {_uniqueStorage()._defaultCord = newValue}
   }
@@ -1921,7 +1921,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     return _storage._defaultCord = nil
   }
 
-  public var oneofUint32: UInt32 {
+  var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
@@ -1933,7 +1933,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     }
   }
 
-  public var oneofNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+  var oneofNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
@@ -1945,7 +1945,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     }
   }
 
-  public var oneofString: String {
+  var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
@@ -1957,7 +1957,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     }
   }
 
-  public var oneofBytes: Data {
+  var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
@@ -1969,7 +1969,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     }
   }
 
-  public var oneofLazyNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+  var oneofLazyNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
     get {
       if case .oneofLazyNestedMessage(let v) = _storage._oneofField {
         return v
@@ -1988,7 +1988,7 @@ struct ProtobufUnittest_TestAllTypesLite: ProtobufGeneratedMessage, ProtobufProt
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2024,7 +2024,7 @@ struct ProtobufUnittest_ForeignMessageLite: ProtobufGeneratedMessage, ProtobufPr
   public var unknown = ProtobufUnknownStorage()
 
   private var _c: Int32? = nil
-  public var c: Int32 {
+  var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
@@ -2035,7 +2035,7 @@ struct ProtobufUnittest_ForeignMessageLite: ProtobufGeneratedMessage, ProtobufPr
     return _c = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2097,35 +2097,35 @@ struct ProtobufUnittest_TestPackedTypesLite: ProtobufGeneratedMessage, ProtobufP
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var packedInt32: [Int32] = []
+  var packedInt32: [Int32] = []
 
-  public var packedInt64: [Int64] = []
+  var packedInt64: [Int64] = []
 
-  public var packedUint32: [UInt32] = []
+  var packedUint32: [UInt32] = []
 
-  public var packedUint64: [UInt64] = []
+  var packedUint64: [UInt64] = []
 
-  public var packedSint32: [Int32] = []
+  var packedSint32: [Int32] = []
 
-  public var packedSint64: [Int64] = []
+  var packedSint64: [Int64] = []
 
-  public var packedFixed32: [UInt32] = []
+  var packedFixed32: [UInt32] = []
 
-  public var packedFixed64: [UInt64] = []
+  var packedFixed64: [UInt64] = []
 
-  public var packedSfixed32: [Int32] = []
+  var packedSfixed32: [Int32] = []
 
-  public var packedSfixed64: [Int64] = []
+  var packedSfixed64: [Int64] = []
 
-  public var packedFloat: [Float] = []
+  var packedFloat: [Float] = []
 
-  public var packedDouble: [Double] = []
+  var packedDouble: [Double] = []
 
-  public var packedBool: [Bool] = []
+  var packedBool: [Bool] = []
 
-  public var packedEnum: [ProtobufUnittest_ForeignEnumLite] = []
+  var packedEnum: [ProtobufUnittest_ForeignEnumLite] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2222,7 +2222,7 @@ struct ProtobufUnittest_TestAllExtensionsLite: ProtobufGeneratedMessage, Protobu
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     if (1 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -2277,7 +2277,7 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: ProtobufGeneratedMessage, 
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -2288,7 +2288,7 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: ProtobufGeneratedMessage, 
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2325,7 +2325,7 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: ProtobufGeneratedMessage, 
   public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -2336,7 +2336,7 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: ProtobufGeneratedMessage, 
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2368,7 +2368,7 @@ struct ProtobufUnittest_TestPackedExtensionsLite: ProtobufGeneratedMessage, Prot
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     if (1 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -2423,7 +2423,7 @@ struct ProtobufUnittest_TestNestedExtensionLite: ProtobufGeneratedMessage, Proto
     static let ProtobufUnittest_TestAllExtensionsLite_nestedExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(protoFieldNumber: 12345, protoFieldName: "nested_extension", jsonFieldName: "nestedExtension", swiftFieldName: "ProtobufUnittest_TestNestedExtensionLite_nestedExtension", defaultValue: 0)
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -2454,7 +2454,7 @@ struct ProtobufUnittest_TestDeprecatedLite: ProtobufGeneratedMessage, ProtobufPr
   public var unknown = ProtobufUnknownStorage()
 
   private var _deprecatedField: Int32? = nil
-  public var deprecatedField: Int32 {
+  var deprecatedField: Int32 {
     get {return _deprecatedField ?? 0}
     set {_deprecatedField = newValue}
   }
@@ -2465,7 +2465,7 @@ struct ProtobufUnittest_TestDeprecatedLite: ProtobufGeneratedMessage, ProtobufPr
     return _deprecatedField = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2662,7 +2662,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
         set {_storage.unknown = newValue}
       }
 
-      public var field1: ProtobufUnittest_TestAllTypesLite {
+      var field1: ProtobufUnittest_TestAllTypesLite {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypesLite()}
         set {_uniqueStorage()._field1 = newValue}
       }
@@ -2673,7 +2673,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
         return _storage._field1 = nil
       }
 
-      public init() {}
+      init() {}
 
       public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2748,7 +2748,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
         set {_storage.unknown = newValue}
       }
 
-      public var field1: ProtobufUnittest_TestAllTypesLite {
+      var field1: ProtobufUnittest_TestAllTypesLite {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypesLite()}
         set {_uniqueStorage()._field1 = newValue}
       }
@@ -2759,7 +2759,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
         return _storage._field1 = nil
       }
 
-      public init() {}
+      init() {}
 
       public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2781,21 +2781,21 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
       }
     }
 
-    public var field1: [ProtobufUnittest_TestAllTypesLite] = []
+    var field1: [ProtobufUnittest_TestAllTypesLite] = []
 
-    public var field2: [ProtobufUnittest_TestAllTypesLite] = []
+    var field2: [ProtobufUnittest_TestAllTypesLite] = []
 
-    public var field3: [ProtobufUnittest_TestAllTypesLite] = []
+    var field3: [ProtobufUnittest_TestAllTypesLite] = []
 
-    public var group1: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1] = []
+    var group1: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1] = []
 
-    public var group2: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2] = []
+    var group2: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2] = []
 
-    public var ext1: [ProtobufUnittest_TestAllTypesLite] = []
+    var ext1: [ProtobufUnittest_TestAllTypesLite] = []
 
-    public var ext2: [ProtobufUnittest_TestAllTypesLite] = []
+    var ext2: [ProtobufUnittest_TestAllTypesLite] = []
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -2901,7 +2901,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
       set {_storage.unknown = newValue}
     }
 
-    public var optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
+    var optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
       get {return _storage._optionalGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
       set {_uniqueStorage()._optionalGroupAllTypes = newValue}
     }
@@ -2912,7 +2912,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
       return _storage._optionalGroupAllTypes = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2987,7 +2987,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
       set {_storage.unknown = newValue}
     }
 
-    public var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
+    var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
       get {return _storage._repeatedGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
       set {_uniqueStorage()._repeatedGroupAllTypes = newValue}
     }
@@ -2998,7 +2998,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
       return _storage._repeatedGroupAllTypes = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -3027,7 +3027,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
     static let ProtobufUnittest_TestParsingMergeLite_repeatedExt = ProtobufGenericMessageExtension<ProtobufRepeatedMessageField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestParsingMergeLite>(protoFieldNumber: 1001, protoFieldName: "repeated_ext", jsonFieldName: "repeatedExt", swiftFieldName: "ProtobufUnittest_TestParsingMergeLite_repeatedExt", defaultValue: [])
   }
 
-  public var requiredAllTypes: ProtobufUnittest_TestAllTypesLite {
+  var requiredAllTypes: ProtobufUnittest_TestAllTypesLite {
     get {return _storage._requiredAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
     set {_uniqueStorage()._requiredAllTypes = newValue}
   }
@@ -3038,7 +3038,7 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
     return _storage._requiredAllTypes = nil
   }
 
-  public var optionalAllTypes: ProtobufUnittest_TestAllTypesLite {
+  var optionalAllTypes: ProtobufUnittest_TestAllTypesLite {
     get {return _storage._optionalAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
     set {_uniqueStorage()._optionalAllTypes = newValue}
   }
@@ -3049,12 +3049,12 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
     return _storage._optionalAllTypes = nil
   }
 
-  public var repeatedAllTypes: [ProtobufUnittest_TestAllTypesLite] {
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypesLite] {
     get {return _storage._repeatedAllTypes}
     set {_uniqueStorage()._repeatedAllTypes = newValue}
   }
 
-  public var optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup {
+  var optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup {
     get {return _storage._optionalGroup ?? ProtobufUnittest_TestParsingMergeLite.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
@@ -3065,12 +3065,12 @@ struct ProtobufUnittest_TestParsingMergeLite: ProtobufGeneratedMessage, Protobuf
     return _storage._optionalGroup = nil
   }
 
-  public var repeatedGroup: [ProtobufUnittest_TestParsingMergeLite.RepeatedGroup] {
+  var repeatedGroup: [ProtobufUnittest_TestParsingMergeLite.RepeatedGroup] {
     get {return _storage._repeatedGroup}
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -3118,7 +3118,7 @@ struct ProtobufUnittest_TestEmptyMessageLite: ProtobufGeneratedMessage, Protobuf
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
@@ -3144,7 +3144,7 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: ProtobufGeneratedMes
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     if (1 <= protoFieldNumber && protoFieldNumber < 536870912) {
@@ -3201,7 +3201,7 @@ struct ProtobufUnittest_V1MessageLite: ProtobufGeneratedMessage, ProtobufProto2M
   public var unknown = ProtobufUnknownStorage()
 
   private var _intField: Int32? = nil
-  public var intField: Int32 {
+  var intField: Int32 {
     get {return _intField ?? 0}
     set {_intField = newValue}
   }
@@ -3213,7 +3213,7 @@ struct ProtobufUnittest_V1MessageLite: ProtobufGeneratedMessage, ProtobufProto2M
   }
 
   private var _enumField: ProtobufUnittest_V1EnumLite? = nil
-  public var enumField: ProtobufUnittest_V1EnumLite {
+  var enumField: ProtobufUnittest_V1EnumLite {
     get {return _enumField ?? ProtobufUnittest_V1EnumLite.v1First}
     set {_enumField = newValue}
   }
@@ -3224,7 +3224,7 @@ struct ProtobufUnittest_V1MessageLite: ProtobufGeneratedMessage, ProtobufProto2M
     return _enumField = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -3266,7 +3266,7 @@ struct ProtobufUnittest_V2MessageLite: ProtobufGeneratedMessage, ProtobufProto2M
   public var unknown = ProtobufUnknownStorage()
 
   private var _intField: Int32? = nil
-  public var intField: Int32 {
+  var intField: Int32 {
     get {return _intField ?? 0}
     set {_intField = newValue}
   }
@@ -3278,7 +3278,7 @@ struct ProtobufUnittest_V2MessageLite: ProtobufGeneratedMessage, ProtobufProto2M
   }
 
   private var _enumField: ProtobufUnittest_V2EnumLite? = nil
-  public var enumField: ProtobufUnittest_V2EnumLite {
+  var enumField: ProtobufUnittest_V2EnumLite {
     get {return _enumField ?? ProtobufUnittest_V2EnumLite.v2First}
     set {_enumField = newValue}
   }
@@ -3289,7 +3289,7 @@ struct ProtobufUnittest_V2MessageLite: ProtobufGeneratedMessage, ProtobufProto2M
     return _enumField = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

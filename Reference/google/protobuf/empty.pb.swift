@@ -56,7 +56,7 @@ struct Google_Protobuf_Empty: ProtobufGeneratedMessage, ProtobufProto3Message {
   public var protoFieldNames: [String: Int] {return [:]}
 
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }

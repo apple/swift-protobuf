@@ -41,16 +41,16 @@ import SwiftProtobuf
 
 
 enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
 
-  public init() {
+  init() {
     self = .foo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .foo
     case 1: self = .bar
@@ -59,7 +59,7 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foo": self = .foo
     case "bar": self = .bar
@@ -68,7 +68,7 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "PROTO2_MAP_ENUM_FOO": self = .foo
     case "PROTO2_MAP_ENUM_BAR": self = .bar
@@ -77,7 +77,7 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "PROTO2_MAP_ENUM_FOO": self = .foo
     case "PROTO2_MAP_ENUM_BAR": self = .bar
@@ -86,7 +86,7 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foo: return 0
@@ -96,7 +96,7 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foo: return "\"PROTO2_MAP_ENUM_FOO\""
@@ -106,9 +106,9 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foo: return ".foo"
@@ -121,17 +121,17 @@ enum ProtobufUnittest_Proto2MapEnum: ProtobufEnum {
 }
 
 enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case eProto2MapEnumFoo // = 0
   case eProto2MapEnumBar // = 1
   case eProto2MapEnumBaz // = 2
   case eProto2MapEnumExtra // = 3
 
-  public init() {
+  init() {
     self = .eProto2MapEnumFoo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .eProto2MapEnumFoo
     case 1: self = .eProto2MapEnumBar
@@ -141,7 +141,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "eProto2MapEnumFoo": self = .eProto2MapEnumFoo
     case "eProto2MapEnumBar": self = .eProto2MapEnumBar
@@ -151,7 +151,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "E_PROTO2_MAP_ENUM_FOO": self = .eProto2MapEnumFoo
     case "E_PROTO2_MAP_ENUM_BAR": self = .eProto2MapEnumBar
@@ -161,7 +161,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "E_PROTO2_MAP_ENUM_FOO": self = .eProto2MapEnumFoo
     case "E_PROTO2_MAP_ENUM_BAR": self = .eProto2MapEnumBar
@@ -171,7 +171,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .eProto2MapEnumFoo: return 0
@@ -182,7 +182,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .eProto2MapEnumFoo: return "\"E_PROTO2_MAP_ENUM_FOO\""
@@ -193,9 +193,9 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .eProto2MapEnumFoo: return ".eProto2MapEnumFoo"
@@ -223,11 +223,11 @@ struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Mes
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
+  var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
-  public var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
+  var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -270,11 +270,11 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, Protobuf
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
+  var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
-  public var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
+  var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -315,9 +315,9 @@ struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage, ProtobufPro
 
   public var unknown = ProtobufUnknownStorage()
 
-  public var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
+  var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

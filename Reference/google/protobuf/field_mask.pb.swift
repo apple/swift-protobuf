@@ -253,9 +253,9 @@ struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage, ProtobufProto3Messag
 
 
   ///   The set of field mask paths.
-  public var paths: [String] = []
+  var paths: [String] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

@@ -56,7 +56,7 @@ struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, Protob
 
   public var unknown = ProtobufUnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     if (4 <= protoFieldNumber && protoFieldNumber < 2147483647) {
@@ -150,7 +150,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGener
     set {_storage.unknown = newValue}
   }
 
-  public var messageSet: Proto2WireformatUnittest_TestMessageSet {
+  var messageSet: Proto2WireformatUnittest_TestMessageSet {
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
   }
@@ -161,7 +161,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGener
     return _storage._messageSet = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

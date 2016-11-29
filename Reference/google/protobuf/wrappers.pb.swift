@@ -60,9 +60,9 @@ struct Google_Protobuf_DoubleValue: ProtobufGeneratedMessage, ProtobufProto3Mess
 
 
   ///   The double value.
-  public var value: Double = 0
+  var value: Double = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -99,9 +99,9 @@ struct Google_Protobuf_FloatValue: ProtobufGeneratedMessage, ProtobufProto3Messa
 
 
   ///   The float value.
-  public var value: Float = 0
+  var value: Float = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -138,9 +138,9 @@ struct Google_Protobuf_Int64Value: ProtobufGeneratedMessage, ProtobufProto3Messa
 
 
   ///   The int64 value.
-  public var value: Int64 = 0
+  var value: Int64 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -177,9 +177,9 @@ struct Google_Protobuf_UInt64Value: ProtobufGeneratedMessage, ProtobufProto3Mess
 
 
   ///   The uint64 value.
-  public var value: UInt64 = 0
+  var value: UInt64 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -216,9 +216,9 @@ struct Google_Protobuf_Int32Value: ProtobufGeneratedMessage, ProtobufProto3Messa
 
 
   ///   The int32 value.
-  public var value: Int32 = 0
+  var value: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -255,9 +255,9 @@ struct Google_Protobuf_UInt32Value: ProtobufGeneratedMessage, ProtobufProto3Mess
 
 
   ///   The uint32 value.
-  public var value: UInt32 = 0
+  var value: UInt32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -294,9 +294,9 @@ struct Google_Protobuf_BoolValue: ProtobufGeneratedMessage, ProtobufProto3Messag
 
 
   ///   The bool value.
-  public var value: Bool = false
+  var value: Bool = false
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -333,9 +333,9 @@ struct Google_Protobuf_StringValue: ProtobufGeneratedMessage, ProtobufProto3Mess
 
 
   ///   The string value.
-  public var value: String = ""
+  var value: String = ""
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -372,9 +372,9 @@ struct Google_Protobuf_BytesValue: ProtobufGeneratedMessage, ProtobufProto3Messa
 
 
   ///   The bytes value.
-  public var value: Data = Data()
+  var value: Data = Data()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

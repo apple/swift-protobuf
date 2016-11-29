@@ -45,16 +45,16 @@ import SwiftProtobuf
 
 
 enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case importLiteFoo // = 7
   case importLiteBar // = 8
   case importLiteBaz // = 9
 
-  public init() {
+  init() {
     self = .importLiteFoo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 7: self = .importLiteFoo
     case 8: self = .importLiteBar
@@ -63,7 +63,7 @@ enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "importLiteFoo": self = .importLiteFoo
     case "importLiteBar": self = .importLiteBar
@@ -72,7 +72,7 @@ enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_LITE_FOO": self = .importLiteFoo
     case "IMPORT_LITE_BAR": self = .importLiteBar
@@ -81,7 +81,7 @@ enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "IMPORT_LITE_FOO": self = .importLiteFoo
     case "IMPORT_LITE_BAR": self = .importLiteBar
@@ -90,7 +90,7 @@ enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .importLiteFoo: return 7
@@ -100,7 +100,7 @@ enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .importLiteFoo: return "\"IMPORT_LITE_FOO\""
@@ -110,9 +110,9 @@ enum ProtobufUnittestImport_ImportEnumLite: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .importLiteFoo: return ".importLiteFoo"
@@ -138,7 +138,7 @@ struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage, Proto
   public var unknown = ProtobufUnknownStorage()
 
   private var _d: Int32? = nil
-  public var d: Int32 {
+  var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
   }
@@ -149,7 +149,7 @@ struct ProtobufUnittestImport_ImportMessageLite: ProtobufGeneratedMessage, Proto
     return _d = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

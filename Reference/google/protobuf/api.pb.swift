@@ -141,19 +141,19 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   ///   The fully qualified name of this api, including package name
   ///   followed by the api's simple name.
-  public var name: String {
+  var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
   ///   The methods of this api, in unspecified order.
-  public var methods: [Google_Protobuf_Method] {
+  var methods: [Google_Protobuf_Method] {
     get {return _storage._methods}
     set {_uniqueStorage()._methods = newValue}
   }
 
   ///   Any metadata attached to the API.
-  public var options: [Google_Protobuf_Option] {
+  var options: [Google_Protobuf_Option] {
     get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
@@ -178,14 +178,14 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message {
   ///   `google.feature.v1`. For major versions 0 and 1, the suffix can
   ///   be omitted. Zero major versions must only be used for
   ///   experimental, none-GA apis.
-  public var version: String {
+  var version: String {
     get {return _storage._version}
     set {_uniqueStorage()._version = newValue}
   }
 
   ///   Source context for the protocol buffer service represented by this
   ///   message.
-  public var sourceContext: Google_Protobuf_SourceContext {
+  var sourceContext: Google_Protobuf_SourceContext {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
@@ -197,18 +197,18 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message {
   }
 
   ///   Included APIs. See [Mixin][].
-  public var mixins: [Google_Protobuf_Mixin] {
+  var mixins: [Google_Protobuf_Mixin] {
     get {return _storage._mixins}
     set {_uniqueStorage()._mixins = newValue}
   }
 
   ///   The source syntax of the service.
-  public var syntax: Google_Protobuf_Syntax {
+  var syntax: Google_Protobuf_Syntax {
     get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -256,27 +256,27 @@ struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Message {
 
 
   ///   The simple name of this method.
-  public var name: String = ""
+  var name: String = ""
 
   ///   A URL of the input message type.
-  public var requestTypeURL: String = ""
+  var requestTypeURL: String = ""
 
   ///   If true, the request is streamed.
-  public var requestStreaming: Bool = false
+  var requestStreaming: Bool = false
 
   ///   The URL of the output message type.
-  public var responseTypeURL: String = ""
+  var responseTypeURL: String = ""
 
   ///   If true, the response is streamed.
-  public var responseStreaming: Bool = false
+  var responseStreaming: Bool = false
 
   ///   Any metadata attached to the method.
-  public var options: [Google_Protobuf_Option] = []
+  var options: [Google_Protobuf_Option] = []
 
   ///   The source syntax of this method.
-  public var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+  var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -419,13 +419,13 @@ struct Google_Protobuf_Mixin: ProtobufGeneratedMessage, ProtobufProto3Message {
 
 
   ///   The fully qualified name of the API which is included.
-  public var name: String = ""
+  var name: String = ""
 
   ///   If non-empty specifies a path under which inherited HTTP paths
   ///   are rooted.
-  public var root: String = ""
+  var root: String = ""
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

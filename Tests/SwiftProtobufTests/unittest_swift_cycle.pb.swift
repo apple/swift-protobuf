@@ -118,7 +118,7 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
     set {_storage.unknown = newValue}
   }
 
-  public var aFoo: ProtobufUnittest_CycleFoo {
+  var aFoo: ProtobufUnittest_CycleFoo {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
@@ -129,7 +129,7 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aFoo = nil
   }
 
-  public var aBar: ProtobufUnittest_CycleBar {
+  var aBar: ProtobufUnittest_CycleBar {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
@@ -140,7 +140,7 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aBar = nil
   }
 
-  public var aBaz: ProtobufUnittest_CycleBaz {
+  var aBaz: ProtobufUnittest_CycleBaz {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
@@ -151,7 +151,7 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aBaz = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -244,7 +244,7 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
     set {_storage.unknown = newValue}
   }
 
-  public var aBar: ProtobufUnittest_CycleBar {
+  var aBar: ProtobufUnittest_CycleBar {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
@@ -255,7 +255,7 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aBar = nil
   }
 
-  public var aBaz: ProtobufUnittest_CycleBaz {
+  var aBaz: ProtobufUnittest_CycleBaz {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
@@ -266,7 +266,7 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aBaz = nil
   }
 
-  public var aFoo: ProtobufUnittest_CycleFoo {
+  var aFoo: ProtobufUnittest_CycleFoo {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
@@ -277,7 +277,7 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aFoo = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -370,7 +370,7 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
     set {_storage.unknown = newValue}
   }
 
-  public var aBaz: ProtobufUnittest_CycleBaz {
+  var aBaz: ProtobufUnittest_CycleBaz {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
@@ -381,7 +381,7 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aBaz = nil
   }
 
-  public var aFoo: ProtobufUnittest_CycleFoo {
+  var aFoo: ProtobufUnittest_CycleFoo {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
@@ -392,7 +392,7 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aFoo = nil
   }
 
-  public var aBar: ProtobufUnittest_CycleBar {
+  var aBar: ProtobufUnittest_CycleBar {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
@@ -403,7 +403,7 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
     return _storage._aBar = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

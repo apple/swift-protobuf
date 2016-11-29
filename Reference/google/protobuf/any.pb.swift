@@ -143,12 +143,12 @@ struct Google_Protobuf_Any: ProtobufGeneratedMessage, ProtobufProto3Message {
   ///  
   ///   Schemes other than `http`, `https` (or the empty scheme) might be
   ///   used with implementation specific semantics.
-  public var typeURL: String = ""
+  var typeURL: String = ""
 
   ///   Must be a valid serialized protocol buffer of the above specified type.
-  public var value: Data = Data()
+  var value: Data = Data()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
