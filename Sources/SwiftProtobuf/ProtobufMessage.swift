@@ -137,7 +137,7 @@ public extension ProtobufMessageBase {
 /// This is used directly by hand-coded message implementations.
 ///
 public protocol ProtobufMessage:
-  ProtobufMessageBase, ProtobufBinaryMessageBase, ProtobufJSONMessageBase,
+  ProtobufMessageBase, ProtobufBinaryMessageBase, ProtobufJSONMessageBase, ProtobufTextMessageBase,
   CustomReflectable {}
 
 public protocol ProtobufAbstractMessage:

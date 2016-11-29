@@ -57,13 +57,13 @@ public extension ProtobufTypePropertiesBase where BaseType: Hashable {
 }
 
 
-public protocol ProtobufTypeProperties: ProtobufJSONCodableType, ProtobufBinaryCodableType {
+public protocol ProtobufTypeProperties: ProtobufJSONCodableType, ProtobufTextCodableType, ProtobufBinaryCodableType {
 }
 
 ///
 /// Protocol for types that can be used as map keys
 ///
-public protocol ProtobufMapKeyType: ProtobufJSONCodableMapKeyType, ProtobufBinaryCodableMapKeyType {
+public protocol ProtobufMapKeyType: ProtobufJSONCodableMapKeyType, ProtobufTextCodableMapKeyType, ProtobufBinaryCodableMapKeyType {
 }
 
 ///
