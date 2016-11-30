@@ -46,22 +46,16 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage {
+struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestOptimizedForSize"}
   public var protoMessageName: String {return "TestOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "i": 1,
-    "msg": 19,
-    "integerField": 2,
-    "stringField": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "i": 1,
-    "msg": 19,
-    "integer_field": 2,
-    "string_field": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "i", swift: "i"),
+    19: .same(proto: "msg", swift: "msg"),
+    2: .unique(proto: "integer_field", json: "integerField", swift: "integerField"),
+    3: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
+  ]
 
   private class _StorageClass: ProtobufExtensibleMessageStorage {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestOptimizedForSize
@@ -86,11 +80,11 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _i {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "i", jsonFieldName: "i", swiftFieldName: "i")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
       }
       try _foo.traverse(visitor: &visitor, start: 2, end: 4)
       if let v = _msg {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 19, protoFieldName: "msg", jsonFieldName: "msg", swiftFieldName: "msg")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 19)
       }
       try extensionFieldValues.traverse(visitor: &visitor, start: 1000, end: 536870912)
       unknown.traverse(visitor: &visitor)
@@ -162,11 +156,11 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
       switch self {
       case .integerField(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 2, protoFieldName: "integer_field", jsonFieldName: "integerField", swiftFieldName: "integerField")
+          try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 2)
         }
       case .stringField(let v):
         if start <= 3 && 3 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3, protoFieldName: "string_field", jsonFieldName: "stringField", swiftFieldName: "stringField")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3)
         }
       case .None:
         break
@@ -176,9 +170,9 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
 
   struct Extensions {
 
-    static let ProtobufUnittest_TestOptimizedForSize_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1234, protoFieldName: "test_extension", jsonFieldName: "testExtension", swiftFieldName: "ProtobufUnittest_TestOptimizedForSize_testExtension", defaultValue: 0)
+    static let ProtobufUnittest_TestOptimizedForSize_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1234, fieldNames: .unique(proto: "test_extension", json: "testExtension", swift: "ProtobufUnittest_TestOptimizedForSize_testExtension"), defaultValue: 0)
 
-    static let ProtobufUnittest_TestOptimizedForSize_testExtension2 = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1235, protoFieldName: "test_extension2", jsonFieldName: "testExtension2", swiftFieldName: "ProtobufUnittest_TestOptimizedForSize_testExtension2", defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize())
+    static let ProtobufUnittest_TestOptimizedForSize_testExtension2 = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(protoFieldNumber: 1235, fieldNames: .unique(proto: "test_extension2", json: "testExtension2", swift: "ProtobufUnittest_TestOptimizedForSize_testExtension2"), defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize())
   }
 
   var i: Int32 {
@@ -270,18 +264,18 @@ struct ProtobufUnittest_TestOptimizedForSize: ProtobufGeneratedMessage, Protobuf
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> Bool {
     return _storage.hasExtensionValue(ext: ext)
   }
+  public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
+    return ProtobufUnittest_TestOptimizedForSize._protobuf_fieldNames.fieldNames(withNumber: number) ?? _storage.extensionFieldValues.fieldNames(withNumber: number)
+  }
 }
 
-struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredOptimizedForSize"}
   public var protoMessageName: String {return "TestRequiredOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "x": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "x": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "x", swift: "x"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -307,7 +301,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMessage, 
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _x ?? 0, protoFieldNumber: 1, protoFieldName: "x", jsonFieldName: "x", swiftFieldName: "x")
+    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _x ?? 0, protoFieldNumber: 1)
     unknown.traverse(visitor: &visitor)
   }
 
@@ -318,16 +312,13 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: ProtobufGeneratedMessage, 
   }
 }
 
-struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestOptionalOptimizedForSize"}
   public var protoMessageName: String {return "TestOptionalOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "o": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "o": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "o", swift: "o"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestOptionalOptimizedForSize
@@ -345,7 +336,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: ProtobufGeneratedMessage, 
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _o {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "o", jsonFieldName: "o", swiftFieldName: "o")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       unknown.traverse(visitor: &visitor)
     }

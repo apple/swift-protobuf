@@ -1837,430 +1837,220 @@ enum SwiftUnittest_Names_EnumFieldNames2: ProtobufEnum {
 //  TODO: Build a MessageNames message with a submessage of every name below
 //  TODO: Create tests that access every field, enum, message to verify the name is generated correctly
 
-struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "SwiftUnittest_Names_FieldNames"}
   public var protoMessageName: String {return "FieldNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
-  public var jsonFieldNames: [String: Int] {return [
-    "String": 1,
-    "Int": 2,
-    "Double": 3,
-    "Float": 4,
-    "UInt": 5,
-    "hashValue": 6,
-    "description": 7,
-    "debugDescription": 8,
-    "Swift": 9,
-    "UNRECOGNIZED": 10,
-    "class": 11,
-    "deinit": 12,
-    "enum": 13,
-    "extension": 14,
-    "func": 15,
-    "import": 16,
-    "init": 17,
-    "inout": 18,
-    "internal": 19,
-    "let": 20,
-    "operator": 21,
-    "private": 22,
-    "protocol": 23,
-    "public": 24,
-    "static": 25,
-    "struct": 26,
-    "subscript": 27,
-    "typealias": 28,
-    "var": 29,
-    "break": 30,
-    "case": 31,
-    "continue": 32,
-    "default": 33,
-    "defer": 34,
-    "do": 35,
-    "else": 36,
-    "fallthrough": 37,
-    "for": 38,
-    "guard": 39,
-    "if": 40,
-    "in": 41,
-    "repeat": 42,
-    "return": 43,
-    "switch": 44,
-    "where": 45,
-    "while": 46,
-    "as": 47,
-    "catch": 48,
-    "dynamicType": 49,
-    "false": 50,
-    "is": 51,
-    "nil": 52,
-    "rethrows": 53,
-    "super": 54,
-    "self": 55,
-    "throw": 57,
-    "throws": 58,
-    "true": 59,
-    "try": 60,
-    "COLUMN": 61,
-    "FILE": 62,
-    "FUNCTION": 63,
-    "LINE": 64,
-    "": 65,
-    "associativity": 66,
-    "convenience": 67,
-    "dynamic": 68,
-    "didSet": 69,
-    "final": 70,
-    "get": 71,
-    "infix": 72,
-    "indirect": 73,
-    "lazy": 74,
-    "left": 75,
-    "mutating": 76,
-    "none": 77,
-    "nonmutating": 78,
-    "optional": 79,
-    "override": 80,
-    "postfix": 81,
-    "precedence": 82,
-    "prefix": 83,
-    "required": 85,
-    "right": 86,
-    "set": 87,
-    "Type": 88,
-    "unowned": 89,
-    "weak": 90,
-    "willSet": 91,
-    "id": 92,
-    "Cmd": 93,
-    "out": 96,
-    "bycopy": 98,
-    "byref": 99,
-    "oneway": 100,
-    "and": 102,
-    "andEq": 103,
-    "alignas": 104,
-    "alignof": 105,
-    "asm": 106,
-    "auto": 107,
-    "bitand": 108,
-    "bitor": 109,
-    "bool": 110,
-    "char": 114,
-    "char16T": 115,
-    "char32T": 116,
-    "compl": 118,
-    "const": 119,
-    "constexpr": 120,
-    "constCast": 121,
-    "decltype": 123,
-    "delete": 125,
-    "dynamicCast": 127,
-    "explicit": 130,
-    "export": 131,
-    "extern": 132,
-    "friend": 136,
-    "goto": 137,
-    "inline": 139,
-    "long": 141,
-    "mutable": 142,
-    "namespace": 143,
-    "new": 144,
-    "noexcept": 145,
-    "not": 146,
-    "notEq": 147,
-    "nullptr": 148,
-    "or": 150,
-    "orEq": 151,
-    "protected": 153,
-    "register": 155,
-    "reinterpretCast": 156,
-    "short": 158,
-    "signed": 159,
-    "sizeof": 160,
-    "staticAssert": 162,
-    "staticCast": 163,
-    "template": 166,
-    "this": 167,
-    "threadLocal": 168,
-    "typedef": 172,
-    "typeid": 173,
-    "typename": 174,
-    "union": 175,
-    "unsigned": 176,
-    "using": 177,
-    "virtual": 178,
-    "void": 179,
-    "volatile": 180,
-    "wcharT": 181,
-    "xor": 183,
-    "xorEq": 184,
-    "restrict": 185,
-    "Category": 186,
-    "Ivar": 187,
-    "Method": 188,
-    "finalize": 192,
-    "hash": 193,
-    "dealloc": 194,
-    "superclass": 197,
-    "retain": 198,
-    "release": 199,
-    "autorelease": 200,
-    "retainCount": 201,
-    "zone": 202,
-    "isProxy": 203,
-    "copy": 204,
-    "mutableCopy": 205,
-    "classForCoder": 206,
-    "clear": 207,
-    "data": 208,
-    "delimitedData": 209,
-    "descriptor": 210,
-    "extensionRegistry": 211,
-    "extensionsCurrentlySet": 212,
-    "isInitialized": 213,
-    "serializedSize": 214,
-    "sortedExtensionsInUse": 215,
-    "unknownFields": 216,
-    "Fixed": 217,
-    "Fract": 218,
-    "Size": 219,
-    "LogicalAddress": 220,
-    "PhysicalAddress": 221,
-    "ByteCount": 222,
-    "ByteOffset": 223,
-    "Duration": 224,
-    "AbsoluteTime": 225,
-    "OptionBits": 226,
-    "ItemCount": 227,
-    "PBVersion": 228,
-    "ScriptCode": 229,
-    "LangCode": 230,
-    "RegionCode": 231,
-    "OSType": 232,
-    "ProcessSerialNumber": 233,
-    "Point": 234,
-    "Rect": 235,
-    "FixedPoint": 236,
-    "FixedRect": 237,
-    "Style": 238,
-    "StyleParameter": 239,
-    "StyleField": 240,
-    "TimeScale": 241,
-    "TimeBase": 242,
-    "TimeRecord": 243,
-    "json_was_overridden": 244,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "String": 1,
-    "Int": 2,
-    "Double": 3,
-    "Float": 4,
-    "UInt": 5,
-    "hashValue": 6,
-    "description": 7,
-    "debugDescription": 8,
-    "Swift": 9,
-    "UNRECOGNIZED": 10,
-    "class": 11,
-    "deinit": 12,
-    "enum": 13,
-    "extension": 14,
-    "func": 15,
-    "import": 16,
-    "init": 17,
-    "inout": 18,
-    "internal": 19,
-    "let": 20,
-    "operator": 21,
-    "private": 22,
-    "protocol": 23,
-    "public": 24,
-    "static": 25,
-    "struct": 26,
-    "subscript": 27,
-    "typealias": 28,
-    "var": 29,
-    "break": 30,
-    "case": 31,
-    "continue": 32,
-    "default": 33,
-    "defer": 34,
-    "do": 35,
-    "else": 36,
-    "fallthrough": 37,
-    "for": 38,
-    "guard": 39,
-    "if": 40,
-    "in": 41,
-    "repeat": 42,
-    "return": 43,
-    "switch": 44,
-    "where": 45,
-    "while": 46,
-    "as": 47,
-    "catch": 48,
-    "dynamicType": 49,
-    "false": 50,
-    "is": 51,
-    "nil": 52,
-    "rethrows": 53,
-    "super": 54,
-    "self": 55,
-    "throw": 57,
-    "throws": 58,
-    "true": 59,
-    "try": 60,
-    "__COLUMN__": 61,
-    "__FILE__": 62,
-    "__FUNCTION__": 63,
-    "__LINE__": 64,
-    "_": 65,
-    "associativity": 66,
-    "convenience": 67,
-    "dynamic": 68,
-    "didSet": 69,
-    "final": 70,
-    "get": 71,
-    "infix": 72,
-    "indirect": 73,
-    "lazy": 74,
-    "left": 75,
-    "mutating": 76,
-    "none": 77,
-    "nonmutating": 78,
-    "optional": 79,
-    "override": 80,
-    "postfix": 81,
-    "precedence": 82,
-    "prefix": 83,
-    "required": 85,
-    "right": 86,
-    "set": 87,
-    "Type": 88,
-    "unowned": 89,
-    "weak": 90,
-    "willSet": 91,
-    "id": 92,
-    "_cmd": 93,
-    "out": 96,
-    "bycopy": 98,
-    "byref": 99,
-    "oneway": 100,
-    "and": 102,
-    "and_eq": 103,
-    "alignas": 104,
-    "alignof": 105,
-    "asm": 106,
-    "auto": 107,
-    "bitand": 108,
-    "bitor": 109,
-    "bool": 110,
-    "char": 114,
-    "char16_t": 115,
-    "char32_t": 116,
-    "compl": 118,
-    "const": 119,
-    "constexpr": 120,
-    "const_cast": 121,
-    "decltype": 123,
-    "delete": 125,
-    "dynamic_cast": 127,
-    "explicit": 130,
-    "export": 131,
-    "extern": 132,
-    "friend": 136,
-    "goto": 137,
-    "inline": 139,
-    "long": 141,
-    "mutable": 142,
-    "namespace": 143,
-    "new": 144,
-    "noexcept": 145,
-    "not": 146,
-    "not_eq": 147,
-    "nullptr": 148,
-    "or": 150,
-    "or_eq": 151,
-    "protected": 153,
-    "register": 155,
-    "reinterpret_cast": 156,
-    "short": 158,
-    "signed": 159,
-    "sizeof": 160,
-    "static_assert": 162,
-    "static_cast": 163,
-    "template": 166,
-    "this": 167,
-    "thread_local": 168,
-    "typedef": 172,
-    "typeid": 173,
-    "typename": 174,
-    "union": 175,
-    "unsigned": 176,
-    "using": 177,
-    "virtual": 178,
-    "void": 179,
-    "volatile": 180,
-    "wchar_t": 181,
-    "xor": 183,
-    "xor_eq": 184,
-    "restrict": 185,
-    "Category": 186,
-    "Ivar": 187,
-    "Method": 188,
-    "finalize": 192,
-    "hash": 193,
-    "dealloc": 194,
-    "superclass": 197,
-    "retain": 198,
-    "release": 199,
-    "autorelease": 200,
-    "retainCount": 201,
-    "zone": 202,
-    "isProxy": 203,
-    "copy": 204,
-    "mutableCopy": 205,
-    "classForCoder": 206,
-    "clear": 207,
-    "data": 208,
-    "delimitedData": 209,
-    "descriptor": 210,
-    "extensionRegistry": 211,
-    "extensionsCurrentlySet": 212,
-    "isInitialized": 213,
-    "serializedSize": 214,
-    "sortedExtensionsInUse": 215,
-    "unknownFields": 216,
-    "Fixed": 217,
-    "Fract": 218,
-    "Size": 219,
-    "LogicalAddress": 220,
-    "PhysicalAddress": 221,
-    "ByteCount": 222,
-    "ByteOffset": 223,
-    "Duration": 224,
-    "AbsoluteTime": 225,
-    "OptionBits": 226,
-    "ItemCount": 227,
-    "PBVersion": 228,
-    "ScriptCode": 229,
-    "LangCode": 230,
-    "RegionCode": 231,
-    "OSType": 232,
-    "ProcessSerialNumber": 233,
-    "Point": 234,
-    "Rect": 235,
-    "FixedPoint": 236,
-    "FixedRect": 237,
-    "Style": 238,
-    "StyleParameter": 239,
-    "StyleField": 240,
-    "TimeScale": 241,
-    "TimeBase": 242,
-    "TimeRecord": 243,
-    "json_should_be_overriden": 244,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "String", swift: "string"),
+    2: .same(proto: "Int", swift: "int"),
+    3: .same(proto: "Double", swift: "double"),
+    4: .same(proto: "Float", swift: "float"),
+    5: .same(proto: "UInt", swift: "uint"),
+    6: .same(proto: "hashValue", swift: "hashValue_p"),
+    7: .same(proto: "description", swift: "description_p"),
+    8: .same(proto: "debugDescription", swift: "debugDescription_p"),
+    9: .same(proto: "Swift", swift: "swift"),
+    10: .same(proto: "UNRECOGNIZED", swift: "unrecognized"),
+    11: .same(proto: "class", swift: "class_p"),
+    12: .same(proto: "deinit", swift: "deinit_p"),
+    13: .same(proto: "enum", swift: "enum_p"),
+    14: .same(proto: "extension", swift: "extension_p"),
+    15: .same(proto: "func", swift: "func_p"),
+    16: .same(proto: "import", swift: "import_p"),
+    17: .same(proto: "init", swift: "init_p"),
+    18: .same(proto: "inout", swift: "inout_p"),
+    19: .same(proto: "internal", swift: "internal_p"),
+    20: .same(proto: "let", swift: "let_p"),
+    21: .same(proto: "operator", swift: "operator_p"),
+    22: .same(proto: "private", swift: "private_p"),
+    23: .same(proto: "protocol", swift: "protocol_p"),
+    24: .same(proto: "public", swift: "public_p"),
+    25: .same(proto: "static", swift: "static_p"),
+    26: .same(proto: "struct", swift: "struct_p"),
+    27: .same(proto: "subscript", swift: "subscript_p"),
+    28: .same(proto: "typealias", swift: "typealias_p"),
+    29: .same(proto: "var", swift: "var_p"),
+    30: .same(proto: "break", swift: "break_p"),
+    31: .same(proto: "case", swift: "case_p"),
+    32: .same(proto: "continue", swift: "continue_p"),
+    33: .same(proto: "default", swift: "default_p"),
+    34: .same(proto: "defer", swift: "defer_p"),
+    35: .same(proto: "do", swift: "do_p"),
+    36: .same(proto: "else", swift: "else_p"),
+    37: .same(proto: "fallthrough", swift: "fallthrough_p"),
+    38: .same(proto: "for", swift: "for_p"),
+    39: .same(proto: "guard", swift: "guard_p"),
+    40: .same(proto: "if", swift: "if_p"),
+    41: .same(proto: "in", swift: "in_p"),
+    42: .same(proto: "repeat", swift: "repeat_p"),
+    43: .same(proto: "return", swift: "return_p"),
+    44: .same(proto: "switch", swift: "switch_p"),
+    45: .same(proto: "where", swift: "where_p"),
+    46: .same(proto: "while", swift: "while_p"),
+    47: .same(proto: "as", swift: "as_p"),
+    48: .same(proto: "catch", swift: "catch_p"),
+    49: .same(proto: "dynamicType", swift: "dynamicType_p"),
+    50: .same(proto: "false", swift: "false_p"),
+    51: .same(proto: "is", swift: "is_p"),
+    52: .same(proto: "nil", swift: "nil_p"),
+    53: .same(proto: "rethrows", swift: "rethrows_p"),
+    54: .same(proto: "super", swift: "super_p"),
+    55: .same(proto: "self", swift: "self_p"),
+    57: .same(proto: "throw", swift: "throw_p"),
+    58: .same(proto: "throws", swift: "throws_p"),
+    59: .same(proto: "true", swift: "true_p"),
+    60: .same(proto: "try", swift: "try_p"),
+    61: .unique(proto: "__COLUMN__", json: "COLUMN", swift: "_Column__"),
+    62: .unique(proto: "__FILE__", json: "FILE", swift: "_File__"),
+    63: .unique(proto: "__FUNCTION__", json: "FUNCTION", swift: "_Function__"),
+    64: .unique(proto: "__LINE__", json: "LINE", swift: "_Line__"),
+    65: .unique(proto: "_", json: "", swift: "___"),
+    66: .same(proto: "associativity", swift: "associativity"),
+    67: .same(proto: "convenience", swift: "convenience"),
+    68: .same(proto: "dynamic", swift: "dynamic"),
+    69: .same(proto: "didSet", swift: "didSet"),
+    70: .same(proto: "final", swift: "final"),
+    71: .same(proto: "get", swift: "get"),
+    72: .same(proto: "infix", swift: "infix"),
+    73: .same(proto: "indirect", swift: "indirect"),
+    74: .same(proto: "lazy", swift: "lazy"),
+    75: .same(proto: "left", swift: "left"),
+    76: .same(proto: "mutating", swift: "mutating"),
+    77: .same(proto: "none", swift: "none"),
+    78: .same(proto: "nonmutating", swift: "nonmutating"),
+    79: .same(proto: "optional", swift: "optional"),
+    80: .same(proto: "override", swift: "override"),
+    81: .same(proto: "postfix", swift: "postfix"),
+    82: .same(proto: "precedence", swift: "precedence"),
+    83: .same(proto: "prefix", swift: "prefix"),
+    85: .same(proto: "required", swift: "required"),
+    86: .same(proto: "right", swift: "right"),
+    87: .same(proto: "set", swift: "set"),
+    88: .same(proto: "Type", swift: "type"),
+    89: .same(proto: "unowned", swift: "unowned"),
+    90: .same(proto: "weak", swift: "weak"),
+    91: .same(proto: "willSet", swift: "willSet"),
+    92: .same(proto: "id", swift: "id"),
+    93: .unique(proto: "_cmd", json: "Cmd", swift: "cmd"),
+    96: .same(proto: "out", swift: "out"),
+    98: .same(proto: "bycopy", swift: "bycopy"),
+    99: .same(proto: "byref", swift: "byref"),
+    100: .same(proto: "oneway", swift: "oneway"),
+    102: .same(proto: "and", swift: "and"),
+    103: .unique(proto: "and_eq", json: "andEq", swift: "andEq"),
+    104: .same(proto: "alignas", swift: "alignas"),
+    105: .same(proto: "alignof", swift: "alignof"),
+    106: .same(proto: "asm", swift: "asm"),
+    107: .same(proto: "auto", swift: "auto"),
+    108: .same(proto: "bitand", swift: "bitand"),
+    109: .same(proto: "bitor", swift: "bitor"),
+    110: .same(proto: "bool", swift: "bool"),
+    114: .same(proto: "char", swift: "char"),
+    115: .unique(proto: "char16_t", json: "char16T", swift: "char16T"),
+    116: .unique(proto: "char32_t", json: "char32T", swift: "char32T"),
+    118: .same(proto: "compl", swift: "compl"),
+    119: .same(proto: "const", swift: "const"),
+    120: .same(proto: "constexpr", swift: "constexpr"),
+    121: .unique(proto: "const_cast", json: "constCast", swift: "constCast"),
+    123: .same(proto: "decltype", swift: "decltype"),
+    125: .same(proto: "delete", swift: "delete"),
+    127: .unique(proto: "dynamic_cast", json: "dynamicCast", swift: "dynamicCast"),
+    130: .same(proto: "explicit", swift: "explicit"),
+    131: .same(proto: "export", swift: "export"),
+    132: .same(proto: "extern", swift: "extern"),
+    136: .same(proto: "friend", swift: "friend"),
+    137: .same(proto: "goto", swift: "goto"),
+    139: .same(proto: "inline", swift: "inline"),
+    141: .same(proto: "long", swift: "long"),
+    142: .same(proto: "mutable", swift: "mutable"),
+    143: .same(proto: "namespace", swift: "namespace"),
+    144: .same(proto: "new", swift: "new"),
+    145: .same(proto: "noexcept", swift: "noexcept"),
+    146: .same(proto: "not", swift: "not"),
+    147: .unique(proto: "not_eq", json: "notEq", swift: "notEq"),
+    148: .same(proto: "nullptr", swift: "nullptr"),
+    150: .same(proto: "or", swift: "or"),
+    151: .unique(proto: "or_eq", json: "orEq", swift: "orEq"),
+    153: .same(proto: "protected", swift: "protected"),
+    155: .same(proto: "register", swift: "register"),
+    156: .unique(proto: "reinterpret_cast", json: "reinterpretCast", swift: "reinterpretCast"),
+    158: .same(proto: "short", swift: "short"),
+    159: .same(proto: "signed", swift: "signed"),
+    160: .same(proto: "sizeof", swift: "sizeof"),
+    162: .unique(proto: "static_assert", json: "staticAssert", swift: "staticAssert"),
+    163: .unique(proto: "static_cast", json: "staticCast", swift: "staticCast"),
+    166: .same(proto: "template", swift: "template"),
+    167: .same(proto: "this", swift: "this"),
+    168: .unique(proto: "thread_local", json: "threadLocal", swift: "threadLocal"),
+    172: .same(proto: "typedef", swift: "typedef"),
+    173: .same(proto: "typeid", swift: "typeid"),
+    174: .same(proto: "typename", swift: "typename"),
+    175: .same(proto: "union", swift: "union"),
+    176: .same(proto: "unsigned", swift: "unsigned"),
+    177: .same(proto: "using", swift: "using"),
+    178: .same(proto: "virtual", swift: "virtual"),
+    179: .same(proto: "void", swift: "void"),
+    180: .same(proto: "volatile", swift: "volatile"),
+    181: .unique(proto: "wchar_t", json: "wcharT", swift: "wcharT"),
+    183: .same(proto: "xor", swift: "xor"),
+    184: .unique(proto: "xor_eq", json: "xorEq", swift: "xorEq"),
+    185: .same(proto: "restrict", swift: "restrict"),
+    186: .same(proto: "Category", swift: "category"),
+    187: .same(proto: "Ivar", swift: "ivar"),
+    188: .same(proto: "Method", swift: "method"),
+    192: .same(proto: "finalize", swift: "finalize"),
+    193: .same(proto: "hash", swift: "hash"),
+    194: .same(proto: "dealloc", swift: "dealloc"),
+    197: .same(proto: "superclass", swift: "superclass"),
+    198: .same(proto: "retain", swift: "retain"),
+    199: .same(proto: "release", swift: "release"),
+    200: .same(proto: "autorelease", swift: "autorelease"),
+    201: .same(proto: "retainCount", swift: "retainCount"),
+    202: .same(proto: "zone", swift: "zone"),
+    203: .same(proto: "isProxy", swift: "isProxy"),
+    204: .same(proto: "copy", swift: "copy"),
+    205: .same(proto: "mutableCopy", swift: "mutableCopy"),
+    206: .same(proto: "classForCoder", swift: "classForCoder"),
+    207: .same(proto: "clear", swift: "clear"),
+    208: .same(proto: "data", swift: "data"),
+    209: .same(proto: "delimitedData", swift: "delimitedData"),
+    210: .same(proto: "descriptor", swift: "descriptor"),
+    211: .same(proto: "extensionRegistry", swift: "extensionRegistry"),
+    212: .same(proto: "extensionsCurrentlySet", swift: "extensionsCurrentlySet"),
+    213: .same(proto: "isInitialized", swift: "isInitialized"),
+    214: .same(proto: "serializedSize", swift: "serializedSize"),
+    215: .same(proto: "sortedExtensionsInUse", swift: "sortedExtensionsInUse"),
+    216: .same(proto: "unknownFields", swift: "unknownFields"),
+    217: .same(proto: "Fixed", swift: "fixed"),
+    218: .same(proto: "Fract", swift: "fract"),
+    219: .same(proto: "Size", swift: "size"),
+    220: .same(proto: "LogicalAddress", swift: "logicalAddress"),
+    221: .same(proto: "PhysicalAddress", swift: "physicalAddress"),
+    222: .same(proto: "ByteCount", swift: "byteCount"),
+    223: .same(proto: "ByteOffset", swift: "byteOffset"),
+    224: .same(proto: "Duration", swift: "duration"),
+    225: .same(proto: "AbsoluteTime", swift: "absoluteTime"),
+    226: .same(proto: "OptionBits", swift: "optionBits"),
+    227: .same(proto: "ItemCount", swift: "itemCount"),
+    228: .same(proto: "PBVersion", swift: "pbversion"),
+    229: .same(proto: "ScriptCode", swift: "scriptCode"),
+    230: .same(proto: "LangCode", swift: "langCode"),
+    231: .same(proto: "RegionCode", swift: "regionCode"),
+    232: .same(proto: "OSType", swift: "ostype"),
+    233: .same(proto: "ProcessSerialNumber", swift: "processSerialNumber"),
+    234: .same(proto: "Point", swift: "point"),
+    235: .same(proto: "Rect", swift: "rect"),
+    236: .same(proto: "FixedPoint", swift: "fixedPoint"),
+    237: .same(proto: "FixedRect", swift: "fixedRect"),
+    238: .same(proto: "Style", swift: "style"),
+    239: .same(proto: "StyleParameter", swift: "styleParameter"),
+    240: .same(proto: "StyleField", swift: "styleField"),
+    241: .same(proto: "TimeScale", swift: "timeScale"),
+    242: .same(proto: "TimeBase", swift: "timeBase"),
+    243: .same(proto: "TimeRecord", swift: "timeRecord"),
+    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden", swift: "jsonShouldBeOverriden"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = SwiftUnittest_Names_FieldNames
@@ -2691,628 +2481,628 @@ struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage, ProtobufProto3M
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if _string != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _string, protoFieldNumber: 1, protoFieldName: "String", jsonFieldName: "String", swiftFieldName: "string")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _string, protoFieldNumber: 1)
       }
       if _int != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int, protoFieldNumber: 2, protoFieldName: "Int", jsonFieldName: "Int", swiftFieldName: "int")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int, protoFieldNumber: 2)
       }
       if _double != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _double, protoFieldNumber: 3, protoFieldName: "Double", jsonFieldName: "Double", swiftFieldName: "double")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _double, protoFieldNumber: 3)
       }
       if _float != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _float, protoFieldNumber: 4, protoFieldName: "Float", jsonFieldName: "Float", swiftFieldName: "float")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _float, protoFieldNumber: 4)
       }
       if _uint != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _uint, protoFieldNumber: 5, protoFieldName: "UInt", jsonFieldName: "UInt", swiftFieldName: "uint")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _uint, protoFieldNumber: 5)
       }
       if _hashValue_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _hashValue_p, protoFieldNumber: 6, protoFieldName: "hashValue", jsonFieldName: "hashValue", swiftFieldName: "hashValue_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _hashValue_p, protoFieldNumber: 6)
       }
       if _description_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _description_p, protoFieldNumber: 7, protoFieldName: "description", jsonFieldName: "description", swiftFieldName: "description_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _description_p, protoFieldNumber: 7)
       }
       if _debugDescription_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _debugDescription_p, protoFieldNumber: 8, protoFieldName: "debugDescription", jsonFieldName: "debugDescription", swiftFieldName: "debugDescription_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _debugDescription_p, protoFieldNumber: 8)
       }
       if _swift != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _swift, protoFieldNumber: 9, protoFieldName: "Swift", jsonFieldName: "Swift", swiftFieldName: "swift")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _swift, protoFieldNumber: 9)
       }
       if _unrecognized != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unrecognized, protoFieldNumber: 10, protoFieldName: "UNRECOGNIZED", jsonFieldName: "UNRECOGNIZED", swiftFieldName: "unrecognized")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unrecognized, protoFieldNumber: 10)
       }
       if _class_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _class_p, protoFieldNumber: 11, protoFieldName: "class", jsonFieldName: "class", swiftFieldName: "class_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _class_p, protoFieldNumber: 11)
       }
       if _deinit_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _deinit_p, protoFieldNumber: 12, protoFieldName: "deinit", jsonFieldName: "deinit", swiftFieldName: "deinit_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _deinit_p, protoFieldNumber: 12)
       }
       if _enum_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _enum_p, protoFieldNumber: 13, protoFieldName: "enum", jsonFieldName: "enum", swiftFieldName: "enum_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _enum_p, protoFieldNumber: 13)
       }
       if _extension_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extension_p, protoFieldNumber: 14, protoFieldName: "extension", jsonFieldName: "extension", swiftFieldName: "extension_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extension_p, protoFieldNumber: 14)
       }
       if _func_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _func_p, protoFieldNumber: 15, protoFieldName: "func", jsonFieldName: "func", swiftFieldName: "func_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _func_p, protoFieldNumber: 15)
       }
       if _import_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _import_p, protoFieldNumber: 16, protoFieldName: "import", jsonFieldName: "import", swiftFieldName: "import_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _import_p, protoFieldNumber: 16)
       }
       if _init_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _init_p, protoFieldNumber: 17, protoFieldName: "init", jsonFieldName: "init", swiftFieldName: "init_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _init_p, protoFieldNumber: 17)
       }
       if _inout_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _inout_p, protoFieldNumber: 18, protoFieldName: "inout", jsonFieldName: "inout", swiftFieldName: "inout_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _inout_p, protoFieldNumber: 18)
       }
       if _internal_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _internal_p, protoFieldNumber: 19, protoFieldName: "internal", jsonFieldName: "internal", swiftFieldName: "internal_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _internal_p, protoFieldNumber: 19)
       }
       if _let_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _let_p, protoFieldNumber: 20, protoFieldName: "let", jsonFieldName: "let", swiftFieldName: "let_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _let_p, protoFieldNumber: 20)
       }
       if _operator_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _operator_p, protoFieldNumber: 21, protoFieldName: "operator", jsonFieldName: "operator", swiftFieldName: "operator_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _operator_p, protoFieldNumber: 21)
       }
       if _private_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _private_p, protoFieldNumber: 22, protoFieldName: "private", jsonFieldName: "private", swiftFieldName: "private_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _private_p, protoFieldNumber: 22)
       }
       if _protocol_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _protocol_p, protoFieldNumber: 23, protoFieldName: "protocol", jsonFieldName: "protocol", swiftFieldName: "protocol_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _protocol_p, protoFieldNumber: 23)
       }
       if _public_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _public_p, protoFieldNumber: 24, protoFieldName: "public", jsonFieldName: "public", swiftFieldName: "public_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _public_p, protoFieldNumber: 24)
       }
       if _static_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _static_p, protoFieldNumber: 25, protoFieldName: "static", jsonFieldName: "static", swiftFieldName: "static_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _static_p, protoFieldNumber: 25)
       }
       if _struct_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _struct_p, protoFieldNumber: 26, protoFieldName: "struct", jsonFieldName: "struct", swiftFieldName: "struct_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _struct_p, protoFieldNumber: 26)
       }
       if _subscript_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _subscript_p, protoFieldNumber: 27, protoFieldName: "subscript", jsonFieldName: "subscript", swiftFieldName: "subscript_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _subscript_p, protoFieldNumber: 27)
       }
       if _typealias_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typealias_p, protoFieldNumber: 28, protoFieldName: "typealias", jsonFieldName: "typealias", swiftFieldName: "typealias_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typealias_p, protoFieldNumber: 28)
       }
       if _var_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _var_p, protoFieldNumber: 29, protoFieldName: "var", jsonFieldName: "var", swiftFieldName: "var_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _var_p, protoFieldNumber: 29)
       }
       if _break_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _break_p, protoFieldNumber: 30, protoFieldName: "break", jsonFieldName: "break", swiftFieldName: "break_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _break_p, protoFieldNumber: 30)
       }
       if _case_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _case_p, protoFieldNumber: 31, protoFieldName: "case", jsonFieldName: "case", swiftFieldName: "case_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _case_p, protoFieldNumber: 31)
       }
       if _continue_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _continue_p, protoFieldNumber: 32, protoFieldName: "continue", jsonFieldName: "continue", swiftFieldName: "continue_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _continue_p, protoFieldNumber: 32)
       }
       if _default_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _default_p, protoFieldNumber: 33, protoFieldName: "default", jsonFieldName: "default", swiftFieldName: "default_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _default_p, protoFieldNumber: 33)
       }
       if _defer_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _defer_p, protoFieldNumber: 34, protoFieldName: "defer", jsonFieldName: "defer", swiftFieldName: "defer_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _defer_p, protoFieldNumber: 34)
       }
       if _do_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _do_p, protoFieldNumber: 35, protoFieldName: "do", jsonFieldName: "do", swiftFieldName: "do_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _do_p, protoFieldNumber: 35)
       }
       if _else_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _else_p, protoFieldNumber: 36, protoFieldName: "else", jsonFieldName: "else", swiftFieldName: "else_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _else_p, protoFieldNumber: 36)
       }
       if _fallthrough_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fallthrough_p, protoFieldNumber: 37, protoFieldName: "fallthrough", jsonFieldName: "fallthrough", swiftFieldName: "fallthrough_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fallthrough_p, protoFieldNumber: 37)
       }
       if _for_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _for_p, protoFieldNumber: 38, protoFieldName: "for", jsonFieldName: "for", swiftFieldName: "for_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _for_p, protoFieldNumber: 38)
       }
       if _guard_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _guard_p, protoFieldNumber: 39, protoFieldName: "guard", jsonFieldName: "guard", swiftFieldName: "guard_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _guard_p, protoFieldNumber: 39)
       }
       if _if_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _if_p, protoFieldNumber: 40, protoFieldName: "if", jsonFieldName: "if", swiftFieldName: "if_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _if_p, protoFieldNumber: 40)
       }
       if _in_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _in_p, protoFieldNumber: 41, protoFieldName: "in", jsonFieldName: "in", swiftFieldName: "in_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _in_p, protoFieldNumber: 41)
       }
       if _repeat_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _repeat_p, protoFieldNumber: 42, protoFieldName: "repeat", jsonFieldName: "repeat", swiftFieldName: "repeat_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _repeat_p, protoFieldNumber: 42)
       }
       if _return_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _return_p, protoFieldNumber: 43, protoFieldName: "return", jsonFieldName: "return", swiftFieldName: "return_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _return_p, protoFieldNumber: 43)
       }
       if _switch_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _switch_p, protoFieldNumber: 44, protoFieldName: "switch", jsonFieldName: "switch", swiftFieldName: "switch_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _switch_p, protoFieldNumber: 44)
       }
       if _where_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _where_p, protoFieldNumber: 45, protoFieldName: "where", jsonFieldName: "where", swiftFieldName: "where_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _where_p, protoFieldNumber: 45)
       }
       if _while_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _while_p, protoFieldNumber: 46, protoFieldName: "while", jsonFieldName: "while", swiftFieldName: "while_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _while_p, protoFieldNumber: 46)
       }
       if _as_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _as_p, protoFieldNumber: 47, protoFieldName: "as", jsonFieldName: "as", swiftFieldName: "as_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _as_p, protoFieldNumber: 47)
       }
       if _catch_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _catch_p, protoFieldNumber: 48, protoFieldName: "catch", jsonFieldName: "catch", swiftFieldName: "catch_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _catch_p, protoFieldNumber: 48)
       }
       if _dynamicType_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dynamicType_p, protoFieldNumber: 49, protoFieldName: "dynamicType", jsonFieldName: "dynamicType", swiftFieldName: "dynamicType_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dynamicType_p, protoFieldNumber: 49)
       }
       if _false_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _false_p, protoFieldNumber: 50, protoFieldName: "false", jsonFieldName: "false", swiftFieldName: "false_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _false_p, protoFieldNumber: 50)
       }
       if _is_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _is_p, protoFieldNumber: 51, protoFieldName: "is", jsonFieldName: "is", swiftFieldName: "is_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _is_p, protoFieldNumber: 51)
       }
       if _nil_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _nil_p, protoFieldNumber: 52, protoFieldName: "nil", jsonFieldName: "nil", swiftFieldName: "nil_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _nil_p, protoFieldNumber: 52)
       }
       if _rethrows_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _rethrows_p, protoFieldNumber: 53, protoFieldName: "rethrows", jsonFieldName: "rethrows", swiftFieldName: "rethrows_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _rethrows_p, protoFieldNumber: 53)
       }
       if _super_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _super_p, protoFieldNumber: 54, protoFieldName: "super", jsonFieldName: "super", swiftFieldName: "super_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _super_p, protoFieldNumber: 54)
       }
       if _self_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _self_p, protoFieldNumber: 55, protoFieldName: "self", jsonFieldName: "self", swiftFieldName: "self_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _self_p, protoFieldNumber: 55)
       }
       if _throw_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _throw_p, protoFieldNumber: 57, protoFieldName: "throw", jsonFieldName: "throw", swiftFieldName: "throw_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _throw_p, protoFieldNumber: 57)
       }
       if _throws_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _throws_p, protoFieldNumber: 58, protoFieldName: "throws", jsonFieldName: "throws", swiftFieldName: "throws_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _throws_p, protoFieldNumber: 58)
       }
       if _true_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _true_p, protoFieldNumber: 59, protoFieldName: "true", jsonFieldName: "true", swiftFieldName: "true_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _true_p, protoFieldNumber: 59)
       }
       if _try_p != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _try_p, protoFieldNumber: 60, protoFieldName: "try", jsonFieldName: "try", swiftFieldName: "try_p")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _try_p, protoFieldNumber: 60)
       }
       if __Column__ != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __Column__, protoFieldNumber: 61, protoFieldName: "__COLUMN__", jsonFieldName: "COLUMN", swiftFieldName: "_Column__")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __Column__, protoFieldNumber: 61)
       }
       if __File__ != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __File__, protoFieldNumber: 62, protoFieldName: "__FILE__", jsonFieldName: "FILE", swiftFieldName: "_File__")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __File__, protoFieldNumber: 62)
       }
       if __Function__ != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __Function__, protoFieldNumber: 63, protoFieldName: "__FUNCTION__", jsonFieldName: "FUNCTION", swiftFieldName: "_Function__")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __Function__, protoFieldNumber: 63)
       }
       if __Line__ != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __Line__, protoFieldNumber: 64, protoFieldName: "__LINE__", jsonFieldName: "LINE", swiftFieldName: "_Line__")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __Line__, protoFieldNumber: 64)
       }
       if ____ != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: ____, protoFieldNumber: 65, protoFieldName: "_", jsonFieldName: "", swiftFieldName: "___")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: ____, protoFieldNumber: 65)
       }
       if _associativity != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _associativity, protoFieldNumber: 66, protoFieldName: "associativity", jsonFieldName: "associativity", swiftFieldName: "associativity")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _associativity, protoFieldNumber: 66)
       }
       if _convenience != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _convenience, protoFieldNumber: 67, protoFieldName: "convenience", jsonFieldName: "convenience", swiftFieldName: "convenience")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _convenience, protoFieldNumber: 67)
       }
       if _dynamic != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dynamic, protoFieldNumber: 68, protoFieldName: "dynamic", jsonFieldName: "dynamic", swiftFieldName: "dynamic")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dynamic, protoFieldNumber: 68)
       }
       if _didSet != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _didSet, protoFieldNumber: 69, protoFieldName: "didSet", jsonFieldName: "didSet", swiftFieldName: "didSet")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _didSet, protoFieldNumber: 69)
       }
       if _final != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _final, protoFieldNumber: 70, protoFieldName: "final", jsonFieldName: "final", swiftFieldName: "final")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _final, protoFieldNumber: 70)
       }
       if _get != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _get, protoFieldNumber: 71, protoFieldName: "get", jsonFieldName: "get", swiftFieldName: "get")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _get, protoFieldNumber: 71)
       }
       if _infix != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _infix, protoFieldNumber: 72, protoFieldName: "infix", jsonFieldName: "infix", swiftFieldName: "infix")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _infix, protoFieldNumber: 72)
       }
       if _indirect != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _indirect, protoFieldNumber: 73, protoFieldName: "indirect", jsonFieldName: "indirect", swiftFieldName: "indirect")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _indirect, protoFieldNumber: 73)
       }
       if _lazy != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _lazy, protoFieldNumber: 74, protoFieldName: "lazy", jsonFieldName: "lazy", swiftFieldName: "lazy")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _lazy, protoFieldNumber: 74)
       }
       if _left != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _left, protoFieldNumber: 75, protoFieldName: "left", jsonFieldName: "left", swiftFieldName: "left")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _left, protoFieldNumber: 75)
       }
       if _mutating != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _mutating, protoFieldNumber: 76, protoFieldName: "mutating", jsonFieldName: "mutating", swiftFieldName: "mutating")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _mutating, protoFieldNumber: 76)
       }
       if _none != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _none, protoFieldNumber: 77, protoFieldName: "none", jsonFieldName: "none", swiftFieldName: "none")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _none, protoFieldNumber: 77)
       }
       if _nonmutating != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _nonmutating, protoFieldNumber: 78, protoFieldName: "nonmutating", jsonFieldName: "nonmutating", swiftFieldName: "nonmutating")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _nonmutating, protoFieldNumber: 78)
       }
       if _optional != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optional, protoFieldNumber: 79, protoFieldName: "optional", jsonFieldName: "optional", swiftFieldName: "optional")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optional, protoFieldNumber: 79)
       }
       if _override != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _override, protoFieldNumber: 80, protoFieldName: "override", jsonFieldName: "override", swiftFieldName: "override")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _override, protoFieldNumber: 80)
       }
       if _postfix != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _postfix, protoFieldNumber: 81, protoFieldName: "postfix", jsonFieldName: "postfix", swiftFieldName: "postfix")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _postfix, protoFieldNumber: 81)
       }
       if _precedence != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _precedence, protoFieldNumber: 82, protoFieldName: "precedence", jsonFieldName: "precedence", swiftFieldName: "precedence")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _precedence, protoFieldNumber: 82)
       }
       if _prefix != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _prefix, protoFieldNumber: 83, protoFieldName: "prefix", jsonFieldName: "prefix", swiftFieldName: "prefix")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _prefix, protoFieldNumber: 83)
       }
       if _required != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _required, protoFieldNumber: 85, protoFieldName: "required", jsonFieldName: "required", swiftFieldName: "required")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _required, protoFieldNumber: 85)
       }
       if _right != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _right, protoFieldNumber: 86, protoFieldName: "right", jsonFieldName: "right", swiftFieldName: "right")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _right, protoFieldNumber: 86)
       }
       if _set != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _set, protoFieldNumber: 87, protoFieldName: "set", jsonFieldName: "set", swiftFieldName: "set")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _set, protoFieldNumber: 87)
       }
       if _type != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _type, protoFieldNumber: 88, protoFieldName: "Type", jsonFieldName: "Type", swiftFieldName: "type")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _type, protoFieldNumber: 88)
       }
       if _unowned != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unowned, protoFieldNumber: 89, protoFieldName: "unowned", jsonFieldName: "unowned", swiftFieldName: "unowned")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unowned, protoFieldNumber: 89)
       }
       if _weak != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _weak, protoFieldNumber: 90, protoFieldName: "weak", jsonFieldName: "weak", swiftFieldName: "weak")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _weak, protoFieldNumber: 90)
       }
       if _willSet != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _willSet, protoFieldNumber: 91, protoFieldName: "willSet", jsonFieldName: "willSet", swiftFieldName: "willSet")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _willSet, protoFieldNumber: 91)
       }
       if _id != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _id, protoFieldNumber: 92, protoFieldName: "id", jsonFieldName: "id", swiftFieldName: "id")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _id, protoFieldNumber: 92)
       }
       if _cmd != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _cmd, protoFieldNumber: 93, protoFieldName: "_cmd", jsonFieldName: "Cmd", swiftFieldName: "cmd")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _cmd, protoFieldNumber: 93)
       }
       if _out != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _out, protoFieldNumber: 96, protoFieldName: "out", jsonFieldName: "out", swiftFieldName: "out")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _out, protoFieldNumber: 96)
       }
       if _bycopy != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bycopy, protoFieldNumber: 98, protoFieldName: "bycopy", jsonFieldName: "bycopy", swiftFieldName: "bycopy")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bycopy, protoFieldNumber: 98)
       }
       if _byref != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byref, protoFieldNumber: 99, protoFieldName: "byref", jsonFieldName: "byref", swiftFieldName: "byref")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byref, protoFieldNumber: 99)
       }
       if _oneway != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _oneway, protoFieldNumber: 100, protoFieldName: "oneway", jsonFieldName: "oneway", swiftFieldName: "oneway")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _oneway, protoFieldNumber: 100)
       }
       if _and != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _and, protoFieldNumber: 102, protoFieldName: "and", jsonFieldName: "and", swiftFieldName: "and")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _and, protoFieldNumber: 102)
       }
       if _andEq != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _andEq, protoFieldNumber: 103, protoFieldName: "and_eq", jsonFieldName: "andEq", swiftFieldName: "andEq")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _andEq, protoFieldNumber: 103)
       }
       if _alignas != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _alignas, protoFieldNumber: 104, protoFieldName: "alignas", jsonFieldName: "alignas", swiftFieldName: "alignas")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _alignas, protoFieldNumber: 104)
       }
       if _alignof != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _alignof, protoFieldNumber: 105, protoFieldName: "alignof", jsonFieldName: "alignof", swiftFieldName: "alignof")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _alignof, protoFieldNumber: 105)
       }
       if _asm != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _asm, protoFieldNumber: 106, protoFieldName: "asm", jsonFieldName: "asm", swiftFieldName: "asm")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _asm, protoFieldNumber: 106)
       }
       if _auto != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _auto, protoFieldNumber: 107, protoFieldName: "auto", jsonFieldName: "auto", swiftFieldName: "auto")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _auto, protoFieldNumber: 107)
       }
       if _bitand != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bitand, protoFieldNumber: 108, protoFieldName: "bitand", jsonFieldName: "bitand", swiftFieldName: "bitand")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bitand, protoFieldNumber: 108)
       }
       if _bitor != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bitor, protoFieldNumber: 109, protoFieldName: "bitor", jsonFieldName: "bitor", swiftFieldName: "bitor")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bitor, protoFieldNumber: 109)
       }
       if _bool != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bool, protoFieldNumber: 110, protoFieldName: "bool", jsonFieldName: "bool", swiftFieldName: "bool")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bool, protoFieldNumber: 110)
       }
       if _char != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _char, protoFieldNumber: 114, protoFieldName: "char", jsonFieldName: "char", swiftFieldName: "char")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _char, protoFieldNumber: 114)
       }
       if _char16T != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _char16T, protoFieldNumber: 115, protoFieldName: "char16_t", jsonFieldName: "char16T", swiftFieldName: "char16T")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _char16T, protoFieldNumber: 115)
       }
       if _char32T != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _char32T, protoFieldNumber: 116, protoFieldName: "char32_t", jsonFieldName: "char32T", swiftFieldName: "char32T")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _char32T, protoFieldNumber: 116)
       }
       if _compl != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _compl, protoFieldNumber: 118, protoFieldName: "compl", jsonFieldName: "compl", swiftFieldName: "compl")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _compl, protoFieldNumber: 118)
       }
       if _const != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _const, protoFieldNumber: 119, protoFieldName: "const", jsonFieldName: "const", swiftFieldName: "const")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _const, protoFieldNumber: 119)
       }
       if _constexpr != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _constexpr, protoFieldNumber: 120, protoFieldName: "constexpr", jsonFieldName: "constexpr", swiftFieldName: "constexpr")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _constexpr, protoFieldNumber: 120)
       }
       if _constCast != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _constCast, protoFieldNumber: 121, protoFieldName: "const_cast", jsonFieldName: "constCast", swiftFieldName: "constCast")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _constCast, protoFieldNumber: 121)
       }
       if _decltype != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _decltype, protoFieldNumber: 123, protoFieldName: "decltype", jsonFieldName: "decltype", swiftFieldName: "decltype")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _decltype, protoFieldNumber: 123)
       }
       if _delete != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _delete, protoFieldNumber: 125, protoFieldName: "delete", jsonFieldName: "delete", swiftFieldName: "delete")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _delete, protoFieldNumber: 125)
       }
       if _dynamicCast != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dynamicCast, protoFieldNumber: 127, protoFieldName: "dynamic_cast", jsonFieldName: "dynamicCast", swiftFieldName: "dynamicCast")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dynamicCast, protoFieldNumber: 127)
       }
       if _explicit != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _explicit, protoFieldNumber: 130, protoFieldName: "explicit", jsonFieldName: "explicit", swiftFieldName: "explicit")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _explicit, protoFieldNumber: 130)
       }
       if _export != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _export, protoFieldNumber: 131, protoFieldName: "export", jsonFieldName: "export", swiftFieldName: "export")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _export, protoFieldNumber: 131)
       }
       if _extern != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extern, protoFieldNumber: 132, protoFieldName: "extern", jsonFieldName: "extern", swiftFieldName: "extern")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extern, protoFieldNumber: 132)
       }
       if _friend != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _friend, protoFieldNumber: 136, protoFieldName: "friend", jsonFieldName: "friend", swiftFieldName: "friend")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _friend, protoFieldNumber: 136)
       }
       if _goto != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _goto, protoFieldNumber: 137, protoFieldName: "goto", jsonFieldName: "goto", swiftFieldName: "goto")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _goto, protoFieldNumber: 137)
       }
       if _inline != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _inline, protoFieldNumber: 139, protoFieldName: "inline", jsonFieldName: "inline", swiftFieldName: "inline")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _inline, protoFieldNumber: 139)
       }
       if _long != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _long, protoFieldNumber: 141, protoFieldName: "long", jsonFieldName: "long", swiftFieldName: "long")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _long, protoFieldNumber: 141)
       }
       if _mutable != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _mutable, protoFieldNumber: 142, protoFieldName: "mutable", jsonFieldName: "mutable", swiftFieldName: "mutable")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _mutable, protoFieldNumber: 142)
       }
       if _namespace != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _namespace, protoFieldNumber: 143, protoFieldName: "namespace", jsonFieldName: "namespace", swiftFieldName: "namespace")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _namespace, protoFieldNumber: 143)
       }
       if _new != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _new, protoFieldNumber: 144, protoFieldName: "new", jsonFieldName: "new", swiftFieldName: "new")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _new, protoFieldNumber: 144)
       }
       if _noexcept != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _noexcept, protoFieldNumber: 145, protoFieldName: "noexcept", jsonFieldName: "noexcept", swiftFieldName: "noexcept")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _noexcept, protoFieldNumber: 145)
       }
       if _not != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _not, protoFieldNumber: 146, protoFieldName: "not", jsonFieldName: "not", swiftFieldName: "not")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _not, protoFieldNumber: 146)
       }
       if _notEq != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _notEq, protoFieldNumber: 147, protoFieldName: "not_eq", jsonFieldName: "notEq", swiftFieldName: "notEq")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _notEq, protoFieldNumber: 147)
       }
       if _nullptr != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _nullptr, protoFieldNumber: 148, protoFieldName: "nullptr", jsonFieldName: "nullptr", swiftFieldName: "nullptr")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _nullptr, protoFieldNumber: 148)
       }
       if _or != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _or, protoFieldNumber: 150, protoFieldName: "or", jsonFieldName: "or", swiftFieldName: "or")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _or, protoFieldNumber: 150)
       }
       if _orEq != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _orEq, protoFieldNumber: 151, protoFieldName: "or_eq", jsonFieldName: "orEq", swiftFieldName: "orEq")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _orEq, protoFieldNumber: 151)
       }
       if _protected != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _protected, protoFieldNumber: 153, protoFieldName: "protected", jsonFieldName: "protected", swiftFieldName: "protected")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _protected, protoFieldNumber: 153)
       }
       if _register != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _register, protoFieldNumber: 155, protoFieldName: "register", jsonFieldName: "register", swiftFieldName: "register")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _register, protoFieldNumber: 155)
       }
       if _reinterpretCast != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _reinterpretCast, protoFieldNumber: 156, protoFieldName: "reinterpret_cast", jsonFieldName: "reinterpretCast", swiftFieldName: "reinterpretCast")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _reinterpretCast, protoFieldNumber: 156)
       }
       if _short != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _short, protoFieldNumber: 158, protoFieldName: "short", jsonFieldName: "short", swiftFieldName: "short")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _short, protoFieldNumber: 158)
       }
       if _signed != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _signed, protoFieldNumber: 159, protoFieldName: "signed", jsonFieldName: "signed", swiftFieldName: "signed")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _signed, protoFieldNumber: 159)
       }
       if _sizeof != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _sizeof, protoFieldNumber: 160, protoFieldName: "sizeof", jsonFieldName: "sizeof", swiftFieldName: "sizeof")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _sizeof, protoFieldNumber: 160)
       }
       if _staticAssert != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _staticAssert, protoFieldNumber: 162, protoFieldName: "static_assert", jsonFieldName: "staticAssert", swiftFieldName: "staticAssert")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _staticAssert, protoFieldNumber: 162)
       }
       if _staticCast != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _staticCast, protoFieldNumber: 163, protoFieldName: "static_cast", jsonFieldName: "staticCast", swiftFieldName: "staticCast")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _staticCast, protoFieldNumber: 163)
       }
       if _template != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _template, protoFieldNumber: 166, protoFieldName: "template", jsonFieldName: "template", swiftFieldName: "template")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _template, protoFieldNumber: 166)
       }
       if _this != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _this, protoFieldNumber: 167, protoFieldName: "this", jsonFieldName: "this", swiftFieldName: "this")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _this, protoFieldNumber: 167)
       }
       if _threadLocal != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _threadLocal, protoFieldNumber: 168, protoFieldName: "thread_local", jsonFieldName: "threadLocal", swiftFieldName: "threadLocal")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _threadLocal, protoFieldNumber: 168)
       }
       if _typedef != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typedef, protoFieldNumber: 172, protoFieldName: "typedef", jsonFieldName: "typedef", swiftFieldName: "typedef")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typedef, protoFieldNumber: 172)
       }
       if _typeid != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typeid, protoFieldNumber: 173, protoFieldName: "typeid", jsonFieldName: "typeid", swiftFieldName: "typeid")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typeid, protoFieldNumber: 173)
       }
       if _typename != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typename, protoFieldNumber: 174, protoFieldName: "typename", jsonFieldName: "typename", swiftFieldName: "typename")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typename, protoFieldNumber: 174)
       }
       if _union != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _union, protoFieldNumber: 175, protoFieldName: "union", jsonFieldName: "union", swiftFieldName: "union")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _union, protoFieldNumber: 175)
       }
       if _unsigned != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unsigned, protoFieldNumber: 176, protoFieldName: "unsigned", jsonFieldName: "unsigned", swiftFieldName: "unsigned")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unsigned, protoFieldNumber: 176)
       }
       if _using != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _using, protoFieldNumber: 177, protoFieldName: "using", jsonFieldName: "using", swiftFieldName: "using")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _using, protoFieldNumber: 177)
       }
       if _virtual != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _virtual, protoFieldNumber: 178, protoFieldName: "virtual", jsonFieldName: "virtual", swiftFieldName: "virtual")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _virtual, protoFieldNumber: 178)
       }
       if _void != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _void, protoFieldNumber: 179, protoFieldName: "void", jsonFieldName: "void", swiftFieldName: "void")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _void, protoFieldNumber: 179)
       }
       if _volatile != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _volatile, protoFieldNumber: 180, protoFieldName: "volatile", jsonFieldName: "volatile", swiftFieldName: "volatile")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _volatile, protoFieldNumber: 180)
       }
       if _wcharT != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _wcharT, protoFieldNumber: 181, protoFieldName: "wchar_t", jsonFieldName: "wcharT", swiftFieldName: "wcharT")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _wcharT, protoFieldNumber: 181)
       }
       if _xor != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _xor, protoFieldNumber: 183, protoFieldName: "xor", jsonFieldName: "xor", swiftFieldName: "xor")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _xor, protoFieldNumber: 183)
       }
       if _xorEq != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _xorEq, protoFieldNumber: 184, protoFieldName: "xor_eq", jsonFieldName: "xorEq", swiftFieldName: "xorEq")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _xorEq, protoFieldNumber: 184)
       }
       if _restrict != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _restrict, protoFieldNumber: 185, protoFieldName: "restrict", jsonFieldName: "restrict", swiftFieldName: "restrict")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _restrict, protoFieldNumber: 185)
       }
       if _category != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _category, protoFieldNumber: 186, protoFieldName: "Category", jsonFieldName: "Category", swiftFieldName: "category")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _category, protoFieldNumber: 186)
       }
       if _ivar != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ivar, protoFieldNumber: 187, protoFieldName: "Ivar", jsonFieldName: "Ivar", swiftFieldName: "ivar")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ivar, protoFieldNumber: 187)
       }
       if _method != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _method, protoFieldNumber: 188, protoFieldName: "Method", jsonFieldName: "Method", swiftFieldName: "method")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _method, protoFieldNumber: 188)
       }
       if _finalize != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _finalize, protoFieldNumber: 192, protoFieldName: "finalize", jsonFieldName: "finalize", swiftFieldName: "finalize")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _finalize, protoFieldNumber: 192)
       }
       if _hash != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _hash, protoFieldNumber: 193, protoFieldName: "hash", jsonFieldName: "hash", swiftFieldName: "hash")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _hash, protoFieldNumber: 193)
       }
       if _dealloc != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dealloc, protoFieldNumber: 194, protoFieldName: "dealloc", jsonFieldName: "dealloc", swiftFieldName: "dealloc")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _dealloc, protoFieldNumber: 194)
       }
       if _superclass != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _superclass, protoFieldNumber: 197, protoFieldName: "superclass", jsonFieldName: "superclass", swiftFieldName: "superclass")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _superclass, protoFieldNumber: 197)
       }
       if _retain != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _retain, protoFieldNumber: 198, protoFieldName: "retain", jsonFieldName: "retain", swiftFieldName: "retain")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _retain, protoFieldNumber: 198)
       }
       if _release != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _release, protoFieldNumber: 199, protoFieldName: "release", jsonFieldName: "release", swiftFieldName: "release")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _release, protoFieldNumber: 199)
       }
       if _autorelease != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _autorelease, protoFieldNumber: 200, protoFieldName: "autorelease", jsonFieldName: "autorelease", swiftFieldName: "autorelease")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _autorelease, protoFieldNumber: 200)
       }
       if _retainCount != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _retainCount, protoFieldNumber: 201, protoFieldName: "retainCount", jsonFieldName: "retainCount", swiftFieldName: "retainCount")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _retainCount, protoFieldNumber: 201)
       }
       if _zone != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _zone, protoFieldNumber: 202, protoFieldName: "zone", jsonFieldName: "zone", swiftFieldName: "zone")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _zone, protoFieldNumber: 202)
       }
       if _isProxy != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _isProxy, protoFieldNumber: 203, protoFieldName: "isProxy", jsonFieldName: "isProxy", swiftFieldName: "isProxy")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _isProxy, protoFieldNumber: 203)
       }
       if _copy != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _copy, protoFieldNumber: 204, protoFieldName: "copy", jsonFieldName: "copy", swiftFieldName: "copy")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _copy, protoFieldNumber: 204)
       }
       if _mutableCopy != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _mutableCopy, protoFieldNumber: 205, protoFieldName: "mutableCopy", jsonFieldName: "mutableCopy", swiftFieldName: "mutableCopy")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _mutableCopy, protoFieldNumber: 205)
       }
       if _classForCoder != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _classForCoder, protoFieldNumber: 206, protoFieldName: "classForCoder", jsonFieldName: "classForCoder", swiftFieldName: "classForCoder")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _classForCoder, protoFieldNumber: 206)
       }
       if _clear != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _clear, protoFieldNumber: 207, protoFieldName: "clear", jsonFieldName: "clear", swiftFieldName: "clear")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _clear, protoFieldNumber: 207)
       }
       if _data != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _data, protoFieldNumber: 208, protoFieldName: "data", jsonFieldName: "data", swiftFieldName: "data")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _data, protoFieldNumber: 208)
       }
       if _delimitedData != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _delimitedData, protoFieldNumber: 209, protoFieldName: "delimitedData", jsonFieldName: "delimitedData", swiftFieldName: "delimitedData")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _delimitedData, protoFieldNumber: 209)
       }
       if _descriptor != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _descriptor, protoFieldNumber: 210, protoFieldName: "descriptor", jsonFieldName: "descriptor", swiftFieldName: "descriptor")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _descriptor, protoFieldNumber: 210)
       }
       if _extensionRegistry != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extensionRegistry, protoFieldNumber: 211, protoFieldName: "extensionRegistry", jsonFieldName: "extensionRegistry", swiftFieldName: "extensionRegistry")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extensionRegistry, protoFieldNumber: 211)
       }
       if _extensionsCurrentlySet != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extensionsCurrentlySet, protoFieldNumber: 212, protoFieldName: "extensionsCurrentlySet", jsonFieldName: "extensionsCurrentlySet", swiftFieldName: "extensionsCurrentlySet")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _extensionsCurrentlySet, protoFieldNumber: 212)
       }
       if _isInitialized != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _isInitialized, protoFieldNumber: 213, protoFieldName: "isInitialized", jsonFieldName: "isInitialized", swiftFieldName: "isInitialized")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _isInitialized, protoFieldNumber: 213)
       }
       if _serializedSize != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _serializedSize, protoFieldNumber: 214, protoFieldName: "serializedSize", jsonFieldName: "serializedSize", swiftFieldName: "serializedSize")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _serializedSize, protoFieldNumber: 214)
       }
       if _sortedExtensionsInUse != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _sortedExtensionsInUse, protoFieldNumber: 215, protoFieldName: "sortedExtensionsInUse", jsonFieldName: "sortedExtensionsInUse", swiftFieldName: "sortedExtensionsInUse")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _sortedExtensionsInUse, protoFieldNumber: 215)
       }
       if _unknownFields != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unknownFields, protoFieldNumber: 216, protoFieldName: "unknownFields", jsonFieldName: "unknownFields", swiftFieldName: "unknownFields")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _unknownFields, protoFieldNumber: 216)
       }
       if _fixed != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixed, protoFieldNumber: 217, protoFieldName: "Fixed", jsonFieldName: "Fixed", swiftFieldName: "fixed")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixed, protoFieldNumber: 217)
       }
       if _fract != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fract, protoFieldNumber: 218, protoFieldName: "Fract", jsonFieldName: "Fract", swiftFieldName: "fract")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fract, protoFieldNumber: 218)
       }
       if _size != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _size, protoFieldNumber: 219, protoFieldName: "Size", jsonFieldName: "Size", swiftFieldName: "size")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _size, protoFieldNumber: 219)
       }
       if _logicalAddress != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _logicalAddress, protoFieldNumber: 220, protoFieldName: "LogicalAddress", jsonFieldName: "LogicalAddress", swiftFieldName: "logicalAddress")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _logicalAddress, protoFieldNumber: 220)
       }
       if _physicalAddress != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _physicalAddress, protoFieldNumber: 221, protoFieldName: "PhysicalAddress", jsonFieldName: "PhysicalAddress", swiftFieldName: "physicalAddress")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _physicalAddress, protoFieldNumber: 221)
       }
       if _byteCount != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteCount, protoFieldNumber: 222, protoFieldName: "ByteCount", jsonFieldName: "ByteCount", swiftFieldName: "byteCount")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteCount, protoFieldNumber: 222)
       }
       if _byteOffset != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteOffset, protoFieldNumber: 223, protoFieldName: "ByteOffset", jsonFieldName: "ByteOffset", swiftFieldName: "byteOffset")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _byteOffset, protoFieldNumber: 223)
       }
       if _duration != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _duration, protoFieldNumber: 224, protoFieldName: "Duration", jsonFieldName: "Duration", swiftFieldName: "duration")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _duration, protoFieldNumber: 224)
       }
       if _absoluteTime != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _absoluteTime, protoFieldNumber: 225, protoFieldName: "AbsoluteTime", jsonFieldName: "AbsoluteTime", swiftFieldName: "absoluteTime")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _absoluteTime, protoFieldNumber: 225)
       }
       if _optionBits != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionBits, protoFieldNumber: 226, protoFieldName: "OptionBits", jsonFieldName: "OptionBits", swiftFieldName: "optionBits")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionBits, protoFieldNumber: 226)
       }
       if _itemCount != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _itemCount, protoFieldNumber: 227, protoFieldName: "ItemCount", jsonFieldName: "ItemCount", swiftFieldName: "itemCount")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _itemCount, protoFieldNumber: 227)
       }
       if _pbversion != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _pbversion, protoFieldNumber: 228, protoFieldName: "PBVersion", jsonFieldName: "PBVersion", swiftFieldName: "pbversion")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _pbversion, protoFieldNumber: 228)
       }
       if _scriptCode != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _scriptCode, protoFieldNumber: 229, protoFieldName: "ScriptCode", jsonFieldName: "ScriptCode", swiftFieldName: "scriptCode")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _scriptCode, protoFieldNumber: 229)
       }
       if _langCode != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _langCode, protoFieldNumber: 230, protoFieldName: "LangCode", jsonFieldName: "LangCode", swiftFieldName: "langCode")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _langCode, protoFieldNumber: 230)
       }
       if _regionCode != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _regionCode, protoFieldNumber: 231, protoFieldName: "RegionCode", jsonFieldName: "RegionCode", swiftFieldName: "regionCode")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _regionCode, protoFieldNumber: 231)
       }
       if _ostype != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ostype, protoFieldNumber: 232, protoFieldName: "OSType", jsonFieldName: "OSType", swiftFieldName: "ostype")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _ostype, protoFieldNumber: 232)
       }
       if _processSerialNumber != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _processSerialNumber, protoFieldNumber: 233, protoFieldName: "ProcessSerialNumber", jsonFieldName: "ProcessSerialNumber", swiftFieldName: "processSerialNumber")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _processSerialNumber, protoFieldNumber: 233)
       }
       if _point != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _point, protoFieldNumber: 234, protoFieldName: "Point", jsonFieldName: "Point", swiftFieldName: "point")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _point, protoFieldNumber: 234)
       }
       if _rect != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _rect, protoFieldNumber: 235, protoFieldName: "Rect", jsonFieldName: "Rect", swiftFieldName: "rect")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _rect, protoFieldNumber: 235)
       }
       if _fixedPoint != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedPoint, protoFieldNumber: 236, protoFieldName: "FixedPoint", jsonFieldName: "FixedPoint", swiftFieldName: "fixedPoint")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedPoint, protoFieldNumber: 236)
       }
       if _fixedRect != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedRect, protoFieldNumber: 237, protoFieldName: "FixedRect", jsonFieldName: "FixedRect", swiftFieldName: "fixedRect")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fixedRect, protoFieldNumber: 237)
       }
       if _style != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _style, protoFieldNumber: 238, protoFieldName: "Style", jsonFieldName: "Style", swiftFieldName: "style")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _style, protoFieldNumber: 238)
       }
       if _styleParameter != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleParameter, protoFieldNumber: 239, protoFieldName: "StyleParameter", jsonFieldName: "StyleParameter", swiftFieldName: "styleParameter")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleParameter, protoFieldNumber: 239)
       }
       if _styleField != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleField, protoFieldNumber: 240, protoFieldName: "StyleField", jsonFieldName: "StyleField", swiftFieldName: "styleField")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _styleField, protoFieldNumber: 240)
       }
       if _timeScale != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeScale, protoFieldNumber: 241, protoFieldName: "TimeScale", jsonFieldName: "TimeScale", swiftFieldName: "timeScale")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeScale, protoFieldNumber: 241)
       }
       if _timeBase != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeBase, protoFieldNumber: 242, protoFieldName: "TimeBase", jsonFieldName: "TimeBase", swiftFieldName: "timeBase")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeBase, protoFieldNumber: 242)
       }
       if _timeRecord != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeRecord, protoFieldNumber: 243, protoFieldName: "TimeRecord", jsonFieldName: "TimeRecord", swiftFieldName: "timeRecord")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _timeRecord, protoFieldNumber: 243)
       }
       if _jsonShouldBeOverriden != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _jsonShouldBeOverriden, protoFieldNumber: 244, protoFieldName: "json_should_be_overriden", jsonFieldName: "json_was_overridden", swiftFieldName: "jsonShouldBeOverriden")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _jsonShouldBeOverriden, protoFieldNumber: 244)
       }
     }
 
@@ -4807,24 +4597,20 @@ struct SwiftUnittest_Names_FieldNames: ProtobufGeneratedMessage, ProtobufProto3M
   }
 }
 
-struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames"}
   public var protoMessageName: String {return "MessageNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
 
-  struct StringMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct StringMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StringMessage"}
     public var protoMessageName: String {return "String"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -4840,7 +4626,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -4850,16 +4636,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct ProtocolMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct ProtocolMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ProtocolMessage"}
     public var protoMessageName: String {return "Protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -4875,7 +4658,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -4885,16 +4668,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct IntMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct IntMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.IntMessage"}
     public var protoMessageName: String {return "Int"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -4910,7 +4690,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -4920,16 +4700,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct DoubleMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct DoubleMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.DoubleMessage"}
     public var protoMessageName: String {return "Double"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -4945,7 +4722,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -4955,16 +4732,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct FloatMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct FloatMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FloatMessage"}
     public var protoMessageName: String {return "Float"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -4980,7 +4754,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -4990,16 +4764,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct UIntMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct UIntMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.UIntMessage"}
     public var protoMessageName: String {return "UInt"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5015,7 +4786,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5025,16 +4796,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct hashValueMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct hashValueMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.hashValueMessage"}
     public var protoMessageName: String {return "hashValue"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5050,7 +4818,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5060,16 +4828,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct descriptionMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct descriptionMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.descriptionMessage"}
     public var protoMessageName: String {return "description"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5085,7 +4850,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5095,16 +4860,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct debugDescriptionMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct debugDescriptionMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.debugDescriptionMessage"}
     public var protoMessageName: String {return "debugDescription"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5120,7 +4882,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5130,16 +4892,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Swift: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Swift: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Swift"}
     public var protoMessageName: String {return "Swift"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5155,7 +4914,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5165,16 +4924,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct UNRECOGNIZED: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct UNRECOGNIZED: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.UNRECOGNIZED"}
     public var protoMessageName: String {return "UNRECOGNIZED"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5190,7 +4946,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5200,16 +4956,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct classMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct classMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5225,7 +4978,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5235,16 +4988,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct deinitMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct deinitMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.deinitMessage"}
     public var protoMessageName: String {return "deinit"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5260,7 +5010,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5270,16 +5020,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct enumMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct enumMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.enumMessage"}
     public var protoMessageName: String {return "enum"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5295,7 +5042,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5305,16 +5052,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct extensionMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct extensionMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionMessage"}
     public var protoMessageName: String {return "extension"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5330,7 +5074,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5340,16 +5084,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct funcMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct funcMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.funcMessage"}
     public var protoMessageName: String {return "func"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5365,7 +5106,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5375,16 +5116,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct importMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct importMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.importMessage"}
     public var protoMessageName: String {return "import"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5400,7 +5138,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5410,16 +5148,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct initMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct initMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.initMessage"}
     public var protoMessageName: String {return "init"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5435,7 +5170,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5445,16 +5180,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct inoutMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct inoutMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inoutMessage"}
     public var protoMessageName: String {return "inout"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5470,7 +5202,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5480,16 +5212,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct internalMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct internalMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.internalMessage"}
     public var protoMessageName: String {return "internal"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5505,7 +5234,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5515,16 +5244,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct letMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct letMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.letMessage"}
     public var protoMessageName: String {return "let"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5540,7 +5266,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5550,16 +5276,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct operatorMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct operatorMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.operatorMessage"}
     public var protoMessageName: String {return "operator"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5575,7 +5298,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5585,16 +5308,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct privateMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct privateMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.privateMessage"}
     public var protoMessageName: String {return "private"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5610,7 +5330,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5620,16 +5340,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct protocolMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct protocolMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.protocolMessage"}
     public var protoMessageName: String {return "protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5645,7 +5362,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5655,16 +5372,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct publicMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct publicMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.publicMessage"}
     public var protoMessageName: String {return "public"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5680,7 +5394,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5690,16 +5404,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct staticMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct staticMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.staticMessage"}
     public var protoMessageName: String {return "static"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5715,7 +5426,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5725,16 +5436,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct structMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct structMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.structMessage"}
     public var protoMessageName: String {return "struct"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5750,7 +5458,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5760,16 +5468,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct subscriptMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct subscriptMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.subscriptMessage"}
     public var protoMessageName: String {return "subscript"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5785,7 +5490,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5795,16 +5500,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct typealiasMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct typealiasMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typealiasMessage"}
     public var protoMessageName: String {return "typealias"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5820,7 +5522,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5830,16 +5532,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct varMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct varMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.varMessage"}
     public var protoMessageName: String {return "var"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5855,7 +5554,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5865,16 +5564,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct breakMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct breakMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.breakMessage"}
     public var protoMessageName: String {return "break"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5890,7 +5586,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5900,16 +5596,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct caseMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct caseMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.caseMessage"}
     public var protoMessageName: String {return "case"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5925,7 +5618,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5935,16 +5628,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct continueMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct continueMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.continueMessage"}
     public var protoMessageName: String {return "continue"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5960,7 +5650,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -5970,16 +5660,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct defaultMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct defaultMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.defaultMessage"}
     public var protoMessageName: String {return "default"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -5995,7 +5682,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6005,16 +5692,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct deferMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct deferMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.deferMessage"}
     public var protoMessageName: String {return "defer"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6030,7 +5714,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6040,16 +5724,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct doMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct doMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.doMessage"}
     public var protoMessageName: String {return "do"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6065,7 +5746,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6075,16 +5756,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct elseMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct elseMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.elseMessage"}
     public var protoMessageName: String {return "else"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6100,7 +5778,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6110,16 +5788,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct fallthroughMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct fallthroughMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.fallthroughMessage"}
     public var protoMessageName: String {return "fallthrough"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6135,7 +5810,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6145,16 +5820,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct forMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct forMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.forMessage"}
     public var protoMessageName: String {return "for"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6170,7 +5842,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6180,16 +5852,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct guardMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct guardMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.guardMessage"}
     public var protoMessageName: String {return "guard"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6205,7 +5874,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6215,16 +5884,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct ifMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct ifMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ifMessage"}
     public var protoMessageName: String {return "if"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6240,7 +5906,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6250,16 +5916,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct inMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct inMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inMessage"}
     public var protoMessageName: String {return "in"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6275,7 +5938,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6285,16 +5948,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct repeatMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct repeatMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.repeatMessage"}
     public var protoMessageName: String {return "repeat"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6310,7 +5970,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6320,16 +5980,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct returnMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct returnMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.returnMessage"}
     public var protoMessageName: String {return "return"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6345,7 +6002,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6355,16 +6012,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct switchMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct switchMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.switchMessage"}
     public var protoMessageName: String {return "switch"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6380,7 +6034,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6390,16 +6044,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct whereMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct whereMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.whereMessage"}
     public var protoMessageName: String {return "where"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6415,7 +6066,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6425,16 +6076,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct whileMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct whileMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.whileMessage"}
     public var protoMessageName: String {return "while"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6450,7 +6098,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6460,16 +6108,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct asMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct asMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.asMessage"}
     public var protoMessageName: String {return "as"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6485,7 +6130,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6495,16 +6140,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct catchMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct catchMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.catchMessage"}
     public var protoMessageName: String {return "catch"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6520,7 +6162,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6530,16 +6172,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct dynamicTypeMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct dynamicTypeMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamicTypeMessage"}
     public var protoMessageName: String {return "dynamicType"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6555,7 +6194,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6565,16 +6204,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct falseMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct falseMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.falseMessage"}
     public var protoMessageName: String {return "false"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6590,7 +6226,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6600,16 +6236,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct isMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct isMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isMessage"}
     public var protoMessageName: String {return "is"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6625,7 +6258,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6635,16 +6268,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct nilMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct nilMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nilMessage"}
     public var protoMessageName: String {return "nil"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6660,7 +6290,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6670,16 +6300,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct rethrowsMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct rethrowsMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.rethrowsMessage"}
     public var protoMessageName: String {return "rethrows"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6695,7 +6322,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6705,16 +6332,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct superMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct superMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.superMessage"}
     public var protoMessageName: String {return "super"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6730,7 +6354,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6740,16 +6364,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct selfMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct selfMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.selfMessage"}
     public var protoMessageName: String {return "self"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6765,7 +6386,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6775,16 +6396,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct throwMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct throwMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.throwMessage"}
     public var protoMessageName: String {return "throw"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6800,7 +6418,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6810,16 +6428,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct throwsMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct throwsMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.throwsMessage"}
     public var protoMessageName: String {return "throws"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6835,7 +6450,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6845,16 +6460,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct trueMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct trueMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.trueMessage"}
     public var protoMessageName: String {return "true"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6870,7 +6482,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6880,16 +6492,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct tryMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct tryMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.tryMessage"}
     public var protoMessageName: String {return "try"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6905,7 +6514,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6915,16 +6524,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct __COLUMN__Message: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct __COLUMN__Message: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__COLUMN__Message"}
     public var protoMessageName: String {return "__COLUMN__"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6940,7 +6546,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6950,16 +6556,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct __FILE__Message: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct __FILE__Message: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__FILE__Message"}
     public var protoMessageName: String {return "__FILE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -6975,7 +6578,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -6985,16 +6588,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct __FUNCTION__Message: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct __FUNCTION__Message: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__FUNCTION__Message"}
     public var protoMessageName: String {return "__FUNCTION__"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7010,7 +6610,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7020,16 +6620,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct __LINE__Message: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct __LINE__Message: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__LINE__Message"}
     public var protoMessageName: String {return "__LINE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7045,7 +6642,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7055,16 +6652,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct _Message: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct _Message: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames._Message"}
     public var protoMessageName: String {return "_"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7080,7 +6674,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7090,16 +6684,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct __Message: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct __Message: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__Message"}
     public var protoMessageName: String {return "__"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7115,7 +6706,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7125,16 +6716,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct associativity: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct associativity: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.associativity"}
     public var protoMessageName: String {return "associativity"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7150,7 +6738,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7160,16 +6748,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct convenience: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct convenience: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.convenience"}
     public var protoMessageName: String {return "convenience"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7185,7 +6770,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7195,16 +6780,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct dynamic: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct dynamic: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamic"}
     public var protoMessageName: String {return "dynamic"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7220,7 +6802,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7230,16 +6812,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct didSet: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct didSet: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.didSet"}
     public var protoMessageName: String {return "didSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7255,7 +6834,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7265,16 +6844,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct final: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct final: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.final"}
     public var protoMessageName: String {return "final"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7290,7 +6866,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7300,16 +6876,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct get: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct get: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.get"}
     public var protoMessageName: String {return "get"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7325,7 +6898,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7335,16 +6908,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct infix: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct infix: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.infix"}
     public var protoMessageName: String {return "infix"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7360,7 +6930,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7370,16 +6940,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct indirect: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct indirect: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.indirect"}
     public var protoMessageName: String {return "indirect"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7395,7 +6962,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7405,16 +6972,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct lazy: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct lazy: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.lazy"}
     public var protoMessageName: String {return "lazy"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7430,7 +6994,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7440,16 +7004,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct left: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct left: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.left"}
     public var protoMessageName: String {return "left"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7465,7 +7026,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7475,16 +7036,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct mutating: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct mutating: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutating"}
     public var protoMessageName: String {return "mutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7500,7 +7058,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7510,16 +7068,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct none: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct none: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.none"}
     public var protoMessageName: String {return "none"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7535,7 +7090,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7545,16 +7100,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct nonmutating: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct nonmutating: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nonmutating"}
     public var protoMessageName: String {return "nonmutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7570,7 +7122,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7580,16 +7132,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct optional: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct optional: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.optional"}
     public var protoMessageName: String {return "optional"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7605,7 +7154,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7615,16 +7164,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct override: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct override: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.override"}
     public var protoMessageName: String {return "override"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7640,7 +7186,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7650,16 +7196,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct postfix: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct postfix: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.postfix"}
     public var protoMessageName: String {return "postfix"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7675,7 +7218,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7685,16 +7228,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct precedence: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct precedence: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.precedence"}
     public var protoMessageName: String {return "precedence"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7710,7 +7250,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7720,16 +7260,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct prefix: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct prefix: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.prefix"}
     public var protoMessageName: String {return "prefix"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7745,7 +7282,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7755,16 +7292,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct required: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct required: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.required"}
     public var protoMessageName: String {return "required"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7780,7 +7314,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7790,16 +7324,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct right: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct right: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.right"}
     public var protoMessageName: String {return "right"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7815,7 +7346,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7825,16 +7356,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct set: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct set: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.set"}
     public var protoMessageName: String {return "set"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7850,7 +7378,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7860,16 +7388,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct TypeMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct TypeMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7885,7 +7410,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7895,16 +7420,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct unowned: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct unowned: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unowned"}
     public var protoMessageName: String {return "unowned"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7920,7 +7442,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7930,16 +7452,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct weak: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct weak: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.weak"}
     public var protoMessageName: String {return "weak"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7955,7 +7474,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -7965,16 +7484,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct willSet: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct willSet: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.willSet"}
     public var protoMessageName: String {return "willSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -7990,7 +7506,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8000,16 +7516,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct id: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct id: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.id"}
     public var protoMessageName: String {return "id"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8025,7 +7538,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8035,16 +7548,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct _cmd: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct _cmd: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames._cmd"}
     public var protoMessageName: String {return "_cmd"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8060,7 +7570,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8070,16 +7580,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct out: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct out: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.out"}
     public var protoMessageName: String {return "out"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8095,7 +7602,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8105,16 +7612,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct bycopy: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct bycopy: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bycopy"}
     public var protoMessageName: String {return "bycopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8130,7 +7634,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8140,16 +7644,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct byref: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct byref: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.byref"}
     public var protoMessageName: String {return "byref"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8165,7 +7666,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8175,16 +7676,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct oneway: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct oneway: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.oneway"}
     public var protoMessageName: String {return "oneway"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8200,7 +7698,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8210,16 +7708,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct and: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct and: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.and"}
     public var protoMessageName: String {return "and"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8235,7 +7730,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8245,16 +7740,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct and_eq: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct and_eq: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.and_eq"}
     public var protoMessageName: String {return "and_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8270,7 +7762,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8280,16 +7772,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct alignas: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct alignas: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.alignas"}
     public var protoMessageName: String {return "alignas"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8305,7 +7794,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8315,16 +7804,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct alignof: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct alignof: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.alignof"}
     public var protoMessageName: String {return "alignof"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8340,7 +7826,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8350,16 +7836,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct asm: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct asm: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.asm"}
     public var protoMessageName: String {return "asm"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8375,7 +7858,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8385,16 +7868,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct auto: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct auto: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.auto"}
     public var protoMessageName: String {return "auto"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8410,7 +7890,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8420,16 +7900,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct bitand: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct bitand: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bitand"}
     public var protoMessageName: String {return "bitand"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8445,7 +7922,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8455,16 +7932,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct bitor: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct bitor: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bitor"}
     public var protoMessageName: String {return "bitor"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8480,7 +7954,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8490,16 +7964,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct bool: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct bool: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bool"}
     public var protoMessageName: String {return "bool"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8515,7 +7986,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8525,16 +7996,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct char: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct char: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char"}
     public var protoMessageName: String {return "char"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8550,7 +8018,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8560,16 +8028,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct char16_t: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct char16_t: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char16_t"}
     public var protoMessageName: String {return "char16_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8585,7 +8050,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8595,16 +8060,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct char32_t: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct char32_t: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char32_t"}
     public var protoMessageName: String {return "char32_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8620,7 +8082,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8630,16 +8092,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct compl: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct compl: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.compl"}
     public var protoMessageName: String {return "compl"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8655,7 +8114,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8665,16 +8124,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct const: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct const: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.const"}
     public var protoMessageName: String {return "const"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8690,7 +8146,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8700,16 +8156,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct constexpr: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct constexpr: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.constexpr"}
     public var protoMessageName: String {return "constexpr"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8725,7 +8178,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8735,16 +8188,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct const_cast: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct const_cast: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.const_cast"}
     public var protoMessageName: String {return "const_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8760,7 +8210,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8770,16 +8220,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct decltype: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct decltype: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.decltype"}
     public var protoMessageName: String {return "decltype"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8795,7 +8242,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8805,16 +8252,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct delete: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct delete: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.delete"}
     public var protoMessageName: String {return "delete"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8830,7 +8274,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8840,16 +8284,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct dynamic_cast: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct dynamic_cast: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamic_cast"}
     public var protoMessageName: String {return "dynamic_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8865,7 +8306,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8875,16 +8316,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct explicit: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct explicit: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.explicit"}
     public var protoMessageName: String {return "explicit"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8900,7 +8338,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8910,16 +8348,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct export: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct export: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.export"}
     public var protoMessageName: String {return "export"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8935,7 +8370,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8945,16 +8380,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct extern: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct extern: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extern"}
     public var protoMessageName: String {return "extern"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -8970,7 +8402,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -8980,16 +8412,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct friend: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct friend: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.friend"}
     public var protoMessageName: String {return "friend"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9005,7 +8434,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9015,16 +8444,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct goto: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct goto: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.goto"}
     public var protoMessageName: String {return "goto"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9040,7 +8466,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9050,16 +8476,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct inline: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct inline: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inline"}
     public var protoMessageName: String {return "inline"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9075,7 +8498,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9085,16 +8508,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct long: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct long: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.long"}
     public var protoMessageName: String {return "long"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9110,7 +8530,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9120,16 +8540,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct mutable: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct mutable: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutable"}
     public var protoMessageName: String {return "mutable"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9145,7 +8562,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9155,16 +8572,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct namespace: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct namespace: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.namespace"}
     public var protoMessageName: String {return "namespace"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9180,7 +8594,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9190,16 +8604,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct new: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct new: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.new"}
     public var protoMessageName: String {return "new"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9215,7 +8626,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9225,16 +8636,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct noexcept: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct noexcept: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.noexcept"}
     public var protoMessageName: String {return "noexcept"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9250,7 +8658,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9260,16 +8668,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct not: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct not: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.not"}
     public var protoMessageName: String {return "not"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9285,7 +8690,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9295,16 +8700,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct not_eq: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct not_eq: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.not_eq"}
     public var protoMessageName: String {return "not_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9320,7 +8722,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9330,16 +8732,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct nullptr: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct nullptr: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nullptr"}
     public var protoMessageName: String {return "nullptr"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9355,7 +8754,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9365,16 +8764,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct or: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct or: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.or"}
     public var protoMessageName: String {return "or"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9390,7 +8786,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9400,16 +8796,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct or_eq: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct or_eq: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.or_eq"}
     public var protoMessageName: String {return "or_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9425,7 +8818,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9435,16 +8828,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct protected: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct protected: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.protected"}
     public var protoMessageName: String {return "protected"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9460,7 +8850,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9470,16 +8860,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct register: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct register: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.register"}
     public var protoMessageName: String {return "register"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9495,7 +8882,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9505,16 +8892,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct reinterpret_cast: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct reinterpret_cast: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.reinterpret_cast"}
     public var protoMessageName: String {return "reinterpret_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9530,7 +8914,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9540,16 +8924,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct short: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct short: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.short"}
     public var protoMessageName: String {return "short"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9565,7 +8946,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9575,16 +8956,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct signed: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct signed: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.signed"}
     public var protoMessageName: String {return "signed"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9600,7 +8978,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9610,16 +8988,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct sizeof: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct sizeof: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.sizeof"}
     public var protoMessageName: String {return "sizeof"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9635,7 +9010,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9645,16 +9020,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct static_assert: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct static_assert: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.static_assert"}
     public var protoMessageName: String {return "static_assert"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9670,7 +9042,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9680,16 +9052,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct static_cast: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct static_cast: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.static_cast"}
     public var protoMessageName: String {return "static_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9705,7 +9074,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9715,16 +9084,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct template: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct template: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.template"}
     public var protoMessageName: String {return "template"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9740,7 +9106,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9750,16 +9116,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct this: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct this: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.this"}
     public var protoMessageName: String {return "this"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9775,7 +9138,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9785,16 +9148,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct thread_local: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct thread_local: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.thread_local"}
     public var protoMessageName: String {return "thread_local"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9810,7 +9170,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9820,16 +9180,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct typedef: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct typedef: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typedef"}
     public var protoMessageName: String {return "typedef"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9845,7 +9202,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9855,16 +9212,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct typeid: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct typeid: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typeid"}
     public var protoMessageName: String {return "typeid"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9880,7 +9234,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9890,16 +9244,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct typename: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct typename: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typename"}
     public var protoMessageName: String {return "typename"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9915,7 +9266,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9925,16 +9276,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct union: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct union: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.union"}
     public var protoMessageName: String {return "union"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9950,7 +9298,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9960,16 +9308,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct unsigned: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct unsigned: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unsigned"}
     public var protoMessageName: String {return "unsigned"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -9985,7 +9330,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -9995,16 +9340,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct using: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct using: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.using"}
     public var protoMessageName: String {return "using"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10020,7 +9362,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10030,16 +9372,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct virtual: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct virtual: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.virtual"}
     public var protoMessageName: String {return "virtual"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10055,7 +9394,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10065,16 +9404,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct void: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct void: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.void"}
     public var protoMessageName: String {return "void"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10090,7 +9426,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10100,16 +9436,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct volatile: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct volatile: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.volatile"}
     public var protoMessageName: String {return "volatile"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10125,7 +9458,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10135,16 +9468,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct wchar_t: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct wchar_t: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.wchar_t"}
     public var protoMessageName: String {return "wchar_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10160,7 +9490,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10170,16 +9500,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct xor: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct xor: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.xor"}
     public var protoMessageName: String {return "xor"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10195,7 +9522,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10205,16 +9532,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct xor_eq: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct xor_eq: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.xor_eq"}
     public var protoMessageName: String {return "xor_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10230,7 +9554,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10240,16 +9564,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct restrict: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct restrict: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.restrict"}
     public var protoMessageName: String {return "restrict"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10265,7 +9586,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10275,16 +9596,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Category: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Category: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Category"}
     public var protoMessageName: String {return "Category"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10300,7 +9618,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10310,16 +9628,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Ivar: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Ivar: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Ivar"}
     public var protoMessageName: String {return "Ivar"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10335,7 +9650,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10345,16 +9660,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Method: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Method: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Method"}
     public var protoMessageName: String {return "Method"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10370,7 +9682,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10380,16 +9692,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct finalize: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct finalize: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.finalize"}
     public var protoMessageName: String {return "finalize"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10405,7 +9714,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10415,16 +9724,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct hash: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct hash: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.hash"}
     public var protoMessageName: String {return "hash"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10440,7 +9746,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10450,16 +9756,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct dealloc: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct dealloc: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dealloc"}
     public var protoMessageName: String {return "dealloc"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10475,7 +9778,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10485,16 +9788,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct superclass: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct superclass: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.superclass"}
     public var protoMessageName: String {return "superclass"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10510,7 +9810,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10520,16 +9820,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct retain: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct retain: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.retain"}
     public var protoMessageName: String {return "retain"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10545,7 +9842,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10555,16 +9852,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct release: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct release: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.release"}
     public var protoMessageName: String {return "release"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10580,7 +9874,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10590,16 +9884,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct autorelease: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct autorelease: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.autorelease"}
     public var protoMessageName: String {return "autorelease"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10615,7 +9906,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10625,16 +9916,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct retainCount: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct retainCount: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.retainCount"}
     public var protoMessageName: String {return "retainCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10650,7 +9938,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10660,16 +9948,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct zone: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct zone: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.zone"}
     public var protoMessageName: String {return "zone"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10685,7 +9970,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10695,16 +9980,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct isProxy: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct isProxy: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isProxy"}
     public var protoMessageName: String {return "isProxy"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10720,7 +10002,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10730,16 +10012,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct copy: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct copy: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.copy"}
     public var protoMessageName: String {return "copy"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10755,7 +10034,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10765,16 +10044,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct mutableCopy: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct mutableCopy: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutableCopy"}
     public var protoMessageName: String {return "mutableCopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10790,7 +10066,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10800,16 +10076,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct classForCoder: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct classForCoder: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.classForCoder"}
     public var protoMessageName: String {return "classForCoder"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10825,7 +10098,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10835,16 +10108,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct clear: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct clear: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.clear"}
     public var protoMessageName: String {return "clear"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10860,7 +10130,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10870,16 +10140,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct data: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct data: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.data"}
     public var protoMessageName: String {return "data"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10895,7 +10162,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10905,16 +10172,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct delimitedData: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct delimitedData: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.delimitedData"}
     public var protoMessageName: String {return "delimitedData"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10930,7 +10194,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10940,16 +10204,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct descriptor: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct descriptor: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.descriptor"}
     public var protoMessageName: String {return "descriptor"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -10965,7 +10226,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -10975,16 +10236,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct extensionRegistry: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct extensionRegistry: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionRegistry"}
     public var protoMessageName: String {return "extensionRegistry"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11000,7 +10258,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11010,16 +10268,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct extensionsCurrentlySet: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct extensionsCurrentlySet: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionsCurrentlySet"}
     public var protoMessageName: String {return "extensionsCurrentlySet"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11035,7 +10290,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11045,16 +10300,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct isInitialized: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct isInitialized: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isInitialized"}
     public var protoMessageName: String {return "isInitialized"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11070,7 +10322,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11080,16 +10332,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct serializedSize: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct serializedSize: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.serializedSize"}
     public var protoMessageName: String {return "serializedSize"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11105,7 +10354,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11115,16 +10364,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct sortedExtensionsInUse: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct sortedExtensionsInUse: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.sortedExtensionsInUse"}
     public var protoMessageName: String {return "sortedExtensionsInUse"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11140,7 +10386,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11150,16 +10396,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct unknownFields: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct unknownFields: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unknownFields"}
     public var protoMessageName: String {return "unknownFields"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11175,7 +10418,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11185,16 +10428,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Fixed: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Fixed: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Fixed"}
     public var protoMessageName: String {return "Fixed"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11210,7 +10450,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11220,16 +10460,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Fract: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Fract: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Fract"}
     public var protoMessageName: String {return "Fract"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11245,7 +10482,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11255,16 +10492,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Size: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Size: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Size"}
     public var protoMessageName: String {return "Size"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11280,7 +10514,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11290,16 +10524,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct LogicalAddress: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct LogicalAddress: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.LogicalAddress"}
     public var protoMessageName: String {return "LogicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11315,7 +10546,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11325,16 +10556,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct PhysicalAddress: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct PhysicalAddress: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.PhysicalAddress"}
     public var protoMessageName: String {return "PhysicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11350,7 +10578,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11360,16 +10588,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct ByteCount: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct ByteCount: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ByteCount"}
     public var protoMessageName: String {return "ByteCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11385,7 +10610,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11395,16 +10620,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct ByteOffset: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct ByteOffset: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ByteOffset"}
     public var protoMessageName: String {return "ByteOffset"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11420,7 +10642,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11430,16 +10652,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Duration: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Duration: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Duration"}
     public var protoMessageName: String {return "Duration"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11455,7 +10674,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11465,16 +10684,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct AbsoluteTime: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct AbsoluteTime: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.AbsoluteTime"}
     public var protoMessageName: String {return "AbsoluteTime"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11490,7 +10706,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11500,16 +10716,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct OptionBits: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct OptionBits: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.OptionBits"}
     public var protoMessageName: String {return "OptionBits"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11525,7 +10738,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11535,16 +10748,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct ItemCount: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct ItemCount: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ItemCount"}
     public var protoMessageName: String {return "ItemCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11560,7 +10770,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11570,16 +10780,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct PBVersion: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct PBVersion: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.PBVersion"}
     public var protoMessageName: String {return "PBVersion"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11595,7 +10802,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11605,16 +10812,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct ScriptCode: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct ScriptCode: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ScriptCode"}
     public var protoMessageName: String {return "ScriptCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11630,7 +10834,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11640,16 +10844,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct LangCode: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct LangCode: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.LangCode"}
     public var protoMessageName: String {return "LangCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11665,7 +10866,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11675,16 +10876,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct RegionCode: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct RegionCode: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.RegionCode"}
     public var protoMessageName: String {return "RegionCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11700,7 +10898,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11710,16 +10908,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct OSType: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct OSType: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.OSType"}
     public var protoMessageName: String {return "OSType"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11735,7 +10930,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11745,16 +10940,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct ProcessSerialNumber: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct ProcessSerialNumber: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ProcessSerialNumber"}
     public var protoMessageName: String {return "ProcessSerialNumber"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11770,7 +10962,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11780,16 +10972,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Point: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Point: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Point"}
     public var protoMessageName: String {return "Point"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11805,7 +10994,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11815,16 +11004,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Rect: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Rect: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Rect"}
     public var protoMessageName: String {return "Rect"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11840,7 +11026,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11850,16 +11036,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct FixedPoint: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct FixedPoint: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FixedPoint"}
     public var protoMessageName: String {return "FixedPoint"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11875,7 +11058,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11885,16 +11068,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct FixedRect: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct FixedRect: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FixedRect"}
     public var protoMessageName: String {return "FixedRect"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11910,7 +11090,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11920,16 +11100,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct Style: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct Style: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Style"}
     public var protoMessageName: String {return "Style"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11945,7 +11122,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11955,16 +11132,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct StyleParameter: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct StyleParameter: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StyleParameter"}
     public var protoMessageName: String {return "StyleParameter"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -11980,7 +11154,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -11990,16 +11164,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct StyleField: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct StyleField: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StyleField"}
     public var protoMessageName: String {return "StyleField"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -12015,7 +11186,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -12025,16 +11196,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct TimeScale: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct TimeScale: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeScale"}
     public var protoMessageName: String {return "TimeScale"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -12050,7 +11218,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -12060,16 +11228,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct TimeBase: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct TimeBase: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeBase"}
     public var protoMessageName: String {return "TimeBase"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -12085,7 +11250,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -12095,16 +11260,13 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
     }
   }
 
-  struct TimeRecord: ProtobufGeneratedMessage, ProtobufProto3Message {
+  struct TimeRecord: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeRecord"}
     public var protoMessageName: String {return "TimeRecord"}
     public var protoPackageName: String {return "swift_unittest.names"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+    ]
 
 
     var a: Int32 = 0
@@ -12120,7 +11282,7 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if a != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: a, protoFieldNumber: 1)
       }
     }
 
@@ -12143,12 +11305,11 @@ struct SwiftUnittest_Names_MessageNames: ProtobufGeneratedMessage, ProtobufProto
   }
 }
 
-struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct SwiftUnittest_Names_EnumNames: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "SwiftUnittest_Names_EnumNames"}
   public var protoMessageName: String {return "EnumNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
 
   enum StringEnum: ProtobufEnum {
