@@ -22,9 +22,12 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
     var description = ""
     private var separator = ""
 
-    init() {}
+    private let nameResolver: (Int) -> String?
 
     init(message: ProtobufMessageBase) {
+        self.nameResolver =
+            ProtoNameResolvers.swiftFieldNameResolver(for: message)
+
         description.append(message.swiftClassName)
         description.append("(")
         withAbstractVisitor {(visitor: inout ProtobufVisitor) in
@@ -33,7 +36,7 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         description.append(")")
     }
 
-  mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) {
+    mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) {
         var visitor: ProtobufVisitor = self
         do {
             try clause(&visitor)
@@ -46,13 +49,15 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
 
     mutating func visitUnknown(bytes: Data) {}
 
-    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         separator = ","
         description.append(swiftFieldName + ":" + String(reflecting: value))
     }
 
-    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -66,7 +71,8 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -80,7 +86,8 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":")
@@ -89,7 +96,8 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -105,7 +113,8 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
    }
 
 
-    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":")
@@ -114,7 +123,8 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -129,7 +139,8 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         separator = ","
     }
 
-    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
+        let swiftFieldName = self.swiftFieldName(withNumber: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":{")
@@ -143,5 +154,11 @@ struct ProtobufDebugDescriptionVisitor: ProtobufVisitor {
         }
         description.append("}")
         separator = ","
+    }
+
+    /// Helper function that stringifies the field number if the name could not
+    /// be resolved.
+    private func swiftFieldName(withNumber number: Int) -> String {
+        return nameResolver(number) ?? String(number)
     }
 }

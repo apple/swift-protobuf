@@ -240,16 +240,13 @@ import Foundation
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-public struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage, ProtobufProto3Message {
+public struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_FieldMask"}
   public var protoMessageName: String {return "FieldMask"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "paths": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "paths": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "paths", swift: "paths"),
+  ]
 
 
   ///   The set of field mask paths.
@@ -266,7 +263,7 @@ public struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage, ProtobufProto
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !paths.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: paths, protoFieldNumber: 1, protoFieldName: "paths", jsonFieldName: "paths", swiftFieldName: "paths")
+      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: paths, protoFieldNumber: 1)
     }
   }
 

@@ -121,10 +121,12 @@ public struct ProtobufJSONDecoder {
     // TODO: ProtobufMessage here should be ProtobufFieldDecodableType to encompass both groups and messages
     // then this can merge with the decodeValue below...
     public mutating func decodeValue<M: ProtobufMessage>(key: String, message: inout M) throws {
+        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+            throw ProtobufDecodingError.missingFieldNames
+        }
         if let token = try nextToken() {
-            let protoFieldNumber = (message.jsonFieldNames[key]
-                ?? message.protoFieldNames[key]
-                ?? scanner.extensions?.fieldNumberForJson(messageType: M.self, jsonFieldName: key))
+            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(withJSONName: key)
+                ?? scanner.extensions?.fieldNumberForJson(messageType: M.self, jsonFieldName: key)
             switch token {
             case .colon, .comma, .endObject, .endArray:
                 throw ProtobufDecodingError.malformedJSON
@@ -168,11 +170,11 @@ public struct ProtobufJSONDecoder {
     }
 
     public mutating func decodeValue<G: ProtobufMessage>(key: String, group: inout G) throws {
+        guard let nameProviding = (G.self as? ProtoNameProviding.Type) else {
+            throw ProtobufDecodingError.missingFieldNames
+        }
         if let token = try nextToken() {
-            let protoFieldNumber = (group.jsonFieldNames[key]
-                ?? group.protoFieldNames[key])
-            // TODO: Look up field number for extension?
-            //?? scanner.extensions?.fieldNumberForJson(messageType: G.self, jsonFieldName: key))
+            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(withJSONName: key)
             switch token {
             case .colon, .comma, .endObject, .endArray:
                 throw ProtobufDecodingError.malformedJSON

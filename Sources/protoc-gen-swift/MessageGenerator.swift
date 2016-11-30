@@ -337,6 +337,8 @@ class MessageGenerator {
         if isExtensible {
             conformance += ", ProtobufExtensibleMessage"
         }
+        // TODO: Move this conformance into an extension in a separate file.
+        conformance += ", ProtoNameProviding"
         self.swiftMessageConformance = conformance
 
         var i: Int32 = 0
@@ -420,32 +422,17 @@ class MessageGenerator {
         p.print("public var protoMessageName: String {return \"\(protoMessageName)\"}\n")
         p.print("public var protoPackageName: String {return \"\(protoPackageName)\"}\n")
 
-        // Map JSON field names to field number
-        if fields.isEmpty {
-            p.print("public var jsonFieldNames: [String: Int] {return [:]}\n")
-        } else {
-            p.print("public var jsonFieldNames: [String: Int] {return [\n")
-            p.indent()
-            for f in fields {
-                if let jsonName = f.jsonName {
-                    p.print("\"\(jsonName)\": \(f.number),\n")
-                }
-            }
-            p.outdent()
-            p.print("]}\n")
-        }
-
         // Map proto field names to field number
         if fields.isEmpty {
-            p.print("public var protoFieldNames: [String: Int] {return [:]}\n")
+            p.print("public static let _protobuf_fieldNames = FieldNameMap()\n")
         } else {
-            p.print("public var protoFieldNames: [String: Int] {return [\n")
+            p.print("public static let _protobuf_fieldNames: FieldNameMap = [\n")
             p.indent()
             for f in fields {
-                p.print("\"\(f.protoName)\": \(f.number),\n")
+                p.print("\(f.number): \(f.fieldMapNames),\n")
             }
             p.outdent()
-            p.print("]}\n")
+            p.print("]\n")
         }
 
         if let storage = storage {
@@ -698,6 +685,9 @@ class MessageGenerator {
                 p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return _storage.hasExtensionValue(ext: ext)\n")
                 p.print("}\n")
+                p.print("public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {\n")
+                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(withNumber: number) ?? _storage.extensionFieldValues.fieldNames(withNumber: number)\n")
+                p.print("}\n")
             } else {
                 p.print("\n")
                 p.print("private var extensionFieldValues = ProtobufExtensionFieldValueSet()\n")
@@ -719,6 +709,9 @@ class MessageGenerator {
                 p.print("\n")
                 p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return extensionFieldValues[ext.protoFieldNumber] is F\n")
+                p.print("}\n")
+                p.print("public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {\n")
+                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)\n")
                 p.print("}\n")
             }
         }

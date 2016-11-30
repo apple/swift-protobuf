@@ -240,6 +240,18 @@ struct MessageFieldGenerator {
         self.generatorOptions = file.generatorOptions
     }
 
+    var fieldMapNames: String {
+        // TODO: Add a check to see if the JSON name is just the text name
+        // transformed with protoc's algorithm; if so, use a new case to ask
+        // the runtime to do the same transformation instead of storing both
+        // strings.
+        if let jsonName = jsonName, jsonName != protoName {
+            return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\", swift: \"\(swiftName)\")"
+        } else {
+            return ".same(proto: \"\(protoName)\", swift: \"\(swiftName)\")"
+        }
+    }
+
     var isGroup: Bool {return descriptor.isGroup}
     var isMap: Bool {return descriptor.getIsMap(context: context)}
     var isMessage: Bool {return descriptor.isMessage}
@@ -470,8 +482,7 @@ struct MessageFieldGenerator {
         if conditional {
             p.indent()
         }
-        let json = jsonName ?? ""
-        p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), protoFieldNumber: \(number), protoFieldName: \"\(protoName)\", jsonFieldName: \"\(json)\", swiftFieldName: \"\(swiftName)\")\n")
+        p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), protoFieldNumber: \(number))\n")
         if conditional {
             p.outdent()
             p.print("}\n")

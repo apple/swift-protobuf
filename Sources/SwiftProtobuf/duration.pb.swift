@@ -79,18 +79,14 @@ import Foundation
 ///         end.seconds += 1;
 ///         end.nanos -= 1000000000;
 ///       }
-public struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3Message {
+public struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Duration"}
   public var protoMessageName: String {return "Duration"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "seconds": 1,
-    "nanos": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "seconds": 1,
-    "nanos": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "seconds", swift: "seconds"),
+    2: .same(proto: "nanos", swift: "nanos"),
+  ]
 
 
   ///   Signed seconds of the span of time. Must be from -315,576,000,000
@@ -117,10 +113,10 @@ public struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if seconds != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: seconds, protoFieldNumber: 1, protoFieldName: "seconds", jsonFieldName: "seconds", swiftFieldName: "seconds")
+      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: seconds, protoFieldNumber: 1)
     }
     if nanos != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: nanos, protoFieldNumber: 2, protoFieldName: "nanos", jsonFieldName: "nanos", swiftFieldName: "nanos")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: nanos, protoFieldNumber: 2)
     }
   }
 

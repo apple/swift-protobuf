@@ -45,8 +45,6 @@ public protocol ProtobufMessageBase:
   var protoPackageName: String { get }
   var anyTypePrefix: String { get }
   var anyTypeURL: String { get }
-  var jsonFieldNames: [String: Int] {get}
-  var protoFieldNames: [String: Int] {get}
 
   /// Decode a field identified by a field number (as given in the .proto file).
   ///
