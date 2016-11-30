@@ -208,18 +208,14 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: ProtobufEnum {
 
 }
 
-struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMap"}
   public var protoMessageName: String {return "TestEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "knownMapField": 101,
-    "unknownMapField": 102,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "known_map_field": 101,
-    "unknown_map_field": 102,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    101: .unique(proto: "known_map_field", json: "knownMapField", swift: "knownMapField"),
+    102: .unique(proto: "unknown_map_field", json: "unknownMapField", swift: "unknownMapField"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -239,10 +235,10 @@ struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Mes
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: knownMapField, protoFieldNumber: 101)
     }
     if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: unknownMapField, protoFieldNumber: 102, protoFieldName: "unknown_map_field", jsonFieldName: "unknownMapField", swiftFieldName: "unknownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: unknownMapField, protoFieldNumber: 102)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -255,18 +251,14 @@ struct ProtobufUnittest_TestEnumMap: ProtobufGeneratedMessage, ProtobufProto2Mes
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtra"}
   public var protoMessageName: String {return "TestEnumMapPlusExtra"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "knownMapField": 101,
-    "unknownMapField": 102,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "known_map_field": 101,
-    "unknown_map_field": 102,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    101: .unique(proto: "known_map_field", json: "knownMapField", swift: "knownMapField"),
+    102: .unique(proto: "unknown_map_field", json: "unknownMapField", swift: "unknownMapField"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -286,10 +278,10 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, Protobuf
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: knownMapField, protoFieldNumber: 101)
     }
     if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: unknownMapField, protoFieldNumber: 102, protoFieldName: "unknown_map_field", jsonFieldName: "unknownMapField", swiftFieldName: "unknownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: unknownMapField, protoFieldNumber: 102)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -302,16 +294,13 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: ProtobufGeneratedMessage, Protobuf
   }
 }
 
-struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestImportEnumMap"}
   public var protoMessageName: String {return "TestImportEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "importEnumAmp": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "import_enum_amp": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "import_enum_amp", json: "importEnumAmp", swift: "importEnumAmp"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -328,7 +317,7 @@ struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage, ProtobufPro
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !importEnumAmp.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, protoFieldNumber: 1, protoFieldName: "import_enum_amp", jsonFieldName: "importEnumAmp", swiftFieldName: "importEnumAmp")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }

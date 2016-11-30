@@ -40,16 +40,13 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2ArenaUnittest_ImportNoArenaNestedMessage"}
   public var protoMessageName: String {return "ImportNoArenaNestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "d", swift: "d"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -76,7 +73,7 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: ProtobufGeneratedMessage,
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _d {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }

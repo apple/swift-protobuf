@@ -40,28 +40,19 @@ import Foundation
 
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
-struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Api"}
   public var protoMessageName: String {return "Api"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "name": 1,
-    "methods": 2,
-    "options": 3,
-    "version": 4,
-    "sourceContext": 5,
-    "mixins": 6,
-    "syntax": 7,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "name": 1,
-    "methods": 2,
-    "options": 3,
-    "version": 4,
-    "source_context": 5,
-    "mixins": 6,
-    "syntax": 7,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "name", swift: "name"),
+    2: .same(proto: "methods", swift: "methods"),
+    3: .same(proto: "options", swift: "options"),
+    4: .same(proto: "version", swift: "version"),
+    5: .unique(proto: "source_context", json: "sourceContext", swift: "sourceContext"),
+    6: .same(proto: "mixins", swift: "mixins"),
+    7: .same(proto: "syntax", swift: "syntax"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = Google_Protobuf_Api
@@ -90,25 +81,25 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message {
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if _name != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _name, protoFieldNumber: 1, protoFieldName: "name", jsonFieldName: "name", swiftFieldName: "name")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _name, protoFieldNumber: 1)
       }
       if !_methods.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _methods, protoFieldNumber: 2, protoFieldName: "methods", jsonFieldName: "methods", swiftFieldName: "methods")
+        try visitor.visitRepeatedMessageField(value: _methods, protoFieldNumber: 2)
       }
       if !_options.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _options, protoFieldNumber: 3, protoFieldName: "options", jsonFieldName: "options", swiftFieldName: "options")
+        try visitor.visitRepeatedMessageField(value: _options, protoFieldNumber: 3)
       }
       if _version != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _version, protoFieldNumber: 4, protoFieldName: "version", jsonFieldName: "version", swiftFieldName: "version")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _version, protoFieldNumber: 4)
       }
       if let v = _sourceContext {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5, protoFieldName: "source_context", jsonFieldName: "sourceContext", swiftFieldName: "sourceContext")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
       }
       if !_mixins.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _mixins, protoFieldNumber: 6, protoFieldName: "mixins", jsonFieldName: "mixins", swiftFieldName: "mixins")
+        try visitor.visitRepeatedMessageField(value: _mixins, protoFieldNumber: 6)
       }
       if _syntax != Google_Protobuf_Syntax.proto2 {
-        try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: _syntax, protoFieldNumber: 7, protoFieldName: "syntax", jsonFieldName: "syntax", swiftFieldName: "syntax")
+        try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: _syntax, protoFieldNumber: 7)
       }
     }
 
@@ -231,28 +222,19 @@ struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message {
 }
 
 ///   Method represents a method of an api.
-struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Method"}
   public var protoMessageName: String {return "Method"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "name": 1,
-    "requestTypeUrl": 2,
-    "requestStreaming": 3,
-    "responseTypeUrl": 4,
-    "responseStreaming": 5,
-    "options": 6,
-    "syntax": 7,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "name": 1,
-    "request_type_url": 2,
-    "request_streaming": 3,
-    "response_type_url": 4,
-    "response_streaming": 5,
-    "options": 6,
-    "syntax": 7,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "name", swift: "name"),
+    2: .unique(proto: "request_type_url", json: "requestTypeUrl", swift: "requestTypeURL"),
+    3: .unique(proto: "request_streaming", json: "requestStreaming", swift: "requestStreaming"),
+    4: .unique(proto: "response_type_url", json: "responseTypeUrl", swift: "responseTypeURL"),
+    5: .unique(proto: "response_streaming", json: "responseStreaming", swift: "responseStreaming"),
+    6: .same(proto: "options", swift: "options"),
+    7: .same(proto: "syntax", swift: "syntax"),
+  ]
 
 
   ///   The simple name of this method.
@@ -293,25 +275,25 @@ struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if name != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: name, protoFieldNumber: 1, protoFieldName: "name", jsonFieldName: "name", swiftFieldName: "name")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: name, protoFieldNumber: 1)
     }
     if requestTypeURL != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: requestTypeURL, protoFieldNumber: 2, protoFieldName: "request_type_url", jsonFieldName: "requestTypeUrl", swiftFieldName: "requestTypeURL")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: requestTypeURL, protoFieldNumber: 2)
     }
     if requestStreaming != false {
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: requestStreaming, protoFieldNumber: 3, protoFieldName: "request_streaming", jsonFieldName: "requestStreaming", swiftFieldName: "requestStreaming")
+      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: requestStreaming, protoFieldNumber: 3)
     }
     if responseTypeURL != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: responseTypeURL, protoFieldNumber: 4, protoFieldName: "response_type_url", jsonFieldName: "responseTypeUrl", swiftFieldName: "responseTypeURL")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: responseTypeURL, protoFieldNumber: 4)
     }
     if responseStreaming != false {
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: responseStreaming, protoFieldNumber: 5, protoFieldName: "response_streaming", jsonFieldName: "responseStreaming", swiftFieldName: "responseStreaming")
+      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: responseStreaming, protoFieldNumber: 5)
     }
     if !options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: options, protoFieldNumber: 6, protoFieldName: "options", jsonFieldName: "options", swiftFieldName: "options")
+      try visitor.visitRepeatedMessageField(value: options, protoFieldNumber: 6)
     }
     if syntax != Google_Protobuf_Syntax.proto2 {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: syntax, protoFieldNumber: 7, protoFieldName: "syntax", jsonFieldName: "syntax", swiftFieldName: "syntax")
+      try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: syntax, protoFieldNumber: 7)
     }
   }
 
@@ -404,18 +386,14 @@ struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Message {
 ///         }
 ///         ...
 ///       }
-struct Google_Protobuf_Mixin: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Google_Protobuf_Mixin: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Mixin"}
   public var protoMessageName: String {return "Mixin"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "name": 1,
-    "root": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "name": 1,
-    "root": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "name", swift: "name"),
+    2: .same(proto: "root", swift: "root"),
+  ]
 
 
   ///   The fully qualified name of the API which is included.
@@ -437,10 +415,10 @@ struct Google_Protobuf_Mixin: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if name != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: name, protoFieldNumber: 1, protoFieldName: "name", jsonFieldName: "name", swiftFieldName: "name")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: name, protoFieldNumber: 1)
     }
     if root != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: root, protoFieldNumber: 2, protoFieldName: "root", jsonFieldName: "root", swiftFieldName: "root")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: root, protoFieldNumber: 2)
     }
   }
 

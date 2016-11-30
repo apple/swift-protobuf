@@ -26,34 +26,29 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = ProtobufUnknownStorage()
 
-  struct Bar: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct Bar: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo.Bar"}
     public var protoMessageName: String {return "Bar"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
-    public var jsonFieldNames: [String: Int] {return [:]}
-    public var protoFieldNames: [String: Int] {return [:]}
+    public static let _protobuf_fieldNames = FieldNameMap()
 
     public var unknown = ProtobufUnknownStorage()
 
-    struct Baz: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage {
+    struct Baz: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage, ProtoNameProviding {
       public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo.Bar.Baz"}
       public var protoMessageName: String {return "Baz"}
       public var protoPackageName: String {return "protobuf_unittest.extend"}
-      public var jsonFieldNames: [String: Int] {return [
-        "a": 1,
-      ]}
-      public var protoFieldNames: [String: Int] {return [
-        "a": 1,
-      ]}
+      public static let _protobuf_fieldNames: FieldNameMap = [
+        1: .same(proto: "a", swift: "a"),
+      ]
 
       public var unknown = ProtobufUnknownStorage()
 
@@ -82,7 +77,7 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
 
       public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
         if let v = _a {
-          try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+          try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
         }
         try extensionFieldValues.traverse(visitor: &visitor, start: 100, end: 1001)
         unknown.traverse(visitor: &visitor)
@@ -114,6 +109,9 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
 
       public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Baz>) -> Bool {
         return extensionFieldValues[ext.protoFieldNumber] is F
+      }
+      public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
+        return Baz._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)
       }
     }
 
@@ -147,16 +145,13 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
   }
 }
 
-struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_C"}
   public var protoMessageName: String {return "C"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
-  public var jsonFieldNames: [String: Int] {return [
-    "c": 999,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "c": 999,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    999: .same(proto: "c", swift: "c"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -184,7 +179,7 @@ struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage, ProtobufProto2Messag
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _c {
-      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 999, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
+      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 999)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -196,9 +191,9 @@ struct ProtobufUnittest_Extend_C: ProtobufGeneratedMessage, ProtobufProto2Messag
   }
 }
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 100, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "b", defaultValue: "")
+let ProtobufUnittest_Extend_Foo_Bar_Baz_b = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 100, fieldNames: .same(proto: "b", swift: "b"), defaultValue: "")
 
-let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c", defaultValue: ProtobufUnittest_Extend_C())
+let ProtobufUnittest_Extend_Foo_Bar_Baz_c = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(protoFieldNumber: 101, fieldNames: .same(proto: "c", swift: "c"), defaultValue: ProtobufUnittest_Extend_C())
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var b: String {

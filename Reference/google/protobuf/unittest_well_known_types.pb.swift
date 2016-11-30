@@ -13,52 +13,31 @@ import SwiftProtobuf
 ///   Test that we can include all well-known types.
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestWellKnownTypes"}
   public var protoMessageName: String {return "TestWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "anyField": 1,
-    "apiField": 2,
-    "durationField": 3,
-    "emptyField": 4,
-    "fieldMaskField": 5,
-    "sourceContextField": 6,
-    "structField": 7,
-    "timestampField": 8,
-    "typeField": 9,
-    "doubleField": 10,
-    "floatField": 11,
-    "int64Field": 12,
-    "uint64Field": 13,
-    "int32Field": 14,
-    "uint32Field": 15,
-    "boolField": 16,
-    "stringField": 17,
-    "bytesField": 18,
-    "valueField": 19,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "any_field": 1,
-    "api_field": 2,
-    "duration_field": 3,
-    "empty_field": 4,
-    "field_mask_field": 5,
-    "source_context_field": 6,
-    "struct_field": 7,
-    "timestamp_field": 8,
-    "type_field": 9,
-    "double_field": 10,
-    "float_field": 11,
-    "int64_field": 12,
-    "uint64_field": 13,
-    "int32_field": 14,
-    "uint32_field": 15,
-    "bool_field": 16,
-    "string_field": 17,
-    "bytes_field": 18,
-    "value_field": 19,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
+    19: .unique(proto: "value_field", json: "valueField", swift: "valueField"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestWellKnownTypes
@@ -111,61 +90,61 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufPr
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _anyField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       if let v = _apiField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2, protoFieldName: "api_field", jsonFieldName: "apiField", swiftFieldName: "apiField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
       }
       if let v = _durationField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3, protoFieldName: "duration_field", jsonFieldName: "durationField", swiftFieldName: "durationField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
       }
       if let v = _emptyField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4, protoFieldName: "empty_field", jsonFieldName: "emptyField", swiftFieldName: "emptyField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4)
       }
       if let v = _fieldMaskField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5, protoFieldName: "field_mask_field", jsonFieldName: "fieldMaskField", swiftFieldName: "fieldMaskField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
       }
       if let v = _sourceContextField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6, protoFieldName: "source_context_field", jsonFieldName: "sourceContextField", swiftFieldName: "sourceContextField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
       }
       if let v = _structField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 7, protoFieldName: "struct_field", jsonFieldName: "structField", swiftFieldName: "structField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 7)
       }
       if let v = _timestampField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 8, protoFieldName: "timestamp_field", jsonFieldName: "timestampField", swiftFieldName: "timestampField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 8)
       }
       if let v = _typeField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 9, protoFieldName: "type_field", jsonFieldName: "typeField", swiftFieldName: "typeField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 9)
       }
       if let v = _doubleField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 10, protoFieldName: "double_field", jsonFieldName: "doubleField", swiftFieldName: "doubleField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 10)
       }
       if let v = _floatField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 11, protoFieldName: "float_field", jsonFieldName: "floatField", swiftFieldName: "floatField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 11)
       }
       if let v = _int64Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 12, protoFieldName: "int64_field", jsonFieldName: "int64Field", swiftFieldName: "int64Field")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 12)
       }
       if let v = _uint64Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 13, protoFieldName: "uint64_field", jsonFieldName: "uint64Field", swiftFieldName: "uint64Field")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 13)
       }
       if let v = _int32Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 14, protoFieldName: "int32_field", jsonFieldName: "int32Field", swiftFieldName: "int32Field")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 14)
       }
       if let v = _uint32Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 15, protoFieldName: "uint32_field", jsonFieldName: "uint32Field", swiftFieldName: "uint32Field")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 15)
       }
       if let v = _boolField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 16, protoFieldName: "bool_field", jsonFieldName: "boolField", swiftFieldName: "boolField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 16)
       }
       if let v = _stringField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 17, protoFieldName: "string_field", jsonFieldName: "stringField", swiftFieldName: "stringField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 17)
       }
       if let v = _bytesField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18, protoFieldName: "bytes_field", jsonFieldName: "bytesField", swiftFieldName: "bytesField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18)
       }
       if let v = _valueField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 19, protoFieldName: "value_field", jsonFieldName: "valueField", swiftFieldName: "valueField")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 19)
       }
     }
 
@@ -453,50 +432,30 @@ struct ProtobufUnittest_TestWellKnownTypes: ProtobufGeneratedMessage, ProtobufPr
 }
 
 ///   A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_RepeatedWellKnownTypes"}
   public var protoMessageName: String {return "RepeatedWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "anyField": 1,
-    "apiField": 2,
-    "durationField": 3,
-    "emptyField": 4,
-    "fieldMaskField": 5,
-    "sourceContextField": 6,
-    "structField": 7,
-    "timestampField": 8,
-    "typeField": 9,
-    "doubleField": 10,
-    "floatField": 11,
-    "int64Field": 12,
-    "uint64Field": 13,
-    "int32Field": 14,
-    "uint32Field": 15,
-    "boolField": 16,
-    "stringField": 17,
-    "bytesField": 18,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "any_field": 1,
-    "api_field": 2,
-    "duration_field": 3,
-    "empty_field": 4,
-    "field_mask_field": 5,
-    "source_context_field": 6,
-    "struct_field": 7,
-    "timestamp_field": 8,
-    "type_field": 9,
-    "double_field": 10,
-    "float_field": 11,
-    "int64_field": 12,
-    "uint64_field": 13,
-    "int32_field": 14,
-    "uint32_field": 15,
-    "bool_field": 16,
-    "string_field": 17,
-    "bytes_field": 18,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_RepeatedWellKnownTypes
@@ -547,58 +506,58 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, Protob
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if !_anyField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _anyField, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
+        try visitor.visitRepeatedMessageField(value: _anyField, protoFieldNumber: 1)
       }
       if !_apiField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _apiField, protoFieldNumber: 2, protoFieldName: "api_field", jsonFieldName: "apiField", swiftFieldName: "apiField")
+        try visitor.visitRepeatedMessageField(value: _apiField, protoFieldNumber: 2)
       }
       if !_durationField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _durationField, protoFieldNumber: 3, protoFieldName: "duration_field", jsonFieldName: "durationField", swiftFieldName: "durationField")
+        try visitor.visitRepeatedMessageField(value: _durationField, protoFieldNumber: 3)
       }
       if !_emptyField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _emptyField, protoFieldNumber: 4, protoFieldName: "empty_field", jsonFieldName: "emptyField", swiftFieldName: "emptyField")
+        try visitor.visitRepeatedMessageField(value: _emptyField, protoFieldNumber: 4)
       }
       if !_fieldMaskField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _fieldMaskField, protoFieldNumber: 5, protoFieldName: "field_mask_field", jsonFieldName: "fieldMaskField", swiftFieldName: "fieldMaskField")
+        try visitor.visitRepeatedMessageField(value: _fieldMaskField, protoFieldNumber: 5)
       }
       if !_sourceContextField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _sourceContextField, protoFieldNumber: 6, protoFieldName: "source_context_field", jsonFieldName: "sourceContextField", swiftFieldName: "sourceContextField")
+        try visitor.visitRepeatedMessageField(value: _sourceContextField, protoFieldNumber: 6)
       }
       if !_structField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _structField, protoFieldNumber: 7, protoFieldName: "struct_field", jsonFieldName: "structField", swiftFieldName: "structField")
+        try visitor.visitRepeatedMessageField(value: _structField, protoFieldNumber: 7)
       }
       if !_timestampField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _timestampField, protoFieldNumber: 8, protoFieldName: "timestamp_field", jsonFieldName: "timestampField", swiftFieldName: "timestampField")
+        try visitor.visitRepeatedMessageField(value: _timestampField, protoFieldNumber: 8)
       }
       if !_typeField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _typeField, protoFieldNumber: 9, protoFieldName: "type_field", jsonFieldName: "typeField", swiftFieldName: "typeField")
+        try visitor.visitRepeatedMessageField(value: _typeField, protoFieldNumber: 9)
       }
       if !_doubleField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _doubleField, protoFieldNumber: 10, protoFieldName: "double_field", jsonFieldName: "doubleField", swiftFieldName: "doubleField")
+        try visitor.visitRepeatedMessageField(value: _doubleField, protoFieldNumber: 10)
       }
       if !_floatField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _floatField, protoFieldNumber: 11, protoFieldName: "float_field", jsonFieldName: "floatField", swiftFieldName: "floatField")
+        try visitor.visitRepeatedMessageField(value: _floatField, protoFieldNumber: 11)
       }
       if !_int64Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _int64Field, protoFieldNumber: 12, protoFieldName: "int64_field", jsonFieldName: "int64Field", swiftFieldName: "int64Field")
+        try visitor.visitRepeatedMessageField(value: _int64Field, protoFieldNumber: 12)
       }
       if !_uint64Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _uint64Field, protoFieldNumber: 13, protoFieldName: "uint64_field", jsonFieldName: "uint64Field", swiftFieldName: "uint64Field")
+        try visitor.visitRepeatedMessageField(value: _uint64Field, protoFieldNumber: 13)
       }
       if !_int32Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _int32Field, protoFieldNumber: 14, protoFieldName: "int32_field", jsonFieldName: "int32Field", swiftFieldName: "int32Field")
+        try visitor.visitRepeatedMessageField(value: _int32Field, protoFieldNumber: 14)
       }
       if !_uint32Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _uint32Field, protoFieldNumber: 15, protoFieldName: "uint32_field", jsonFieldName: "uint32Field", swiftFieldName: "uint32Field")
+        try visitor.visitRepeatedMessageField(value: _uint32Field, protoFieldNumber: 15)
       }
       if !_boolField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _boolField, protoFieldNumber: 16, protoFieldName: "bool_field", jsonFieldName: "boolField", swiftFieldName: "boolField")
+        try visitor.visitRepeatedMessageField(value: _boolField, protoFieldNumber: 16)
       }
       if !_stringField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _stringField, protoFieldNumber: 17, protoFieldName: "string_field", jsonFieldName: "stringField", swiftFieldName: "stringField")
+        try visitor.visitRepeatedMessageField(value: _stringField, protoFieldNumber: 17)
       }
       if !_bytesField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _bytesField, protoFieldNumber: 18, protoFieldName: "bytes_field", jsonFieldName: "bytesField", swiftFieldName: "bytesField")
+        try visitor.visitRepeatedMessageField(value: _bytesField, protoFieldNumber: 18)
       }
     }
 
@@ -764,50 +723,30 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: ProtobufGeneratedMessage, Protob
   }
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_OneofWellKnownTypes"}
   public var protoMessageName: String {return "OneofWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "anyField": 1,
-    "apiField": 2,
-    "durationField": 3,
-    "emptyField": 4,
-    "fieldMaskField": 5,
-    "sourceContextField": 6,
-    "structField": 7,
-    "timestampField": 8,
-    "typeField": 9,
-    "doubleField": 10,
-    "floatField": 11,
-    "int64Field": 12,
-    "uint64Field": 13,
-    "int32Field": 14,
-    "uint32Field": 15,
-    "boolField": 16,
-    "stringField": 17,
-    "bytesField": 18,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "any_field": 1,
-    "api_field": 2,
-    "duration_field": 3,
-    "empty_field": 4,
-    "field_mask_field": 5,
-    "source_context_field": 6,
-    "struct_field": 7,
-    "timestamp_field": 8,
-    "type_field": 9,
-    "double_field": 10,
-    "float_field": 11,
-    "int64_field": 12,
-    "uint64_field": 13,
-    "int32_field": 14,
-    "uint32_field": 15,
-    "bool_field": 16,
-    "string_field": 17,
-    "bytes_field": 18,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_OneofWellKnownTypes
@@ -992,75 +931,75 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
       switch self {
       case .anyField(let v):
         if start <= 1 && 1 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
         }
       case .apiField(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2, protoFieldName: "api_field", jsonFieldName: "apiField", swiftFieldName: "apiField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
         }
       case .durationField(let v):
         if start <= 3 && 3 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3, protoFieldName: "duration_field", jsonFieldName: "durationField", swiftFieldName: "durationField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
         }
       case .emptyField(let v):
         if start <= 4 && 4 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4, protoFieldName: "empty_field", jsonFieldName: "emptyField", swiftFieldName: "emptyField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4)
         }
       case .fieldMaskField(let v):
         if start <= 5 && 5 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5, protoFieldName: "field_mask_field", jsonFieldName: "fieldMaskField", swiftFieldName: "fieldMaskField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
         }
       case .sourceContextField(let v):
         if start <= 6 && 6 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6, protoFieldName: "source_context_field", jsonFieldName: "sourceContextField", swiftFieldName: "sourceContextField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
         }
       case .structField(let v):
         if start <= 7 && 7 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 7, protoFieldName: "struct_field", jsonFieldName: "structField", swiftFieldName: "structField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 7)
         }
       case .timestampField(let v):
         if start <= 8 && 8 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 8, protoFieldName: "timestamp_field", jsonFieldName: "timestampField", swiftFieldName: "timestampField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 8)
         }
       case .typeField(let v):
         if start <= 9 && 9 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 9, protoFieldName: "type_field", jsonFieldName: "typeField", swiftFieldName: "typeField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 9)
         }
       case .doubleField(let v):
         if start <= 10 && 10 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 10, protoFieldName: "double_field", jsonFieldName: "doubleField", swiftFieldName: "doubleField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 10)
         }
       case .floatField(let v):
         if start <= 11 && 11 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 11, protoFieldName: "float_field", jsonFieldName: "floatField", swiftFieldName: "floatField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 11)
         }
       case .int64Field(let v):
         if start <= 12 && 12 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 12, protoFieldName: "int64_field", jsonFieldName: "int64Field", swiftFieldName: "int64Field")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 12)
         }
       case .uint64Field(let v):
         if start <= 13 && 13 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 13, protoFieldName: "uint64_field", jsonFieldName: "uint64Field", swiftFieldName: "uint64Field")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 13)
         }
       case .int32Field(let v):
         if start <= 14 && 14 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 14, protoFieldName: "int32_field", jsonFieldName: "int32Field", swiftFieldName: "int32Field")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 14)
         }
       case .uint32Field(let v):
         if start <= 15 && 15 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 15, protoFieldName: "uint32_field", jsonFieldName: "uint32Field", swiftFieldName: "uint32Field")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 15)
         }
       case .boolField(let v):
         if start <= 16 && 16 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 16, protoFieldName: "bool_field", jsonFieldName: "boolField", swiftFieldName: "boolField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 16)
         }
       case .stringField(let v):
         if start <= 17 && 17 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 17, protoFieldName: "string_field", jsonFieldName: "stringField", swiftFieldName: "stringField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 17)
         }
       case .bytesField(let v):
         if start <= 18 && 18 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18, protoFieldName: "bytes_field", jsonFieldName: "bytesField", swiftFieldName: "bytesField")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18)
         }
       case .None:
         break
@@ -1316,50 +1255,30 @@ struct ProtobufUnittest_OneofWellKnownTypes: ProtobufGeneratedMessage, ProtobufP
 ///   A map field for each well-known type. We only
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_MapWellKnownTypes"}
   public var protoMessageName: String {return "MapWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "anyField": 1,
-    "apiField": 2,
-    "durationField": 3,
-    "emptyField": 4,
-    "fieldMaskField": 5,
-    "sourceContextField": 6,
-    "structField": 7,
-    "timestampField": 8,
-    "typeField": 9,
-    "doubleField": 10,
-    "floatField": 11,
-    "int64Field": 12,
-    "uint64Field": 13,
-    "int32Field": 14,
-    "uint32Field": 15,
-    "boolField": 16,
-    "stringField": 17,
-    "bytesField": 18,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "any_field": 1,
-    "api_field": 2,
-    "duration_field": 3,
-    "empty_field": 4,
-    "field_mask_field": 5,
-    "source_context_field": 6,
-    "struct_field": 7,
-    "timestamp_field": 8,
-    "type_field": 9,
-    "double_field": 10,
-    "float_field": 11,
-    "int64_field": 12,
-    "uint64_field": 13,
-    "int32_field": 14,
-    "uint32_field": 15,
-    "bool_field": 16,
-    "string_field": 17,
-    "bytes_field": 18,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_MapWellKnownTypes
@@ -1410,58 +1329,58 @@ struct ProtobufUnittest_MapWellKnownTypes: ProtobufGeneratedMessage, ProtobufPro
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if !_anyField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, protoFieldNumber: 1, protoFieldName: "any_field", jsonFieldName: "anyField", swiftFieldName: "anyField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, protoFieldNumber: 1)
       }
       if !_apiField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Api>.self, value: _apiField, protoFieldNumber: 2, protoFieldName: "api_field", jsonFieldName: "apiField", swiftFieldName: "apiField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Api>.self, value: _apiField, protoFieldNumber: 2)
       }
       if !_durationField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Duration>.self, value: _durationField, protoFieldNumber: 3, protoFieldName: "duration_field", jsonFieldName: "durationField", swiftFieldName: "durationField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Duration>.self, value: _durationField, protoFieldNumber: 3)
       }
       if !_emptyField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Empty>.self, value: _emptyField, protoFieldNumber: 4, protoFieldName: "empty_field", jsonFieldName: "emptyField", swiftFieldName: "emptyField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Empty>.self, value: _emptyField, protoFieldNumber: 4)
       }
       if !_fieldMaskField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: _fieldMaskField, protoFieldNumber: 5, protoFieldName: "field_mask_field", jsonFieldName: "fieldMaskField", swiftFieldName: "fieldMaskField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FieldMask>.self, value: _fieldMaskField, protoFieldNumber: 5)
       }
       if !_sourceContextField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: _sourceContextField, protoFieldNumber: 6, protoFieldName: "source_context_field", jsonFieldName: "sourceContextField", swiftFieldName: "sourceContextField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_SourceContext>.self, value: _sourceContextField, protoFieldNumber: 6)
       }
       if !_structField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Struct>.self, value: _structField, protoFieldNumber: 7, protoFieldName: "struct_field", jsonFieldName: "structField", swiftFieldName: "structField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Struct>.self, value: _structField, protoFieldNumber: 7)
       }
       if !_timestampField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: _timestampField, protoFieldNumber: 8, protoFieldName: "timestamp_field", jsonFieldName: "timestampField", swiftFieldName: "timestampField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Timestamp>.self, value: _timestampField, protoFieldNumber: 8)
       }
       if !_typeField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Type>.self, value: _typeField, protoFieldNumber: 9, protoFieldName: "type_field", jsonFieldName: "typeField", swiftFieldName: "typeField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Type>.self, value: _typeField, protoFieldNumber: 9)
       }
       if !_doubleField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: _doubleField, protoFieldNumber: 10, protoFieldName: "double_field", jsonFieldName: "doubleField", swiftFieldName: "doubleField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: _doubleField, protoFieldNumber: 10)
       }
       if !_floatField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: _floatField, protoFieldNumber: 11, protoFieldName: "float_field", jsonFieldName: "floatField", swiftFieldName: "floatField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_FloatValue>.self, value: _floatField, protoFieldNumber: 11)
       }
       if !_int64Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: _int64Field, protoFieldNumber: 12, protoFieldName: "int64_field", jsonFieldName: "int64Field", swiftFieldName: "int64Field")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int64Value>.self, value: _int64Field, protoFieldNumber: 12)
       }
       if !_uint64Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: _uint64Field, protoFieldNumber: 13, protoFieldName: "uint64_field", jsonFieldName: "uint64Field", swiftFieldName: "uint64Field")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: _uint64Field, protoFieldNumber: 13)
       }
       if !_int32Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: _int32Field, protoFieldNumber: 14, protoFieldName: "int32_field", jsonFieldName: "int32Field", swiftFieldName: "int32Field")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_Int32Value>.self, value: _int32Field, protoFieldNumber: 14)
       }
       if !_uint32Field.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: _uint32Field, protoFieldNumber: 15, protoFieldName: "uint32_field", jsonFieldName: "uint32Field", swiftFieldName: "uint32Field")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: _uint32Field, protoFieldNumber: 15)
       }
       if !_boolField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: _boolField, protoFieldNumber: 16, protoFieldName: "bool_field", jsonFieldName: "boolField", swiftFieldName: "boolField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BoolValue>.self, value: _boolField, protoFieldNumber: 16)
       }
       if !_stringField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_StringValue>.self, value: _stringField, protoFieldNumber: 17, protoFieldName: "string_field", jsonFieldName: "stringField", swiftFieldName: "stringField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_StringValue>.self, value: _stringField, protoFieldNumber: 17)
       }
       if !_bytesField.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _bytesField, protoFieldNumber: 18, protoFieldName: "bytes_field", jsonFieldName: "bytesField", swiftFieldName: "bytesField")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _bytesField, protoFieldNumber: 18)
       }
     }
 

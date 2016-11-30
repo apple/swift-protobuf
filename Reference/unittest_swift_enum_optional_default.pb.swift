@@ -26,27 +26,22 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault"}
   public var protoMessageName: String {return "EnumOptionalDefault"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = ProtobufUnknownStorage()
 
-  struct NestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct NestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
-    public var jsonFieldNames: [String: Int] {return [
-      "message": 1,
-      "optionalEnum": 17,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "message": 1,
-      "optional_enum": 17,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "message", swift: "message"),
+      17: .unique(proto: "optional_enum", json: "optionalEnum", swift: "optionalEnum"),
+    ]
 
     private class _StorageClass {
       typealias ProtobufExtendedMessage = ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage
@@ -66,10 +61,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
 
       func traverse(visitor: inout ProtobufVisitor) throws {
         if let v = _message {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
         }
         if let v = _optionalEnum {
-          try visitor.visitSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.self, value: v, protoFieldNumber: 17, protoFieldName: "optional_enum", jsonFieldName: "optionalEnum", swiftFieldName: "optionalEnum")
+          try visitor.visitSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.self, value: v, protoFieldNumber: 17)
         }
         unknown.traverse(visitor: &visitor)
       }
@@ -207,16 +202,13 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
     }
   }
 
-  struct NestedMessage2: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct NestedMessage2: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2"}
     public var protoMessageName: String {return "NestedMessage2"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
-    public var jsonFieldNames: [String: Int] {return [
-      "optionalEnum": 17,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "optional_enum": 17,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      17: .unique(proto: "optional_enum", json: "optionalEnum", swift: "optionalEnum"),
+    ]
 
     public var unknown = ProtobufUnknownStorage()
 
@@ -307,7 +299,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _optionalEnum {
-        try visitor.visitSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: v, protoFieldNumber: 17, protoFieldName: "optional_enum", jsonFieldName: "optionalEnum", swiftFieldName: "optionalEnum")
+        try visitor.visitSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: v, protoFieldNumber: 17)
       }
       unknown.traverse(visitor: &visitor)
     }

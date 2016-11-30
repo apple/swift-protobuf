@@ -10,12 +10,11 @@ import Foundation
 import SwiftProtobuf
 
 
-struct TestFoo: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct TestFoo: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "TestFoo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "wrong.name.here"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
 
   init() {}

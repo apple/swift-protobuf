@@ -47,12 +47,11 @@ import SwiftProtobuf
 
 
 ///   A message with message_set_wire_format.
-struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage {
+struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSet"}
   public var protoMessageName: String {return "TestMessageSet"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -95,18 +94,18 @@ struct Proto2WireformatUnittest_TestMessageSet: ProtobufGeneratedMessage, Protob
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
+  public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
+    return Proto2WireformatUnittest_TestMessageSet._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)
+  }
 }
 
-struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSetWireFormatContainer"}
   public var protoMessageName: String {return "TestMessageSetWireFormatContainer"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "messageSet": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "message_set": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "message_set", json: "messageSet", swift: "messageSet"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = Proto2WireformatUnittest_TestMessageSetWireFormatContainer
@@ -124,7 +123,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: ProtobufGener
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _messageSet {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message_set", jsonFieldName: "messageSet", swiftFieldName: "messageSet")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       unknown.traverse(visitor: &visitor)
     }
