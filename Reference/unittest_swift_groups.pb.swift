@@ -109,8 +109,8 @@ struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufProto2Message
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, SwiftTestGroupExtensions>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
-  public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
-    return SwiftTestGroupExtensions._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return SwiftTestGroupExtensions._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
   }
 }
 

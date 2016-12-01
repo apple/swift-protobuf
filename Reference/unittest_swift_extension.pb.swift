@@ -110,8 +110,8 @@ struct ProtobufUnittest_Extend_Foo: ProtobufGeneratedMessage, ProtobufProto2Mess
       public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Baz>) -> Bool {
         return extensionFieldValues[ext.protoFieldNumber] is F
       }
-      public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
-        return Baz._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)
+      public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+        return Baz._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
       }
     }
 
