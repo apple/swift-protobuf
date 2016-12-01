@@ -107,7 +107,16 @@ struct ExtensionGenerator {
         }
         let scope = declaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
-        p.print("\(scope)let \(swiftRelativeExtensionName) = ProtobufGenericMessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number), protoFieldName: \"\(descriptor.name)\", jsonFieldName: \"\(descriptor.jsonName)\", swiftFieldName: \"\(swiftFieldName)\", defaultValue: \(defaultValue))\n")
+
+        // TODO: Merge this code with the similar one in MessageFieldGenerator.
+        let nameCase: String
+        if descriptor.jsonName != descriptor.name {
+            nameCase = ".unique(proto: \"\(descriptor.name)\", json: \"\(descriptor.jsonName)\", swift: \"\(swiftFieldName)\")"
+        } else {
+            nameCase = ".same(proto: \"\(descriptor.name)\", swift: \"\(swiftFieldName)\")"
+        }
+
+        p.print("\(scope)let \(swiftRelativeExtensionName) = ProtobufGenericMessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number), fieldNames: \(nameCase), defaultValue: \(defaultValue))\n")
     }
 
     func generateTopLevel(printer p: inout CodePrinter) {

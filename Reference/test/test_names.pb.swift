@@ -10,20 +10,15 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest"}
   public var protoMessageName: String {return "NamesTest"}
   public var protoPackageName: String {return "swift.protobuf.test"}
-  public var jsonFieldNames: [String: Int] {return [
-    "httpRequest": 1,
-    "url": 3,
-    "aBC": 6,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "http_request": 1,
-    "url": 3,
-    "a_b_c": 6,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "http_request", json: "httpRequest", swift: "httpRequest"),
+    3: .same(proto: "url", swift: "url"),
+    6: .unique(proto: "a_b_c", json: "aBC", swift: "aBC"),
+  ]
 
 
   var httpRequest: Int32 = 0
@@ -45,13 +40,13 @@ struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage, ProtobufProto3Me
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if httpRequest != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httpRequest, protoFieldNumber: 1, protoFieldName: "http_request", jsonFieldName: "httpRequest", swiftFieldName: "httpRequest")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httpRequest, protoFieldNumber: 1)
     }
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 3, protoFieldName: "url", jsonFieldName: "url", swiftFieldName: "url")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 3)
     }
     if aBC != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: aBC, protoFieldNumber: 6, protoFieldName: "a_b_c", jsonFieldName: "aBC", swiftFieldName: "aBC")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: aBC, protoFieldNumber: 6)
     }
   }
 
@@ -63,18 +58,14 @@ struct Swift_Protobuf_Test_NamesTest: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 }
 
-struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest2"}
   public var protoMessageName: String {return "NamesTest2"}
   public var protoPackageName: String {return "swift.protobuf.test"}
-  public var jsonFieldNames: [String: Int] {return [
-    "HTTPRequest": 2,
-    "URL": 4,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "HTTPRequest": 2,
-    "URL": 4,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    2: .same(proto: "HTTPRequest", swift: "httprequest"),
+    4: .same(proto: "URL", swift: "url"),
+  ]
 
 
   var httprequest: Int32 = 0
@@ -93,10 +84,10 @@ struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage, ProtobufProto3M
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if httprequest != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httprequest, protoFieldNumber: 2, protoFieldName: "HTTPRequest", jsonFieldName: "HTTPRequest", swiftFieldName: "httprequest")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httprequest, protoFieldNumber: 2)
     }
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 4, protoFieldName: "URL", jsonFieldName: "URL", swiftFieldName: "url")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 4)
     }
   }
 
@@ -107,16 +98,13 @@ struct Swift_Protobuf_Test_NamesTest2: ProtobufGeneratedMessage, ProtobufProto3M
   }
 }
 
-struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest3"}
   public var protoMessageName: String {return "NamesTest3"}
   public var protoPackageName: String {return "swift.protobuf.test"}
-  public var jsonFieldNames: [String: Int] {return [
-    "Url": 5,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "Url": 5,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    5: .same(proto: "Url", swift: "url"),
+  ]
 
 
   var url: Int32 = 0
@@ -132,7 +120,7 @@ struct Swift_Protobuf_Test_NamesTest3: ProtobufGeneratedMessage, ProtobufProto3M
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 5, protoFieldName: "Url", jsonFieldName: "Url", swiftFieldName: "url")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 5)
     }
   }
 

@@ -40,12 +40,11 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_SwiftEnumTest: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftEnumTest"}
   public var protoMessageName: String {return "SwiftEnumTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = ProtobufUnknownStorage()
 

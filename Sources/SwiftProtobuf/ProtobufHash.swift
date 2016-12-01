@@ -52,50 +52,50 @@ struct ProtobufHashVisitor: ProtobufVisitor {
         mix(bytes.hashValue)
     }
 
-    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
         mix(protoFieldNumber)
         mix(S.hash(value: value))
     }
 
-    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
         mix(protoFieldNumber)
         for v in value {
             mix(S.hash(value: v))
         }
     }
 
-    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
         mix(protoFieldNumber)
         for v in value {
             mix(S.hash(value: v))
         }
     }
 
-    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int) throws {
         mix(protoFieldNumber)
         mix(value.hashValue)
     }
 
-    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int) throws {
         mix(protoFieldNumber)
         for v in value {
             mix(v.hashValue)
         }
    }
 
-    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int) throws {
         mix(protoFieldNumber)
         mix(value.hashValue)
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int) throws {
         mix(protoFieldNumber)
         for v in value {
             mix(v.hashValue)
         }
     }
 
-    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
         mix(protoFieldNumber)
         // Note: When Map<Hashable,Hashable> is Hashable, this will simplify to
         // mix(value.hashValue)

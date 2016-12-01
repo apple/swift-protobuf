@@ -120,26 +120,18 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: ProtobufEnum {
 
 }
 
-struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto2_preserve_unknown_enum_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "e": 1,
-    "repeatedE": 2,
-    "repeatedPackedE": 3,
-    "repeatedPackedUnexpectedE": 4,
-    "oneofE1": 5,
-    "oneofE2": 6,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "e": 1,
-    "repeated_e": 2,
-    "repeated_packed_e": 3,
-    "repeated_packed_unexpected_e": 4,
-    "oneof_e_1": 5,
-    "oneof_e_2": 6,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "e", swift: "e"),
+    2: .unique(proto: "repeated_e", json: "repeatedE", swift: "repeatedE"),
+    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE", swift: "repeatedPackedE"),
+    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE", swift: "repeatedPackedUnexpectedE"),
+    5: .unique(proto: "oneof_e_1", json: "oneofE1", swift: "oneofE1"),
+    6: .unique(proto: "oneof_e_2", json: "oneofE2", swift: "oneofE2"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -182,11 +174,11 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
       switch self {
       case .oneofE1(let v):
         if start <= 5 && 5 < end {
-          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 5, protoFieldName: "oneof_e_1", jsonFieldName: "oneofE1", swiftFieldName: "oneofE1")
+          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 5)
         }
       case .oneofE2(let v):
         if start <= 6 && 6 < end {
-          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 6, protoFieldName: "oneof_e_2", jsonFieldName: "oneofE2", swiftFieldName: "oneofE2")
+          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 6)
         }
       case .None:
         break
@@ -254,16 +246,16 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: ProtobufGeneratedMessage, Pr
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _e {
-      try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 1, protoFieldName: "e", jsonFieldName: "e", swiftFieldName: "e")
+      try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 1)
     }
     if !repeatedE.isEmpty {
-      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedE, protoFieldNumber: 2, protoFieldName: "repeated_e", jsonFieldName: "repeatedE", swiftFieldName: "repeatedE")
+      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedE, protoFieldNumber: 2)
     }
     if !repeatedPackedE.isEmpty {
-      try visitor.visitPackedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedE, protoFieldNumber: 3, protoFieldName: "repeated_packed_e", jsonFieldName: "repeatedPackedE", swiftFieldName: "repeatedPackedE")
+      try visitor.visitPackedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedE, protoFieldNumber: 3)
     }
     if !repeatedPackedUnexpectedE.isEmpty {
-      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedUnexpectedE, protoFieldNumber: 4, protoFieldName: "repeated_packed_unexpected_e", jsonFieldName: "repeatedPackedUnexpectedE", swiftFieldName: "repeatedPackedUnexpectedE")
+      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedUnexpectedE, protoFieldNumber: 4)
     }
     try o.traverse(visitor: &visitor, start: 5, end: 7)
     unknown.traverse(visitor: &visitor)

@@ -288,50 +288,30 @@ enum ProtobufUnittest_MapEnumLite: ProtobufEnum {
 
 }
 
-struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMapLite"}
   public var protoMessageName: String {return "TestMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "mapInt32Int32": 1,
-    "mapInt64Int64": 2,
-    "mapUint32Uint32": 3,
-    "mapUint64Uint64": 4,
-    "mapSint32Sint32": 5,
-    "mapSint64Sint64": 6,
-    "mapFixed32Fixed32": 7,
-    "mapFixed64Fixed64": 8,
-    "mapSfixed32Sfixed32": 9,
-    "mapSfixed64Sfixed64": 10,
-    "mapInt32Float": 11,
-    "mapInt32Double": 12,
-    "mapBoolBool": 13,
-    "mapStringString": 14,
-    "mapInt32Bytes": 15,
-    "mapInt32Enum": 16,
-    "mapInt32ForeignMessage": 17,
-    "teboring": 18,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "map_int32_int32": 1,
-    "map_int64_int64": 2,
-    "map_uint32_uint32": 3,
-    "map_uint64_uint64": 4,
-    "map_sint32_sint32": 5,
-    "map_sint64_sint64": 6,
-    "map_fixed32_fixed32": 7,
-    "map_fixed64_fixed64": 8,
-    "map_sfixed32_sfixed32": 9,
-    "map_sfixed64_sfixed64": 10,
-    "map_int32_float": 11,
-    "map_int32_double": 12,
-    "map_bool_bool": 13,
-    "map_string_string": 14,
-    "map_int32_bytes": 15,
-    "map_int32_enum": 16,
-    "map_int32_foreign_message": 17,
-    "teboring": 18,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "map_int32_int32", json: "mapInt32Int32", swift: "mapInt32Int32"),
+    2: .unique(proto: "map_int64_int64", json: "mapInt64Int64", swift: "mapInt64Int64"),
+    3: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32", swift: "mapUint32Uint32"),
+    4: .unique(proto: "map_uint64_uint64", json: "mapUint64Uint64", swift: "mapUint64Uint64"),
+    5: .unique(proto: "map_sint32_sint32", json: "mapSint32Sint32", swift: "mapSint32Sint32"),
+    6: .unique(proto: "map_sint64_sint64", json: "mapSint64Sint64", swift: "mapSint64Sint64"),
+    7: .unique(proto: "map_fixed32_fixed32", json: "mapFixed32Fixed32", swift: "mapFixed32Fixed32"),
+    8: .unique(proto: "map_fixed64_fixed64", json: "mapFixed64Fixed64", swift: "mapFixed64Fixed64"),
+    9: .unique(proto: "map_sfixed32_sfixed32", json: "mapSfixed32Sfixed32", swift: "mapSfixed32Sfixed32"),
+    10: .unique(proto: "map_sfixed64_sfixed64", json: "mapSfixed64Sfixed64", swift: "mapSfixed64Sfixed64"),
+    11: .unique(proto: "map_int32_float", json: "mapInt32Float", swift: "mapInt32Float"),
+    12: .unique(proto: "map_int32_double", json: "mapInt32Double", swift: "mapInt32Double"),
+    13: .unique(proto: "map_bool_bool", json: "mapBoolBool", swift: "mapBoolBool"),
+    14: .unique(proto: "map_string_string", json: "mapStringString", swift: "mapStringString"),
+    15: .unique(proto: "map_int32_bytes", json: "mapInt32Bytes", swift: "mapInt32Bytes"),
+    16: .unique(proto: "map_int32_enum", json: "mapInt32Enum", swift: "mapInt32Enum"),
+    17: .unique(proto: "map_int32_foreign_message", json: "mapInt32ForeignMessage", swift: "mapInt32ForeignMessage"),
+    18: .same(proto: "teboring", swift: "teboring"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestMapLite
@@ -383,58 +363,58 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if !_mapInt32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1)
       }
       if !_mapInt64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 2, protoFieldName: "map_int64_int64", jsonFieldName: "mapInt64Int64", swiftFieldName: "mapInt64Int64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 2)
       }
       if !_mapUint32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 3, protoFieldName: "map_uint32_uint32", jsonFieldName: "mapUint32Uint32", swiftFieldName: "mapUint32Uint32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 3)
       }
       if !_mapUint64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 4, protoFieldName: "map_uint64_uint64", jsonFieldName: "mapUint64Uint64", swiftFieldName: "mapUint64Uint64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 4)
       }
       if !_mapSint32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 5, protoFieldName: "map_sint32_sint32", jsonFieldName: "mapSint32Sint32", swiftFieldName: "mapSint32Sint32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 5)
       }
       if !_mapSint64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 6, protoFieldName: "map_sint64_sint64", jsonFieldName: "mapSint64Sint64", swiftFieldName: "mapSint64Sint64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 6)
       }
       if !_mapFixed32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 7, protoFieldName: "map_fixed32_fixed32", jsonFieldName: "mapFixed32Fixed32", swiftFieldName: "mapFixed32Fixed32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 7)
       }
       if !_mapFixed64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 8, protoFieldName: "map_fixed64_fixed64", jsonFieldName: "mapFixed64Fixed64", swiftFieldName: "mapFixed64Fixed64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 8)
       }
       if !_mapSfixed32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 9, protoFieldName: "map_sfixed32_sfixed32", jsonFieldName: "mapSfixed32Sfixed32", swiftFieldName: "mapSfixed32Sfixed32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 9)
       }
       if !_mapSfixed64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 10, protoFieldName: "map_sfixed64_sfixed64", jsonFieldName: "mapSfixed64Sfixed64", swiftFieldName: "mapSfixed64Sfixed64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 10)
       }
       if !_mapInt32Float.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 11, protoFieldName: "map_int32_float", jsonFieldName: "mapInt32Float", swiftFieldName: "mapInt32Float")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 11)
       }
       if !_mapInt32Double.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 12, protoFieldName: "map_int32_double", jsonFieldName: "mapInt32Double", swiftFieldName: "mapInt32Double")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 12)
       }
       if !_mapBoolBool.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 13, protoFieldName: "map_bool_bool", jsonFieldName: "mapBoolBool", swiftFieldName: "mapBoolBool")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 13)
       }
       if !_mapStringString.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 14, protoFieldName: "map_string_string", jsonFieldName: "mapStringString", swiftFieldName: "mapStringString")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 14)
       }
       if !_mapInt32Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: _mapInt32Bytes, protoFieldNumber: 15, protoFieldName: "map_int32_bytes", jsonFieldName: "mapInt32Bytes", swiftFieldName: "mapInt32Bytes")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: _mapInt32Bytes, protoFieldNumber: 15)
       }
       if !_mapInt32Enum.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: _mapInt32Enum, protoFieldNumber: 16, protoFieldName: "map_int32_enum", jsonFieldName: "mapInt32Enum", swiftFieldName: "mapInt32Enum")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: _mapInt32Enum, protoFieldNumber: 16)
       }
       if !_mapInt32ForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageLite>.self, value: _mapInt32ForeignMessage, protoFieldNumber: 17, protoFieldName: "map_int32_foreign_message", jsonFieldName: "mapInt32ForeignMessage", swiftFieldName: "mapInt32ForeignMessage")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageLite>.self, value: _mapInt32ForeignMessage, protoFieldNumber: 17)
       }
       if !_teboring.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _teboring, protoFieldNumber: 18, protoFieldName: "teboring", jsonFieldName: "teboring", swiftFieldName: "teboring")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _teboring, protoFieldNumber: 18)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -606,50 +586,30 @@ struct ProtobufUnittest_TestMapLite: ProtobufGeneratedMessage, ProtobufProto2Mes
   }
 }
 
-struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestArenaMapLite"}
   public var protoMessageName: String {return "TestArenaMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "mapInt32Int32": 1,
-    "mapInt64Int64": 2,
-    "mapUint32Uint32": 3,
-    "mapUint64Uint64": 4,
-    "mapSint32Sint32": 5,
-    "mapSint64Sint64": 6,
-    "mapFixed32Fixed32": 7,
-    "mapFixed64Fixed64": 8,
-    "mapSfixed32Sfixed32": 9,
-    "mapSfixed64Sfixed64": 10,
-    "mapInt32Float": 11,
-    "mapInt32Double": 12,
-    "mapBoolBool": 13,
-    "mapStringString": 14,
-    "mapInt32Bytes": 15,
-    "mapInt32Enum": 16,
-    "mapInt32ForeignMessage": 17,
-    "mapInt32ForeignMessageNoArena": 18,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "map_int32_int32": 1,
-    "map_int64_int64": 2,
-    "map_uint32_uint32": 3,
-    "map_uint64_uint64": 4,
-    "map_sint32_sint32": 5,
-    "map_sint64_sint64": 6,
-    "map_fixed32_fixed32": 7,
-    "map_fixed64_fixed64": 8,
-    "map_sfixed32_sfixed32": 9,
-    "map_sfixed64_sfixed64": 10,
-    "map_int32_float": 11,
-    "map_int32_double": 12,
-    "map_bool_bool": 13,
-    "map_string_string": 14,
-    "map_int32_bytes": 15,
-    "map_int32_enum": 16,
-    "map_int32_foreign_message": 17,
-    "map_int32_foreign_message_no_arena": 18,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "map_int32_int32", json: "mapInt32Int32", swift: "mapInt32Int32"),
+    2: .unique(proto: "map_int64_int64", json: "mapInt64Int64", swift: "mapInt64Int64"),
+    3: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32", swift: "mapUint32Uint32"),
+    4: .unique(proto: "map_uint64_uint64", json: "mapUint64Uint64", swift: "mapUint64Uint64"),
+    5: .unique(proto: "map_sint32_sint32", json: "mapSint32Sint32", swift: "mapSint32Sint32"),
+    6: .unique(proto: "map_sint64_sint64", json: "mapSint64Sint64", swift: "mapSint64Sint64"),
+    7: .unique(proto: "map_fixed32_fixed32", json: "mapFixed32Fixed32", swift: "mapFixed32Fixed32"),
+    8: .unique(proto: "map_fixed64_fixed64", json: "mapFixed64Fixed64", swift: "mapFixed64Fixed64"),
+    9: .unique(proto: "map_sfixed32_sfixed32", json: "mapSfixed32Sfixed32", swift: "mapSfixed32Sfixed32"),
+    10: .unique(proto: "map_sfixed64_sfixed64", json: "mapSfixed64Sfixed64", swift: "mapSfixed64Sfixed64"),
+    11: .unique(proto: "map_int32_float", json: "mapInt32Float", swift: "mapInt32Float"),
+    12: .unique(proto: "map_int32_double", json: "mapInt32Double", swift: "mapInt32Double"),
+    13: .unique(proto: "map_bool_bool", json: "mapBoolBool", swift: "mapBoolBool"),
+    14: .unique(proto: "map_string_string", json: "mapStringString", swift: "mapStringString"),
+    15: .unique(proto: "map_int32_bytes", json: "mapInt32Bytes", swift: "mapInt32Bytes"),
+    16: .unique(proto: "map_int32_enum", json: "mapInt32Enum", swift: "mapInt32Enum"),
+    17: .unique(proto: "map_int32_foreign_message", json: "mapInt32ForeignMessage", swift: "mapInt32ForeignMessage"),
+    18: .unique(proto: "map_int32_foreign_message_no_arena", json: "mapInt32ForeignMessageNoArena", swift: "mapInt32ForeignMessageNoArena"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestArenaMapLite
@@ -701,58 +661,58 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if !_mapInt32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 1)
       }
       if !_mapInt64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 2, protoFieldName: "map_int64_int64", jsonFieldName: "mapInt64Int64", swiftFieldName: "mapInt64Int64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 2)
       }
       if !_mapUint32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 3, protoFieldName: "map_uint32_uint32", jsonFieldName: "mapUint32Uint32", swiftFieldName: "mapUint32Uint32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 3)
       }
       if !_mapUint64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 4, protoFieldName: "map_uint64_uint64", jsonFieldName: "mapUint64Uint64", swiftFieldName: "mapUint64Uint64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 4)
       }
       if !_mapSint32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 5, protoFieldName: "map_sint32_sint32", jsonFieldName: "mapSint32Sint32", swiftFieldName: "mapSint32Sint32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 5)
       }
       if !_mapSint64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 6, protoFieldName: "map_sint64_sint64", jsonFieldName: "mapSint64Sint64", swiftFieldName: "mapSint64Sint64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 6)
       }
       if !_mapFixed32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 7, protoFieldName: "map_fixed32_fixed32", jsonFieldName: "mapFixed32Fixed32", swiftFieldName: "mapFixed32Fixed32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 7)
       }
       if !_mapFixed64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 8, protoFieldName: "map_fixed64_fixed64", jsonFieldName: "mapFixed64Fixed64", swiftFieldName: "mapFixed64Fixed64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 8)
       }
       if !_mapSfixed32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 9, protoFieldName: "map_sfixed32_sfixed32", jsonFieldName: "mapSfixed32Sfixed32", swiftFieldName: "mapSfixed32Sfixed32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 9)
       }
       if !_mapSfixed64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 10, protoFieldName: "map_sfixed64_sfixed64", jsonFieldName: "mapSfixed64Sfixed64", swiftFieldName: "mapSfixed64Sfixed64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 10)
       }
       if !_mapInt32Float.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 11, protoFieldName: "map_int32_float", jsonFieldName: "mapInt32Float", swiftFieldName: "mapInt32Float")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 11)
       }
       if !_mapInt32Double.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 12, protoFieldName: "map_int32_double", jsonFieldName: "mapInt32Double", swiftFieldName: "mapInt32Double")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 12)
       }
       if !_mapBoolBool.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 13, protoFieldName: "map_bool_bool", jsonFieldName: "mapBoolBool", swiftFieldName: "mapBoolBool")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 13)
       }
       if !_mapStringString.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 14, protoFieldName: "map_string_string", jsonFieldName: "mapStringString", swiftFieldName: "mapStringString")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 14)
       }
       if !_mapInt32Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: _mapInt32Bytes, protoFieldNumber: 15, protoFieldName: "map_int32_bytes", jsonFieldName: "mapInt32Bytes", swiftFieldName: "mapInt32Bytes")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufBytes>.self, value: _mapInt32Bytes, protoFieldNumber: 15)
       }
       if !_mapInt32Enum.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: _mapInt32Enum, protoFieldNumber: 16, protoFieldName: "map_int32_enum", jsonFieldName: "mapInt32Enum", swiftFieldName: "mapInt32Enum")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: _mapInt32Enum, protoFieldNumber: 16)
       }
       if !_mapInt32ForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageArenaLite>.self, value: _mapInt32ForeignMessage, protoFieldNumber: 17, protoFieldName: "map_int32_foreign_message", jsonFieldName: "mapInt32ForeignMessage", swiftFieldName: "mapInt32ForeignMessage")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_ForeignMessageArenaLite>.self, value: _mapInt32ForeignMessage, protoFieldNumber: 17)
       }
       if !_mapInt32ForeignMessageNoArena.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestNoArena_ForeignMessageLite>.self, value: _mapInt32ForeignMessageNoArena, protoFieldNumber: 18, protoFieldName: "map_int32_foreign_message_no_arena", jsonFieldName: "mapInt32ForeignMessageNoArena", swiftFieldName: "mapInt32ForeignMessageNoArena")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittestNoArena_ForeignMessageLite>.self, value: _mapInt32ForeignMessageNoArena, protoFieldNumber: 18)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -925,16 +885,13 @@ struct ProtobufUnittest_TestArenaMapLite: ProtobufGeneratedMessage, ProtobufProt
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredMessageMapLite"}
   public var protoMessageName: String {return "TestRequiredMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "mapField": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "map_field": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "map_field", json: "mapField", swift: "mapField"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -951,7 +908,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, Pr
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !mapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: mapField, protoFieldNumber: 1, protoFieldName: "map_field", jsonFieldName: "mapField", swiftFieldName: "mapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: mapField, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -963,18 +920,14 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: ProtobufGeneratedMessage, Pr
   }
 }
 
-struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapLite"}
   public var protoMessageName: String {return "TestEnumMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "knownMapField": 101,
-    "unknownMapField": 102,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "known_map_field": 101,
-    "unknown_map_field": 102,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    101: .unique(proto: "known_map_field", json: "knownMapField", swift: "knownMapField"),
+    102: .unique(proto: "unknown_map_field", json: "unknownMapField", swift: "unknownMapField"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -994,10 +947,10 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: knownMapField, protoFieldNumber: 101)
     }
     if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: unknownMapField, protoFieldNumber: 102, protoFieldName: "unknown_map_field", jsonFieldName: "unknownMapField", swiftFieldName: "unknownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: unknownMapField, protoFieldNumber: 102)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -1010,18 +963,14 @@ struct ProtobufUnittest_TestEnumMapLite: ProtobufGeneratedMessage, ProtobufProto
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtraLite"}
   public var protoMessageName: String {return "TestEnumMapPlusExtraLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "knownMapField": 101,
-    "unknownMapField": 102,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "known_map_field": 101,
-    "unknown_map_field": 102,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    101: .unique(proto: "known_map_field", json: "knownMapField", swift: "knownMapField"),
+    102: .unique(proto: "unknown_map_field", json: "unknownMapField", swift: "unknownMapField"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -1041,10 +990,10 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, Prot
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: knownMapField, protoFieldNumber: 101, protoFieldName: "known_map_field", jsonFieldName: "knownMapField", swiftFieldName: "knownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: knownMapField, protoFieldNumber: 101)
     }
     if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: unknownMapField, protoFieldNumber: 102, protoFieldName: "unknown_map_field", jsonFieldName: "unknownMapField", swiftFieldName: "unknownMapField")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: unknownMapField, protoFieldNumber: 102)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -1057,16 +1006,13 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: ProtobufGeneratedMessage, Prot
   }
 }
 
-struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageMapLite"}
   public var protoMessageName: String {return "TestMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "mapInt32Message": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "map_int32_message": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "map_int32_message", json: "mapInt32Message", swift: "mapInt32Message"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -1083,7 +1029,7 @@ struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufPr
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !mapInt32Message.isEmpty {
-      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: mapInt32Message, protoFieldNumber: 1, protoFieldName: "map_int32_message", jsonFieldName: "mapInt32Message", swiftFieldName: "mapInt32Message")
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: mapInt32Message, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -1095,20 +1041,15 @@ struct ProtobufUnittest_TestMessageMapLite: ProtobufGeneratedMessage, ProtobufPr
   }
 }
 
-struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredLite"}
   public var protoMessageName: String {return "TestRequiredLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "a": 1,
-    "b": 2,
-    "c": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a": 1,
-    "b": 2,
-    "c": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "a", swift: "a"),
+    2: .same(proto: "b", swift: "b"),
+    3: .same(proto: "c", swift: "c"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -1160,9 +1101,9 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _a ?? 0, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
-    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _b ?? 0, protoFieldNumber: 2, protoFieldName: "b", jsonFieldName: "b", swiftFieldName: "b")
-    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _c ?? 0, protoFieldNumber: 3, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
+    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _a ?? 0, protoFieldNumber: 1)
+    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _b ?? 0, protoFieldNumber: 2)
+    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _c ?? 0, protoFieldNumber: 3)
     unknown.traverse(visitor: &visitor)
   }
 
@@ -1175,16 +1116,13 @@ struct ProtobufUnittest_TestRequiredLite: ProtobufGeneratedMessage, ProtobufProt
   }
 }
 
-struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_ForeignMessageArenaLite"}
   public var protoMessageName: String {return "ForeignMessageArenaLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "c": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "c": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "c", swift: "c"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -1211,7 +1149,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: ProtobufGeneratedMessage, Proto
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _c {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }

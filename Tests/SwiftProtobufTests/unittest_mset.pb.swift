@@ -47,16 +47,13 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetContainer"}
   public var protoMessageName: String {return "TestMessageSetContainer"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "messageSet": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "message_set": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "message_set", json: "messageSet", swift: "messageSet"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestMessageSetContainer
@@ -74,7 +71,7 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _messageSet {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message_set", jsonFieldName: "messageSet", swiftFieldName: "messageSet")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -133,22 +130,19 @@ struct ProtobufUnittest_TestMessageSetContainer: ProtobufGeneratedMessage, Proto
   }
 }
 
-struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension1"}
   public var protoMessageName: String {return "TestMessageSetExtension1"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "i": 15,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "i": 15,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    15: .same(proto: "i", swift: "i"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
   struct Extensions {
 
-    static let messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension1())
+    static let messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, fieldNames: .unique(proto: "message_set_extension", json: "messageSetExtension", swift: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension"), defaultValue: ProtobufUnittest_TestMessageSetExtension1())
   }
 
   private var _i: Int32? = nil
@@ -174,7 +168,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, Prot
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _i {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 15, protoFieldName: "i", jsonFieldName: "i", swiftFieldName: "i")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 15)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -186,22 +180,19 @@ struct ProtobufUnittest_TestMessageSetExtension1: ProtobufGeneratedMessage, Prot
   }
 }
 
-struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension2"}
   public var protoMessageName: String {return "TestMessageSetExtension2"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "str": 25,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "str": 25,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    25: .same(proto: "str", swift: "str"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
   struct Extensions {
 
-    static let messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, protoFieldName: "message_set_extension", jsonFieldName: "messageSetExtension", swiftFieldName: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension", defaultValue: ProtobufUnittest_TestMessageSetExtension2())
+    static let messageSetExtension = ProtobufGenericMessageExtension<ProtobufOptionalMessageField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, fieldNames: .unique(proto: "message_set_extension", json: "messageSetExtension", swift: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension"), defaultValue: ProtobufUnittest_TestMessageSetExtension2())
   }
 
   private var _str: String? = nil
@@ -227,7 +218,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, Prot
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _str {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 25, protoFieldName: "str", jsonFieldName: "str", swiftFieldName: "str")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 25)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -251,31 +242,24 @@ struct ProtobufUnittest_TestMessageSetExtension2: ProtobufGeneratedMessage, Prot
 //  }
 
 ///   MessageSet wire format is equivalent to this.
-struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet"}
   public var protoMessageName: String {return "RawMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "item": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "item": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "item", swift: "item"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
-  struct Item: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct Item: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet.Item"}
     public var protoMessageName: String {return "Item"}
     public var protoPackageName: String {return "protobuf_unittest"}
-    public var jsonFieldNames: [String: Int] {return [
-      "typeId": 2,
-      "message": 3,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "type_id": 2,
-      "message": 3,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      2: .unique(proto: "type_id", json: "typeId", swift: "typeId"),
+      3: .same(proto: "message", swift: "message"),
+    ]
 
     public var unknown = ProtobufUnknownStorage()
 
@@ -314,8 +298,8 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typeId ?? 0, protoFieldNumber: 2, protoFieldName: "type_id", jsonFieldName: "typeId", swiftFieldName: "typeId")
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _message ?? Data(), protoFieldNumber: 3, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typeId ?? 0, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _message ?? Data(), protoFieldNumber: 3)
       unknown.traverse(visitor: &visitor)
     }
 
@@ -340,7 +324,7 @@ struct ProtobufUnittest_RawMessageSet: ProtobufGeneratedMessage, ProtobufProto2M
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !item.isEmpty {
-      try visitor.visitRepeatedGroupField(value: item, protoFieldNumber: 1, protoFieldName: "item", jsonFieldName: "item", swiftFieldName: "item")
+      try visitor.visitRepeatedGroupField(value: item, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }

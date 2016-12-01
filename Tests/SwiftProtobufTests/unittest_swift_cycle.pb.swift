@@ -47,20 +47,15 @@ import SwiftProtobuf
 //  You can't make a object graph that spans files, so this can only be done
 //  within a single proto file.
 
-struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CycleFoo"}
   public var protoMessageName: String {return "CycleFoo"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "aFoo": 1,
-    "aBar": 2,
-    "aBaz": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a_foo": 1,
-    "a_bar": 2,
-    "a_baz": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "a_foo", json: "aFoo", swift: "aFoo"),
+    2: .unique(proto: "a_bar", json: "aBar", swift: "aBar"),
+    3: .unique(proto: "a_baz", json: "aBaz", swift: "aBaz"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_CycleFoo
@@ -82,13 +77,13 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "a_foo", jsonFieldName: "aFoo", swiftFieldName: "aFoo")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2, protoFieldName: "a_bar", jsonFieldName: "aBar", swiftFieldName: "aBar")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
       }
       if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3, protoFieldName: "a_baz", jsonFieldName: "aBaz", swiftFieldName: "aBaz")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -173,20 +168,15 @@ struct ProtobufUnittest_CycleFoo: ProtobufGeneratedMessage, ProtobufProto2Messag
   }
 }
 
-struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBar"}
   public var protoMessageName: String {return "CycleBar"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "aBar": 1,
-    "aBaz": 2,
-    "aFoo": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a_bar": 1,
-    "a_baz": 2,
-    "a_foo": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "a_bar", json: "aBar", swift: "aBar"),
+    2: .unique(proto: "a_baz", json: "aBaz", swift: "aBaz"),
+    3: .unique(proto: "a_foo", json: "aFoo", swift: "aFoo"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_CycleBar
@@ -208,13 +198,13 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "a_bar", jsonFieldName: "aBar", swiftFieldName: "aBar")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2, protoFieldName: "a_baz", jsonFieldName: "aBaz", swiftFieldName: "aBaz")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
       }
       if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3, protoFieldName: "a_foo", jsonFieldName: "aFoo", swiftFieldName: "aFoo")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -299,20 +289,15 @@ struct ProtobufUnittest_CycleBar: ProtobufGeneratedMessage, ProtobufProto2Messag
   }
 }
 
-struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBaz"}
   public var protoMessageName: String {return "CycleBaz"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "aBaz": 1,
-    "aFoo": 2,
-    "aBar": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a_baz": 1,
-    "a_foo": 2,
-    "a_bar": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "a_baz", json: "aBaz", swift: "aBaz"),
+    2: .unique(proto: "a_foo", json: "aFoo", swift: "aFoo"),
+    3: .unique(proto: "a_bar", json: "aBar", swift: "aBar"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_CycleBaz
@@ -334,13 +319,13 @@ struct ProtobufUnittest_CycleBaz: ProtobufGeneratedMessage, ProtobufProto2Messag
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "a_baz", jsonFieldName: "aBaz", swiftFieldName: "aBaz")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2, protoFieldName: "a_foo", jsonFieldName: "aFoo", swiftFieldName: "aFoo")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
       }
       if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3, protoFieldName: "a_bar", jsonFieldName: "aBar", swiftFieldName: "aBar")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
       }
       unknown.traverse(visitor: &visitor)
     }

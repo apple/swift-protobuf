@@ -44,16 +44,13 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestLiteImportsNonlite"}
   public var protoMessageName: String {return "TestLiteImportsNonlite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "message": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "message": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "message", swift: "message"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestLiteImportsNonlite
@@ -71,7 +68,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: ProtobufGeneratedMessage, Protob
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _message {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       unknown.traverse(visitor: &visitor)
     }

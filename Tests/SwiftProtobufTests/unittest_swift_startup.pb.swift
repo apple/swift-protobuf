@@ -40,12 +40,11 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufObjcUnittest_TestObjCStartupMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage {
+struct ProtobufObjcUnittest_TestObjCStartupMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufObjcUnittest_TestObjCStartupMessage"}
   public var protoMessageName: String {return "TestObjCStartupMessage"}
   public var protoPackageName: String {return "protobuf_objc_unittest"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -88,20 +87,22 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: ProtobufGeneratedMessage, Pr
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufObjcUnittest_TestObjCStartupMessage>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return ProtobufObjcUnittest_TestObjCStartupMessage._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
+  }
 }
 
-struct ProtobufObjcUnittest_TestObjCStartupNested: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufObjcUnittest_TestObjCStartupNested: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufObjcUnittest_TestObjCStartupNested"}
   public var protoMessageName: String {return "TestObjCStartupNested"}
   public var protoPackageName: String {return "protobuf_objc_unittest"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = ProtobufUnknownStorage()
 
   struct Extensions {
 
-    static let nestedStringExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(protoFieldNumber: 3, protoFieldName: "nested_string_extension", jsonFieldName: "nestedStringExtension", swiftFieldName: "ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension", defaultValue: "")
+    static let nestedStringExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(protoFieldNumber: 3, fieldNames: .unique(proto: "nested_string_extension", json: "nestedStringExtension", swift: "ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension"), defaultValue: "")
   }
 
   init() {}
@@ -120,9 +121,9 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: ProtobufGeneratedMessage, Pro
 }
 
 ///   Singular
-let ProtobufObjcUnittest_Extensions_optionalInt32Extension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(protoFieldNumber: 1, protoFieldName: "optional_int32_extension", jsonFieldName: "optionalInt32Extension", swiftFieldName: "ProtobufObjcUnittest_optionalInt32Extension", defaultValue: 0)
+let ProtobufObjcUnittest_Extensions_optionalInt32Extension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(protoFieldNumber: 1, fieldNames: .unique(proto: "optional_int32_extension", json: "optionalInt32Extension", swift: "ProtobufObjcUnittest_optionalInt32Extension"), defaultValue: 0)
 
-let ProtobufObjcUnittest_Extensions_repeatedInt32Extension = ProtobufGenericMessageExtension<ProtobufRepeatedField<ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(protoFieldNumber: 2, protoFieldName: "repeated_int32_extension", jsonFieldName: "repeatedInt32Extension", swiftFieldName: "ProtobufObjcUnittest_repeatedInt32Extension", defaultValue: [])
+let ProtobufObjcUnittest_Extensions_repeatedInt32Extension = ProtobufGenericMessageExtension<ProtobufRepeatedField<ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(protoFieldNumber: 2, fieldNames: .unique(proto: "repeated_int32_extension", json: "repeatedInt32Extension", swift: "ProtobufObjcUnittest_repeatedInt32Extension"), defaultValue: [])
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String {

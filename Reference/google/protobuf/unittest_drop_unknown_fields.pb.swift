@@ -40,18 +40,14 @@ import Foundation
 import SwiftProtobuf
 
 
-struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "UnittestDropUnknownFields_Foo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
-  public var jsonFieldNames: [String: Int] {return [
-    "int32Value": 1,
-    "enumValue": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "int32_value": 1,
-    "enum_value": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
+    2: .unique(proto: "enum_value", json: "enumValue", swift: "enumValue"),
+  ]
 
 
   enum NestedEnum: ProtobufEnum {
@@ -154,10 +150,10 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1, protoFieldName: "int32_value", jsonFieldName: "int32Value", swiftFieldName: "int32Value")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
-      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: enumValue, protoFieldNumber: 2, protoFieldName: "enum_value", jsonFieldName: "enumValue", swiftFieldName: "enumValue")
+      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: enumValue, protoFieldNumber: 2)
     }
   }
 
@@ -168,20 +164,15 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Me
   }
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "UnittestDropUnknownFields_FooWithExtraFields"}
   public var protoMessageName: String {return "FooWithExtraFields"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
-  public var jsonFieldNames: [String: Int] {return [
-    "int32Value": 1,
-    "enumValue": 2,
-    "extraInt32Value": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "int32_value": 1,
-    "enum_value": 2,
-    "extra_int32_value": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
+    2: .unique(proto: "enum_value", json: "enumValue", swift: "enumValue"),
+    3: .unique(proto: "extra_int32_value", json: "extraInt32Value", swift: "extraInt32Value"),
+  ]
 
 
   enum NestedEnum: ProtobufEnum {
@@ -295,13 +286,13 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, P
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1, protoFieldName: "int32_value", jsonFieldName: "int32Value", swiftFieldName: "int32Value")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {
-      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: enumValue, protoFieldNumber: 2, protoFieldName: "enum_value", jsonFieldName: "enumValue", swiftFieldName: "enumValue")
+      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: enumValue, protoFieldNumber: 2)
     }
     if extraInt32Value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: extraInt32Value, protoFieldNumber: 3, protoFieldName: "extra_int32_value", jsonFieldName: "extraInt32Value", swiftFieldName: "extraInt32Value")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: extraInt32Value, protoFieldNumber: 3)
     }
   }
 

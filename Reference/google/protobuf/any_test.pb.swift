@@ -40,20 +40,15 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestAny"}
   public var protoMessageName: String {return "TestAny"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "int32Value": 1,
-    "anyValue": 2,
-    "repeatedAnyValue": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "int32_value": 1,
-    "any_value": 2,
-    "repeated_any_value": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
+    2: .unique(proto: "any_value", json: "anyValue", swift: "anyValue"),
+    3: .unique(proto: "repeated_any_value", json: "repeatedAnyValue", swift: "repeatedAnyValue"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestAny
@@ -74,13 +69,13 @@ struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if _int32Value != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int32Value, protoFieldNumber: 1, protoFieldName: "int32_value", jsonFieldName: "int32Value", swiftFieldName: "int32Value")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int32Value, protoFieldNumber: 1)
       }
       if let v = _anyValue {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2, protoFieldName: "any_value", jsonFieldName: "anyValue", swiftFieldName: "anyValue")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
       }
       if !_repeatedAnyValue.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedAnyValue, protoFieldNumber: 3, protoFieldName: "repeated_any_value", jsonFieldName: "repeatedAnyValue", swiftFieldName: "repeatedAnyValue")
+        try visitor.visitRepeatedMessageField(value: _repeatedAnyValue, protoFieldNumber: 3)
       }
     }
 

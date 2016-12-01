@@ -138,16 +138,13 @@ enum Proto3ImportEnum: ProtobufEnum {
 
 }
 
-struct Proto3ImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
+struct Proto3ImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
-  public var jsonFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "d", swift: "d"),
+  ]
 
 
   var d: Int32 = 0
@@ -163,7 +160,7 @@ struct Proto3ImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message {
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if d != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: d, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: d, protoFieldNumber: 1)
     }
   }
 

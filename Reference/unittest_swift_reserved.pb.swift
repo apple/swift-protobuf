@@ -26,12 +26,11 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest"}
   public var protoMessageName: String {return "SwiftReservedTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -203,12 +202,11 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage, ProtobufPro
 
   }
 
-  struct classMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct classMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "protobuf_unittest"}
-    public var jsonFieldNames: [String: Int] {return [:]}
-    public var protoFieldNames: [String: Int] {return [:]}
+    public static let _protobuf_fieldNames = FieldNameMap()
 
     public var unknown = ProtobufUnknownStorage()
 
@@ -227,12 +225,11 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage, ProtobufPro
     }
   }
 
-  struct TypeMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct TypeMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "protobuf_unittest"}
-    public var jsonFieldNames: [String: Int] {return [:]}
-    public var protoFieldNames: [String: Int] {return [:]}
+    public static let _protobuf_fieldNames = FieldNameMap()
 
     public var unknown = ProtobufUnknownStorage()
 
@@ -251,12 +248,11 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage, ProtobufPro
     }
   }
 
-  struct isEqualMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+  struct isEqualMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.isEqualMessage"}
     public var protoMessageName: String {return "isEqual"}
     public var protoPackageName: String {return "protobuf_unittest"}
-    public var jsonFieldNames: [String: Int] {return [:]}
-    public var protoFieldNames: [String: Int] {return [:]}
+    public static let _protobuf_fieldNames = FieldNameMap()
 
     public var unknown = ProtobufUnknownStorage()
 

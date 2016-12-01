@@ -40,16 +40,13 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2ArenaUnittest_NestedMessage"}
   public var protoMessageName: String {return "NestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "d", swift: "d"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -76,7 +73,7 @@ struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage, ProtobufProt
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _d {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -88,18 +85,14 @@ struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage, ProtobufProt
   }
 }
 
-struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage, ProtobufProto2Message {
+struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2ArenaUnittest_ArenaMessage"}
   public var protoMessageName: String {return "ArenaMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "repeatedNestedMessage": 1,
-    "repeatedImportNoArenaMessage": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "repeated_nested_message": 1,
-    "repeated_import_no_arena_message": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
+    2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage", swift: "repeatedImportNoArenaMessage"),
+  ]
 
   public var unknown = ProtobufUnknownStorage()
 
@@ -119,10 +112,10 @@ struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage, ProtobufProto
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !repeatedNestedMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, protoFieldNumber: 1, protoFieldName: "repeated_nested_message", jsonFieldName: "repeatedNestedMessage", swiftFieldName: "repeatedNestedMessage")
+      try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, protoFieldNumber: 1)
     }
     if !repeatedImportNoArenaMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: repeatedImportNoArenaMessage, protoFieldNumber: 2, protoFieldName: "repeated_import_no_arena_message", jsonFieldName: "repeatedImportNoArenaMessage", swiftFieldName: "repeatedImportNoArenaMessage")
+      try visitor.visitRepeatedMessageField(value: repeatedImportNoArenaMessage, protoFieldNumber: 2)
     }
     unknown.traverse(visitor: &visitor)
   }
