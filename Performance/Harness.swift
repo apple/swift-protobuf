@@ -22,8 +22,13 @@ import Foundation
 /// run() method, which the main.swift file calls.
 class Harness {
 
+  /// The number of times to loop the body of the run() method.
+  var runCount = 100
+
   /// The number of times to call append() for repeated fields.
   let repeatedCount: Int32 = 100
+
+  var subtasks = [String: TimeInterval]()
 
   /// Measures the time it takes to execute the given block. The block is
   /// executed five times and the mean/standard deviation are computed.
@@ -33,12 +38,21 @@ class Harness {
     do {
       // Do each measurement 5 times and collect the means and standard
       // deviation to account for noise.
-      for _ in 0..<5 {
+      for attempt in 1...5 {
+        print("Attempt \(attempt), \(runCount) runs:")
+        subtasks.removeAll()
+
         let start = Date()
         try block()
         let end = Date()
         let diff = end.timeIntervalSince(start)
         timings.append(diff)
+
+        for (name, time) in subtasks {
+          print(String(format: "\"%@\" took %.3f sec", name, time))
+        }
+        print(String(format: "Total execution time: %.3f sec\n", diff))
+        print("----")
       }
     } catch let e {
       fatalError("Generated harness threw an error: \(e)")
@@ -46,10 +60,19 @@ class Harness {
 
     let (mean, stddev) = statistics(timings)
 
-    let runtimes = timings.map { String(format: "%.3f", $0) }.joined(separator: ", ")
-    let message = "Runtimes: [\(runtimes)]\n" +
+    let stats =
         String(format: "mean = %.3f sec, stddev = %.3f sec\n", mean, stddev)
-    print(message)
+    print(stats)
+  }
+
+  /// Measure an individual subtask whose timing will be printed separately from the main results.
+  func measureSubtask<Result>(_ name: String, block: () throws -> Result) rethrows -> Result {
+    let start = Date()
+    let result = try block()
+    let end = Date()
+    let diff = end.timeIntervalSince(start)
+    subtasks[name] = (subtasks[name] ?? 0) + diff
+    return result
   }
 
   /// Compute the mean and standard deviation of the given time intervals.
