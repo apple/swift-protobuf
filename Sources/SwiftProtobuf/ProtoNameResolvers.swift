@@ -29,7 +29,7 @@ public enum ProtoNameResolvers {
   ) -> (Int) -> String? {
     if let nameProviding = message as? ProtoNameProviding {
       return { number in
-        nameProviding._protobuf_fieldNames(withNumber: number)?.protoName
+        nameProviding._protobuf_fieldNames(for: number)?.protoName
       }
     } else {
       return { _ in nil }
@@ -47,7 +47,7 @@ public enum ProtoNameResolvers {
   ) -> (Int) -> String? {
     if let nameProviding = message as? ProtoNameProviding {
       return { number in
-        nameProviding._protobuf_fieldNames(withNumber: number)?.jsonName
+        nameProviding._protobuf_fieldNames(for: number)?.jsonName
       }
     } else {
       return { _ in nil }
@@ -65,7 +65,7 @@ public enum ProtoNameResolvers {
   ) -> (Int) -> String? {
     if let nameProviding = message as? ProtoNameProviding {
       return { number in
-        nameProviding._protobuf_fieldNames(withNumber: number)?.swiftName
+        nameProviding._protobuf_fieldNames(for: number)?.swiftName
       }
     } else {
       return { _ in nil }

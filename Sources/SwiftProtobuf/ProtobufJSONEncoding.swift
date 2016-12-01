@@ -59,13 +59,13 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     }
 
     mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(withNumber: protoFieldNumber)
+        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         try S.serializeJSONValue(encoder: &encoder, value: value)
     }
 
     mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(withNumber: protoFieldNumber)
+        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
@@ -82,7 +82,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     }
 
     mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(withNumber: protoFieldNumber)
+        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         // Note: We ask the message to serialize itself instead of
         // using ProtobufJSONEncodingVisitor(message:) since
@@ -91,7 +91,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     }
 
     mutating func visitRepeatedMessageField<M: ProtobufMessage>(value: [M], protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(withNumber: protoFieldNumber)
+        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
@@ -109,7 +109,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     // Note that JSON encoding for groups is not officially supported
     // by any Google spec.  But it's trivial to support it here.
     mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(withNumber: protoFieldNumber)
+        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         // Groups have no special JSON support, so we use only the generic traversal mechanism here
         let t = try ProtobufJSONEncodingVisitor(message: value).result
@@ -117,7 +117,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     }
 
     mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int) throws {
-        let jsonFieldName = try self.jsonFieldName(withNumber: protoFieldNumber)
+        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "[")
@@ -132,7 +132,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
     }
 
     mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws  where KeyType.BaseType: Hashable {
-        let jsonFieldName = try self.jsonFieldName(withNumber: protoFieldNumber)
+        let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
         encoder.append(text: "{")
@@ -148,7 +148,7 @@ struct ProtobufJSONEncodingVisitor: ProtobufVisitor {
 
     /// Helper function that throws an error if the field number could not be
     /// resolved.
-    private func jsonFieldName(withNumber number: Int) throws -> String {
+    private func jsonFieldName(for number: Int) throws -> String {
         if let jsonName = nameResolver(number) {
             return jsonName
         }

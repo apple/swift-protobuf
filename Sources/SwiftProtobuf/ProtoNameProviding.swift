@@ -27,7 +27,7 @@ public protocol ProtoNameProviding {
   /// which is sufficient for proto3. For proto2 extensions, making this an
   /// instance method allows generated messages to override it and ask their
   /// extension sets for names as well.
-  func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names?
+  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names?
 
   /// Returns the field number for the field with the given proto/text name.
   ///
@@ -35,19 +35,17 @@ public protocol ProtoNameProviding {
   /// which is sufficient for proto3. For proto2 extensions, making this an
   /// instance method allows generated messages to override it and ask their
   /// extension sets for names as well.
-  func _protobuf_fieldNumber(withProtoName name: String) -> Int?
+  func _protobuf_fieldNumber(forProtoName name: String) -> Int?
 }
 
 
 extension ProtoNameProviding {
 
-  public func _protobuf_fieldNames(
-    withNumber number: Int
-  ) -> FieldNameMap.Names? {
-    return Self._protobuf_fieldNames.fieldNames(withNumber: number)
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return Self._protobuf_fieldNames.fieldNames(for: number)
   }
 
-  public func _protobuf_fieldNumber(withProtoName name: String) -> Int? {
-    return Self._protobuf_fieldNames.fieldNumber(withProtoName: name)
+  public func _protobuf_fieldNumber(forProtoName name: String) -> Int? {
+    return Self._protobuf_fieldNames.fieldNumber(forProtoName: name)
   }
 }

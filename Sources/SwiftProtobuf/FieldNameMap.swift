@@ -82,13 +82,13 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
 
   /// Returns the name bundle for the field with the given number, or `nil` if
   /// there is no match.
-  public func fieldNames(withNumber number: Int) -> Names? {
+  public func fieldNames(for number: Int) -> Names? {
     return numberToNameMap[number]
   }
 
   /// Returns the field number that has the given proto/text name, or `nil` if
   /// there is no match.
-  public func fieldNumber(withProtoName name: String) -> Int? {
+  public func fieldNumber(forProtoName name: String) -> Int? {
     return protoToNumberMap[name]
   }
 
@@ -99,7 +99,7 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
   /// the descriptor *as well as* its original proto/text name. Because of this,
   /// this function checks both mappings -- first the JSON mapping, then the
   /// proto mapping.
-  public func fieldNumber(withJSONName name: String) -> Int? {
+  public func fieldNumber(forJSONName name: String) -> Int? {
     return jsonToNumberMap[name] ?? protoToNumberMap[name]
   }
 }

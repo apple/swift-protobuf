@@ -685,8 +685,8 @@ class MessageGenerator {
                 p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return _storage.hasExtensionValue(ext: ext)\n")
                 p.print("}\n")
-                p.print("public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {\n")
-                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(withNumber: number) ?? _storage.extensionFieldValues.fieldNames(withNumber: number)\n")
+                p.print("public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
+                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? _storage.extensionFieldValues.fieldNames(for: number)\n")
                 p.print("}\n")
             } else {
                 p.print("\n")
@@ -710,8 +710,8 @@ class MessageGenerator {
                 p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return extensionFieldValues[ext.protoFieldNumber] is F\n")
                 p.print("}\n")
-                p.print("public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {\n")
-                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)\n")
+                p.print("public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
+                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)\n")
                 p.print("}\n")
             }
         }

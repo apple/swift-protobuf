@@ -803,8 +803,8 @@ struct ProtobufUnittest_ComplexOptionType1: ProtobufGeneratedMessage, ProtobufPr
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_ComplexOptionType1>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
-  public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType1._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return ProtobufUnittest_ComplexOptionType1._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
   }
 }
 
@@ -1012,8 +1012,8 @@ struct ProtobufUnittest_ComplexOptionType2: ProtobufGeneratedMessage, ProtobufPr
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_ComplexOptionType2>) -> Bool {
     return _storage.hasExtensionValue(ext: ext)
   }
-  public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType2._protobuf_fieldNames.fieldNames(withNumber: number) ?? _storage.extensionFieldValues.fieldNames(withNumber: number)
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return ProtobufUnittest_ComplexOptionType2._protobuf_fieldNames.fieldNames(for: number) ?? _storage.extensionFieldValues.fieldNames(for: number)
   }
 }
 
@@ -1284,8 +1284,8 @@ struct ProtobufUnittest_AggregateMessageSet: ProtobufGeneratedMessage, ProtobufP
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, ProtobufUnittest_AggregateMessageSet>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
-  public func _protobuf_fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_AggregateMessageSet._protobuf_fieldNames.fieldNames(withNumber: number) ?? extensionFieldValues.fieldNames(withNumber: number)
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return ProtobufUnittest_AggregateMessageSet._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
   }
 }
 

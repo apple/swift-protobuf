@@ -223,7 +223,7 @@ public struct ProtobufExtensionFieldValueSet: Equatable, Sequence {
         set(newValue) {values[index] = newValue}
     }
 
-    public func fieldNames(withNumber number: Int) -> FieldNameMap.Names? {
+    public func fieldNames(for number: Int) -> FieldNameMap.Names? {
         return values[number]?.protobufExtension.fieldNames
     }
 }

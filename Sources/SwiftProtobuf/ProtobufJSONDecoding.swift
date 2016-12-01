@@ -125,7 +125,7 @@ public struct ProtobufJSONDecoder {
             throw ProtobufDecodingError.missingFieldNames
         }
         if let token = try nextToken() {
-            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(withJSONName: key)
+            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
                 ?? scanner.extensions?.fieldNumberForJson(messageType: M.self, jsonFieldName: key)
             switch token {
             case .colon, .comma, .endObject, .endArray:
@@ -174,7 +174,7 @@ public struct ProtobufJSONDecoder {
             throw ProtobufDecodingError.missingFieldNames
         }
         if let token = try nextToken() {
-            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(withJSONName: key)
+            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
             switch token {
             case .colon, .comma, .endObject, .endArray:
                 throw ProtobufDecodingError.malformedJSON
