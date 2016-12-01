@@ -86,7 +86,7 @@ if justVersion {
   let response: CodeGeneratorResponse
   do {
     let rawRequest = try Stdin.readall()
-    let request = try CodeGeneratorRequest(protobuf: rawRequest, extensions: SwiftOptions_Extensions)
+    let request = try CodeGeneratorRequest(protobuf: rawRequest)
     let context = try Context(request: request)
     response = context.generateResponse()
   } catch GenerationError.readFailure {
@@ -105,7 +105,7 @@ if justVersion {
   for f in filesToRead {
     let rawRequest = try readFileData(filename: f)
     Stderr.print("Read request: \(rawRequest.count) bytes from \(f)")
-    let request = try CodeGeneratorRequest(protobuf: Data(bytes: rawRequest), extensions: SwiftOptions_Extensions)
+    let request = try CodeGeneratorRequest(protobuf: Data(bytes: rawRequest))
     let context = try Context(request: request)
     let response = context.generateResponse()
     let content = response.file[0].content
