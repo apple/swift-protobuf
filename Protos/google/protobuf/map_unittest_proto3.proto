@@ -39,10 +39,6 @@ syntax = "proto3";
 option cc_enable_arenas = true;
 option csharp_namespace = "Google.Protobuf.TestProtos";
 
-// Disambiguate from map_unittest.proto messages
-import "swift-options.proto";
-option (apple_swift_prefix) = "Proto3";
-
 import "google/protobuf/unittest_proto3.proto";
 
 // We don't put this in a package within proto2 because we need to make sure
@@ -122,3 +118,4 @@ message MessageContainingEnumCalledType {
 message MessageContainingMapCalledEntry {
   map<int32, int32> entry = 1;
 }
+option swift_prefix = "Proto3";

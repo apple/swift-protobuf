@@ -1037,8 +1037,6 @@ struct Google_Protobuf_FieldDescriptorProto: ProtobufGeneratedMessage, ProtobufP
     ///   0 is reserved for errors
     case `optional` // = 1
     case `required` // = 2
-
-    ///   TODO(sanjay): Should we add LABEL_MAP?
     case repeated // = 3
 
     init() {
@@ -2102,18 +2100,7 @@ struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufProto2Mess
     return _javaMultipleFiles = nil
   }
 
-  ///   If set true, then the Java code generator will generate equals() and
-  ///   hashCode() methods for all messages defined in the .proto file.
-  ///   This increases generated code size, potentially substantially for large
-  ///   protos, which may harm a memory-constrained application.
-  ///   - In the full runtime this is a speed optimization, as the
-  ///   AbstractMessage base class includes reflection-based implementations of
-  ///   these methods.
-  ///   - In the lite runtime, setting this option changes the semantics of
-  ///   equals() and hashCode() to more closely match those of the full runtime;
-  ///   the generated methods compute their results based on field values rather
-  ///   than object identity. (Implementations should not assume that hashcodes
-  ///   will be consistent across runtimes or versions of the protocol compiler.)
+  ///   This option does nothing.
   private var _javaGenerateEqualsAndHash: Bool? = nil
   var javaGenerateEqualsAndHash: Bool {
     get {return _javaGenerateEqualsAndHash ?? false}
@@ -2276,8 +2263,10 @@ struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufProto2Mess
     return _csharpNamespace = nil
   }
 
-  ///   Prefix prepended to all Swift generated top-level types.
-  ///   Default is CamelCased package name.
+  ///   By default Swift generators will take the proto package and CamelCase it
+  ///   replacing '.' with underscore and use that to prefix the types/symbols
+  ///   defined. When this options is provided, they will use this value instead
+  ///   to prefix the types/symbols defined.
   private var _swiftPrefix: String? = nil
   var swiftPrefix: String {
     get {return _swiftPrefix ?? ""}
@@ -2376,7 +2365,7 @@ struct Google_Protobuf_FileOptions: ProtobufGeneratedMessage, ProtobufProto2Mess
     if (javaPackage != other.javaPackage) {return false}
     if (javaOuterClassname != other.javaOuterClassname) {return false}
     if (((_javaMultipleFiles != nil && _javaMultipleFiles! != false) || (other._javaMultipleFiles != nil && other._javaMultipleFiles! != false)) && (_javaMultipleFiles == nil || other._javaMultipleFiles == nil || _javaMultipleFiles! != other._javaMultipleFiles!)) {return false}
-    if (((_javaGenerateEqualsAndHash != nil && _javaGenerateEqualsAndHash! != false) || (other._javaGenerateEqualsAndHash != nil && other._javaGenerateEqualsAndHash! != false)) && (_javaGenerateEqualsAndHash == nil || other._javaGenerateEqualsAndHash == nil || _javaGenerateEqualsAndHash! != other._javaGenerateEqualsAndHash!)) {return false}
+    if (javaGenerateEqualsAndHash != other.javaGenerateEqualsAndHash) {return false}
     if (((_javaStringCheckUtf8 != nil && _javaStringCheckUtf8! != false) || (other._javaStringCheckUtf8 != nil && other._javaStringCheckUtf8! != false)) && (_javaStringCheckUtf8 == nil || other._javaStringCheckUtf8 == nil || _javaStringCheckUtf8! != other._javaStringCheckUtf8!)) {return false}
     if (((_optimizeFor != nil && _optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed) || (other._optimizeFor != nil && other._optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed)) && (_optimizeFor == nil || other._optimizeFor == nil || _optimizeFor! != other._optimizeFor!)) {return false}
     if (goPackage != other.goPackage) {return false}
@@ -2858,7 +2847,7 @@ struct Google_Protobuf_FieldOptions: ProtobufGeneratedMessage, ProtobufProto2Mes
   ///  
   ///  
   ///   Note that implementations may choose not to check required fields within
-  ///   a lazy sub-message.  That is, calling IsInitialized() on the outher message
+  ///   a lazy sub-message.  That is, calling IsInitialized() on the outer message
   ///   may return true even if the inner message has missing required fields.
   ///   This is necessary because otherwise the inner message would have to be
   ///   parsed in order to perform the check, defeating the purpose of lazy
@@ -3345,10 +3334,98 @@ struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufProto2Me
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
     33: .same(proto: "deprecated", swift: "deprecated"),
+    34: .unique(proto: "idempotency_level", json: "idempotencyLevel", swift: "idempotencyLevel"),
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption", swift: "uninterpretedOption"),
   ]
 
   public var unknown = ProtobufUnknownStorage()
+
+  ///   Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
+  ///   or neither? HTTP based RPC implementation may choose GET verb for safe
+  ///   methods, and PUT verb for idempotent methods instead of the default POST.
+  enum IdempotencyLevel: ProtobufEnum {
+    typealias RawValue = Int
+    case idempotencyUnknown // = 0
+
+    ///   implies idempotent
+    case noSideEffects // = 1
+
+    ///   idempotent, but may have side effects
+    case idempotent // = 2
+
+    init() {
+      self = .idempotencyUnknown
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .idempotencyUnknown
+      case 1: self = .noSideEffects
+      case 2: self = .idempotent
+      default: return nil
+      }
+    }
+
+    init?(name: String) {
+      switch name {
+      case "idempotencyUnknown": self = .idempotencyUnknown
+      case "noSideEffects": self = .noSideEffects
+      case "idempotent": self = .idempotent
+      default: return nil
+      }
+    }
+
+    init?(jsonName: String) {
+      switch jsonName {
+      case "IDEMPOTENCY_UNKNOWN": self = .idempotencyUnknown
+      case "NO_SIDE_EFFECTS": self = .noSideEffects
+      case "IDEMPOTENT": self = .idempotent
+      default: return nil
+      }
+    }
+
+    init?(protoName: String) {
+      switch protoName {
+      case "IDEMPOTENCY_UNKNOWN": self = .idempotencyUnknown
+      case "NO_SIDE_EFFECTS": self = .noSideEffects
+      case "IDEMPOTENT": self = .idempotent
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      get {
+        switch self {
+        case .idempotencyUnknown: return 0
+        case .noSideEffects: return 1
+        case .idempotent: return 2
+        }
+      }
+    }
+
+    var json: String {
+      get {
+        switch self {
+        case .idempotencyUnknown: return "\"IDEMPOTENCY_UNKNOWN\""
+        case .noSideEffects: return "\"NO_SIDE_EFFECTS\""
+        case .idempotent: return "\"IDEMPOTENT\""
+        }
+      }
+    }
+
+    var hashValue: Int { return rawValue }
+
+    var debugDescription: String {
+      get {
+        switch self {
+        case .idempotencyUnknown: return ".idempotencyUnknown"
+        case .noSideEffects: return ".noSideEffects"
+        case .idempotent: return ".idempotent"
+        }
+      }
+    }
+
+  }
 
   //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
   //    framework.  We apologize for hoarding these numbers to ourselves, but
@@ -3371,6 +3448,18 @@ struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufProto2Me
     return _deprecated = nil
   }
 
+  private var _idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel? = nil
+  var idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel {
+    get {return _idempotencyLevel ?? Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown}
+    set {_idempotencyLevel = newValue}
+  }
+  public var hasIdempotencyLevel: Bool {
+    return _idempotencyLevel != nil
+  }
+  public mutating func clearIdempotencyLevel() {
+    return _idempotencyLevel = nil
+  }
+
   ///   The parser stores options it doesn't recognize here. See above.
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
@@ -3379,6 +3468,7 @@ struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufProto2Me
   public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 33: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_deprecated)
+    case 34: try setter.decodeSingularField(fieldType: Google_Protobuf_MethodOptions.IdempotencyLevel.self, value: &_idempotencyLevel)
     case 999: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UninterpretedOption.self, value: &uninterpretedOption)
     default: if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
         try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, protoFieldNumber: protoFieldNumber)
@@ -3390,6 +3480,9 @@ struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufProto2Me
     if let v = _deprecated {
       try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 33)
     }
+    if let v = _idempotencyLevel {
+      try visitor.visitSingularField(fieldType: Google_Protobuf_MethodOptions.IdempotencyLevel.self, value: v, protoFieldNumber: 34)
+    }
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, protoFieldNumber: 999)
     }
@@ -3399,6 +3492,7 @@ struct Google_Protobuf_MethodOptions: ProtobufGeneratedMessage, ProtobufProto2Me
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodOptions) -> Bool {
     if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
+    if (((_idempotencyLevel != nil && _idempotencyLevel! != Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown) || (other._idempotencyLevel != nil && other._idempotencyLevel! != Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown)) && (_idempotencyLevel == nil || other._idempotencyLevel == nil || _idempotencyLevel! != other._idempotencyLevel!)) {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}

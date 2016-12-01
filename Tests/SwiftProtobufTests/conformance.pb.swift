@@ -624,6 +624,11 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
     112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage", swift: "oneofNestedMessage"),
     113: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
     114: .unique(proto: "oneof_bytes", json: "oneofBytes", swift: "oneofBytes"),
+    115: .unique(proto: "oneof_bool", json: "oneofBool", swift: "oneofBool"),
+    116: .unique(proto: "oneof_uint64", json: "oneofUint64", swift: "oneofUint64"),
+    117: .unique(proto: "oneof_float", json: "oneofFloat", swift: "oneofFloat"),
+    118: .unique(proto: "oneof_double", json: "oneofDouble", swift: "oneofDouble"),
+    119: .unique(proto: "oneof_enum", json: "oneofEnum", swift: "oneofEnum"),
     201: .unique(proto: "optional_bool_wrapper", json: "optionalBoolWrapper", swift: "optionalBoolWrapper"),
     202: .unique(proto: "optional_int32_wrapper", json: "optionalInt32Wrapper", swift: "optionalInt32Wrapper"),
     203: .unique(proto: "optional_int64_wrapper", json: "optionalInt64Wrapper", swift: "optionalInt64Wrapper"),
@@ -666,6 +671,12 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
     410: .unique(proto: "Field_Name10", json: "FieldName10", swift: "fieldName10"),
     411: .unique(proto: "FIELD_NAME11", json: "FIELDNAME11", swift: "fieldName11"),
     412: .unique(proto: "FIELD_name12", json: "FIELDName12", swift: "fieldName12"),
+    413: .unique(proto: "__field_name13", json: "FieldName13", swift: "_FieldName13"),
+    414: .unique(proto: "__Field_name14", json: "FieldName14", swift: "_FieldName14"),
+    415: .unique(proto: "field__name15", json: "fieldName15", swift: "field_Name15"),
+    416: .unique(proto: "field__Name16", json: "fieldName16", swift: "field_Name16"),
+    417: .unique(proto: "field_name17__", json: "fieldName17", swift: "fieldName17__"),
+    418: .unique(proto: "Field_name18__", json: "FieldName18", swift: "fieldName18__"),
   ]
 
   private class _StorageClass {
@@ -775,6 +786,12 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
     var _fieldName10: Int32 = 0
     var _fieldName11: Int32 = 0
     var _fieldName12: Int32 = 0
+    var __FieldName13: Int32 = 0
+    var __FieldName14: Int32 = 0
+    var _field_Name15: Int32 = 0
+    var _field_Name16: Int32 = 0
+    var _fieldName17__: Int32 = 0
+    var _fieldName18__: Int32 = 0
 
     init() {}
 
@@ -842,7 +859,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
       case 72: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignMessage>.self, value: &_mapStringForeignMessage)
       case 73: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: &_mapStringNestedEnum)
       case 74: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: &_mapStringForeignEnum)
-      case 111, 112, 113, 114: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+      case 111, 112, 113, 114, 115, 116, 117, 118, 119: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       case 201: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_optionalBoolWrapper)
       case 202: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_optionalInt32Wrapper)
       case 203: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_optionalInt64Wrapper)
@@ -885,6 +902,12 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
       case 410: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName10)
       case 411: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName11)
       case 412: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName12)
+      case 413: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &__FieldName13)
+      case 414: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &__FieldName14)
+      case 415: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field_Name15)
+      case 416: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field_Name16)
+      case 417: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName17__)
+      case 418: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName18__)
       default: break
       }
     }
@@ -1076,7 +1099,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
       if !_mapStringForeignEnum.isEmpty {
         try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: _mapStringForeignEnum, protoFieldNumber: 74)
       }
-      try _oneofField.traverse(visitor: &visitor, start: 111, end: 115)
+      try _oneofField.traverse(visitor: &visitor, start: 111, end: 120)
       if let v = _optionalBoolWrapper {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 201)
       }
@@ -1203,6 +1226,24 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
       if _fieldName12 != 0 {
         try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName12, protoFieldNumber: 412)
       }
+      if __FieldName13 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __FieldName13, protoFieldNumber: 413)
+      }
+      if __FieldName14 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __FieldName14, protoFieldNumber: 414)
+      }
+      if _field_Name15 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field_Name15, protoFieldNumber: 415)
+      }
+      if _field_Name16 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field_Name16, protoFieldNumber: 416)
+      }
+      if _fieldName17__ != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName17__, protoFieldNumber: 417)
+      }
+      if _fieldName18__ != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName18__, protoFieldNumber: 418)
+      }
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1311,6 +1352,12 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
       if _fieldName10 != other._fieldName10 {return false}
       if _fieldName11 != other._fieldName11 {return false}
       if _fieldName12 != other._fieldName12 {return false}
+      if __FieldName13 != other.__FieldName13 {return false}
+      if __FieldName14 != other.__FieldName14 {return false}
+      if _field_Name15 != other._field_Name15 {return false}
+      if _field_Name16 != other._field_Name16 {return false}
+      if _fieldName17__ != other._fieldName17__ {return false}
+      if _fieldName18__ != other._fieldName18__ {return false}
       return true
     }
 
@@ -1421,6 +1468,12 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
       clone._fieldName10 = _fieldName10
       clone._fieldName11 = _fieldName11
       clone._fieldName12 = _fieldName12
+      clone.__FieldName13 = __FieldName13
+      clone.__FieldName14 = __FieldName14
+      clone._field_Name15 = _field_Name15
+      clone._field_Name16 = _field_Name16
+      clone._fieldName17__ = _fieldName17__
+      clone._fieldName18__ = _fieldName18__
       return clone
     }
   }
@@ -1433,6 +1486,11 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
     case oneofNestedMessage(Conformance_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
+    case oneofBool(Bool)
+    case oneofUint64(UInt64)
+    case oneofFloat(Float)
+    case oneofDouble(Double)
+    case oneofEnum(Conformance_TestAllTypes.NestedEnum)
     case None
 
     public init(nilLiteral: ()) {
@@ -1466,6 +1524,26 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
         var value = Data()
         try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
+      case 115:
+        var value = Bool()
+        try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+        self = .oneofBool(value)
+      case 116:
+        var value = UInt64()
+        try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
+        self = .oneofUint64(value)
+      case 117:
+        var value = Float()
+        try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
+        self = .oneofFloat(value)
+      case 118:
+        var value = Double()
+        try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
+        self = .oneofDouble(value)
+      case 119:
+        var value = Conformance_TestAllTypes.NestedEnum()
+        try setter.decodeSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: &value)
+        self = .oneofEnum(value)
       default:
         self = .None
       }
@@ -1488,6 +1566,26 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
       case .oneofBytes(let v):
         if start <= 114 && 114 < end {
           try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 114)
+        }
+      case .oneofBool(let v):
+        if start <= 115 && 115 < end {
+          try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 115)
+        }
+      case .oneofUint64(let v):
+        if start <= 116 && 116 < end {
+          try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: v, protoFieldNumber: 116)
+        }
+      case .oneofFloat(let v):
+        if start <= 117 && 117 < end {
+          try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: v, protoFieldNumber: 117)
+        }
+      case .oneofDouble(let v):
+        if start <= 118 && 118 < end {
+          try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, protoFieldNumber: 118)
+        }
+      case .oneofEnum(let v):
+        if start <= 119 && 119 < end {
+          try visitor.visitSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: v, protoFieldNumber: 119)
         }
       case .None:
         break
@@ -2056,6 +2154,66 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
     }
   }
 
+  var oneofBool: Bool {
+    get {
+      if case .oneofBool(let v) = _storage._oneofField {
+        return v
+      }
+      return false
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofBool(newValue)
+    }
+  }
+
+  var oneofUint64: UInt64 {
+    get {
+      if case .oneofUint64(let v) = _storage._oneofField {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofUint64(newValue)
+    }
+  }
+
+  var oneofFloat: Float {
+    get {
+      if case .oneofFloat(let v) = _storage._oneofField {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofFloat(newValue)
+    }
+  }
+
+  var oneofDouble: Double {
+    get {
+      if case .oneofDouble(let v) = _storage._oneofField {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofDouble(newValue)
+    }
+  }
+
+  var oneofEnum: Conformance_TestAllTypes.NestedEnum {
+    get {
+      if case .oneofEnum(let v) = _storage._oneofField {
+        return v
+      }
+      return Conformance_TestAllTypes.NestedEnum.foo
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofEnum(newValue)
+    }
+  }
+
   ///   Well-known types
   var optionalBoolWrapper: Google_Protobuf_BoolValue {
     get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
@@ -2298,6 +2456,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
   }
 
   ///   Test field-name-to-JSON-name convention.
+  ///   (protobuf says names can be any valid C/C++ identifier.)
   var fieldname1: Int32 {
     get {return _storage._fieldname1}
     set {_uniqueStorage()._fieldname1 = newValue}
@@ -2356,6 +2515,36 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message
   var fieldName12: Int32 {
     get {return _storage._fieldName12}
     set {_uniqueStorage()._fieldName12 = newValue}
+  }
+
+  var _FieldName13: Int32 {
+    get {return _storage.__FieldName13}
+    set {_uniqueStorage().__FieldName13 = newValue}
+  }
+
+  var _FieldName14: Int32 {
+    get {return _storage.__FieldName14}
+    set {_uniqueStorage().__FieldName14 = newValue}
+  }
+
+  var field_Name15: Int32 {
+    get {return _storage._field_Name15}
+    set {_uniqueStorage()._field_Name15 = newValue}
+  }
+
+  var field_Name16: Int32 {
+    get {return _storage._field_Name16}
+    set {_uniqueStorage()._field_Name16 = newValue}
+  }
+
+  var fieldName17__: Int32 {
+    get {return _storage._fieldName17__}
+    set {_uniqueStorage()._fieldName17__ = newValue}
+  }
+
+  var fieldName18__: Int32 {
+    get {return _storage._fieldName18__}
+    set {_uniqueStorage()._fieldName18__ = newValue}
   }
 
   public var oneofField: OneOf_OneofField {
@@ -2447,6 +2636,11 @@ func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAll
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
   case (.oneofString(let l), .oneofString(let r)): return l == r
   case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+  case (.oneofBool(let l), .oneofBool(let r)): return l == r
+  case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
+  case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
+  case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
+  case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
   case (.None, .None): return true
   default: return false
   }

@@ -88,10 +88,8 @@ import Foundation
 ///  
 ///   Example 5: Compute Timestamp from current time in Python.
 ///  
-///       now = time.time()
-///       seconds = int(now)
-///       nanos = int((now - seconds) * 10**9)
-///       timestamp = Timestamp(seconds=seconds, nanos=nanos)
+///       timestamp = Timestamp()
+///       timestamp.GetCurrentTime()
 struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Timestamp"}
   public var protoMessageName: String {return "Timestamp"}
@@ -103,7 +101,7 @@ struct Google_Protobuf_Timestamp: ProtobufGeneratedMessage, ProtobufProto3Messag
 
 
   ///   Represents seconds of UTC time since Unix epoch
-  ///   1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to
+  ///   1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
   ///   9999-12-31T23:59:59Z inclusive.
   var seconds: Int64 = 0
 
