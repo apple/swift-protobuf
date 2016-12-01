@@ -19,9 +19,7 @@
 syntax = "proto2";
 
 package protobuf_unittest.extend4;
-
-import "swift-options.proto";
-option (apple_swift_prefix) = "Ext4";
+option swift_prefix = "Ext4";
 
 import "unittest_swift_extension.proto";
 

@@ -101,7 +101,6 @@ TEST_PROTOS= \
 	Protos/google/protobuf/unittest_proto3.proto \
 	Protos/google/protobuf/unittest_proto3_arena.proto \
 	Protos/google/protobuf/unittest_well_known_types.proto \
-	Protos/swift-options.proto \
 	Protos/unittest_swift_all_required_types.proto \
 	Protos/unittest_swift_cycle.proto \
 	Protos/unittest_swift_enum.proto \
@@ -137,8 +136,7 @@ LIBRARY_PROTOS= \
 # Protos that are used internally by the plugin
 PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
-	Protos/google/protobuf/descriptor.proto \
-	Protos/swift-options.proto
+	Protos/google/protobuf/descriptor.proto
 
 XCODEBUILD_EXTRAS =
 # Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
