@@ -328,3 +328,162 @@ struct ProtobufUnittest_TestImportEnumMap: ProtobufGeneratedMessage, ProtobufPro
     return true
   }
 }
+
+struct ProtobufUnittest_TestIntIntMap: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+  public var swiftClassName: String {return "ProtobufUnittest_TestIntIntMap"}
+  public var protoMessageName: String {return "TestIntIntMap"}
+  public var protoPackageName: String {return "protobuf_unittest"}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "m", swift: "m"),
+  ]
+
+  public var unknown = ProtobufUnknownStorage()
+
+  var m: Dictionary<Int32,Int32> = [:]
+
+  init() {}
+
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    switch protoFieldNumber {
+    case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &m)
+    default: break
+    }
+  }
+
+  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    if !m.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: m, protoFieldNumber: 1)
+    }
+    unknown.traverse(visitor: &visitor)
+  }
+
+  public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
+    if m != other.m {return false}
+    if unknown != other.unknown {return false}
+    return true
+  }
+}
+
+///   Test all key types: string, plus the non-floating-point scalars.
+struct ProtobufUnittest_TestMaps: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+  public var swiftClassName: String {return "ProtobufUnittest_TestMaps"}
+  public var protoMessageName: String {return "TestMaps"}
+  public var protoPackageName: String {return "protobuf_unittest"}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "m_int32", json: "mInt32", swift: "mInt32"),
+    2: .unique(proto: "m_int64", json: "mInt64", swift: "mInt64"),
+    3: .unique(proto: "m_uint32", json: "mUint32", swift: "mUint32"),
+    4: .unique(proto: "m_uint64", json: "mUint64", swift: "mUint64"),
+    5: .unique(proto: "m_sint32", json: "mSint32", swift: "mSint32"),
+    6: .unique(proto: "m_sint64", json: "mSint64", swift: "mSint64"),
+    7: .unique(proto: "m_fixed32", json: "mFixed32", swift: "mFixed32"),
+    8: .unique(proto: "m_fixed64", json: "mFixed64", swift: "mFixed64"),
+    9: .unique(proto: "m_sfixed32", json: "mSfixed32", swift: "mSfixed32"),
+    10: .unique(proto: "m_sfixed64", json: "mSfixed64", swift: "mSfixed64"),
+    11: .unique(proto: "m_bool", json: "mBool", swift: "mBool"),
+    12: .unique(proto: "m_string", json: "mString", swift: "mString"),
+  ]
+
+  public var unknown = ProtobufUnknownStorage()
+
+  var mInt32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mInt64: Dictionary<Int64,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mUint32: Dictionary<UInt32,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mUint64: Dictionary<UInt64,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mSint32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mSint64: Dictionary<Int64,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mFixed32: Dictionary<UInt32,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mFixed64: Dictionary<UInt64,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mSfixed32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mSfixed64: Dictionary<Int64,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mBool: Dictionary<Bool,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var mString: Dictionary<String,ProtobufUnittest_TestIntIntMap> = [:]
+
+  init() {}
+
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    switch protoFieldNumber {
+    case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: &mInt32)
+    case 2: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: &mInt64)
+    case 3: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: &mUint32)
+    case 4: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: &mUint64)
+    case 5: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: &mSint32)
+    case 6: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: &mSint64)
+    case 7: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: &mFixed32)
+    case 8: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: &mFixed64)
+    case 9: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: &mSfixed32)
+    case 10: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: &mSfixed64)
+    case 11: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: &mBool)
+    case 12: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: &mString)
+    default: break
+    }
+  }
+
+  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    if !mInt32.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: mInt32, protoFieldNumber: 1)
+    }
+    if !mInt64.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: mInt64, protoFieldNumber: 2)
+    }
+    if !mUint32.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: mUint32, protoFieldNumber: 3)
+    }
+    if !mUint64.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: mUint64, protoFieldNumber: 4)
+    }
+    if !mSint32.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: mSint32, protoFieldNumber: 5)
+    }
+    if !mSint64.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: mSint64, protoFieldNumber: 6)
+    }
+    if !mFixed32.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mFixed32, protoFieldNumber: 7)
+    }
+    if !mFixed64.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mFixed64, protoFieldNumber: 8)
+    }
+    if !mSfixed32.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed32, protoFieldNumber: 9)
+    }
+    if !mSfixed64.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed64, protoFieldNumber: 10)
+    }
+    if !mBool.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: mBool, protoFieldNumber: 11)
+    }
+    if !mString.isEmpty {
+      try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: mString, protoFieldNumber: 12)
+    }
+    unknown.traverse(visitor: &visitor)
+  }
+
+  public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMaps) -> Bool {
+    if mInt32 != other.mInt32 {return false}
+    if mInt64 != other.mInt64 {return false}
+    if mUint32 != other.mUint32 {return false}
+    if mUint64 != other.mUint64 {return false}
+    if mSint32 != other.mSint32 {return false}
+    if mSint64 != other.mSint64 {return false}
+    if mFixed32 != other.mFixed32 {return false}
+    if mFixed64 != other.mFixed64 {return false}
+    if mSfixed32 != other.mSfixed32 {return false}
+    if mSfixed64 != other.mSfixed64 {return false}
+    if mBool != other.mBool {return false}
+    if mString != other.mString {return false}
+    if unknown != other.unknown {return false}
+    return true
+  }
+}

@@ -79,6 +79,12 @@ import Foundation
 ///         end.seconds += 1;
 ///         end.nanos -= 1000000000;
 ///       }
+///  
+///   Example 3: Compute Duration from datetime.timedelta in Python.
+///  
+///       td = datetime.timedelta(days=3, minutes=10)
+///       duration = Duration()
+///       duration.FromTimedelta(td)
 public struct Google_Protobuf_Duration: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Duration"}
   public var protoMessageName: String {return "Duration"}

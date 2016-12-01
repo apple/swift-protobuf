@@ -48,8 +48,6 @@ option cc_enable_arenas = true;
 // Exercise the java_package option.
 option java_package = "com.google.protobuf.test";
 option csharp_namespace = "Google.Protobuf.TestProtos";
-import "swift-options.proto";
-option (apple_swift_prefix) = "Proto3";
 
 // Do not set a java_outer_classname here to verify that Proto2 works without
 // one.
@@ -68,3 +66,4 @@ enum ImportEnum {
   IMPORT_BAZ = 9;
 }
 
+option swift_prefix = "Proto3";
