@@ -291,7 +291,7 @@ private struct JSONNullFieldDecoder: JSONFieldDecoder {
     }
     mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
     }
-    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: inout Map<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
+    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
     }
     mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
     }
@@ -332,7 +332,7 @@ private struct JSONObjectFieldDecoder: JSONFieldDecoder {
         try group.decodeFromJSONObject(jsonDecoder: &subDecoder)
         value = group
     }
-    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: inout Map<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
+    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
         var keyToken: JSONToken?
         var state = JSONDecoder.ObjectParseState.expectFirstKey
         while let token = try scanner.next() {

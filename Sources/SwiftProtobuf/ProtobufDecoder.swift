@@ -152,7 +152,7 @@ private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
         consumed = true
     }
 
-    mutating func decodeMapField<KeyType: FieldType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: inout Map<KeyType, ValueType>.BaseType) throws where KeyType: MapKeyType, KeyType.BaseType: Hashable {
+    mutating func decodeMapField<KeyType: FieldType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType: MapKeyType, KeyType.BaseType: Hashable {
         var k: KeyType.BaseType?
         var v: ValueType.BaseType?
         var subdecoder = ProtobufDecoder(protobufPointer: buffer, extensions: scanner.extensions)

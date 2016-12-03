@@ -149,7 +149,7 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Prot
       case 43: try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
       case 44: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
       case 45: try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
-      case 71: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Swift_Performance_TestAllTypes>.self, value: &_mapStringMessage)
+      case 71: try setter.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<ProtobufString,Swift_Performance_TestAllTypes>.self, value: &_mapStringMessage)
       default: break
       }
     }
@@ -249,7 +249,7 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Prot
         try visitor.visitRepeatedField(fieldType: ProtobufBytes.self, value: _repeatedBytes, protoFieldNumber: 45)
       }
       if !_mapStringMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,Swift_Performance_TestAllTypes>.self, value: _mapStringMessage, protoFieldNumber: 71)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<ProtobufString,Swift_Performance_TestAllTypes>.self, value: _mapStringMessage, protoFieldNumber: 71)
       }
     }
 

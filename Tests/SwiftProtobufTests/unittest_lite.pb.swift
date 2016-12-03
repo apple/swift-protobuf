@@ -3240,7 +3240,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       case 536870006: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
       case 536870007: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_ForeignMessageLite.self, value: &_optionalMessage)
       case 536870008: try setter.decodeSingularGroupField(fieldType: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup.self, value: &_optionalGroup)
-      case 536870010: try setter.decodeMapField(fieldType: SwiftProtobuf.Map<ProtobufString,ProtobufString>.self, value: &_stringStringMap)
+      case 536870010: try setter.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<ProtobufString,ProtobufString>.self, value: &_stringStringMap)
       case 536870011, 536870012, 536870013, 536870014: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default: if (536860000 <= protoFieldNumber && protoFieldNumber < 536870000) {
           try setter.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbersLite.self, protoFieldNumber: protoFieldNumber)
@@ -3278,7 +3278,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
         try visitor.visitSingularGroupField(value: v, protoFieldNumber: 536870008)
       }
       if !_stringStringMap.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.Map<ProtobufString,ProtobufString>.self, value: _stringStringMap, protoFieldNumber: 536870010)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<ProtobufString,ProtobufString>.self, value: _stringStringMap, protoFieldNumber: 536870010)
       }
       try _oneofField.traverse(visitor: &visitor, start: 536870011, end: 536870015)
       unknown.traverse(visitor: &visitor)

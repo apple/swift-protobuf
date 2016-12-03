@@ -95,9 +95,9 @@ struct HashVisitor: Visitor {
         }
     }
 
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: Map<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
         mix(protoFieldNumber)
-        // Note: When Map<Hashable,Hashable> is Hashable, this will simplify to
+        // Note: When ProtobufMap<Hashable,Hashable> is Hashable, this will simplify to
         // mix(value.hashValue)
         var mapHash = 0
         for (k,v) in value {

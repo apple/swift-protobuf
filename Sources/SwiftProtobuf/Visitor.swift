@@ -39,5 +39,5 @@ public protocol Visitor {
     mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws
     mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws
     mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: Map<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable
 }

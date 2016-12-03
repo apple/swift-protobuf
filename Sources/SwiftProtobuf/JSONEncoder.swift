@@ -131,7 +131,7 @@ struct JSONEncodingVisitor: Visitor {
         encoder.append(text: "]")
     }
 
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: Map<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws  where KeyType.BaseType: Hashable {
         let jsonFieldName = try self.jsonFieldName(for: protoFieldNumber)
         encoder.startField(name: jsonFieldName)
         var arraySeparator = ""
