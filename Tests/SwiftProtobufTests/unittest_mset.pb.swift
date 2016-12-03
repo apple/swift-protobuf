@@ -161,14 +161,14 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 15: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_i)
+    case 15: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_i)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _i {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 15)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, protoFieldNumber: 15)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -211,14 +211,14 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 25: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_str)
+    case 25: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_str)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _str {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 25)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 25)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -291,15 +291,15 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_typeId)
-      case 3: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_message)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_typeId)
+      case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_message)
       default: break
       }
     }
 
     public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _typeId ?? 0, protoFieldNumber: 2)
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _message ?? Data(), protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _typeId ?? 0, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _message ?? Data(), protoFieldNumber: 3)
       unknown.traverse(visitor: &visitor)
     }
 

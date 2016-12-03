@@ -104,8 +104,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &fileToGenerate)
-    case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_parameter)
+    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &fileToGenerate)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_parameter)
     case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &protoFile)
     default: break
     }
@@ -113,10 +113,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !fileToGenerate.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: fileToGenerate, protoFieldNumber: 1)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: fileToGenerate, protoFieldNumber: 1)
     }
     if let v = _parameter {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 2)
     }
     if !protoFile.isEmpty {
       try visitor.visitRepeatedMessageField(value: protoFile, protoFieldNumber: 15)
@@ -247,22 +247,22 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
 
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
-      case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_insertionPoint)
-      case 15: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_content)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_name)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_insertionPoint)
+      case 15: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_content)
       default: break
       }
     }
 
     public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _name {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 1)
       }
       if let v = _insertionPoint {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 2)
       }
       if let v = _content {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 15)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 15)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -302,7 +302,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_error)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_error)
     case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Compiler_CodeGeneratorResponse.File.self, value: &file)
     default: break
     }
@@ -310,7 +310,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _error {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 1)
     }
     if !file.isEmpty {
       try visitor.visitRepeatedMessageField(value: file, protoFieldNumber: 15)

@@ -148,18 +148,18 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
-    case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &typeURL)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if typeURL != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: typeURL, protoFieldNumber: 1)
     }
     if value != Data() {
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: value, protoFieldNumber: 2)
     }
   }
 

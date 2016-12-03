@@ -58,14 +58,14 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobu
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &fileName)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &fileName)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if fileName != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: fileName, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: fileName, protoFieldNumber: 1)
     }
   }
 

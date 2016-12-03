@@ -60,7 +60,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
 
     func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_int32Value)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_int32Value)
       case 2: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyValue)
       case 3: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Any.self, value: &_repeatedAnyValue)
       default: break
@@ -69,7 +69,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
 
     func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if _int32Value != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int32Value, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _int32Value, protoFieldNumber: 1)
       }
       if let v = _anyValue {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)

@@ -154,21 +154,21 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
     func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_requiredInt32)
-      case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_requiredInt64)
-      case 3: try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_requiredUint32)
-      case 4: try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_requiredUint64)
-      case 5: try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_requiredSint32)
-      case 6: try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_requiredSint64)
-      case 7: try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_requiredFixed32)
-      case 8: try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_requiredFixed64)
-      case 9: try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_requiredSfixed32)
-      case 10: try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_requiredSfixed64)
-      case 11: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_requiredFloat)
-      case 12: try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_requiredDouble)
-      case 13: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_requiredBool)
-      case 14: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredString)
-      case 15: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_requiredBytes)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_requiredInt32)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_requiredInt64)
+      case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &_requiredUint32)
+      case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &_requiredUint64)
+      case 5: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &_requiredSint32)
+      case 6: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &_requiredSint64)
+      case 7: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &_requiredFixed32)
+      case 8: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &_requiredFixed64)
+      case 9: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &_requiredSfixed32)
+      case 10: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &_requiredSfixed64)
+      case 11: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_requiredFloat)
+      case 12: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &_requiredDouble)
+      case 13: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_requiredBool)
+      case 14: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_requiredString)
+      case 15: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_requiredBytes)
       case 16: try setter.decodeSingularGroupField(fieldType: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup.self, value: &_requiredGroup)
       case 18: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &_requiredNestedMessage)
       case 19: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_ForeignMessage.self, value: &_requiredForeignMessage)
@@ -176,51 +176,51 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       case 21: try setter.decodeSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: &_requiredNestedEnum)
       case 22: try setter.decodeSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: &_requiredForeignEnum)
       case 23: try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_requiredImportEnum)
-      case 24: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredStringPiece)
-      case 25: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredCord)
+      case 24: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_requiredStringPiece)
+      case 25: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_requiredCord)
       case 26: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_PublicImportMessage.self, value: &_requiredPublicImportMessage)
       case 27: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedMessage.self, value: &_requiredLazyMessage)
-      case 61: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_defaultInt32)
-      case 62: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_defaultInt64)
-      case 63: try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_defaultUint32)
-      case 64: try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_defaultUint64)
-      case 65: try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_defaultSint32)
-      case 66: try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_defaultSint64)
-      case 67: try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_defaultFixed32)
-      case 68: try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_defaultFixed64)
-      case 69: try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_defaultSfixed32)
-      case 70: try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_defaultSfixed64)
-      case 71: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_defaultFloat)
-      case 72: try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_defaultDouble)
-      case 73: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_defaultBool)
-      case 74: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultString)
-      case 75: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_defaultBytes)
+      case 61: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_defaultInt32)
+      case 62: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_defaultInt64)
+      case 63: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &_defaultUint32)
+      case 64: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &_defaultUint64)
+      case 65: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &_defaultSint32)
+      case 66: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &_defaultSint64)
+      case 67: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &_defaultFixed32)
+      case 68: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &_defaultFixed64)
+      case 69: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &_defaultSfixed32)
+      case 70: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &_defaultSfixed64)
+      case 71: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_defaultFloat)
+      case 72: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &_defaultDouble)
+      case 73: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_defaultBool)
+      case 74: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_defaultString)
+      case 75: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_defaultBytes)
       case 81: try setter.decodeSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: &_defaultNestedEnum)
       case 82: try setter.decodeSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: &_defaultForeignEnum)
       case 83: try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_defaultImportEnum)
-      case 84: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultStringPiece)
-      case 85: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_defaultCord)
+      case 84: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_defaultStringPiece)
+      case 85: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_defaultCord)
       case 111, 112, 113, 114: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default: break
       }
     }
 
     func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _requiredInt32 ?? 0, protoFieldNumber: 1)
-      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _requiredInt64 ?? 0, protoFieldNumber: 2)
-      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _requiredUint32 ?? 0, protoFieldNumber: 3)
-      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _requiredUint64 ?? 0, protoFieldNumber: 4)
-      try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _requiredSint32 ?? 0, protoFieldNumber: 5)
-      try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _requiredSint64 ?? 0, protoFieldNumber: 6)
-      try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _requiredFixed32 ?? 0, protoFieldNumber: 7)
-      try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _requiredFixed64 ?? 0, protoFieldNumber: 8)
-      try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _requiredSfixed32 ?? 0, protoFieldNumber: 9)
-      try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _requiredSfixed64 ?? 0, protoFieldNumber: 10)
-      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _requiredFloat ?? 0, protoFieldNumber: 11)
-      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _requiredDouble ?? 0, protoFieldNumber: 12)
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _requiredBool ?? false, protoFieldNumber: 13)
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredString ?? "", protoFieldNumber: 14)
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _requiredBytes ?? Data(), protoFieldNumber: 15)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _requiredInt32 ?? 0, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: _requiredInt64 ?? 0, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: _requiredUint32 ?? 0, protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: _requiredUint64 ?? 0, protoFieldNumber: 4)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: _requiredSint32 ?? 0, protoFieldNumber: 5)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: _requiredSint64 ?? 0, protoFieldNumber: 6)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: _requiredFixed32 ?? 0, protoFieldNumber: 7)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: _requiredFixed64 ?? 0, protoFieldNumber: 8)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: _requiredSfixed32 ?? 0, protoFieldNumber: 9)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: _requiredSfixed64 ?? 0, protoFieldNumber: 10)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: _requiredFloat ?? 0, protoFieldNumber: 11)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _requiredDouble ?? 0, protoFieldNumber: 12)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _requiredBool ?? false, protoFieldNumber: 13)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _requiredString ?? "", protoFieldNumber: 14)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _requiredBytes ?? Data(), protoFieldNumber: 15)
       if let v = _requiredGroup {
         try visitor.visitSingularGroupField(value: v, protoFieldNumber: 16)
       }
@@ -236,34 +236,34 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       try visitor.visitSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: _requiredNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo, protoFieldNumber: 21)
       try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _requiredForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo, protoFieldNumber: 22)
       try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: _requiredImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo, protoFieldNumber: 23)
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredStringPiece ?? "", protoFieldNumber: 24)
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredCord ?? "", protoFieldNumber: 25)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _requiredStringPiece ?? "", protoFieldNumber: 24)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _requiredCord ?? "", protoFieldNumber: 25)
       if let v = _requiredPublicImportMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 26)
       }
       if let v = _requiredLazyMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 27)
       }
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _defaultInt32 ?? 41, protoFieldNumber: 61)
-      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _defaultInt64 ?? 42, protoFieldNumber: 62)
-      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _defaultUint32 ?? 43, protoFieldNumber: 63)
-      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _defaultUint64 ?? 44, protoFieldNumber: 64)
-      try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _defaultSint32 ?? -45, protoFieldNumber: 65)
-      try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _defaultSint64 ?? 46, protoFieldNumber: 66)
-      try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _defaultFixed32 ?? 47, protoFieldNumber: 67)
-      try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _defaultFixed64 ?? 48, protoFieldNumber: 68)
-      try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _defaultSfixed32 ?? 49, protoFieldNumber: 69)
-      try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _defaultSfixed64 ?? -50, protoFieldNumber: 70)
-      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _defaultFloat ?? 51.5, protoFieldNumber: 71)
-      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _defaultDouble ?? 52000, protoFieldNumber: 72)
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _defaultBool ?? true, protoFieldNumber: 73)
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultString ?? "hello", protoFieldNumber: 74)
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100]), protoFieldNumber: 75)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _defaultInt32 ?? 41, protoFieldNumber: 61)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: _defaultInt64 ?? 42, protoFieldNumber: 62)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: _defaultUint32 ?? 43, protoFieldNumber: 63)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: _defaultUint64 ?? 44, protoFieldNumber: 64)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: _defaultSint32 ?? -45, protoFieldNumber: 65)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: _defaultSint64 ?? 46, protoFieldNumber: 66)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: _defaultFixed32 ?? 47, protoFieldNumber: 67)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: _defaultFixed64 ?? 48, protoFieldNumber: 68)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: _defaultSfixed32 ?? 49, protoFieldNumber: 69)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: _defaultSfixed64 ?? -50, protoFieldNumber: 70)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: _defaultFloat ?? 51.5, protoFieldNumber: 71)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _defaultDouble ?? 52000, protoFieldNumber: 72)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _defaultBool ?? true, protoFieldNumber: 73)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _defaultString ?? "hello", protoFieldNumber: 74)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100]), protoFieldNumber: 75)
       try visitor.visitSingularField(fieldType: ProtobufUnittest_TestAllRequiredTypes.NestedEnum.self, value: _defaultNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar, protoFieldNumber: 81)
       try visitor.visitSingularField(fieldType: ProtobufUnittest_ForeignEnum.self, value: _defaultForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignBar, protoFieldNumber: 82)
       try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: _defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar, protoFieldNumber: 83)
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultStringPiece ?? "abc", protoFieldNumber: 84)
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: _defaultCord ?? "123", protoFieldNumber: 85)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _defaultStringPiece ?? "abc", protoFieldNumber: 84)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _defaultCord ?? "123", protoFieldNumber: 85)
       try _oneofField.traverse(visitor: &visitor, start: 111, end: 115)
       unknown.traverse(visitor: &visitor)
     }
@@ -403,7 +403,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       switch protoFieldNumber {
       case 111:
         var value: UInt32?
-        try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &value)
         if let value = value {
           self = .oneofUint32(value)
         }
@@ -415,13 +415,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
         }
       case 113:
         var value: String?
-        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
         if let value = value {
           self = .oneofString(value)
         }
       case 114:
         var value: Data?
-        try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)
         if let value = value {
           self = .oneofBytes(value)
         }
@@ -434,7 +434,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       switch self {
       case .oneofUint32(let v):
         if start <= 111 && 111 < end {
-          try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: v, protoFieldNumber: 111)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: v, protoFieldNumber: 111)
         }
       case .oneofNestedMessage(let v):
         if start <= 112 && 112 < end {
@@ -442,11 +442,11 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
         }
       case .oneofString(let v):
         if start <= 113 && 113 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 113)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 113)
         }
       case .oneofBytes(let v):
         if start <= 114 && 114 < end {
-          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 114)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, protoFieldNumber: 114)
         }
       case .None:
         break
@@ -573,13 +573,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_bb)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_bb)
       default: break
       }
     }
 
     public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _bb ?? 0, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _bb ?? 0, protoFieldNumber: 1)
       unknown.traverse(visitor: &visitor)
     }
 
@@ -616,13 +616,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 17: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+      case 17: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_a)
       default: break
       }
     }
 
     public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _a ?? 0, protoFieldNumber: 17)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _a ?? 0, protoFieldNumber: 17)
       unknown.traverse(visitor: &visitor)
     }
 
@@ -1375,22 +1375,22 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_requiredInt32)
-    case 2: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_requiredFloat)
-    case 3: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_requiredBool)
-    case 4: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_requiredString)
-    case 5: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_requiredBytes)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_requiredInt32)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_requiredFloat)
+    case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_requiredBool)
+    case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_requiredString)
+    case 5: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_requiredBytes)
     case 6: try setter.decodeSingularField(fieldType: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.self, value: &_requiredNestedEnum)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _requiredInt32 ?? 0, protoFieldNumber: 1)
-    try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _requiredFloat ?? 0, protoFieldNumber: 2)
-    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _requiredBool ?? false, protoFieldNumber: 3)
-    try visitor.visitSingularField(fieldType: ProtobufString.self, value: _requiredString ?? "", protoFieldNumber: 4)
-    try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _requiredBytes ?? Data(), protoFieldNumber: 5)
+    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _requiredInt32 ?? 0, protoFieldNumber: 1)
+    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: _requiredFloat ?? 0, protoFieldNumber: 2)
+    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _requiredBool ?? false, protoFieldNumber: 3)
+    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _requiredString ?? "", protoFieldNumber: 4)
+    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _requiredBytes ?? Data(), protoFieldNumber: 5)
     try visitor.visitSingularField(fieldType: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.self, value: _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo, protoFieldNumber: 6)
     unknown.traverse(visitor: &visitor)
   }

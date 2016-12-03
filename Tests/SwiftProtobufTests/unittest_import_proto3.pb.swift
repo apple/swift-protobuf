@@ -153,14 +153,14 @@ struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &d)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &d)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if d != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: d, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: d, protoFieldNumber: 1)
     }
   }
 

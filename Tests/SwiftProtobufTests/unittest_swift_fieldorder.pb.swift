@@ -55,9 +55,9 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
     func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 11: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_myString)
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_myInt)
-      case 101: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_myFloat)
+      case 11: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_myString)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_myInt)
+      case 101: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_myFloat)
       case 60, 9, 150, 10: try _options.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       case 200: try setter.decodeSingularMessageField(fieldType: Swift_Protobuf_TestFieldOrderings.NestedMessage.self, value: &_optionalNestedMessage)
       default: if (2 <= protoFieldNumber && protoFieldNumber < 9) || (12 <= protoFieldNumber && protoFieldNumber < 56) {
@@ -68,17 +68,17 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
     func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _myInt {
-        try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, protoFieldNumber: 1)
       }
       try extensionFieldValues.traverse(visitor: &visitor, start: 2, end: 9)
       try _options.traverse(visitor: &visitor, start: 9, end: 11)
       if let v = _myString {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 11)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 11)
       }
       try extensionFieldValues.traverse(visitor: &visitor, start: 12, end: 56)
       try _options.traverse(visitor: &visitor, start: 60, end: 61)
       if let v = _myFloat {
-        try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: v, protoFieldNumber: 101)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, protoFieldNumber: 101)
       }
       try _options.traverse(visitor: &visitor, start: 150, end: 151)
       if let v = _optionalNestedMessage {
@@ -140,25 +140,25 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       switch protoFieldNumber {
       case 9:
         var value: Bool?
-        try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &value)
         if let value = value {
           self = .oneofBool(value)
         }
       case 10:
         var value: Int32?
-        try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &value)
         if let value = value {
           self = .oneofInt32(value)
         }
       case 60:
         var value: Int64?
-        try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &value)
         if let value = value {
           self = .oneofInt64(value)
         }
       case 150:
         var value: String?
-        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
         if let value = value {
           self = .oneofString(value)
         }
@@ -171,19 +171,19 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       switch self {
       case .oneofBool(let v):
         if start <= 9 && 9 < end {
-          try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 9)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, protoFieldNumber: 9)
         }
       case .oneofInt32(let v):
         if start <= 10 && 10 < end {
-          try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 10)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, protoFieldNumber: 10)
         }
       case .oneofInt64(let v):
         if start <= 60 && 60 < end {
-          try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 60)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, protoFieldNumber: 60)
         }
       case .oneofString(let v):
         if start <= 150 && 150 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 150)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 150)
         }
       case .None:
         break
@@ -230,18 +230,18 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_oo)
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_bb)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_oo)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_bb)
       default: break
       }
     }
 
     public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _bb {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, protoFieldNumber: 1)
       }
       if let v = _oo {
-        try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: v, protoFieldNumber: 2)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, protoFieldNumber: 2)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -394,9 +394,9 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 }
 
-let Swift_Protobuf_Extensions_myExtensionString = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufString>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 50, fieldNames: .unique(proto: "my_extension_string", json: "myExtensionString", swift: "Swift_Protobuf_myExtensionString"), defaultValue: "")
+let Swift_Protobuf_Extensions_myExtensionString = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 50, fieldNames: .unique(proto: "my_extension_string", json: "myExtensionString", swift: "Swift_Protobuf_myExtensionString"), defaultValue: "")
 
-let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 5, fieldNames: .unique(proto: "my_extension_int", json: "myExtensionInt", swift: "Swift_Protobuf_myExtensionInt"), defaultValue: 0)
+let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 5, fieldNames: .unique(proto: "my_extension_int", json: "myExtensionInt", swift: "Swift_Protobuf_myExtensionInt"), defaultValue: 0)
 
 func ==(lhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options, rhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options) -> Bool {
   switch (lhs, rhs) {

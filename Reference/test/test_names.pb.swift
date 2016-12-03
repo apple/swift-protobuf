@@ -31,22 +31,22 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &httpRequest)
-    case 3: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &url)
-    case 6: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &aBC)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &httpRequest)
+    case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &url)
+    case 6: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &aBC)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if httpRequest != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httpRequest, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httpRequest, protoFieldNumber: 1)
     }
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, protoFieldNumber: 3)
     }
     if aBC != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: aBC, protoFieldNumber: 6)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: aBC, protoFieldNumber: 6)
     }
   }
 
@@ -76,18 +76,18 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 2: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &httprequest)
-    case 4: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &url)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &httprequest)
+    case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &url)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if httprequest != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: httprequest, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httprequest, protoFieldNumber: 2)
     }
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 4)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, protoFieldNumber: 4)
     }
   }
 
@@ -113,14 +113,14 @@ struct Swift_Protobuf_Test_NamesTest3: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 5: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &url)
+    case 5: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &url)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if url != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: url, protoFieldNumber: 5)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, protoFieldNumber: 5)
     }
   }
 

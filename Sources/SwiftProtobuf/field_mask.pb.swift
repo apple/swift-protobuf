@@ -256,14 +256,14 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &paths)
+    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &paths)
     default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !paths.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: paths, protoFieldNumber: 1)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: paths, protoFieldNumber: 1)
     }
   }
 

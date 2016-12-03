@@ -143,24 +143,24 @@ extension Google_Protobuf_FieldDescriptorProto {
             return "SwiftProtobuf.ProtobufMap<" + keyTraits + "," + valueTraits + ">"
         }
         switch type {
-        case .double: return "ProtobufDouble"
-        case .float: return "ProtobufFloat"
-        case .int64: return "ProtobufInt64"
-        case .uint64: return "ProtobufUInt64"
-        case .int32: return "ProtobufInt32"
-        case .fixed64: return "ProtobufFixed64"
-        case .fixed32: return "ProtobufFixed32"
-        case .bool: return "ProtobufBool"
-        case .string: return "ProtobufString"
+        case .double: return "SwiftProtobuf.ProtobufDouble"
+        case .float: return "SwiftProtobuf.ProtobufFloat"
+        case .int64: return "SwiftProtobuf.ProtobufInt64"
+        case .uint64: return "SwiftProtobuf.ProtobufUInt64"
+        case .int32: return "SwiftProtobuf.ProtobufInt32"
+        case .fixed64: return "SwiftProtobuf.ProtobufFixed64"
+        case .fixed32: return "SwiftProtobuf.ProtobufFixed32"
+        case .bool: return "SwiftProtobuf.ProtobufBool"
+        case .string: return "SwiftProtobuf.ProtobufString"
         case .group: return getSwiftBaseType(context: context)
         case .message: return getSwiftBaseType(context: context)
-        case .bytes: return "ProtobufBytes"
-        case .uint32: return "ProtobufUInt32"
+        case .bytes: return "SwiftProtobuf.ProtobufBytes"
+        case .uint32: return "SwiftProtobuf.ProtobufUInt32"
         case .enum: return getSwiftBaseType(context: context)
-        case .sfixed32: return "ProtobufSFixed32"
-        case .sfixed64: return "ProtobufSFixed64"
-        case .sint32: return "ProtobufSInt32"
-        case .sint64: return "ProtobufSInt64"
+        case .sfixed32: return "SwiftProtobuf.ProtobufSFixed32"
+        case .sfixed64: return "SwiftProtobuf.ProtobufSFixed64"
+        case .sint32: return "SwiftProtobuf.ProtobufSInt32"
+        case .sint64: return "SwiftProtobuf.ProtobufSInt64"
         }
     }
 
