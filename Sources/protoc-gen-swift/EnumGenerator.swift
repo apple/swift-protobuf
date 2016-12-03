@@ -164,7 +164,7 @@ class EnumGenerator {
         printer.print(comments)
         printer.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): SwiftProtobuf.Enum {\n")
         printer.indent()
-        printer.print("public typealias RawValue = Int\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)typealias RawValue = Int\n")
 
         // Cases
         for c in enumCases {
@@ -176,7 +176,7 @@ class EnumGenerator {
 
         // Default init
         printer.print("\n")
-        printer.print("public init() {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)init() {\n")
         printer.indent()
         printer.print("self = .\(defaultCase.swiftName)\n")
         printer.outdent()
@@ -184,7 +184,7 @@ class EnumGenerator {
 
         // rawValue init
         printer.print("\n")
-        printer.print("public init?(rawValue: Int) {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)init?(rawValue: Int) {\n")
         printer.indent()
         printer.print("switch rawValue {\n")
         var uniqueCaseNumbers = Set<Int>()
@@ -203,7 +203,7 @@ class EnumGenerator {
 
         // Swift name init
         printer.print("\n")
-        printer.print("public init?(name: String) {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)init?(name: String) {\n")
         printer.indent()
         printer.print("switch name {\n")
         for c in enumCases {
@@ -216,7 +216,7 @@ class EnumGenerator {
 
         // JSON name init
         printer.print("\n")
-        printer.print("public init?(jsonName: String) {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)init?(jsonName: String) {\n")
         printer.indent()
         printer.print("switch jsonName {\n")
         for c in enumCases {
@@ -229,7 +229,7 @@ class EnumGenerator {
 
         // Proto name init
         printer.print("\n")
-        printer.print("public init?(protoName: String) {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)init?(protoName: String) {\n")
         printer.indent()
         printer.print("switch protoName {\n")
         for c in enumCases {
@@ -242,7 +242,7 @@ class EnumGenerator {
 
         // rawValue property
         printer.print("\n")
-        printer.print("public var rawValue: Int {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)var rawValue: Int {\n")
         printer.indent()
         printer.print("get {\n")
         printer.indent()
@@ -261,7 +261,7 @@ class EnumGenerator {
 
         // json property
         printer.print("\n")
-        printer.print("public var json: String {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)var json: String {\n")
         printer.indent()
         printer.print("get {\n")
         printer.indent()
@@ -280,11 +280,11 @@ class EnumGenerator {
 
         // hashValue property
         printer.print("\n")
-        printer.print("public var hashValue: Int { return rawValue }\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)var hashValue: Int { return rawValue }\n")
 
         // debugDescription property
         printer.print("\n")
-        printer.print("public var debugDescription: String {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)var debugDescription: String {\n")
         printer.indent()
         printer.print("get {\n")
         printer.indent()

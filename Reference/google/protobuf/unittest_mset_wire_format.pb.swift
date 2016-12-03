@@ -47,16 +47,15 @@ import SwiftProtobuf
 
 
 ///   A message with message_set_wire_format.
-struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase {
+struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSet"}
   public var protoMessageName: String {return "TestMessageSet"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
   public var unknown = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     if (4 <= protoFieldNumber && protoFieldNumber < 2147483647) {
@@ -95,18 +94,18 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
   public func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return Proto2WireformatUnittest_TestMessageSet._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
+  }
 }
 
-struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
+struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2WireformatUnittest_TestMessageSetWireFormatContainer"}
   public var protoMessageName: String {return "TestMessageSetWireFormatContainer"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "messageSet": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "message_set": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "message_set", json: "messageSet", swift: "messageSet"),
+  ]
 
   private class _StorageClass {
     typealias ExtendedMessage = Proto2WireformatUnittest_TestMessageSetWireFormatContainer
@@ -124,7 +123,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
 
     func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _messageSet {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message_set", jsonFieldName: "messageSet", swiftFieldName: "messageSet")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -150,7 +149,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     set {_storage.unknown = newValue}
   }
 
-  public var messageSet: Proto2WireformatUnittest_TestMessageSet {
+  var messageSet: Proto2WireformatUnittest_TestMessageSet {
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
   }
@@ -161,7 +160,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     return _storage._messageSet = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

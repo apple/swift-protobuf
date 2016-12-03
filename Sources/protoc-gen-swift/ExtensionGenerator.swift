@@ -76,14 +76,6 @@ struct ExtensionGenerator {
         self.context = context
         self.apiType = descriptor.getSwiftApiType(context: context, isProto3: false)
         self.comments = file.commentsFor(path: path)
-        let baseName: String
-        if descriptor.type == .group {
-            let g = context.getMessageForPath(path: descriptor.typeName)!
-            baseName = sanitizeFieldName(toLowerCamelCase(g.name))
-        } else {
-            baseName = sanitizeFieldName(toLowerCamelCase(descriptor.name))
-        }
-        self.swiftRelativeExtensionName = context.swiftNameForProtoName(protoName: descriptor.extendee, separator: "_") + "_" + baseName
 
         let fieldBaseName: String
         if descriptor.type == .group {
@@ -92,13 +84,17 @@ struct ExtensionGenerator {
         } else {
             fieldBaseName = toLowerCamelCase(descriptor.name)
         }
+        let baseName = sanitizeFieldName(fieldBaseName)
 
         if let msg = declaringMessageName {
-            self.swiftFullExtensionName = msg + ".Extensions." + self.swiftRelativeExtensionName
+            self.swiftRelativeExtensionName = baseName
+            self.swiftFullExtensionName = msg + ".Extensions." + baseName
             self.swiftFieldName = sanitizeFieldName(periodsToUnderscores(msg + "_" + fieldBaseName))
         } else {
+            let swiftPrefix = file.swiftPrefix
+            self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
             self.swiftFullExtensionName = self.swiftRelativeExtensionName
-            self.swiftFieldName = sanitizeFieldName(periodsToUnderscores(fieldBaseName))
+            self.swiftFieldName = sanitizeFieldName(periodsToUnderscores(swiftPrefix + fieldBaseName))
         }
         self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
         self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
@@ -111,7 +107,16 @@ struct ExtensionGenerator {
         }
         let scope = declaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
-        p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number), protoFieldName: \"\(descriptor.name)\", jsonFieldName: \"\(descriptor.jsonName)\", swiftFieldName: \"\(swiftFieldName)\", defaultValue: \(defaultValue))\n")
+
+        // TODO: Merge this code with the similar one in MessageFieldGenerator.
+        let nameCase: String
+        if descriptor.jsonName != descriptor.name {
+            nameCase = ".unique(proto: \"\(descriptor.name)\", json: \"\(descriptor.jsonName)\", swift: \"\(swiftFieldName)\")"
+        } else {
+            nameCase = ".same(proto: \"\(descriptor.name)\", swift: \"\(swiftFieldName)\")"
+        }
+
+        p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number), fieldNames: \(nameCase), defaultValue: \(defaultValue))\n")
     }
 
     func generateTopLevel(printer p: inout CodePrinter) {

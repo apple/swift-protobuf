@@ -82,7 +82,7 @@ import Foundation
 ///       }
 ///  
 ///   A repeated field is not allowed except at the last position of a
-///   field mask.
+///   paths string.
 ///  
 ///   If a FieldMask object is not present in a get operation, the
 ///   operation applies to all fields (as if a FieldMask of all fields
@@ -109,8 +109,8 @@ import Foundation
 ///  
 ///   If a repeated field is specified for an update operation, the existing
 ///   repeated values in the target resource will be overwritten by the new values.
-///   Note that a repeated field is only allowed in the last position of a field
-///   mask.
+///   Note that a repeated field is only allowed in the last position of a `paths`
+///   string.
 ///  
 ///   If a sub-message is specified in the last position of the field mask for an
 ///   update operation, then the existing sub-message in the target resource is
@@ -240,16 +240,13 @@ import Foundation
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_FieldMask"}
   public var protoMessageName: String {return "FieldMask"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "paths": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "paths": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "paths", swift: "paths"),
+  ]
 
 
   ///   The set of field mask paths.
@@ -266,7 +263,7 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !paths.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: paths, protoFieldNumber: 1, protoFieldName: "paths", jsonFieldName: "paths", swiftFieldName: "paths")
+      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: paths, protoFieldNumber: 1)
     }
   }
 

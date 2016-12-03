@@ -57,31 +57,26 @@ import SwiftProtobuf
 
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
+struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorRequest"}
   public var protoMessageName: String {return "CodeGeneratorRequest"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
-  public var jsonFieldNames: [String: Int] {return [
-    "fileToGenerate": 1,
-    "parameter": 2,
-    "protoFile": 15,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "file_to_generate": 1,
-    "parameter": 2,
-    "proto_file": 15,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "file_to_generate", json: "fileToGenerate", swift: "fileToGenerate"),
+    2: .same(proto: "parameter", swift: "parameter"),
+    15: .unique(proto: "proto_file", json: "protoFile", swift: "protoFile"),
+  ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   The .proto files that were explicitly listed on the command-line.  The
   ///   code generator should generate code only for these files.  Each file's
   ///   descriptor will be included in proto_file, below.
-  public var fileToGenerate: [String] = []
+  var fileToGenerate: [String] = []
 
   ///   The generator parameter passed on the command-line.
   private var _parameter: String? = nil
-  public var parameter: String {
+  var parameter: String {
     get {return _parameter ?? ""}
     set {_parameter = newValue}
   }
@@ -103,9 +98,9 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
   ///   the entire set into memory at once.  However, as of this writing, this
   ///   is not similarly optimized on protoc's end -- it will store all fields in
   ///   memory at once before sending them to the plugin.
-  public var protoFile: [Google_Protobuf_FileDescriptorProto] = []
+  var protoFile: [Google_Protobuf_FileDescriptorProto] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -118,13 +113,13 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !fileToGenerate.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: fileToGenerate, protoFieldNumber: 1, protoFieldName: "file_to_generate", jsonFieldName: "fileToGenerate", swiftFieldName: "fileToGenerate")
+      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: fileToGenerate, protoFieldNumber: 1)
     }
     if let v = _parameter {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "parameter", jsonFieldName: "parameter", swiftFieldName: "parameter")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
     }
     if !protoFile.isEmpty {
-      try visitor.visitRepeatedMessageField(value: protoFile, protoFieldNumber: 15, protoFieldName: "proto_file", jsonFieldName: "protoFile", swiftFieldName: "protoFile")
+      try visitor.visitRepeatedMessageField(value: protoFile, protoFieldNumber: 15)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -139,36 +134,27 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
+struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse"}
   public var protoMessageName: String {return "CodeGeneratorResponse"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
-  public var jsonFieldNames: [String: Int] {return [
-    "error": 1,
-    "file": 15,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "error": 1,
-    "file": 15,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "error", swift: "error"),
+    15: .same(proto: "file", swift: "file"),
+  ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
-  struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
+  struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
     public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse.File"}
     public var protoMessageName: String {return "File"}
     public var protoPackageName: String {return "google.protobuf.compiler"}
-    public var jsonFieldNames: [String: Int] {return [
-      "name": 1,
-      "insertionPoint": 2,
-      "content": 15,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "name": 1,
-      "insertion_point": 2,
-      "content": 15,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "name", swift: "name"),
+      2: .unique(proto: "insertion_point", json: "insertionPoint", swift: "insertionPoint"),
+      15: .same(proto: "content", swift: "content"),
+    ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
 
@@ -184,7 +170,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     ///   this writing protoc does not optimize for this -- it will read the entire
     ///   CodeGeneratorResponse before writing files to disk.
     private var _name: String? = nil
-    public var name: String {
+    var name: String {
       get {return _name ?? ""}
       set {_name = newValue}
     }
@@ -233,7 +219,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     ///  
     ///   If |insertion_point| is present, |name| must also be present.
     private var _insertionPoint: String? = nil
-    public var insertionPoint: String {
+    var insertionPoint: String {
       get {return _insertionPoint ?? ""}
       set {_insertionPoint = newValue}
     }
@@ -246,7 +232,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
 
     ///   The file contents.
     private var _content: String? = nil
-    public var content: String {
+    var content: String {
       get {return _content ?? ""}
       set {_content = newValue}
     }
@@ -257,7 +243,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       return _content = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -270,13 +256,13 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
 
     public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _name {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "name", jsonFieldName: "name", swiftFieldName: "name")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
       }
       if let v = _insertionPoint {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "insertion_point", jsonFieldName: "insertionPoint", swiftFieldName: "insertionPoint")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
       }
       if let v = _content {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 15, protoFieldName: "content", jsonFieldName: "content", swiftFieldName: "content")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 15)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -299,7 +285,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
   ///   unparseable -- should be reported by writing a message to stderr and
   ///   exiting with a non-zero status code.
   private var _error: String? = nil
-  public var error: String {
+  var error: String {
     get {return _error ?? ""}
     set {_error = newValue}
   }
@@ -310,9 +296,9 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     return _error = nil
   }
 
-  public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
+  var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -324,10 +310,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _error {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "error", jsonFieldName: "error", swiftFieldName: "error")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
     }
     if !file.isEmpty {
-      try visitor.visitRepeatedMessageField(value: file, protoFieldNumber: 15, protoFieldName: "file", jsonFieldName: "file", swiftFieldName: "file")
+      try visitor.visitRepeatedMessageField(value: file, protoFieldNumber: 15)
     }
     unknown.traverse(visitor: &visitor)
   }

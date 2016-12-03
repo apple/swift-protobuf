@@ -94,9 +94,11 @@ public struct JSONDecoder {
     }
 
     public mutating func decodeValue<M: Message>(key: String, message: inout M) throws {
+        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+            throw DecodingError.missingFieldNames
+        }
         if let token = try nextToken() {
-            let protoFieldNumber = (message.jsonFieldNames[key]
-                ?? message.protoFieldNames[key]
+            let protoFieldNumber = (nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
                 ?? scanner.extensions?.fieldNumberForJson(messageType: M.self, jsonFieldName: key))
             switch token {
             case .colon, .comma, .endObject, .endArray:

@@ -42,21 +42,18 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
+struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittestImport_PublicImportMessage"}
   public var protoMessageName: String {return "PublicImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
-  public var jsonFieldNames: [String: Int] {return [
-    "e": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "e": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "e", swift: "e"),
+  ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _e: Int32? = nil
-  public var e: Int32 {
+  var e: Int32 {
     get {return _e ?? 0}
     set {_e = newValue}
   }
@@ -67,7 +64,7 @@ struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftP
     return _e = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -78,7 +75,7 @@ struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftP
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _e {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "e", jsonFieldName: "e", swiftFieldName: "e")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }

@@ -22,11 +22,11 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
     public typealias Iterator = Dictionary<Int, AnyExtensionField>.Iterator
     fileprivate var values = [Int : AnyExtensionField]()
     public init() {}
-    
+
     public func makeIterator() -> Iterator {
         return values.makeIterator()
     }
-    
+
     public var hashValue: Int {
         var hash: Int = 0
         for i in values.keys.sorted() {
@@ -34,7 +34,7 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
         }
         return hash
     }
-    
+
     public func traverse(visitor: inout Visitor, start: Int, end: Int) throws {
         let validIndexes = values.keys.filter {$0 >= start && $0 < end}
         for i in validIndexes.sorted() {
@@ -42,10 +42,14 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
             try value.traverse(visitor: &visitor)
         }
     }
-    
+
     public subscript(index: Int) -> AnyExtensionField? {
         get {return values[index]}
         set(newValue) {values[index] = newValue}
+    }
+
+    public func fieldNames(for number: Int) -> FieldNameMap.Names? {
+        return values[number]?.protobufExtension.fieldNames
     }
 }
 

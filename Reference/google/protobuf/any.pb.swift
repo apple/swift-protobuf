@@ -108,18 +108,14 @@ import Foundation
 ///         "@type": "type.googleapis.com/google.protobuf.Duration",
 ///         "value": "1.212s"
 ///       }
-struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Any"}
   public var protoMessageName: String {return "Any"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "typeUrl": 1,
-    "value": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "type_url": 1,
-    "value": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "type_url", json: "typeUrl", swift: "typeURL"),
+    2: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   A URL/resource name whose content describes the type of the
@@ -143,12 +139,12 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
   ///  
   ///   Schemes other than `http`, `https` (or the empty scheme) might be
   ///   used with implementation specific semantics.
-  public var typeURL: String = ""
+  var typeURL: String = ""
 
   ///   Must be a valid serialized protocol buffer of the above specified type.
-  public var value: Data = Data()
+  var value: Data = Data()
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -160,10 +156,10 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if typeURL != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1, protoFieldName: "type_url", jsonFieldName: "typeUrl", swiftFieldName: "typeURL")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1)
     }
     if value != Data() {
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2)
     }
   }
 

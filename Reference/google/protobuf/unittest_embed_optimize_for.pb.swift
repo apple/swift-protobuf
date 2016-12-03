@@ -46,18 +46,14 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
+struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEmbedOptimizedForSize"}
   public var protoMessageName: String {return "TestEmbedOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "optionalMessage": 1,
-    "repeatedMessage": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "optional_message": 1,
-    "repeated_message": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "optional_message", json: "optionalMessage", swift: "optionalMessage"),
+    2: .unique(proto: "repeated_message", json: "repeatedMessage", swift: "repeatedMessage"),
+  ]
 
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_TestEmbedOptimizedForSize
@@ -77,10 +73,10 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
 
     func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _optionalMessage {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "optional_message", jsonFieldName: "optionalMessage", swiftFieldName: "optionalMessage")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       if !_repeatedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedMessage, protoFieldNumber: 2, protoFieldName: "repeated_message", jsonFieldName: "repeatedMessage", swiftFieldName: "repeatedMessage")
+        try visitor.visitRepeatedMessageField(value: _repeatedMessage, protoFieldNumber: 2)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -110,7 +106,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
 
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
   ///   one optimized for speed works.
-  public var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
+  var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
     get {return _storage._optionalMessage ?? ProtobufUnittest_TestOptimizedForSize()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
@@ -121,12 +117,12 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
     return _storage._optionalMessage = nil
   }
 
-  public var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
+  var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
     get {return _storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

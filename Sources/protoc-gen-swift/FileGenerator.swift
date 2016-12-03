@@ -136,9 +136,6 @@ extension Google_Protobuf_FileDescriptorProto {
         if options.hasSwiftPrefix {
             return options.swiftPrefix
         }
-        if !options.appleSwiftPrefix.isEmpty {
-            return options.appleSwiftPrefix
-        }
         if !package.isEmpty {
             var makeUpper = true
             var prefix = ""

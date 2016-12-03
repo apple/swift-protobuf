@@ -777,12 +777,7 @@ public extension Message {
     }
 
     func serializeAnyJSON() throws -> String {
-        var jsonVisitor = JSONEncodingVisitor()
-        try jsonVisitor.withAbstractVisitor {(visitor: inout Visitor) in
-            try visitor.visitSingularField(fieldType: ProtobufString.self, value: anyTypeURL, protoFieldNumber: 1, protoFieldName: "type_url", jsonFieldName: "@type", swiftFieldName: "typeURL")
-            try traverse(visitor: &visitor)
-        }
-        return jsonVisitor.result
+        return try JSONEncodingVisitor(message: self, anyTypeURL: anyTypeURL).result
     }
 
     // TODO: Can we get rid of this?  (This is leftover from an earlier generation of JSON encoding logic.)
@@ -873,10 +868,4 @@ public extension Message {
         }
         throw DecodingError.truncatedInput
     }
-}
-
-///
-/// Maps
-///
-public extension Map {
 }

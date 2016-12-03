@@ -47,16 +47,13 @@ import Foundation
 ///   Wrapper message for `double`.
 ///  
 ///   The JSON representation for `DoubleValue` is JSON number.
-public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_DoubleValue"}
   public var protoMessageName: String {return "DoubleValue"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The double value.
@@ -73,7 +70,7 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -86,16 +83,13 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.
 ///   Wrapper message for `float`.
 ///  
 ///   The JSON representation for `FloatValue` is JSON number.
-public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_FloatValue"}
   public var protoMessageName: String {return "FloatValue"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The float value.
@@ -112,7 +106,7 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -125,16 +119,13 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.P
 ///   Wrapper message for `int64`.
 ///  
 ///   The JSON representation for `Int64Value` is JSON string.
-public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Int64Value"}
   public var protoMessageName: String {return "Int64Value"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The int64 value.
@@ -151,7 +142,7 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -164,16 +155,13 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.P
 ///   Wrapper message for `uint64`.
 ///  
 ///   The JSON representation for `UInt64Value` is JSON string.
-public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_UInt64Value"}
   public var protoMessageName: String {return "UInt64Value"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The uint64 value.
@@ -190,7 +178,7 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -203,16 +191,13 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.
 ///   Wrapper message for `int32`.
 ///  
 ///   The JSON representation for `Int32Value` is JSON number.
-public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Int32Value"}
   public var protoMessageName: String {return "Int32Value"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The int32 value.
@@ -229,7 +214,7 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -242,16 +227,13 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.P
 ///   Wrapper message for `uint32`.
 ///  
 ///   The JSON representation for `UInt32Value` is JSON number.
-public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_UInt32Value"}
   public var protoMessageName: String {return "UInt32Value"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The uint32 value.
@@ -268,7 +250,7 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -281,16 +263,13 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.
 ///   Wrapper message for `bool`.
 ///  
 ///   The JSON representation for `BoolValue` is JSON `true` and `false`.
-public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_BoolValue"}
   public var protoMessageName: String {return "BoolValue"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The bool value.
@@ -307,7 +286,7 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != false {
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -320,16 +299,13 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
 ///   Wrapper message for `string`.
 ///  
 ///   The JSON representation for `StringValue` is JSON string.
-public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_StringValue"}
   public var protoMessageName: String {return "StringValue"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The string value.
@@ -346,7 +322,7 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: value, protoFieldNumber: 1)
     }
   }
 
@@ -359,16 +335,13 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.
 ///   Wrapper message for `bytes`.
 ///  
 ///   The JSON representation for `BytesValue` is JSON string.
-public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_BytesValue"}
   public var protoMessageName: String {return "BytesValue"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "value": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "value", swift: "value"),
+  ]
 
 
   ///   The bytes value.
@@ -385,7 +358,7 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if value != Data() {
-      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 1, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+      try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 1)
     }
   }
 

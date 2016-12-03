@@ -31,6 +31,7 @@ private let i_16777619 = Int(16777619)
 //
 public protocol AnyExtensionField: CustomDebugStringConvertible {
     var hashValue: Int { get }
+    var protobufExtension: MessageExtensionBase { get }
     func isEqual(other: AnyExtensionField) -> Bool
 
     /// General field decoding
@@ -56,7 +57,7 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     public typealias BaseType = T.BaseType
     public typealias ValueType = BaseType?
     public var value: ValueType
-    private var protobufExtension: MessageExtensionBase
+    public var protobufExtension: MessageExtensionBase
 
     public init(protobufExtension: MessageExtensionBase) {
         self.protobufExtension = protobufExtension
@@ -86,7 +87,7 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
 
     public func traverse(visitor: inout Visitor) throws {
         if let v = value {
-            try visitor.visitSingularField(fieldType: T.self, value: v, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitSingularField(fieldType: T.self, value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 
@@ -111,7 +112,7 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     public typealias BaseType = T.BaseType
     public typealias ValueType = [BaseType]
     public var value = ValueType()
-    private var protobufExtension: MessageExtensionBase
+    public var protobufExtension: MessageExtensionBase
 
     public init(protobufExtension: MessageExtensionBase) {
         self.protobufExtension = protobufExtension
@@ -142,7 +143,7 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
 
     public func traverse(visitor: inout Visitor) throws {
         if value.count > 0 {
-            try visitor.visitRepeatedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitRepeatedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -170,7 +171,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     public typealias BaseType = T.BaseType
     public typealias ValueType = [BaseType]
     public var value = ValueType()
-    private var protobufExtension: MessageExtensionBase
+    public var protobufExtension: MessageExtensionBase
 
     public init(protobufExtension: MessageExtensionBase) {
         self.protobufExtension = protobufExtension
@@ -201,7 +202,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
 
     public func traverse(visitor: inout Visitor) throws {
         if value.count > 0 {
-            try visitor.visitPackedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitPackedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -225,7 +226,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>: ExtensionFi
     public typealias BaseType = M
     public typealias ValueType = BaseType?
     public var value: ValueType
-    private var protobufExtension: MessageExtensionBase
+    public var protobufExtension: MessageExtensionBase
 
     public init(protobufExtension: MessageExtensionBase) {
         self.protobufExtension = protobufExtension
@@ -253,7 +254,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>: ExtensionFi
 
     public func traverse(visitor: inout Visitor) throws {
         if let v = value {
-            try visitor.visitSingularMessageField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitSingularMessageField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -274,7 +275,7 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>: ExtensionFi
     public typealias BaseType = M
     public typealias ValueType = [BaseType]
     public var value = ValueType()
-    private var protobufExtension: MessageExtensionBase
+    public var protobufExtension: MessageExtensionBase
 
     public init(protobufExtension: MessageExtensionBase) {
         self.protobufExtension = protobufExtension
@@ -305,7 +306,7 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>: ExtensionFi
 
     public func traverse(visitor: inout Visitor) throws {
         if value.count > 0 {
-            try visitor.visitRepeatedMessageField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitRepeatedMessageField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -324,7 +325,7 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>: ExtensionField
     public typealias BaseType = G
     public typealias ValueType = BaseType?
     public var value: G?
-    private var protobufExtension: MessageExtensionBase
+    public var protobufExtension: MessageExtensionBase
 
     public init(protobufExtension: MessageExtensionBase) {
         self.protobufExtension = protobufExtension
@@ -345,7 +346,7 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>: ExtensionField
 
     public func traverse(visitor: inout Visitor) throws {
         if let v = value {
-            try visitor.visitSingularGroupField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitSingularGroupField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -367,7 +368,7 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>: ExtensionField
     public typealias BaseType = G
     public typealias ValueType = [BaseType]
     public var value = [G]()
-    private var protobufExtension: MessageExtensionBase
+    public var protobufExtension: MessageExtensionBase
 
     public init(protobufExtension: MessageExtensionBase) {
         self.protobufExtension = protobufExtension
@@ -396,7 +397,7 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>: ExtensionField
 
     public func traverse(visitor: inout Visitor) throws {
         if value.count > 0 {
-            try visitor.visitRepeatedGroupField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitRepeatedGroupField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }

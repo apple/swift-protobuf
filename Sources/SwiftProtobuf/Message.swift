@@ -44,8 +44,6 @@ public protocol Message: CustomDebugStringConvertible, CustomReflectable {
   var protoPackageName: String { get }
   var anyTypePrefix: String { get }
   var anyTypeURL: String { get }
-  var jsonFieldNames: [String: Int] {get}
-  var protoFieldNames: [String: Int] {get}
 
   //
   // General serialization machinery

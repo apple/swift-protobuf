@@ -44,16 +44,13 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase {
+struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestLiteImportsNonlite"}
   public var protoMessageName: String {return "TestLiteImportsNonlite"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "message": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "message": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "message", swift: "message"),
+  ]
 
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_TestLiteImportsNonlite
@@ -71,7 +68,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
 
     func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _message {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "message", jsonFieldName: "message", swiftFieldName: "message")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -97,7 +94,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
     set {_storage.unknown = newValue}
   }
 
-  public var message: ProtobufUnittest_TestAllTypes {
+  var message: ProtobufUnittest_TestAllTypes {
     get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
   }
@@ -108,7 +105,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
     return _storage._message = nil
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

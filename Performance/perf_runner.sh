@@ -92,19 +92,19 @@ function print_swift_set_field() {
   case "$type" in
     repeated\ string)
       echo "        for _ in 0..<repeatedCount {"
-      echo "          msg.field$num.append(\"$((200+num))\")"
+      echo "          message.field$num.append(\"$((200+num))\")"
       echo "        }"
       ;;
     repeated\ *)
       echo "        for _ in 0..<repeatedCount {"
-      echo "          msg.field$num.append($((200+num)))"
+      echo "          message.field$num.append($((200+num)))"
       echo "        }"
       ;;
     string)
-      echo "        msg.field$num = \"$((200+num))\""
+      echo "        message.field$num = \"$((200+num))\""
       ;;
     *)
-      echo "        msg.field$num = $((200+num))"
+      echo "        message.field$num = $((200+num))"
       ;;
   esac
 }
@@ -115,19 +115,46 @@ extension Harness {
   func run() {
     measure {
       // Loop enough times to get meaningfully large measurements.
-      for _ in 0..<200 {
-        var msg = PerfMessage()
+      for _ in 0..<runCount {
+        var message = PerfMessage()
+        measureSubtask("Populate message fields") {
+          populateFields(of: &message)
+        }
+
+        // Exercise binary serialization.
+        let data = try measureSubtask("Encode binary") {
+          return try message.serializeProtobuf()
+        }
+        message = try measureSubtask("Decode binary") {
+          return try PerfMessage(protobuf: data)
+        }
+
+        // Exercise JSON serialization.
+        let json = try measureSubtask("Encode JSON") {
+          return try message.serializeJSON()
+        }
+        let jsonDecodedMessage = try measureSubtask("Decode JSON") {
+          return try PerfMessage(json: json)
+        }
+
+        // Exercise equality.
+        measureSubtask("Test equality") {
+          guard message == jsonDecodedMessage else {
+            fatalError("Binary- and JSON-decoded messages were not equal!")
+          }
+        }
+      }
+    }
+  }
+
+  private func populateFields(of message: inout PerfMessage) {
 EOF
 
   for field_number in $(seq 1 "$field_count"); do
     print_swift_set_field "$field_number" "$field_type" >>"$gen_harness_path"
   done
 
-  cat >>"$gen_harness_path" <<EOF
-        let data = try msg.serializeProtobuf()
-        msg = try PerfMessage(protobuf: data)
-      }
-    }
+  cat >> "$gen_harness_path" <<EOF
   }
 }
 EOF
@@ -163,6 +190,10 @@ readonly field_count=$1
 readonly field_type=$2
 readonly script_dir="$(dirname $0)"
 
+# If the Instruments template has changed since the last run, copy it into the
+# user's template folder. (Would be nice if we could just run the template from
+# the local directory, but Instruments doesn't seem to support that.)
+
 # Make sure the runtime and plug-in are up to date first.
 ( cd "$script_dir/.." >/dev/null; swift build -c release )
 
@@ -186,7 +217,7 @@ echo "Generating test harness..."
 generate_perf_harness "$field_count" "$field_type"
 
 protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForPerf" \
-    --swiftForPerf_out="$script_dir/_generated" \
+    --swiftForPerf_out=FileNaming=DropPath:"$script_dir/_generated" \
     "$gen_message_path"
 
 echo "Building test harness..."
@@ -203,9 +234,15 @@ time ( swiftc -O -target x86_64-apple-macosx10.10 \
 echo
 
 echo "Running test harness in Instruments..."
-instruments -t "Time Profiler" -D "$results" "$harness"
+instruments -t "$script_dir/Protobuf" -D "$results" "$harness"
 open "$results.trace"
 
+dylib="$script_dir/../.build/release/libSwiftProtobuf.dylib"
+echo "Dylib size before stripping: $(stat -f "%z" "$dylib") bytes"
+strip -u -r "$dylib"
+echo "Dylib size after stripping:  $(stat -f "%z" "$dylib") bytes"
+echo
+
 echo "Harness size before stripping: $(stat -f "%z" "$harness") bytes"
-strip "$harness"
+strip -u -r "$harness"
 echo "Harness size after stripping:  $(stat -f "%z" "$harness") bytes"

@@ -60,40 +60,40 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
             }
         }
     }
-    
+
     public func fieldNumberForJson(messageType: Message.Type, jsonFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
             for (_, e) in list {
-                if e.jsonFieldName == jsonFieldName {
+                if e.fieldNames.jsonName == jsonFieldName {
                     return e.protoFieldNumber
                 }
             }
         }
         return nil
     }
-    
+
     public mutating func insert(_ e: Element) {
         self[e.messageType, e.protoFieldNumber] = e
     }
-    
+
     public mutating func insert(contentsOf: [Element]) {
         for e in contentsOf {
             insert(e)
         }
     }
-    
+
     public var debugDescription: String {
         var names = [String]()
         for (_, list) in fields {
             for (_, e) in list {
-                names.append("\(e.protoFieldName)(\(e.protoFieldNumber))")
+                names.append("\(e.fieldNames.protoName)(\(e.protoFieldNumber))")
             }
         }
         let d = names.joined(separator: ",")
         return "ExtensionSet(\(d))"
     }
-    
+
     public mutating func union(_ other: ExtensionSet) -> ExtensionSet {
         var out = self
         for (_, list) in other.fields {

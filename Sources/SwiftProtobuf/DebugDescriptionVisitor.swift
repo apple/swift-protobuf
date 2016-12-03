@@ -22,9 +22,11 @@ struct DebugDescriptionVisitor: Visitor {
     var description = ""
     private var separator = ""
 
-    init() {}
+    private let nameResolver: (Int) -> String?
 
     init(message: Message) {
+        self.nameResolver =
+            ProtoNameResolvers.swiftFieldNameResolver(for: message)
         description.append(message.swiftClassName)
         description.append("(")
         withAbstractVisitor {(visitor: inout Visitor) in
@@ -33,7 +35,7 @@ struct DebugDescriptionVisitor: Visitor {
         description.append(")")
     }
 
-  mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) {
+    mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) {
         var visitor: Visitor = self
         do {
             try clause(&visitor)
@@ -46,13 +48,15 @@ struct DebugDescriptionVisitor: Visitor {
 
     mutating func visitUnknown(bytes: Data) {}
 
-    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         separator = ","
         description.append(swiftFieldName + ":" + String(reflecting: value))
     }
 
-    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -66,7 +70,8 @@ struct DebugDescriptionVisitor: Visitor {
         separator = ","
     }
 
-    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -80,7 +85,8 @@ struct DebugDescriptionVisitor: Visitor {
         separator = ","
     }
 
-    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":")
@@ -89,7 +95,8 @@ struct DebugDescriptionVisitor: Visitor {
         separator = ","
     }
 
-    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -105,7 +112,8 @@ struct DebugDescriptionVisitor: Visitor {
    }
 
 
-    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":")
@@ -114,7 +122,8 @@ struct DebugDescriptionVisitor: Visitor {
         separator = ","
     }
 
-    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws {
+    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":[")
@@ -129,7 +138,8 @@ struct DebugDescriptionVisitor: Visitor {
         separator = ","
     }
 
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: Map<KeyType, ValueType>.BaseType, protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: Map<KeyType, ValueType>.Type, value: Map<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
+        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         description.append(separator)
         description.append(swiftFieldName)
         description.append(":{")
@@ -143,5 +153,11 @@ struct DebugDescriptionVisitor: Visitor {
         }
         description.append("}")
         separator = ","
+    }
+
+    /// Helper function that stringifies the field number if the name could not
+    /// be resolved.
+    private func swiftFieldName(for number: Int) -> String {
+        return nameResolver(number) ?? String(number)
     }
 }

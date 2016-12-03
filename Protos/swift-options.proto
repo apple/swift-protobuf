@@ -1,9 +1,0 @@
-
-syntax="proto2";
-
-import "google/protobuf/descriptor.proto";
-
-extend google.protobuf.FileOptions {
-   optional string apple_swift_prefix = 50138;
-}
-

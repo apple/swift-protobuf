@@ -23,9 +23,7 @@ import Swift
 /// pieces.
 public protocol MessageExtensionBase {
     var protoFieldNumber: Int { get }
-    var protoFieldName: String { get }
-    var jsonFieldName: String { get }
-    var swiftFieldName: String { get }
+    var fieldNames: FieldNameMap.Names { get }
     var messageType: Message.Type { get }
     func newField() -> AnyExtensionField
 }
@@ -35,16 +33,12 @@ public protocol MessageExtensionBase {
 /// compile-time compatibility checks.
 public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: MessageExtensionBase {
     public let protoFieldNumber: Int
-    public let protoFieldName: String
-    public let jsonFieldName: String
-    public let swiftFieldName: String
+    public var fieldNames: FieldNameMap.Names
     public let messageType: Message.Type
     public let defaultValue: FieldType.ValueType
-    public init(protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String, defaultValue: FieldType.ValueType) {
+    public init(protoFieldNumber: Int, fieldNames: FieldNameMap.Names, defaultValue: FieldType.ValueType) {
         self.protoFieldNumber = protoFieldNumber
-        self.protoFieldName = protoFieldName
-        self.jsonFieldName = jsonFieldName
-        self.swiftFieldName = swiftFieldName
+        self.fieldNames = fieldNames
         self.messageType = MessageType.self
         self.defaultValue = defaultValue
     }

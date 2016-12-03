@@ -33,11 +33,11 @@ syntax = "proto3";
 package google.protobuf;
 
 option csharp_namespace = "Google.Protobuf.WellKnownTypes";
+option cc_enable_arenas = true;
 option go_package = "github.com/golang/protobuf/ptypes/duration";
 option java_package = "com.google.protobuf";
 option java_outer_classname = "DurationProto";
 option java_multiple_files = true;
-option java_generate_equals_and_hash = true;
 option objc_class_prefix = "GPB";
 
 // A Duration represents a signed, fixed-length span of time represented
@@ -81,8 +81,15 @@ option objc_class_prefix = "GPB";
 //       end.nanos -= 1000000000;
 //     }
 //
+// Example 3: Compute Duration from datetime.timedelta in Python.
+//
+//     td = datetime.timedelta(days=3, minutes=10)
+//     duration = Duration()
+//     duration.FromTimedelta(td)
+//
 //
 message Duration {
+
   // Signed seconds of the span of time. Must be from -315,576,000,000
   // to +315,576,000,000 inclusive.
   int64 seconds = 1;

@@ -47,18 +47,18 @@ import SwiftProtobuf
 
 
 enum Proto3ImportEnum: SwiftProtobuf.Enum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case importEnumUnspecified // = 0
   case importFoo // = 7
   case importBar // = 8
   case importBaz // = 9
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .importEnumUnspecified
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .importEnumUnspecified
     case 7: self = .importFoo
@@ -68,7 +68,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "importEnumUnspecified": self = .importEnumUnspecified
     case "importFoo": self = .importFoo
@@ -78,7 +78,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_ENUM_UNSPECIFIED": self = .importEnumUnspecified
     case "IMPORT_FOO": self = .importFoo
@@ -88,7 +88,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "IMPORT_ENUM_UNSPECIFIED": self = .importEnumUnspecified
     case "IMPORT_FOO": self = .importFoo
@@ -98,7 +98,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .importEnumUnspecified: return 0
@@ -110,7 +110,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .importEnumUnspecified: return "\"IMPORT_ENUM_UNSPECIFIED\""
@@ -122,9 +122,9 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .importEnumUnspecified: return ".importEnumUnspecified"
@@ -138,21 +138,18 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
 
 }
 
-struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
-  public var jsonFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "d", swift: "d"),
+  ]
 
 
-  public var d: Int32 = 0
+  var d: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -163,7 +160,7 @@ struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if d != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: d, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: d, protoFieldNumber: 1)
     }
   }
 

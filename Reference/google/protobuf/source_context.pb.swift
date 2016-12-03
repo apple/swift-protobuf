@@ -41,23 +41,20 @@ import Foundation
 
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
-struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase {
+struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_SourceContext"}
   public var protoMessageName: String {return "SourceContext"}
   public var protoPackageName: String {return "google.protobuf"}
-  public var jsonFieldNames: [String: Int] {return [
-    "fileName": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "file_name": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "file_name", json: "fileName", swift: "fileName"),
+  ]
 
 
   ///   The path-qualified name of the .proto file that contained the associated
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
-  public var fileName: String = ""
+  var fileName: String = ""
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -68,7 +65,7 @@ struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if fileName != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: fileName, protoFieldNumber: 1, protoFieldName: "file_name", jsonFieldName: "fileName", swiftFieldName: "fileName")
+      try visitor.visitSingularField(fieldType: ProtobufString.self, value: fileName, protoFieldNumber: 1)
     }
   }
 

@@ -50,6 +50,8 @@ public enum DecodingError: Error {
     case invalidUTF8
     /// Protobuf binary was syntactically invalid
     case malformedProtobuf
+    /// Field names were not compiled into the binary
+    case missingFieldNames
     /// TODO: More here?
 }
 
@@ -68,5 +70,7 @@ public enum EncodingError: Error {
     case durationJSONRange
     /// Field masks get edited when converting between JSON and protobuf
     case fieldMaskConversion
+    /// Field names were not compiled into the binary
+    case missingFieldNames
     /// TODO: More here.
 }
