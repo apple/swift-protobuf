@@ -57,7 +57,7 @@ import SwiftProtobuf
 
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorRequest"}
   public var protoMessageName: String {return "CodeGeneratorRequest"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -134,7 +134,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse"}
   public var protoMessageName: String {return "CodeGeneratorResponse"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -146,7 +146,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
-  struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse.File"}
     public var protoMessageName: String {return "File"}
     public var protoPackageName: String {return "google.protobuf.compiler"}

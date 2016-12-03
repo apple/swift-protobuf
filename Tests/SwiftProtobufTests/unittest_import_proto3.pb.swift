@@ -138,7 +138,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
 
 }
 
-struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}

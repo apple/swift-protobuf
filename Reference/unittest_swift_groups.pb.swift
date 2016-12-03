@@ -41,7 +41,7 @@ import SwiftProtobuf
 
 
 ///   Same field number appears inside and outside of the group.
-struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "SwiftTestGroupExtensions"}
   public var protoMessageName: String {return "SwiftTestGroupExtensions"}
   public var protoPackageName: String {return ""}
@@ -114,7 +114,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
   }
 }
 
-struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ExtensionGroup"}
   public var protoMessageName: String {return "ExtensionGroup"}
   public var protoPackageName: String {return ""}
@@ -159,7 +159,7 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, Swift
   }
 }
 
-struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "RepeatedExtensionGroup"}
   public var protoMessageName: String {return "RepeatedExtensionGroup"}
   public var protoPackageName: String {return ""}
@@ -204,7 +204,7 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Messag
   }
 }
 
-struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "SwiftTestGroupUnextended"}
   public var protoMessageName: String {return "SwiftTestGroupUnextended"}
   public var protoPackageName: String {return ""}

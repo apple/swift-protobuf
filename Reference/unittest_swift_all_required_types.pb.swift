@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestAllRequiredTypes"}
   public var protoMessageName: String {return "TestAllRequiredTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -544,7 +544,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllRequiredTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -590,7 +590,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  struct RequiredGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct RequiredGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_TestAllRequiredTypes.RequiredGroup"}
     public var protoMessageName: String {return "RequiredGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1219,7 +1219,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestSomeRequiredTypes"}
   public var protoMessageName: String {return "TestSomeRequiredTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}

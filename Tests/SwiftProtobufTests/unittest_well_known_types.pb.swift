@@ -13,7 +13,7 @@ import SwiftProtobuf
 ///   Test that we can include all well-known types.
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestWellKnownTypes"}
   public var protoMessageName: String {return "TestWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -432,7 +432,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 ///   A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_RepeatedWellKnownTypes"}
   public var protoMessageName: String {return "RepeatedWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -723,7 +723,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_OneofWellKnownTypes"}
   public var protoMessageName: String {return "OneofWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1255,7 +1255,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 ///   A map field for each well-known type. We only
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_MapWellKnownTypes"}
   public var protoMessageName: String {return "MapWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}

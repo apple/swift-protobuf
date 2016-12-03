@@ -85,7 +85,7 @@ import Foundation
 ///       td = datetime.timedelta(days=3, minutes=10)
 ///       duration = Duration()
 ///       duration.FromTimedelta(td)
-struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Duration"}
   public var protoMessageName: String {return "Duration"}
   public var protoPackageName: String {return "google.protobuf"}

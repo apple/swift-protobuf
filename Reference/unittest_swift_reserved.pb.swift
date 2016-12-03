@@ -26,7 +26,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest"}
   public var protoMessageName: String {return "SwiftReservedTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -202,7 +202,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 
   }
 
-  struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -225,7 +225,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -248,7 +248,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  struct isEqualMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct isEqualMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.isEqualMessage"}
     public var protoMessageName: String {return "isEqual"}
     public var protoPackageName: String {return "protobuf_unittest"}

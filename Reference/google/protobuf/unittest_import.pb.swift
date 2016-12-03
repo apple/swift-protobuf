@@ -207,7 +207,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}

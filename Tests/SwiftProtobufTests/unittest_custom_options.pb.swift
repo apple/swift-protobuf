@@ -184,7 +184,7 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
 
 ///   A test message with custom options at all possible locations (and also some
 ///   regular options, to make sure they interact nicely).
-struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageWithCustomOptions"}
   public var protoMessageName: String {return "TestMessageWithCustomOptions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -361,7 +361,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
 
 ///   A test RPC service with custom options at all possible locations (and also
 ///   some regular options, to make sure they interact nicely).
-struct ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooRequest"}
   public var protoMessageName: String {return "CustomOptionFooRequest"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -384,7 +384,7 @@ struct ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-struct ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooResponse"}
   public var protoMessageName: String {return "CustomOptionFooResponse"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -407,7 +407,7 @@ struct ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-struct ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooClientMessage"}
   public var protoMessageName: String {return "CustomOptionFooClientMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -430,7 +430,7 @@ struct ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf.Message, Swi
   }
 }
 
-struct ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionFooServerMessage"}
   public var protoMessageName: String {return "CustomOptionFooServerMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -455,7 +455,7 @@ struct ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf.Message, Swi
 
 //  Options of every possible field type, so we can test them all exhaustively.
 
-struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_DummyMessageContainingEnum"}
   public var protoMessageName: String {return "DummyMessageContainingEnum"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -550,7 +550,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
   }
 }
 
-struct ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_DummyMessageInvalidAsOptionType"}
   public var protoMessageName: String {return "DummyMessageInvalidAsOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -573,7 +573,7 @@ struct ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf.Message, 
   }
 }
 
-struct ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionMinIntegerValues"}
   public var protoMessageName: String {return "CustomOptionMinIntegerValues"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -596,7 +596,7 @@ struct ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf.Message, Swi
   }
 }
 
-struct ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionMaxIntegerValues"}
   public var protoMessageName: String {return "CustomOptionMaxIntegerValues"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -619,7 +619,7 @@ struct ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf.Message, Swi
   }
 }
 
-struct ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CustomOptionOtherValues"}
   public var protoMessageName: String {return "CustomOptionOtherValues"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -642,7 +642,7 @@ struct ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-struct ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_SettingRealsFromPositiveInts"}
   public var protoMessageName: String {return "SettingRealsFromPositiveInts"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -665,7 +665,7 @@ struct ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf.Message, Swi
   }
 }
 
-struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_SettingRealsFromNegativeInts"}
   public var protoMessageName: String {return "SettingRealsFromNegativeInts"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -691,7 +691,7 @@ struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Message, Swi
 //  Options of complex message types, themselves combined and extended in
 //  various ways.
 
-struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType1"}
   public var protoMessageName: String {return "ComplexOptionType1"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -808,7 +808,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType2"}
   public var protoMessageName: String {return "ComplexOptionType2"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -888,7 +888,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     set {_storage.unknown = newValue}
   }
 
-  struct ComplexOptionType4: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct ComplexOptionType4: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType2.ComplexOptionType4"}
     public var protoMessageName: String {return "ComplexOptionType4"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1017,7 +1017,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType3"}
   public var protoMessageName: String {return "ComplexOptionType3"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1075,7 +1075,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     set {_storage.unknown = newValue}
   }
 
-  struct ComplexOptionType5: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct ComplexOptionType5: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_ComplexOptionType3.ComplexOptionType5"}
     public var protoMessageName: String {return "ComplexOptionType5"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1164,7 +1164,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_ComplexOpt6"}
   public var protoMessageName: String {return "ComplexOpt6"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1210,7 +1210,7 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 }
 
 ///   Note that we try various different ways of naming the same extension.
-struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_VariousComplexOptions"}
   public var protoMessageName: String {return "VariousComplexOptions"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1237,7 +1237,7 @@ struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Message, SwiftProto
 //  Definitions for testing aggregate option parsing.
 //  See descriptor_unittest.cc.
 
-struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_AggregateMessageSet"}
   public var protoMessageName: String {return "AggregateMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1289,7 +1289,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_AggregateMessageSetElement"}
   public var protoMessageName: String {return "AggregateMessageSetElement"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1340,7 +1340,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, Swift
 }
 
 ///   A helper type used to test aggregate option parsing
-struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_Aggregate"}
   public var protoMessageName: String {return "Aggregate"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1507,7 +1507,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   }
 }
 
-struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_AggregateMessage"}
   public var protoMessageName: String {return "AggregateMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1553,7 +1553,7 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message, SwiftProtobuf.P
 }
 
 ///   Test custom options for nested type.
-struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_NestedOptionType"}
   public var protoMessageName: String {return "NestedOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1625,7 +1625,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_NestedOptionType.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
@@ -1692,7 +1692,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
 
 ///   Custom message option that has a required enum field.
 ///   WARNING: this is strongly discouraged!
-struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_OldOptionType"}
   public var protoMessageName: String {return "OldOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1800,7 +1800,7 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 ///   Updated version of the custom option above.
-struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_NewOptionType"}
   public var protoMessageName: String {return "NewOptionType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1916,7 +1916,7 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 ///   Test message using the "required_enum_opt" option defined above.
-struct ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageWithRequiredEnumOption"}
   public var protoMessageName: String {return "TestMessageWithRequiredEnumOption"}
   public var protoPackageName: String {return "protobuf_unittest"}

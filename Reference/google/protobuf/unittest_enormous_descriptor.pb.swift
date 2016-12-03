@@ -47,7 +47,7 @@
 import Foundation
 
 
-struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_TestEnormousDescriptor"}
   public var protoMessageName: String {return "TestEnormousDescriptor"}
   public var protoPackageName: String {return "google.protobuf"}

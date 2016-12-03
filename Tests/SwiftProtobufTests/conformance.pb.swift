@@ -232,7 +232,7 @@ enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
 ///     1. parse this proto (which should always succeed)
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ConformanceRequest"}
   public var protoMessageName: String {return "ConformanceRequest"}
   public var protoPackageName: String {return "conformance"}
@@ -344,7 +344,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 ///   Represents a single test case's output.
-struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ConformanceResponse"}
   public var protoMessageName: String {return "ConformanceResponse"}
   public var protoPackageName: String {return "conformance"}
@@ -553,7 +553,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "conformance"}
@@ -1687,7 +1687,7 @@ struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "Conformance_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "conformance"}
@@ -2576,7 +2576,7 @@ struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   }
 }
 
-struct Conformance_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Conformance_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "conformance"}

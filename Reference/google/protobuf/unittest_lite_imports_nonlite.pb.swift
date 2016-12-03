@@ -44,7 +44,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestLiteImportsNonlite"}
   public var protoMessageName: String {return "TestLiteImportsNonlite"}
   public var protoPackageName: String {return "protobuf_unittest"}

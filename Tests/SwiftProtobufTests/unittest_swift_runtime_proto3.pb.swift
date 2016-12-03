@@ -39,7 +39,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_Message3"}
   public var protoMessageName: String {return "Message3"}
   public var protoPackageName: String {return "protobuf_unittest"}

@@ -208,7 +208,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMap"}
   public var protoMessageName: String {return "TestEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -251,7 +251,7 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtra"}
   public var protoMessageName: String {return "TestEnumMapPlusExtra"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -294,7 +294,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestImportEnumMap"}
   public var protoMessageName: String {return "TestImportEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -329,7 +329,7 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestIntIntMap"}
   public var protoMessageName: String {return "TestIntIntMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -365,7 +365,7 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 ///   Test all key types: string, plus the non-floating-point scalars.
-struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMaps"}
   public var protoMessageName: String {return "TestMaps"}
   public var protoPackageName: String {return "protobuf_unittest"}

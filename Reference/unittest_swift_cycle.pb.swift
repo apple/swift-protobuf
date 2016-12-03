@@ -47,7 +47,7 @@ import SwiftProtobuf
 //  You can't make a object graph that spans files, so this can only be done
 //  within a single proto file.
 
-struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CycleFoo"}
   public var protoMessageName: String {return "CycleFoo"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -168,7 +168,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 }
 
-struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBar"}
   public var protoMessageName: String {return "CycleBar"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -289,7 +289,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 }
 
-struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_CycleBaz"}
   public var protoMessageName: String {return "CycleBaz"}
   public var protoPackageName: String {return "protobuf_unittest"}

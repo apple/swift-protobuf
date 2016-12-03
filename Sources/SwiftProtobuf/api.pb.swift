@@ -40,7 +40,7 @@ import Foundation
 
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
-public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Api"}
   public var protoMessageName: String {return "Api"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -222,7 +222,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 }
 
 ///   Method represents a method of an api.
-public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Method"}
   public var protoMessageName: String {return "Method"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -386,7 +386,7 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto
 ///         }
 ///         ...
 ///       }
-public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Mixin"}
   public var protoMessageName: String {return "Mixin"}
   public var protoPackageName: String {return "google.protobuf"}

@@ -134,7 +134,7 @@ enum Proto3LiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -722,7 +722,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "Proto3LiteUnittest_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1124,7 +1124,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
 //  Test messages for packed fields
 
-struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1261,7 +1261,7 @@ struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 ///   Explicitly set packed to false
-struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestUnpackedTypes"}
   public var protoMessageName: String {return "TestUnpackedTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1398,7 +1398,7 @@ struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobu
 }
 
 ///   This proto includes a recusively nested message.
-struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3LiteUnittest_NestedTestAllTypes"}
   public var protoMessageName: String {return "NestedTestAllTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1494,7 +1494,7 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3LiteUnittest_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
@@ -1527,7 +1527,7 @@ struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.P
 }
 
 ///   TestEmptyMessage is used to test behavior of unknown fields.
-struct Proto3LiteUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3LiteUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3LiteUnittest_TestEmptyMessage"}
   public var protoMessageName: String {return "TestEmptyMessage"}
   public var protoPackageName: String {return "proto3_lite_unittest"}

@@ -132,7 +132,7 @@ enum Proto3MapEnum: SwiftProtobuf.Enum {
 }
 
 ///   Tests maps.
-struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3TestMap"}
   public var protoMessageName: String {return "TestMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -409,7 +409,7 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
   }
 }
 
-struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3TestMapSubmessage"}
   public var protoMessageName: String {return "TestMapSubmessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -484,7 +484,7 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
   }
 }
 
-struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3TestMessageMap"}
   public var protoMessageName: String {return "TestMessageMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -517,7 +517,7 @@ struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 }
 
 ///   Two map fields share the same entry default instance.
-struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3TestSameTypeMap"}
   public var protoMessageName: String {return "TestSameTypeMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -557,7 +557,7 @@ struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   }
 }
 
-struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3TestArenaMap"}
   public var protoMessageName: String {return "TestArenaMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -703,7 +703,7 @@ struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
 
 ///   Previously, message containing enum called Type cannot be used as value of
 ///   map field.
-struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3MessageContainingEnumCalledType"}
   public var protoMessageName: String {return "MessageContainingEnumCalledType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -804,7 +804,7 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtob
 }
 
 ///   Previously, message cannot contain map field called "entry".
-struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3MessageContainingMapCalledEntry"}
   public var protoMessageName: String {return "MessageContainingMapCalledEntry"}
   public var protoPackageName: String {return "protobuf_unittest"}

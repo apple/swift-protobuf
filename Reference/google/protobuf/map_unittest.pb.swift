@@ -125,7 +125,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 }
 
 ///   Tests maps.
-struct ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMap"}
   public var protoMessageName: String {return "TestMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -415,7 +415,7 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   }
 }
 
-struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMapSubmessage"}
   public var protoMessageName: String {return "TestMapSubmessage"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -490,7 +490,7 @@ struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageMap"}
   public var protoMessageName: String {return "TestMessageMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -523,7 +523,7 @@ struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Pro
 }
 
 ///   Two map fields share the same entry default instance.
-struct ProtobufUnittest_TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestSameTypeMap"}
   public var protoMessageName: String {return "TestSameTypeMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -564,7 +564,7 @@ struct ProtobufUnittest_TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Pr
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredMessageMap"}
   public var protoMessageName: String {return "TestRequiredMessageMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -596,7 +596,7 @@ struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestArenaMap"}
   public var protoMessageName: String {return "TestArenaMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -888,7 +888,7 @@ struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
 ///   Previously, message containing enum called Type cannot be used as value of
 ///   map field.
-struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_MessageContainingEnumCalledType"}
   public var protoMessageName: String {return "MessageContainingEnumCalledType"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -989,7 +989,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, 
 }
 
 ///   Previously, message cannot contain map field called "entry".
-struct ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_MessageContainingMapCalledEntry"}
   public var protoMessageName: String {return "MessageContainingMapCalledEntry"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1021,7 +1021,7 @@ struct ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf.Message, 
   }
 }
 
-struct ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestRecursiveMapMessage"}
   public var protoMessageName: String {return "TestRecursiveMapMessage"}
   public var protoPackageName: String {return "protobuf_unittest"}

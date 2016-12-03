@@ -90,7 +90,7 @@ import Foundation
 ///  
 ///       timestamp = Timestamp()
 ///       timestamp.GetCurrentTime()
-struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Timestamp"}
   public var protoMessageName: String {return "Timestamp"}
   public var protoPackageName: String {return "google.protobuf"}

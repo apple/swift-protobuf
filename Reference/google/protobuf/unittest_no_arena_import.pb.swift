@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto2ArenaUnittest_ImportNoArenaNestedMessage"}
   public var protoMessageName: String {return "ImportNoArenaNestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}

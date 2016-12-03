@@ -339,7 +339,7 @@ class MessageGenerator {
         }
         conformance += ", SwiftProtobuf._MessageImplementationBase"
         // TODO: Move this conformance into an extension in a separate file.
-        conformance += ", ProtoNameProviding"
+        conformance += ", SwiftProtobuf.ProtoNameProviding"
         self.swiftMessageConformance = conformance
 
         var i: Int32 = 0

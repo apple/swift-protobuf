@@ -288,7 +288,7 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMapLite"}
   public var protoMessageName: String {return "TestMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -586,7 +586,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   }
 }
 
-struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestArenaMapLite"}
   public var protoMessageName: String {return "TestArenaMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -885,7 +885,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.P
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredMessageMapLite"}
   public var protoMessageName: String {return "TestRequiredMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -920,7 +920,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
   }
 }
 
-struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapLite"}
   public var protoMessageName: String {return "TestEnumMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -963,7 +963,7 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtraLite"}
   public var protoMessageName: String {return "TestEnumMapPlusExtraLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1006,7 +1006,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestMessageMapLite"}
   public var protoMessageName: String {return "TestMessageMapLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1041,7 +1041,7 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestRequiredLite"}
   public var protoMessageName: String {return "TestRequiredLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -1116,7 +1116,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 }
 
-struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, ProtoNameProviding {
+struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_ForeignMessageArenaLite"}
   public var protoMessageName: String {return "ForeignMessageArenaLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
