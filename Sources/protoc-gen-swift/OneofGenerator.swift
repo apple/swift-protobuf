@@ -72,12 +72,11 @@ class OneofGenerator {
 
         // Decode one of our members
         p.print("\n")
-        p.print("public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {\n")
+        p.print("public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {\n")
         p.indent()
         p.print("if self != .None && setter.rejectConflictingOneof {\n")
         p.print("  throw ProtobufDecodingError.duplicatedOneOf\n")
         p.print("}\n")
-        p.print("let handled: Bool\n")
         p.print("switch protoFieldNumber {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {
             p.print("case \(f.number):\n")
@@ -85,15 +84,15 @@ class OneofGenerator {
             if isProto3 && !f.isMessage && !f.isGroup {
                 // Proto3 can use a more streamlined structure here
                 p.print("var value = \(f.swiftStorageType)()\n")
-                p.print("handled = try setter.decodeSingularField(fieldType: \(f.traitsType).self, value: &value)\n")
+                p.print("try setter.decodeSingularField(fieldType: \(f.traitsType).self, value: &value)\n")
                 p.print("self = .\(f.swiftName)(value)\n")
             } else {
                 p.print("var value: \(f.swiftStorageType)\n")
                 let special = f.isGroup ? "Group" : f.isMessage ? "Message" : "";
                 let modifier = "Singular"
                 let decoderMethod = "decode\(modifier)\(special)Field"
-                p.print("handled = try setter.\(decoderMethod)(fieldType: \(f.traitsType).self, value: &value)\n")
-                p.print("if let value = value, handled {\n")
+                p.print("try setter.\(decoderMethod)(fieldType: \(f.traitsType).self, value: &value)\n")
+                p.print("if let value = value {\n")
                 p.print("  self = .\(f.swiftName)(value)\n")
                 p.print("}\n")
             }
@@ -101,11 +100,9 @@ class OneofGenerator {
         }
         p.print("default:\n")
         p.indent()
-        p.print("handled = false\n")
         p.print("self = .None\n")
         p.outdent()
         p.print("}\n")
-        p.print("return handled\n")
         p.outdent()
         p.print("}\n")
 
@@ -122,8 +119,7 @@ class OneofGenerator {
             let special = f.isGroup ? "Group" : f.isMessage ? "Message" : "";
             let visitorMethod = "visitSingular\(special)Field"
             let fieldClause = (f.isGroup || f.isMessage) ? "" : "fieldType: \(f.traitsType).self, "
-            let jsonName = f.jsonName ?? ""
-            p.print("try visitor.\(visitorMethod)(\(fieldClause)value: v, protoFieldNumber: \(f.number), protoFieldName: \"\(f.name)\", jsonFieldName: \"\(jsonName)\", swiftFieldName: \"\(f.swiftName)\")\n")
+            p.print("try visitor.\(visitorMethod)(\(fieldClause)value: v, protoFieldNumber: \(f.number))\n")
             p.outdent()
             p.print("}\n")
             p.outdent()

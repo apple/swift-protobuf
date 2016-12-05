@@ -51,12 +51,13 @@ public enum Google_Protobuf_NullValue: ProtobufEnum {
 
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
-public struct Google_Protobuf_Struct: ProtobufGeneratedMessage, Hashable, CustomReflectable, ExpressibleByDictionaryLiteral {
+public struct Google_Protobuf_Struct: ProtobufGeneratedMessage, ProtobufProto3Message, Hashable, CustomReflectable, ExpressibleByDictionaryLiteral, ProtoNameProviding {
     public var swiftClassName: String {return "Google_Protobuf_Struct"}
     public var protoMessageName: String {return "Struct"}
     public var protoPackageName: String {return "google.protobuf"}
-    public var jsonFieldNames: [String:Int] {return ["fields":1]}
-    public var protoFieldNames: [String:Int] {return ["fields":1]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+        1: .same(proto: "fields", swift: "fields"),
+    ]
     public typealias Key = String
     public typealias Value = Google_Protobuf_Value
 
@@ -147,19 +148,17 @@ public struct Google_Protobuf_Struct: ProtobufGeneratedMessage, Hashable, Custom
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-        var handled = false
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
-        case 1: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
+        case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
         default:
             break
         }
-        return handled
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
         if !fields.isEmpty {
-            try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1, protoFieldName: "fields", jsonFieldName: "fields", swiftFieldName: "fields")
+            try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1)
         }
     }
 
@@ -175,26 +174,19 @@ public struct Google_Protobuf_Struct: ProtobufGeneratedMessage, Hashable, Custom
 ///   variants, absence of any variant indicates an error.
 ///
 ///   The JSON representation for `Value` is JSON value.
-public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomReflectable, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral {
+public struct Google_Protobuf_Value: ProtobufAbstractMessage, ProtobufProto3Message, Hashable, CustomReflectable, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, ProtoNameProviding {
     public var swiftClassName: String {return "Google_Protobuf_Value"}
     public var protoMessageName: String {return "Value"}
     public var protoPackageName: String {return "google.protobuf"}
-    public var jsonFieldNames: [String: Int] {return [
-                                                          "nullValue": 1,
-                                                          "numberValue": 2,
-                                                          "stringValue": 3,
-                                                          "boolValue": 4,
-                                                          "structValue": 5,
-                                                          "listValue": 6,
-        ]}
-    public var protoFieldNames: [String: Int] {return [
-                                                          "null_value": 1,
-                                                          "number_value": 2,
-                                                          "string_value": 3,
-                                                          "bool_value": 4,
-                                                          "struct_value": 5,
-                                                          "list_value": 6,
-        ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+        1: .unique(proto: "null_value", json: "nullValue", swift: "nullValue"),
+        2: .unique(proto: "number_value", json: "numberValue", swift: "numberValue"),
+        3: .unique(proto: "string_value", json: "stringValue", swift: "stringValue"),
+        4: .unique(proto: "bool_value", json: "boolValue", swift: "boolValue"),
+        5: .unique(proto: "struct_value", json: "structValue", swift: "structValue"),
+        6: .unique(proto: "list_value", json: "listValue", swift: "listValue"),
+    ]
+
     // TODO: Would it make sense to collapse the implementation here and
     // make Google_Protobuf_Value be the enum directly?
     public typealias FloatLiteralType = Double
@@ -279,11 +271,11 @@ public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomRe
         }
     }
 
-    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
         case 1, 2, 3, 4, 5, 6:
-            return try kind.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-        default: return false
+            try kind.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+        default: break
         }
     }
 
@@ -475,49 +467,47 @@ public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomRe
             self = .None
         }
 
-        public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-            let handled: Bool
+        public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
             switch protoFieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
-                handled = try setter.decodeSingularField(fieldType: Google_Protobuf_NullValue.self, value: &value)
-                if let value = value, handled {
+                try setter.decodeSingularField(fieldType: Google_Protobuf_NullValue.self, value: &value)
+                if let value = value {
                     self = .nullValue(value)
                 }
             case 2:
                 var value: Double?
-                handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
-                if let value = value, handled {
+                try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
+                if let value = value {
                     self = .numberValue(value)
                 }
             case 3:
                 var value: String?
-                handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
-                if let value = value, handled {
+                try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+                if let value = value {
                     self = .stringValue(value)
                 }
             case 4:
                 var value: Bool?
-                handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
-                if let value = value, handled {
+                try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+                if let value = value {
                     self = .boolValue(value)
                 }
             case 5:
                 var value: Google_Protobuf_Struct?
-                handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
-                if let value = value, handled {
+                try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
+                if let value = value {
                     self = .structValue(value)
                 }
             case 6:
                 var value: Google_Protobuf_ListValue?
-                handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
-                if let value = value, handled {
+                try setter.decodeSingularMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
+                if let value = value {
                     self = .listValue(value)
                 }
             default:
                 throw ProtobufDecodingError.schemaMismatch
             }
-            return true
         }
 
         fileprivate func serializeJSONField(encoder: inout ProtobufJSONEncoder) throws {
@@ -556,27 +546,27 @@ public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomRe
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {
-                    try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, protoFieldNumber: 1, protoFieldName: "null_value", jsonFieldName: "value", swiftFieldName: "nullValue")
+                    try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, protoFieldNumber: 1)
                 }
             case .numberValue(let v):
                 if start <= 2 && 2 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, protoFieldNumber: 2, protoFieldName: "number_value", jsonFieldName: "value", swiftFieldName: "numberValue")
+                    try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, protoFieldNumber: 2)
                 }
             case .stringValue(let v):
                 if start <= 3 && 3 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3, protoFieldName: "string_value", jsonFieldName: "value", swiftFieldName: "stringValue")
+                    try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3)
                 }
             case .boolValue(let v):
                 if start <= 4 && 4 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 4, protoFieldName: "bool_value", jsonFieldName: "value", swiftFieldName: "boolValue")
+                    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 4)
                 }
             case .structValue(let v):
                 if start <= 5 && 5 < end {
-                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5, protoFieldName: "struct_value", jsonFieldName: "value", swiftFieldName: "structValue")
+                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
                 }
             case .listValue(let v):
                 if start <= 6 && 6 < end {
-                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6, protoFieldName: "list_value", jsonFieldName: "value", swiftFieldName: "listValue")
+                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
                 }
             case .None:
                 break
@@ -600,17 +590,18 @@ public struct Google_Protobuf_Value: ProtobufAbstractMessage, Hashable, CustomRe
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///
 ///   The JSON representation for `ListValue` is JSON array.
-public struct Google_Protobuf_ListValue: ProtobufAbstractMessage, Hashable, CustomReflectable, ExpressibleByArrayLiteral {
+public struct Google_Protobuf_ListValue: ProtobufAbstractMessage, ProtobufProto3Message, Hashable, CustomReflectable, ExpressibleByArrayLiteral, ProtoNameProviding {
     public var swiftClassName: String {return "Google_Protobuf_ListValue"}
     public var protoMessageName: String {return "ListValue"}
     public var protoPackageName: String {return "google.protobuf"}
-    public var jsonFieldNames: [String:Int] {return ["values":1]}
-    public var protoFieldNames: [String:Int] {return ["values":1]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+        1: .same(proto: "values", swift: "values"),
+    ]
 
     // TODO: Give this a direct array interface by proxying the interesting
     // bits down to values
     public typealias Element = Google_Protobuf_Value
-    
+
     ///   Repeated field of dynamically typed values.
     public var values: [Google_Protobuf_Value] = []
 
@@ -710,16 +701,16 @@ public struct Google_Protobuf_ListValue: ProtobufAbstractMessage, Hashable, Cust
         }
     }
 
-    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
-        case 1: return try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &values)
-        default: return false
+        case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &values)
+        default: break
         }
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if !values.isEmpty {
-            try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1, protoFieldName: "values", jsonFieldName: "values", swiftFieldName: "values")
+            try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1)
         }
     }
 

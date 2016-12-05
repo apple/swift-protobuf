@@ -112,13 +112,15 @@ fileprivate func typeName(fromMessage message: ProtobufMessage) -> String {
 /// without having the type information available.  This is a basic
 /// limitation of Google's spec for google.protobuf.Any.
 ///
-public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable, CustomReflectable {
+public struct Google_Protobuf_Any: ProtobufAbstractMessage, ProtobufProto3Message, Hashable, Equatable, CustomReflectable, ProtoNameProviding {
     public var swiftClassName: String {return "Google_Protobuf_Any"}
     public var protoPackageName: String {return "google.protobuf"}
     public var protoMessageName: String {return "Any"}
-    public var jsonFieldNames: [String:Int] {return ["@type":1,"value":2]}
-    public var protoFieldNames: [String:Int] {return ["type_url":1,"value":2]}
-    
+    public static let _protobuf_fieldNames: FieldNameMap = [
+        1: .unique(proto: "type_url", json: "@type", swift: "typeURL"),
+        2: .same(proto: "value", swift: "value"),
+    ]
+
     ///   A URL/resource name whose content describes the type of the
     ///   serialized message.
     ///
@@ -227,11 +229,11 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
         typeURL = message.anyTypeURL
     }
 
-    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    mutating public func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
-        case 1: return try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
-        case 2: return try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
-        default: return false
+        case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
+        case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
+        default: break
         }
     }
 
@@ -463,9 +465,9 @@ public struct Google_Protobuf_Any: ProtobufAbstractMessage, Hashable, Equatable,
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if let typeURL = typeURL {
-            try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1, protoFieldName: "type_url", jsonFieldName: "@type", swiftFieldName: "typeURL")
+            try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1)
             if let value = value {
-                try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2, protoFieldName: "value", jsonFieldName: "value", swiftFieldName: "value")
+                try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2)
             } else {
                 throw ProtobufEncodingError.anyTranscodeFailure
             }

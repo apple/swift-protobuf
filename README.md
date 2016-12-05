@@ -79,7 +79,7 @@ Once you pick the version you will use, set your local state to match, and
 build the protoc plugin:
 
 ```
-$ git checkout tag/[tag_name]
+$ git checkout tags/[tag_name]
 $ swift build
 ```
 
@@ -112,7 +112,7 @@ you used to build the plugin above:
 
 ```swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,23))
+        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,24))
 ]
 ```
 
@@ -130,12 +130,22 @@ If you're using CocoaPods, add this to your `Podfile` but adjust the `:tag` to
 match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.23'
+pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.24'
 ```
 
 And run `pod install`.
 
 (Swift 3 frameworks require CocoaPods 1.1 or newer)
+
+## Using the library with Carthage
+
+If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
+
+```ruby
+github 'apple/swift-protobuf' '0.9.24'
+```
+
+Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.
 
 # Quick Example
 

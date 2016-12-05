@@ -47,16 +47,16 @@ import SwiftProtobuf
 
 
 enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case importFoo // = 7
   case importBar // = 8
   case importBaz // = 9
 
-  public init() {
+  init() {
     self = .importFoo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 7: self = .importFoo
     case 8: self = .importBar
@@ -65,7 +65,7 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "importFoo": self = .importFoo
     case "importBar": self = .importBar
@@ -74,7 +74,7 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_FOO": self = .importFoo
     case "IMPORT_BAR": self = .importBar
@@ -83,7 +83,7 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "IMPORT_FOO": self = .importFoo
     case "IMPORT_BAR": self = .importBar
@@ -92,7 +92,7 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .importFoo: return 7
@@ -102,7 +102,7 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .importFoo: return "\"IMPORT_FOO\""
@@ -112,9 +112,9 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .importFoo: return ".importFoo"
@@ -128,16 +128,16 @@ enum ProtobufUnittestImport_ImportEnum: ProtobufEnum {
 
 ///   To use an enum in a map, it must has the first value as 0.
 enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case unknown // = 0
   case foo // = 1
   case bar // = 2
 
-  public init() {
+  init() {
     self = .unknown
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .foo
@@ -146,7 +146,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "unknown": self = .unknown
     case "foo": self = .foo
@@ -155,7 +155,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "UNKNOWN": self = .unknown
     case "FOO": self = .foo
@@ -164,7 +164,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "UNKNOWN": self = .unknown
     case "FOO": self = .foo
@@ -173,7 +173,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .unknown: return 0
@@ -183,7 +183,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .unknown: return "\"UNKNOWN\""
@@ -193,9 +193,9 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .unknown: return ".unknown"
@@ -207,21 +207,18 @@ enum ProtobufUnittestImport_ImportEnumForMap: ProtobufEnum {
 
 }
 
-struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
+struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
-  public var jsonFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "d", swift: "d"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _d: Int32? = nil
-  public var d: Int32 {
+  var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
   }
@@ -232,25 +229,18 @@ struct ProtobufUnittestImport_ImportMessage: ProtobufGeneratedMessage {
     return _d = nil
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
+    default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _d {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }

@@ -58,10 +58,6 @@ option optimize_for = SPEED;
 
 option java_outer_classname = "UnittestProto";
 
-// Disambiguate generated code from unittest.proto
-import "swift-options.proto";
-option (apple_swift_prefix) = "Proto3";
-
 // This proto includes every type of field in both singular and repeated
 // forms.
 message TestAllTypes {
@@ -390,3 +386,4 @@ service TestService {
 message BarRequest  {}
 message BarResponse {}
 
+option swift_prefix = "Proto3";

@@ -24,15 +24,11 @@ import Swift
 /// ProtobufMessageExtension-typed objects.
 public class ProtobufMessageExtension {
     public let protoFieldNumber: Int
-    public let protoFieldName: String
-    public let jsonFieldName: String
-    public let swiftFieldName: String
+    public let fieldNames: FieldNameMap.Names
     public let messageType: ProtobufMessage.Type
-    init(protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String, messageType: ProtobufMessage.Type) {
+    init(protoFieldNumber: Int, fieldNames: FieldNameMap.Names, messageType: ProtobufMessage.Type) {
         self.protoFieldNumber = protoFieldNumber
-        self.protoFieldName = protoFieldName
-        self.jsonFieldName = jsonFieldName
-        self.swiftFieldName = swiftFieldName
+        self.fieldNames = fieldNames
         self.messageType = messageType
     }
     public func newField() -> ProtobufExtensionField {
@@ -46,12 +42,12 @@ public func ==(lhs: ProtobufMessageExtension, rhs: ProtobufMessageExtension) -> 
 
 /// A "Generic Message Extension" augments the base Extension type
 /// with generic information about the type of the message being
-/// extended.  These generic constrints enable compile-time checks on
+/// extended.  These generic constraints enable compile-time checks on
 /// compatibility.
 public class ProtobufGenericMessageExtension<FieldType: ProtobufTypedExtensionField, MessageType: ProtobufMessage>: ProtobufMessageExtension {
-    public init(protoFieldNumber: Int, protoFieldName: String, jsonFieldName: String, swiftFieldName: String, defaultValue: FieldType.ValueType) {
+    public init(protoFieldNumber: Int, fieldNames: FieldNameMap.Names, defaultValue: FieldType.ValueType) {
         self.defaultValue = defaultValue
-        super.init(protoFieldNumber: protoFieldNumber, protoFieldName: protoFieldName, jsonFieldName: jsonFieldName, swiftFieldName: swiftFieldName, messageType: MessageType.self)
+        super.init(protoFieldNumber: protoFieldNumber, fieldNames: fieldNames, messageType: MessageType.self)
     }
     public let defaultValue: FieldType.ValueType
     public func set(value: FieldType.ValueType) -> ProtobufExtensionField {
@@ -154,7 +150,7 @@ public struct ProtobufExtensionSet: CustomDebugStringConvertible, ExpressibleByA
         // TODO: Make this faster...
         for (_, list) in fields {
             for (_, e) in list {
-                if e.jsonFieldName == jsonFieldName {
+                if e.fieldNames.jsonName == jsonFieldName {
                     return e.protoFieldNumber
                 }
             }
@@ -176,7 +172,7 @@ public struct ProtobufExtensionSet: CustomDebugStringConvertible, ExpressibleByA
         var names = [String]()
         for (_, list) in fields {
             for (_, e) in list {
-                names.append("\(e.protoFieldName)(\(e.protoFieldNumber))")
+                names.append("\(e.fieldNames.protoName)(\(e.protoFieldNumber))")
             }
         }
         let d = names.joined(separator: ",")
@@ -225,6 +221,10 @@ public struct ProtobufExtensionFieldValueSet: Equatable, Sequence {
     public subscript(index: Int) -> ProtobufExtensionField? {
         get {return values[index]}
         set(newValue) {values[index] = newValue}
+    }
+
+    public func fieldNames(for number: Int) -> FieldNameMap.Names? {
+        return values[number]?.protobufExtension.fieldNames
     }
 }
 

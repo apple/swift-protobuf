@@ -26,17 +26,16 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
+struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest"}
   public var protoMessageName: String {return "SwiftReservedTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [:]}
-  public var protoFieldNames: [String: Int] {return [:]}
+  public static let _protobuf_fieldNames = FieldNameMap()
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   enum Enum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case double // = 1
     case json_ // = 2
     case `class` // = 3
@@ -44,11 +43,11 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     case self_ // = 5
     case type // = 6
 
-    public init() {
+    init() {
       self = .double
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .double
       case 2: self = .json_
@@ -60,7 +59,7 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "double": self = .double
       case "json_": self = .json_
@@ -72,7 +71,7 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "DOUBLE": self = .double
       case "JSON": self = .json_
@@ -84,7 +83,7 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "DOUBLE": self = .double
       case "JSON": self = .json_
@@ -96,7 +95,7 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .double: return 1
@@ -109,7 +108,7 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .double: return "\"DOUBLE\""
@@ -122,9 +121,9 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .double: return ".double"
@@ -140,42 +139,42 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
   }
 
   enum ProtocolEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case a // = 1
 
-    public init() {
+    init() {
       self = .a
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .a
       default: return nil
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "a": self = .a
       default: return nil
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "a": self = .a
       default: return nil
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "a": self = .a
       default: return nil
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .a: return 1
@@ -183,7 +182,7 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .a: return "\"a\""
@@ -191,9 +190,9 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .a: return ".a"
@@ -203,19 +202,17 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
 
   }
 
-  struct classMessage: ProtobufGeneratedMessage {
+  struct classMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "protobuf_unittest"}
-    public var jsonFieldNames: [String: Int] {return [:]}
-    public var protoFieldNames: [String: Int] {return [:]}
+    public static let _protobuf_fieldNames = FieldNameMap()
 
-    var unknown = ProtobufUnknownStorage()
+    public var unknown = ProtobufUnknownStorage()
 
-    public init() {}
+    init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      return try unknown.decodeField(setter: &setter)
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -228,19 +225,17 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     }
   }
 
-  struct TypeMessage: ProtobufGeneratedMessage {
+  struct TypeMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "protobuf_unittest"}
-    public var jsonFieldNames: [String: Int] {return [:]}
-    public var protoFieldNames: [String: Int] {return [:]}
+    public static let _protobuf_fieldNames = FieldNameMap()
 
-    var unknown = ProtobufUnknownStorage()
+    public var unknown = ProtobufUnknownStorage()
 
-    public init() {}
+    init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      return try unknown.decodeField(setter: &setter)
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -253,19 +248,17 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     }
   }
 
-  struct isEqualMessage: ProtobufGeneratedMessage {
+  struct isEqualMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.isEqualMessage"}
     public var protoMessageName: String {return "isEqual"}
     public var protoPackageName: String {return "protobuf_unittest"}
-    public var jsonFieldNames: [String: Int] {return [:]}
-    public var protoFieldNames: [String: Int] {return [:]}
+    public static let _protobuf_fieldNames = FieldNameMap()
 
-    var unknown = ProtobufUnknownStorage()
+    public var unknown = ProtobufUnknownStorage()
 
-    public init() {}
+    init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      return try unknown.decodeField(setter: &setter)
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -278,10 +271,9 @@ struct ProtobufUnittest_SwiftReservedTest: ProtobufGeneratedMessage {
     }
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try unknown.decodeField(setter: &setter)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

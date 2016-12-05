@@ -40,21 +40,18 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
+struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2ArenaUnittest_NestedMessage"}
   public var protoMessageName: String {return "NestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "d": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "d", swift: "d"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _d: Int32? = nil
-  public var d: Int32 {
+  var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
   }
@@ -65,25 +62,18 @@ struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
     return _d = nil
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_d)
+    default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _d {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "d", jsonFieldName: "d", swiftFieldName: "d")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -95,48 +85,37 @@ struct Proto2ArenaUnittest_NestedMessage: ProtobufGeneratedMessage {
   }
 }
 
-struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage {
+struct Proto2ArenaUnittest_ArenaMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "Proto2ArenaUnittest_ArenaMessage"}
   public var protoMessageName: String {return "ArenaMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "repeatedNestedMessage": 1,
-    "repeatedImportNoArenaMessage": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "repeated_nested_message": 1,
-    "repeated_import_no_arena_message": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
+    2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage", swift: "repeatedImportNoArenaMessage"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
-  public var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
+  var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
 
-  public var repeatedImportNoArenaMessage: [Proto2ArenaUnittest_ImportNoArenaNestedMessage] = []
+  var repeatedImportNoArenaMessage: [Proto2ArenaUnittest_ImportNoArenaNestedMessage] = []
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_NestedMessage.self, value: &repeatedNestedMessage)
-    case 2: handled = try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_ImportNoArenaNestedMessage.self, value: &repeatedImportNoArenaMessage)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_NestedMessage.self, value: &repeatedNestedMessage)
+    case 2: try setter.decodeRepeatedMessageField(fieldType: Proto2ArenaUnittest_ImportNoArenaNestedMessage.self, value: &repeatedImportNoArenaMessage)
+    default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if !repeatedNestedMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, protoFieldNumber: 1, protoFieldName: "repeated_nested_message", jsonFieldName: "repeatedNestedMessage", swiftFieldName: "repeatedNestedMessage")
+      try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, protoFieldNumber: 1)
     }
     if !repeatedImportNoArenaMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: repeatedImportNoArenaMessage, protoFieldNumber: 2, protoFieldName: "repeated_import_no_arena_message", jsonFieldName: "repeatedImportNoArenaMessage", swiftFieldName: "repeatedImportNoArenaMessage")
+      try visitor.visitRepeatedMessageField(value: repeatedImportNoArenaMessage, protoFieldNumber: 2)
     }
     unknown.traverse(visitor: &visitor)
   }

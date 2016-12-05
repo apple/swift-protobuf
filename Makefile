@@ -38,14 +38,18 @@ AWK=awk
 # Installation directory
 BINDIR=/usr/local/bin
 
+# Install tool name
 INSTALL=install
 
-PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
+# Where to find a google/protobufs checkout. This is only used for the
+# 'update-proto-files' target.  Defaults be being beside this checkout.
+GOOGLE_PROTOBUFS_CHECKOUT=../protobuf
 
 # Helpers for the common parts of source generation.
 #
 # To ensure that the local version of the plugin is always used (and not a
 # previously installed one), we use a custom output name (-tfiws_out).
+PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
 GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
 
@@ -97,12 +101,14 @@ TEST_PROTOS= \
 	Protos/google/protobuf/unittest_proto3.proto \
 	Protos/google/protobuf/unittest_proto3_arena.proto \
 	Protos/google/protobuf/unittest_well_known_types.proto \
-	Protos/swift-options.proto \
 	Protos/unittest_swift_all_required_types.proto \
 	Protos/unittest_swift_cycle.proto \
 	Protos/unittest_swift_enum.proto \
 	Protos/unittest_swift_enum_optional_default.proto \
 	Protos/unittest_swift_extension.proto \
+	Protos/unittest_swift_extension2.proto \
+	Protos/unittest_swift_extension3.proto \
+	Protos/unittest_swift_extension4.proto \
 	Protos/unittest_swift_fieldorder.proto \
 	Protos/unittest_swift_groups.proto \
 	Protos/unittest_swift_naming.proto \
@@ -130,8 +136,7 @@ LIBRARY_PROTOS= \
 # Protos that are used internally by the plugin
 PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
-	Protos/google/protobuf/descriptor.proto \
-	Protos/swift-options.proto
+	Protos/google/protobuf/descriptor.proto
 
 XCODEBUILD_EXTRAS =
 # Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
@@ -180,7 +185,8 @@ endif
 	test-xcode-tvOS-release \
 	test-xcode-watchOS \
 	test-xcode-watchOS-debug \
-	test-xcode-watchOS-release
+	test-xcode-watchOS-release \
+	update-proto-files
 
 .NOTPARALLEL: \
 	test-xcode-iOS-debug \
@@ -248,7 +254,6 @@ test-all test-everything: test test-xcode
 #
 test-runtime: build
 	${SWIFT} test
-
 
 #
 # Test the plugin by itself:
@@ -318,6 +323,28 @@ regenerate-test-protos: build
 	for t in ${TEST_PROTOS}; do \
 		${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Tests/SwiftProtobufTests $$t; \
 	done
+
+#
+# Helper to update the .proto files copied from the google/protobufs distro.
+#
+update-proto-files:
+	@if [ ! -d "${GOOGLE_PROTOBUFS_CHECKOUT}/src/google/protobuf" ]; then \
+	  echo "ERROR: ${GOOGLE_PROTOBUFS_CHECKOUT} does not appear to be a checkout of"; \
+	  echo "ERROR:   github.com/google/protobuf. Please check it out or set"; \
+	  echo "ERROR:   GOOGLE_PROTOBUFS_CHECKOUT to point to a checkout."; \
+	  exit 1; \
+	fi
+	@rm -rf Protos/conformance && mkdir Protos/conformance
+	@cp -v "${GOOGLE_PROTOBUFS_CHECKOUT}"/conformance/*.proto Protos/conformance/
+	@rm -rf Protos/google && mkdir -p Protos/google/protobuf/compiler
+	@cp -v "${GOOGLE_PROTOBUFS_CHECKOUT}"/src/google/protobuf/*.proto Protos/google/protobuf/
+	@cp -v "${GOOGLE_PROTOBUFS_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
+	# It would be nice to get these added to google/protobuf instead of
+	# applying them locally.
+	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/map_unittest_proto3.proto
+	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_proto3.proto
+	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_public_proto3.proto
+	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_proto3.proto
 
 
 # Helpers to put the Xcode project through all modes.

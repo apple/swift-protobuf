@@ -34,8 +34,8 @@ class Test_FieldOrdering: XCTestCase {
         nest.oo = 1
         nest.bb = 2
         m.optionalNestedMessage = nest
-        m.myExtensionInt = 12
-        m.myExtensionString = "def"
+        m.Swift_Protobuf_myExtensionInt = 12
+        m.Swift_Protobuf_myExtensionString = "def"
         m.oneofInt32 = 7
 
         let encoded1 = try m.serializeProtobufBytes()

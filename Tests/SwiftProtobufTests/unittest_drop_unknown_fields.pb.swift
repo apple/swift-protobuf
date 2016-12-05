@@ -40,31 +40,28 @@ import Foundation
 import SwiftProtobuf
 
 
-struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
+struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "UnittestDropUnknownFields_Foo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
-  public var jsonFieldNames: [String: Int] {return [
-    "int32Value": 1,
-    "enumValue": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "int32_value": 1,
-    "enum_value": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
+    2: .unique(proto: "enum_value", json: "enumValue", swift: "enumValue"),
+  ]
+
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .foo
       case 1: self = .bar
@@ -73,7 +70,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       case "bar": self = .bar
@@ -82,7 +79,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -91,7 +88,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -100,7 +97,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 0
@@ -111,7 +108,7 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"FOO\""
@@ -122,9 +119,9 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -137,29 +134,26 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
 
   }
 
-  public var int32Value: Int32 = 0
+  var int32Value: Int32 = 0
 
-  public var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
+  var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &int32Value)
-    case 2: handled = try setter.decodeSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: &enumValue)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &int32Value)
+    case 2: try setter.decodeSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: &enumValue)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1, protoFieldName: "int32_value", jsonFieldName: "int32Value", swiftFieldName: "int32Value")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
-      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: enumValue, protoFieldNumber: 2, protoFieldName: "enum_value", jsonFieldName: "enumValue", swiftFieldName: "enumValue")
+      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: enumValue, protoFieldNumber: 2)
     }
   }
 
@@ -170,34 +164,30 @@ struct UnittestDropUnknownFields_Foo: ProtobufGeneratedMessage {
   }
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
+struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "UnittestDropUnknownFields_FooWithExtraFields"}
   public var protoMessageName: String {return "FooWithExtraFields"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
-  public var jsonFieldNames: [String: Int] {return [
-    "int32Value": 1,
-    "enumValue": 2,
-    "extraInt32Value": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "int32_value": 1,
-    "enum_value": 2,
-    "extra_int32_value": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
+    2: .unique(proto: "enum_value", json: "enumValue", swift: "enumValue"),
+    3: .unique(proto: "extra_int32_value", json: "extraInt32Value", swift: "extraInt32Value"),
+  ]
+
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
     case qux // = 3
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .foo
       case 1: self = .bar
@@ -207,7 +197,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       case "bar": self = .bar
@@ -217,7 +207,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -227,7 +217,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -237,7 +227,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 0
@@ -249,7 +239,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"FOO\""
@@ -261,9 +251,9 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -277,35 +267,32 @@ struct UnittestDropUnknownFields_FooWithExtraFields: ProtobufGeneratedMessage {
 
   }
 
-  public var int32Value: Int32 = 0
+  var int32Value: Int32 = 0
 
-  public var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
+  var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
 
-  public var extraInt32Value: Int32 = 0
+  var extraInt32Value: Int32 = 0
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &int32Value)
-    case 2: handled = try setter.decodeSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: &enumValue)
-    case 3: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &extraInt32Value)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &int32Value)
+    case 2: try setter.decodeSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: &enumValue)
+    case 3: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &extraInt32Value)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1, protoFieldName: "int32_value", jsonFieldName: "int32Value", swiftFieldName: "int32Value")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: int32Value, protoFieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {
-      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: enumValue, protoFieldNumber: 2, protoFieldName: "enum_value", jsonFieldName: "enumValue", swiftFieldName: "enumValue")
+      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: enumValue, protoFieldNumber: 2)
     }
     if extraInt32Value != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: extraInt32Value, protoFieldNumber: 3, protoFieldName: "extra_int32_value", jsonFieldName: "extraInt32Value", swiftFieldName: "extraInt32Value")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: extraInt32Value, protoFieldNumber: 3)
     }
   }
 

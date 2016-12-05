@@ -351,14 +351,21 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         assertDecodeFails([183, 6, 0])
     }
 
-    func testEncoding_packedEnum() {
+    func testEncoding_packedEnum() throws {
         assertEncode([186, 6, 2, 5, 4]) {(o: inout MessageTestType) in o.packedEnum = [.foreignBar, .foreignFoo]}
         assertDecodeSucceeds([186, 6, 2, 4, 5]) {$0.packedEnum == [.foreignFoo, .foreignBar]}
         assertDecodeSucceeds([186, 6, 0]) {$0.packedEnum == []}
         assertDecodeSucceeds([186, 6, 1, 5, 186, 6, 0, 186, 6, 2, 132, 0]) {$0.packedEnum == [.foreignBar, .foreignFoo]}
-        // Proto2 silently drops unrecognized enum values
-        assertDecodeSucceeds([186, 6, 2, 6, 99]) {$0.packedEnum == [.foreignBaz]}
+        // Packed enums can be stored as plain repeated
         assertDecodeSucceeds([186, 6, 2, 4, 6, 184, 6, 5]) {$0.packedEnum == [.foreignFoo, .foreignBaz, .foreignBar]}
+        // Proto2 converts unrecognized enum values into unknowns
+        assertDecodeSucceeds([186, 6, 2, 6, 99]) {$0.packedEnum == [.foreignBaz]}
+        // Unknown enums within packed become separate unknown entries
+        let decoded1 = try ProtobufUnittest_TestPackedTypes(protobuf: Data(bytes: [186, 6, 3, 4, 99, 6]))
+        XCTAssertEqual(decoded1.packedEnum, [.foreignFoo, .foreignBaz])
+        let recoded1 = try decoded1.serializeProtobufBytes()
+        XCTAssertEqual(recoded1, [186, 6, 2, 4, 6, 186, 6, 1, 99])
+
         assertDecodeFails([186, 6, 3, 0, 1])
         assertDecodeFails([186, 6, 2, 0, 129])
         assertDecodeFails([185, 6])

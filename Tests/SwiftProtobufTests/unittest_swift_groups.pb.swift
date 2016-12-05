@@ -41,21 +41,18 @@ import SwiftProtobuf
 
 
 ///   Same field number appears inside and outside of the group.
-struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage, ProtoNameProviding {
   public var swiftClassName: String {return "SwiftTestGroupExtensions"}
   public var protoMessageName: String {return "SwiftTestGroupExtensions"}
   public var protoPackageName: String {return ""}
-  public var jsonFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "a", swift: "a"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -66,29 +63,20 @@ struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMes
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-    default:
-      if (2 <= protoFieldNumber && protoFieldNumber < 11) {
-        handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: SwiftTestGroupExtensions.self, protoFieldNumber: protoFieldNumber)
-      } else {
-        handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    default: if (2 <= protoFieldNumber && protoFieldNumber < 11) {
+        try setter.decodeExtensionField(values: &extensionFieldValues, messageType: SwiftTestGroupExtensions.self, protoFieldNumber: protoFieldNumber)
       }
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _a {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     try extensionFieldValues.traverse(visitor: &visitor, start: 2, end: 11)
     unknown.traverse(visitor: &visitor)
@@ -121,23 +109,23 @@ struct SwiftTestGroupExtensions: ProtobufGeneratedMessage, ProtobufExtensibleMes
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, SwiftTestGroupExtensions>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return SwiftTestGroupExtensions._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
+  }
 }
 
-struct ExtensionGroup: ProtobufGeneratedMessage {
+struct ExtensionGroup: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ExtensionGroup"}
   public var protoMessageName: String {return "ExtensionGroup"}
   public var protoPackageName: String {return ""}
-  public var jsonFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "a", swift: "a"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -148,25 +136,18 @@ struct ExtensionGroup: ProtobufGeneratedMessage {
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _a {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -178,21 +159,18 @@ struct ExtensionGroup: ProtobufGeneratedMessage {
   }
 }
 
-struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
+struct RepeatedExtensionGroup: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "RepeatedExtensionGroup"}
   public var protoMessageName: String {return "RepeatedExtensionGroup"}
   public var protoPackageName: String {return ""}
-  public var jsonFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "a", swift: "a"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -203,25 +181,18 @@ struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _a {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -233,21 +204,18 @@ struct RepeatedExtensionGroup: ProtobufGeneratedMessage {
   }
 }
 
-struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
+struct SwiftTestGroupUnextended: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "SwiftTestGroupUnextended"}
   public var protoMessageName: String {return "SwiftTestGroupUnextended"}
   public var protoPackageName: String {return ""}
-  public var jsonFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "a", swift: "a"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -258,25 +226,18 @@ struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-    default:
-      handled = false
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    default: break
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _a {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     unknown.traverse(visitor: &visitor)
   }
@@ -288,37 +249,37 @@ struct SwiftTestGroupUnextended: ProtobufGeneratedMessage {
   }
 }
 
-let SwiftTestGroupExtensions_extensionGroup = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 2, protoFieldName: "extensiongroup", jsonFieldName: "extensiongroup", swiftFieldName: "extensionGroup", defaultValue: ExtensionGroup())
+let Extensions_extensionGroup = ProtobufGenericMessageExtension<ProtobufOptionalGroupField<ExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 2, fieldNames: .same(proto: "extensiongroup", swift: "extensionGroup"), defaultValue: ExtensionGroup())
 
-let SwiftTestGroupExtensions_repeatedExtensionGroup = ProtobufGenericMessageExtension<ProtobufRepeatedGroupField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 3, protoFieldName: "repeatedextensiongroup", jsonFieldName: "repeatedextensiongroup", swiftFieldName: "repeatedExtensionGroup", defaultValue: [])
+let Extensions_repeatedExtensionGroup = ProtobufGenericMessageExtension<ProtobufRepeatedGroupField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 3, fieldNames: .same(proto: "repeatedextensiongroup", swift: "repeatedExtensionGroup"), defaultValue: [])
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
-    get {return getExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup) ?? ExtensionGroup()}
-    set {setExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup, value: newValue)}
+    get {return getExtensionValue(ext: Extensions_extensionGroup) ?? ExtensionGroup()}
+    set {setExtensionValue(ext: Extensions_extensionGroup, value: newValue)}
   }
   var hasExtensionGroup: Bool {
-    return hasExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup)
+    return hasExtensionValue(ext: Extensions_extensionGroup)
   }
   mutating func clearExtensionGroup() {
-    clearExtensionValue(ext: SwiftTestGroupExtensions_extensionGroup)
+    clearExtensionValue(ext: Extensions_extensionGroup)
   }
 }
 
 extension SwiftTestGroupExtensions {
   var repeatedExtensionGroup: [RepeatedExtensionGroup] {
-    get {return getExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup)}
-    set {setExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup, value: newValue)}
+    get {return getExtensionValue(ext: Extensions_repeatedExtensionGroup)}
+    set {setExtensionValue(ext: Extensions_repeatedExtensionGroup, value: newValue)}
   }
   var hasRepeatedExtensionGroup: Bool {
-    return hasExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup)
+    return hasExtensionValue(ext: Extensions_repeatedExtensionGroup)
   }
   mutating func clearRepeatedExtensionGroup() {
-    clearExtensionValue(ext: SwiftTestGroupExtensions_repeatedExtensionGroup)
+    clearExtensionValue(ext: Extensions_repeatedExtensionGroup)
   }
 }
 
 let UnittestSwiftGroups_Extensions: ProtobufExtensionSet = [
-  SwiftTestGroupExtensions_extensionGroup,
-  SwiftTestGroupExtensions_repeatedExtensionGroup
+  Extensions_extensionGroup,
+  Extensions_repeatedExtensionGroup
 ]

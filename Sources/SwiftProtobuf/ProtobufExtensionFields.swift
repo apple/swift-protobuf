@@ -30,10 +30,12 @@ private let i_16777619 = Int(16777619)
 public protocol ProtobufExtensionField: CustomDebugStringConvertible {
     init(protobufExtension: ProtobufMessageExtension)
     var hashValue: Int { get }
+    var protobufExtension: ProtobufMessageExtension { get }
+
     func isEqual(other: ProtobufExtensionField) -> Bool
 
     /// General field decoding
-    mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool
+    mutating func decodeField(setter: inout ProtobufFieldDecoder) throws
 
     /// Fields know their own type, so can dispatch to a visitor
     func traverse(visitor: inout ProtobufVisitor) throws
@@ -89,13 +91,13 @@ public struct ProtobufOptionalField<T: ProtobufTypeProperties>: ProtobufTypedExt
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeSingularField(fieldType: T.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeSingularField(fieldType: T.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if let v = value {
-            try visitor.visitSingularField(fieldType: T.self, value: v, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitSingularField(fieldType: T.self, value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 
@@ -145,13 +147,13 @@ public struct ProtobufRepeatedField<T: ProtobufTypeProperties>: ProtobufTypedExt
         return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeRepeatedField(fieldType: T.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeRepeatedField(fieldType: T.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if value.count > 0 {
-            try visitor.visitRepeatedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitRepeatedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -204,13 +206,13 @@ public struct ProtobufPackedField<T: ProtobufTypeProperties>: ProtobufTypedExten
         return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodePackedField(fieldType: T.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodePackedField(fieldType: T.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if value.count > 0 {
-            try visitor.visitPackedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitPackedField(fieldType: T.self, value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -258,13 +260,13 @@ public struct ProtobufOptionalMessageField<M: ProtobufAbstractMessage>: Protobuf
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeSingularMessageField(fieldType: M.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeSingularMessageField(fieldType: M.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if let v = value {
-            try visitor.visitSingularMessageField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitSingularMessageField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -310,13 +312,13 @@ public struct ProtobufRepeatedMessageField<M: ProtobufAbstractMessage>: Protobuf
         return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeRepeatedMessageField(fieldType: M.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeRepeatedMessageField(fieldType: M.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if value.count > 0 {
-            try visitor.visitRepeatedMessageField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitRepeatedMessageField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -358,13 +360,13 @@ public struct ProtobufOptionalGroupField<G: ProtobufMessage & Hashable>: Protobu
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeSingularGroupField(fieldType: G.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeSingularGroupField(fieldType: G.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if let v = value {
-            try visitor.visitSingularGroupField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitSingularGroupField(value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }
@@ -409,13 +411,13 @@ public struct ProtobufRepeatedGroupField<G: ProtobufMessage & Hashable>: Protobu
         return self == o
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws -> Bool {
-        return try setter.decodeRepeatedGroupField(fieldType: G.self, value: &value)
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder) throws {
+        try setter.decodeRepeatedGroupField(fieldType: G.self, value: &value)
     }
 
     public func traverse(visitor: inout ProtobufVisitor) throws {
         if value.count > 0 {
-            try visitor.visitRepeatedGroupField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber, protoFieldName: protobufExtension.protoFieldName, jsonFieldName: protobufExtension.jsonFieldName, swiftFieldName: protobufExtension.swiftFieldName)
+            try visitor.visitRepeatedGroupField(value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
 }

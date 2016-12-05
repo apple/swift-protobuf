@@ -25,14 +25,15 @@ public protocol ProtobufBinaryCodableType: ProtobufTypePropertiesBase {
 
     static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool
     static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool
-    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws -> Bool
-    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws -> Bool
-    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws -> Bool
-    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws -> Bool
-    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws -> Bool
-    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool
+    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws
+    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws
+    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws
+    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws
+    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws
 
-    static func setFromProtobufBinaryDecoder(decoder: inout ProtobufBinaryDecoder, value: inout [BaseType]) throws -> Bool
+    // The `unknown` argument is only used for decoding packed enum fields
+    // It is populated with a varint-encoded list of the unknown enum values
+    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws
 
     // Special interface for decoding a value of this type as a map value.
     static func decodeProtobufMapValue(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws
@@ -58,39 +59,35 @@ public extension ProtobufBinaryCodableType {
         throw ProtobufDecodingError.schemaMismatch
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
         throw ProtobufDecodingError.schemaMismatch
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
         throw ProtobufDecodingError.schemaMismatch
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
         throw ProtobufDecodingError.schemaMismatch
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
         throw ProtobufDecodingError.schemaMismatch
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws {
         throw ProtobufDecodingError.schemaMismatch
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
-        throw ProtobufDecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufBinaryDecoder(decoder: inout ProtobufBinaryDecoder, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         throw ProtobufDecodingError.schemaMismatch
     }
 }
 
 public extension ProtobufTypeProperties {
     public static func decodeProtobufMapValue(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws {
-        let handled = try decoder.decodeSingularField(fieldType: Self.self, value: &value)
-        assert(handled)
+        try decoder.decodeSingularField(fieldType: Self.self, value: &value)
+        assert(value != nil)
     }
 }
 
@@ -112,7 +109,7 @@ public extension ProtobufFloat {
         encoder.putFloatValue(value: value)
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
         assert(fixed4.count == 4)
         var i: Float = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -122,10 +119,9 @@ public extension ProtobufFloat {
             }
         }
         value = i
-        return true
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
         assert(fixed4.count == 4)
         var i: Float = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -135,15 +131,13 @@ public extension ProtobufFloat {
             }
         }
         value.append(i)
-        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeFloat() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Float) -> Int {
@@ -161,7 +155,7 @@ public extension ProtobufDouble {
         encoder.putDoubleValue(value: value)
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
         assert(fixed8.count == 8)
         var i: Double = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -171,10 +165,9 @@ public extension ProtobufDouble {
             }
         }
         value = i
-        return true
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
         assert(fixed8.count == 8)
         var i: Double = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -184,15 +177,13 @@ public extension ProtobufDouble {
             }
         }
         value.append(i)
-        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeDouble() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Double) -> Int {
@@ -220,12 +211,11 @@ public extension ProtobufInt32 {
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeInt32() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Int32) -> Int {
@@ -253,12 +243,11 @@ public extension ProtobufInt64 {
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeInt64() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Int64) -> Int {
@@ -286,12 +275,11 @@ public extension ProtobufUInt32 {
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeUInt32() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: UInt32) -> Int {
@@ -319,12 +307,11 @@ public extension ProtobufUInt64 {
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeUInt64() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
@@ -354,12 +341,11 @@ public extension ProtobufSInt32 {
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeSInt32() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Int32) -> Int {
@@ -387,12 +373,11 @@ public extension ProtobufSInt64 {
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeSInt64() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Int64) -> Int {
@@ -409,7 +394,7 @@ public extension ProtobufFixed32 {
         encoder.putFixedUInt32(value: value)
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
         assert(fixed4.count == 4)
         var i: UInt32 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -419,10 +404,9 @@ public extension ProtobufFixed32 {
             }
         }
         value = i
-        return true
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
         assert(fixed4.count == 4)
         var i: UInt32 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -432,15 +416,13 @@ public extension ProtobufFixed32 {
             }
         }
         value.append(i)
-        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeFixed32() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: UInt32) -> Int {
@@ -457,7 +439,7 @@ public extension ProtobufFixed64 {
         encoder.putFixedUInt64(value: value.littleEndian)
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
         assert(fixed8.count == 8)
         var i: UInt64 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -467,10 +449,9 @@ public extension ProtobufFixed64 {
             }
         }
         value = i
-        return true
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
         assert(fixed8.count == 8)
         var i: UInt64 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -480,15 +461,13 @@ public extension ProtobufFixed64 {
             }
         }
         value.append(i)
-        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeFixed64() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
@@ -505,7 +484,7 @@ public extension ProtobufSFixed32 {
         encoder.putFixedUInt32(value: UInt32(bitPattern: value))
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
         assert(fixed4.count == 4)
         var i: Int32 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -515,10 +494,9 @@ public extension ProtobufSFixed32 {
             }
         }
         value = i
-        return true
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
         assert(fixed4.count == 4)
         var i: Int32 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -528,15 +506,13 @@ public extension ProtobufSFixed32 {
             }
         }
         value.append(i)
-        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeSFixed32() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Int32) -> Int {
@@ -553,7 +529,7 @@ public extension ProtobufSFixed64 {
         encoder.putFixedUInt64(value: UInt64(bitPattern: value.littleEndian))
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
         assert(fixed8.count == 8)
         var i: Int64 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -563,10 +539,9 @@ public extension ProtobufSFixed64 {
             }
         }
         value = i
-        return true
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
         assert(fixed8.count == 8)
         var i: Int64 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
@@ -576,15 +551,13 @@ public extension ProtobufSFixed64 {
             }
         }
         value.append(i)
-        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeSFixed64() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Int64) -> Int {
@@ -612,12 +585,11 @@ public extension ProtobufBool {
         return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
         while let t = try decoder.decodeBool() {
             value.append(t)
         }
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Bool) -> Int {
@@ -647,20 +619,20 @@ public extension ProtobufString {
         encoder.putStringValue(value: value)
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout String?) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout String?) throws {
         if let s = bufferToString(buffer: buffer) {
             value = s
-            return true
+        } else {
+            throw ProtobufDecodingError.invalidUTF8
         }
-        throw ProtobufDecodingError.invalidUTF8
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [String]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [String], unknown: inout Data) throws {
         if let s = bufferToString(buffer: buffer) {
             value.append(s)
-            return true
+         } else {
+            throw ProtobufDecodingError.invalidUTF8
         }
-        throw ProtobufDecodingError.invalidUTF8
     }
 
     public static func encodedSizeWithoutTag(of value: String) -> Int {
@@ -677,17 +649,15 @@ public extension ProtobufBytes {
     public static var protobufWireFormat: WireFormat { return .lengthDelimited }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Data) {
-        encoder.putBytesValue(value: [UInt8](value))
+        encoder.putBytesValue(value: value)
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout Data?) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout Data?) throws {
         value = Data(bytes: [UInt8](buffer))
-        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Data]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Data], unknown: inout Data) throws {
         value.append(Data(bytes: [UInt8](buffer)))
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Data) -> Int {
@@ -701,8 +671,9 @@ public extension ProtobufBytes {
 //
 extension ProtobufEnum where RawValue == Int {
     public static var protobufWireFormat: WireFormat { return .varint }
-    public static func decodeOptionalField(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws -> Bool {
-        return try decoder.decodeSingularField(fieldType: Self.self, value: &value)
+    public static func decodeOptionalField(decoder: inout ProtobufFieldDecoder, value: inout BaseType?) throws-> Bool {
+        try decoder.decodeSingularField(fieldType: Self.self, value: &value)
+        return true
     }
 
     public static func serializeProtobufValue(encoder: inout ProtobufBinaryEncoder, value: Self) {
@@ -727,14 +698,30 @@ extension ProtobufEnum where RawValue == Int {
         }
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Self]) throws -> Bool {
+    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Self], unknown: inout Data) throws {
         var decoder = ProtobufBinaryDecoder(protobufPointer: buffer)
+        var extras = [Int32]()
         while let t = try decoder.decodeInt32() {
             if let e = Self(rawValue:Int(t)) {
                 value.append(e)
+            } else {
+                extras.append(t)
             }
         }
-        return true
+        if !extras.isEmpty {
+            var dataSize = 0
+            for v in extras {
+                dataSize += Varint.encodedSize(of: Int64(v))
+            }
+            var data = Data(count: dataSize)
+            data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
+                var encoder = ProtobufBinaryEncoder(pointer: pointer)
+                for v in extras {
+                    encoder.putVarInt(value: Int64(v))
+                }
+            }
+            unknown.append(data)
+        }
     }
 
     public static func encodedSizeWithoutTag(of value: Self) -> Int {
@@ -755,6 +742,7 @@ public protocol ProtobufBinaryMessageBase: ProtobufMessageBase {
     init(protobuf: Data, extensions: ProtobufExtensionSet?) throws
     init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws
     init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws
+    mutating func decodeIntoSelf(protobuf: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws
 }
 
 public extension ProtobufBinaryMessageBase {
@@ -789,14 +777,21 @@ public extension ProtobufBinaryMessageBase {
 
 public extension ProtobufMessage {
     static func decodeProtobufMapValue(decoder: inout ProtobufFieldDecoder, value: inout Self?) throws {
-        let handled = try decoder.decodeSingularMessageField(fieldType: Self.self, value: &value)
-        assert(handled)
+        try decoder.decodeSingularMessageField(fieldType: Self.self, value: &value)
+        assert(value != nil)
     }
 
     init(protobuf: Data) throws {
         try self.init(protobuf: protobuf, extensions: nil)
     }
 
+    init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws {
+        try self.init(protobufBuffer: protobufBuffer, extensions: nil)
+    }
+}
+
+// For Proto3 messages, we need to preserve the unknown fields when we're done
+public extension ProtobufProto3Message {
     init(protobuf: Data, extensions: ProtobufExtensionSet? = nil) throws {
         self.init()
         // We need to gracefully handle empty data, because the pointer passed into withUnsafeBytes'
@@ -806,20 +801,45 @@ public extension ProtobufMessage {
         }
         try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
             let bufferPointer = UnsafeBufferPointer<UInt8>(start: pointer, count: protobuf.count)
-            try decodeIntoSelf(from: bufferPointer, extensions: extensions)
+            try decodeIntoSelf(protobuf: bufferPointer, extensions: extensions)
         }
     }
 
-    init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws {
-        try self.init(protobufBuffer: protobufBuffer, extensions: nil)
-    }
     init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet? = nil) throws {
         self.init()
-        try decodeIntoSelf(from: protobufBuffer, extensions: extensions)
+        try decodeIntoSelf(protobuf: protobufBuffer, extensions: extensions)
     }
-    private mutating func decodeIntoSelf(from bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws {
+
+    public mutating func decodeIntoSelf(protobuf bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws {
         var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: bufferPointer, extensions: extensions)
         try protobufDecoder.decodeFullObject(message: &self)
+    }
+}
+
+// For Proto2 messages, we need to preserve the unknown fields when we're done
+public extension ProtobufProto2Message {
+    init(protobuf: Data, extensions: ProtobufExtensionSet? = nil) throws {
+        self.init()
+        // We need to gracefully handle empty data, because the pointer passed into withUnsafeBytes'
+        // closure will be nil in that case.
+        guard !protobuf.isEmpty else {
+            return
+        }
+        try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
+            let bufferPointer = UnsafeBufferPointer<UInt8>(start: pointer, count: protobuf.count)
+            try decodeIntoSelf(protobuf: bufferPointer, extensions: extensions)
+        }
+    }
+
+    init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet? = nil) throws {
+        self.init()
+        try decodeIntoSelf(protobuf: protobufBuffer, extensions: extensions)
+    }
+
+    public mutating func decodeIntoSelf(protobuf bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet?) throws {
+        var protobufDecoder = ProtobufBinaryDecoder(protobufPointer: bufferPointer, extensions: extensions)
+        try protobufDecoder.decodeFullObject(message: &self)
+        unknown.append(protobufData: protobufDecoder.unknownData)
     }
 }
 

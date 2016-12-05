@@ -43,42 +43,42 @@ import SwiftProtobuf
 
 
 enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foo // = 1
 
-  public init() {
+  init() {
     self = .foo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .foo
     default: return nil
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foo": self = .foo
     default: return nil
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo
     default: return nil
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "FOO": self = .foo
     default: return nil
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foo: return 1
@@ -86,7 +86,7 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foo: return "\"FOO\""
@@ -94,9 +94,9 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foo: return ".foo"
@@ -108,21 +108,18 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: ProtobufEnum {
 
 //  *_generic_services are false by default.
 
-struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessage, ProtobufExtensibleMessage {
+struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtobufExtensibleMessage, ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_NoGenericServicesTest_TestMessage"}
   public var protoMessageName: String {return "TestMessage"}
   public var protoPackageName: String {return "google.protobuf.no_generic_services_test"}
-  public var jsonFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "a": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "a", swift: "a"),
+  ]
 
-  var unknown = ProtobufUnknownStorage()
+  public var unknown = ProtobufUnknownStorage()
 
   private var _a: Int32? = nil
-  public var a: Int32 {
+  var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
@@ -133,29 +130,20 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessa
     return _a = nil
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-    default:
-      if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
-        handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, protoFieldNumber: protoFieldNumber)
-      } else {
-        handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+    default: if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
+        try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, protoFieldNumber: protoFieldNumber)
       }
-    }
-    if handled {
-        return true
-    } else {
-        return try unknown.decodeField(setter: &setter)
     }
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if let v = _a {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: v, protoFieldNumber: 1)
     }
     try extensionFieldValues.traverse(visitor: &visitor, start: 1000, end: 536870912)
     unknown.traverse(visitor: &visitor)
@@ -188,23 +176,26 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: ProtobufGeneratedMessa
   public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, Google_Protobuf_NoGenericServicesTest_TestMessage>) -> Bool {
     return extensionFieldValues[ext.protoFieldNumber] is F
   }
+  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
+    return Google_Protobuf_NoGenericServicesTest_TestMessage._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
+  }
 }
 
-let Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(protoFieldNumber: 1000, protoFieldName: "test_extension", jsonFieldName: "testExtension", swiftFieldName: "testExtension", defaultValue: 0)
+let Google_Protobuf_NoGenericServicesTest_Extensions_testExtension = ProtobufGenericMessageExtension<ProtobufOptionalField<ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(protoFieldNumber: 1000, fieldNames: .unique(proto: "test_extension", json: "testExtension", swift: "Google_Protobuf_NoGenericServicesTest_testExtension"), defaultValue: 0)
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
-  var testExtension: Int32 {
-    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension) ?? 0}
-    set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension, value: newValue)}
+  var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
+    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension) ?? 0}
+    set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension, value: newValue)}
   }
-  var hasTestExtension: Bool {
-    return hasExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension)
+  var hasGoogle_Protobuf_NoGenericServicesTest_testExtension: Bool {
+    return hasExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension)
   }
-  mutating func clearTestExtension() {
-    clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension)
+  mutating func clearGoogle_Protobuf_NoGenericServicesTest_testExtension() {
+    clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension)
   }
 }
 
 let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: ProtobufExtensionSet = [
-  Google_Protobuf_NoGenericServicesTest_TestMessage_testExtension
+  Google_Protobuf_NoGenericServicesTest_Extensions_testExtension
 ]

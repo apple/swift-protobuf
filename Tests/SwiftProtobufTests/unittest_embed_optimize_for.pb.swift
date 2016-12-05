@@ -46,18 +46,14 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
+struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestEmbedOptimizedForSize"}
   public var protoMessageName: String {return "TestEmbedOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
-  public var jsonFieldNames: [String: Int] {return [
-    "optionalMessage": 1,
-    "repeatedMessage": 2,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "optional_message": 1,
-    "repeated_message": 2,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "optional_message", json: "optionalMessage", swift: "optionalMessage"),
+    2: .unique(proto: "repeated_message", json: "repeatedMessage", swift: "repeatedMessage"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = ProtobufUnittest_TestEmbedOptimizedForSize
@@ -67,27 +63,20 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
-      case 2: handled = try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_repeatedMessage)
-      default:
-        handled = false
-      }
-      if handled {
-          return true
-      } else {
-          return try unknown.decodeField(setter: &setter)
+      case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
+      case 2: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_repeatedMessage)
+      default: break
       }
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if let v = _optionalMessage {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1, protoFieldName: "optional_message", jsonFieldName: "optionalMessage", swiftFieldName: "optionalMessage")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
       if !_repeatedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedMessage, protoFieldNumber: 2, protoFieldName: "repeated_message", jsonFieldName: "repeatedMessage", swiftFieldName: "repeatedMessage")
+        try visitor.visitRepeatedMessageField(value: _repeatedMessage, protoFieldNumber: 2)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -110,9 +99,14 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
 
   private var _storage = _StorageClass()
 
+  public var unknown: ProtobufUnknownStorage {
+    get {return _storage.unknown}
+    set {_storage.unknown = newValue}
+  }
+
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
   ///   one optimized for speed works.
-  public var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
+  var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
     get {return _storage._optionalMessage ?? ProtobufUnittest_TestOptimizedForSize()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
@@ -123,15 +117,15 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: ProtobufGeneratedMessage {
     return _storage._optionalMessage = nil
   }
 
-  public var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
+  var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
     get {return _storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {

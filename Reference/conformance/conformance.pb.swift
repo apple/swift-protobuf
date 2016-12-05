@@ -60,17 +60,17 @@ import SwiftProtobuf
 //      iOS apps, where fork/stdin/stdout are not available.
 
 enum Conformance_WireFormat: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
   case json_ // = 2
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .unspecified
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .protobuf
@@ -79,7 +79,7 @@ enum Conformance_WireFormat: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "unspecified": self = .unspecified
     case "protobuf": self = .protobuf
@@ -88,7 +88,7 @@ enum Conformance_WireFormat: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
@@ -97,7 +97,7 @@ enum Conformance_WireFormat: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
@@ -106,7 +106,7 @@ enum Conformance_WireFormat: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .unspecified: return 0
@@ -117,7 +117,7 @@ enum Conformance_WireFormat: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .unspecified: return "\"UNSPECIFIED\""
@@ -128,9 +128,9 @@ enum Conformance_WireFormat: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .unspecified: return ".unspecified"
@@ -144,17 +144,17 @@ enum Conformance_WireFormat: ProtobufEnum {
 }
 
 enum Conformance_ForeignEnum: ProtobufEnum {
-  public typealias RawValue = Int
+  typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
   case foreignBaz // = 2
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .foreignFoo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .foreignFoo
     case 1: self = .foreignBar
@@ -163,7 +163,7 @@ enum Conformance_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foreignFoo": self = .foreignFoo
     case "foreignBar": self = .foreignBar
@@ -172,7 +172,7 @@ enum Conformance_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_FOO": self = .foreignFoo
     case "FOREIGN_BAR": self = .foreignBar
@@ -181,7 +181,7 @@ enum Conformance_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "FOREIGN_FOO": self = .foreignFoo
     case "FOREIGN_BAR": self = .foreignBar
@@ -190,7 +190,7 @@ enum Conformance_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foreignFoo: return 0
@@ -201,7 +201,7 @@ enum Conformance_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foreignFoo: return "\"FOREIGN_FOO\""
@@ -212,9 +212,9 @@ enum Conformance_ForeignEnum: ProtobufEnum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foreignFoo: return ".foreignFoo"
@@ -232,20 +232,16 @@ enum Conformance_ForeignEnum: ProtobufEnum {
 ///     1. parse this proto (which should always succeed)
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
+struct Conformance_ConformanceRequest: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ConformanceRequest"}
   public var protoMessageName: String {return "ConformanceRequest"}
   public var protoPackageName: String {return "conformance"}
-  public var jsonFieldNames: [String: Int] {return [
-    "protobufPayload": 1,
-    "jsonPayload": 2,
-    "requestedOutputFormat": 3,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "protobuf_payload": 1,
-    "json_payload": 2,
-    "requested_output_format": 3,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "protobuf_payload", json: "protobufPayload", swift: "protobufPayload"),
+    2: .unique(proto: "json_payload", json: "jsonPayload", swift: "jsonPayload"),
+    3: .unique(proto: "requested_output_format", json: "requestedOutputFormat", swift: "requestedOutputFormat"),
+  ]
+
 
   enum OneOf_Payload: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case protobufPayload(Data)
@@ -260,36 +256,33 @@ struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 1:
         var value = Data()
-        handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .protobufPayload(value)
       case 2:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .jsonPayload(value)
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
       switch self {
       case .protobufPayload(let v):
         if start <= 1 && 1 < end {
-          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 1, protoFieldName: "protobuf_payload", jsonFieldName: "protobufPayload", swiftFieldName: "protobufPayload")
+          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 1)
         }
       case .jsonPayload(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "json_payload", jsonFieldName: "jsonPayload", swiftFieldName: "jsonPayload")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
         }
       case .None:
         break
@@ -297,7 +290,7 @@ struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
     }
   }
 
-  public var protobufPayload: Data {
+  var protobufPayload: Data {
     get {
       if case .protobufPayload(let v) = payload {
         return v
@@ -311,7 +304,7 @@ struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
 
   public var payload: Conformance_ConformanceRequest.OneOf_Payload = .None
 
-  public var jsonPayload: String {
+  var jsonPayload: String {
     get {
       if case .jsonPayload(let v) = payload {
         return v
@@ -324,26 +317,22 @@ struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
   }
 
   ///   Which format should the testee serialize its message to?
-  public var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
+  var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1, 2:
-      handled = try payload.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-    case 3: handled = try setter.decodeSingularField(fieldType: Conformance_WireFormat.self, value: &requestedOutputFormat)
-    default:
-      handled = false
+    case 1, 2: try payload.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+    case 3: try setter.decodeSingularField(fieldType: Conformance_WireFormat.self, value: &requestedOutputFormat)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     try payload.traverse(visitor: &visitor, start: 1, end: 3)
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
-      try visitor.visitSingularField(fieldType: Conformance_WireFormat.self, value: requestedOutputFormat, protoFieldNumber: 3, protoFieldName: "requested_output_format", jsonFieldName: "requestedOutputFormat", swiftFieldName: "requestedOutputFormat")
+      try visitor.visitSingularField(fieldType: Conformance_WireFormat.self, value: requestedOutputFormat, protoFieldNumber: 3)
     }
   }
 
@@ -355,26 +344,19 @@ struct Conformance_ConformanceRequest: ProtobufGeneratedMessage {
 }
 
 ///   Represents a single test case's output.
-struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
+struct Conformance_ConformanceResponse: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ConformanceResponse"}
   public var protoMessageName: String {return "ConformanceResponse"}
   public var protoPackageName: String {return "conformance"}
-  public var jsonFieldNames: [String: Int] {return [
-    "parseError": 1,
-    "serializeError": 6,
-    "runtimeError": 2,
-    "protobufPayload": 3,
-    "jsonPayload": 4,
-    "skipped": 5,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "parse_error": 1,
-    "serialize_error": 6,
-    "runtime_error": 2,
-    "protobuf_payload": 3,
-    "json_payload": 4,
-    "skipped": 5,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "parse_error", json: "parseError", swift: "parseError"),
+    6: .unique(proto: "serialize_error", json: "serializeError", swift: "serializeError"),
+    2: .unique(proto: "runtime_error", json: "runtimeError", swift: "runtimeError"),
+    3: .unique(proto: "protobuf_payload", json: "protobufPayload", swift: "protobufPayload"),
+    4: .unique(proto: "json_payload", json: "jsonPayload", swift: "jsonPayload"),
+    5: .same(proto: "skipped", swift: "skipped"),
+  ]
+
 
   enum OneOf_Result: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case parseError(String)
@@ -393,68 +375,65 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 1:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .parseError(value)
       case 2:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .runtimeError(value)
       case 3:
         var value = Data()
-        handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .protobufPayload(value)
       case 4:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .jsonPayload(value)
       case 5:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .skipped(value)
       case 6:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .serializeError(value)
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
       switch self {
       case .parseError(let v):
         if start <= 1 && 1 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1, protoFieldName: "parse_error", jsonFieldName: "parseError", swiftFieldName: "parseError")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
         }
       case .runtimeError(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2, protoFieldName: "runtime_error", jsonFieldName: "runtimeError", swiftFieldName: "runtimeError")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
         }
       case .protobufPayload(let v):
         if start <= 3 && 3 < end {
-          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 3, protoFieldName: "protobuf_payload", jsonFieldName: "protobufPayload", swiftFieldName: "protobufPayload")
+          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 3)
         }
       case .jsonPayload(let v):
         if start <= 4 && 4 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 4, protoFieldName: "json_payload", jsonFieldName: "jsonPayload", swiftFieldName: "jsonPayload")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 4)
         }
       case .skipped(let v):
         if start <= 5 && 5 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 5, protoFieldName: "skipped", jsonFieldName: "skipped", swiftFieldName: "skipped")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 5)
         }
       case .serializeError(let v):
         if start <= 6 && 6 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 6, protoFieldName: "serialize_error", jsonFieldName: "serializeError", swiftFieldName: "serializeError")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 6)
         }
       case .None:
         break
@@ -467,7 +446,7 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
   ///  
   ///   Setting this string does not necessarily mean the testee failed the
   ///   test.  Some of the test cases are intentionally invalid input.
-  public var parseError: String {
+  var parseError: String {
     get {
       if case .parseError(let v) = result {
         return v
@@ -484,7 +463,7 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
   ///   If the input was successfully parsed but errors occurred when
   ///   serializing it to the requested output format, set the error message in
   ///   this field.
-  public var serializeError: String {
+  var serializeError: String {
     get {
       if case .serializeError(let v) = result {
         return v
@@ -499,7 +478,7 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
   ///   This should be set if some other error occurred.  This will always
   ///   indicate that the test failed.  The string can provide more information
   ///   about the failure.
-  public var runtimeError: String {
+  var runtimeError: String {
     get {
       if case .runtimeError(let v) = result {
         return v
@@ -513,7 +492,7 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
   ///   If the input was successfully parsed and the requested output was
   ///   protobuf, serialize it to protobuf and set it in this field.
-  public var protobufPayload: Data {
+  var protobufPayload: Data {
     get {
       if case .protobufPayload(let v) = result {
         return v
@@ -527,7 +506,7 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
   ///   If the input was successfully parsed and the requested output was JSON,
   ///   serialize to JSON and set it in this field.
-  public var jsonPayload: String {
+  var jsonPayload: String {
     get {
       if case .jsonPayload(let v) = result {
         return v
@@ -541,7 +520,7 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
   ///   For when the testee skipped the test, likely because a certain feature
   ///   wasn't supported, like JSON input/output.
-  public var skipped: String {
+  var skipped: String {
     get {
       if case .skipped(let v) = result {
         return v
@@ -553,17 +532,13 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
     }
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1, 6, 2, 3, 4, 5:
-      handled = try result.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-    default:
-      handled = false
+    case 1, 6, 2, 3, 4, 5: try result.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -578,230 +553,131 @@ struct Conformance_ConformanceResponse: ProtobufGeneratedMessage {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
+struct Conformance_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "conformance"}
-  public var jsonFieldNames: [String: Int] {return [
-    "optionalInt32": 1,
-    "optionalInt64": 2,
-    "optionalUint32": 3,
-    "optionalUint64": 4,
-    "optionalSint32": 5,
-    "optionalSint64": 6,
-    "optionalFixed32": 7,
-    "optionalFixed64": 8,
-    "optionalSfixed32": 9,
-    "optionalSfixed64": 10,
-    "optionalFloat": 11,
-    "optionalDouble": 12,
-    "optionalBool": 13,
-    "optionalString": 14,
-    "optionalBytes": 15,
-    "optionalNestedMessage": 18,
-    "optionalForeignMessage": 19,
-    "optionalNestedEnum": 21,
-    "optionalForeignEnum": 22,
-    "optionalStringPiece": 24,
-    "optionalCord": 25,
-    "recursiveMessage": 27,
-    "repeatedInt32": 31,
-    "repeatedInt64": 32,
-    "repeatedUint32": 33,
-    "repeatedUint64": 34,
-    "repeatedSint32": 35,
-    "repeatedSint64": 36,
-    "repeatedFixed32": 37,
-    "repeatedFixed64": 38,
-    "repeatedSfixed32": 39,
-    "repeatedSfixed64": 40,
-    "repeatedFloat": 41,
-    "repeatedDouble": 42,
-    "repeatedBool": 43,
-    "repeatedString": 44,
-    "repeatedBytes": 45,
-    "repeatedNestedMessage": 48,
-    "repeatedForeignMessage": 49,
-    "repeatedNestedEnum": 51,
-    "repeatedForeignEnum": 52,
-    "repeatedStringPiece": 54,
-    "repeatedCord": 55,
-    "mapInt32Int32": 56,
-    "mapInt64Int64": 57,
-    "mapUint32Uint32": 58,
-    "mapUint64Uint64": 59,
-    "mapSint32Sint32": 60,
-    "mapSint64Sint64": 61,
-    "mapFixed32Fixed32": 62,
-    "mapFixed64Fixed64": 63,
-    "mapSfixed32Sfixed32": 64,
-    "mapSfixed64Sfixed64": 65,
-    "mapInt32Float": 66,
-    "mapInt32Double": 67,
-    "mapBoolBool": 68,
-    "mapStringString": 69,
-    "mapStringBytes": 70,
-    "mapStringNestedMessage": 71,
-    "mapStringForeignMessage": 72,
-    "mapStringNestedEnum": 73,
-    "mapStringForeignEnum": 74,
-    "oneofUint32": 111,
-    "oneofNestedMessage": 112,
-    "oneofString": 113,
-    "oneofBytes": 114,
-    "optionalBoolWrapper": 201,
-    "optionalInt32Wrapper": 202,
-    "optionalInt64Wrapper": 203,
-    "optionalUint32Wrapper": 204,
-    "optionalUint64Wrapper": 205,
-    "optionalFloatWrapper": 206,
-    "optionalDoubleWrapper": 207,
-    "optionalStringWrapper": 208,
-    "optionalBytesWrapper": 209,
-    "repeatedBoolWrapper": 211,
-    "repeatedInt32Wrapper": 212,
-    "repeatedInt64Wrapper": 213,
-    "repeatedUint32Wrapper": 214,
-    "repeatedUint64Wrapper": 215,
-    "repeatedFloatWrapper": 216,
-    "repeatedDoubleWrapper": 217,
-    "repeatedStringWrapper": 218,
-    "repeatedBytesWrapper": 219,
-    "optionalDuration": 301,
-    "optionalTimestamp": 302,
-    "optionalFieldMask": 303,
-    "optionalStruct": 304,
-    "optionalAny": 305,
-    "optionalValue": 306,
-    "repeatedDuration": 311,
-    "repeatedTimestamp": 312,
-    "repeatedFieldmask": 313,
-    "repeatedStruct": 324,
-    "repeatedAny": 315,
-    "repeatedValue": 316,
-    "fieldname1": 401,
-    "fieldName2": 402,
-    "FieldName3": 403,
-    "fieldName4": 404,
-    "field0name5": 405,
-    "field0Name6": 406,
-    "fieldName7": 407,
-    "FieldName8": 408,
-    "fieldName9": 409,
-    "FieldName10": 410,
-    "FIELDNAME11": 411,
-    "FIELDName12": 412,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "optional_int32": 1,
-    "optional_int64": 2,
-    "optional_uint32": 3,
-    "optional_uint64": 4,
-    "optional_sint32": 5,
-    "optional_sint64": 6,
-    "optional_fixed32": 7,
-    "optional_fixed64": 8,
-    "optional_sfixed32": 9,
-    "optional_sfixed64": 10,
-    "optional_float": 11,
-    "optional_double": 12,
-    "optional_bool": 13,
-    "optional_string": 14,
-    "optional_bytes": 15,
-    "optional_nested_message": 18,
-    "optional_foreign_message": 19,
-    "optional_nested_enum": 21,
-    "optional_foreign_enum": 22,
-    "optional_string_piece": 24,
-    "optional_cord": 25,
-    "recursive_message": 27,
-    "repeated_int32": 31,
-    "repeated_int64": 32,
-    "repeated_uint32": 33,
-    "repeated_uint64": 34,
-    "repeated_sint32": 35,
-    "repeated_sint64": 36,
-    "repeated_fixed32": 37,
-    "repeated_fixed64": 38,
-    "repeated_sfixed32": 39,
-    "repeated_sfixed64": 40,
-    "repeated_float": 41,
-    "repeated_double": 42,
-    "repeated_bool": 43,
-    "repeated_string": 44,
-    "repeated_bytes": 45,
-    "repeated_nested_message": 48,
-    "repeated_foreign_message": 49,
-    "repeated_nested_enum": 51,
-    "repeated_foreign_enum": 52,
-    "repeated_string_piece": 54,
-    "repeated_cord": 55,
-    "map_int32_int32": 56,
-    "map_int64_int64": 57,
-    "map_uint32_uint32": 58,
-    "map_uint64_uint64": 59,
-    "map_sint32_sint32": 60,
-    "map_sint64_sint64": 61,
-    "map_fixed32_fixed32": 62,
-    "map_fixed64_fixed64": 63,
-    "map_sfixed32_sfixed32": 64,
-    "map_sfixed64_sfixed64": 65,
-    "map_int32_float": 66,
-    "map_int32_double": 67,
-    "map_bool_bool": 68,
-    "map_string_string": 69,
-    "map_string_bytes": 70,
-    "map_string_nested_message": 71,
-    "map_string_foreign_message": 72,
-    "map_string_nested_enum": 73,
-    "map_string_foreign_enum": 74,
-    "oneof_uint32": 111,
-    "oneof_nested_message": 112,
-    "oneof_string": 113,
-    "oneof_bytes": 114,
-    "optional_bool_wrapper": 201,
-    "optional_int32_wrapper": 202,
-    "optional_int64_wrapper": 203,
-    "optional_uint32_wrapper": 204,
-    "optional_uint64_wrapper": 205,
-    "optional_float_wrapper": 206,
-    "optional_double_wrapper": 207,
-    "optional_string_wrapper": 208,
-    "optional_bytes_wrapper": 209,
-    "repeated_bool_wrapper": 211,
-    "repeated_int32_wrapper": 212,
-    "repeated_int64_wrapper": 213,
-    "repeated_uint32_wrapper": 214,
-    "repeated_uint64_wrapper": 215,
-    "repeated_float_wrapper": 216,
-    "repeated_double_wrapper": 217,
-    "repeated_string_wrapper": 218,
-    "repeated_bytes_wrapper": 219,
-    "optional_duration": 301,
-    "optional_timestamp": 302,
-    "optional_field_mask": 303,
-    "optional_struct": 304,
-    "optional_any": 305,
-    "optional_value": 306,
-    "repeated_duration": 311,
-    "repeated_timestamp": 312,
-    "repeated_fieldmask": 313,
-    "repeated_struct": 324,
-    "repeated_any": 315,
-    "repeated_value": 316,
-    "fieldname1": 401,
-    "field_name2": 402,
-    "_field_name3": 403,
-    "field__name4_": 404,
-    "field0name5": 405,
-    "field_0_name6": 406,
-    "fieldName7": 407,
-    "FieldName8": 408,
-    "field_Name9": 409,
-    "Field_Name10": 410,
-    "FIELD_NAME11": 411,
-    "FIELD_name12": 412,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .unique(proto: "optional_int32", json: "optionalInt32", swift: "optionalInt32"),
+    2: .unique(proto: "optional_int64", json: "optionalInt64", swift: "optionalInt64"),
+    3: .unique(proto: "optional_uint32", json: "optionalUint32", swift: "optionalUint32"),
+    4: .unique(proto: "optional_uint64", json: "optionalUint64", swift: "optionalUint64"),
+    5: .unique(proto: "optional_sint32", json: "optionalSint32", swift: "optionalSint32"),
+    6: .unique(proto: "optional_sint64", json: "optionalSint64", swift: "optionalSint64"),
+    7: .unique(proto: "optional_fixed32", json: "optionalFixed32", swift: "optionalFixed32"),
+    8: .unique(proto: "optional_fixed64", json: "optionalFixed64", swift: "optionalFixed64"),
+    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32", swift: "optionalSfixed32"),
+    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64", swift: "optionalSfixed64"),
+    11: .unique(proto: "optional_float", json: "optionalFloat", swift: "optionalFloat"),
+    12: .unique(proto: "optional_double", json: "optionalDouble", swift: "optionalDouble"),
+    13: .unique(proto: "optional_bool", json: "optionalBool", swift: "optionalBool"),
+    14: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
+    15: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
+    18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage", swift: "optionalNestedMessage"),
+    19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage", swift: "optionalForeignMessage"),
+    21: .unique(proto: "optional_nested_enum", json: "optionalNestedEnum", swift: "optionalNestedEnum"),
+    22: .unique(proto: "optional_foreign_enum", json: "optionalForeignEnum", swift: "optionalForeignEnum"),
+    24: .unique(proto: "optional_string_piece", json: "optionalStringPiece", swift: "optionalStringPiece"),
+    25: .unique(proto: "optional_cord", json: "optionalCord", swift: "optionalCord"),
+    27: .unique(proto: "recursive_message", json: "recursiveMessage", swift: "recursiveMessage"),
+    31: .unique(proto: "repeated_int32", json: "repeatedInt32", swift: "repeatedInt32"),
+    32: .unique(proto: "repeated_int64", json: "repeatedInt64", swift: "repeatedInt64"),
+    33: .unique(proto: "repeated_uint32", json: "repeatedUint32", swift: "repeatedUint32"),
+    34: .unique(proto: "repeated_uint64", json: "repeatedUint64", swift: "repeatedUint64"),
+    35: .unique(proto: "repeated_sint32", json: "repeatedSint32", swift: "repeatedSint32"),
+    36: .unique(proto: "repeated_sint64", json: "repeatedSint64", swift: "repeatedSint64"),
+    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32", swift: "repeatedFixed32"),
+    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64", swift: "repeatedFixed64"),
+    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32", swift: "repeatedSfixed32"),
+    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64", swift: "repeatedSfixed64"),
+    41: .unique(proto: "repeated_float", json: "repeatedFloat", swift: "repeatedFloat"),
+    42: .unique(proto: "repeated_double", json: "repeatedDouble", swift: "repeatedDouble"),
+    43: .unique(proto: "repeated_bool", json: "repeatedBool", swift: "repeatedBool"),
+    44: .unique(proto: "repeated_string", json: "repeatedString", swift: "repeatedString"),
+    45: .unique(proto: "repeated_bytes", json: "repeatedBytes", swift: "repeatedBytes"),
+    48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
+    49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage", swift: "repeatedForeignMessage"),
+    51: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum", swift: "repeatedNestedEnum"),
+    52: .unique(proto: "repeated_foreign_enum", json: "repeatedForeignEnum", swift: "repeatedForeignEnum"),
+    54: .unique(proto: "repeated_string_piece", json: "repeatedStringPiece", swift: "repeatedStringPiece"),
+    55: .unique(proto: "repeated_cord", json: "repeatedCord", swift: "repeatedCord"),
+    56: .unique(proto: "map_int32_int32", json: "mapInt32Int32", swift: "mapInt32Int32"),
+    57: .unique(proto: "map_int64_int64", json: "mapInt64Int64", swift: "mapInt64Int64"),
+    58: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32", swift: "mapUint32Uint32"),
+    59: .unique(proto: "map_uint64_uint64", json: "mapUint64Uint64", swift: "mapUint64Uint64"),
+    60: .unique(proto: "map_sint32_sint32", json: "mapSint32Sint32", swift: "mapSint32Sint32"),
+    61: .unique(proto: "map_sint64_sint64", json: "mapSint64Sint64", swift: "mapSint64Sint64"),
+    62: .unique(proto: "map_fixed32_fixed32", json: "mapFixed32Fixed32", swift: "mapFixed32Fixed32"),
+    63: .unique(proto: "map_fixed64_fixed64", json: "mapFixed64Fixed64", swift: "mapFixed64Fixed64"),
+    64: .unique(proto: "map_sfixed32_sfixed32", json: "mapSfixed32Sfixed32", swift: "mapSfixed32Sfixed32"),
+    65: .unique(proto: "map_sfixed64_sfixed64", json: "mapSfixed64Sfixed64", swift: "mapSfixed64Sfixed64"),
+    66: .unique(proto: "map_int32_float", json: "mapInt32Float", swift: "mapInt32Float"),
+    67: .unique(proto: "map_int32_double", json: "mapInt32Double", swift: "mapInt32Double"),
+    68: .unique(proto: "map_bool_bool", json: "mapBoolBool", swift: "mapBoolBool"),
+    69: .unique(proto: "map_string_string", json: "mapStringString", swift: "mapStringString"),
+    70: .unique(proto: "map_string_bytes", json: "mapStringBytes", swift: "mapStringBytes"),
+    71: .unique(proto: "map_string_nested_message", json: "mapStringNestedMessage", swift: "mapStringNestedMessage"),
+    72: .unique(proto: "map_string_foreign_message", json: "mapStringForeignMessage", swift: "mapStringForeignMessage"),
+    73: .unique(proto: "map_string_nested_enum", json: "mapStringNestedEnum", swift: "mapStringNestedEnum"),
+    74: .unique(proto: "map_string_foreign_enum", json: "mapStringForeignEnum", swift: "mapStringForeignEnum"),
+    111: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
+    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage", swift: "oneofNestedMessage"),
+    113: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
+    114: .unique(proto: "oneof_bytes", json: "oneofBytes", swift: "oneofBytes"),
+    115: .unique(proto: "oneof_bool", json: "oneofBool", swift: "oneofBool"),
+    116: .unique(proto: "oneof_uint64", json: "oneofUint64", swift: "oneofUint64"),
+    117: .unique(proto: "oneof_float", json: "oneofFloat", swift: "oneofFloat"),
+    118: .unique(proto: "oneof_double", json: "oneofDouble", swift: "oneofDouble"),
+    119: .unique(proto: "oneof_enum", json: "oneofEnum", swift: "oneofEnum"),
+    201: .unique(proto: "optional_bool_wrapper", json: "optionalBoolWrapper", swift: "optionalBoolWrapper"),
+    202: .unique(proto: "optional_int32_wrapper", json: "optionalInt32Wrapper", swift: "optionalInt32Wrapper"),
+    203: .unique(proto: "optional_int64_wrapper", json: "optionalInt64Wrapper", swift: "optionalInt64Wrapper"),
+    204: .unique(proto: "optional_uint32_wrapper", json: "optionalUint32Wrapper", swift: "optionalUint32Wrapper"),
+    205: .unique(proto: "optional_uint64_wrapper", json: "optionalUint64Wrapper", swift: "optionalUint64Wrapper"),
+    206: .unique(proto: "optional_float_wrapper", json: "optionalFloatWrapper", swift: "optionalFloatWrapper"),
+    207: .unique(proto: "optional_double_wrapper", json: "optionalDoubleWrapper", swift: "optionalDoubleWrapper"),
+    208: .unique(proto: "optional_string_wrapper", json: "optionalStringWrapper", swift: "optionalStringWrapper"),
+    209: .unique(proto: "optional_bytes_wrapper", json: "optionalBytesWrapper", swift: "optionalBytesWrapper"),
+    211: .unique(proto: "repeated_bool_wrapper", json: "repeatedBoolWrapper", swift: "repeatedBoolWrapper"),
+    212: .unique(proto: "repeated_int32_wrapper", json: "repeatedInt32Wrapper", swift: "repeatedInt32Wrapper"),
+    213: .unique(proto: "repeated_int64_wrapper", json: "repeatedInt64Wrapper", swift: "repeatedInt64Wrapper"),
+    214: .unique(proto: "repeated_uint32_wrapper", json: "repeatedUint32Wrapper", swift: "repeatedUint32Wrapper"),
+    215: .unique(proto: "repeated_uint64_wrapper", json: "repeatedUint64Wrapper", swift: "repeatedUint64Wrapper"),
+    216: .unique(proto: "repeated_float_wrapper", json: "repeatedFloatWrapper", swift: "repeatedFloatWrapper"),
+    217: .unique(proto: "repeated_double_wrapper", json: "repeatedDoubleWrapper", swift: "repeatedDoubleWrapper"),
+    218: .unique(proto: "repeated_string_wrapper", json: "repeatedStringWrapper", swift: "repeatedStringWrapper"),
+    219: .unique(proto: "repeated_bytes_wrapper", json: "repeatedBytesWrapper", swift: "repeatedBytesWrapper"),
+    301: .unique(proto: "optional_duration", json: "optionalDuration", swift: "optionalDuration"),
+    302: .unique(proto: "optional_timestamp", json: "optionalTimestamp", swift: "optionalTimestamp"),
+    303: .unique(proto: "optional_field_mask", json: "optionalFieldMask", swift: "optionalFieldMask"),
+    304: .unique(proto: "optional_struct", json: "optionalStruct", swift: "optionalStruct"),
+    305: .unique(proto: "optional_any", json: "optionalAny", swift: "optionalAny"),
+    306: .unique(proto: "optional_value", json: "optionalValue", swift: "optionalValue"),
+    311: .unique(proto: "repeated_duration", json: "repeatedDuration", swift: "repeatedDuration"),
+    312: .unique(proto: "repeated_timestamp", json: "repeatedTimestamp", swift: "repeatedTimestamp"),
+    313: .unique(proto: "repeated_fieldmask", json: "repeatedFieldmask", swift: "repeatedFieldmask"),
+    324: .unique(proto: "repeated_struct", json: "repeatedStruct", swift: "repeatedStruct"),
+    315: .unique(proto: "repeated_any", json: "repeatedAny", swift: "repeatedAny"),
+    316: .unique(proto: "repeated_value", json: "repeatedValue", swift: "repeatedValue"),
+    401: .same(proto: "fieldname1", swift: "fieldname1"),
+    402: .unique(proto: "field_name2", json: "fieldName2", swift: "fieldName2"),
+    403: .unique(proto: "_field_name3", json: "FieldName3", swift: "fieldName3"),
+    404: .unique(proto: "field__name4_", json: "fieldName4", swift: "field_Name4_"),
+    405: .same(proto: "field0name5", swift: "field0Name5"),
+    406: .unique(proto: "field_0_name6", json: "field0Name6", swift: "field0Name6"),
+    407: .same(proto: "fieldName7", swift: "fieldName7"),
+    408: .same(proto: "FieldName8", swift: "fieldName8"),
+    409: .unique(proto: "field_Name9", json: "fieldName9", swift: "fieldName9"),
+    410: .unique(proto: "Field_Name10", json: "FieldName10", swift: "fieldName10"),
+    411: .unique(proto: "FIELD_NAME11", json: "FIELDNAME11", swift: "fieldName11"),
+    412: .unique(proto: "FIELD_name12", json: "FIELDName12", swift: "fieldName12"),
+    413: .unique(proto: "__field_name13", json: "FieldName13", swift: "_FieldName13"),
+    414: .unique(proto: "__Field_name14", json: "FieldName14", swift: "_FieldName14"),
+    415: .unique(proto: "field__name15", json: "fieldName15", swift: "field_Name15"),
+    416: .unique(proto: "field__Name16", json: "fieldName16", swift: "field_Name16"),
+    417: .unique(proto: "field_name17__", json: "fieldName17", swift: "fieldName17__"),
+    418: .unique(proto: "Field_name18__", json: "FieldName18", swift: "fieldName18__"),
+  ]
 
   private class _StorageClass {
     typealias ProtobufExtendedMessage = Conformance_TestAllTypes
@@ -910,437 +786,463 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     var _fieldName10: Int32 = 0
     var _fieldName11: Int32 = 0
     var _fieldName12: Int32 = 0
+    var __FieldName13: Int32 = 0
+    var __FieldName14: Int32 = 0
+    var _field_Name15: Int32 = 0
+    var _field_Name16: Int32 = 0
+    var _fieldName17__: Int32 = 0
+    var _fieldName18__: Int32 = 0
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      let handled: Bool
+    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
-      case 2: handled = try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
-      case 3: handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_optionalUint32)
-      case 4: handled = try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_optionalUint64)
-      case 5: handled = try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_optionalSint32)
-      case 6: handled = try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_optionalSint64)
-      case 7: handled = try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_optionalFixed32)
-      case 8: handled = try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_optionalFixed64)
-      case 9: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_optionalSfixed32)
-      case 10: handled = try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_optionalSfixed64)
-      case 11: handled = try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_optionalFloat)
-      case 12: handled = try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_optionalDouble)
-      case 13: handled = try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_optionalBool)
-      case 14: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalString)
-      case 15: handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
-      case 18: handled = try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &_optionalNestedMessage)
-      case 19: handled = try setter.decodeSingularMessageField(fieldType: Conformance_ForeignMessage.self, value: &_optionalForeignMessage)
-      case 21: handled = try setter.decodeSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: &_optionalNestedEnum)
-      case 22: handled = try setter.decodeSingularField(fieldType: Conformance_ForeignEnum.self, value: &_optionalForeignEnum)
-      case 24: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalStringPiece)
-      case 25: handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalCord)
-      case 27: handled = try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.self, value: &_recursiveMessage)
-      case 31: handled = try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
-      case 32: handled = try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
-      case 33: handled = try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
-      case 34: handled = try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &_repeatedUint64)
-      case 35: handled = try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &_repeatedSint32)
-      case 36: handled = try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &_repeatedSint64)
-      case 37: handled = try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &_repeatedFixed32)
-      case 38: handled = try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &_repeatedFixed64)
-      case 39: handled = try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &_repeatedSfixed32)
-      case 40: handled = try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &_repeatedSfixed64)
-      case 41: handled = try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &_repeatedFloat)
-      case 42: handled = try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &_repeatedDouble)
-      case 43: handled = try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
-      case 44: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
-      case 45: handled = try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
-      case 48: handled = try setter.decodeRepeatedMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &_repeatedNestedMessage)
-      case 49: handled = try setter.decodeRepeatedMessageField(fieldType: Conformance_ForeignMessage.self, value: &_repeatedForeignMessage)
-      case 51: handled = try setter.decodePackedField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: &_repeatedNestedEnum)
-      case 52: handled = try setter.decodePackedField(fieldType: Conformance_ForeignEnum.self, value: &_repeatedForeignEnum)
-      case 54: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedStringPiece)
-      case 55: handled = try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedCord)
-      case 56: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
-      case 57: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
-      case 58: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
-      case 59: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
-      case 60: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
-      case 61: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
-      case 62: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
-      case 63: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
-      case 64: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
-      case 65: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
-      case 66: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
-      case 67: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
-      case 68: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
-      case 69: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: &_mapStringString)
-      case 70: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufBytes>.self, value: &_mapStringBytes)
-      case 71: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: &_mapStringNestedMessage)
-      case 72: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignMessage>.self, value: &_mapStringForeignMessage)
-      case 73: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: &_mapStringNestedEnum)
-      case 74: handled = try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: &_mapStringForeignEnum)
-      case 111, 112, 113, 114:
-        handled = try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-      case 201: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_optionalBoolWrapper)
-      case 202: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_optionalInt32Wrapper)
-      case 203: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_optionalInt64Wrapper)
-      case 204: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_optionalUint32Wrapper)
-      case 205: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_optionalUint64Wrapper)
-      case 206: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_optionalFloatWrapper)
-      case 207: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_optionalDoubleWrapper)
-      case 208: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_optionalStringWrapper)
-      case 209: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_optionalBytesWrapper)
-      case 211: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_repeatedBoolWrapper)
-      case 212: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_repeatedInt32Wrapper)
-      case 213: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_repeatedInt64Wrapper)
-      case 214: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_repeatedUint32Wrapper)
-      case 215: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_repeatedUint64Wrapper)
-      case 216: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_repeatedFloatWrapper)
-      case 217: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_repeatedDoubleWrapper)
-      case 218: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_repeatedStringWrapper)
-      case 219: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_repeatedBytesWrapper)
-      case 301: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Duration.self, value: &_optionalDuration)
-      case 302: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_optionalTimestamp)
-      case 303: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_optionalFieldMask)
-      case 304: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &_optionalStruct)
-      case 305: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_optionalAny)
-      case 306: handled = try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Value.self, value: &_optionalValue)
-      case 311: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Duration.self, value: &_repeatedDuration)
-      case 312: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_repeatedTimestamp)
-      case 313: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_repeatedFieldmask)
-      case 324: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Struct.self, value: &_repeatedStruct)
-      case 315: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Any.self, value: &_repeatedAny)
-      case 316: handled = try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &_repeatedValue)
-      case 401: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldname1)
-      case 402: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName2)
-      case 403: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName3)
-      case 404: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field_Name4_)
-      case 405: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field0Name5)
-      case 406: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field0Name6)
-      case 407: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName7)
-      case 408: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName8)
-      case 409: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName9)
-      case 410: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName10)
-      case 411: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName11)
-      case 412: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName12)
-      default:
-        handled = false
+      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
+      case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
+      case 3: try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_optionalUint32)
+      case 4: try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_optionalUint64)
+      case 5: try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_optionalSint32)
+      case 6: try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_optionalSint64)
+      case 7: try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_optionalFixed32)
+      case 8: try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_optionalFixed64)
+      case 9: try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_optionalSfixed32)
+      case 10: try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_optionalSfixed64)
+      case 11: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_optionalFloat)
+      case 12: try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_optionalDouble)
+      case 13: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_optionalBool)
+      case 14: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalString)
+      case 15: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
+      case 18: try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &_optionalNestedMessage)
+      case 19: try setter.decodeSingularMessageField(fieldType: Conformance_ForeignMessage.self, value: &_optionalForeignMessage)
+      case 21: try setter.decodeSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: &_optionalNestedEnum)
+      case 22: try setter.decodeSingularField(fieldType: Conformance_ForeignEnum.self, value: &_optionalForeignEnum)
+      case 24: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalStringPiece)
+      case 25: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalCord)
+      case 27: try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.self, value: &_recursiveMessage)
+      case 31: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
+      case 32: try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
+      case 33: try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
+      case 34: try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &_repeatedUint64)
+      case 35: try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &_repeatedSint32)
+      case 36: try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &_repeatedSint64)
+      case 37: try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &_repeatedFixed32)
+      case 38: try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &_repeatedFixed64)
+      case 39: try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &_repeatedSfixed32)
+      case 40: try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &_repeatedSfixed64)
+      case 41: try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &_repeatedFloat)
+      case 42: try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &_repeatedDouble)
+      case 43: try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
+      case 44: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
+      case 45: try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
+      case 48: try setter.decodeRepeatedMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &_repeatedNestedMessage)
+      case 49: try setter.decodeRepeatedMessageField(fieldType: Conformance_ForeignMessage.self, value: &_repeatedForeignMessage)
+      case 51: try setter.decodePackedField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: &_repeatedNestedEnum)
+      case 52: try setter.decodePackedField(fieldType: Conformance_ForeignEnum.self, value: &_repeatedForeignEnum)
+      case 54: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedStringPiece)
+      case 55: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedCord)
+      case 56: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: &_mapInt32Int32)
+      case 57: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: &_mapInt64Int64)
+      case 58: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: &_mapUint32Uint32)
+      case 59: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: &_mapUint64Uint64)
+      case 60: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: &_mapSint32Sint32)
+      case 61: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: &_mapSint64Sint64)
+      case 62: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
+      case 63: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
+      case 64: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
+      case 65: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
+      case 66: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: &_mapInt32Float)
+      case 67: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: &_mapInt32Double)
+      case 68: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: &_mapBoolBool)
+      case 69: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: &_mapStringString)
+      case 70: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,ProtobufBytes>.self, value: &_mapStringBytes)
+      case 71: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: &_mapStringNestedMessage)
+      case 72: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignMessage>.self, value: &_mapStringForeignMessage)
+      case 73: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: &_mapStringNestedEnum)
+      case 74: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: &_mapStringForeignEnum)
+      case 111, 112, 113, 114, 115, 116, 117, 118, 119: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+      case 201: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_optionalBoolWrapper)
+      case 202: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_optionalInt32Wrapper)
+      case 203: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_optionalInt64Wrapper)
+      case 204: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_optionalUint32Wrapper)
+      case 205: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_optionalUint64Wrapper)
+      case 206: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_optionalFloatWrapper)
+      case 207: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_optionalDoubleWrapper)
+      case 208: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_optionalStringWrapper)
+      case 209: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_optionalBytesWrapper)
+      case 211: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BoolValue.self, value: &_repeatedBoolWrapper)
+      case 212: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int32Value.self, value: &_repeatedInt32Wrapper)
+      case 213: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Int64Value.self, value: &_repeatedInt64Wrapper)
+      case 214: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt32Value.self, value: &_repeatedUint32Wrapper)
+      case 215: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_UInt64Value.self, value: &_repeatedUint64Wrapper)
+      case 216: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FloatValue.self, value: &_repeatedFloatWrapper)
+      case 217: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_DoubleValue.self, value: &_repeatedDoubleWrapper)
+      case 218: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_StringValue.self, value: &_repeatedStringWrapper)
+      case 219: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_BytesValue.self, value: &_repeatedBytesWrapper)
+      case 301: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Duration.self, value: &_optionalDuration)
+      case 302: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_optionalTimestamp)
+      case 303: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_optionalFieldMask)
+      case 304: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &_optionalStruct)
+      case 305: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_optionalAny)
+      case 306: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Value.self, value: &_optionalValue)
+      case 311: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Duration.self, value: &_repeatedDuration)
+      case 312: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Timestamp.self, value: &_repeatedTimestamp)
+      case 313: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FieldMask.self, value: &_repeatedFieldmask)
+      case 324: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Struct.self, value: &_repeatedStruct)
+      case 315: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Any.self, value: &_repeatedAny)
+      case 316: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &_repeatedValue)
+      case 401: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldname1)
+      case 402: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName2)
+      case 403: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName3)
+      case 404: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field_Name4_)
+      case 405: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field0Name5)
+      case 406: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field0Name6)
+      case 407: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName7)
+      case 408: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName8)
+      case 409: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName9)
+      case 410: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName10)
+      case 411: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName11)
+      case 412: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName12)
+      case 413: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &__FieldName13)
+      case 414: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &__FieldName14)
+      case 415: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field_Name15)
+      case 416: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_field_Name16)
+      case 417: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName17__)
+      case 418: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_fieldName18__)
+      default: break
       }
-      return handled
     }
 
     func traverse(visitor: inout ProtobufVisitor) throws {
       if _optionalInt32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionalInt32, protoFieldNumber: 1, protoFieldName: "optional_int32", jsonFieldName: "optionalInt32", swiftFieldName: "optionalInt32")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionalInt32, protoFieldNumber: 1)
       }
       if _optionalInt64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _optionalInt64, protoFieldNumber: 2, protoFieldName: "optional_int64", jsonFieldName: "optionalInt64", swiftFieldName: "optionalInt64")
+        try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _optionalInt64, protoFieldNumber: 2)
       }
       if _optionalUint32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _optionalUint32, protoFieldNumber: 3, protoFieldName: "optional_uint32", jsonFieldName: "optionalUint32", swiftFieldName: "optionalUint32")
+        try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _optionalUint32, protoFieldNumber: 3)
       }
       if _optionalUint64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _optionalUint64, protoFieldNumber: 4, protoFieldName: "optional_uint64", jsonFieldName: "optionalUint64", swiftFieldName: "optionalUint64")
+        try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _optionalUint64, protoFieldNumber: 4)
       }
       if _optionalSint32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _optionalSint32, protoFieldNumber: 5, protoFieldName: "optional_sint32", jsonFieldName: "optionalSint32", swiftFieldName: "optionalSint32")
+        try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _optionalSint32, protoFieldNumber: 5)
       }
       if _optionalSint64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _optionalSint64, protoFieldNumber: 6, protoFieldName: "optional_sint64", jsonFieldName: "optionalSint64", swiftFieldName: "optionalSint64")
+        try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _optionalSint64, protoFieldNumber: 6)
       }
       if _optionalFixed32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _optionalFixed32, protoFieldNumber: 7, protoFieldName: "optional_fixed32", jsonFieldName: "optionalFixed32", swiftFieldName: "optionalFixed32")
+        try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _optionalFixed32, protoFieldNumber: 7)
       }
       if _optionalFixed64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _optionalFixed64, protoFieldNumber: 8, protoFieldName: "optional_fixed64", jsonFieldName: "optionalFixed64", swiftFieldName: "optionalFixed64")
+        try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _optionalFixed64, protoFieldNumber: 8)
       }
       if _optionalSfixed32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _optionalSfixed32, protoFieldNumber: 9, protoFieldName: "optional_sfixed32", jsonFieldName: "optionalSfixed32", swiftFieldName: "optionalSfixed32")
+        try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _optionalSfixed32, protoFieldNumber: 9)
       }
       if _optionalSfixed64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _optionalSfixed64, protoFieldNumber: 10, protoFieldName: "optional_sfixed64", jsonFieldName: "optionalSfixed64", swiftFieldName: "optionalSfixed64")
+        try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _optionalSfixed64, protoFieldNumber: 10)
       }
       if _optionalFloat != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _optionalFloat, protoFieldNumber: 11, protoFieldName: "optional_float", jsonFieldName: "optionalFloat", swiftFieldName: "optionalFloat")
+        try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _optionalFloat, protoFieldNumber: 11)
       }
       if _optionalDouble != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _optionalDouble, protoFieldNumber: 12, protoFieldName: "optional_double", jsonFieldName: "optionalDouble", swiftFieldName: "optionalDouble")
+        try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _optionalDouble, protoFieldNumber: 12)
       }
       if _optionalBool != false {
-        try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _optionalBool, protoFieldNumber: 13, protoFieldName: "optional_bool", jsonFieldName: "optionalBool", swiftFieldName: "optionalBool")
+        try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _optionalBool, protoFieldNumber: 13)
       }
       if _optionalString != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14, protoFieldName: "optional_string", jsonFieldName: "optionalString", swiftFieldName: "optionalString")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14)
       }
       if _optionalBytes != Data() {
-        try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15, protoFieldName: "optional_bytes", jsonFieldName: "optionalBytes", swiftFieldName: "optionalBytes")
+        try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15)
       }
       if let v = _optionalNestedMessage {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18, protoFieldName: "optional_nested_message", jsonFieldName: "optionalNestedMessage", swiftFieldName: "optionalNestedMessage")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18)
       }
       if let v = _optionalForeignMessage {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 19, protoFieldName: "optional_foreign_message", jsonFieldName: "optionalForeignMessage", swiftFieldName: "optionalForeignMessage")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 19)
       }
       if _optionalNestedEnum != Conformance_TestAllTypes.NestedEnum.foo {
-        try visitor.visitSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: _optionalNestedEnum, protoFieldNumber: 21, protoFieldName: "optional_nested_enum", jsonFieldName: "optionalNestedEnum", swiftFieldName: "optionalNestedEnum")
+        try visitor.visitSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: _optionalNestedEnum, protoFieldNumber: 21)
       }
       if _optionalForeignEnum != Conformance_ForeignEnum.foreignFoo {
-        try visitor.visitSingularField(fieldType: Conformance_ForeignEnum.self, value: _optionalForeignEnum, protoFieldNumber: 22, protoFieldName: "optional_foreign_enum", jsonFieldName: "optionalForeignEnum", swiftFieldName: "optionalForeignEnum")
+        try visitor.visitSingularField(fieldType: Conformance_ForeignEnum.self, value: _optionalForeignEnum, protoFieldNumber: 22)
       }
       if _optionalStringPiece != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalStringPiece, protoFieldNumber: 24, protoFieldName: "optional_string_piece", jsonFieldName: "optionalStringPiece", swiftFieldName: "optionalStringPiece")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalStringPiece, protoFieldNumber: 24)
       }
       if _optionalCord != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalCord, protoFieldNumber: 25, protoFieldName: "optional_cord", jsonFieldName: "optionalCord", swiftFieldName: "optionalCord")
+        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalCord, protoFieldNumber: 25)
       }
       if let v = _recursiveMessage {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 27, protoFieldName: "recursive_message", jsonFieldName: "recursiveMessage", swiftFieldName: "recursiveMessage")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 27)
       }
       if !_repeatedInt32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufInt32.self, value: _repeatedInt32, protoFieldNumber: 31, protoFieldName: "repeated_int32", jsonFieldName: "repeatedInt32", swiftFieldName: "repeatedInt32")
+        try visitor.visitPackedField(fieldType: ProtobufInt32.self, value: _repeatedInt32, protoFieldNumber: 31)
       }
       if !_repeatedInt64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufInt64.self, value: _repeatedInt64, protoFieldNumber: 32, protoFieldName: "repeated_int64", jsonFieldName: "repeatedInt64", swiftFieldName: "repeatedInt64")
+        try visitor.visitPackedField(fieldType: ProtobufInt64.self, value: _repeatedInt64, protoFieldNumber: 32)
       }
       if !_repeatedUint32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufUInt32.self, value: _repeatedUint32, protoFieldNumber: 33, protoFieldName: "repeated_uint32", jsonFieldName: "repeatedUint32", swiftFieldName: "repeatedUint32")
+        try visitor.visitPackedField(fieldType: ProtobufUInt32.self, value: _repeatedUint32, protoFieldNumber: 33)
       }
       if !_repeatedUint64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufUInt64.self, value: _repeatedUint64, protoFieldNumber: 34, protoFieldName: "repeated_uint64", jsonFieldName: "repeatedUint64", swiftFieldName: "repeatedUint64")
+        try visitor.visitPackedField(fieldType: ProtobufUInt64.self, value: _repeatedUint64, protoFieldNumber: 34)
       }
       if !_repeatedSint32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSInt32.self, value: _repeatedSint32, protoFieldNumber: 35, protoFieldName: "repeated_sint32", jsonFieldName: "repeatedSint32", swiftFieldName: "repeatedSint32")
+        try visitor.visitPackedField(fieldType: ProtobufSInt32.self, value: _repeatedSint32, protoFieldNumber: 35)
       }
       if !_repeatedSint64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSInt64.self, value: _repeatedSint64, protoFieldNumber: 36, protoFieldName: "repeated_sint64", jsonFieldName: "repeatedSint64", swiftFieldName: "repeatedSint64")
+        try visitor.visitPackedField(fieldType: ProtobufSInt64.self, value: _repeatedSint64, protoFieldNumber: 36)
       }
       if !_repeatedFixed32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufFixed32.self, value: _repeatedFixed32, protoFieldNumber: 37, protoFieldName: "repeated_fixed32", jsonFieldName: "repeatedFixed32", swiftFieldName: "repeatedFixed32")
+        try visitor.visitPackedField(fieldType: ProtobufFixed32.self, value: _repeatedFixed32, protoFieldNumber: 37)
       }
       if !_repeatedFixed64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufFixed64.self, value: _repeatedFixed64, protoFieldNumber: 38, protoFieldName: "repeated_fixed64", jsonFieldName: "repeatedFixed64", swiftFieldName: "repeatedFixed64")
+        try visitor.visitPackedField(fieldType: ProtobufFixed64.self, value: _repeatedFixed64, protoFieldNumber: 38)
       }
       if !_repeatedSfixed32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSFixed32.self, value: _repeatedSfixed32, protoFieldNumber: 39, protoFieldName: "repeated_sfixed32", jsonFieldName: "repeatedSfixed32", swiftFieldName: "repeatedSfixed32")
+        try visitor.visitPackedField(fieldType: ProtobufSFixed32.self, value: _repeatedSfixed32, protoFieldNumber: 39)
       }
       if !_repeatedSfixed64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSFixed64.self, value: _repeatedSfixed64, protoFieldNumber: 40, protoFieldName: "repeated_sfixed64", jsonFieldName: "repeatedSfixed64", swiftFieldName: "repeatedSfixed64")
+        try visitor.visitPackedField(fieldType: ProtobufSFixed64.self, value: _repeatedSfixed64, protoFieldNumber: 40)
       }
       if !_repeatedFloat.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufFloat.self, value: _repeatedFloat, protoFieldNumber: 41, protoFieldName: "repeated_float", jsonFieldName: "repeatedFloat", swiftFieldName: "repeatedFloat")
+        try visitor.visitPackedField(fieldType: ProtobufFloat.self, value: _repeatedFloat, protoFieldNumber: 41)
       }
       if !_repeatedDouble.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufDouble.self, value: _repeatedDouble, protoFieldNumber: 42, protoFieldName: "repeated_double", jsonFieldName: "repeatedDouble", swiftFieldName: "repeatedDouble")
+        try visitor.visitPackedField(fieldType: ProtobufDouble.self, value: _repeatedDouble, protoFieldNumber: 42)
       }
       if !_repeatedBool.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufBool.self, value: _repeatedBool, protoFieldNumber: 43, protoFieldName: "repeated_bool", jsonFieldName: "repeatedBool", swiftFieldName: "repeatedBool")
+        try visitor.visitPackedField(fieldType: ProtobufBool.self, value: _repeatedBool, protoFieldNumber: 43)
       }
       if !_repeatedString.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedString, protoFieldNumber: 44, protoFieldName: "repeated_string", jsonFieldName: "repeatedString", swiftFieldName: "repeatedString")
+        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedString, protoFieldNumber: 44)
       }
       if !_repeatedBytes.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufBytes.self, value: _repeatedBytes, protoFieldNumber: 45, protoFieldName: "repeated_bytes", jsonFieldName: "repeatedBytes", swiftFieldName: "repeatedBytes")
+        try visitor.visitRepeatedField(fieldType: ProtobufBytes.self, value: _repeatedBytes, protoFieldNumber: 45)
       }
       if !_repeatedNestedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedNestedMessage, protoFieldNumber: 48, protoFieldName: "repeated_nested_message", jsonFieldName: "repeatedNestedMessage", swiftFieldName: "repeatedNestedMessage")
+        try visitor.visitRepeatedMessageField(value: _repeatedNestedMessage, protoFieldNumber: 48)
       }
       if !_repeatedForeignMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedForeignMessage, protoFieldNumber: 49, protoFieldName: "repeated_foreign_message", jsonFieldName: "repeatedForeignMessage", swiftFieldName: "repeatedForeignMessage")
+        try visitor.visitRepeatedMessageField(value: _repeatedForeignMessage, protoFieldNumber: 49)
       }
       if !_repeatedNestedEnum.isEmpty {
-        try visitor.visitPackedField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: _repeatedNestedEnum, protoFieldNumber: 51, protoFieldName: "repeated_nested_enum", jsonFieldName: "repeatedNestedEnum", swiftFieldName: "repeatedNestedEnum")
+        try visitor.visitPackedField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: _repeatedNestedEnum, protoFieldNumber: 51)
       }
       if !_repeatedForeignEnum.isEmpty {
-        try visitor.visitPackedField(fieldType: Conformance_ForeignEnum.self, value: _repeatedForeignEnum, protoFieldNumber: 52, protoFieldName: "repeated_foreign_enum", jsonFieldName: "repeatedForeignEnum", swiftFieldName: "repeatedForeignEnum")
+        try visitor.visitPackedField(fieldType: Conformance_ForeignEnum.self, value: _repeatedForeignEnum, protoFieldNumber: 52)
       }
       if !_repeatedStringPiece.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedStringPiece, protoFieldNumber: 54, protoFieldName: "repeated_string_piece", jsonFieldName: "repeatedStringPiece", swiftFieldName: "repeatedStringPiece")
+        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedStringPiece, protoFieldNumber: 54)
       }
       if !_repeatedCord.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedCord, protoFieldNumber: 55, protoFieldName: "repeated_cord", jsonFieldName: "repeatedCord", swiftFieldName: "repeatedCord")
+        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedCord, protoFieldNumber: 55)
       }
       if !_mapInt32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 56, protoFieldName: "map_int32_int32", jsonFieldName: "mapInt32Int32", swiftFieldName: "mapInt32Int32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufInt32>.self, value: _mapInt32Int32, protoFieldNumber: 56)
       }
       if !_mapInt64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 57, protoFieldName: "map_int64_int64", jsonFieldName: "mapInt64Int64", swiftFieldName: "mapInt64Int64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt64,ProtobufInt64>.self, value: _mapInt64Int64, protoFieldNumber: 57)
       }
       if !_mapUint32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 58, protoFieldName: "map_uint32_uint32", jsonFieldName: "mapUint32Uint32", swiftFieldName: "mapUint32Uint32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt32,ProtobufUInt32>.self, value: _mapUint32Uint32, protoFieldNumber: 58)
       }
       if !_mapUint64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 59, protoFieldName: "map_uint64_uint64", jsonFieldName: "mapUint64Uint64", swiftFieldName: "mapUint64Uint64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufUInt64,ProtobufUInt64>.self, value: _mapUint64Uint64, protoFieldNumber: 59)
       }
       if !_mapSint32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 60, protoFieldName: "map_sint32_sint32", jsonFieldName: "mapSint32Sint32", swiftFieldName: "mapSint32Sint32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt32,ProtobufSInt32>.self, value: _mapSint32Sint32, protoFieldNumber: 60)
       }
       if !_mapSint64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 61, protoFieldName: "map_sint64_sint64", jsonFieldName: "mapSint64Sint64", swiftFieldName: "mapSint64Sint64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSInt64,ProtobufSInt64>.self, value: _mapSint64Sint64, protoFieldNumber: 61)
       }
       if !_mapFixed32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 62, protoFieldName: "map_fixed32_fixed32", jsonFieldName: "mapFixed32Fixed32", swiftFieldName: "mapFixed32Fixed32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed32,ProtobufFixed32>.self, value: _mapFixed32Fixed32, protoFieldNumber: 62)
       }
       if !_mapFixed64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 63, protoFieldName: "map_fixed64_fixed64", jsonFieldName: "mapFixed64Fixed64", swiftFieldName: "mapFixed64Fixed64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufFixed64,ProtobufFixed64>.self, value: _mapFixed64Fixed64, protoFieldNumber: 63)
       }
       if !_mapSfixed32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 64, protoFieldName: "map_sfixed32_sfixed32", jsonFieldName: "mapSfixed32Sfixed32", swiftFieldName: "mapSfixed32Sfixed32")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed32,ProtobufSFixed32>.self, value: _mapSfixed32Sfixed32, protoFieldNumber: 64)
       }
       if !_mapSfixed64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 65, protoFieldName: "map_sfixed64_sfixed64", jsonFieldName: "mapSfixed64Sfixed64", swiftFieldName: "mapSfixed64Sfixed64")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufSFixed64,ProtobufSFixed64>.self, value: _mapSfixed64Sfixed64, protoFieldNumber: 65)
       }
       if !_mapInt32Float.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 66, protoFieldName: "map_int32_float", jsonFieldName: "mapInt32Float", swiftFieldName: "mapInt32Float")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufFloat>.self, value: _mapInt32Float, protoFieldNumber: 66)
       }
       if !_mapInt32Double.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 67, protoFieldName: "map_int32_double", jsonFieldName: "mapInt32Double", swiftFieldName: "mapInt32Double")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufInt32,ProtobufDouble>.self, value: _mapInt32Double, protoFieldNumber: 67)
       }
       if !_mapBoolBool.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 68, protoFieldName: "map_bool_bool", jsonFieldName: "mapBoolBool", swiftFieldName: "mapBoolBool")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufBool,ProtobufBool>.self, value: _mapBoolBool, protoFieldNumber: 68)
       }
       if !_mapStringString.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 69, protoFieldName: "map_string_string", jsonFieldName: "mapStringString", swiftFieldName: "mapStringString")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufString>.self, value: _mapStringString, protoFieldNumber: 69)
       }
       if !_mapStringBytes.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufBytes>.self, value: _mapStringBytes, protoFieldNumber: 70, protoFieldName: "map_string_bytes", jsonFieldName: "mapStringBytes", swiftFieldName: "mapStringBytes")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,ProtobufBytes>.self, value: _mapStringBytes, protoFieldNumber: 70)
       }
       if !_mapStringNestedMessage.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: _mapStringNestedMessage, protoFieldNumber: 71, protoFieldName: "map_string_nested_message", jsonFieldName: "mapStringNestedMessage", swiftFieldName: "mapStringNestedMessage")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedMessage>.self, value: _mapStringNestedMessage, protoFieldNumber: 71)
       }
       if !_mapStringForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignMessage>.self, value: _mapStringForeignMessage, protoFieldNumber: 72, protoFieldName: "map_string_foreign_message", jsonFieldName: "mapStringForeignMessage", swiftFieldName: "mapStringForeignMessage")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignMessage>.self, value: _mapStringForeignMessage, protoFieldNumber: 72)
       }
       if !_mapStringNestedEnum.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: _mapStringNestedEnum, protoFieldNumber: 73, protoFieldName: "map_string_nested_enum", jsonFieldName: "mapStringNestedEnum", swiftFieldName: "mapStringNestedEnum")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_TestAllTypes.NestedEnum>.self, value: _mapStringNestedEnum, protoFieldNumber: 73)
       }
       if !_mapStringForeignEnum.isEmpty {
-        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: _mapStringForeignEnum, protoFieldNumber: 74, protoFieldName: "map_string_foreign_enum", jsonFieldName: "mapStringForeignEnum", swiftFieldName: "mapStringForeignEnum")
+        try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Conformance_ForeignEnum>.self, value: _mapStringForeignEnum, protoFieldNumber: 74)
       }
-      try _oneofField.traverse(visitor: &visitor, start: 111, end: 115)
+      try _oneofField.traverse(visitor: &visitor, start: 111, end: 120)
       if let v = _optionalBoolWrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 201, protoFieldName: "optional_bool_wrapper", jsonFieldName: "optionalBoolWrapper", swiftFieldName: "optionalBoolWrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 201)
       }
       if let v = _optionalInt32Wrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 202, protoFieldName: "optional_int32_wrapper", jsonFieldName: "optionalInt32Wrapper", swiftFieldName: "optionalInt32Wrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 202)
       }
       if let v = _optionalInt64Wrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 203, protoFieldName: "optional_int64_wrapper", jsonFieldName: "optionalInt64Wrapper", swiftFieldName: "optionalInt64Wrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 203)
       }
       if let v = _optionalUint32Wrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 204, protoFieldName: "optional_uint32_wrapper", jsonFieldName: "optionalUint32Wrapper", swiftFieldName: "optionalUint32Wrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 204)
       }
       if let v = _optionalUint64Wrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 205, protoFieldName: "optional_uint64_wrapper", jsonFieldName: "optionalUint64Wrapper", swiftFieldName: "optionalUint64Wrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 205)
       }
       if let v = _optionalFloatWrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 206, protoFieldName: "optional_float_wrapper", jsonFieldName: "optionalFloatWrapper", swiftFieldName: "optionalFloatWrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 206)
       }
       if let v = _optionalDoubleWrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 207, protoFieldName: "optional_double_wrapper", jsonFieldName: "optionalDoubleWrapper", swiftFieldName: "optionalDoubleWrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 207)
       }
       if let v = _optionalStringWrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 208, protoFieldName: "optional_string_wrapper", jsonFieldName: "optionalStringWrapper", swiftFieldName: "optionalStringWrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 208)
       }
       if let v = _optionalBytesWrapper {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 209, protoFieldName: "optional_bytes_wrapper", jsonFieldName: "optionalBytesWrapper", swiftFieldName: "optionalBytesWrapper")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 209)
       }
       if !_repeatedBoolWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedBoolWrapper, protoFieldNumber: 211, protoFieldName: "repeated_bool_wrapper", jsonFieldName: "repeatedBoolWrapper", swiftFieldName: "repeatedBoolWrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedBoolWrapper, protoFieldNumber: 211)
       }
       if !_repeatedInt32Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedInt32Wrapper, protoFieldNumber: 212, protoFieldName: "repeated_int32_wrapper", jsonFieldName: "repeatedInt32Wrapper", swiftFieldName: "repeatedInt32Wrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedInt32Wrapper, protoFieldNumber: 212)
       }
       if !_repeatedInt64Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedInt64Wrapper, protoFieldNumber: 213, protoFieldName: "repeated_int64_wrapper", jsonFieldName: "repeatedInt64Wrapper", swiftFieldName: "repeatedInt64Wrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedInt64Wrapper, protoFieldNumber: 213)
       }
       if !_repeatedUint32Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedUint32Wrapper, protoFieldNumber: 214, protoFieldName: "repeated_uint32_wrapper", jsonFieldName: "repeatedUint32Wrapper", swiftFieldName: "repeatedUint32Wrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedUint32Wrapper, protoFieldNumber: 214)
       }
       if !_repeatedUint64Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedUint64Wrapper, protoFieldNumber: 215, protoFieldName: "repeated_uint64_wrapper", jsonFieldName: "repeatedUint64Wrapper", swiftFieldName: "repeatedUint64Wrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedUint64Wrapper, protoFieldNumber: 215)
       }
       if !_repeatedFloatWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedFloatWrapper, protoFieldNumber: 216, protoFieldName: "repeated_float_wrapper", jsonFieldName: "repeatedFloatWrapper", swiftFieldName: "repeatedFloatWrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedFloatWrapper, protoFieldNumber: 216)
       }
       if !_repeatedDoubleWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedDoubleWrapper, protoFieldNumber: 217, protoFieldName: "repeated_double_wrapper", jsonFieldName: "repeatedDoubleWrapper", swiftFieldName: "repeatedDoubleWrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedDoubleWrapper, protoFieldNumber: 217)
       }
       if !_repeatedStringWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedStringWrapper, protoFieldNumber: 218, protoFieldName: "repeated_string_wrapper", jsonFieldName: "repeatedStringWrapper", swiftFieldName: "repeatedStringWrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedStringWrapper, protoFieldNumber: 218)
       }
       if !_repeatedBytesWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedBytesWrapper, protoFieldNumber: 219, protoFieldName: "repeated_bytes_wrapper", jsonFieldName: "repeatedBytesWrapper", swiftFieldName: "repeatedBytesWrapper")
+        try visitor.visitRepeatedMessageField(value: _repeatedBytesWrapper, protoFieldNumber: 219)
       }
       if let v = _optionalDuration {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 301, protoFieldName: "optional_duration", jsonFieldName: "optionalDuration", swiftFieldName: "optionalDuration")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 301)
       }
       if let v = _optionalTimestamp {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 302, protoFieldName: "optional_timestamp", jsonFieldName: "optionalTimestamp", swiftFieldName: "optionalTimestamp")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 302)
       }
       if let v = _optionalFieldMask {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 303, protoFieldName: "optional_field_mask", jsonFieldName: "optionalFieldMask", swiftFieldName: "optionalFieldMask")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 303)
       }
       if let v = _optionalStruct {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 304, protoFieldName: "optional_struct", jsonFieldName: "optionalStruct", swiftFieldName: "optionalStruct")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 304)
       }
       if let v = _optionalAny {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 305, protoFieldName: "optional_any", jsonFieldName: "optionalAny", swiftFieldName: "optionalAny")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 305)
       }
       if let v = _optionalValue {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 306, protoFieldName: "optional_value", jsonFieldName: "optionalValue", swiftFieldName: "optionalValue")
+        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 306)
       }
       if !_repeatedDuration.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedDuration, protoFieldNumber: 311, protoFieldName: "repeated_duration", jsonFieldName: "repeatedDuration", swiftFieldName: "repeatedDuration")
+        try visitor.visitRepeatedMessageField(value: _repeatedDuration, protoFieldNumber: 311)
       }
       if !_repeatedTimestamp.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedTimestamp, protoFieldNumber: 312, protoFieldName: "repeated_timestamp", jsonFieldName: "repeatedTimestamp", swiftFieldName: "repeatedTimestamp")
+        try visitor.visitRepeatedMessageField(value: _repeatedTimestamp, protoFieldNumber: 312)
       }
       if !_repeatedFieldmask.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedFieldmask, protoFieldNumber: 313, protoFieldName: "repeated_fieldmask", jsonFieldName: "repeatedFieldmask", swiftFieldName: "repeatedFieldmask")
+        try visitor.visitRepeatedMessageField(value: _repeatedFieldmask, protoFieldNumber: 313)
       }
       if !_repeatedAny.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedAny, protoFieldNumber: 315, protoFieldName: "repeated_any", jsonFieldName: "repeatedAny", swiftFieldName: "repeatedAny")
+        try visitor.visitRepeatedMessageField(value: _repeatedAny, protoFieldNumber: 315)
       }
       if !_repeatedValue.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedValue, protoFieldNumber: 316, protoFieldName: "repeated_value", jsonFieldName: "repeatedValue", swiftFieldName: "repeatedValue")
+        try visitor.visitRepeatedMessageField(value: _repeatedValue, protoFieldNumber: 316)
       }
       if !_repeatedStruct.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedStruct, protoFieldNumber: 324, protoFieldName: "repeated_struct", jsonFieldName: "repeatedStruct", swiftFieldName: "repeatedStruct")
+        try visitor.visitRepeatedMessageField(value: _repeatedStruct, protoFieldNumber: 324)
       }
       if _fieldname1 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldname1, protoFieldNumber: 401, protoFieldName: "fieldname1", jsonFieldName: "fieldname1", swiftFieldName: "fieldname1")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldname1, protoFieldNumber: 401)
       }
       if _fieldName2 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName2, protoFieldNumber: 402, protoFieldName: "field_name2", jsonFieldName: "fieldName2", swiftFieldName: "fieldName2")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName2, protoFieldNumber: 402)
       }
       if _fieldName3 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName3, protoFieldNumber: 403, protoFieldName: "_field_name3", jsonFieldName: "FieldName3", swiftFieldName: "fieldName3")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName3, protoFieldNumber: 403)
       }
       if _field_Name4_ != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field_Name4_, protoFieldNumber: 404, protoFieldName: "field__name4_", jsonFieldName: "fieldName4", swiftFieldName: "field_Name4_")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field_Name4_, protoFieldNumber: 404)
       }
       if _field0Name5 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field0Name5, protoFieldNumber: 405, protoFieldName: "field0name5", jsonFieldName: "field0name5", swiftFieldName: "field0Name5")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field0Name5, protoFieldNumber: 405)
       }
       if _field0Name6 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field0Name6, protoFieldNumber: 406, protoFieldName: "field_0_name6", jsonFieldName: "field0Name6", swiftFieldName: "field0Name6")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field0Name6, protoFieldNumber: 406)
       }
       if _fieldName7 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName7, protoFieldNumber: 407, protoFieldName: "fieldName7", jsonFieldName: "fieldName7", swiftFieldName: "fieldName7")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName7, protoFieldNumber: 407)
       }
       if _fieldName8 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName8, protoFieldNumber: 408, protoFieldName: "FieldName8", jsonFieldName: "FieldName8", swiftFieldName: "fieldName8")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName8, protoFieldNumber: 408)
       }
       if _fieldName9 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName9, protoFieldNumber: 409, protoFieldName: "field_Name9", jsonFieldName: "fieldName9", swiftFieldName: "fieldName9")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName9, protoFieldNumber: 409)
       }
       if _fieldName10 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName10, protoFieldNumber: 410, protoFieldName: "Field_Name10", jsonFieldName: "FieldName10", swiftFieldName: "fieldName10")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName10, protoFieldNumber: 410)
       }
       if _fieldName11 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName11, protoFieldNumber: 411, protoFieldName: "FIELD_NAME11", jsonFieldName: "FIELDNAME11", swiftFieldName: "fieldName11")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName11, protoFieldNumber: 411)
       }
       if _fieldName12 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName12, protoFieldNumber: 412, protoFieldName: "FIELD_name12", jsonFieldName: "FIELDName12", swiftFieldName: "fieldName12")
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName12, protoFieldNumber: 412)
+      }
+      if __FieldName13 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __FieldName13, protoFieldNumber: 413)
+      }
+      if __FieldName14 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: __FieldName14, protoFieldNumber: 414)
+      }
+      if _field_Name15 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field_Name15, protoFieldNumber: 415)
+      }
+      if _field_Name16 != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _field_Name16, protoFieldNumber: 416)
+      }
+      if _fieldName17__ != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName17__, protoFieldNumber: 417)
+      }
+      if _fieldName18__ != 0 {
+        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _fieldName18__, protoFieldNumber: 418)
       }
     }
 
@@ -1450,6 +1352,12 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       if _fieldName10 != other._fieldName10 {return false}
       if _fieldName11 != other._fieldName11 {return false}
       if _fieldName12 != other._fieldName12 {return false}
+      if __FieldName13 != other.__FieldName13 {return false}
+      if __FieldName14 != other.__FieldName14 {return false}
+      if _field_Name15 != other._field_Name15 {return false}
+      if _field_Name16 != other._field_Name16 {return false}
+      if _fieldName17__ != other._fieldName17__ {return false}
+      if _fieldName18__ != other._fieldName18__ {return false}
       return true
     }
 
@@ -1560,17 +1468,29 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       clone._fieldName10 = _fieldName10
       clone._fieldName11 = _fieldName11
       clone._fieldName12 = _fieldName12
+      clone.__FieldName13 = __FieldName13
+      clone.__FieldName14 = __FieldName14
+      clone._field_Name15 = _field_Name15
+      clone._field_Name16 = _field_Name16
+      clone._fieldName17__ = _fieldName17__
+      clone._fieldName18__ = _fieldName18__
       return clone
     }
   }
 
   private var _storage = _StorageClass()
 
+
   enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Conformance_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
+    case oneofBool(Bool)
+    case oneofUint64(UInt64)
+    case oneofFloat(Float)
+    case oneofDouble(Double)
+    case oneofEnum(Conformance_TestAllTypes.NestedEnum)
     case None
 
     public init(nilLiteral: ()) {
@@ -1581,54 +1501,91 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
+    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw ProtobufDecodingError.duplicatedOneOf
       }
-      let handled: Bool
       switch protoFieldNumber {
       case 111:
         var value = UInt32()
-        handled = try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
         self = .oneofUint32(value)
       case 112:
         var value: Conformance_TestAllTypes.NestedMessage?
-        handled = try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &value)
-        if let value = value, handled {
+        try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.NestedMessage.self, value: &value)
+        if let value = value {
           self = .oneofNestedMessage(value)
         }
       case 113:
         var value = String()
-        handled = try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
         self = .oneofString(value)
       case 114:
         var value = Data()
-        handled = try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+        try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
+      case 115:
+        var value = Bool()
+        try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+        self = .oneofBool(value)
+      case 116:
+        var value = UInt64()
+        try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
+        self = .oneofUint64(value)
+      case 117:
+        var value = Float()
+        try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
+        self = .oneofFloat(value)
+      case 118:
+        var value = Double()
+        try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
+        self = .oneofDouble(value)
+      case 119:
+        var value = Conformance_TestAllTypes.NestedEnum()
+        try setter.decodeSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: &value)
+        self = .oneofEnum(value)
       default:
-        handled = false
         self = .None
       }
-      return handled
     }
 
     public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
       switch self {
       case .oneofUint32(let v):
         if start <= 111 && 111 < end {
-          try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: v, protoFieldNumber: 111, protoFieldName: "oneof_uint32", jsonFieldName: "oneofUint32", swiftFieldName: "oneofUint32")
+          try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: v, protoFieldNumber: 111)
         }
       case .oneofNestedMessage(let v):
         if start <= 112 && 112 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 112, protoFieldName: "oneof_nested_message", jsonFieldName: "oneofNestedMessage", swiftFieldName: "oneofNestedMessage")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 112)
         }
       case .oneofString(let v):
         if start <= 113 && 113 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 113, protoFieldName: "oneof_string", jsonFieldName: "oneofString", swiftFieldName: "oneofString")
+          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 113)
         }
       case .oneofBytes(let v):
         if start <= 114 && 114 < end {
-          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 114, protoFieldName: "oneof_bytes", jsonFieldName: "oneofBytes", swiftFieldName: "oneofBytes")
+          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 114)
+        }
+      case .oneofBool(let v):
+        if start <= 115 && 115 < end {
+          try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 115)
+        }
+      case .oneofUint64(let v):
+        if start <= 116 && 116 < end {
+          try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: v, protoFieldNumber: 116)
+        }
+      case .oneofFloat(let v):
+        if start <= 117 && 117 < end {
+          try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: v, protoFieldNumber: 117)
+        }
+      case .oneofDouble(let v):
+        if start <= 118 && 118 < end {
+          try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, protoFieldNumber: 118)
+        }
+      case .oneofEnum(let v):
+        if start <= 119 && 119 < end {
+          try visitor.visitSingularField(fieldType: Conformance_TestAllTypes.NestedEnum.self, value: v, protoFieldNumber: 119)
         }
       case .None:
         break
@@ -1637,7 +1594,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   }
 
   enum NestedEnum: ProtobufEnum {
-    public typealias RawValue = Int
+    typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
@@ -1646,11 +1603,11 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     case neg // = -1
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .foo
       case 1: self = .bar
@@ -1660,7 +1617,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       case "bar": self = .bar
@@ -1670,7 +1627,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -1680,7 +1637,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -1690,7 +1647,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 0
@@ -1702,7 +1659,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"FOO\""
@@ -1714,9 +1671,9 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -1730,18 +1687,14 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
   }
 
-  struct NestedMessage: ProtobufGeneratedMessage {
+  struct NestedMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
     public var swiftClassName: String {return "Conformance_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "conformance"}
-    public var jsonFieldNames: [String: Int] {return [
-      "a": 1,
-      "corecursive": 2,
-    ]}
-    public var protoFieldNames: [String: Int] {return [
-      "a": 1,
-      "corecursive": 2,
-    ]}
+    public static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a", swift: "a"),
+      2: .same(proto: "corecursive", swift: "corecursive"),
+    ]
 
     private class _StorageClass {
       typealias ProtobufExtendedMessage = Conformance_TestAllTypes.NestedMessage
@@ -1750,23 +1703,20 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
       init() {}
 
-      func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-        let handled: Bool
+      func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
-        case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
-        case 2: handled = try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.self, value: &_corecursive)
-        default:
-          handled = false
+        case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_a)
+        case 2: try setter.decodeSingularMessageField(fieldType: Conformance_TestAllTypes.self, value: &_corecursive)
+        default: break
         }
-        return handled
       }
 
       func traverse(visitor: inout ProtobufVisitor) throws {
         if _a != 0 {
-          try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _a, protoFieldNumber: 1, protoFieldName: "a", jsonFieldName: "a", swiftFieldName: "a")
+          try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _a, protoFieldNumber: 1)
         }
         if let v = _corecursive {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2, protoFieldName: "corecursive", jsonFieldName: "corecursive", swiftFieldName: "corecursive")
+          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
         }
       }
 
@@ -1786,12 +1736,13 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
 
     private var _storage = _StorageClass()
 
-    public var a: Int32 {
+
+    var a: Int32 {
       get {return _storage._a}
       set {_uniqueStorage()._a = newValue}
     }
 
-    public var corecursive: Conformance_TestAllTypes {
+    var corecursive: Conformance_TestAllTypes {
       get {return _storage._corecursive ?? Conformance_TestAllTypes()}
       set {_uniqueStorage()._corecursive = newValue}
     }
@@ -1802,10 +1753,10 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
       return _storage._corecursive = nil
     }
 
-    public init() {}
+    init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-      return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+      try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
     }
 
     public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -1825,82 +1776,82 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   }
 
   ///   Singular
-  public var optionalInt32: Int32 {
+  var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
-  public var optionalInt64: Int64 {
+  var optionalInt64: Int64 {
     get {return _storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
-  public var optionalUint32: UInt32 {
+  var optionalUint32: UInt32 {
     get {return _storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
-  public var optionalUint64: UInt64 {
+  var optionalUint64: UInt64 {
     get {return _storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
-  public var optionalSint32: Int32 {
+  var optionalSint32: Int32 {
     get {return _storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
-  public var optionalSint64: Int64 {
+  var optionalSint64: Int64 {
     get {return _storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
-  public var optionalFixed32: UInt32 {
+  var optionalFixed32: UInt32 {
     get {return _storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
-  public var optionalFixed64: UInt64 {
+  var optionalFixed64: UInt64 {
     get {return _storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
-  public var optionalSfixed32: Int32 {
+  var optionalSfixed32: Int32 {
     get {return _storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
-  public var optionalSfixed64: Int64 {
+  var optionalSfixed64: Int64 {
     get {return _storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
-  public var optionalFloat: Float {
+  var optionalFloat: Float {
     get {return _storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
-  public var optionalDouble: Double {
+  var optionalDouble: Double {
     get {return _storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
-  public var optionalBool: Bool {
+  var optionalBool: Bool {
     get {return _storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
-  public var optionalString: String {
+  var optionalString: String {
     get {return _storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: Data {
+  var optionalBytes: Data {
     get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
-  public var optionalNestedMessage: Conformance_TestAllTypes.NestedMessage {
+  var optionalNestedMessage: Conformance_TestAllTypes.NestedMessage {
     get {return _storage._optionalNestedMessage ?? Conformance_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
@@ -1911,7 +1862,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalNestedMessage = nil
   }
 
-  public var optionalForeignMessage: Conformance_ForeignMessage {
+  var optionalForeignMessage: Conformance_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? Conformance_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
@@ -1922,27 +1873,27 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalForeignMessage = nil
   }
 
-  public var optionalNestedEnum: Conformance_TestAllTypes.NestedEnum {
+  var optionalNestedEnum: Conformance_TestAllTypes.NestedEnum {
     get {return _storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
-  public var optionalForeignEnum: Conformance_ForeignEnum {
+  var optionalForeignEnum: Conformance_ForeignEnum {
     get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
-  public var optionalStringPiece: String {
+  var optionalStringPiece: String {
     get {return _storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
 
-  public var optionalCord: String {
+  var optionalCord: String {
     get {return _storage._optionalCord}
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
-  public var recursiveMessage: Conformance_TestAllTypes {
+  var recursiveMessage: Conformance_TestAllTypes {
     get {return _storage._recursiveMessage ?? Conformance_TestAllTypes()}
     set {_uniqueStorage()._recursiveMessage = newValue}
   }
@@ -1954,208 +1905,208 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   }
 
   ///   Repeated
-  public var repeatedInt32: [Int32] {
+  var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
-  public var repeatedInt64: [Int64] {
+  var repeatedInt64: [Int64] {
     get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
-  public var repeatedUint32: [UInt32] {
+  var repeatedUint32: [UInt32] {
     get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
-  public var repeatedUint64: [UInt64] {
+  var repeatedUint64: [UInt64] {
     get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
-  public var repeatedSint32: [Int32] {
+  var repeatedSint32: [Int32] {
     get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
-  public var repeatedSint64: [Int64] {
+  var repeatedSint64: [Int64] {
     get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
-  public var repeatedFixed32: [UInt32] {
+  var repeatedFixed32: [UInt32] {
     get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
-  public var repeatedFixed64: [UInt64] {
+  var repeatedFixed64: [UInt64] {
     get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
-  public var repeatedSfixed32: [Int32] {
+  var repeatedSfixed32: [Int32] {
     get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
-  public var repeatedSfixed64: [Int64] {
+  var repeatedSfixed64: [Int64] {
     get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
-  public var repeatedFloat: [Float] {
+  var repeatedFloat: [Float] {
     get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
-  public var repeatedDouble: [Double] {
+  var repeatedDouble: [Double] {
     get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
-  public var repeatedBool: [Bool] {
+  var repeatedBool: [Bool] {
     get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
-  public var repeatedString: [String] {
+  var repeatedString: [String] {
     get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [Data] {
+  var repeatedBytes: [Data] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
-  public var repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] {
+  var repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  public var repeatedForeignMessage: [Conformance_ForeignMessage] {
+  var repeatedForeignMessage: [Conformance_ForeignMessage] {
     get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  public var repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] {
+  var repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] {
     get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
-  public var repeatedForeignEnum: [Conformance_ForeignEnum] {
+  var repeatedForeignEnum: [Conformance_ForeignEnum] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
-  public var repeatedStringPiece: [String] {
+  var repeatedStringPiece: [String] {
     get {return _storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
-  public var repeatedCord: [String] {
+  var repeatedCord: [String] {
     get {return _storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
   ///   Map
-  public var mapInt32Int32: Dictionary<Int32,Int32> {
+  var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
-  public var mapInt64Int64: Dictionary<Int64,Int64> {
+  var mapInt64Int64: Dictionary<Int64,Int64> {
     get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
-  public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
+  var mapUint32Uint32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
-  public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
+  var mapUint64Uint64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
-  public var mapSint32Sint32: Dictionary<Int32,Int32> {
+  var mapSint32Sint32: Dictionary<Int32,Int32> {
     get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
-  public var mapSint64Sint64: Dictionary<Int64,Int64> {
+  var mapSint64Sint64: Dictionary<Int64,Int64> {
     get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
-  public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
+  var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
-  public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
+  var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
-  public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
+  var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
     get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
-  public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
+  var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
     get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
-  public var mapInt32Float: Dictionary<Int32,Float> {
+  var mapInt32Float: Dictionary<Int32,Float> {
     get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
-  public var mapInt32Double: Dictionary<Int32,Double> {
+  var mapInt32Double: Dictionary<Int32,Double> {
     get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
-  public var mapBoolBool: Dictionary<Bool,Bool> {
+  var mapBoolBool: Dictionary<Bool,Bool> {
     get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
-  public var mapStringString: Dictionary<String,String> {
+  var mapStringString: Dictionary<String,String> {
     get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapStringBytes: Dictionary<String,Data> {
+  var mapStringBytes: Dictionary<String,Data> {
     get {return _storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
-  public var mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> {
+  var mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> {
     get {return _storage._mapStringNestedMessage}
     set {_uniqueStorage()._mapStringNestedMessage = newValue}
   }
 
-  public var mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> {
+  var mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> {
     get {return _storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
-  public var mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> {
+  var mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> {
     get {return _storage._mapStringNestedEnum}
     set {_uniqueStorage()._mapStringNestedEnum = newValue}
   }
 
-  public var mapStringForeignEnum: Dictionary<String,Conformance_ForeignEnum> {
+  var mapStringForeignEnum: Dictionary<String,Conformance_ForeignEnum> {
     get {return _storage._mapStringForeignEnum}
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
 
-  public var oneofUint32: UInt32 {
+  var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
@@ -2167,7 +2118,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofNestedMessage: Conformance_TestAllTypes.NestedMessage {
+  var oneofNestedMessage: Conformance_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
@@ -2179,7 +2130,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofString: String {
+  var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
@@ -2191,7 +2142,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public var oneofBytes: Data {
+  var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
@@ -2203,8 +2154,68 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
+  var oneofBool: Bool {
+    get {
+      if case .oneofBool(let v) = _storage._oneofField {
+        return v
+      }
+      return false
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofBool(newValue)
+    }
+  }
+
+  var oneofUint64: UInt64 {
+    get {
+      if case .oneofUint64(let v) = _storage._oneofField {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofUint64(newValue)
+    }
+  }
+
+  var oneofFloat: Float {
+    get {
+      if case .oneofFloat(let v) = _storage._oneofField {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofFloat(newValue)
+    }
+  }
+
+  var oneofDouble: Double {
+    get {
+      if case .oneofDouble(let v) = _storage._oneofField {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofDouble(newValue)
+    }
+  }
+
+  var oneofEnum: Conformance_TestAllTypes.NestedEnum {
+    get {
+      if case .oneofEnum(let v) = _storage._oneofField {
+        return v
+      }
+      return Conformance_TestAllTypes.NestedEnum.foo
+    }
+    set {
+      _uniqueStorage()._oneofField = .oneofEnum(newValue)
+    }
+  }
+
   ///   Well-known types
-  public var optionalBoolWrapper: Google_Protobuf_BoolValue {
+  var optionalBoolWrapper: Google_Protobuf_BoolValue {
     get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
   }
@@ -2215,7 +2226,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalBoolWrapper = nil
   }
 
-  public var optionalInt32Wrapper: Google_Protobuf_Int32Value {
+  var optionalInt32Wrapper: Google_Protobuf_Int32Value {
     get {return _storage._optionalInt32Wrapper ?? Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._optionalInt32Wrapper = newValue}
   }
@@ -2226,7 +2237,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalInt32Wrapper = nil
   }
 
-  public var optionalInt64Wrapper: Google_Protobuf_Int64Value {
+  var optionalInt64Wrapper: Google_Protobuf_Int64Value {
     get {return _storage._optionalInt64Wrapper ?? Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._optionalInt64Wrapper = newValue}
   }
@@ -2237,7 +2248,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalInt64Wrapper = nil
   }
 
-  public var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
+  var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
     get {return _storage._optionalUint32Wrapper ?? Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._optionalUint32Wrapper = newValue}
   }
@@ -2248,7 +2259,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalUint32Wrapper = nil
   }
 
-  public var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
+  var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
     get {return _storage._optionalUint64Wrapper ?? Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._optionalUint64Wrapper = newValue}
   }
@@ -2259,7 +2270,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalUint64Wrapper = nil
   }
 
-  public var optionalFloatWrapper: Google_Protobuf_FloatValue {
+  var optionalFloatWrapper: Google_Protobuf_FloatValue {
     get {return _storage._optionalFloatWrapper ?? Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._optionalFloatWrapper = newValue}
   }
@@ -2270,7 +2281,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalFloatWrapper = nil
   }
 
-  public var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
+  var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
     get {return _storage._optionalDoubleWrapper ?? Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._optionalDoubleWrapper = newValue}
   }
@@ -2281,7 +2292,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalDoubleWrapper = nil
   }
 
-  public var optionalStringWrapper: Google_Protobuf_StringValue {
+  var optionalStringWrapper: Google_Protobuf_StringValue {
     get {return _storage._optionalStringWrapper ?? Google_Protobuf_StringValue()}
     set {_uniqueStorage()._optionalStringWrapper = newValue}
   }
@@ -2292,7 +2303,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalStringWrapper = nil
   }
 
-  public var optionalBytesWrapper: Google_Protobuf_BytesValue {
+  var optionalBytesWrapper: Google_Protobuf_BytesValue {
     get {return _storage._optionalBytesWrapper ?? Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._optionalBytesWrapper = newValue}
   }
@@ -2303,52 +2314,52 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalBytesWrapper = nil
   }
 
-  public var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
+  var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
     get {return _storage._repeatedBoolWrapper}
     set {_uniqueStorage()._repeatedBoolWrapper = newValue}
   }
 
-  public var repeatedInt32Wrapper: [Google_Protobuf_Int32Value] {
+  var repeatedInt32Wrapper: [Google_Protobuf_Int32Value] {
     get {return _storage._repeatedInt32Wrapper}
     set {_uniqueStorage()._repeatedInt32Wrapper = newValue}
   }
 
-  public var repeatedInt64Wrapper: [Google_Protobuf_Int64Value] {
+  var repeatedInt64Wrapper: [Google_Protobuf_Int64Value] {
     get {return _storage._repeatedInt64Wrapper}
     set {_uniqueStorage()._repeatedInt64Wrapper = newValue}
   }
 
-  public var repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] {
+  var repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] {
     get {return _storage._repeatedUint32Wrapper}
     set {_uniqueStorage()._repeatedUint32Wrapper = newValue}
   }
 
-  public var repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] {
+  var repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] {
     get {return _storage._repeatedUint64Wrapper}
     set {_uniqueStorage()._repeatedUint64Wrapper = newValue}
   }
 
-  public var repeatedFloatWrapper: [Google_Protobuf_FloatValue] {
+  var repeatedFloatWrapper: [Google_Protobuf_FloatValue] {
     get {return _storage._repeatedFloatWrapper}
     set {_uniqueStorage()._repeatedFloatWrapper = newValue}
   }
 
-  public var repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] {
+  var repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] {
     get {return _storage._repeatedDoubleWrapper}
     set {_uniqueStorage()._repeatedDoubleWrapper = newValue}
   }
 
-  public var repeatedStringWrapper: [Google_Protobuf_StringValue] {
+  var repeatedStringWrapper: [Google_Protobuf_StringValue] {
     get {return _storage._repeatedStringWrapper}
     set {_uniqueStorage()._repeatedStringWrapper = newValue}
   }
 
-  public var repeatedBytesWrapper: [Google_Protobuf_BytesValue] {
+  var repeatedBytesWrapper: [Google_Protobuf_BytesValue] {
     get {return _storage._repeatedBytesWrapper}
     set {_uniqueStorage()._repeatedBytesWrapper = newValue}
   }
 
-  public var optionalDuration: Google_Protobuf_Duration {
+  var optionalDuration: Google_Protobuf_Duration {
     get {return _storage._optionalDuration ?? Google_Protobuf_Duration()}
     set {_uniqueStorage()._optionalDuration = newValue}
   }
@@ -2359,7 +2370,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalDuration = nil
   }
 
-  public var optionalTimestamp: Google_Protobuf_Timestamp {
+  var optionalTimestamp: Google_Protobuf_Timestamp {
     get {return _storage._optionalTimestamp ?? Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._optionalTimestamp = newValue}
   }
@@ -2370,7 +2381,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalTimestamp = nil
   }
 
-  public var optionalFieldMask: Google_Protobuf_FieldMask {
+  var optionalFieldMask: Google_Protobuf_FieldMask {
     get {return _storage._optionalFieldMask ?? Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._optionalFieldMask = newValue}
   }
@@ -2381,7 +2392,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalFieldMask = nil
   }
 
-  public var optionalStruct: Google_Protobuf_Struct {
+  var optionalStruct: Google_Protobuf_Struct {
     get {return _storage._optionalStruct ?? Google_Protobuf_Struct()}
     set {_uniqueStorage()._optionalStruct = newValue}
   }
@@ -2392,7 +2403,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalStruct = nil
   }
 
-  public var optionalAny: Google_Protobuf_Any {
+  var optionalAny: Google_Protobuf_Any {
     get {return _storage._optionalAny ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._optionalAny = newValue}
   }
@@ -2403,7 +2414,7 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalAny = nil
   }
 
-  public var optionalValue: Google_Protobuf_Value {
+  var optionalValue: Google_Protobuf_Value {
     get {return _storage._optionalValue ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._optionalValue = newValue}
   }
@@ -2414,95 +2425,126 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     return _storage._optionalValue = nil
   }
 
-  public var repeatedDuration: [Google_Protobuf_Duration] {
+  var repeatedDuration: [Google_Protobuf_Duration] {
     get {return _storage._repeatedDuration}
     set {_uniqueStorage()._repeatedDuration = newValue}
   }
 
-  public var repeatedTimestamp: [Google_Protobuf_Timestamp] {
+  var repeatedTimestamp: [Google_Protobuf_Timestamp] {
     get {return _storage._repeatedTimestamp}
     set {_uniqueStorage()._repeatedTimestamp = newValue}
   }
 
-  public var repeatedFieldmask: [Google_Protobuf_FieldMask] {
+  var repeatedFieldmask: [Google_Protobuf_FieldMask] {
     get {return _storage._repeatedFieldmask}
     set {_uniqueStorage()._repeatedFieldmask = newValue}
   }
 
-  public var repeatedStruct: [Google_Protobuf_Struct] {
+  var repeatedStruct: [Google_Protobuf_Struct] {
     get {return _storage._repeatedStruct}
     set {_uniqueStorage()._repeatedStruct = newValue}
   }
 
-  public var repeatedAny: [Google_Protobuf_Any] {
+  var repeatedAny: [Google_Protobuf_Any] {
     get {return _storage._repeatedAny}
     set {_uniqueStorage()._repeatedAny = newValue}
   }
 
-  public var repeatedValue: [Google_Protobuf_Value] {
+  var repeatedValue: [Google_Protobuf_Value] {
     get {return _storage._repeatedValue}
     set {_uniqueStorage()._repeatedValue = newValue}
   }
 
   ///   Test field-name-to-JSON-name convention.
-  public var fieldname1: Int32 {
+  ///   (protobuf says names can be any valid C/C++ identifier.)
+  var fieldname1: Int32 {
     get {return _storage._fieldname1}
     set {_uniqueStorage()._fieldname1 = newValue}
   }
 
-  public var fieldName2: Int32 {
+  var fieldName2: Int32 {
     get {return _storage._fieldName2}
     set {_uniqueStorage()._fieldName2 = newValue}
   }
 
-  public var fieldName3: Int32 {
+  var fieldName3: Int32 {
     get {return _storage._fieldName3}
     set {_uniqueStorage()._fieldName3 = newValue}
   }
 
-  public var field_Name4_: Int32 {
+  var field_Name4_: Int32 {
     get {return _storage._field_Name4_}
     set {_uniqueStorage()._field_Name4_ = newValue}
   }
 
-  public var field0Name5: Int32 {
+  var field0Name5: Int32 {
     get {return _storage._field0Name5}
     set {_uniqueStorage()._field0Name5 = newValue}
   }
 
-  public var field0Name6: Int32 {
+  var field0Name6: Int32 {
     get {return _storage._field0Name6}
     set {_uniqueStorage()._field0Name6 = newValue}
   }
 
-  public var fieldName7: Int32 {
+  var fieldName7: Int32 {
     get {return _storage._fieldName7}
     set {_uniqueStorage()._fieldName7 = newValue}
   }
 
-  public var fieldName8: Int32 {
+  var fieldName8: Int32 {
     get {return _storage._fieldName8}
     set {_uniqueStorage()._fieldName8 = newValue}
   }
 
-  public var fieldName9: Int32 {
+  var fieldName9: Int32 {
     get {return _storage._fieldName9}
     set {_uniqueStorage()._fieldName9 = newValue}
   }
 
-  public var fieldName10: Int32 {
+  var fieldName10: Int32 {
     get {return _storage._fieldName10}
     set {_uniqueStorage()._fieldName10 = newValue}
   }
 
-  public var fieldName11: Int32 {
+  var fieldName11: Int32 {
     get {return _storage._fieldName11}
     set {_uniqueStorage()._fieldName11 = newValue}
   }
 
-  public var fieldName12: Int32 {
+  var fieldName12: Int32 {
     get {return _storage._fieldName12}
     set {_uniqueStorage()._fieldName12 = newValue}
+  }
+
+  var _FieldName13: Int32 {
+    get {return _storage.__FieldName13}
+    set {_uniqueStorage().__FieldName13 = newValue}
+  }
+
+  var _FieldName14: Int32 {
+    get {return _storage.__FieldName14}
+    set {_uniqueStorage().__FieldName14 = newValue}
+  }
+
+  var field_Name15: Int32 {
+    get {return _storage._field_Name15}
+    set {_uniqueStorage()._field_Name15 = newValue}
+  }
+
+  var field_Name16: Int32 {
+    get {return _storage._field_Name16}
+    set {_uniqueStorage()._field_Name16 = newValue}
+  }
+
+  var fieldName17__: Int32 {
+    get {return _storage._fieldName17__}
+    set {_uniqueStorage()._fieldName17__ = newValue}
+  }
+
+  var fieldName18__: Int32 {
+    get {return _storage._fieldName18__}
+    set {_uniqueStorage()._fieldName18__ = newValue}
   }
 
   public var oneofField: OneOf_OneofField {
@@ -2512,10 +2554,10 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
     }
   }
 
-  public init() {}
+  init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
@@ -2534,34 +2576,29 @@ struct Conformance_TestAllTypes: ProtobufGeneratedMessage {
   }
 }
 
-struct Conformance_ForeignMessage: ProtobufGeneratedMessage {
+struct Conformance_ForeignMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "conformance"}
-  public var jsonFieldNames: [String: Int] {return [
-    "c": 1,
-  ]}
-  public var protoFieldNames: [String: Int] {return [
-    "c": 1,
-  ]}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "c", swift: "c"),
+  ]
 
-  public var c: Int32 = 0
 
-  public init() {}
+  var c: Int32 = 0
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {
-    let handled: Bool
+  init() {}
+
+  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: handled = try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &c)
-    default:
-      handled = false
+    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &c)
+    default: break
     }
-    return handled
   }
 
   public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
     if c != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: c, protoFieldNumber: 1, protoFieldName: "c", jsonFieldName: "c", swiftFieldName: "c")
+      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: c, protoFieldNumber: 1)
     }
   }
 
@@ -2599,6 +2636,11 @@ func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAll
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
   case (.oneofString(let l), .oneofString(let r)): return l == r
   case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+  case (.oneofBool(let l), .oneofBool(let r)): return l == r
+  case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
+  case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
+  case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
+  case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
   case (.None, .None): return true
   default: return false
   }

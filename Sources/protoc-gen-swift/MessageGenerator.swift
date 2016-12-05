@@ -146,9 +146,8 @@ class StorageClassGenerator {
 
         // decodeField
         p.print("\n")
-        p.print("func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {\n")
+        p.print("func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {\n")
         p.indent()
-        p.print("let handled: Bool\n")
         p.print("switch protoFieldNumber {\n")
         oneofHandled.removeAll(keepingCapacity: true)
         for f in fields {
@@ -161,21 +160,16 @@ class StorageClassGenerator {
                             p.print(", \(other.number)")
                         }
                     }
-                    p.print(":\n")
-                    p.indent()
                     let oneof = f.oneof!
-                    p.print("handled = try \(oneof.swiftStorageFieldName).decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
+                    p.print(": try \(oneof.swiftStorageFieldName).decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
                     oneofHandled.insert(oneofIndex)
-                    p.outdent()
                 }
             } else {
                 f.generateDecodeFieldCase(printer: &p, prefix: "_")
             }
         }
-        p.print("default:\n")
-        p.indent()
         if isExtensible {
-            p.print("if ")
+            p.print("default: if ")
             var separator = ""
             for range in descriptor.extensionRange {
                 p.print(separator)
@@ -183,24 +177,16 @@ class StorageClassGenerator {
                 separator = " || "
             }
             p.print(" {\n")
-            p.print("  handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: \(messageSwiftName).self, protoFieldNumber: protoFieldNumber)\n")
-            p.print("} else {\n")
-            p.print("  handled = false\n")
+            p.indent()
+            p.indent()
+            p.print("try setter.decodeExtensionField(values: &extensionFieldValues, messageType: \(messageSwiftName).self, protoFieldNumber: protoFieldNumber)\n")
+            p.outdent()
             p.print("}\n")
+            p.outdent()
         } else {
-            p.print("handled = false\n")
+            p.print("default: break\n")
         }
-        p.outdent()
         p.print("}\n")
-        if !isProto3 {
-            p.print("if handled {\n")
-            p.print("    return true\n")
-            p.print("} else {\n")
-            p.print("    return try unknown.decodeField(setter: &setter)\n")
-            p.print("}\n")
-        } else {
-            p.print("return handled\n")
-        }
         p.outdent()
         p.print("}\n")
 
@@ -343,9 +329,16 @@ class MessageGenerator {
             swiftFullName = swiftRelativeName
         }
         var conformance = "ProtobufGeneratedMessage"
+        if isProto3 {
+            conformance += ", ProtobufProto3Message"
+        } else {
+            conformance += ", ProtobufProto2Message"
+        }
         if isExtensible {
             conformance += ", ProtobufExtensibleMessage"
         }
+        // TODO: Move this conformance into an extension in a separate file.
+        conformance += ", ProtoNameProviding"
         self.swiftMessageConformance = conformance
 
         var i: Int32 = 0
@@ -429,32 +422,17 @@ class MessageGenerator {
         p.print("public var protoMessageName: String {return \"\(protoMessageName)\"}\n")
         p.print("public var protoPackageName: String {return \"\(protoPackageName)\"}\n")
 
-        // Map JSON field names to field number
-        if fields.isEmpty {
-            p.print("public var jsonFieldNames: [String: Int] {return [:]}\n")
-        } else {
-            p.print("public var jsonFieldNames: [String: Int] {return [\n")
-            p.indent()
-            for f in fields {
-                if let jsonName = f.jsonName {
-                    p.print("\"\(jsonName)\": \(f.number),\n")
-                }
-            }
-            p.outdent()
-            p.print("]}\n")
-        }
-
         // Map proto field names to field number
         if fields.isEmpty {
-            p.print("public var protoFieldNames: [String: Int] {return [:]}\n")
+            p.print("public static let _protobuf_fieldNames = FieldNameMap()\n")
         } else {
-            p.print("public var protoFieldNames: [String: Int] {return [\n")
+            p.print("public static let _protobuf_fieldNames: FieldNameMap = [\n")
             p.indent()
             for f in fields {
-                p.print("\"\(f.protoName)\": \(f.number),\n")
+                p.print("\(f.number): \(f.fieldMapNames),\n")
             }
             p.outdent()
-            p.print("]}\n")
+            p.print("]\n")
         }
 
         if let storage = storage {
@@ -464,9 +442,16 @@ class MessageGenerator {
             p.print("private var _storage = _StorageClass()\n")
         }
 
-        if storage == nil && !file.isProto3 {
-            p.print("\n")
-            p.print("var unknown = ProtobufUnknownStorage()\n")
+        p.print("\n")
+        if !file.isProto3 {
+            if storage == nil {
+                p.print("public var unknown = ProtobufUnknownStorage()\n")
+            } else {
+                p.print("public var unknown: ProtobufUnknownStorage {\n")
+                p.print("  get {return _storage.unknown}\n")
+                p.print("  set {_storage.unknown = newValue}\n")
+                p.print("}\n")
+            }
         }
 
         for o in oneofs {
@@ -525,66 +510,42 @@ class MessageGenerator {
 
         // Default init
         p.print("\n")
-        p.print("public init() {}\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
 
         // Field-addressable decoding
         p.print("\n")
-        p.print("public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws -> Bool {\n")
+        p.print("public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {\n")
         p.indent()
         if storage != nil {
-            p.print("return try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
-        } else if fields.isEmpty {
-            if isProto3 {
-                p.print("return false // Proto3 ignores unknown fields\n")
-            } else if isExtensible {
-                p.print("var handled = false\n")
-                p.print("if ")
-                var separator = ""
-                for range in descriptor.extensionRange {
-                    p.print(separator)
-                    p.print("(\(range.start) <= protoFieldNumber && protoFieldNumber < \(range.end))")
-                    separator = " || "
-                }
-                p.print(" {\n")
-                p.print("  handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: \(swiftRelativeName).self, protoFieldNumber: protoFieldNumber)\n")
-                p.print("} else {\n")
-                p.print("  handled = false\n")
-                p.print("}\n")
-                p.print("if handled {\n")
-                p.print("    return true\n")
-                p.print("} else {\n")
-                p.print("    return try unknown.decodeField(setter: &setter)\n")
-                p.print("}\n")
-            } else {
-                p.print("return try unknown.decodeField(setter: &setter)\n")
-            }
+            p.print("try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
         } else {
-            p.print("let handled: Bool\n")
-            p.print("switch protoFieldNumber {\n")
-            var oneofHandled = Set<Int32>()
-            for f in fields {
-                if f.descriptor.hasOneofIndex {
-                    let oneofIndex = f.descriptor.oneofIndex
-                    if !oneofHandled.contains(oneofIndex) {
-                        p.print("case \(f.number)")
-                        for other in fields {
-                            if other.descriptor.hasOneofIndex && other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
-                                p.print(", \(other.number)")
+            if !fields.isEmpty {
+                p.print("switch protoFieldNumber {\n")
+                var oneofHandled = Set<Int32>()
+                for f in fields {
+                    if f.descriptor.hasOneofIndex {
+                        let oneofIndex = f.descriptor.oneofIndex
+                        if !oneofHandled.contains(oneofIndex) {
+                            p.print("case \(f.number)")
+                            for other in fields {
+                                if other.descriptor.hasOneofIndex && other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
+                                    p.print(", \(other.number)")
+                                }
                             }
+                            let oneof = f.oneof!
+                            p.print(": try \(oneof.swiftFieldName).decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
+                            oneofHandled.insert(oneofIndex)
                         }
-                        p.print(":\n")
-                        p.indent()
-                        let oneof = f.oneof!
-                        p.print("handled = try \(oneof.swiftFieldName).decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
-                        oneofHandled.insert(oneofIndex)
-                        p.outdent()
+                    } else {
+                        f.generateDecodeFieldCase(printer: &p)
                     }
-                } else {
-                    f.generateDecodeFieldCase(printer: &p)
                 }
+                p.print("default: ")
+                if isProto3 || !isExtensible {
+                    p.print("break\n")
+                }
+                p.indent()
             }
-            p.print("default:\n")
-            p.indent()
             if isExtensible {
                 p.print("if ")
                 var separator = ""
@@ -594,23 +555,14 @@ class MessageGenerator {
                     separator = " || "
                 }
                 p.print(" {\n")
-                p.print("  handled = try setter.decodeExtensionField(values: &extensionFieldValues, messageType: \(swiftRelativeName).self, protoFieldNumber: protoFieldNumber)\n")
-                p.print("} else {\n")
-                p.print("  handled = false\n")
+                p.indent()
+                p.print("try setter.decodeExtensionField(values: &extensionFieldValues, messageType: \(swiftRelativeName).self, protoFieldNumber: protoFieldNumber)\n")
+                p.outdent()
                 p.print("}\n")
-            } else {
-                p.print("handled = false\n")
             }
-            p.outdent()
-            p.print("}\n")
-            if !isProto3 {
-                p.print("if handled {\n")
-                p.print("    return true\n")
-                p.print("} else {\n")
-                p.print("    return try unknown.decodeField(setter: &setter)\n")
+            if !fields.isEmpty {
+                p.outdent()
                 p.print("}\n")
-            } else {
-                p.print("return handled\n")
             }
         }
         p.outdent()
@@ -733,6 +685,9 @@ class MessageGenerator {
                 p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return _storage.hasExtensionValue(ext: ext)\n")
                 p.print("}\n")
+                p.print("public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
+                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? _storage.extensionFieldValues.fieldNames(for: number)\n")
+                p.print("}\n")
             } else {
                 p.print("\n")
                 p.print("private var extensionFieldValues = ProtobufExtensionFieldValueSet()\n")
@@ -754,6 +709,9 @@ class MessageGenerator {
                 p.print("\n")
                 p.print("public func hasExtensionValue<F: ProtobufExtensionField>(ext: ProtobufGenericMessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return extensionFieldValues[ext.protoFieldNumber] is F\n")
+                p.print("}\n")
+                p.print("public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
+                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)\n")
                 p.print("}\n")
             }
         }
