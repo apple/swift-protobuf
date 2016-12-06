@@ -19,7 +19,7 @@
 
 import Swift
 
-public enum ProtobufDecodingError: Error {
+public enum DecodingError: Error {
     /// An unspecified decoding failure
     case failure
     /// JSON format does not allow a oneof field to be specified more than once
@@ -44,6 +44,10 @@ public enum ProtobufDecodingError: Error {
     case malformedJSONNumber
     /// A JSON timestamp was not parseable
     case malformedJSONTimestamp
+    /// The Protobuf text-format input was syntactically invalid
+    case malformedText
+    /// A Protobuf text-format number was not parseable
+    case malformedTextNumber
     /// The enum value was not recognized (for JSON, this is a parse error)
     case unrecognizedEnumValue
     /// Strings must always be valid UTF-8
@@ -55,7 +59,7 @@ public enum ProtobufDecodingError: Error {
     /// TODO: More here?
 }
 
-public enum ProtobufEncodingError: Error {
+public enum EncodingError: Error {
     /// An unspecified encoding failure
     case failure
     /// Any fields cannot be transcoded between JSON and protobuf unless

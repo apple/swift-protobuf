@@ -57,7 +57,7 @@ import SwiftProtobuf
 
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorRequest"}
   public var protoMessageName: String {return "CodeGeneratorRequest"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -67,7 +67,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage, 
     15: .unique(proto: "proto_file", json: "protoFile", swift: "protoFile"),
   ]
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   The .proto files that were explicitly listed on the command-line.  The
   ///   code generator should generate code only for these files.  Each file's
@@ -102,21 +102,21 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage, 
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &fileToGenerate)
-    case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_parameter)
+    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &fileToGenerate)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_parameter)
     case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &protoFile)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !fileToGenerate.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: fileToGenerate, protoFieldNumber: 1)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: fileToGenerate, protoFieldNumber: 1)
     }
     if let v = _parameter {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 2)
     }
     if !protoFile.isEmpty {
       try visitor.visitRepeatedMessageField(value: protoFile, protoFieldNumber: 15)
@@ -134,7 +134,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: ProtobufGeneratedMessage, 
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse"}
   public var protoMessageName: String {return "CodeGeneratorResponse"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -143,10 +143,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
     15: .same(proto: "file", swift: "file"),
   ]
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
-  struct File: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+  struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse.File"}
     public var protoMessageName: String {return "File"}
     public var protoPackageName: String {return "google.protobuf.compiler"}
@@ -156,7 +156,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
       15: .same(proto: "content", swift: "content"),
     ]
 
-    public var unknown = ProtobufUnknownStorage()
+    public var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   The file name, relative to the output directory.  The name must not
     ///   contain "." or ".." components and must be relative, not be absolute (so,
@@ -245,24 +245,24 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
-      case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_insertionPoint)
-      case 15: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_content)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_name)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_insertionPoint)
+      case 15: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_content)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _name {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 1)
       }
       if let v = _insertionPoint {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 2)
       }
       if let v = _content {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 15)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 15)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -300,17 +300,17 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: ProtobufGeneratedMessage,
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_error)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_error)
     case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Compiler_CodeGeneratorResponse.File.self, value: &file)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if let v = _error {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 1)
     }
     if !file.isEmpty {
       try visitor.visitRepeatedMessageField(value: file, protoFieldNumber: 15)

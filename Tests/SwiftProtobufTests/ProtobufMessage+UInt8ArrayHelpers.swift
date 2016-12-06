@@ -19,17 +19,18 @@
 import Foundation
 import SwiftProtobuf
 
-extension ProtobufBinaryMessageBase {
+extension SwiftProtobuf.Message {
+    init(protobufBytes: [UInt8]) throws {
+        try self.init(protobuf: Data(protobufBytes))
+    }
 
-  init(protobufBytes: [UInt8]) throws {
-    try self.init(protobufBytes: protobufBytes, extensions: nil)
-  }
+    func serializeProtobufBytes() throws -> [UInt8] {
+        return try [UInt8](serializeProtobuf())
+    }
+}
 
-  init(protobufBytes: [UInt8], extensions: ProtobufExtensionSet?) throws {
-    try self.init(protobuf: Data(protobufBytes), extensions: extensions)
-  }
-
-  func serializeProtobufBytes() throws -> [UInt8] {
-    return try [UInt8](serializeProtobuf())
-  }
+extension SwiftProtobuf.Message where Self: SwiftProtobuf.Proto2Message {
+    init(protobufBytes: [UInt8], extensions: SwiftProtobuf.ExtensionSet?) throws {
+        try self.init(protobuf: Data(protobufBytes), extensions: extensions)
+    }
 }

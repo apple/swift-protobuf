@@ -20,10 +20,9 @@
 import Swift
 import Foundation
 
-struct ProtobufMirrorVisitor: ProtobufVisitor {
+struct MirrorVisitor: Visitor {
     private var mirrorChildren: [Mirror.Child] = []
-    private var message: ProtobufMessageBase
-
+    private var message: Message
     private let nameResolver: (Int) -> String?
 
     mutating func fail() {}
@@ -34,60 +33,59 @@ struct ProtobufMirrorVisitor: ProtobufVisitor {
         }
     }
 
-    init(message: ProtobufMessageBase) {
+    init(message: Message) {
         self.message = message
         self.nameResolver =
             ProtoNameResolvers.swiftFieldNameResolver(for: message)
-
-        withAbstractVisitor {(visitor: inout ProtobufVisitor) in
+        withAbstractVisitor {(visitor: inout Visitor) in
             try message.traverse(visitor: &visitor)
         }
     }
 
-    mutating func withAbstractVisitor(clause: (inout ProtobufVisitor) throws -> ()) {
-        var visitor: ProtobufVisitor = self
+    mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) {
+        var visitor: Visitor = self
         let _ = try? clause(&visitor)
-        mirrorChildren.append(contentsOf: (visitor as! ProtobufMirrorVisitor).mirrorChildren)
+        mirrorChildren.append(contentsOf: (visitor as! MirrorVisitor).mirrorChildren)
     }
 
     mutating func visitUnknown(bytes: Data) {}
 
-    mutating func visitSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
+    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
-    mutating func visitRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
+    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
-    mutating func visitPackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
+    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
-    mutating func visitSingularMessageField<M: ProtobufMessage>(value: M, protoFieldNumber: Int) throws {
+    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
-    mutating func visitRepeatedMessageField<M: ProtobufMessage>(value:[M], protoFieldNumber: Int) throws {
+    mutating func visitRepeatedMessageField<M: Message>(value:[M], protoFieldNumber: Int) throws {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
    }
 
-    mutating func visitSingularGroupField<G: ProtobufMessage>(value: G, protoFieldNumber: Int) throws {
+    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
-    mutating func visitRepeatedGroupField<G: ProtobufMessage>(value: [G], protoFieldNumber: Int) throws {
+    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
     }
 
-    mutating func visitMapField<KeyType: ProtobufMapKeyType, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
+    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
         let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
         mirrorChildren.append((label: swiftFieldName, value: value))
     }

@@ -47,7 +47,7 @@
 import Foundation
 
 
-struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_TestEnormousDescriptor"}
   public var protoMessageName: String {return "TestEnormousDescriptor"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -1055,8 +1055,8 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
   ]
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Google_Protobuf_TestEnormousDescriptor
-    var unknown = ProtobufUnknownStorage()
+    typealias ExtendedMessage = Google_Protobuf_TestEnormousDescriptor
+    var unknown = SwiftProtobuf.UnknownStorage()
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1: String? = nil
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2: String? = nil
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3: String? = nil
@@ -2060,4012 +2060,4012 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1)
-      case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2)
-      case 3: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3)
-      case 4: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4)
-      case 5: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5)
-      case 6: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6)
-      case 7: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7)
-      case 8: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8)
-      case 9: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9)
-      case 10: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10)
-      case 11: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11)
-      case 12: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12)
-      case 13: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13)
-      case 14: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14)
-      case 15: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15)
-      case 16: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16)
-      case 17: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17)
-      case 18: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18)
-      case 19: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19)
-      case 20: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20)
-      case 21: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21)
-      case 22: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22)
-      case 23: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23)
-      case 24: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24)
-      case 25: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25)
-      case 26: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26)
-      case 27: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27)
-      case 28: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28)
-      case 29: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29)
-      case 30: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30)
-      case 31: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31)
-      case 32: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32)
-      case 33: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33)
-      case 34: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34)
-      case 35: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35)
-      case 36: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36)
-      case 37: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37)
-      case 38: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38)
-      case 39: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39)
-      case 40: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40)
-      case 41: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41)
-      case 42: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42)
-      case 43: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43)
-      case 44: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44)
-      case 45: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45)
-      case 46: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46)
-      case 47: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47)
-      case 48: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48)
-      case 49: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49)
-      case 50: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50)
-      case 51: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51)
-      case 52: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52)
-      case 53: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53)
-      case 54: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54)
-      case 55: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55)
-      case 56: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56)
-      case 57: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57)
-      case 58: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58)
-      case 59: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59)
-      case 60: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60)
-      case 61: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61)
-      case 62: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62)
-      case 63: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63)
-      case 64: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64)
-      case 65: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65)
-      case 66: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66)
-      case 67: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67)
-      case 68: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68)
-      case 69: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69)
-      case 70: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70)
-      case 71: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71)
-      case 72: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72)
-      case 73: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73)
-      case 74: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74)
-      case 75: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75)
-      case 76: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76)
-      case 77: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77)
-      case 78: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78)
-      case 79: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79)
-      case 80: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80)
-      case 81: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81)
-      case 82: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82)
-      case 83: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83)
-      case 84: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84)
-      case 85: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85)
-      case 86: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86)
-      case 87: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87)
-      case 88: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88)
-      case 89: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89)
-      case 90: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90)
-      case 91: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91)
-      case 92: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92)
-      case 93: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93)
-      case 94: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94)
-      case 95: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95)
-      case 96: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96)
-      case 97: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97)
-      case 98: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98)
-      case 99: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99)
-      case 100: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100)
-      case 101: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101)
-      case 102: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102)
-      case 103: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103)
-      case 104: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104)
-      case 105: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105)
-      case 106: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106)
-      case 107: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107)
-      case 108: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108)
-      case 109: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109)
-      case 110: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110)
-      case 111: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111)
-      case 112: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112)
-      case 113: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113)
-      case 114: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114)
-      case 115: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115)
-      case 116: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116)
-      case 117: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117)
-      case 118: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118)
-      case 119: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119)
-      case 120: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120)
-      case 121: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121)
-      case 122: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122)
-      case 123: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123)
-      case 124: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124)
-      case 125: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125)
-      case 126: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126)
-      case 127: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127)
-      case 128: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128)
-      case 129: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129)
-      case 130: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130)
-      case 131: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131)
-      case 132: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132)
-      case 133: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133)
-      case 134: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134)
-      case 135: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135)
-      case 136: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136)
-      case 137: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137)
-      case 138: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138)
-      case 139: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139)
-      case 140: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140)
-      case 141: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141)
-      case 142: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142)
-      case 143: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143)
-      case 144: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144)
-      case 145: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145)
-      case 146: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146)
-      case 147: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147)
-      case 148: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148)
-      case 149: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149)
-      case 150: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150)
-      case 151: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151)
-      case 152: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152)
-      case 153: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153)
-      case 154: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154)
-      case 155: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155)
-      case 156: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156)
-      case 157: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157)
-      case 158: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158)
-      case 159: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159)
-      case 160: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160)
-      case 161: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161)
-      case 162: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162)
-      case 163: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163)
-      case 164: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164)
-      case 165: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165)
-      case 166: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166)
-      case 167: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167)
-      case 168: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168)
-      case 169: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169)
-      case 170: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170)
-      case 171: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171)
-      case 172: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172)
-      case 173: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173)
-      case 174: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174)
-      case 175: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175)
-      case 176: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176)
-      case 177: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177)
-      case 178: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178)
-      case 179: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179)
-      case 180: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180)
-      case 181: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181)
-      case 182: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182)
-      case 183: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183)
-      case 184: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184)
-      case 185: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185)
-      case 186: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186)
-      case 187: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187)
-      case 188: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188)
-      case 189: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189)
-      case 190: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190)
-      case 191: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191)
-      case 192: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192)
-      case 193: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193)
-      case 194: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194)
-      case 195: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195)
-      case 196: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196)
-      case 197: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197)
-      case 198: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198)
-      case 199: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199)
-      case 200: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200)
-      case 201: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201)
-      case 202: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202)
-      case 203: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203)
-      case 204: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204)
-      case 205: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205)
-      case 206: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206)
-      case 207: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207)
-      case 208: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208)
-      case 209: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209)
-      case 210: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210)
-      case 211: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211)
-      case 212: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212)
-      case 213: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213)
-      case 214: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214)
-      case 215: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215)
-      case 216: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216)
-      case 217: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217)
-      case 218: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218)
-      case 219: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219)
-      case 220: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220)
-      case 221: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221)
-      case 222: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222)
-      case 223: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223)
-      case 224: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224)
-      case 225: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225)
-      case 226: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226)
-      case 227: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227)
-      case 228: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228)
-      case 229: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229)
-      case 230: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230)
-      case 231: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231)
-      case 232: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232)
-      case 233: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233)
-      case 234: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234)
-      case 235: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235)
-      case 236: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236)
-      case 237: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237)
-      case 238: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238)
-      case 239: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239)
-      case 240: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240)
-      case 241: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241)
-      case 242: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242)
-      case 243: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243)
-      case 244: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244)
-      case 245: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245)
-      case 246: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246)
-      case 247: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247)
-      case 248: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248)
-      case 249: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249)
-      case 250: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250)
-      case 251: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251)
-      case 252: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252)
-      case 253: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253)
-      case 254: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254)
-      case 255: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255)
-      case 256: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256)
-      case 257: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257)
-      case 258: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258)
-      case 259: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259)
-      case 260: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260)
-      case 261: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261)
-      case 262: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262)
-      case 263: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263)
-      case 264: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264)
-      case 265: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265)
-      case 266: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266)
-      case 267: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267)
-      case 268: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268)
-      case 269: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269)
-      case 270: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270)
-      case 271: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271)
-      case 272: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272)
-      case 273: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273)
-      case 274: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274)
-      case 275: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275)
-      case 276: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276)
-      case 277: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277)
-      case 278: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278)
-      case 279: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279)
-      case 280: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280)
-      case 281: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281)
-      case 282: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282)
-      case 283: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283)
-      case 284: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284)
-      case 285: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285)
-      case 286: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286)
-      case 287: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287)
-      case 288: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288)
-      case 289: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289)
-      case 290: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290)
-      case 291: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291)
-      case 292: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292)
-      case 293: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293)
-      case 294: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294)
-      case 295: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295)
-      case 296: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296)
-      case 297: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297)
-      case 298: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298)
-      case 299: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299)
-      case 300: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300)
-      case 301: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301)
-      case 302: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302)
-      case 303: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303)
-      case 304: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304)
-      case 305: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305)
-      case 306: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306)
-      case 307: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307)
-      case 308: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308)
-      case 309: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309)
-      case 310: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310)
-      case 311: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311)
-      case 312: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312)
-      case 313: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313)
-      case 314: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314)
-      case 315: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315)
-      case 316: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316)
-      case 317: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317)
-      case 318: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318)
-      case 319: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319)
-      case 320: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320)
-      case 321: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321)
-      case 322: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322)
-      case 323: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323)
-      case 324: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324)
-      case 325: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325)
-      case 326: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326)
-      case 327: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327)
-      case 328: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328)
-      case 329: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329)
-      case 330: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330)
-      case 331: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331)
-      case 332: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332)
-      case 333: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333)
-      case 334: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334)
-      case 335: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335)
-      case 336: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336)
-      case 337: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337)
-      case 338: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338)
-      case 339: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339)
-      case 340: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340)
-      case 341: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341)
-      case 342: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342)
-      case 343: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343)
-      case 344: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344)
-      case 345: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345)
-      case 346: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346)
-      case 347: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347)
-      case 348: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348)
-      case 349: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349)
-      case 350: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350)
-      case 351: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351)
-      case 352: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352)
-      case 353: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353)
-      case 354: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354)
-      case 355: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355)
-      case 356: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356)
-      case 357: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357)
-      case 358: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358)
-      case 359: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359)
-      case 360: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360)
-      case 361: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361)
-      case 362: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362)
-      case 363: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363)
-      case 364: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364)
-      case 365: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365)
-      case 366: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366)
-      case 367: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367)
-      case 368: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368)
-      case 369: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369)
-      case 370: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370)
-      case 371: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371)
-      case 372: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372)
-      case 373: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373)
-      case 374: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374)
-      case 375: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375)
-      case 376: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376)
-      case 377: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377)
-      case 378: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378)
-      case 379: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379)
-      case 380: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380)
-      case 381: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381)
-      case 382: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382)
-      case 383: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383)
-      case 384: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384)
-      case 385: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385)
-      case 386: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386)
-      case 387: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387)
-      case 388: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388)
-      case 389: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389)
-      case 390: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390)
-      case 391: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391)
-      case 392: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392)
-      case 393: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393)
-      case 394: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394)
-      case 395: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395)
-      case 396: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396)
-      case 397: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397)
-      case 398: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398)
-      case 399: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399)
-      case 400: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400)
-      case 401: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401)
-      case 402: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402)
-      case 403: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403)
-      case 404: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404)
-      case 405: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405)
-      case 406: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406)
-      case 407: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407)
-      case 408: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408)
-      case 409: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409)
-      case 410: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410)
-      case 411: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411)
-      case 412: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412)
-      case 413: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413)
-      case 414: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414)
-      case 415: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415)
-      case 416: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416)
-      case 417: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417)
-      case 418: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418)
-      case 419: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419)
-      case 420: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420)
-      case 421: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421)
-      case 422: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422)
-      case 423: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423)
-      case 424: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424)
-      case 425: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425)
-      case 426: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426)
-      case 427: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427)
-      case 428: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428)
-      case 429: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429)
-      case 430: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430)
-      case 431: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431)
-      case 432: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432)
-      case 433: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433)
-      case 434: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434)
-      case 435: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435)
-      case 436: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436)
-      case 437: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437)
-      case 438: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438)
-      case 439: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439)
-      case 440: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440)
-      case 441: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441)
-      case 442: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442)
-      case 443: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443)
-      case 444: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444)
-      case 445: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445)
-      case 446: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446)
-      case 447: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447)
-      case 448: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448)
-      case 449: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449)
-      case 450: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450)
-      case 451: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451)
-      case 452: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452)
-      case 453: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453)
-      case 454: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454)
-      case 455: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455)
-      case 456: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456)
-      case 457: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457)
-      case 458: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458)
-      case 459: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459)
-      case 460: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460)
-      case 461: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461)
-      case 462: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462)
-      case 463: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463)
-      case 464: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464)
-      case 465: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465)
-      case 466: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466)
-      case 467: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467)
-      case 468: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468)
-      case 469: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469)
-      case 470: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470)
-      case 471: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471)
-      case 472: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472)
-      case 473: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473)
-      case 474: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474)
-      case 475: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475)
-      case 476: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476)
-      case 477: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477)
-      case 478: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478)
-      case 479: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479)
-      case 480: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480)
-      case 481: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481)
-      case 482: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482)
-      case 483: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483)
-      case 484: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484)
-      case 485: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485)
-      case 486: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486)
-      case 487: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487)
-      case 488: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488)
-      case 489: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489)
-      case 490: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490)
-      case 491: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491)
-      case 492: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492)
-      case 493: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493)
-      case 494: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494)
-      case 495: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495)
-      case 496: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496)
-      case 497: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497)
-      case 498: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498)
-      case 499: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499)
-      case 500: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500)
-      case 501: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501)
-      case 502: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502)
-      case 503: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503)
-      case 504: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504)
-      case 505: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505)
-      case 506: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506)
-      case 507: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507)
-      case 508: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508)
-      case 509: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509)
-      case 510: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510)
-      case 511: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511)
-      case 512: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512)
-      case 513: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513)
-      case 514: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514)
-      case 515: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515)
-      case 516: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516)
-      case 517: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517)
-      case 518: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518)
-      case 519: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519)
-      case 520: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520)
-      case 521: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521)
-      case 522: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522)
-      case 523: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523)
-      case 524: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524)
-      case 525: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525)
-      case 526: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526)
-      case 527: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527)
-      case 528: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528)
-      case 529: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529)
-      case 530: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530)
-      case 531: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531)
-      case 532: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532)
-      case 533: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533)
-      case 534: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534)
-      case 535: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535)
-      case 536: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536)
-      case 537: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537)
-      case 538: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538)
-      case 539: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539)
-      case 540: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540)
-      case 541: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541)
-      case 542: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542)
-      case 543: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543)
-      case 544: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544)
-      case 545: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545)
-      case 546: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546)
-      case 547: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547)
-      case 548: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548)
-      case 549: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549)
-      case 550: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550)
-      case 551: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551)
-      case 552: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552)
-      case 553: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553)
-      case 554: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554)
-      case 555: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555)
-      case 556: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556)
-      case 557: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557)
-      case 558: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558)
-      case 559: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559)
-      case 560: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560)
-      case 561: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561)
-      case 562: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562)
-      case 563: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563)
-      case 564: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564)
-      case 565: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565)
-      case 566: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566)
-      case 567: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567)
-      case 568: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568)
-      case 569: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569)
-      case 570: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570)
-      case 571: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571)
-      case 572: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572)
-      case 573: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573)
-      case 574: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574)
-      case 575: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575)
-      case 576: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576)
-      case 577: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577)
-      case 578: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578)
-      case 579: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579)
-      case 580: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580)
-      case 581: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581)
-      case 582: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582)
-      case 583: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583)
-      case 584: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584)
-      case 585: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585)
-      case 586: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586)
-      case 587: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587)
-      case 588: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588)
-      case 589: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589)
-      case 590: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590)
-      case 591: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591)
-      case 592: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592)
-      case 593: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593)
-      case 594: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594)
-      case 595: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595)
-      case 596: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596)
-      case 597: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597)
-      case 598: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598)
-      case 599: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599)
-      case 600: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600)
-      case 601: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601)
-      case 602: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602)
-      case 603: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603)
-      case 604: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604)
-      case 605: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605)
-      case 606: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606)
-      case 607: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607)
-      case 608: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608)
-      case 609: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609)
-      case 610: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610)
-      case 611: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611)
-      case 612: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612)
-      case 613: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613)
-      case 614: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614)
-      case 615: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615)
-      case 616: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616)
-      case 617: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617)
-      case 618: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618)
-      case 619: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619)
-      case 620: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620)
-      case 621: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621)
-      case 622: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622)
-      case 623: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623)
-      case 624: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624)
-      case 625: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625)
-      case 626: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626)
-      case 627: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627)
-      case 628: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628)
-      case 629: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629)
-      case 630: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630)
-      case 631: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631)
-      case 632: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632)
-      case 633: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633)
-      case 634: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634)
-      case 635: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635)
-      case 636: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636)
-      case 637: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637)
-      case 638: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638)
-      case 639: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639)
-      case 640: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640)
-      case 641: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641)
-      case 642: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642)
-      case 643: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643)
-      case 644: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644)
-      case 645: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645)
-      case 646: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646)
-      case 647: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647)
-      case 648: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648)
-      case 649: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649)
-      case 650: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650)
-      case 651: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651)
-      case 652: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652)
-      case 653: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653)
-      case 654: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654)
-      case 655: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655)
-      case 656: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656)
-      case 657: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657)
-      case 658: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658)
-      case 659: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659)
-      case 660: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660)
-      case 661: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661)
-      case 662: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662)
-      case 663: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663)
-      case 664: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664)
-      case 665: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665)
-      case 666: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666)
-      case 667: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667)
-      case 668: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668)
-      case 669: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669)
-      case 670: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670)
-      case 671: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671)
-      case 672: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672)
-      case 673: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673)
-      case 674: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674)
-      case 675: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675)
-      case 676: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676)
-      case 677: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677)
-      case 678: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678)
-      case 679: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679)
-      case 680: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680)
-      case 681: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681)
-      case 682: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682)
-      case 683: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683)
-      case 684: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684)
-      case 685: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685)
-      case 686: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686)
-      case 687: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687)
-      case 688: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688)
-      case 689: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689)
-      case 690: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690)
-      case 691: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691)
-      case 692: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692)
-      case 693: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693)
-      case 694: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694)
-      case 695: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695)
-      case 696: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696)
-      case 697: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697)
-      case 698: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698)
-      case 699: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699)
-      case 700: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700)
-      case 701: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701)
-      case 702: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702)
-      case 703: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703)
-      case 704: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704)
-      case 705: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705)
-      case 706: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706)
-      case 707: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707)
-      case 708: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708)
-      case 709: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709)
-      case 710: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710)
-      case 711: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711)
-      case 712: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712)
-      case 713: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713)
-      case 714: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714)
-      case 715: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715)
-      case 716: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716)
-      case 717: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717)
-      case 718: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718)
-      case 719: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719)
-      case 720: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720)
-      case 721: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721)
-      case 722: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722)
-      case 723: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723)
-      case 724: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724)
-      case 725: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725)
-      case 726: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726)
-      case 727: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727)
-      case 728: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728)
-      case 729: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729)
-      case 730: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730)
-      case 731: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731)
-      case 732: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732)
-      case 733: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733)
-      case 734: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734)
-      case 735: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735)
-      case 736: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736)
-      case 737: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737)
-      case 738: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738)
-      case 739: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739)
-      case 740: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740)
-      case 741: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741)
-      case 742: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742)
-      case 743: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743)
-      case 744: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744)
-      case 745: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745)
-      case 746: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746)
-      case 747: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747)
-      case 748: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748)
-      case 749: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749)
-      case 750: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750)
-      case 751: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751)
-      case 752: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752)
-      case 753: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753)
-      case 754: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754)
-      case 755: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755)
-      case 756: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756)
-      case 757: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757)
-      case 758: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758)
-      case 759: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759)
-      case 760: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760)
-      case 761: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761)
-      case 762: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762)
-      case 763: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763)
-      case 764: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764)
-      case 765: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765)
-      case 766: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766)
-      case 767: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767)
-      case 768: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768)
-      case 769: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769)
-      case 770: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770)
-      case 771: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771)
-      case 772: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772)
-      case 773: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773)
-      case 774: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774)
-      case 775: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775)
-      case 776: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776)
-      case 777: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777)
-      case 778: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778)
-      case 779: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779)
-      case 780: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780)
-      case 781: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781)
-      case 782: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782)
-      case 783: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783)
-      case 784: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784)
-      case 785: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785)
-      case 786: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786)
-      case 787: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787)
-      case 788: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788)
-      case 789: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789)
-      case 790: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790)
-      case 791: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791)
-      case 792: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792)
-      case 793: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793)
-      case 794: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794)
-      case 795: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795)
-      case 796: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796)
-      case 797: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797)
-      case 798: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798)
-      case 799: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799)
-      case 800: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800)
-      case 801: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801)
-      case 802: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802)
-      case 803: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803)
-      case 804: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804)
-      case 805: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805)
-      case 806: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806)
-      case 807: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807)
-      case 808: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808)
-      case 809: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809)
-      case 810: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810)
-      case 811: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811)
-      case 812: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812)
-      case 813: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813)
-      case 814: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814)
-      case 815: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815)
-      case 816: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816)
-      case 817: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817)
-      case 818: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818)
-      case 819: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819)
-      case 820: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820)
-      case 821: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821)
-      case 822: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822)
-      case 823: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823)
-      case 824: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824)
-      case 825: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825)
-      case 826: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826)
-      case 827: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827)
-      case 828: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828)
-      case 829: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829)
-      case 830: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830)
-      case 831: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831)
-      case 832: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832)
-      case 833: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833)
-      case 834: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834)
-      case 835: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835)
-      case 836: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836)
-      case 837: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837)
-      case 838: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838)
-      case 839: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839)
-      case 840: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840)
-      case 841: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841)
-      case 842: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842)
-      case 843: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843)
-      case 844: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844)
-      case 845: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845)
-      case 846: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846)
-      case 847: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847)
-      case 848: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848)
-      case 849: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849)
-      case 850: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850)
-      case 851: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851)
-      case 852: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852)
-      case 853: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853)
-      case 854: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854)
-      case 855: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855)
-      case 856: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856)
-      case 857: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857)
-      case 858: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858)
-      case 859: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859)
-      case 860: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860)
-      case 861: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861)
-      case 862: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862)
-      case 863: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863)
-      case 864: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864)
-      case 865: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865)
-      case 866: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866)
-      case 867: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867)
-      case 868: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868)
-      case 869: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869)
-      case 870: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870)
-      case 871: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871)
-      case 872: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872)
-      case 873: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873)
-      case 874: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874)
-      case 875: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875)
-      case 876: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876)
-      case 877: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877)
-      case 878: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878)
-      case 879: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879)
-      case 880: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880)
-      case 881: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881)
-      case 882: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882)
-      case 883: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883)
-      case 884: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884)
-      case 885: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885)
-      case 886: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886)
-      case 887: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887)
-      case 888: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888)
-      case 889: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889)
-      case 890: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890)
-      case 891: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891)
-      case 892: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892)
-      case 893: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893)
-      case 894: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894)
-      case 895: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895)
-      case 896: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896)
-      case 897: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897)
-      case 898: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898)
-      case 899: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899)
-      case 900: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900)
-      case 901: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901)
-      case 902: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902)
-      case 903: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903)
-      case 904: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904)
-      case 905: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905)
-      case 906: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906)
-      case 907: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907)
-      case 908: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908)
-      case 909: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909)
-      case 910: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910)
-      case 911: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911)
-      case 912: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912)
-      case 913: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913)
-      case 914: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914)
-      case 915: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915)
-      case 916: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916)
-      case 917: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917)
-      case 918: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918)
-      case 919: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919)
-      case 920: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920)
-      case 921: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921)
-      case 922: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922)
-      case 923: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923)
-      case 924: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924)
-      case 925: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925)
-      case 926: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926)
-      case 927: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927)
-      case 928: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928)
-      case 929: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929)
-      case 930: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930)
-      case 931: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931)
-      case 932: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932)
-      case 933: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933)
-      case 934: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934)
-      case 935: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935)
-      case 936: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936)
-      case 937: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937)
-      case 938: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938)
-      case 939: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939)
-      case 940: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940)
-      case 941: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941)
-      case 942: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942)
-      case 943: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943)
-      case 944: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944)
-      case 945: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945)
-      case 946: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946)
-      case 947: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947)
-      case 948: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948)
-      case 949: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949)
-      case 950: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950)
-      case 951: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951)
-      case 952: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952)
-      case 953: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953)
-      case 954: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954)
-      case 955: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955)
-      case 956: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956)
-      case 957: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957)
-      case 958: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958)
-      case 959: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959)
-      case 960: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960)
-      case 961: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961)
-      case 962: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962)
-      case 963: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963)
-      case 964: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964)
-      case 965: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965)
-      case 966: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966)
-      case 967: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967)
-      case 968: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968)
-      case 969: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969)
-      case 970: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970)
-      case 971: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971)
-      case 972: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972)
-      case 973: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973)
-      case 974: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974)
-      case 975: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975)
-      case 976: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976)
-      case 977: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977)
-      case 978: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978)
-      case 979: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979)
-      case 980: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980)
-      case 981: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981)
-      case 982: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982)
-      case 983: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983)
-      case 984: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984)
-      case 985: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985)
-      case 986: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986)
-      case 987: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987)
-      case 988: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988)
-      case 989: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989)
-      case 990: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990)
-      case 991: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991)
-      case 992: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992)
-      case 993: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993)
-      case 994: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994)
-      case 995: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995)
-      case 996: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996)
-      case 997: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997)
-      case 998: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998)
-      case 999: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999)
-      case 1000: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2)
+      case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3)
+      case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4)
+      case 5: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5)
+      case 6: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6)
+      case 7: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7)
+      case 8: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8)
+      case 9: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9)
+      case 10: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10)
+      case 11: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11)
+      case 12: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12)
+      case 13: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13)
+      case 14: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14)
+      case 15: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15)
+      case 16: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16)
+      case 17: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17)
+      case 18: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18)
+      case 19: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19)
+      case 20: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20)
+      case 21: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21)
+      case 22: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22)
+      case 23: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23)
+      case 24: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24)
+      case 25: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25)
+      case 26: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26)
+      case 27: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27)
+      case 28: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28)
+      case 29: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29)
+      case 30: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30)
+      case 31: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31)
+      case 32: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32)
+      case 33: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33)
+      case 34: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34)
+      case 35: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35)
+      case 36: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36)
+      case 37: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37)
+      case 38: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38)
+      case 39: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39)
+      case 40: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40)
+      case 41: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41)
+      case 42: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42)
+      case 43: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43)
+      case 44: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44)
+      case 45: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45)
+      case 46: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46)
+      case 47: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47)
+      case 48: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48)
+      case 49: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49)
+      case 50: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50)
+      case 51: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51)
+      case 52: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52)
+      case 53: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53)
+      case 54: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54)
+      case 55: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55)
+      case 56: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56)
+      case 57: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57)
+      case 58: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58)
+      case 59: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59)
+      case 60: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60)
+      case 61: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61)
+      case 62: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62)
+      case 63: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63)
+      case 64: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64)
+      case 65: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65)
+      case 66: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66)
+      case 67: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67)
+      case 68: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68)
+      case 69: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69)
+      case 70: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70)
+      case 71: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71)
+      case 72: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72)
+      case 73: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73)
+      case 74: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74)
+      case 75: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75)
+      case 76: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76)
+      case 77: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77)
+      case 78: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78)
+      case 79: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79)
+      case 80: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80)
+      case 81: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81)
+      case 82: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82)
+      case 83: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83)
+      case 84: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84)
+      case 85: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85)
+      case 86: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86)
+      case 87: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87)
+      case 88: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88)
+      case 89: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89)
+      case 90: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90)
+      case 91: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91)
+      case 92: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92)
+      case 93: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93)
+      case 94: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94)
+      case 95: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95)
+      case 96: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96)
+      case 97: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97)
+      case 98: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98)
+      case 99: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99)
+      case 100: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100)
+      case 101: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101)
+      case 102: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102)
+      case 103: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103)
+      case 104: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104)
+      case 105: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105)
+      case 106: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106)
+      case 107: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107)
+      case 108: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108)
+      case 109: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109)
+      case 110: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110)
+      case 111: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111)
+      case 112: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112)
+      case 113: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113)
+      case 114: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114)
+      case 115: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115)
+      case 116: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116)
+      case 117: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117)
+      case 118: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118)
+      case 119: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119)
+      case 120: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120)
+      case 121: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121)
+      case 122: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122)
+      case 123: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123)
+      case 124: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124)
+      case 125: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125)
+      case 126: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126)
+      case 127: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127)
+      case 128: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128)
+      case 129: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129)
+      case 130: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130)
+      case 131: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131)
+      case 132: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132)
+      case 133: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133)
+      case 134: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134)
+      case 135: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135)
+      case 136: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136)
+      case 137: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137)
+      case 138: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138)
+      case 139: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139)
+      case 140: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140)
+      case 141: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141)
+      case 142: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142)
+      case 143: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143)
+      case 144: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144)
+      case 145: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145)
+      case 146: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146)
+      case 147: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147)
+      case 148: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148)
+      case 149: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149)
+      case 150: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150)
+      case 151: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151)
+      case 152: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152)
+      case 153: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153)
+      case 154: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154)
+      case 155: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155)
+      case 156: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156)
+      case 157: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157)
+      case 158: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158)
+      case 159: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159)
+      case 160: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160)
+      case 161: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161)
+      case 162: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162)
+      case 163: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163)
+      case 164: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164)
+      case 165: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165)
+      case 166: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166)
+      case 167: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167)
+      case 168: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168)
+      case 169: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169)
+      case 170: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170)
+      case 171: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171)
+      case 172: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172)
+      case 173: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173)
+      case 174: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174)
+      case 175: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175)
+      case 176: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176)
+      case 177: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177)
+      case 178: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178)
+      case 179: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179)
+      case 180: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180)
+      case 181: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181)
+      case 182: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182)
+      case 183: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183)
+      case 184: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184)
+      case 185: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185)
+      case 186: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186)
+      case 187: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187)
+      case 188: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188)
+      case 189: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189)
+      case 190: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190)
+      case 191: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191)
+      case 192: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192)
+      case 193: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193)
+      case 194: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194)
+      case 195: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195)
+      case 196: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196)
+      case 197: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197)
+      case 198: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198)
+      case 199: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199)
+      case 200: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200)
+      case 201: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201)
+      case 202: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202)
+      case 203: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203)
+      case 204: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204)
+      case 205: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205)
+      case 206: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206)
+      case 207: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207)
+      case 208: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208)
+      case 209: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209)
+      case 210: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210)
+      case 211: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211)
+      case 212: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212)
+      case 213: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213)
+      case 214: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214)
+      case 215: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215)
+      case 216: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216)
+      case 217: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217)
+      case 218: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218)
+      case 219: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219)
+      case 220: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220)
+      case 221: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221)
+      case 222: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222)
+      case 223: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223)
+      case 224: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224)
+      case 225: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225)
+      case 226: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226)
+      case 227: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227)
+      case 228: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228)
+      case 229: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229)
+      case 230: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230)
+      case 231: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231)
+      case 232: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232)
+      case 233: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233)
+      case 234: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234)
+      case 235: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235)
+      case 236: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236)
+      case 237: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237)
+      case 238: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238)
+      case 239: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239)
+      case 240: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240)
+      case 241: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241)
+      case 242: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242)
+      case 243: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243)
+      case 244: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244)
+      case 245: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245)
+      case 246: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246)
+      case 247: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247)
+      case 248: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248)
+      case 249: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249)
+      case 250: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250)
+      case 251: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251)
+      case 252: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252)
+      case 253: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253)
+      case 254: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254)
+      case 255: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255)
+      case 256: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256)
+      case 257: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257)
+      case 258: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258)
+      case 259: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259)
+      case 260: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260)
+      case 261: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261)
+      case 262: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262)
+      case 263: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263)
+      case 264: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264)
+      case 265: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265)
+      case 266: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266)
+      case 267: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267)
+      case 268: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268)
+      case 269: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269)
+      case 270: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270)
+      case 271: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271)
+      case 272: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272)
+      case 273: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273)
+      case 274: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274)
+      case 275: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275)
+      case 276: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276)
+      case 277: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277)
+      case 278: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278)
+      case 279: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279)
+      case 280: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280)
+      case 281: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281)
+      case 282: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282)
+      case 283: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283)
+      case 284: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284)
+      case 285: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285)
+      case 286: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286)
+      case 287: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287)
+      case 288: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288)
+      case 289: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289)
+      case 290: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290)
+      case 291: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291)
+      case 292: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292)
+      case 293: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293)
+      case 294: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294)
+      case 295: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295)
+      case 296: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296)
+      case 297: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297)
+      case 298: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298)
+      case 299: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299)
+      case 300: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300)
+      case 301: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301)
+      case 302: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302)
+      case 303: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303)
+      case 304: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304)
+      case 305: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305)
+      case 306: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306)
+      case 307: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307)
+      case 308: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308)
+      case 309: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309)
+      case 310: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310)
+      case 311: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311)
+      case 312: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312)
+      case 313: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313)
+      case 314: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314)
+      case 315: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315)
+      case 316: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316)
+      case 317: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317)
+      case 318: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318)
+      case 319: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319)
+      case 320: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320)
+      case 321: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321)
+      case 322: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322)
+      case 323: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323)
+      case 324: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324)
+      case 325: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325)
+      case 326: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326)
+      case 327: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327)
+      case 328: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328)
+      case 329: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329)
+      case 330: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330)
+      case 331: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331)
+      case 332: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332)
+      case 333: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333)
+      case 334: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334)
+      case 335: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335)
+      case 336: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336)
+      case 337: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337)
+      case 338: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338)
+      case 339: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339)
+      case 340: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340)
+      case 341: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341)
+      case 342: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342)
+      case 343: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343)
+      case 344: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344)
+      case 345: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345)
+      case 346: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346)
+      case 347: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347)
+      case 348: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348)
+      case 349: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349)
+      case 350: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350)
+      case 351: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351)
+      case 352: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352)
+      case 353: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353)
+      case 354: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354)
+      case 355: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355)
+      case 356: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356)
+      case 357: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357)
+      case 358: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358)
+      case 359: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359)
+      case 360: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360)
+      case 361: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361)
+      case 362: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362)
+      case 363: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363)
+      case 364: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364)
+      case 365: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365)
+      case 366: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366)
+      case 367: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367)
+      case 368: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368)
+      case 369: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369)
+      case 370: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370)
+      case 371: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371)
+      case 372: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372)
+      case 373: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373)
+      case 374: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374)
+      case 375: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375)
+      case 376: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376)
+      case 377: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377)
+      case 378: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378)
+      case 379: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379)
+      case 380: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380)
+      case 381: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381)
+      case 382: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382)
+      case 383: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383)
+      case 384: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384)
+      case 385: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385)
+      case 386: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386)
+      case 387: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387)
+      case 388: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388)
+      case 389: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389)
+      case 390: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390)
+      case 391: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391)
+      case 392: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392)
+      case 393: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393)
+      case 394: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394)
+      case 395: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395)
+      case 396: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396)
+      case 397: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397)
+      case 398: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398)
+      case 399: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399)
+      case 400: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400)
+      case 401: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401)
+      case 402: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402)
+      case 403: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403)
+      case 404: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404)
+      case 405: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405)
+      case 406: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406)
+      case 407: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407)
+      case 408: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408)
+      case 409: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409)
+      case 410: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410)
+      case 411: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411)
+      case 412: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412)
+      case 413: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413)
+      case 414: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414)
+      case 415: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415)
+      case 416: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416)
+      case 417: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417)
+      case 418: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418)
+      case 419: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419)
+      case 420: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420)
+      case 421: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421)
+      case 422: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422)
+      case 423: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423)
+      case 424: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424)
+      case 425: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425)
+      case 426: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426)
+      case 427: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427)
+      case 428: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428)
+      case 429: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429)
+      case 430: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430)
+      case 431: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431)
+      case 432: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432)
+      case 433: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433)
+      case 434: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434)
+      case 435: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435)
+      case 436: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436)
+      case 437: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437)
+      case 438: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438)
+      case 439: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439)
+      case 440: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440)
+      case 441: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441)
+      case 442: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442)
+      case 443: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443)
+      case 444: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444)
+      case 445: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445)
+      case 446: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446)
+      case 447: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447)
+      case 448: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448)
+      case 449: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449)
+      case 450: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450)
+      case 451: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451)
+      case 452: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452)
+      case 453: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453)
+      case 454: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454)
+      case 455: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455)
+      case 456: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456)
+      case 457: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457)
+      case 458: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458)
+      case 459: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459)
+      case 460: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460)
+      case 461: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461)
+      case 462: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462)
+      case 463: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463)
+      case 464: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464)
+      case 465: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465)
+      case 466: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466)
+      case 467: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467)
+      case 468: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468)
+      case 469: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469)
+      case 470: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470)
+      case 471: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471)
+      case 472: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472)
+      case 473: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473)
+      case 474: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474)
+      case 475: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475)
+      case 476: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476)
+      case 477: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477)
+      case 478: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478)
+      case 479: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479)
+      case 480: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480)
+      case 481: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481)
+      case 482: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482)
+      case 483: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483)
+      case 484: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484)
+      case 485: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485)
+      case 486: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486)
+      case 487: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487)
+      case 488: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488)
+      case 489: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489)
+      case 490: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490)
+      case 491: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491)
+      case 492: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492)
+      case 493: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493)
+      case 494: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494)
+      case 495: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495)
+      case 496: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496)
+      case 497: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497)
+      case 498: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498)
+      case 499: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499)
+      case 500: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500)
+      case 501: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501)
+      case 502: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502)
+      case 503: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503)
+      case 504: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504)
+      case 505: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505)
+      case 506: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506)
+      case 507: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507)
+      case 508: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508)
+      case 509: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509)
+      case 510: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510)
+      case 511: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511)
+      case 512: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512)
+      case 513: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513)
+      case 514: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514)
+      case 515: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515)
+      case 516: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516)
+      case 517: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517)
+      case 518: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518)
+      case 519: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519)
+      case 520: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520)
+      case 521: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521)
+      case 522: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522)
+      case 523: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523)
+      case 524: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524)
+      case 525: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525)
+      case 526: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526)
+      case 527: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527)
+      case 528: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528)
+      case 529: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529)
+      case 530: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530)
+      case 531: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531)
+      case 532: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532)
+      case 533: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533)
+      case 534: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534)
+      case 535: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535)
+      case 536: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536)
+      case 537: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537)
+      case 538: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538)
+      case 539: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539)
+      case 540: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540)
+      case 541: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541)
+      case 542: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542)
+      case 543: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543)
+      case 544: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544)
+      case 545: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545)
+      case 546: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546)
+      case 547: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547)
+      case 548: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548)
+      case 549: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549)
+      case 550: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550)
+      case 551: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551)
+      case 552: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552)
+      case 553: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553)
+      case 554: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554)
+      case 555: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555)
+      case 556: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556)
+      case 557: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557)
+      case 558: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558)
+      case 559: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559)
+      case 560: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560)
+      case 561: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561)
+      case 562: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562)
+      case 563: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563)
+      case 564: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564)
+      case 565: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565)
+      case 566: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566)
+      case 567: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567)
+      case 568: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568)
+      case 569: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569)
+      case 570: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570)
+      case 571: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571)
+      case 572: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572)
+      case 573: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573)
+      case 574: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574)
+      case 575: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575)
+      case 576: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576)
+      case 577: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577)
+      case 578: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578)
+      case 579: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579)
+      case 580: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580)
+      case 581: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581)
+      case 582: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582)
+      case 583: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583)
+      case 584: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584)
+      case 585: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585)
+      case 586: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586)
+      case 587: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587)
+      case 588: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588)
+      case 589: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589)
+      case 590: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590)
+      case 591: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591)
+      case 592: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592)
+      case 593: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593)
+      case 594: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594)
+      case 595: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595)
+      case 596: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596)
+      case 597: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597)
+      case 598: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598)
+      case 599: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599)
+      case 600: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600)
+      case 601: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601)
+      case 602: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602)
+      case 603: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603)
+      case 604: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604)
+      case 605: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605)
+      case 606: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606)
+      case 607: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607)
+      case 608: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608)
+      case 609: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609)
+      case 610: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610)
+      case 611: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611)
+      case 612: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612)
+      case 613: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613)
+      case 614: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614)
+      case 615: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615)
+      case 616: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616)
+      case 617: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617)
+      case 618: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618)
+      case 619: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619)
+      case 620: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620)
+      case 621: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621)
+      case 622: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622)
+      case 623: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623)
+      case 624: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624)
+      case 625: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625)
+      case 626: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626)
+      case 627: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627)
+      case 628: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628)
+      case 629: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629)
+      case 630: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630)
+      case 631: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631)
+      case 632: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632)
+      case 633: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633)
+      case 634: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634)
+      case 635: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635)
+      case 636: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636)
+      case 637: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637)
+      case 638: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638)
+      case 639: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639)
+      case 640: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640)
+      case 641: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641)
+      case 642: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642)
+      case 643: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643)
+      case 644: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644)
+      case 645: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645)
+      case 646: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646)
+      case 647: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647)
+      case 648: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648)
+      case 649: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649)
+      case 650: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650)
+      case 651: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651)
+      case 652: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652)
+      case 653: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653)
+      case 654: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654)
+      case 655: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655)
+      case 656: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656)
+      case 657: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657)
+      case 658: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658)
+      case 659: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659)
+      case 660: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660)
+      case 661: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661)
+      case 662: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662)
+      case 663: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663)
+      case 664: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664)
+      case 665: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665)
+      case 666: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666)
+      case 667: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667)
+      case 668: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668)
+      case 669: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669)
+      case 670: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670)
+      case 671: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671)
+      case 672: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672)
+      case 673: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673)
+      case 674: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674)
+      case 675: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675)
+      case 676: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676)
+      case 677: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677)
+      case 678: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678)
+      case 679: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679)
+      case 680: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680)
+      case 681: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681)
+      case 682: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682)
+      case 683: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683)
+      case 684: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684)
+      case 685: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685)
+      case 686: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686)
+      case 687: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687)
+      case 688: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688)
+      case 689: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689)
+      case 690: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690)
+      case 691: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691)
+      case 692: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692)
+      case 693: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693)
+      case 694: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694)
+      case 695: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695)
+      case 696: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696)
+      case 697: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697)
+      case 698: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698)
+      case 699: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699)
+      case 700: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700)
+      case 701: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701)
+      case 702: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702)
+      case 703: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703)
+      case 704: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704)
+      case 705: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705)
+      case 706: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706)
+      case 707: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707)
+      case 708: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708)
+      case 709: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709)
+      case 710: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710)
+      case 711: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711)
+      case 712: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712)
+      case 713: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713)
+      case 714: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714)
+      case 715: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715)
+      case 716: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716)
+      case 717: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717)
+      case 718: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718)
+      case 719: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719)
+      case 720: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720)
+      case 721: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721)
+      case 722: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722)
+      case 723: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723)
+      case 724: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724)
+      case 725: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725)
+      case 726: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726)
+      case 727: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727)
+      case 728: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728)
+      case 729: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729)
+      case 730: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730)
+      case 731: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731)
+      case 732: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732)
+      case 733: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733)
+      case 734: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734)
+      case 735: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735)
+      case 736: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736)
+      case 737: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737)
+      case 738: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738)
+      case 739: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739)
+      case 740: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740)
+      case 741: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741)
+      case 742: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742)
+      case 743: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743)
+      case 744: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744)
+      case 745: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745)
+      case 746: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746)
+      case 747: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747)
+      case 748: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748)
+      case 749: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749)
+      case 750: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750)
+      case 751: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751)
+      case 752: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752)
+      case 753: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753)
+      case 754: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754)
+      case 755: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755)
+      case 756: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756)
+      case 757: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757)
+      case 758: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758)
+      case 759: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759)
+      case 760: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760)
+      case 761: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761)
+      case 762: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762)
+      case 763: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763)
+      case 764: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764)
+      case 765: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765)
+      case 766: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766)
+      case 767: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767)
+      case 768: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768)
+      case 769: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769)
+      case 770: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770)
+      case 771: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771)
+      case 772: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772)
+      case 773: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773)
+      case 774: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774)
+      case 775: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775)
+      case 776: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776)
+      case 777: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777)
+      case 778: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778)
+      case 779: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779)
+      case 780: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780)
+      case 781: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781)
+      case 782: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782)
+      case 783: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783)
+      case 784: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784)
+      case 785: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785)
+      case 786: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786)
+      case 787: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787)
+      case 788: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788)
+      case 789: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789)
+      case 790: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790)
+      case 791: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791)
+      case 792: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792)
+      case 793: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793)
+      case 794: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794)
+      case 795: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795)
+      case 796: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796)
+      case 797: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797)
+      case 798: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798)
+      case 799: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799)
+      case 800: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800)
+      case 801: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801)
+      case 802: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802)
+      case 803: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803)
+      case 804: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804)
+      case 805: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805)
+      case 806: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806)
+      case 807: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807)
+      case 808: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808)
+      case 809: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809)
+      case 810: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810)
+      case 811: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811)
+      case 812: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812)
+      case 813: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813)
+      case 814: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814)
+      case 815: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815)
+      case 816: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816)
+      case 817: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817)
+      case 818: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818)
+      case 819: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819)
+      case 820: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820)
+      case 821: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821)
+      case 822: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822)
+      case 823: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823)
+      case 824: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824)
+      case 825: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825)
+      case 826: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826)
+      case 827: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827)
+      case 828: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828)
+      case 829: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829)
+      case 830: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830)
+      case 831: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831)
+      case 832: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832)
+      case 833: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833)
+      case 834: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834)
+      case 835: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835)
+      case 836: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836)
+      case 837: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837)
+      case 838: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838)
+      case 839: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839)
+      case 840: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840)
+      case 841: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841)
+      case 842: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842)
+      case 843: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843)
+      case 844: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844)
+      case 845: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845)
+      case 846: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846)
+      case 847: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847)
+      case 848: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848)
+      case 849: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849)
+      case 850: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850)
+      case 851: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851)
+      case 852: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852)
+      case 853: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853)
+      case 854: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854)
+      case 855: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855)
+      case 856: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856)
+      case 857: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857)
+      case 858: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858)
+      case 859: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859)
+      case 860: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860)
+      case 861: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861)
+      case 862: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862)
+      case 863: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863)
+      case 864: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864)
+      case 865: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865)
+      case 866: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866)
+      case 867: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867)
+      case 868: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868)
+      case 869: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869)
+      case 870: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870)
+      case 871: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871)
+      case 872: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872)
+      case 873: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873)
+      case 874: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874)
+      case 875: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875)
+      case 876: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876)
+      case 877: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877)
+      case 878: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878)
+      case 879: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879)
+      case 880: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880)
+      case 881: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881)
+      case 882: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882)
+      case 883: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883)
+      case 884: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884)
+      case 885: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885)
+      case 886: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886)
+      case 887: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887)
+      case 888: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888)
+      case 889: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889)
+      case 890: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890)
+      case 891: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891)
+      case 892: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892)
+      case 893: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893)
+      case 894: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894)
+      case 895: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895)
+      case 896: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896)
+      case 897: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897)
+      case 898: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898)
+      case 899: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899)
+      case 900: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900)
+      case 901: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901)
+      case 902: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902)
+      case 903: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903)
+      case 904: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904)
+      case 905: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905)
+      case 906: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906)
+      case 907: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907)
+      case 908: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908)
+      case 909: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909)
+      case 910: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910)
+      case 911: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911)
+      case 912: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912)
+      case 913: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913)
+      case 914: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914)
+      case 915: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915)
+      case 916: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916)
+      case 917: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917)
+      case 918: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918)
+      case 919: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919)
+      case 920: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920)
+      case 921: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921)
+      case 922: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922)
+      case 923: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923)
+      case 924: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924)
+      case 925: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925)
+      case 926: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926)
+      case 927: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927)
+      case 928: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928)
+      case 929: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929)
+      case 930: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930)
+      case 931: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931)
+      case 932: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932)
+      case 933: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933)
+      case 934: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934)
+      case 935: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935)
+      case 936: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936)
+      case 937: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937)
+      case 938: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938)
+      case 939: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939)
+      case 940: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940)
+      case 941: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941)
+      case 942: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942)
+      case 943: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943)
+      case 944: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944)
+      case 945: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945)
+      case 946: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946)
+      case 947: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947)
+      case 948: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948)
+      case 949: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949)
+      case 950: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950)
+      case 951: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951)
+      case 952: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952)
+      case 953: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953)
+      case 954: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954)
+      case 955: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955)
+      case 956: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956)
+      case 957: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957)
+      case 958: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958)
+      case 959: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959)
+      case 960: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960)
+      case 961: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961)
+      case 962: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962)
+      case 963: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963)
+      case 964: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964)
+      case 965: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965)
+      case 966: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966)
+      case 967: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967)
+      case 968: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968)
+      case 969: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969)
+      case 970: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970)
+      case 971: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971)
+      case 972: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972)
+      case 973: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973)
+      case 974: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974)
+      case 975: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975)
+      case 976: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976)
+      case 977: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977)
+      case 978: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978)
+      case 979: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979)
+      case 980: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980)
+      case 981: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981)
+      case 982: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982)
+      case 983: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983)
+      case 984: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984)
+      case 985: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985)
+      case 986: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986)
+      case 987: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987)
+      case 988: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988)
+      case 989: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989)
+      case 990: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990)
+      case 991: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991)
+      case 992: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992)
+      case 993: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993)
+      case 994: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994)
+      case 995: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995)
+      case 996: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996)
+      case 997: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997)
+      case 998: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998)
+      case 999: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999)
+      case 1000: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 1)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 2)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 2)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 3)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 4)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 4)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 5)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 5)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 6)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 6)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 7)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 7)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 8)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 8)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 9)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 9)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 10)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 10)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 11)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 11)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 12)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 12)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 13)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 13)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 14)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 14)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 15)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 15)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 16)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 16)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 17)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 17)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 18)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 18)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 19)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 19)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 20)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 20)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 21)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 21)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 22)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 22)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 23)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 23)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 24)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 24)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 25)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 25)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 26)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 26)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 27)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 27)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 28)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 28)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 29)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 29)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 30)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 30)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 31)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 31)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 32)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 32)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 33)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 33)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 34)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 34)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 35)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 35)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 36)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 36)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 37)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 37)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 38)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 38)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 39)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 39)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 40)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 40)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 41)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 41)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 42)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 42)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 43)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 43)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 44)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 44)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 45)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 45)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 46)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 46)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 47)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 47)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 48)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 48)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 49)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 49)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 50)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 50)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 51)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 51)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 52)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 52)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 53)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 53)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 54)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 54)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 55)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 55)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 56)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 56)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 57)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 57)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 58)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 58)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 59)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 59)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 60)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 60)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 61)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 61)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 62)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 62)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 63)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 63)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 64)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 64)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 65)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 65)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 66)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 66)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 67)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 67)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 68)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 68)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 69)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 69)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 70)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 70)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 71)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 71)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 72)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 72)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 73)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 73)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 74)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 74)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 75)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 75)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 76)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 76)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 77)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 77)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 78)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 78)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 79)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 79)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 80)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 80)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 81)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 81)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 82)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 82)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 83)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 83)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 84)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 84)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 85)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 85)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 86)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 86)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 87)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 87)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 88)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 88)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 89)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 89)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 90)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 90)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 91)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 91)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 92)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 92)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 93)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 93)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 94)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 94)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 95)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 95)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 96)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 96)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 97)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 97)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 98)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 98)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 99)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 99)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 100)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 100)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 101)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 101)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 102)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 102)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 103)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 103)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 104)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 104)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 105)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 105)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 106)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 106)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 107)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 107)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 108)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 108)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 109)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 109)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 110)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 110)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 111)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 111)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 112)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 112)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 113)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 113)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 114)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 114)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 115)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 115)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 116)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 116)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 117)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 117)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 118)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 118)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 119)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 119)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 120)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 120)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 121)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 121)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 122)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 122)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 123)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 123)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 124)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 124)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 125)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 125)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 126)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 126)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 127)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 127)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 128)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 128)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 129)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 129)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 130)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 130)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 131)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 131)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 132)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 132)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 133)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 133)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 134)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 134)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 135)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 135)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 136)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 136)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 137)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 137)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 138)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 138)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 139)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 139)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 140)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 140)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 141)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 141)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 142)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 142)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 143)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 143)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 144)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 144)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 145)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 145)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 146)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 146)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 147)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 147)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 148)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 148)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 149)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 149)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 150)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 150)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 151)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 151)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 152)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 152)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 153)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 153)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 154)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 154)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 155)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 155)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 156)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 156)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 157)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 157)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 158)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 158)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 159)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 159)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 160)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 160)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 161)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 161)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 162)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 162)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 163)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 163)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 164)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 164)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 165)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 165)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 166)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 166)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 167)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 167)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 168)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 168)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 169)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 169)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 170)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 170)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 171)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 171)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 172)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 172)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 173)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 173)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 174)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 174)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 175)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 175)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 176)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 176)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 177)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 177)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 178)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 178)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 179)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 179)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 180)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 180)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 181)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 181)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 182)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 182)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 183)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 183)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 184)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 184)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 185)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 185)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 186)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 186)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 187)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 187)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 188)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 188)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 189)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 189)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 190)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 190)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 191)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 191)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 192)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 192)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 193)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 193)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 194)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 194)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 195)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 195)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 196)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 196)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 197)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 197)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 198)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 198)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 199)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 199)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 200)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 200)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 201)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 201)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 202)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 202)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 203)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 203)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 204)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 204)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 205)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 205)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 206)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 206)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 207)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 207)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 208)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 208)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 209)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 209)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 210)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 210)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 211)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 211)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 212)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 212)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 213)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 213)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 214)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 214)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 215)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 215)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 216)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 216)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 217)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 217)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 218)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 218)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 219)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 219)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 220)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 220)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 221)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 221)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 222)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 222)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 223)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 223)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 224)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 224)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 225)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 225)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 226)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 226)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 227)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 227)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 228)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 228)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 229)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 229)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 230)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 230)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 231)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 231)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 232)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 232)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 233)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 233)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 234)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 234)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 235)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 235)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 236)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 236)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 237)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 237)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 238)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 238)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 239)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 239)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 240)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 240)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 241)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 241)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 242)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 242)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 243)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 243)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 244)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 244)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 245)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 245)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 246)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 246)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 247)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 247)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 248)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 248)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 249)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 249)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 250)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 250)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 251)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 251)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 252)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 252)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 253)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 253)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 254)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 254)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 255)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 255)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 256)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 256)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 257)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 257)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 258)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 258)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 259)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 259)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 260)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 260)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 261)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 261)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 262)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 262)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 263)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 263)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 264)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 264)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 265)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 265)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 266)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 266)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 267)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 267)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 268)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 268)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 269)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 269)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 270)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 270)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 271)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 271)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 272)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 272)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 273)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 273)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 274)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 274)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 275)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 275)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 276)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 276)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 277)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 277)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 278)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 278)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 279)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 279)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 280)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 280)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 281)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 281)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 282)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 282)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 283)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 283)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 284)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 284)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 285)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 285)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 286)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 286)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 287)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 287)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 288)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 288)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 289)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 289)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 290)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 290)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 291)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 291)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 292)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 292)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 293)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 293)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 294)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 294)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 295)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 295)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 296)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 296)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 297)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 297)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 298)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 298)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 299)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 299)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 300)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 300)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 301)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 301)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 302)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 302)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 303)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 303)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 304)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 304)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 305)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 305)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 306)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 306)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 307)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 307)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 308)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 308)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 309)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 309)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 310)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 310)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 311)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 311)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 312)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 312)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 313)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 313)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 314)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 314)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 315)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 315)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 316)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 316)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 317)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 317)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 318)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 318)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 319)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 319)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 320)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 320)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 321)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 321)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 322)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 322)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 323)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 323)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 324)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 324)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 325)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 325)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 326)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 326)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 327)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 327)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 328)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 328)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 329)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 329)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 330)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 330)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 331)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 331)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 332)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 332)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 333)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 333)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 334)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 334)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 335)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 335)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 336)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 336)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 337)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 337)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 338)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 338)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 339)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 339)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 340)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 340)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 341)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 341)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 342)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 342)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 343)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 343)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 344)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 344)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 345)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 345)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 346)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 346)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 347)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 347)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 348)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 348)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 349)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 349)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 350)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 350)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 351)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 351)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 352)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 352)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 353)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 353)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 354)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 354)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 355)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 355)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 356)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 356)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 357)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 357)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 358)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 358)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 359)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 359)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 360)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 360)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 361)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 361)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 362)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 362)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 363)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 363)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 364)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 364)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 365)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 365)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 366)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 366)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 367)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 367)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 368)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 368)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 369)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 369)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 370)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 370)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 371)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 371)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 372)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 372)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 373)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 373)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 374)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 374)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 375)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 375)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 376)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 376)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 377)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 377)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 378)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 378)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 379)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 379)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 380)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 380)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 381)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 381)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 382)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 382)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 383)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 383)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 384)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 384)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 385)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 385)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 386)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 386)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 387)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 387)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 388)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 388)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 389)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 389)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 390)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 390)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 391)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 391)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 392)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 392)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 393)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 393)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 394)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 394)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 395)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 395)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 396)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 396)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 397)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 397)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 398)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 398)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 399)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 399)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 400)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 400)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 401)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 401)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 402)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 402)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 403)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 403)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 404)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 404)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 405)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 405)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 406)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 406)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 407)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 407)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 408)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 408)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 409)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 409)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 410)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 410)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 411)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 411)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 412)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 412)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 413)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 413)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 414)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 414)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 415)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 415)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 416)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 416)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 417)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 417)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 418)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 418)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 419)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 419)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 420)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 420)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 421)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 421)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 422)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 422)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 423)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 423)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 424)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 424)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 425)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 425)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 426)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 426)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 427)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 427)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 428)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 428)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 429)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 429)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 430)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 430)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 431)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 431)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 432)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 432)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 433)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 433)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 434)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 434)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 435)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 435)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 436)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 436)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 437)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 437)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 438)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 438)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 439)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 439)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 440)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 440)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 441)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 441)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 442)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 442)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 443)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 443)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 444)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 444)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 445)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 445)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 446)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 446)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 447)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 447)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 448)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 448)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 449)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 449)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 450)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 450)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 451)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 451)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 452)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 452)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 453)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 453)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 454)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 454)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 455)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 455)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 456)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 456)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 457)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 457)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 458)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 458)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 459)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 459)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 460)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 460)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 461)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 461)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 462)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 462)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 463)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 463)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 464)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 464)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 465)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 465)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 466)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 466)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 467)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 467)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 468)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 468)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 469)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 469)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 470)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 470)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 471)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 471)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 472)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 472)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 473)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 473)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 474)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 474)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 475)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 475)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 476)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 476)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 477)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 477)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 478)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 478)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 479)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 479)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 480)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 480)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 481)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 481)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 482)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 482)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 483)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 483)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 484)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 484)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 485)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 485)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 486)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 486)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 487)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 487)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 488)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 488)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 489)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 489)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 490)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 490)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 491)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 491)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 492)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 492)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 493)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 493)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 494)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 494)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 495)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 495)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 496)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 496)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 497)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 497)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 498)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 498)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 499)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 499)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 500)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 500)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 501)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 501)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 502)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 502)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 503)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 503)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 504)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 504)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 505)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 505)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 506)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 506)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 507)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 507)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 508)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 508)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 509)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 509)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 510)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 510)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 511)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 511)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 512)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 512)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 513)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 513)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 514)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 514)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 515)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 515)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 516)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 516)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 517)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 517)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 518)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 518)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 519)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 519)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 520)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 520)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 521)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 521)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 522)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 522)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 523)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 523)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 524)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 524)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 525)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 525)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 526)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 526)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 527)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 527)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 528)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 528)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 529)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 529)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 530)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 530)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 531)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 531)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 532)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 532)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 533)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 533)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 534)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 534)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 535)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 535)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 536)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 536)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 537)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 537)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 538)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 538)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 539)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 539)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 540)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 540)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 541)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 541)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 542)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 542)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 543)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 543)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 544)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 544)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 545)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 545)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 546)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 546)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 547)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 547)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 548)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 548)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 549)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 549)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 550)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 550)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 551)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 551)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 552)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 552)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 553)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 553)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 554)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 554)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 555)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 555)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 556)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 556)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 557)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 557)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 558)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 558)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 559)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 559)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 560)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 560)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 561)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 561)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 562)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 562)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 563)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 563)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 564)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 564)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 565)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 565)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 566)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 566)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 567)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 567)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 568)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 568)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 569)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 569)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 570)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 570)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 571)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 571)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 572)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 572)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 573)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 573)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 574)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 574)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 575)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 575)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 576)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 576)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 577)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 577)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 578)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 578)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 579)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 579)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 580)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 580)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 581)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 581)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 582)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 582)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 583)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 583)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 584)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 584)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 585)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 585)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 586)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 586)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 587)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 587)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 588)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 588)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 589)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 589)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 590)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 590)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 591)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 591)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 592)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 592)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 593)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 593)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 594)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 594)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 595)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 595)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 596)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 596)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 597)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 597)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 598)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 598)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 599)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 599)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 600)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 600)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 601)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 601)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 602)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 602)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 603)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 603)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 604)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 604)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 605)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 605)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 606)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 606)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 607)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 607)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 608)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 608)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 609)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 609)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 610)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 610)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 611)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 611)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 612)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 612)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 613)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 613)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 614)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 614)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 615)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 615)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 616)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 616)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 617)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 617)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 618)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 618)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 619)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 619)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 620)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 620)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 621)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 621)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 622)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 622)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 623)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 623)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 624)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 624)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 625)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 625)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 626)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 626)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 627)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 627)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 628)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 628)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 629)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 629)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 630)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 630)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 631)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 631)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 632)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 632)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 633)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 633)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 634)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 634)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 635)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 635)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 636)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 636)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 637)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 637)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 638)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 638)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 639)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 639)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 640)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 640)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 641)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 641)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 642)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 642)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 643)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 643)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 644)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 644)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 645)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 645)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 646)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 646)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 647)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 647)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 648)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 648)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 649)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 649)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 650)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 650)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 651)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 651)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 652)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 652)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 653)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 653)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 654)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 654)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 655)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 655)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 656)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 656)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 657)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 657)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 658)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 658)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 659)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 659)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 660)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 660)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 661)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 661)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 662)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 662)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 663)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 663)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 664)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 664)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 665)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 665)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 666)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 666)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 667)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 667)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 668)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 668)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 669)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 669)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 670)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 670)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 671)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 671)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 672)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 672)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 673)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 673)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 674)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 674)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 675)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 675)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 676)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 676)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 677)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 677)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 678)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 678)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 679)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 679)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 680)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 680)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 681)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 681)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 682)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 682)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 683)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 683)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 684)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 684)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 685)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 685)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 686)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 686)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 687)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 687)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 688)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 688)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 689)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 689)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 690)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 690)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 691)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 691)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 692)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 692)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 693)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 693)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 694)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 694)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 695)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 695)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 696)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 696)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 697)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 697)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 698)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 698)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 699)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 699)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 700)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 700)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 701)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 701)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 702)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 702)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 703)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 703)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 704)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 704)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 705)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 705)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 706)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 706)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 707)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 707)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 708)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 708)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 709)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 709)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 710)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 710)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 711)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 711)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 712)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 712)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 713)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 713)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 714)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 714)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 715)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 715)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 716)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 716)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 717)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 717)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 718)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 718)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 719)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 719)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 720)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 720)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 721)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 721)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 722)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 722)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 723)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 723)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 724)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 724)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 725)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 725)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 726)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 726)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 727)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 727)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 728)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 728)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 729)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 729)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 730)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 730)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 731)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 731)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 732)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 732)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 733)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 733)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 734)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 734)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 735)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 735)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 736)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 736)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 737)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 737)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 738)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 738)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 739)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 739)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 740)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 740)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 741)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 741)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 742)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 742)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 743)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 743)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 744)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 744)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 745)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 745)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 746)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 746)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 747)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 747)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 748)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 748)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 749)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 749)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 750)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 750)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 751)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 751)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 752)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 752)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 753)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 753)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 754)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 754)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 755)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 755)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 756)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 756)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 757)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 757)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 758)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 758)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 759)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 759)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 760)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 760)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 761)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 761)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 762)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 762)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 763)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 763)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 764)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 764)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 765)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 765)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 766)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 766)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 767)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 767)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 768)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 768)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 769)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 769)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 770)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 770)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 771)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 771)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 772)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 772)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 773)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 773)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 774)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 774)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 775)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 775)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 776)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 776)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 777)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 777)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 778)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 778)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 779)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 779)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 780)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 780)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 781)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 781)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 782)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 782)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 783)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 783)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 784)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 784)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 785)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 785)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 786)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 786)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 787)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 787)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 788)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 788)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 789)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 789)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 790)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 790)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 791)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 791)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 792)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 792)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 793)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 793)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 794)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 794)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 795)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 795)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 796)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 796)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 797)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 797)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 798)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 798)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 799)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 799)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 800)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 800)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 801)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 801)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 802)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 802)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 803)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 803)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 804)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 804)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 805)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 805)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 806)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 806)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 807)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 807)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 808)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 808)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 809)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 809)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 810)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 810)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 811)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 811)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 812)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 812)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 813)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 813)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 814)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 814)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 815)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 815)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 816)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 816)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 817)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 817)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 818)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 818)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 819)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 819)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 820)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 820)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 821)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 821)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 822)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 822)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 823)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 823)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 824)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 824)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 825)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 825)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 826)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 826)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 827)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 827)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 828)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 828)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 829)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 829)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 830)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 830)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 831)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 831)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 832)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 832)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 833)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 833)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 834)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 834)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 835)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 835)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 836)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 836)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 837)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 837)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 838)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 838)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 839)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 839)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 840)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 840)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 841)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 841)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 842)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 842)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 843)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 843)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 844)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 844)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 845)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 845)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 846)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 846)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 847)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 847)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 848)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 848)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 849)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 849)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 850)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 850)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 851)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 851)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 852)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 852)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 853)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 853)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 854)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 854)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 855)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 855)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 856)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 856)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 857)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 857)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 858)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 858)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 859)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 859)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 860)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 860)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 861)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 861)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 862)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 862)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 863)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 863)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 864)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 864)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 865)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 865)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 866)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 866)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 867)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 867)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 868)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 868)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 869)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 869)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 870)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 870)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 871)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 871)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 872)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 872)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 873)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 873)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 874)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 874)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 875)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 875)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 876)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 876)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 877)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 877)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 878)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 878)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 879)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 879)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 880)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 880)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 881)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 881)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 882)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 882)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 883)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 883)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 884)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 884)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 885)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 885)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 886)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 886)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 887)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 887)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 888)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 888)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 889)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 889)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 890)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 890)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 891)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 891)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 892)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 892)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 893)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 893)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 894)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 894)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 895)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 895)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 896)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 896)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 897)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 897)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 898)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 898)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 899)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 899)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 900)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 900)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 901)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 901)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 902)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 902)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 903)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 903)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 904)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 904)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 905)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 905)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 906)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 906)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 907)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 907)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 908)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 908)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 909)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 909)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 910)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 910)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 911)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 911)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 912)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 912)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 913)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 913)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 914)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 914)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 915)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 915)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 916)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 916)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 917)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 917)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 918)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 918)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 919)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 919)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 920)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 920)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 921)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 921)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 922)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 922)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 923)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 923)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 924)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 924)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 925)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 925)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 926)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 926)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 927)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 927)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 928)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 928)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 929)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 929)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 930)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 930)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 931)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 931)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 932)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 932)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 933)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 933)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 934)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 934)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 935)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 935)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 936)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 936)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 937)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 937)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 938)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 938)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 939)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 939)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 940)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 940)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 941)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 941)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 942)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 942)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 943)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 943)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 944)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 944)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 945)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 945)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 946)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 946)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 947)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 947)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 948)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 948)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 949)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 949)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 950)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 950)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 951)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 951)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 952)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 952)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 953)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 953)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 954)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 954)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 955)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 955)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 956)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 956)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 957)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 957)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 958)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 958)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 959)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 959)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 960)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 960)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 961)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 961)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 962)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 962)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 963)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 963)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 964)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 964)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 965)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 965)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 966)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 966)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 967)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 967)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 968)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 968)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 969)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 969)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 970)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 970)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 971)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 971)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 972)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 972)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 973)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 973)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 974)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 974)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 975)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 975)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 976)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 976)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 977)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 977)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 978)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 978)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 979)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 979)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 980)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 980)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 981)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 981)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 982)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 982)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 983)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 983)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 984)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 984)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 985)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 985)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 986)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 986)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 987)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 987)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 988)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 988)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 989)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 989)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 990)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 990)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 991)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 991)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 992)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 992)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 993)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 993)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 994)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 994)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 995)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 995)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 996)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 996)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 997)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 997)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 998)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 998)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 999)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 999)
       }
       if let v = _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000 {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 1000)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 1000)
       }
       unknown.traverse(visitor: &visitor)
     }
@@ -8084,7 +8084,7 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
 
   private var _storage = _StorageClass()
 
-  public var unknown: ProtobufUnknownStorage {
+  public var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -19091,11 +19091,11 @@ struct Google_Protobuf_TestEnormousDescriptor: ProtobufGeneratedMessage, Protobu
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

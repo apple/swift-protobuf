@@ -10,14 +10,14 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// OneOf fields generate enums that conform to ProtobufOneofEnum
+/// OneOf fields generate enums that conform to OneofEnum
 ///
 // -----------------------------------------------------------------------------
 
 import Swift
 
-public protocol ProtobufOneofEnum: Equatable {
+public protocol OneofEnum: Equatable {
     init()
-    func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws
-    mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws
+    func traverse(visitor: inout Visitor, start: Int, end: Int) throws
+    mutating func decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws
 }

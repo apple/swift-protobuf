@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_TestAny"}
   public var protoMessageName: String {return "TestAny"}
   public var protoPackageName: String {return "protobuf_unittest"}
@@ -51,25 +51,25 @@ struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message
   ]
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = ProtobufUnittest_TestAny
+    typealias ExtendedMessage = ProtobufUnittest_TestAny
     var _int32Value: Int32 = 0
     var _anyValue: Google_Protobuf_Any? = nil
     var _repeatedAnyValue: [Google_Protobuf_Any] = []
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_int32Value)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_int32Value)
       case 2: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_anyValue)
       case 3: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Any.self, value: &_repeatedAnyValue)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if _int32Value != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _int32Value, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _int32Value, protoFieldNumber: 1)
       }
       if let v = _anyValue {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
@@ -121,11 +121,11 @@ struct ProtobufUnittest_TestAny: ProtobufGeneratedMessage, ProtobufProto3Message
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 

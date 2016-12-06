@@ -25,7 +25,7 @@ public enum ProtoNameResolvers {
   /// on the message or any of its extensions, or names were not compiled into
   /// the binary), then the resolver returns nil.
   public static func protoFieldNameResolver(
-    for message: ProtobufMessageBase
+    for message: Message
   ) -> (Int) -> String? {
     if let nameProviding = message as? ProtoNameProviding {
       return { number in
@@ -43,7 +43,7 @@ public enum ProtoNameResolvers {
   /// on the message or any of its extensions, or names were not compiled into
   /// the binary), then the resolver returns nil.
   public static func jsonFieldNameResolver(
-    for message: ProtobufMessageBase
+    for message: Message
   ) -> (Int) -> String? {
     if let nameProviding = message as? ProtoNameProviding {
       return { number in
@@ -61,7 +61,7 @@ public enum ProtoNameResolvers {
   /// on the message or any of its extensions, or names were not compiled into
   /// the binary), then the resolver returns nil.
   public static func swiftFieldNameResolver(
-    for message: ProtobufMessageBase
+    for message: Message
   ) -> (Int) -> String? {
     if let nameProviding = message as? ProtoNameProviding {
       return { number in

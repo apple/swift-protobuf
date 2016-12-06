@@ -241,7 +241,15 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         // Adjacent quoted strings concatenate, see
         //   google/protobuf/text_format_unittest.cc#L597
+        assertTextDecodeSucceeds("single_string: \"abc\"\"def\"") {
+            (o: MessageTestType) in
+            return o.singleString == "abcdef"
+        }
         assertTextDecodeSucceeds("single_string: \"abc\" \"def\"") {
+            (o: MessageTestType) in
+            return o.singleString == "abcdef"
+        }
+        assertTextDecodeSucceeds("single_string: \"abc\"   \"def\"") {
             (o: MessageTestType) in
             return o.singleString == "abcdef"
         }
@@ -254,23 +262,43 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.singleString == "abcdefghi"
         }
+        assertTextDecodeSucceeds("single_string: \"abc\"\n\'def\'\n\"ghi\"\n") {
+            (o: MessageTestType) in
+            return o.singleString == "abcdefghi"
+        }
         assertTextEncode("single_string: \"abc\"\n") {(o: inout MessageTestType) in
             o.singleString = "abc"
         }
     }
 
-    func testEncoding_singleBytes() {
-        // The only test case I could find for byte format is:
-        //   google/protobuf/text_format_unittest.cc#L224
-        // which shows byte fields printed as C-style ASCII escaped strings
+    func testEncoding_singleBytes() throws {
+        let o = Proto3TestAllTypes.with { $0.singleBytes = Data() }
+        XCTAssertEqual("", try o.serializeText())
+
         assertTextEncode("single_bytes: \"AB\"\n") {(o: inout MessageTestType) in
             o.singleBytes = Data(bytes: [65, 66])
         }
         assertTextEncode("single_bytes: \"\\000\\001AB\\177\\200\\377\"\n") {(o: inout MessageTestType) in
             o.singleBytes = Data(bytes: [0, 1, 65, 66, 127, 128, 255])
         }
-
+        assertTextDecodeSucceeds("single_bytes: \"A\" \"B\"\n") {(o: MessageTestType) in
+            return o.singleBytes == Data(bytes: [65, 66])
+        }
+        assertTextDecodeSucceeds("single_bytes: \"\\0\\1AB\\178\\189\\x61\\xdq\\x123456789\"\n") {(o: MessageTestType) in
+            return o.singleBytes == Data(bytes: [0, 1, 65, 66, 15, 56, 1, 56, 57, 97, 13, 113, 137])
+        }
+        assertTextDecodeSucceeds("single_bytes: \"\"\n") {(o: MessageTestType) in
+            return o.singleBytes == Data()
+        }
+        assertTextDecodeSucceeds("single_bytes: \"\\b\\t\\n\\v\\f\\r\\\"\\'\\?'\"\n") {(o: MessageTestType) in
+            return o.singleBytes == Data(bytes: [8, 9, 10, 11, 12, 13, 34, 39, 63, 39])
+        }
+        
         assertTextDecodeFails("single_bytes: 10\n")
+        assertTextDecodeFails("single_bytes: \"\\\"\n")
+        assertTextDecodeFails("single_bytes: \"\\x\"\n")
+        assertTextDecodeFails("single_bytes: \"\\x&\"\n")
+        assertTextDecodeFails("single_bytes: \"\\q\"\n")
     }
 
     func testEncoding_singleNestedMessage() {
@@ -406,6 +434,10 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.repeatedInt32 == [1, 2]
         }
+        assertTextDecodeSucceeds("repeated_int32:[1, 2]") {
+            (o: MessageTestType) in
+            return o.repeatedInt32 == [1, 2]
+        }
         assertTextDecodeSucceeds("repeated_int32: [1] repeated_int32: 2\n") {
             (o: MessageTestType) in
             return o.repeatedInt32 == [1, 2]
@@ -424,6 +456,11 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         }
 
         assertTextDecodeFails("repeated_int32: 1\nrepeated_int32: a\n")
+        assertTextDecodeFails("repeated_int32: [")
+        assertTextDecodeFails("repeated_int32: [\n")
+        assertTextDecodeFails("repeated_int32: [1\n")
+        assertTextDecodeFails("repeated_int32: [1,\n")
+        assertTextDecodeFails("repeated_int32: [1,2\n")
     }
 
     func testEncoding_repeatedInt64() {
@@ -554,6 +591,10 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         XCTAssertEqual("repeated_bool: true\nrepeated_bool: false\n", try a.serializeText())
 
         assertTextEncode("repeated_bool: true\nrepeated_bool: false\n") {(o: inout MessageTestType) in o.repeatedBool = [true, false] }
+        assertTextDecodeSucceeds("repeated_bool: [true, false, True, False, t, f, 1, 0]") {
+            (o: MessageTestType) in
+            return o.repeatedBool == [true, false, true, false, true, false, true, false]
+        }
 
         assertTextDecodeFails("repeated_bool: true\nrepeated_bool: a\n")
     }
@@ -580,6 +621,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             return o.repeatedString == ["abc", "def"]
         }
         assertTextDecodeFails("repeated_string:[\"abc\"")
+        assertTextDecodeFails("repeated_string:[\"abc\",")
         assertTextDecodeFails("repeated_string: \"abc\"]")
         assertTextDecodeFails("repeated_string: abc")
 
@@ -780,7 +822,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             + "single_double: 12\n"
             + "single_bool: true\n"
             + "single_string: \"abc\"\n"
-            + "single_bytes: \"QUI=\"\n" // TODO: Not sure if this part is correct
+            + "single_bytes: \"AB\"\n"
             + "single_nested_message {\n"
             + "  bb: 7\n"
             + "}\n"

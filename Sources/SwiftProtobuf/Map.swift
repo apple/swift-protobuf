@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufEnum.swift - Enum support
+// Sources/SwiftProtobuf/Map.swift - Map<> support
 //
 // This source file is part of the Swift.org open source project
 //
@@ -10,18 +10,17 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Generated enums conform to ProtobufEnum
-///
-/// See ProtobufBinaryTypes and ProtobufJSONTypes for extension
-/// methods to support binary and JSON coding.
+/// Generic type representing proto map<> fields.
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 import Swift
 
-public protocol ProtobufEnum: RawRepresentable, Hashable, CustomDebugStringConvertible, ProtobufTypeProperties, ProtobufMapValueType {
-    init?(name: String)
-    init?(jsonName: String)
-    var json: String { get }
-    var rawValue: Int { get }
+public struct ProtobufMap<KeyType: MapKeyType, ValueType: MapValueType>
+    where KeyType.BaseType: Hashable
+{
+    typealias Key = KeyType.BaseType
+    typealias Value = ValueType.BaseType
+    public typealias BaseType = Dictionary<Key, Value>
 }

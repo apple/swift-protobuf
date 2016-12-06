@@ -26,15 +26,15 @@ import Foundation
 import SwiftProtobuf
 
 
-struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault"}
   public var protoMessageName: String {return "EnumOptionalDefault"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = ProtobufUnknownStorage()
+  public var unknown = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -44,14 +44,14 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
     ]
 
     private class _StorageClass {
-      typealias ProtobufExtendedMessage = ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage
-      var unknown = ProtobufUnknownStorage()
+      typealias ExtendedMessage = ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage
+      var unknown = SwiftProtobuf.UnknownStorage()
       var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
       var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil
 
       init() {}
 
-      func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+      func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
         case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.self, value: &_message)
         case 17: try setter.decodeSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.self, value: &_optionalEnum)
@@ -59,7 +59,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
         }
       }
 
-      func traverse(visitor: inout ProtobufVisitor) throws {
+      func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
         if let v = _message {
           try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
         }
@@ -87,12 +87,12 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
 
     private var _storage = _StorageClass()
 
-    public var unknown: ProtobufUnknownStorage {
+    public var unknown: SwiftProtobuf.UnknownStorage {
       get {return _storage.unknown}
       set {_storage.unknown = newValue}
     }
 
-    enum Enum: ProtobufEnum {
+    enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int
       case foo // = 0
 
@@ -182,11 +182,11 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       try _storage.traverse(visitor: &visitor)
     }
 
@@ -202,7 +202,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
     }
   }
 
-  struct NestedMessage2: ProtobufGeneratedMessage, ProtobufProto2Message, ProtoNameProviding {
+  struct NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2"}
     public var protoMessageName: String {return "NestedMessage2"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
@@ -210,9 +210,9 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
       17: .unique(proto: "optional_enum", json: "optionalEnum", swift: "optionalEnum"),
     ]
 
-    public var unknown = ProtobufUnknownStorage()
+    public var unknown = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: ProtobufEnum {
+    enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int
       case foo // = 0
 
@@ -290,14 +290,14 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 17: try setter.decodeSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: &_optionalEnum)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _optionalEnum {
         try visitor.visitSingularField(fieldType: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, value: v, protoFieldNumber: 17)
       }
@@ -313,10 +313,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: ProtobufGeneratedMessage, Pr
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     unknown.traverse(visitor: &visitor)
   }
 
