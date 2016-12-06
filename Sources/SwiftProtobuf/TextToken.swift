@@ -33,143 +33,6 @@ private func fromHexDigit(_ c: UInt8) -> UInt8? {
     }
 }
 
-
-// Protobuf JSON allows integers (signed and unsigned) to be
-// coded using floating-point exponential format, but does
-// reject anything that actually has a fractional part.
-// This code converts numbers like 4.294967e9 to a standard
-// integer decimal string format 429496700 using only pure
-// textual operations (adding/removing trailing zeros, removing
-// decimal point character).  The result can be handed
-// to IntMax(string:) or UIntMax(string:) as appropriate.
-//
-// Returns an array of Character (to make it easy for clients to
-// check specific character values) or nil if the provided string
-// cannot be normalized to a valid integer format.
-//
-// Here are some sample inputs and outputs to clarify what this function does:
-//   = "0.1.2" => nil (extra period)
-//   = "0x02" => nil (invalid 'x' character)
-//   = "4.123" => nil (not an integer)
-//   = "012" => nil (leading zero rejected)
-//   = "0" => "0" (bare zero is okay)
-//   = "400e-1" => "40" (adjust decimal point)
-//   = "4.12e2" => "412" (adjust decimal point)
-//   = "1.0000" => "1" (drop extraneous trailing zeros)
-//
-// Note: This does reject sequences that are "obviously" out
-// of the range of a 64-bit integer, but that's just to avoid
-// crazy cases like trying to build million-character string for
-// "1e1000000".  The client code is responsible for real range
-// checking.
-//
-private func normalizeIntString(_ s: String) -> [Character]? {
-    var total = 0
-    var digits = 0
-    var fractionalDigits: Int?
-    var hasLeadingZero = false
-    var chars = s.characters.makeIterator()
-    var number = [Character]()
-    while let c = chars.next() {
-        if hasLeadingZero { // Leading zero must be last character
-            return nil
-        }
-        switch c {
-        case "-":
-            if total > 0 {
-                return nil
-            }
-            number.append(c)
-            total += 1
-        case "0":
-            if digits == 0 {
-                hasLeadingZero = true
-            }
-            fallthrough
-        case "1", "2", "3", "4", "5", "6", "7", "8", "9":
-            if fractionalDigits != nil {
-                fractionalDigits = fractionalDigits! + 1
-            } else {
-                digits += 1
-            }
-            number.append(c)
-            total += 1
-        case ".":
-            if fractionalDigits != nil {
-                return nil // Duplicate '.'
-            }
-            fractionalDigits = 0
-            total += 1
-        case "e", "E":
-            var expString = ""
-            var c2 = chars.next()
-            if c2 == "+" || c2 == "-" {
-                expString.append(c2!)
-                c2 = chars.next()
-            }
-            if c2 == nil {
-                return nil
-            }
-            while let expDigit = c2 {
-                switch expDigit {
-                case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                    expString.append(expDigit)
-                default:
-                    return nil
-                }
-                c2 = chars.next()
-            }
-            // Limit on exp here follows from:
-            //   = 64-bit int has range less than 10 ^ 20,
-            //     so a positive exponent can't result in
-            //     more than 20 digits wihout overflow
-            //   = Value must be integral, so a negative exponent
-            //     can't be greater than number of digits
-            // The limit here is deliberately sloppy, it is only intended
-            // to avoid painful abuse cases (e.g., 1e1000000000 will be
-            // quickly dropped without trying to build a an array
-            // of a billion characters).
-            if let exp = Int(expString), exp + digits < 20 && exp > -digits {
-                // Fold fractional digits into exponent
-                var adjustment = exp - (fractionalDigits ?? 0)
-                fractionalDigits = 0
-                // Adjust digit string to account for exponent
-                while adjustment > 0 {
-                    number.append("0")
-                    adjustment -= 1
-                }
-                while adjustment < 0 {
-                    if number.isEmpty || number[number.count - 1] != "0" {
-                        return nil
-                    }
-                    number.remove(at: number.count - 1)
-                    adjustment += 1
-                }
-            } else {
-                // Error if exponent is malformed or out of range
-                return nil
-            }
-        default:
-            return nil
-        }
-    }
-    if number.isEmpty {
-        return nil
-    }
-    // Allow 7.000 and 1.23000e2 by trimming fractional zero digits
-    if let f = fractionalDigits {
-        var fractionalDigits = f
-        while fractionalDigits > 0 && !number.isEmpty && number[number.count - 1] == "0" {
-            number.remove(at: number.count - 1)
-            fractionalDigits -= 1
-        }
-        if fractionalDigits > 0 {
-            return nil
-        }
-    }
-    return number
-}
-
 // Protobuf Text format uses C ASCII conventions for
 // encoding byte sequences, including the use of octal
 // and hexadecimal escapes.
@@ -375,6 +238,9 @@ public enum TextToken: Equatable, FieldDecoder {
     // so gets handled when we process the tokens to set an actual
     // field.  When skipping tokens, we need a way to verify that the
     // token was actually valid, hence this hook:
+    //
+    // Hmmmm.... Actually, Text decoder does not skip and ignore
+    // unknown fields, so maybe we never need this?
     var isValid: Bool {
         // TODO: Implement this
         return true
@@ -383,10 +249,7 @@ public enum TextToken: Equatable, FieldDecoder {
     var asInt64: Int64? {
         switch self {
         case .decimalInteger(let n):
-            if let normalized = normalizeIntString(n) {
-                let numberString = String(normalized)
-                return Int64(numberString)
-            }
+            return Int64(n)
         case .octalInteger(let n):
             return Int64(n, radix: 8)
         case .hexadecimalInteger(let n):
@@ -409,10 +272,7 @@ public enum TextToken: Equatable, FieldDecoder {
     var asInt32: Int32? {
         switch self {
         case .decimalInteger(let n):
-            if let normalized = normalizeIntString(n) {
-                let numberString = String(normalized)
-                return Int32(numberString)
-            }
+            return Int32(n)
         case .octalInteger(let n):
             return Int32(n, radix: 8)
         case .hexadecimalInteger(let n):
@@ -436,10 +296,7 @@ public enum TextToken: Equatable, FieldDecoder {
     var asUInt64: UInt64? {
         switch self {
         case .decimalInteger(let n):
-            if let normalized = normalizeIntString(n), normalized[0] != "-" {
-                let numberString = String(normalized)
-                return UInt64(numberString)
-            }
+            return UInt64(n)
         case .octalInteger(let n):
             return UInt64(n, radix: 8)
         case .hexadecimalInteger(let n):
@@ -457,10 +314,7 @@ public enum TextToken: Equatable, FieldDecoder {
     var asUInt32: UInt32? {
         switch self {
         case .decimalInteger(let n):
-            if let normalized = normalizeIntString(n), normalized[0] != "-" {
-                let numberString = String(normalized)
-                return UInt32(numberString)
-            }
+            return UInt32(n)
         case .octalInteger(let n):
             return UInt32(n, radix: 8)
         case .hexadecimalInteger(let n):
