@@ -17,14 +17,14 @@ This test suite requires Swift 3.0, standard command-line tools such as make and
 You should start by editing the `Makefile` and adjusting these two lines to match your system:
 ```Makefile
 PROTOC=protoc
-PROTOBUF_PROJECT_DIR=../protobuf
+GOOGLE_PROTOBUFS_CHECKOUT=../protobuf
 ```
 
 These lines specify how to run the installed `protoc` program on your system, and where to find the Google protobuf source tree.
 
 After setting these variables, you can type:
 ```console
-$ make test
+$ make test-conformance
 ```
 
 which will build Google's conformance host program (which manages the conformance test process) and the Swift Protobuf conformance checker (which executes the individual test cases).

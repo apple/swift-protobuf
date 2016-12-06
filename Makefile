@@ -53,6 +53,14 @@ PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
 GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
 
+# Where to find the Swift conformance test runner executable.
+SWIFT_CONFORMANCE_PLUGIN = .build/debug/Conformance
+
+# If you have already build conformance-test-runner in
+# a nearby directory, just set the full path here and
+# we'll use it instead.
+CONFORMANCE_HOST = ${GOOGLE_PROTOBUFS_CHECKOUT}/conformance/conformance-test-runner
+
 # NOTE: TEST_PROTOS, LIBRARY_PROTOS, and PLUGIN_PROTOS are all full paths so
 # eventually we might be able to do proper dependencies and use them as inputs
 # for other rules (we'll also likely need outputs).
@@ -138,6 +146,10 @@ PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
 	Protos/google/protobuf/descriptor.proto
 
+# Protos that are used by the conformance test runner.
+CONFORMANCE_PROTOS= \
+	Protos/conformance/conformance.proto
+
 XCODEBUILD_EXTRAS =
 # Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
 # building the Xcode projects. For Release builds, this is a non trivial speed
@@ -166,6 +178,7 @@ endif
 	regenerate-library-protos \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
+	regenerate-conformance-protos \
 	test \
 	test-all \
 	test-everything \
@@ -305,7 +318,7 @@ reference: build
 #  * protoc is built and installed
 #  * PROTOC at the top of this file is set correctly
 #
-regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-protos
+regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-protos regenerate-conformance-protos
 
 # Rebuild just the protos included in the runtime library
 regenerate-library-protos: build
@@ -323,6 +336,10 @@ regenerate-test-protos: build
 	for t in ${TEST_PROTOS}; do \
 		${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Tests/SwiftProtobufTests $$t; \
 	done
+
+# Rebuild just the protos used by the conformance test runner.
+regenerate-conformance-protos: build
+	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/Conformance ${CONFORMANCE_PROTOS}
 
 #
 # Helper to update the .proto files copied from the google/protobufs distro.
@@ -345,6 +362,32 @@ update-proto-files:
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_public_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_proto3.proto
+
+SWIFT_CONFORMANCE_PLUGIN_SOURCES= \
+	Sources/Conformance/conformance.pb.swift \
+	Sources/Conformance/main.swift
+
+$(SWIFT_CONFORMANCE_PLUGIN): $(SWIFT_CONFORMANCE_PLUGIN_SOURCES)
+	${SWIFT} build
+
+# Runs the conformance tests.
+test-conformance: $(SWIFT_CONFORMANCE_PLUGIN) $(CONFORMANCE_HOST) failure_list_swift.txt
+	( \
+		ABS_PBDIR=`cd ${GOOGLE_PROTOBUFS_CHECKOUT}; pwd`; \
+		$${ABS_PBDIR}/conformance/conformance-test-runner --failure_list failure_list_swift.txt $(SWIFT_CONFORMANCE_PLUGIN); \
+	)
+
+# The 'conformance-host' program is part of the protobuf project.
+# It generates test cases, feeds them to our plugin, and verifies the results:
+conformance-host: $(CONFORMANCE_HOST)
+
+$(CONFORMANCE_HOST):
+	( \
+		cd ${GOOGLE_PROTOBUFS_CHECKOUT}; \
+		./configure; \
+		$(MAKE) -C src; \
+		$(MAKE) -C conformance; \
+	)
 
 
 # Helpers to put the Xcode project through all modes.
