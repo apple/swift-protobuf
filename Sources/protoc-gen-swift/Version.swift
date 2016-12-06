@@ -17,7 +17,7 @@
 struct Version {
     static let major = 0
     static let minor = 9
-    static let revision = 25
+    static let revision = 26
     static let versionString = "\(major).\(minor).\(revision)"
     static let name = "protoc-gen-swift"
     static let versionedName = "protoc-gen-swift \(versionString)"
