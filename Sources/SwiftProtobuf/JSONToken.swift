@@ -41,6 +41,17 @@ import Swift
 //   = "4.12e2" => "412" (adjust decimal point)
 //   = "1.0000" => "1" (drop extraneous trailing zeros)
 //
+// Note:  This logic is not necessary for most text serializations.
+// It's needed for Protobuf JSON to correctly handle cases such as:
+//    Field type Int64, value "9.223372036854775807e+18"
+// Neither Double() nor Int64() can correctly parse this:  Double()
+// lacks the precision, and Int64() does not support exponential
+// notation.  So this code transforms cases like this into a non-exponential
+// form that Int64() can correctly handle.
+// TODO: Investigate using Float80() to parse 64-bit integers; it might
+// have both the exponential support and the 64-bit precision necessary,
+// which would remove the need for this complex bit of custom code.
+//
 // Note: This does reject sequences that are "obviously" out
 // of the range of a 64-bit integer, but that's just to avoid
 // crazy cases like trying to build million-character string for
