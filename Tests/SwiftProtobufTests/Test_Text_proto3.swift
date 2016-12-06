@@ -33,8 +33,16 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         assertTextEncode("single_int32: 41\n") {(o: inout MessageTestType) in
             o.singleInt32 = 41 }
-        assertTextDecodeSucceeds("single_int32:41") {
-            (o: MessageTestType) in
+        assertTextEncode("single_int32: 1\n") {(o: inout MessageTestType) in
+            o.singleInt32 = 1
+        }
+        assertTextEncode("single_int32: -1\n") {(o: inout MessageTestType) in
+            o.singleInt32 = -1
+        }
+        assertTextDecodeSucceeds("single_int32:0x1234") {(o: MessageTestType) in
+            return o.singleInt32 == 0x1234
+        }
+        assertTextDecodeSucceeds("single_int32:41") {(o: MessageTestType) in
             return o.singleInt32 == 41
         }
         assertTextDecodeSucceeds("single_int32: 41#single_int32: 42") {
@@ -46,6 +54,17 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             return o.singleInt32 == 42
         }
         assertTextDecodeFails("single_int32: a\n")
+        assertTextDecodeFails("single_int32: 999999999999999999999999999999999999\n")
+        assertTextDecodeFails("single_int32: 1,2\n")
+        assertTextDecodeFails("single_int32: 1.2\n")
+        assertTextDecodeFails("single_int32: { }\n")
+        assertTextDecodeFails("single_int32: \"hello\"\n")
+        assertTextDecodeFails("single_int32: true\n")
+        assertTextDecodeFails("single_int32: 0x80000000\n")
+        assertTextDecodeSucceeds("single_int32: -0x80000000\n") {(o: MessageTestType) in
+            return o.singleInt32 == -0x80000000
+        }
+        assertTextDecodeFails("single_int32: -0x80000001\n")
     }
 
     func testEncoding_singleInt64() {
@@ -55,8 +74,14 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         XCTAssertEqual("single_int64: 2\n", try a.serializeText())
 
         assertTextEncode("single_int64: 2\n") {(o: inout MessageTestType) in o.singleInt64 = 2 }
-
+        assertTextEncode("single_int64: -2\n") {(o: inout MessageTestType) in o.singleInt64 = -2 }
+        assertTextDecodeSucceeds("single_int64: 0x1234567812345678\n") {(o: MessageTestType) in
+            return o.singleInt64 == 0x1234567812345678
+        }
+        
         assertTextDecodeFails("single_int64: a\n")
+        assertTextDecodeFails("single_int64: 999999999999999999999999999999999999\n")
+        assertTextDecodeFails("single_int64: 1,2\n")
     }
 
     func testEncoding_singleUint32() {
@@ -77,6 +102,9 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             return o.singleUint32 == 3 && o.singleInt32 == 1
         }
         assertTextDecodeFails("single_uint32: -3\n")
+        assertTextDecodeFails("single_uint32: 3x\n")
+        assertTextDecodeFails("single_uint32: 3,4\n")
+        assertTextDecodeFails("single_uint32: 999999999999999999999999999999999999\n")
         assertTextDecodeFails("single_uint32 3\n")
         assertTextDecodeFails("3u")
         assertTextDecodeFails("single_uint32: a\n")
@@ -88,9 +116,17 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual("single_uint64: 4\n", try a.serializeText())
 
-        assertTextEncode("single_uint64: 4\n") {(o: inout MessageTestType) in o.singleUint64 = 4 }
+        assertTextEncode("single_uint64: 4\n") {(o: inout MessageTestType) in
+            o.singleUint64 = 4
+        }
 
+        assertTextDecodeSucceeds("single_uint64: 0xf234567812345678\n") {(o: MessageTestType) in
+            return o.singleUint64 == 0xf234567812345678
+        }
         assertTextDecodeFails("single_uint64: a\n")
+        assertTextDecodeFails("single_uint64: 999999999999999999999999999999999999\n")
+        assertTextDecodeFails("single_uint64: 7,8")
+        assertTextDecodeFails("single_uint64: [7]")
     }
 
     func testEncoding_singleSint32() {
@@ -190,6 +226,14 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.singleFloat == 1.0
         }
+        assertTextDecodeSucceeds("single_float: 1.5e3") {
+            (o: MessageTestType) in
+            return o.singleFloat == 1.5e3
+        }
+        assertTextDecodeSucceeds("single_float: -4.75") {
+            (o: MessageTestType) in
+            return o.singleFloat == -4.75
+        }
         assertTextDecodeSucceeds("single_float: 1.0f single_int32: 1") {
             (o: MessageTestType) in
             return o.singleFloat == 1.0 && o.singleInt32 == 1
@@ -204,6 +248,9 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         }
 
         assertTextDecodeFails("single_float: a\n")
+        assertTextDecodeFails("single_float: 1,2\n")
+        assertTextDecodeFails("single_float: 0xf\n")
+        assertTextDecodeFails("single_float: 012\n")
     }
 
     func testEncoding_singleDouble() {
@@ -228,8 +275,22 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextEncode("single_bool: true\n") {(o: inout MessageTestType) in
             o.singleBool = true
         }
-
+        assertTextDecodeSucceeds("single_bool:true") {(o: MessageTestType) in
+            return o.singleBool == true
+        }
+        assertTextDecodeSucceeds("single_bool:true ") {(o: MessageTestType) in
+            return o.singleBool == true
+        }
+        assertTextDecodeSucceeds("single_bool:true\n ") {(o: MessageTestType) in
+            return o.singleBool == true
+        }
+        
         assertTextDecodeFails("single_bool: 10\n")
+        assertTextDecodeFails("single_bool: tRue\n")
+        assertTextDecodeFails("single_bool: faLse\n")
+        assertTextDecodeFails("single_bool: 2\n")
+        assertTextDecodeFails("single_bool: -0\n")
+        assertTextDecodeFails("single_bool: on\n")
         assertTextDecodeFails("single_bool: a\n")
     }
 
@@ -269,6 +330,10 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextEncode("single_string: \"abc\"\n") {(o: inout MessageTestType) in
             o.singleString = "abc"
         }
+        assertTextDecodeFails("single_string:hello")
+        assertTextDecodeFails("single_string: \"hello\'")
+        assertTextDecodeFails("single_string: \'hello\"")
+        assertTextDecodeFails("single_string: \"hello")
     }
 
     func testEncoding_singleBytes() throws {
@@ -370,9 +435,20 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual("single_nested_enum: BAZ\n", try a.serializeText())
 
-        assertTextEncode("single_nested_enum: BAZ\n") {(o: inout MessageTestType) in o.singleNestedEnum = .baz }
-
+        assertTextEncode("single_nested_enum: BAZ\n") {(o: inout MessageTestType) in
+            o.singleNestedEnum = .baz
+        }
+        assertTextDecodeSucceeds("single_nested_enum:BAZ"){(o: MessageTestType) in
+            return o.singleNestedEnum == .baz
+        }
+        assertTextDecodeSucceeds("single_nested_enum:1"){(o: MessageTestType) in
+            return o.singleNestedEnum == .foo
+        }
+        assertTextDecodeSucceeds("single_nested_enum:2"){(o: MessageTestType) in
+            return o.singleNestedEnum == .bar
+        }
         assertTextDecodeFails("single_nested_enum: a\n")
+        assertTextDecodeFails("single_nested_enum: FOOBAR")
     }
 
     func testEncoding_singleForeignEnum() {
@@ -801,6 +877,25 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextEncode("oneof_uint32: 99\n") {(o: inout MessageTestType) in o.oneofUint32 = 99 }
 
         assertTextDecodeFails("oneof_uint32: a\n")
+    }
+    
+    //
+    // Nonexistent fields, other general concerns
+    //
+    func testInvalidToken() {
+        assertTextDecodeFails("optional_bool: true\n-5\n")
+        assertTextDecodeFails("optional_bool: true!\n")
+        assertTextDecodeFails("\"optional_bool\": true\n")
+    }
+    
+    func testInvalidFieldName() {
+        assertTextDecodeFails("invalid_field: value\n")
+    }
+    
+    func testInvalidCapitalization() {
+        assertTextDecodeFails("optionalgroup {\na: 15\n}\n")
+        assertTextDecodeFails("OPTIONALgroup {\na: 15\n}\n")
+        assertTextDecodeFails("Optional_Bool: true\n")
     }
 
     //

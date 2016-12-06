@@ -17,31 +17,6 @@
 import Foundation
 import Swift
 
-private func fromHexDigit(_ c: Character?) -> UInt32? {
-    if let c = c {
-        switch c {
-        case "0": return 0
-        case "1": return 1
-        case "2": return 2
-        case "3": return 3
-        case "4": return 4
-        case "5": return 5
-        case "6": return 6
-        case "7": return 7
-        case "8": return 8
-        case "9": return 9
-        case "a", "A": return 10
-        case "b", "B": return 11
-        case "c", "C": return 12
-        case "d", "D": return 13
-        case "e", "E": return 14
-        case "f", "F": return 15
-        default: return nil
-        }
-    }
-    return nil
-}
-
 private func parseIdentifier(firstCharacter: Character, charGenerator: inout String.CharacterView.Generator) -> String? {
     var result = "\(firstCharacter)"
     var previousCharGenerator = charGenerator
@@ -55,7 +30,7 @@ private func parseIdentifier(firstCharacter: Character, charGenerator: inout Str
             previousCharGenerator = charGenerator
         }
     }
-    return nil
+    return result
 }
 
 private func parseQuotedString(charGenerator: inout String.CharacterView.Generator, terminator: Character) -> String? {
@@ -87,7 +62,7 @@ class ProtobufTextScanner {
     private var tokenPushback: [TextToken]
     private var eof: Bool = false
     private var wordSeparator: Bool = true
-    public var complete: Bool {
+    var complete: Bool {
         switch characterPushback {
         case .some(" "), .some("\t"), .some("\r"), .some("\n"): break
         case .none: break
@@ -106,17 +81,135 @@ class ProtobufTextScanner {
         return true
     }
 
-    public init(text: String, tokens: [TextToken], extensions: ExtensionSet? = nil) {
+    init(text: String, tokens: [TextToken], extensions: ExtensionSet? = nil) {
         charGenerator = text.characters.makeIterator()
         tokenPushback = tokens.reversed()
         self.extensions = extensions
     }
 
-    public func pushback(token: TextToken) {
+    func pushback(token: TextToken) {
         tokenPushback.append(token)
     }
 
-    public func next() throws -> TextToken? {
+    private func parseHexInteger() -> String? {
+        var s = String()
+        while let c = charGenerator.next() {
+            switch c {
+            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+                 "a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F":
+                s.append(c)
+            default:
+                characterPushback = c
+                return s
+            }
+        }
+        return s
+    }
+
+    private func parseOctalInteger() -> String? {
+        var s = String()
+        while let c = charGenerator.next() {
+            switch c {
+            case "0", "1", "2", "3", "4", "5", "6", "7":
+                s.append(c)
+            default:
+                characterPushback = c
+                return s
+            }
+        }
+        return s
+    }
+    
+    private func parseUnsignedInteger() -> String? {
+        return nil
+    }
+    
+    private func parseUnsignedNumber() throws -> String? {
+        var s = String()
+        while let c = charGenerator.next() {
+            switch c {
+            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+                s.append(c)
+            case ".":
+                s.append(c)
+            case "+", "-":
+                s.append(c)
+            case "e", "E":
+                s.append(c)
+            case "f", "u":
+                // proto1 allowed floats to be suffixed with 'f'
+                // and unsigned integers to be suffixed with 'u'
+                // Just ignore it:
+                return s
+            default:
+                characterPushback = c
+                return s
+            }
+        }
+        return s
+    }
+    
+    private func parseFloat() throws -> String? {
+        return try parseUnsignedNumber()
+    }
+    
+    private func parseNumber(first: Character) throws -> String {
+        var s: String
+        var digit: Character
+        if first == "-" {
+            if let d = charGenerator.next() {
+                s = String("-")
+                digit = d
+            } else {
+                throw DecodingError.malformedText
+            }
+        } else {
+            digit = first
+            s = String()
+        }
+        
+        switch digit {
+        case "0":  // Octal or hex integer or floating point (e.g., "0.2")
+            if let second = charGenerator.next() {
+                switch second {
+                case "1", "2", "3", "4", "5", "6", "7":
+                    s += String(second)
+                    if let n = parseOctalInteger() {
+                        return s + n
+                    } else {
+                        return s
+                    }
+                case "x":
+                    if let n = parseHexInteger() {
+                        s += "x"
+                        return s + n
+                    } else {
+                        throw DecodingError.malformedText
+                    }
+                case ".":
+                    s += "."
+                    if let n = try parseFloat() {
+                        return s + n
+                    } else {
+                        return s
+                    }
+                default:
+                    characterPushback = second
+                }
+            }
+            s += String(digit)
+            return s
+        default:
+            s += String(digit)
+            if let n = try parseUnsignedNumber() {
+                return s + n
+            } else {
+                return s
+            }
+        }
+    }
+
+    func next() throws -> TextToken? {
         if let t = tokenPushback.popLast() {
             return t
         }
@@ -162,26 +255,12 @@ class ProtobufTextScanner {
                 }
                 throw DecodingError.malformedText
             case "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                if wordSeparator {
-                    wordSeparator = false
-                    var s = String(c)
-                    while let c = charGenerator.next() {
-                        switch c {
-                        case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "e", "E":
-                            s.append(c)
-                        case "f", "u":
-                            // proto1 allowed floats to be suffixed with 'f'
-                            // and unsigned integers to be suffixed with 'u'
-                            // Just ignore it:
-                            return .number(s)
-                        default:
-                            characterPushback = c // Note: Only place we need pushback
-                            return .number(s)
-                        }
-                    }
-                    return .number(s)
+                if !wordSeparator {
+                    throw DecodingError.malformedText
                 }
-                throw DecodingError.malformedText
+                wordSeparator = false
+                let s = try parseNumber(first: c)
+                return .number(s)
             default:
                 wordSeparator = false
                 if let s = parseIdentifier(firstCharacter: c, charGenerator: &charGenerator) {
