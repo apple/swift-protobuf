@@ -42,7 +42,7 @@ import Foundation
 import SwiftProtobuf
 
 
-struct Proto3PublicImportMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Proto3PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3PublicImportMessage"}
   public var protoMessageName: String {return "PublicImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
@@ -55,16 +55,16 @@ struct Proto3PublicImportMessage: ProtobufGeneratedMessage, ProtobufProto3Messag
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &e)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &e)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if e != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: e, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: e, protoFieldNumber: 1)
     }
   }
 

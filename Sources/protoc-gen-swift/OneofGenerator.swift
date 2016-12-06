@@ -49,7 +49,7 @@ class OneofGenerator {
 
     func generateNested(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): ExpressibleByNilLiteral, ProtobufOneofEnum {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {\n")
         p.indent()
 
         // Oneof case for each ivar
@@ -72,10 +72,10 @@ class OneofGenerator {
 
         // Decode one of our members
         p.print("\n")
-        p.print("public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {\n")
+        p.print("public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {\n")
         p.indent()
         p.print("if self != .None && setter.rejectConflictingOneof {\n")
-        p.print("  throw ProtobufDecodingError.duplicatedOneOf\n")
+        p.print("  throw SwiftProtobuf.DecodingError.duplicatedOneOf\n")
         p.print("}\n")
         p.print("switch protoFieldNumber {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {
@@ -108,7 +108,7 @@ class OneofGenerator {
 
         // Traverse the current value
         p.print("\n")
-        p.print("public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {\n")
+        p.print("public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {\n")
         p.indent()
         p.print("switch self {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {

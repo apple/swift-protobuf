@@ -40,7 +40,7 @@ import Foundation
 
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
-public struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Api"}
   public var protoMessageName: String {return "Api"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -55,7 +55,7 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Messa
   ]
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Google_Protobuf_Api
+    typealias ExtendedMessage = Google_Protobuf_Api
     var _name: String = ""
     var _methods: [Google_Protobuf_Method] = []
     var _options: [Google_Protobuf_Option] = []
@@ -66,12 +66,12 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Messa
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_name)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_name)
       case 2: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Method.self, value: &_methods)
       case 3: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Option.self, value: &_options)
-      case 4: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_version)
+      case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_version)
       case 5: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_SourceContext.self, value: &_sourceContext)
       case 6: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Mixin.self, value: &_mixins)
       case 7: try setter.decodeSingularField(fieldType: Google_Protobuf_Syntax.self, value: &_syntax)
@@ -79,9 +79,9 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Messa
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if _name != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _name, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _name, protoFieldNumber: 1)
       }
       if !_methods.isEmpty {
         try visitor.visitRepeatedMessageField(value: _methods, protoFieldNumber: 2)
@@ -90,7 +90,7 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Messa
         try visitor.visitRepeatedMessageField(value: _options, protoFieldNumber: 3)
       }
       if _version != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _version, protoFieldNumber: 4)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _version, protoFieldNumber: 4)
       }
       if let v = _sourceContext {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
@@ -201,11 +201,11 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Messa
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -222,7 +222,7 @@ public struct Google_Protobuf_Api: ProtobufGeneratedMessage, ProtobufProto3Messa
 }
 
 ///   Method represents a method of an api.
-public struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Method"}
   public var protoMessageName: String {return "Method"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -260,34 +260,34 @@ public struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Me
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &name)
-    case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &requestTypeURL)
-    case 3: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &requestStreaming)
-    case 4: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &responseTypeURL)
-    case 5: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &responseStreaming)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &name)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &requestTypeURL)
+    case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &requestStreaming)
+    case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &responseTypeURL)
+    case 5: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &responseStreaming)
     case 6: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Option.self, value: &options)
     case 7: try setter.decodeSingularField(fieldType: Google_Protobuf_Syntax.self, value: &syntax)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if name != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: name, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, protoFieldNumber: 1)
     }
     if requestTypeURL != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: requestTypeURL, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: requestTypeURL, protoFieldNumber: 2)
     }
     if requestStreaming != false {
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: requestStreaming, protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: requestStreaming, protoFieldNumber: 3)
     }
     if responseTypeURL != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: responseTypeURL, protoFieldNumber: 4)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: responseTypeURL, protoFieldNumber: 4)
     }
     if responseStreaming != false {
-      try visitor.visitSingularField(fieldType: ProtobufBool.self, value: responseStreaming, protoFieldNumber: 5)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: responseStreaming, protoFieldNumber: 5)
     }
     if !options.isEmpty {
       try visitor.visitRepeatedMessageField(value: options, protoFieldNumber: 6)
@@ -386,7 +386,7 @@ public struct Google_Protobuf_Method: ProtobufGeneratedMessage, ProtobufProto3Me
 ///         }
 ///         ...
 ///       }
-public struct Google_Protobuf_Mixin: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Mixin"}
   public var protoMessageName: String {return "Mixin"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -405,20 +405,20 @@ public struct Google_Protobuf_Mixin: ProtobufGeneratedMessage, ProtobufProto3Mes
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &name)
-    case 2: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &root)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &name)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &root)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if name != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: name, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, protoFieldNumber: 1)
     }
     if root != "" {
-      try visitor.visitSingularField(fieldType: ProtobufString.self, value: root, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: root, protoFieldNumber: 2)
     }
   }
 

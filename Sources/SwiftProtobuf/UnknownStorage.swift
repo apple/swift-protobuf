@@ -19,7 +19,7 @@
 import Swift
 import Foundation
 
-public struct ProtobufUnknownStorage: Equatable {
+public struct UnknownStorage: Equatable {
     internal var data = Data()
     public init() {}
 
@@ -27,11 +27,11 @@ public struct ProtobufUnknownStorage: Equatable {
         data.append(protobufData)
     }
 
-    public func traverse(visitor: inout ProtobufVisitor) {
+    public func traverse(visitor: inout Visitor) {
         visitor.visitUnknown(bytes: data)
     }
 }
 
-public func ==(lhs: ProtobufUnknownStorage, rhs: ProtobufUnknownStorage) -> Bool {
+public func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
     return lhs.data == rhs.data
 }

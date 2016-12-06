@@ -40,7 +40,7 @@ import Foundation
 import SwiftProtobuf
 
 
-enum Proto3ArenaLiteUnittest_ForeignEnum: ProtobufEnum {
+enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignZero // = 0
   case foreignFoo // = 4
@@ -134,7 +134,7 @@ enum Proto3ArenaLiteUnittest_ForeignEnum: ProtobufEnum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ArenaLiteUnittest_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "proto3_arena_lite_unittest"}
@@ -193,7 +193,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
   ]
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Proto3ArenaLiteUnittest_TestAllTypes
+    typealias ExtendedMessage = Proto3ArenaLiteUnittest_TestAllTypes
     var _optionalInt32: Int32 = 0
     var _optionalInt64: Int64 = 0
     var _optionalUint32: UInt32 = 0
@@ -245,105 +245,105 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &_optionalInt32)
-      case 2: try setter.decodeSingularField(fieldType: ProtobufInt64.self, value: &_optionalInt64)
-      case 3: try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &_optionalUint32)
-      case 4: try setter.decodeSingularField(fieldType: ProtobufUInt64.self, value: &_optionalUint64)
-      case 5: try setter.decodeSingularField(fieldType: ProtobufSInt32.self, value: &_optionalSint32)
-      case 6: try setter.decodeSingularField(fieldType: ProtobufSInt64.self, value: &_optionalSint64)
-      case 7: try setter.decodeSingularField(fieldType: ProtobufFixed32.self, value: &_optionalFixed32)
-      case 8: try setter.decodeSingularField(fieldType: ProtobufFixed64.self, value: &_optionalFixed64)
-      case 9: try setter.decodeSingularField(fieldType: ProtobufSFixed32.self, value: &_optionalSfixed32)
-      case 10: try setter.decodeSingularField(fieldType: ProtobufSFixed64.self, value: &_optionalSfixed64)
-      case 11: try setter.decodeSingularField(fieldType: ProtobufFloat.self, value: &_optionalFloat)
-      case 12: try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &_optionalDouble)
-      case 13: try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &_optionalBool)
-      case 14: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalString)
-      case 15: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_optionalBytes)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_optionalInt32)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_optionalInt64)
+      case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &_optionalUint32)
+      case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &_optionalUint64)
+      case 5: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &_optionalSint32)
+      case 6: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &_optionalSint64)
+      case 7: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &_optionalFixed32)
+      case 8: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &_optionalFixed64)
+      case 9: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &_optionalSfixed32)
+      case 10: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &_optionalSfixed64)
+      case 11: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_optionalFloat)
+      case 12: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &_optionalDouble)
+      case 13: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_optionalBool)
+      case 14: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_optionalString)
+      case 15: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_optionalBytes)
       case 18: try setter.decodeSingularMessageField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage.self, value: &_optionalNestedMessage)
       case 19: try setter.decodeSingularMessageField(fieldType: Proto3ArenaLiteUnittest_ForeignMessage.self, value: &_optionalForeignMessage)
       case 20: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_optionalImportMessage)
       case 21: try setter.decodeSingularField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.self, value: &_optionalNestedEnum)
       case 22: try setter.decodeSingularField(fieldType: Proto3ArenaLiteUnittest_ForeignEnum.self, value: &_optionalForeignEnum)
-      case 24: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalStringPiece)
-      case 25: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &_optionalCord)
+      case 24: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_optionalStringPiece)
+      case 25: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_optionalCord)
       case 26: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_PublicImportMessage.self, value: &_optionalPublicImportMessage)
       case 27: try setter.decodeSingularMessageField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage.self, value: &_optionalLazyMessage)
-      case 31: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &_repeatedInt32)
-      case 32: try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &_repeatedInt64)
-      case 33: try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &_repeatedUint32)
-      case 34: try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &_repeatedUint64)
-      case 35: try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &_repeatedSint32)
-      case 36: try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &_repeatedSint64)
-      case 37: try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &_repeatedFixed32)
-      case 38: try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &_repeatedFixed64)
-      case 39: try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &_repeatedSfixed32)
-      case 40: try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &_repeatedSfixed64)
-      case 41: try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &_repeatedFloat)
-      case 42: try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &_repeatedDouble)
-      case 43: try setter.decodePackedField(fieldType: ProtobufBool.self, value: &_repeatedBool)
-      case 44: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedString)
-      case 45: try setter.decodeRepeatedField(fieldType: ProtobufBytes.self, value: &_repeatedBytes)
+      case 31: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_repeatedInt32)
+      case 32: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_repeatedInt64)
+      case 33: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &_repeatedUint32)
+      case 34: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &_repeatedUint64)
+      case 35: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &_repeatedSint32)
+      case 36: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &_repeatedSint64)
+      case 37: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &_repeatedFixed32)
+      case 38: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &_repeatedFixed64)
+      case 39: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &_repeatedSfixed32)
+      case 40: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &_repeatedSfixed64)
+      case 41: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_repeatedFloat)
+      case 42: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &_repeatedDouble)
+      case 43: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_repeatedBool)
+      case 44: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_repeatedString)
+      case 45: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_repeatedBytes)
       case 48: try setter.decodeRepeatedMessageField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage.self, value: &_repeatedNestedMessage)
       case 49: try setter.decodeRepeatedMessageField(fieldType: Proto3ArenaLiteUnittest_ForeignMessage.self, value: &_repeatedForeignMessage)
       case 50: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_repeatedImportMessage)
       case 51: try setter.decodePackedField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.self, value: &_repeatedNestedEnum)
       case 52: try setter.decodePackedField(fieldType: Proto3ArenaLiteUnittest_ForeignEnum.self, value: &_repeatedForeignEnum)
-      case 54: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedStringPiece)
-      case 55: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &_repeatedCord)
+      case 54: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_repeatedStringPiece)
+      case 55: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_repeatedCord)
       case 57: try setter.decodeRepeatedMessageField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage.self, value: &_repeatedLazyMessage)
       case 111, 112, 113, 114: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
       default: break
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if _optionalInt32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: _optionalInt32, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _optionalInt32, protoFieldNumber: 1)
       }
       if _optionalInt64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt64.self, value: _optionalInt64, protoFieldNumber: 2)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: _optionalInt64, protoFieldNumber: 2)
       }
       if _optionalUint32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: _optionalUint32, protoFieldNumber: 3)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: _optionalUint32, protoFieldNumber: 3)
       }
       if _optionalUint64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufUInt64.self, value: _optionalUint64, protoFieldNumber: 4)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: _optionalUint64, protoFieldNumber: 4)
       }
       if _optionalSint32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSInt32.self, value: _optionalSint32, protoFieldNumber: 5)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: _optionalSint32, protoFieldNumber: 5)
       }
       if _optionalSint64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSInt64.self, value: _optionalSint64, protoFieldNumber: 6)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: _optionalSint64, protoFieldNumber: 6)
       }
       if _optionalFixed32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufFixed32.self, value: _optionalFixed32, protoFieldNumber: 7)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: _optionalFixed32, protoFieldNumber: 7)
       }
       if _optionalFixed64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufFixed64.self, value: _optionalFixed64, protoFieldNumber: 8)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: _optionalFixed64, protoFieldNumber: 8)
       }
       if _optionalSfixed32 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSFixed32.self, value: _optionalSfixed32, protoFieldNumber: 9)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: _optionalSfixed32, protoFieldNumber: 9)
       }
       if _optionalSfixed64 != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufSFixed64.self, value: _optionalSfixed64, protoFieldNumber: 10)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: _optionalSfixed64, protoFieldNumber: 10)
       }
       if _optionalFloat != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufFloat.self, value: _optionalFloat, protoFieldNumber: 11)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: _optionalFloat, protoFieldNumber: 11)
       }
       if _optionalDouble != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: _optionalDouble, protoFieldNumber: 12)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _optionalDouble, protoFieldNumber: 12)
       }
       if _optionalBool != false {
-        try visitor.visitSingularField(fieldType: ProtobufBool.self, value: _optionalBool, protoFieldNumber: 13)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _optionalBool, protoFieldNumber: 13)
       }
       if _optionalString != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalString, protoFieldNumber: 14)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _optionalString, protoFieldNumber: 14)
       }
       if _optionalBytes != Data() {
-        try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _optionalBytes, protoFieldNumber: 15)
       }
       if let v = _optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18)
@@ -361,10 +361,10 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
         try visitor.visitSingularField(fieldType: Proto3ArenaLiteUnittest_ForeignEnum.self, value: _optionalForeignEnum, protoFieldNumber: 22)
       }
       if _optionalStringPiece != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalStringPiece, protoFieldNumber: 24)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _optionalStringPiece, protoFieldNumber: 24)
       }
       if _optionalCord != "" {
-        try visitor.visitSingularField(fieldType: ProtobufString.self, value: _optionalCord, protoFieldNumber: 25)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _optionalCord, protoFieldNumber: 25)
       }
       if let v = _optionalPublicImportMessage {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 26)
@@ -373,49 +373,49 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 27)
       }
       if !_repeatedInt32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufInt32.self, value: _repeatedInt32, protoFieldNumber: 31)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _repeatedInt32, protoFieldNumber: 31)
       }
       if !_repeatedInt64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufInt64.self, value: _repeatedInt64, protoFieldNumber: 32)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: _repeatedInt64, protoFieldNumber: 32)
       }
       if !_repeatedUint32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufUInt32.self, value: _repeatedUint32, protoFieldNumber: 33)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: _repeatedUint32, protoFieldNumber: 33)
       }
       if !_repeatedUint64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufUInt64.self, value: _repeatedUint64, protoFieldNumber: 34)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: _repeatedUint64, protoFieldNumber: 34)
       }
       if !_repeatedSint32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSInt32.self, value: _repeatedSint32, protoFieldNumber: 35)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: _repeatedSint32, protoFieldNumber: 35)
       }
       if !_repeatedSint64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSInt64.self, value: _repeatedSint64, protoFieldNumber: 36)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: _repeatedSint64, protoFieldNumber: 36)
       }
       if !_repeatedFixed32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufFixed32.self, value: _repeatedFixed32, protoFieldNumber: 37)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: _repeatedFixed32, protoFieldNumber: 37)
       }
       if !_repeatedFixed64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufFixed64.self, value: _repeatedFixed64, protoFieldNumber: 38)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: _repeatedFixed64, protoFieldNumber: 38)
       }
       if !_repeatedSfixed32.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSFixed32.self, value: _repeatedSfixed32, protoFieldNumber: 39)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: _repeatedSfixed32, protoFieldNumber: 39)
       }
       if !_repeatedSfixed64.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufSFixed64.self, value: _repeatedSfixed64, protoFieldNumber: 40)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: _repeatedSfixed64, protoFieldNumber: 40)
       }
       if !_repeatedFloat.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufFloat.self, value: _repeatedFloat, protoFieldNumber: 41)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: _repeatedFloat, protoFieldNumber: 41)
       }
       if !_repeatedDouble.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufDouble.self, value: _repeatedDouble, protoFieldNumber: 42)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _repeatedDouble, protoFieldNumber: 42)
       }
       if !_repeatedBool.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufBool.self, value: _repeatedBool, protoFieldNumber: 43)
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _repeatedBool, protoFieldNumber: 43)
       }
       if !_repeatedString.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedString, protoFieldNumber: 44)
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedString, protoFieldNumber: 44)
       }
       if !_repeatedBytes.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufBytes.self, value: _repeatedBytes, protoFieldNumber: 45)
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _repeatedBytes, protoFieldNumber: 45)
       }
       if !_repeatedNestedMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _repeatedNestedMessage, protoFieldNumber: 48)
@@ -433,10 +433,10 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
         try visitor.visitPackedField(fieldType: Proto3ArenaLiteUnittest_ForeignEnum.self, value: _repeatedForeignEnum, protoFieldNumber: 52)
       }
       if !_repeatedStringPiece.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedStringPiece, protoFieldNumber: 54)
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedStringPiece, protoFieldNumber: 54)
       }
       if !_repeatedCord.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: _repeatedCord, protoFieldNumber: 55)
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedCord, protoFieldNumber: 55)
       }
       if !_repeatedLazyMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _repeatedLazyMessage, protoFieldNumber: 57)
@@ -553,7 +553,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
   private var _storage = _StorageClass()
 
 
-  enum OneOf_OneofField: ExpressibleByNilLiteral, ProtobufOneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -568,14 +568,14 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
       self = .None
     }
 
-    public mutating func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
-        throw ProtobufDecodingError.duplicatedOneOf
+        throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
       switch protoFieldNumber {
       case 111:
         var value = UInt32()
-        try setter.decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &value)
         self = .oneofUint32(value)
       case 112:
         var value: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage?
@@ -585,22 +585,22 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
         }
       case 113:
         var value = String()
-        try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
         self = .oneofString(value)
       case 114:
         var value = Data()
-        try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
+        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)
         self = .oneofBytes(value)
       default:
         self = .None
       }
     }
 
-    public func traverse(visitor: inout ProtobufVisitor, start: Int, end: Int) throws {
+    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofUint32(let v):
         if start <= 111 && 111 < end {
-          try visitor.visitSingularField(fieldType: ProtobufUInt32.self, value: v, protoFieldNumber: 111)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: v, protoFieldNumber: 111)
         }
       case .oneofNestedMessage(let v):
         if start <= 112 && 112 < end {
@@ -608,11 +608,11 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
         }
       case .oneofString(let v):
         if start <= 113 && 113 < end {
-          try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 113)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 113)
         }
       case .oneofBytes(let v):
         if start <= 114 && 114 < end {
-          try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: v, protoFieldNumber: 114)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, protoFieldNumber: 114)
         }
       case .None:
         break
@@ -620,7 +620,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
     }
   }
 
-  enum NestedEnum: ProtobufEnum {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case zero // = 0
     case foo // = 1
@@ -722,7 +722,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
 
   }
 
-  struct NestedMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "proto3_arena_lite_unittest"}
@@ -738,16 +738,16 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &bb)
+      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &bb)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if bb != 0 {
-        try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: bb, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: bb, protoFieldNumber: 1)
       }
     }
 
@@ -1102,11 +1102,11 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -1124,7 +1124,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: ProtobufGeneratedMessage, ProtobufP
 
 //  Test messages for packed fields
 
-struct Proto3ArenaLiteUnittest_TestPackedTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ArenaLiteUnittest_TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
   public var protoPackageName: String {return "proto3_arena_lite_unittest"}
@@ -1176,65 +1176,65 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: ProtobufGeneratedMessage, Protob
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 90: try setter.decodePackedField(fieldType: ProtobufInt32.self, value: &packedInt32)
-    case 91: try setter.decodePackedField(fieldType: ProtobufInt64.self, value: &packedInt64)
-    case 92: try setter.decodePackedField(fieldType: ProtobufUInt32.self, value: &packedUint32)
-    case 93: try setter.decodePackedField(fieldType: ProtobufUInt64.self, value: &packedUint64)
-    case 94: try setter.decodePackedField(fieldType: ProtobufSInt32.self, value: &packedSint32)
-    case 95: try setter.decodePackedField(fieldType: ProtobufSInt64.self, value: &packedSint64)
-    case 96: try setter.decodePackedField(fieldType: ProtobufFixed32.self, value: &packedFixed32)
-    case 97: try setter.decodePackedField(fieldType: ProtobufFixed64.self, value: &packedFixed64)
-    case 98: try setter.decodePackedField(fieldType: ProtobufSFixed32.self, value: &packedSfixed32)
-    case 99: try setter.decodePackedField(fieldType: ProtobufSFixed64.self, value: &packedSfixed64)
-    case 100: try setter.decodePackedField(fieldType: ProtobufFloat.self, value: &packedFloat)
-    case 101: try setter.decodePackedField(fieldType: ProtobufDouble.self, value: &packedDouble)
-    case 102: try setter.decodePackedField(fieldType: ProtobufBool.self, value: &packedBool)
+    case 90: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &packedInt32)
+    case 91: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &packedInt64)
+    case 92: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &packedUint32)
+    case 93: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &packedUint64)
+    case 94: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &packedSint32)
+    case 95: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &packedSint64)
+    case 96: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &packedFixed32)
+    case 97: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &packedFixed64)
+    case 98: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &packedSfixed32)
+    case 99: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &packedSfixed64)
+    case 100: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &packedFloat)
+    case 101: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &packedDouble)
+    case 102: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &packedBool)
     case 103: try setter.decodePackedField(fieldType: Proto3ArenaLiteUnittest_ForeignEnum.self, value: &packedEnum)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !packedInt32.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufInt32.self, value: packedInt32, protoFieldNumber: 90)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: packedInt32, protoFieldNumber: 90)
     }
     if !packedInt64.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufInt64.self, value: packedInt64, protoFieldNumber: 91)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: packedInt64, protoFieldNumber: 91)
     }
     if !packedUint32.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufUInt32.self, value: packedUint32, protoFieldNumber: 92)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: packedUint32, protoFieldNumber: 92)
     }
     if !packedUint64.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufUInt64.self, value: packedUint64, protoFieldNumber: 93)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: packedUint64, protoFieldNumber: 93)
     }
     if !packedSint32.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufSInt32.self, value: packedSint32, protoFieldNumber: 94)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: packedSint32, protoFieldNumber: 94)
     }
     if !packedSint64.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufSInt64.self, value: packedSint64, protoFieldNumber: 95)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: packedSint64, protoFieldNumber: 95)
     }
     if !packedFixed32.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufFixed32.self, value: packedFixed32, protoFieldNumber: 96)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: packedFixed32, protoFieldNumber: 96)
     }
     if !packedFixed64.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufFixed64.self, value: packedFixed64, protoFieldNumber: 97)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: packedFixed64, protoFieldNumber: 97)
     }
     if !packedSfixed32.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufSFixed32.self, value: packedSfixed32, protoFieldNumber: 98)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: packedSfixed32, protoFieldNumber: 98)
     }
     if !packedSfixed64.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufSFixed64.self, value: packedSfixed64, protoFieldNumber: 99)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: packedSfixed64, protoFieldNumber: 99)
     }
     if !packedFloat.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufFloat.self, value: packedFloat, protoFieldNumber: 100)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: packedFloat, protoFieldNumber: 100)
     }
     if !packedDouble.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufDouble.self, value: packedDouble, protoFieldNumber: 101)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: packedDouble, protoFieldNumber: 101)
     }
     if !packedBool.isEmpty {
-      try visitor.visitPackedField(fieldType: ProtobufBool.self, value: packedBool, protoFieldNumber: 102)
+      try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: packedBool, protoFieldNumber: 102)
     }
     if !packedEnum.isEmpty {
       try visitor.visitPackedField(fieldType: Proto3ArenaLiteUnittest_ForeignEnum.self, value: packedEnum, protoFieldNumber: 103)
@@ -1261,7 +1261,7 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: ProtobufGeneratedMessage, Protob
 }
 
 ///   Explicitly set packed to false
-struct Proto3ArenaLiteUnittest_TestUnpackedTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ArenaLiteUnittest_TestUnpackedTypes"}
   public var protoMessageName: String {return "TestUnpackedTypes"}
   public var protoPackageName: String {return "proto3_arena_lite_unittest"}
@@ -1313,65 +1313,65 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: ProtobufGeneratedMessage, Prot
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedField(fieldType: ProtobufInt32.self, value: &repeatedInt32)
-    case 2: try setter.decodeRepeatedField(fieldType: ProtobufInt64.self, value: &repeatedInt64)
-    case 3: try setter.decodeRepeatedField(fieldType: ProtobufUInt32.self, value: &repeatedUint32)
-    case 4: try setter.decodeRepeatedField(fieldType: ProtobufUInt64.self, value: &repeatedUint64)
-    case 5: try setter.decodeRepeatedField(fieldType: ProtobufSInt32.self, value: &repeatedSint32)
-    case 6: try setter.decodeRepeatedField(fieldType: ProtobufSInt64.self, value: &repeatedSint64)
-    case 7: try setter.decodeRepeatedField(fieldType: ProtobufFixed32.self, value: &repeatedFixed32)
-    case 8: try setter.decodeRepeatedField(fieldType: ProtobufFixed64.self, value: &repeatedFixed64)
-    case 9: try setter.decodeRepeatedField(fieldType: ProtobufSFixed32.self, value: &repeatedSfixed32)
-    case 10: try setter.decodeRepeatedField(fieldType: ProtobufSFixed64.self, value: &repeatedSfixed64)
-    case 11: try setter.decodeRepeatedField(fieldType: ProtobufFloat.self, value: &repeatedFloat)
-    case 12: try setter.decodeRepeatedField(fieldType: ProtobufDouble.self, value: &repeatedDouble)
-    case 13: try setter.decodeRepeatedField(fieldType: ProtobufBool.self, value: &repeatedBool)
+    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &repeatedInt32)
+    case 2: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &repeatedInt64)
+    case 3: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &repeatedUint32)
+    case 4: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &repeatedUint64)
+    case 5: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &repeatedSint32)
+    case 6: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &repeatedSint64)
+    case 7: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &repeatedFixed32)
+    case 8: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &repeatedFixed64)
+    case 9: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &repeatedSfixed32)
+    case 10: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &repeatedSfixed64)
+    case 11: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &repeatedFloat)
+    case 12: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &repeatedDouble)
+    case 13: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &repeatedBool)
     case 14: try setter.decodeRepeatedField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.self, value: &repeatedNestedEnum)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !repeatedInt32.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufInt32.self, value: repeatedInt32, protoFieldNumber: 1)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: repeatedInt32, protoFieldNumber: 1)
     }
     if !repeatedInt64.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufInt64.self, value: repeatedInt64, protoFieldNumber: 2)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: repeatedInt64, protoFieldNumber: 2)
     }
     if !repeatedUint32.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufUInt32.self, value: repeatedUint32, protoFieldNumber: 3)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: repeatedUint32, protoFieldNumber: 3)
     }
     if !repeatedUint64.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufUInt64.self, value: repeatedUint64, protoFieldNumber: 4)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: repeatedUint64, protoFieldNumber: 4)
     }
     if !repeatedSint32.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufSInt32.self, value: repeatedSint32, protoFieldNumber: 5)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: repeatedSint32, protoFieldNumber: 5)
     }
     if !repeatedSint64.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufSInt64.self, value: repeatedSint64, protoFieldNumber: 6)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: repeatedSint64, protoFieldNumber: 6)
     }
     if !repeatedFixed32.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufFixed32.self, value: repeatedFixed32, protoFieldNumber: 7)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: repeatedFixed32, protoFieldNumber: 7)
     }
     if !repeatedFixed64.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufFixed64.self, value: repeatedFixed64, protoFieldNumber: 8)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: repeatedFixed64, protoFieldNumber: 8)
     }
     if !repeatedSfixed32.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufSFixed32.self, value: repeatedSfixed32, protoFieldNumber: 9)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: repeatedSfixed32, protoFieldNumber: 9)
     }
     if !repeatedSfixed64.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufSFixed64.self, value: repeatedSfixed64, protoFieldNumber: 10)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: repeatedSfixed64, protoFieldNumber: 10)
     }
     if !repeatedFloat.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufFloat.self, value: repeatedFloat, protoFieldNumber: 11)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: repeatedFloat, protoFieldNumber: 11)
     }
     if !repeatedDouble.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufDouble.self, value: repeatedDouble, protoFieldNumber: 12)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: repeatedDouble, protoFieldNumber: 12)
     }
     if !repeatedBool.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufBool.self, value: repeatedBool, protoFieldNumber: 13)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: repeatedBool, protoFieldNumber: 13)
     }
     if !repeatedNestedEnum.isEmpty {
       try visitor.visitRepeatedField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.self, value: repeatedNestedEnum, protoFieldNumber: 14)
@@ -1398,7 +1398,7 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: ProtobufGeneratedMessage, Prot
 }
 
 ///   This proto includes a recusively nested message.
-struct Proto3ArenaLiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ArenaLiteUnittest_NestedTestAllTypes"}
   public var protoMessageName: String {return "NestedTestAllTypes"}
   public var protoPackageName: String {return "proto3_arena_lite_unittest"}
@@ -1408,13 +1408,13 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, Pro
   ]
 
   private class _StorageClass {
-    typealias ProtobufExtendedMessage = Proto3ArenaLiteUnittest_NestedTestAllTypes
+    typealias ExtendedMessage = Proto3ArenaLiteUnittest_NestedTestAllTypes
     var _child: Proto3ArenaLiteUnittest_NestedTestAllTypes? = nil
     var _payload: Proto3ArenaLiteUnittest_TestAllTypes? = nil
 
     init() {}
 
-    func decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: Proto3ArenaLiteUnittest_NestedTestAllTypes.self, value: &_child)
       case 2: try setter.decodeSingularMessageField(fieldType: Proto3ArenaLiteUnittest_TestAllTypes.self, value: &_payload)
@@ -1422,7 +1422,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, Pro
       }
     }
 
-    func traverse(visitor: inout ProtobufVisitor) throws {
+    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
       if let v = _child {
         try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
       }
@@ -1472,11 +1472,11 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, Pro
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: &visitor)
   }
 
@@ -1494,7 +1494,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: ProtobufGeneratedMessage, Pro
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-struct Proto3ArenaLiteUnittest_ForeignMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ArenaLiteUnittest_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "proto3_arena_lite_unittest"}
@@ -1507,16 +1507,16 @@ struct Proto3ArenaLiteUnittest_ForeignMessage: ProtobufGeneratedMessage, Protobu
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: ProtobufInt32.self, value: &c)
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &c)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if c != 0 {
-      try visitor.visitSingularField(fieldType: ProtobufInt32.self, value: c, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: c, protoFieldNumber: 1)
     }
   }
 
@@ -1527,7 +1527,7 @@ struct Proto3ArenaLiteUnittest_ForeignMessage: ProtobufGeneratedMessage, Protobu
 }
 
 ///   TestEmptyMessage is used to test behavior of unknown fields.
-struct Proto3ArenaLiteUnittest_TestEmptyMessage: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Proto3ArenaLiteUnittest_TestEmptyMessage"}
   public var protoMessageName: String {return "TestEmptyMessage"}
   public var protoPackageName: String {return "proto3_arena_lite_unittest"}
@@ -1536,10 +1536,10 @@ struct Proto3ArenaLiteUnittest_TestEmptyMessage: ProtobufGeneratedMessage, Proto
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
   }
 
   public func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestEmptyMessage) -> Bool {

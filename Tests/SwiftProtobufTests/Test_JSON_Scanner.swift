@@ -21,16 +21,16 @@ import SwiftProtobuf
 
 class Test_Scanner: XCTestCase {
 
-    func assertTokens(json: String, expected: Array<ProtobufJSONToken>, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) {
-        var scanner = ProtobufJSONScanner(json: json, tokens: [])
+    func assertTokens(json: String, expected: Array<SwiftProtobuf.JSONToken>, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) {
+        var scanner = SwiftProtobuf.JSONScanner(json: json, tokens: [])
         assertTokens(scanner: &scanner, expected: expected.makeIterator(), expectFail: expectFail, file: file, line: line)
     }
 
-    func assertTokens(scanner: inout ProtobufJSONScanner, expected: Array<ProtobufJSONToken>, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertTokens(scanner: inout SwiftProtobuf.JSONScanner, expected: Array<SwiftProtobuf.JSONToken>, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) {
         assertTokens(scanner: &scanner, expected: expected.makeIterator(), expectFail: expectFail, file: file, line: line)
     }
 
-    func assertTokens<G: IteratorProtocol>(scanner: inout ProtobufJSONScanner, expected: G, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) where G.Element == ProtobufJSONToken {
+    func assertTokens<G: IteratorProtocol>(scanner: inout SwiftProtobuf.JSONScanner, expected: G, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) where G.Element == SwiftProtobuf.JSONToken {
         var _expected = expected
         var n = 0
         while let expectedToken = _expected.next() {
@@ -63,7 +63,7 @@ class Test_Scanner: XCTestCase {
     // Test a long well-formed JSON sample to verify that we can scan every kind of token as expected.
     // This also includes a mix of varying whitespace and string escapes
     func testWellFormed() throws {
-        var s = ProtobufJSONScanner(json: "{\"foo\": \"bar\",\"foo2\":\"\\\"bar2\",\"tr\\u0075e\": true, \"false\": false, \"string\": \"\\b\\t\\n\\f\\r\\\"\\\\\\/\", \"array\": [null, 123, -123, -0.34E+77,{\"a\":{}}], \"b\":\n   {\n   }\n  }", tokens: [])
+        var s = SwiftProtobuf.JSONScanner(json: "{\"foo\": \"bar\",\"foo2\":\"\\\"bar2\",\"tr\\u0075e\": true, \"false\": false, \"string\": \"\\b\\t\\n\\f\\r\\\"\\\\\\/\", \"array\": [null, 123, -123, -0.34E+77,{\"a\":{}}], \"b\":\n   {\n   }\n  }", tokens: [])
         assertTokens(scanner: &s, expected: [
             .beginObject,
             .string("foo"),

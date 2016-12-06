@@ -22,7 +22,7 @@ import SwiftProtobuf
 
 class Test_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestAllExtensions
-    var extensions = ProtobufExtensionSet()
+    var extensions = SwiftProtobuf.ExtensionSet()
 
     func assertEncode(_ expected: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
@@ -186,7 +186,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
     func test_extensionMessageSpecificity() throws {
         // An extension set with two extensions for field #5, but for
         // different messages and with different types
-        var extensions = ProtobufExtensionSet()
+        var extensions = ExtensionSet()
         extensions.insert(ProtobufUnittest_Extensions_optionalSint32Extension)
         extensions.insert(ProtobufUnittest_Extensions_myExtensionInt)
 

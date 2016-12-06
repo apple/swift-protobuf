@@ -240,7 +240,7 @@ import Foundation
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage, ProtobufProto3Message, ProtoNameProviding {
+struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_FieldMask"}
   public var protoMessageName: String {return "FieldMask"}
   public var protoPackageName: String {return "google.protobuf"}
@@ -254,16 +254,16 @@ struct Google_Protobuf_FieldMask: ProtobufGeneratedMessage, ProtobufProto3Messag
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedField(fieldType: ProtobufString.self, value: &paths)
+    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &paths)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout ProtobufVisitor) throws {
+  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
     if !paths.isEmpty {
-      try visitor.visitRepeatedField(fieldType: ProtobufString.self, value: paths, protoFieldNumber: 1)
+      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: paths, protoFieldNumber: 1)
     }
   }
 

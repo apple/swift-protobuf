@@ -23,24 +23,24 @@
 import Swift
 import Foundation
 
-private protocol ProtobufBinaryFieldDecoder: ProtobufFieldDecoder {
+private protocol ProtobufFieldDecoder: FieldDecoder {
     var scanner: ProtobufScanner {get}
     var consumed: Bool {get set}
 }
 
-extension ProtobufBinaryFieldDecoder {
-    mutating func decodeExtensionField(values: inout ProtobufExtensionFieldValueSet, messageType: ProtobufMessage.Type, protoFieldNumber: Int) throws {
+extension ProtobufFieldDecoder {
+    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, protoFieldNumber] {
-            var mutableSetter: ProtobufFieldDecoder = self
+            var mutableSetter: FieldDecoder = self
             var fieldValue = values[protoFieldNumber] ?? ext.newField()
             try fieldValue.decodeField(setter: &mutableSetter)
             values[protoFieldNumber] = fieldValue
-            self.consumed = (mutableSetter as! ProtobufBinaryFieldDecoder).consumed
+            self.consumed = (mutableSetter as! ProtobufFieldDecoder).consumed
         }
     }
 }
 
-private struct ProtobufFieldWireTypeVarint: ProtobufBinaryFieldDecoder {
+private struct FieldWireTypeVarint: ProtobufFieldDecoder {
     let varint: UInt64
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -52,15 +52,15 @@ private struct ProtobufFieldWireTypeVarint: ProtobufBinaryFieldDecoder {
         self.scanner = scanner
     }
 
-    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws {
+    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
         consumed = try S.setFromProtobufVarint(varint: varint, value: &value)
     }
 
-    mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         consumed = try S.setFromProtobufVarint(varint: varint, value: &value)
     }
 
-    mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         consumed = try S.setFromProtobufVarint(varint: varint, value: &value)
     }
 
@@ -69,7 +69,7 @@ private struct ProtobufFieldWireTypeVarint: ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireTypeFixed64: ProtobufBinaryFieldDecoder {
+private struct FieldWireTypeFixed64: ProtobufFieldDecoder {
     let fixed8: [UInt8]
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -81,17 +81,17 @@ private struct ProtobufFieldWireTypeFixed64: ProtobufBinaryFieldDecoder {
         self.scanner = scanner
     }
 
-    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws {
+    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
         try S.setFromProtobufFixed8(fixed8: fixed8, value: &value)
         consumed = true
     }
 
-    mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try S.setFromProtobufFixed8(fixed8: fixed8, value: &value)
         consumed = true
     }
 
-    mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try S.setFromProtobufFixed8(fixed8: fixed8, value: &value)
         consumed = true
     }
@@ -101,7 +101,7 @@ private struct ProtobufFieldWireTypeFixed64: ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder {
+private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
     let buffer: UnsafeBufferPointer<UInt8>
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -114,12 +114,12 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
         self.scanner = scanner
     }
 
-    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws {
+    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
         try S.setFromProtobufBuffer(buffer: buffer, value: &value)
         consumed = true
     }
 
-    mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         var unknownData = Data()
         try S.setFromProtobufBuffer(buffer: buffer, value: &value, unknown: &unknownData)
         consumed = true
@@ -128,7 +128,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
         }
     }
 
-    mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         var unknownData = Data()
         try S.setFromProtobufBuffer(buffer: buffer, value: &value, unknown: &unknownData)
         consumed = true
@@ -137,7 +137,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
         }
     }
 
-    mutating func decodeSingularMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout M?) throws {
+    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
         if value == nil {
             value = M()
         }
@@ -145,16 +145,18 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
         consumed = true
     }
 
-    mutating func decodeRepeatedMessageField<M: ProtobufMessage>(fieldType: M.Type, value: inout [M]) throws {
-        value.append(try M(protobufBuffer: buffer, extensions: scanner.extensions))
+    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
+        var newValue = M()
+        try newValue.decodeIntoSelf(protobuf: buffer, extensions: scanner.extensions)
+        value.append(newValue)
         consumed = true
     }
 
-    mutating func decodeMapField<KeyType: ProtobufTypeProperties, ValueType: ProtobufMapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType: ProtobufMapKeyType, KeyType.BaseType: Hashable {
+    mutating func decodeMapField<KeyType: FieldType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType: MapKeyType, KeyType.BaseType: Hashable {
         var k: KeyType.BaseType?
         var v: ValueType.BaseType?
-        var subdecoder = ProtobufBinaryDecoder(protobufPointer: buffer, extensions: scanner.extensions)
-        try subdecoder.decodeFullObject {(decoder: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws in
+        var subdecoder = ProtobufDecoder(protobufPointer: buffer, extensions: scanner.extensions)
+        try subdecoder.decodeFullObject {(decoder: inout FieldDecoder, protoFieldNumber: Int) throws in
             switch protoFieldNumber {
             case 1:
                 // Keys are always basic types, so we can use the direct path here
@@ -168,7 +170,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
         if let k = k, let v = v {
             value[k] = v
         } else {
-            throw ProtobufDecodingError.malformedProtobuf
+            throw DecodingError.malformedProtobuf
         }
     }
 
@@ -178,7 +180,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
             let dataSize = Varint.encodedSize(of: fieldTag.rawValue) + Varint.encodedSize(of: Int64(override.count)) + override.count
             var data = Data(count: dataSize)
             data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) -> () in
-                var encoder = ProtobufBinaryEncoder(pointer: pointer)
+                var encoder = ProtobufEncoder(pointer: pointer)
                 encoder.startField(tag: fieldTag)
                 encoder.putBytesValue(value: override)
             }
@@ -191,7 +193,7 @@ private struct ProtobufFieldWireTypeLengthDelimited: ProtobufBinaryFieldDecoder 
     }
 }
 
-private struct ProtobufFieldWireTypeStartGroup: ProtobufBinaryFieldDecoder {
+private struct FieldWireTypeStartGroup: ProtobufFieldDecoder {
     let scanner: ProtobufScanner
     let protoFieldNumber: Int
     var consumed = false
@@ -201,17 +203,17 @@ private struct ProtobufFieldWireTypeStartGroup: ProtobufBinaryFieldDecoder {
         self.protoFieldNumber = protoFieldNumber
     }
 
-    mutating func decodeSingularGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout G?) throws {
+    mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
         var group = value ?? G()
-        var decoder = ProtobufBinaryDecoder(scanner: scanner)
+        var decoder = ProtobufDecoder(scanner: scanner)
         try decoder.decodeFullGroup(group: &group, protoFieldNumber: protoFieldNumber)
         value = group
         consumed = true
     }
 
-    mutating func decodeRepeatedGroupField<G: ProtobufMessage>(fieldType: G.Type, value: inout [G]) throws {
+    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
         var group = G()
-        var decoder = ProtobufBinaryDecoder(scanner: scanner)
+        var decoder = ProtobufDecoder(scanner: scanner)
         try decoder.decodeFullGroup(group: &group, protoFieldNumber: protoFieldNumber)
         value.append(group)
         consumed = true
@@ -222,7 +224,7 @@ private struct ProtobufFieldWireTypeStartGroup: ProtobufBinaryFieldDecoder {
     }
 }
 
-private struct ProtobufFieldWireTypeFixed32: ProtobufBinaryFieldDecoder {
+private struct FieldWireTypeFixed32: ProtobufFieldDecoder {
     let fixed4: [UInt8]
     let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
@@ -235,17 +237,17 @@ private struct ProtobufFieldWireTypeFixed32: ProtobufBinaryFieldDecoder {
     }
 
 
-    mutating func decodeSingularField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout S.BaseType?) throws {
+    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
         try S.setFromProtobufFixed4(fixed4: fixed4, value: &value)
         consumed = true
     }
 
-    mutating func decodeRepeatedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try S.setFromProtobufFixed4(fixed4: fixed4, value: &value)
         consumed = true
     }
 
-    mutating func decodePackedField<S: ProtobufTypeProperties>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try S.setFromProtobufFixed4(fixed4: fixed4, value: &value)
         consumed = true
     }
@@ -261,14 +263,14 @@ private struct ProtobufFieldWireTypeFixed32: ProtobufBinaryFieldDecoder {
  * Note:  This object is instantiated with an UnsafeBufferPointer<UInt8>
  * that is assumed to be stable for the lifetime of this object.
  */
-public struct ProtobufBinaryDecoder {
+public struct ProtobufDecoder {
     private var scanner: ProtobufScanner
     var unknownData = Data()
 
     public var complete: Bool {return scanner.available == 0}
     public var fieldWireFormat: WireFormat {return scanner.fieldWireFormat}
 
-    public init(protobufPointer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet? = nil) {
+    public init(protobufPointer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet? = nil) {
         scanner = ProtobufScanner(protobufPointer: protobufPointer, extensions: extensions)
     }
 
@@ -285,7 +287,7 @@ public struct ProtobufBinaryDecoder {
         return try scanner.skip()
     }
 
-    public mutating func decodeFullObject(decodeField: (inout ProtobufFieldDecoder, Int) throws -> ()) throws {
+    public mutating func decodeFullObject(decodeField: (inout FieldDecoder, Int) throws -> ()) throws {
         while let tag = try scanner.getTag() {
             let protoFieldNumber = tag.fieldNumber
             var fieldDecoder = try decoder(forFieldNumber: protoFieldNumber, scanner: scanner)
@@ -295,18 +297,18 @@ public struct ProtobufBinaryDecoder {
             }
         }
         if scanner.available != 0 {
-            throw ProtobufDecodingError.trailingGarbage
+            throw DecodingError.trailingGarbage
         }
     }
 
-    public mutating func decodeFullObject<M: ProtobufMessage>(message: inout M) throws {
-        try decodeFullObject {(setter: inout ProtobufFieldDecoder, protoFieldNumber: Int) throws in
+    public mutating func decodeFullObject<M: Message>(message: inout M) throws {
+        try decodeFullObject {(setter: inout FieldDecoder, protoFieldNumber: Int) throws in
             try message.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
         }
     }
 
-    public mutating func decodeFullGroup<G: ProtobufMessageBase>(group: inout G, protoFieldNumber: Int) throws {
-        guard scanner.fieldWireFormat == .startGroup else {throw ProtobufDecodingError.malformedProtobuf}
+    public mutating func decodeFullGroup<G: Message>(group: inout G, protoFieldNumber: Int) throws {
+        guard scanner.fieldWireFormat == .startGroup else {throw DecodingError.malformedProtobuf}
         while let tag = try scanner.getTag() {
             if tag.fieldNumber == protoFieldNumber {
                 if tag.wireFormat == .endGroup {
@@ -318,31 +320,31 @@ public struct ProtobufBinaryDecoder {
             // Proto2 groups always consume fields or throw errors, so we can ignore return here
             let _ = try group.decodeField(setter: &fieldDecoder, protoFieldNumber: tag.fieldNumber)
         }
-        throw ProtobufDecodingError.truncatedInput
+        throw DecodingError.truncatedInput
     }
 
-    private mutating func decoder(forFieldNumber fieldNumber: Int, scanner: ProtobufScanner) throws -> ProtobufFieldDecoder {
+    private mutating func decoder(forFieldNumber fieldNumber: Int, scanner: ProtobufScanner) throws -> FieldDecoder {
         switch scanner.fieldWireFormat {
         case .varint:
             let value = try getVarint()
             let raw = try scanner.getRawField()
-            return ProtobufFieldWireTypeVarint(varint: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeVarint(varint: value, unknown: raw, scanner: scanner)
         case .fixed64:
             let value = try getFixed8()
             let raw = try scanner.getRawField()
-            return ProtobufFieldWireTypeFixed64(fixed8: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeFixed64(fixed8: value, unknown: raw, scanner: scanner)
         case .lengthDelimited:
             let value = try getBytesRef()
             let raw = try scanner.getRawField()
-            return ProtobufFieldWireTypeLengthDelimited(buffer: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeLengthDelimited(buffer: value, unknown: raw, scanner: scanner)
         case .startGroup:
-            return ProtobufFieldWireTypeStartGroup(scanner: scanner, protoFieldNumber: fieldNumber)
+            return FieldWireTypeStartGroup(scanner: scanner, protoFieldNumber: fieldNumber)
         case .endGroup:
-            throw ProtobufDecodingError.malformedProtobuf
+            throw DecodingError.malformedProtobuf
         case .fixed32:
             let value = try getFixed4()
             let raw = try scanner.getRawField()
-            return ProtobufFieldWireTypeFixed32(fixed4: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeFixed32(fixed4: value, unknown: raw, scanner: scanner)
         }
     }
 
@@ -351,11 +353,11 @@ public struct ProtobufBinaryDecoder {
         if let t = try scanner.getRawVarint() {
             return t
         }
-        throw ProtobufDecodingError.malformedProtobuf
+        throw DecodingError.malformedProtobuf
     }
 
     fileprivate mutating func getFixed8() throws -> [UInt8] {
-        guard scanner.available >= 8 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
         var i = Array<UInt8>(repeating: 0, count: 8)
         i.withUnsafeMutableBufferPointer { ip -> Void in
             let src = UnsafeMutablePointer<UInt8>(mutating: scanner.p)
@@ -366,7 +368,7 @@ public struct ProtobufBinaryDecoder {
     }
 
     fileprivate mutating func getFixed4() throws -> [UInt8] {
-        guard scanner.available >= 4 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 4 else {throw DecodingError.truncatedInput}
         var i = Array<UInt8>(repeating: 0, count: 4)
         i.withUnsafeMutableBufferPointer { ip -> Void in
             let src = UnsafeMutablePointer<UInt8>(mutating: scanner.p)
@@ -378,7 +380,7 @@ public struct ProtobufBinaryDecoder {
 
     mutating func decodeFloat() throws -> Float? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 4 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 4 else {throw DecodingError.truncatedInput}
         var i: Float = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
             let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
@@ -391,7 +393,7 @@ public struct ProtobufBinaryDecoder {
 
     mutating func decodeDouble() throws -> Double? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 8 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
         var i: Double = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
             let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
@@ -459,7 +461,7 @@ public struct ProtobufBinaryDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeFixed32() throws -> UInt32? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 4 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 4 else {throw DecodingError.truncatedInput}
         var i: UInt32 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
             let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
@@ -473,7 +475,7 @@ public struct ProtobufBinaryDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeFixed64() throws -> UInt64? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 8 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
         var i: UInt64 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
             let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
@@ -487,7 +489,7 @@ public struct ProtobufBinaryDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeSFixed32() throws -> Int32? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 4 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 4 else {throw DecodingError.truncatedInput}
         var i: Int32 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
             let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
@@ -501,7 +503,7 @@ public struct ProtobufBinaryDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeSFixed64() throws -> Int64? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 8 else {throw ProtobufDecodingError.truncatedInput}
+        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
         var i: Int64 = 0
         withUnsafeMutablePointer(to: &i) { ip -> Void in
             let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
@@ -533,7 +535,7 @@ public struct ProtobufBinaryDecoder {
             scanner.consume(length: n)
             return bp
         }
-        throw ProtobufDecodingError.truncatedInput
+        throw DecodingError.truncatedInput
     }
 
     // Convert a 64-bit value from zigzag coding.
@@ -560,9 +562,9 @@ private class ProtobufScanner {
     // Wire format for last-examined field
     var fieldWireFormat: WireFormat = .varint
     // Collection of extension fields for this decode
-    var extensions: ProtobufExtensionSet?
+    var extensions: ExtensionSet?
 
-    init(protobufPointer: UnsafeBufferPointer<UInt8>, extensions: ProtobufExtensionSet? = nil) {
+    init(protobufPointer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet? = nil) {
         // Assuming baseAddress is not nil.
         p = protobufPointer.baseAddress!
         available = protobufPointer.count
@@ -582,14 +584,14 @@ private class ProtobufScanner {
         switch tag.wireFormat {
         case .varint:
             if available < 1 {
-                throw ProtobufDecodingError.truncatedInput
+                throw DecodingError.truncatedInput
             }
             var c = p[0]
             while (c & 0x80) != 0 {
                 p += 1
                 available -= 1
                 if available < 1 {
-                    throw ProtobufDecodingError.truncatedInput
+                    throw DecodingError.truncatedInput
                 }
                 c = p[0]
             }
@@ -597,7 +599,7 @@ private class ProtobufScanner {
             available -= 1
         case .fixed64:
             if available < 8 {
-                throw ProtobufDecodingError.truncatedInput
+                throw DecodingError.truncatedInput
             }
             p += 8
             available -= 8
@@ -606,7 +608,7 @@ private class ProtobufScanner {
                 p += Int(n)
                 available -= Int(n)
             } else {
-                throw ProtobufDecodingError.malformedProtobuf
+                throw DecodingError.malformedProtobuf
             }
         case .startGroup:
             while true {
@@ -617,14 +619,14 @@ private class ProtobufScanner {
                         try skipOver(tag: innerTag)
                     }
                 } else {
-                    throw ProtobufDecodingError.truncatedInput
+                    throw DecodingError.truncatedInput
                 }
             }
         case .endGroup:
-            throw ProtobufDecodingError.malformedProtobuf
+            throw DecodingError.malformedProtobuf
         case .fixed32:
             if available < 4 {
-                throw ProtobufDecodingError.truncatedInput
+                throw DecodingError.truncatedInput
             }
             p += 4
             available -= 4
@@ -639,7 +641,7 @@ private class ProtobufScanner {
         p = fieldStartP
         available = fieldStartAvailable
         guard let tag = try getTagWithoutUpdatingFieldStart() else {
-            throw ProtobufDecodingError.truncatedInput
+            throw DecodingError.truncatedInput
         }
         try skipOver(tag: tag)
         return UnsafeBufferPointer<UInt8>(start: fieldStartP, count: p - fieldStartP)
@@ -659,7 +661,7 @@ private class ProtobufScanner {
         var shift = UInt64(7)
         while (c & 0x80) != 0 {
             if length < 1 || shift > 63 {
-                throw ProtobufDecodingError.malformedProtobuf
+                throw DecodingError.malformedProtobuf
             }
             c = start[0]
             start += 1
@@ -686,12 +688,12 @@ private class ProtobufScanner {
         if let t = try getRawVarint() {
             if t < UInt64(UInt32.max) {
                 guard let tag = FieldTag(rawValue: UInt32(truncatingBitPattern: t)) else {
-                    throw ProtobufDecodingError.malformedProtobuf
+                    throw DecodingError.malformedProtobuf
                 }
                 fieldWireFormat = tag.wireFormat
                 return tag
             } else {
-                throw ProtobufDecodingError.malformedProtobuf
+                throw DecodingError.malformedProtobuf
             }
         }
         return nil

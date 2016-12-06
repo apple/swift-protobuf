@@ -17,28 +17,59 @@
 		9C2F23811D7780D1008524F2 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift */; };
 		9C2F23821D7780D1008524F2 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
 		9C2F23831D7780D1008524F2 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */; };
-		9C2F23851D7780D1008524F2 /* ProtobufBinaryDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift */; };
-		9C2F23861D7780D1008524F2 /* ProtobufBinaryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift */; };
-		9C2F23871D7780D1008524F2 /* ProtobufBinaryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift */; };
-		9C2F23881D7780D1008524F2 /* ProtobufDebugDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift */; };
-		9C2F23891D7780D1008524F2 /* ProtobufEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift */; };
-		9C2F238A1D7780D1008524F2 /* ProtobufError.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift */; };
-		9C2F238B1D7780D1008524F2 /* ProtobufExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */; };
-		9C2F238C1D7780D1008524F2 /* ProtobufExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */; };
-		9C2F238D1D7780D1008524F2 /* ProtobufFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */; };
-		9C2F238F1D7780D1008524F2 /* ProtobufHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */; };
-		9C2F23901D7780D1008524F2 /* ProtobufJSONDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */; };
-		9C2F23911D7780D1008524F2 /* ProtobufJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */; };
-		9C2F23921D7780D1008524F2 /* ProtobufJSONTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift */; };
-		9C2F23931D7780D1008524F2 /* ProtobufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */; };
-		9C2F23941D7780D1008524F2 /* ProtobufMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */; };
-		9C2F23951D7780D1008524F2 /* ProtobufOneof.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */; };
-		9C2F23971D7780D1008524F2 /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
-		9C2F23981D7780D1008524F2 /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
-		9C2F23991D7780D1008524F2 /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
+		9C2F23851D7780D1008524F2 /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */; };
+		9C2F23861D7780D1008524F2 /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
+		9C2F23871D7780D1008524F2 /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
+		9C2F23881D7780D1008524F2 /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
+		9C2F23891D7780D1008524F2 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
+		9C2F238A1D7780D1008524F2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
+		9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
+		9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
+		9C2F238D1D7780D1008524F2 /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		9C2F238F1D7780D1008524F2 /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
+		9C2F23901D7780D1008524F2 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */; };
+		9C2F23911D7780D1008524F2 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
+		9C2F23921D7780D1008524F2 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
+		9C2F23931D7780D1008524F2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
+		9C2F23941D7780D1008524F2 /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
+		9C2F23951D7780D1008524F2 /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
+		9C2F23981D7780D1008524F2 /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
+		9C2F23991D7780D1008524F2 /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
 		9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		9C2F239D1D7780D1008524F2 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
+		9C75F8801DDBE0DE005CCFF2 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F87F1DDBE0DE005CCFF2 /* Visitor.swift */; };
+		9C75F8811DDBE0FC005CCFF2 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F87F1DDBE0DE005CCFF2 /* Visitor.swift */; };
+		9C75F8821DDBE10D005CCFF2 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F87F1DDBE0DE005CCFF2 /* Visitor.swift */; };
+		9C75F8831DDBE118005CCFF2 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F87F1DDBE0DE005CCFF2 /* Visitor.swift */; };
+		9C75F8851DDD3045005CCFF2 /* ExtensionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */; };
+		9C75F8861DDD3045005CCFF2 /* ExtensionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */; };
+		9C75F8871DDD3045005CCFF2 /* ExtensionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */; };
+		9C75F8881DDD3045005CCFF2 /* ExtensionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */; };
+		9C75F88A1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */; };
+		9C75F88B1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */; };
+		9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */; };
+		9C75F88D1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */; };
+		9C75F88F1DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F88E1DDD3108005CCFF2 /* ExtensibleMessage.swift */; };
+		9C75F8901DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F88E1DDD3108005CCFF2 /* ExtensibleMessage.swift */; };
+		9C75F8911DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F88E1DDD3108005CCFF2 /* ExtensibleMessage.swift */; };
+		9C75F8921DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F88E1DDD3108005CCFF2 /* ExtensibleMessage.swift */; };
+		9C75F8941DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8931DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift */; };
+		9C75F8951DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8931DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift */; };
+		9C75F8961DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8931DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift */; };
+		9C75F8971DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8931DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift */; };
+		9C75F8991DDD3F1E005CCFF2 /* JSONToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */; };
+		9C75F89A1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */; };
+		9C75F89B1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */; };
+		9C75F89C1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */; };
+		9C75F89E1DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */; };
+		9C75F89F1DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */; };
+		9C75F8A01DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */; };
+		9C75F8A11DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */; };
+		9C75F8A31DDD44A1005CCFF2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8A21DDD44A1005CCFF2 /* Map.swift */; };
+		9C75F8A41DDD44A1005CCFF2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8A21DDD44A1005CCFF2 /* Map.swift */; };
+		9C75F8A51DDD44A1005CCFF2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8A21DDD44A1005CCFF2 /* Map.swift */; };
+		9C75F8A61DDD44A1005CCFF2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F8A21DDD44A1005CCFF2 /* Map.swift */; };
 		9C8CDA171D7A288E00E207CA /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */; };
 		9C8CDA1D1D7A28F600E207CA /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
 		9C8CDA1E1D7A28F600E207CA /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
@@ -130,13 +161,13 @@
 		AA28A4A71DA30E5900C866D9 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A51DA30E5900C866D9 /* ZigZag.swift */; };
 		AA28A4A91DA40B0900C866D9 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A81DA40B0900C866D9 /* Varint.swift */; };
 		AA28A4AA1DA40B0900C866D9 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A81DA40B0900C866D9 /* Varint.swift */; };
-		AA28A4AC1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */; };
-		AA28A4AD1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */; };
+		AA28A4AC1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */; };
+		AA28A4AD1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */; };
 		AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
 		AA6CF6F61DB6D228007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
 		AA6CF6F71DB6D229007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
-		AAEA52201DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */; };
-		AAEA52211DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */; };
+		AAEA52201DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */; };
+		AAEA52211DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */; };
 		AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		AAEA52741DA80DEA003F318F /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
 		AAEA52771DA832A8003F318F /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
@@ -163,26 +194,25 @@
 		F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
 		F44F937F1DAEA76700BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */; };
 		F44F93801DAEA76700BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
-		F44F93811DAEA76700BC5B85 /* ProtobufBinaryDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift */; };
-		F44F93821DAEA76700BC5B85 /* ProtobufBinaryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift */; };
-		F44F93831DAEA76700BC5B85 /* ProtobufBinarySizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */; };
-		F44F93841DAEA76700BC5B85 /* ProtobufBinaryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift */; };
-		F44F93851DAEA76700BC5B85 /* ProtobufDebugDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift */; };
-		F44F93861DAEA76700BC5B85 /* ProtobufEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift */; };
-		F44F93871DAEA76700BC5B85 /* ProtobufError.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift */; };
-		F44F93881DAEA76700BC5B85 /* ProtobufExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */; };
-		F44F93891DAEA76700BC5B85 /* ProtobufExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */; };
-		F44F938A1DAEA76700BC5B85 /* ProtobufFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */; };
-		F44F938B1DAEA76700BC5B85 /* ProtobufHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */; };
-		F44F938C1DAEA76700BC5B85 /* ProtobufJSONDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */; };
-		F44F938D1DAEA76700BC5B85 /* ProtobufJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */; };
-		F44F938E1DAEA76700BC5B85 /* ProtobufJSONTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift */; };
-		F44F938F1DAEA76700BC5B85 /* ProtobufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */; };
-		F44F93901DAEA76700BC5B85 /* ProtobufMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */; };
-		F44F93911DAEA76700BC5B85 /* ProtobufOneof.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */; };
-		F44F93921DAEA76700BC5B85 /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
-		F44F93931DAEA76700BC5B85 /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
-		F44F93941DAEA76700BC5B85 /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
+		F44F93811DAEA76700BC5B85 /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */; };
+		F44F93821DAEA76700BC5B85 /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
+		F44F93831DAEA76700BC5B85 /* ProtobufEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */; };
+		F44F93841DAEA76700BC5B85 /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
+		F44F93851DAEA76700BC5B85 /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
+		F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
+		F44F93871DAEA76700BC5B85 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
+		F44F93881DAEA76700BC5B85 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
+		F44F93891DAEA76700BC5B85 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
+		F44F938A1DAEA76700BC5B85 /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
+		F44F938C1DAEA76700BC5B85 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */; };
+		F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
+		F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
+		F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
+		F44F93901DAEA76700BC5B85 /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
+		F44F93911DAEA76700BC5B85 /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
+		F44F93931DAEA76700BC5B85 /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
+		F44F93941DAEA76700BC5B85 /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
 		F44F93951DAEA76700BC5B85 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		F44F93961DAEA76700BC5B85 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		F44F93971DAEA76700BC5B85 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
@@ -196,7 +226,7 @@
 		F44F93AD1DAEA8C900BC5B85 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */; };
 		F44F93AE1DAEA8C900BC5B85 /* map_unittest_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest_proto3.pb.swift /* map_unittest_proto3.pb.swift */; };
 		F44F93AF1DAEA8C900BC5B85 /* map_unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */; };
-		F44F93B01DAEA8C900BC5B85 /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */; };
+		F44F93B01DAEA8C900BC5B85 /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */; };
 		F44F93B11DAEA8C900BC5B85 /* Test_AllTypes_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_AllTypes_Proto3.swift /* Test_AllTypes_Proto3.swift */; };
 		F44F93B21DAEA8C900BC5B85 /* Test_AllTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */; };
 		F44F93B31DAEA8C900BC5B85 /* Test_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift */; };
@@ -279,26 +309,25 @@
 		F44F940D1DAEB23500BC5B85 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
 		F44F940E1DAEB23500BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */; };
 		F44F940F1DAEB23500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
-		F44F94101DAEB23500BC5B85 /* ProtobufBinaryDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift */; };
-		F44F94111DAEB23500BC5B85 /* ProtobufBinaryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift */; };
-		F44F94121DAEB23500BC5B85 /* ProtobufBinarySizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */; };
-		F44F94131DAEB23500BC5B85 /* ProtobufBinaryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift */; };
-		F44F94141DAEB23500BC5B85 /* ProtobufDebugDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift */; };
-		F44F94151DAEB23500BC5B85 /* ProtobufEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift */; };
-		F44F94161DAEB23500BC5B85 /* ProtobufError.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift */; };
-		F44F94171DAEB23500BC5B85 /* ProtobufExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */; };
-		F44F94181DAEB23500BC5B85 /* ProtobufExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */; };
-		F44F94191DAEB23500BC5B85 /* ProtobufFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */; };
-		F44F941A1DAEB23500BC5B85 /* ProtobufHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */; };
-		F44F941B1DAEB23500BC5B85 /* ProtobufJSONDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */; };
-		F44F941C1DAEB23500BC5B85 /* ProtobufJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */; };
-		F44F941D1DAEB23500BC5B85 /* ProtobufJSONTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift */; };
-		F44F941E1DAEB23500BC5B85 /* ProtobufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */; };
-		F44F941F1DAEB23500BC5B85 /* ProtobufMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */; };
-		F44F94201DAEB23500BC5B85 /* ProtobufOneof.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */; };
-		F44F94211DAEB23500BC5B85 /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
-		F44F94221DAEB23500BC5B85 /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
-		F44F94231DAEB23500BC5B85 /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
+		F44F94101DAEB23500BC5B85 /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */; };
+		F44F94111DAEB23500BC5B85 /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
+		F44F94121DAEB23500BC5B85 /* ProtobufEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */; };
+		F44F94131DAEB23500BC5B85 /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
+		F44F94141DAEB23500BC5B85 /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
+		F44F94151DAEB23500BC5B85 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
+		F44F94161DAEB23500BC5B85 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
+		F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
+		F44F94181DAEB23500BC5B85 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
+		F44F94191DAEB23500BC5B85 /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
+		F44F941B1DAEB23500BC5B85 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */; };
+		F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
+		F44F941D1DAEB23500BC5B85 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
+		F44F941E1DAEB23500BC5B85 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
+		F44F941F1DAEB23500BC5B85 /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
+		F44F94201DAEB23500BC5B85 /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
+		F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
+		F44F94231DAEB23500BC5B85 /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
 		F44F94241DAEB23500BC5B85 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		F44F94251DAEB23500BC5B85 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		F44F94261DAEB23500BC5B85 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
@@ -338,25 +367,24 @@
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
 		__src_cc_ref_Sources/Protobuf/api.pb.swift /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */; };
 		__src_cc_ref_Sources/Protobuf/duration.pb.swift /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */; };
 		__src_cc_ref_Sources/Protobuf/empty.pb.swift /* empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */; };
@@ -469,13 +497,21 @@
 
 /* Begin PBXFileReference section */
 		9C2F23781D778003008524F2 /* descriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = descriptor.pb.swift; sourceTree = "<group>"; };
+		9C75F87F1DDBE0DE005CCFF2 /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
+		9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionSet.swift; sourceTree = "<group>"; };
+		9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFieldValueSet.swift; sourceTree = "<group>"; };
+		9C75F88E1DDD3108005CCFF2 /* ExtensibleMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensibleMessage.swift; sourceTree = "<group>"; };
+		9C75F8931DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufEncodingVisitor.swift; sourceTree = "<group>"; };
+		9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONToken.swift; sourceTree = "<group>"; };
+		9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONScanner.swift; sourceTree = "<group>"; };
+		9C75F8A21DDD44A1005CCFF2 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		AA05BF491DAEB7E400619042 /* WireFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormat.swift; sourceTree = "<group>"; };
 		AA05BF4E1DAEB7E800619042 /* FieldTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldTag.swift; sourceTree = "<group>"; };
 		AA28A4A51DA30E5900C866D9 /* ZigZag.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ZigZag.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AA28A4A81DA40B0900C866D9 /* Varint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Varint.swift; sourceTree = "<group>"; };
-		AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufBinarySizeVisitor.swift; sourceTree = "<group>"; tabWidth = 4; };
+		AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufEncodingSizeVisitor.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Enum_Proto2.swift; sourceTree = "<group>"; };
-		AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift"; sourceTree = "<group>"; };
+		AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProtobufMessage+UInt8ArrayHelpers.swift"; sourceTree = "<group>"; };
 		AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Wrappers+Extensions.swift"; sourceTree = "<group>"; };
 		AAEA52731DA80DEA003F318F /* wrappers.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wrappers.pb.swift; sourceTree = "<group>"; };
 		AAF2ED391DEF3FBC007B510F /* FieldNameMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldNameMap.swift; sourceTree = "<group>"; };
@@ -501,25 +537,24 @@
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google_Protobuf_FieldMask_Extensions.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google_Protobuf_Struct.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google_Protobuf_Timestamp_Extensions.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufBinaryDecoding.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufBinaryEncoding.swift; sourceTree = "<group>"; tabWidth = 4; };
-		__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufBinaryTypes.swift; sourceTree = "<group>"; tabWidth = 4; };
-		__PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufDebugDescription.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufEnum.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufError.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufExtensionFields.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufExtensions.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufFieldDecoder.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufHash.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufJSONDecoding.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufJSONEncoding.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufJSONTypes.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufMessage.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufMirror.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufOneof.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufTraversal.swift; sourceTree = "<group>"; tabWidth = 4; };
-		__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufTypes.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufUnknown.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufDecoder.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufEncoder.swift; sourceTree = "<group>"; tabWidth = 4; };
+		__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufTypeAdditions.swift; sourceTree = "<group>"; tabWidth = 4; };
+		__PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugDescriptionVisitor.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFields.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageExtension.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDecoder.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashVisitor.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTypeAdditions.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorVisitor.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneofEnum.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTypes.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownStorage.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duration.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = empty.pb.swift; sourceTree = "<group>"; };
@@ -684,43 +719,50 @@
 			isa = PBXGroup;
 			children = (
 				__PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */,
 				__PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */,
+				9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */,
+				9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */,
+				9C75F88E1DDD3108005CCFF2 /* ExtensibleMessage.swift */,
 				__PBXFileRef_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */,
 				AAF2ED391DEF3FBC007B510F /* FieldNameMap.swift */,
 				AA05BF4E1DAEB7E800619042 /* FieldTag.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */,
 				AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift */,
-				AA28A4AB1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */,
+				9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */,
+				9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */,
+				9C75F8A21DDD44A1005CCFF2 /* Map.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */,
+				9C75F8931DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift */,
+				AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */,
 				AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */,
 				AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */,
 				__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */,
 				AA28A4A81DA40B0900C866D9 /* Varint.swift */,
+				9C75F87F1DDBE0DE005CCFF2 /* Visitor.swift */,
 				AA05BF491DAEB7E400619042 /* WireFormat.swift */,
 				AAEA52731DA80DEA003F318F /* wrappers.pb.swift */,
 				AA28A4A51DA30E5900C866D9 /* ZigZag.swift */,
@@ -737,7 +779,7 @@
 				9C2F23781D778003008524F2 /* descriptor.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/map_unittest_proto3.pb.swift /* map_unittest_proto3.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */,
-				AAEA521F1DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift */,
+				AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_AllTypes_Proto3.swift /* Test_AllTypes_Proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift */,
@@ -1042,7 +1084,7 @@
 				9C8CDA3B1D7A28F600E207CA /* Test_Required.swift in Sources */,
 				9C8CDA3C1D7A28F600E207CA /* Test_Reserved.swift in Sources */,
 				9C8CDA3D1D7A28F600E207CA /* Test_Struct.swift in Sources */,
-				AAEA52211DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */,
+				AAEA52211DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */,
 				9C8CDA3E1D7A28F600E207CA /* Test_Timestamp.swift in Sources */,
 				9C8CDA3F1D7A28F600E207CA /* Test_Type.swift in Sources */,
 				9C8CDA401D7A28F600E207CA /* Test_Unknown_proto2.swift in Sources */,
@@ -1103,47 +1145,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C75F89A1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
 				9C2F237B1D7780D1008524F2 /* api.pb.swift in Sources */,
 				9C2F237C1D7780D1008524F2 /* duration.pb.swift in Sources */,
 				9C2F237D1D7780D1008524F2 /* empty.pb.swift in Sources */,
+				9C75F89F1DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
 				9C2F237E1D7780D1008524F2 /* field_mask.pb.swift in Sources */,
 				9C2F237F1D7780D1008524F2 /* Google_Protobuf_Any.swift in Sources */,
 				9C2F23801D7780D1008524F2 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
 				9C2F23811D7780D1008524F2 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
-				AA28A4AD1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift in Sources */,
+				AA28A4AD1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */,
 				9C2F23821D7780D1008524F2 /* Google_Protobuf_Struct.swift in Sources */,
 				9C2F23831D7780D1008524F2 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
+				9C2F23851D7780D1008524F2 /* ProtobufDecoder.swift in Sources */,
+				9C2F23861D7780D1008524F2 /* ProtobufEncoder.swift in Sources */,
+				9C2F23871D7780D1008524F2 /* ProtobufTypeAdditions.swift in Sources */,
+				9C2F23881D7780D1008524F2 /* DebugDescriptionVisitor.swift in Sources */,
+				9C2F23891D7780D1008524F2 /* Enum.swift in Sources */,
+				9C2F238A1D7780D1008524F2 /* Errors.swift in Sources */,
+				9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */,
+				9C75F88B1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */,
+				9C2F238D1D7780D1008524F2 /* FieldDecoder.swift in Sources */,
+				9C2F238F1D7780D1008524F2 /* HashVisitor.swift in Sources */,
+				9C2F23901D7780D1008524F2 /* JSONDecoder.swift in Sources */,
 				AAF2ED401DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				9C2F23851D7780D1008524F2 /* ProtobufBinaryDecoding.swift in Sources */,
-				9C2F23861D7780D1008524F2 /* ProtobufBinaryEncoding.swift in Sources */,
-				9C2F23871D7780D1008524F2 /* ProtobufBinaryTypes.swift in Sources */,
-				9C2F23881D7780D1008524F2 /* ProtobufDebugDescription.swift in Sources */,
-				9C2F23891D7780D1008524F2 /* ProtobufEnum.swift in Sources */,
-				9C2F238A1D7780D1008524F2 /* ProtobufError.swift in Sources */,
-				9C2F238B1D7780D1008524F2 /* ProtobufExtensionFields.swift in Sources */,
 				AAF2ED3B1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
-				9C2F238C1D7780D1008524F2 /* ProtobufExtensions.swift in Sources */,
-				9C2F238D1D7780D1008524F2 /* ProtobufFieldDecoder.swift in Sources */,
-				9C2F238F1D7780D1008524F2 /* ProtobufHash.swift in Sources */,
-				9C2F23901D7780D1008524F2 /* ProtobufJSONDecoding.swift in Sources */,
 				AA05BF501DAEB7E800619042 /* FieldTag.swift in Sources */,
+				9C75F8A41DDD44A1005CCFF2 /* Map.swift in Sources */,
 				AA28A4AA1DA40B0900C866D9 /* Varint.swift in Sources */,
-				9C2F23911D7780D1008524F2 /* ProtobufJSONEncoding.swift in Sources */,
-				9C2F23921D7780D1008524F2 /* ProtobufJSONTypes.swift in Sources */,
+				9C2F23911D7780D1008524F2 /* JSONEncoder.swift in Sources */,
+				9C2F23921D7780D1008524F2 /* JSONTypeAdditions.swift in Sources */,
 				AAEA52771DA832A8003F318F /* wrappers.pb.swift in Sources */,
-				9C2F23931D7780D1008524F2 /* ProtobufMessage.swift in Sources */,
-				9C2F23941D7780D1008524F2 /* ProtobufMirror.swift in Sources */,
+				9C2F23931D7780D1008524F2 /* Message.swift in Sources */,
+				9C2F23941D7780D1008524F2 /* MirrorVisitor.swift in Sources */,
+				9C2F23951D7780D1008524F2 /* OneofEnum.swift in Sources */,
+				9C2F23981D7780D1008524F2 /* FieldTypes.swift in Sources */,
+				9C2F23991D7780D1008524F2 /* UnknownStorage.swift in Sources */,
+				9C75F8861DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
+				9C75F8811DDBE0FC005CCFF2 /* Visitor.swift in Sources */,
 				AAF2ED451DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
-				9C2F23951D7780D1008524F2 /* ProtobufOneof.swift in Sources */,
-				9C2F23971D7780D1008524F2 /* ProtobufTraversal.swift in Sources */,
-				9C2F23981D7780D1008524F2 /* ProtobufTypes.swift in Sources */,
-				9C2F23991D7780D1008524F2 /* ProtobufUnknown.swift in Sources */,
 				9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */,
 				9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */,
 				AA28A4A71DA30E5900C866D9 /* ZigZag.swift in Sources */,
 				9C2F239D1D7780D1008524F2 /* type.pb.swift in Sources */,
+				9C75F8951DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */,
 				AA05BF4B1DAEB7E400619042 /* WireFormat.swift in Sources */,
 				F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				9C75F8901DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1151,47 +1200,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				9C75F8991DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/api.pb.swift /* api.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/duration.pb.swift /* duration.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/empty.pb.swift /* empty.pb.swift in Sources */,
+				9C75F89E1DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
-				AA28A4AC1DA454DA00C866D9 /* ProtobufBinarySizeVisitor.swift in Sources */,
+				AA28A4AC1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
-				AAF2ED3F1DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufBinaryDecoding.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufBinaryEncoding.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift in Sources */,
 				AAEA52741DA80DEA003F318F /* wrappers.pb.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufBinaryTypes.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* ProtobufDebugDescription.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* ProtobufEnum.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* ProtobufError.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* Errors.swift in Sources */,
+				9C75F88A1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift in Sources */,
+				AAF2ED3F1DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
 				AAF2ED3A1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ProtobufExtensionFields.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* ProtobufExtensions.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* ProtobufFieldDecoder.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* ProtobufHash.swift in Sources */,
 				AA05BF4F1DAEB7E800619042 /* FieldTag.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* ProtobufJSONDecoding.swift in Sources */,
+				9C75F8A31DDD44A1005CCFF2 /* Map.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift in Sources */,
 				AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 				AA28A4A91DA40B0900C866D9 /* Varint.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* ProtobufJSONEncoding.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufJSONTypes.swift /* ProtobufJSONTypes.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* ProtobufMessage.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* Message.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift in Sources */,
+				9C75F8851DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift in Sources */,
+				9C75F8801DDBE0DE005CCFF2 /* Visitor.swift in Sources */,
 				AAF2ED441DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* ProtobufMirror.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* ProtobufOneof.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufTraversal.swift /* ProtobufTraversal.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* ProtobufTypes.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* ProtobufUnknown.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */,
+                                __src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift in Sources */,
 				AA28A4A61DA30E5900C866D9 /* ZigZag.swift in Sources */,
+				9C75F8941DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */,
 				AA05BF4A1DAEB7E400619042 /* WireFormat.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/type.pb.swift /* type.pb.swift in Sources */,
+				9C75F88F1DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1234,7 +1290,7 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Reserved.swift /* Test_Reserved.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Struct.swift /* Test_Struct.swift in Sources */,
-				AAEA52201DA5BB81003F318F /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */,
+				AAEA52201DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Timestamp.swift /* Test_Timestamp.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Type.swift /* Test_Type.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Unknown_proto2.swift /* Test_Unknown_proto2.swift in Sources */,
@@ -1295,47 +1351,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44F93821DAEA76700BC5B85 /* ProtobufBinaryEncoding.swift in Sources */,
+				9C75F89B1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
+				F44F93821DAEA76700BC5B85 /* ProtobufEncoder.swift in Sources */,
 				F44F93961DAEA76700BC5B85 /* timestamp.pb.swift in Sources */,
 				F44F93951DAEA76700BC5B85 /* source_context.pb.swift in Sources */,
+				9C75F8A01DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
 				F44F939A1DAEA76700BC5B85 /* ZigZag.swift in Sources */,
 				F44F93971DAEA76700BC5B85 /* type.pb.swift in Sources */,
 				F44F937F1DAEA76700BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
-				F44F938E1DAEA76700BC5B85 /* ProtobufJSONTypes.swift in Sources */,
+				F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */,
 				F44F93801DAEA76700BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
-				F44F938C1DAEA76700BC5B85 /* ProtobufJSONDecoding.swift in Sources */,
-				F44F93901DAEA76700BC5B85 /* ProtobufMirror.swift in Sources */,
+				F44F938C1DAEA76700BC5B85 /* JSONDecoder.swift in Sources */,
+				F44F93901DAEA76700BC5B85 /* MirrorVisitor.swift in Sources */,
+				F44F93911DAEA76700BC5B85 /* OneofEnum.swift in Sources */,
+				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
+				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
+				F44F938A1DAEA76700BC5B85 /* FieldDecoder.swift in Sources */,
+				F44F93851DAEA76700BC5B85 /* DebugDescriptionVisitor.swift in Sources */,
+				F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */,
+				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
+				9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
 				AAF2ED411DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				F44F93911DAEA76700BC5B85 /* ProtobufOneof.swift in Sources */,
-				F44F93921DAEA76700BC5B85 /* ProtobufTraversal.swift in Sources */,
-				F44F938F1DAEA76700BC5B85 /* ProtobufMessage.swift in Sources */,
-				F44F93861DAEA76700BC5B85 /* ProtobufEnum.swift in Sources */,
-				F44F938A1DAEA76700BC5B85 /* ProtobufFieldDecoder.swift in Sources */,
-				F44F93851DAEA76700BC5B85 /* ProtobufDebugDescription.swift in Sources */,
-				F44F938D1DAEA76700BC5B85 /* ProtobufJSONEncoding.swift in Sources */,
 				AAF2ED3C1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
-				F44F938B1DAEA76700BC5B85 /* ProtobufHash.swift in Sources */,
 				F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct.swift in Sources */,
-				F44F93941DAEA76700BC5B85 /* ProtobufUnknown.swift in Sources */,
+				F44F93941DAEA76700BC5B85 /* UnknownStorage.swift in Sources */,
+				9C75F8821DDBE10D005CCFF2 /* Visitor.swift in Sources */,
 				F44F93781DAEA76700BC5B85 /* duration.pb.swift in Sources */,
 				AA05BF511DAEB7E800619042 /* FieldTag.swift in Sources */,
+				9C75F8A51DDD44A1005CCFF2 /* Map.swift in Sources */,
 				F44F937A1DAEA76700BC5B85 /* field_mask.pb.swift in Sources */,
-				F44F93831DAEA76700BC5B85 /* ProtobufBinarySizeVisitor.swift in Sources */,
-				F44F93841DAEA76700BC5B85 /* ProtobufBinaryTypes.swift in Sources */,
+				F44F93831DAEA76700BC5B85 /* ProtobufEncodingSizeVisitor.swift in Sources */,
+				F44F93841DAEA76700BC5B85 /* ProtobufTypeAdditions.swift in Sources */,
 				F44F937B1DAEA76700BC5B85 /* Google_Protobuf_Any.swift in Sources */,
 				F44F93991DAEA76700BC5B85 /* wrappers.pb.swift in Sources */,
-				F44F93811DAEA76700BC5B85 /* ProtobufBinaryDecoding.swift in Sources */,
+				F44F93811DAEA76700BC5B85 /* ProtobufDecoder.swift in Sources */,
 				AAF2ED461DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
 				F44F93981DAEA76700BC5B85 /* Varint.swift in Sources */,
 				F44F937C1DAEA76700BC5B85 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
-				F44F93931DAEA76700BC5B85 /* ProtobufTypes.swift in Sources */,
-				F44F93871DAEA76700BC5B85 /* ProtobufError.swift in Sources */,
+				F44F93931DAEA76700BC5B85 /* FieldTypes.swift in Sources */,
+				9C75F8871DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
+				F44F93871DAEA76700BC5B85 /* Errors.swift in Sources */,
 				F44F937D1DAEA76700BC5B85 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
 				F44F93771DAEA76700BC5B85 /* api.pb.swift in Sources */,
 				F44F93791DAEA76700BC5B85 /* empty.pb.swift in Sources */,
-				F44F93891DAEA76700BC5B85 /* ProtobufExtensions.swift in Sources */,
+				F44F93891DAEA76700BC5B85 /* MessageExtension.swift in Sources */,
+				9C75F8961DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */,
 				AA05BF4C1DAEB7E400619042 /* WireFormat.swift in Sources */,
-				F44F93881DAEA76700BC5B85 /* ProtobufExtensionFields.swift in Sources */,
+				F44F93881DAEA76700BC5B85 /* ExtensionFields.swift in Sources */,
+				9C75F8911DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1412,7 +1475,7 @@
 				F44F93C41DAEA8C900BC5B85 /* Test_Packed.swift in Sources */,
 				F44F93B21DAEA8C900BC5B85 /* Test_AllTypes.swift in Sources */,
 				F44F93EA1DAEA8C900BC5B85 /* unittest_swift_all_required_types.pb.swift in Sources */,
-				F44F93B01DAEA8C900BC5B85 /* ProtobufBinaryMessageBase+UInt8ArrayHelpers.swift in Sources */,
+				F44F93B01DAEA8C900BC5B85 /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */,
 				F4D3154B1DEC811C005D4A80 /* unittest_swift_extension2.pb.swift in Sources */,
 				F44F93F41DAEA8C900BC5B85 /* unittest_swift_runtime_proto2.pb.swift in Sources */,
 				F44F93CE1DAEA8C900BC5B85 /* Test_Unknown_proto2.swift in Sources */,
@@ -1439,47 +1502,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44F94111DAEB23500BC5B85 /* ProtobufBinaryEncoding.swift in Sources */,
+				9C75F89C1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
+				F44F94061DAEB23500BC5B85 /* api.pb.swift in Sources */,
 				F44F94251DAEB23500BC5B85 /* timestamp.pb.swift in Sources */,
 				F44F94241DAEB23500BC5B85 /* source_context.pb.swift in Sources */,
 				F44F94291DAEB23500BC5B85 /* ZigZag.swift in Sources */,
 				F44F94261DAEB23500BC5B85 /* type.pb.swift in Sources */,
 				F44F940E1DAEB23500BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
-				F44F941D1DAEB23500BC5B85 /* ProtobufJSONTypes.swift in Sources */,
 				F44F940F1DAEB23500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
-				F44F941B1DAEB23500BC5B85 /* ProtobufJSONDecoding.swift in Sources */,
-				F44F941F1DAEB23500BC5B85 /* ProtobufMirror.swift in Sources */,
 				AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				F44F94201DAEB23500BC5B85 /* ProtobufOneof.swift in Sources */,
-				F44F94211DAEB23500BC5B85 /* ProtobufTraversal.swift in Sources */,
-				F44F941E1DAEB23500BC5B85 /* ProtobufMessage.swift in Sources */,
-				F44F94151DAEB23500BC5B85 /* ProtobufEnum.swift in Sources */,
-				F44F94191DAEB23500BC5B85 /* ProtobufFieldDecoder.swift in Sources */,
-				F44F94141DAEB23500BC5B85 /* ProtobufDebugDescription.swift in Sources */,
-				F44F941C1DAEB23500BC5B85 /* ProtobufJSONEncoding.swift in Sources */,
 				AAF2ED3D1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
-				F44F941A1DAEB23500BC5B85 /* ProtobufHash.swift in Sources */,
 				F44F940D1DAEB23500BC5B85 /* Google_Protobuf_Struct.swift in Sources */,
-				F44F94231DAEB23500BC5B85 /* ProtobufUnknown.swift in Sources */,
 				F44F94071DAEB23500BC5B85 /* duration.pb.swift in Sources */,
-				AA05BF521DAEB7E800619042 /* FieldTag.swift in Sources */,
+				F44F94081DAEB23500BC5B85 /* empty.pb.swift in Sources */,
+				9C75F8A11DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
 				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
-				F44F94121DAEB23500BC5B85 /* ProtobufBinarySizeVisitor.swift in Sources */,
-				F44F94131DAEB23500BC5B85 /* ProtobufBinaryTypes.swift in Sources */,
+				AA05BF521DAEB7E800619042 /* FieldTag.swift in Sources */,
 				F44F940A1DAEB23500BC5B85 /* Google_Protobuf_Any.swift in Sources */,
 				F44F94281DAEB23500BC5B85 /* wrappers.pb.swift in Sources */,
-				F44F94101DAEB23500BC5B85 /* ProtobufBinaryDecoding.swift in Sources */,
 				AAF2ED471DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
 				F44F94271DAEB23500BC5B85 /* Varint.swift in Sources */,
 				F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
-				F44F94221DAEB23500BC5B85 /* ProtobufTypes.swift in Sources */,
-				F44F94161DAEB23500BC5B85 /* ProtobufError.swift in Sources */,
 				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
-				F44F94061DAEB23500BC5B85 /* api.pb.swift in Sources */,
-				F44F94081DAEB23500BC5B85 /* empty.pb.swift in Sources */,
-				F44F94181DAEB23500BC5B85 /* ProtobufExtensions.swift in Sources */,
+				F44F940D1DAEB23500BC5B85 /* Google_Protobuf_Struct.swift in Sources */,
+				F44F940E1DAEB23500BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
+				F44F940F1DAEB23500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				F44F94101DAEB23500BC5B85 /* ProtobufDecoder.swift in Sources */,
+				F44F94111DAEB23500BC5B85 /* ProtobufEncoder.swift in Sources */,
+				F44F94121DAEB23500BC5B85 /* ProtobufEncodingSizeVisitor.swift in Sources */,
+				F44F94131DAEB23500BC5B85 /* ProtobufTypeAdditions.swift in Sources */,
+				F44F94141DAEB23500BC5B85 /* DebugDescriptionVisitor.swift in Sources */,
+				F44F94151DAEB23500BC5B85 /* Enum.swift in Sources */,
+				9C75F88D1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				F44F94161DAEB23500BC5B85 /* Errors.swift in Sources */,
+				F44F94181DAEB23500BC5B85 /* MessageExtension.swift in Sources */,
+				F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */,
+				F44F94191DAEB23500BC5B85 /* FieldDecoder.swift in Sources */,
+				F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */,
+				9C75F8A61DDD44A1005CCFF2 /* Map.swift in Sources */,
+				F44F941B1DAEB23500BC5B85 /* JSONDecoder.swift in Sources */,
+				F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */,
+				F44F941D1DAEB23500BC5B85 /* JSONTypeAdditions.swift in Sources */,
+				F44F941E1DAEB23500BC5B85 /* Message.swift in Sources */,
+				F44F941F1DAEB23500BC5B85 /* MirrorVisitor.swift in Sources */,
+				F44F94201DAEB23500BC5B85 /* OneofEnum.swift in Sources */,
+				F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */,
+				F44F94231DAEB23500BC5B85 /* UnknownStorage.swift in Sources */,
+				9C75F8831DDBE118005CCFF2 /* Visitor.swift in Sources */,
+				9C75F8881DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
+				F44F94241DAEB23500BC5B85 /* source_context.pb.swift in Sources */,
+				F44F94251DAEB23500BC5B85 /* timestamp.pb.swift in Sources */,
+				F44F94261DAEB23500BC5B85 /* type.pb.swift in Sources */,
+				F44F94271DAEB23500BC5B85 /* Varint.swift in Sources */,
 				AA05BF4D1DAEB7E400619042 /* WireFormat.swift in Sources */,
-				F44F94171DAEB23500BC5B85 /* ProtobufExtensionFields.swift in Sources */,
+				9C75F8971DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */,
+				F44F94281DAEB23500BC5B85 /* wrappers.pb.swift in Sources */,
+				F44F94291DAEB23500BC5B85 /* ZigZag.swift in Sources */,
+				9C75F8921DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

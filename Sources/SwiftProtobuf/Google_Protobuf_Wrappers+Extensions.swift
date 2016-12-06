@@ -21,7 +21,7 @@
 protocol ProtobufWrapper {
 
   /// The wrapped protobuf type (for example, `ProtobufDouble`).
-  associatedtype WrappedType: ProtobufTypeProperties
+  associatedtype WrappedType: FieldType
 
   /// Exposes the generated property to the extensions here.
   var value: WrappedType.BaseType { get set }
@@ -62,7 +62,7 @@ extension ProtobufWrapper {
 
   func serializeWrapperJSON() throws -> String {
     if !isZeroOrEmpty {
-      var encoder = ProtobufJSONEncoder()
+      var encoder = JSONEncoder()
       try WrappedType.serializeJSONValue(encoder: &encoder, value: value)
       return encoder.result
     } else {
@@ -94,11 +94,11 @@ extension Google_Protobuf_DoubleValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asDouble {
         value = t
     } else {
-        throw ProtobufDecodingError.malformedJSONNumber
+        throw DecodingError.malformedJSONNumber
     }
   }
 }
@@ -126,11 +126,11 @@ extension Google_Protobuf_FloatValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asFloat {
       value = t
     } else {
-      throw ProtobufDecodingError.malformedJSONNumber
+      throw DecodingError.malformedJSONNumber
     }
   }
 }
@@ -158,11 +158,11 @@ extension Google_Protobuf_Int64Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asInt64 {
       value = t
     } else {
-      throw ProtobufDecodingError.malformedJSONNumber
+      throw DecodingError.malformedJSONNumber
     }
   }
 }
@@ -190,11 +190,11 @@ extension Google_Protobuf_UInt64Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asUInt64 {
       value = t
     } else {
-      throw ProtobufDecodingError.malformedJSONNumber
+      throw DecodingError.malformedJSONNumber
     }
   }
 }
@@ -222,11 +222,11 @@ extension Google_Protobuf_Int32Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asInt32 {
       value = t
     } else {
-      throw ProtobufDecodingError.malformedJSONNumber
+      throw DecodingError.malformedJSONNumber
     }
   }
 }
@@ -254,11 +254,11 @@ extension Google_Protobuf_UInt32Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asUInt32 {
       value = t
     } else {
-      throw ProtobufDecodingError.malformedJSONNumber
+      throw DecodingError.malformedJSONNumber
     }
   }
 }
@@ -286,11 +286,11 @@ extension Google_Protobuf_BoolValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asBoolean {
       value = t
     } else {
-      throw ProtobufDecodingError.schemaMismatch
+      throw DecodingError.schemaMismatch
     }
   }
 }
@@ -328,11 +328,11 @@ extension Google_Protobuf_StringValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if case .string(let s) = token {
       value = s
     } else {
-      throw ProtobufDecodingError.schemaMismatch
+      throw DecodingError.schemaMismatch
     }
   }
 }
@@ -354,11 +354,11 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: ProtobufJSONToken) throws {
+  public mutating func decodeFromJSONToken(token: JSONToken) throws {
     if let t = token.asBytes {
       value = t
     } else {
-      throw ProtobufDecodingError.schemaMismatch
+      throw DecodingError.schemaMismatch
     }
   }
 }
