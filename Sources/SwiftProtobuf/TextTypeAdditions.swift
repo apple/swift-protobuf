@@ -667,14 +667,16 @@ extension Enum where RawValue == Int {
             } else {
                 throw DecodingError.unrecognizedEnumValue
             }
-        case .number:
-            if let n = token.asInt32 {
-                value = Self(rawValue: Int(n))
-            } else {
-                throw DecodingError.malformedTextNumber
-            }
         default:
-            throw DecodingError.malformedText
+            if token.isNumber {
+                if let n = token.asInt32 {
+                    value = Self(rawValue: Int(n))
+                } else {
+                    throw DecodingError.malformedTextNumber
+                }
+            } else {
+                throw DecodingError.malformedText
+            }
         }
     }
 
@@ -686,15 +688,17 @@ extension Enum where RawValue == Int {
             } else {
                 throw DecodingError.unrecognizedEnumValue
             }
-        case .number:
-            if let n = token.asInt32 {
-                let e = Self(rawValue: Int(n))! // Note: Can never fail!
-                value.append(e)
-            } else {
-                throw DecodingError.malformedTextNumber
-            }
         default:
-            throw DecodingError.malformedText
+            if token.isNumber {
+                if let n = token.asInt32 {
+                    let e = Self(rawValue: Int(n))! // Note: Can never fail!
+                    value.append(e)
+                } else {
+                    throw DecodingError.malformedTextNumber
+                }
+            } else {
+                throw DecodingError.malformedText
+            }
         }
     }
 
@@ -710,13 +714,15 @@ extension Enum where RawValue == Int {
                     return b
                 }
                 throw DecodingError.unrecognizedEnumValue
-            case .number:
-                if let n = token.asInt32 {
-                    return Self(rawValue: Int(n))
-                }
-                throw DecodingError.malformedTextNumber
             default:
-                throw DecodingError.malformedText
+                if token.isNumber {
+                    if let n = token.asInt32 {
+                        return Self(rawValue: Int(n))
+                    }
+                    throw DecodingError.malformedTextNumber
+                } else {
+                    throw DecodingError.malformedText
+                }
             }
         }
         throw DecodingError.truncatedInput
@@ -771,37 +777,20 @@ public extension Message {
         self.init()
         var textDecoder = TextDecoder(text: text)
         try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
-//        if !textDecoder.complete {
-//            throw DecodingError.trailingGarbage
-//        }
+        if !textDecoder.complete {
+            throw DecodingError.trailingGarbage
+        }
     }
 
     public init(text: String, extensions: ExtensionSet) throws {
         self.init()
         var textDecoder = TextDecoder(text: text, extensions: extensions)
         try textDecoder.decodeFullObject(message: &self, alreadyInsideObject: true)
-//        if !textDecoder.complete {
-//            throw DecodingError.trailingGarbage
-//        }
+        if !textDecoder.complete {
+            throw DecodingError.trailingGarbage
+        }
     }
 
-    // Duration, Timestamp, FieldMask override this
-    // to decode themselves from a single token.
-    // Default always throws an error.
-    public mutating func decodeFromTextToken(token: TextToken) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    // Value, ListValue override this to decode self from a JSON array form
-    // Default always throws an error
-    public mutating func decodeFromTextArray(textDecoder: inout TextDecoder) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    // Value, Struct, Any override this to change
-    // how they decode from a JSON object form.
-    // Default decodes keys and feeds them to decodeField()
-    //
     // Open curly brace already consumed.
     public mutating func decodeFromTextObject(textDecoder: inout TextDecoder) throws {
         var key = ""

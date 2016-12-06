@@ -119,11 +119,11 @@ class ProtobufTextScanner {
         }
         return s
     }
-    
+
     private func parseUnsignedInteger() -> String? {
         return nil
     }
-    
+
     private func parseUnsignedNumber() throws -> String? {
         var s = String()
         while let c = charGenerator.next() {
@@ -148,12 +148,12 @@ class ProtobufTextScanner {
         }
         return s
     }
-    
+
     private func parseFloat() throws -> String? {
         return try parseUnsignedNumber()
     }
-    
-    private func parseNumber(first: Character) throws -> String {
+
+    private func parseNumber(first: Character) throws -> TextToken {
         var s: String
         var digit: Character
         if first == "-" {
@@ -167,44 +167,44 @@ class ProtobufTextScanner {
             digit = first
             s = String()
         }
-        
+
         switch digit {
         case "0":  // Octal or hex integer or floating point (e.g., "0.2")
+            s += String(digit)
             if let second = charGenerator.next() {
                 switch second {
                 case "1", "2", "3", "4", "5", "6", "7":
                     s += String(second)
                     if let n = parseOctalInteger() {
-                        return s + n
+                        return .octalInteger(s + n)
                     } else {
-                        return s
+                        return .octalInteger(s)
                     }
                 case "x":
                     if let n = parseHexInteger() {
                         s += "x"
-                        return s + n
+                        return .hexadecimalInteger(s + n)
                     } else {
                         throw DecodingError.malformedText
                     }
                 case ".":
                     s += "."
                     if let n = try parseFloat() {
-                        return s + n
+                        return .floatingPointLiteral(s + n)
                     } else {
-                        return s
+                        return .floatingPointLiteral(s)
                     }
                 default:
                     characterPushback = second
                 }
             }
-            s += String(digit)
-            return s
+            return .decimalInteger(s) // Either "0" or "-0"
         default:
             s += String(digit)
             if let n = try parseUnsignedNumber() {
-                return s + n
+                return .decimalInteger(s + n)
             } else {
-                return s
+                return .decimalInteger(s)
             }
         }
     }
@@ -259,15 +259,21 @@ class ProtobufTextScanner {
                     throw DecodingError.malformedText
                 }
                 wordSeparator = false
-                let s = try parseNumber(first: c)
-                return .number(s)
-            default:
+                return try parseNumber(first: c)
+            case "a"..."z", "A"..."Z":
                 wordSeparator = false
                 if let s = parseIdentifier(firstCharacter: c, charGenerator: &charGenerator) {
                     return .identifier(s)
                 } else {
                     throw DecodingError.malformedText
                 }
+            case "#":
+                while let s = charGenerator.next(), s != "\n", s != "\r" {
+                    // Skip until end of line
+                }
+                wordSeparator = true
+            default:
+                throw DecodingError.malformedText
             }
         }
         eof = true

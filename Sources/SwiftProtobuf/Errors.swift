@@ -56,6 +56,8 @@ public enum DecodingError: Error {
     case malformedProtobuf
     /// Field names were not compiled into the binary
     case missingFieldNames
+    /// The field identifier (name or number) was not recognized
+    case unknownField
     /// TODO: More here?
 }
 

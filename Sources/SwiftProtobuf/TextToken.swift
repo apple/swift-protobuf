@@ -341,98 +341,158 @@ public enum TextToken: Equatable, FieldDecoder {
     case endArray
     case string(String)
     case identifier(String)
-    case number(String)
+    case octalInteger(String)
+    case hexadecimalInteger(String)
+    case decimalInteger(String)
+    case floatingPointLiteral(String)
 
     public var asBoolean: Bool? {
         switch self {
         case .identifier("true"): return true
         case .identifier("True"): return true
         case .identifier("t"): return true
-        case .number("1"): return true
+        case .decimalInteger("1"): return true
         case .identifier("false"): return false
         case .identifier("False"): return false
         case .identifier("f"): return false
-        case .number("0"): return false
+        case .decimalInteger("0"): return false
         default: return nil
         }
     }
 
-    var asInt64: Int64? {
-        let text: String
+    var isNumber: Bool {
         switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
+        case .octalInteger(_), .hexadecimalInteger(_),
+             .decimalInteger(_), .floatingPointLiteral(_):
+            return true
+        default:
+            return false
         }
-        if let normalized = normalizeIntString(text) {
-            let numberString = String(normalized)
-            if let n = Int64(numberString) {
-                return n
+    }
+
+    // The scanner only identifies tokens, it does not do detailed
+    // validation.  Normally, such validation requires schema information
+    // so gets handled when we process the tokens to set an actual
+    // field.  When skipping tokens, we need a way to verify that the
+    // token was actually valid, hence this hook:
+    var isValid: Bool {
+        // TODO: Implement this
+        return true
+    }
+
+    var asInt64: Int64? {
+        switch self {
+        case .decimalInteger(let n):
+            if let normalized = normalizeIntString(n) {
+                let numberString = String(normalized)
+                return Int64(numberString)
             }
+        case .octalInteger(let n):
+            return Int64(n, radix: 8)
+        case .hexadecimalInteger(let n):
+            var s = n
+            if s.hasPrefix("0x") {
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                return Int64(s, radix: 16)
+            } else if s.hasPrefix("-0x") {
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                return Int64("-" + s, radix: 16)
+            }
+        default: return nil
         }
         return nil
     }
 
     var asInt32: Int32? {
-        let text: String
         switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
-        }
-        if let normalized = normalizeIntString(text) {
-            let numberString = String(normalized)
-            if let n = Int32(numberString) {
-                return n
+        case .decimalInteger(let n):
+            if let normalized = normalizeIntString(n) {
+                let numberString = String(normalized)
+                return Int32(numberString)
             }
+        case .octalInteger(let n):
+            return Int32(n, radix: 8)
+        case .hexadecimalInteger(let n):
+            var s = n
+            if s.hasPrefix("0x") {
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                return Int32(s, radix: 16)
+            } else if s.hasPrefix("-0x") {
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                return Int32("-" + s, radix: 16)
+            }
+        default:
+            return nil
         }
         return nil
     }
 
     var asUInt64: UInt64? {
-        let text: String
         switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
-        }
-        if let normalized = normalizeIntString(text), normalized[0] != "-" {
-            let numberString = String(normalized)
-            if let n = UInt64(numberString) {
-                return n
+        case .decimalInteger(let n):
+            if let normalized = normalizeIntString(n), normalized[0] != "-" {
+                let numberString = String(normalized)
+                return UInt64(numberString)
             }
+        case .octalInteger(let n):
+            return UInt64(n, radix: 8)
+        case .hexadecimalInteger(let n):
+            var s = n
+            if s.hasPrefix("0x") {
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                return UInt64(s, radix: 16)
+            }
+        default: return nil
         }
         return nil
     }
 
     var asUInt32: UInt32? {
-        let text: String
         switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
-        }
-        if let normalized = normalizeIntString(text), normalized[0] != "-" {
-            let numberString = String(normalized)
-            if let n = UInt32(numberString) {
-                return n
+        case .decimalInteger(let n):
+            if let normalized = normalizeIntString(n), normalized[0] != "-" {
+                let numberString = String(normalized)
+                return UInt32(numberString)
             }
+        case .octalInteger(let n):
+            return UInt32(n, radix: 8)
+        case .hexadecimalInteger(let n):
+            var s = n
+            if s.hasPrefix("0x") {
+                s.remove(at: s.startIndex)
+                s.remove(at: s.startIndex)
+                return UInt32(s, radix: 16)
+            }
+        default: return nil
         }
         return nil
     }
 
     var asFloat: Float? {
         switch self {
-        case .string(let s): return Float(s)
-        case .number(let n): return Float(n)
+        case .identifier("inf"): return Float.infinity
+        case .identifier("nan"): return Float.nan
+        case .identifier("-inf"): return -Float.infinity
+        case .decimalInteger(let n): return Float(n)
+        case .floatingPointLiteral(let n): return Float(n)
         default: return nil
         }
     }
 
     var asDouble: Double? {
         switch self {
-        case .string(let s): return Double(s)
-        case .number(let n): return Double(n)
+        case .identifier("inf"): return Double.infinity
+        case .identifier("nan"): return Double.nan
+        case .identifier("-inf"): return -Double.infinity
+        case .decimalInteger(let n): return Double(n)
+        case .floatingPointLiteral(let n): return Double(n)
         default: return nil
         }
     }
@@ -465,7 +525,13 @@ public func ==(lhs: TextToken, rhs: TextToken) -> Bool {
         return a == b
     case (.identifier(let a), .identifier(let b)):
         return a == b
-    case (.number(let a), .number(let b)):
+    case (.octalInteger(let a), .octalInteger(let b)):
+        return a == b
+    case (.decimalInteger(let a), .decimalInteger(let b)):
+        return a == b
+    case (.hexadecimalInteger(let a), .hexadecimalInteger(let b)):
+        return a == b
+    case (.floatingPointLiteral(let a), .floatingPointLiteral(let b)):
         return a == b
     default:
         return false

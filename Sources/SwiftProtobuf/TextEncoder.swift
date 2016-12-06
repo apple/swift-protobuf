@@ -33,7 +33,10 @@ public struct TextEncoder {
             case .comma: append(text: ",")
             case .endArray: append(text: "]")
             case .endObject: append(text: "}")
-            case .number(let v): append(text: v)
+            case .octalInteger(let v): append(text: v)
+            case .hexadecimalInteger(let v): append(text: v)
+            case .decimalInteger(let v): append(text: v)
+            case .floatingPointLiteral(let v): append(text: v)
             case .string(let v): putStringValue(value: v)
             case .identifier(let v): append(text: v)
             }

@@ -75,20 +75,11 @@ public struct TextDecoder {
         } else {
             guard let token = try nextToken() else {throw DecodingError.truncatedInput}
             switch token {
-            case .beginArray:
-                try message.decodeFromTextArray(textDecoder: &self)
-                if !complete {
-                    throw DecodingError.trailingGarbage
-                }
             case .beginObject:
                 try message.decodeFromTextObject(textDecoder: &self)
                 if !complete {
                     throw DecodingError.trailingGarbage
                 }
-            case .string, .number:
-                // Some special types can decode themselves
-                // from a single token (e.g., Timestamp)
-                try message.decodeFromTextToken(token: token)
             default:
                 throw DecodingError.malformedText
             }
@@ -122,16 +113,12 @@ public struct TextDecoder {
                         var skipped: [TextToken] = []
                         try skipArray(tokens: &skipped)
                     }
-                case .string, .number, .identifier:
+                case .string, .identifier, .octalInteger, .hexadecimalInteger, .decimalInteger, .floatingPointLiteral:
                     var fieldDecoder:FieldDecoder = ProtobufTextSingleTokenFieldDecoder(token: token, scanner: scanner)
                     if let protoFieldNumber = protoFieldNumber {
                         try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
                     } else {
-                        // Token was already implicitly skipped, but we
-                        // need to handle one deferred failure check:
-                        if case .number = token, token.asDouble == nil {
-                            throw DecodingError.malformedTextNumber
-                        }
+                        throw DecodingError.unknownField
                     }
                 }
             } else {
@@ -167,14 +154,14 @@ public struct TextDecoder {
                     var skipped: [TextToken] = []
                     try skipArray(tokens: &skipped)
                 }
-            case .string, .number, .identifier:
+            default:
                 var fieldDecoder:FieldDecoder = ProtobufTextSingleTokenFieldDecoder(token: token, scanner: scanner)
                 if let protoFieldNumber = protoFieldNumber {
                     try group.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
                 } else {
                     // Token was already implicitly skipped, but we
                     // need to handle one deferred failure check:
-                    if case .number = token, token.asDouble == nil {
+                    if !token.isValid {
                         throw DecodingError.malformedTextNumber
                     }
                 }
@@ -204,13 +191,10 @@ public struct TextDecoder {
                 try skipArray(tokens: &tokens)
             case .endObject, .endArray, .comma, .colon:
                 throw DecodingError.malformedText
-            case .number:
-                // Make sure numbers are actually syntactically valid
-                if token.asDouble == nil {
-                    throw DecodingError.malformedTextNumber
-                }
-                tokens.append(token)
             default:
+                if !token.isValid {
+                    throw DecodingError.malformedText
+                }
                 tokens.append(token)
             }
         } else {
@@ -325,24 +309,12 @@ private struct ProtobufTextSingleTokenFieldDecoder: TextFieldDecoder {
         try S.setFromTextToken(token: token, value: &value)
     }
 
-    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        var m = M()
-        try m.decodeFromTextToken(token: token)
-        value = m
-    }
-
     mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try S.setFromTextToken(token: token, value: &value)
     }
 
     mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
-    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
-        var m = M()
-        try m.decodeFromTextToken(token: token)
-        value.append(m)
     }
 
     mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
@@ -393,13 +365,20 @@ private struct ProtobufTextObjectFieldDecoder: TextFieldDecoder {
                     scanner.pushback(token: token)
                     var subDecoder = TextDecoder(scanner: scanner)
                     switch token {
-                    case .beginObject, .string, .number:
+                    case .beginObject, .string:
                         mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
                         if mapValue == nil {
                             throw DecodingError.malformedText
                         }
                     default:
-                        throw DecodingError.malformedText
+                        if token.isNumber {
+                            mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
+                            if mapValue == nil {
+                                throw DecodingError.malformedText
+                            }
+                        } else {
+                            throw DecodingError.malformedText
+                        }
                     }
                     value[mapKey] = mapValue
                 } else {
@@ -448,7 +427,7 @@ internal struct TextArrayFieldDecoder: TextFieldDecoder {
                 switch t {
                 case .endArray:
                     return // Empty array case
-                case .string, .number, .identifier:
+                case .string, .identifier, .octalInteger, .hexadecimalInteger, .decimalInteger, .floatingPointLiteral:
                     try S.setFromTextToken(token: t, value: &value)
                 default:
                     throw DecodingError.malformedText
@@ -475,13 +454,6 @@ internal struct TextArrayFieldDecoder: TextFieldDecoder {
         try decodeRepeatedField(fieldType: fieldType, value: &value)
     }
 
-    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        var m = value ?? M()
-        var subDecoder = TextDecoder(scanner: scanner)
-        try m.decodeFromTextArray(textDecoder: &subDecoder)
-        value = m
-    }
-
     mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
         var token: TextToken
         if let startToken = try scanner.next() {
@@ -499,10 +471,6 @@ internal struct TextArrayFieldDecoder: TextFieldDecoder {
                 var message = M()
                 var subDecoder = TextDecoder(scanner: scanner)
                 try message.decodeFromTextObject(textDecoder: &subDecoder)
-                value.append(message)
-            case .string, .number, .identifier:
-                var message = M()
-                try message.decodeFromTextToken(token: token)
                 value.append(message)
             default:
                 throw DecodingError.malformedText
