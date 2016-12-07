@@ -25,7 +25,19 @@ class Test_Text_Map_proto3: XCTestCase, PBTestHelpers {
         assertTextEncode("map_int32_int32 {\n  key: 1\n  value: 2\n}\n") {(o: inout MessageTestType) in
             o.mapInt32Int32 = [1:2]
         }
-        assertTextDecodeSucceeds("map_int32_int32 {key: 1, value: 2}\nmap_int32_int32 {key: 3, value: 4}") {(o: MessageTestType) in
+        assertTextDecodeSucceeds("map_int32_int32 {key: 1, value: 2}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2]
+        }
+        assertTextDecodeSucceeds("map_int32_int32 {key: 1; value: 2}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2]
+        }
+        assertTextDecodeSucceeds("map_int32_int32 {key:1 value:2}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2]
+        }
+        assertTextDecodeSucceeds("map_int32_int32 {key:1 value:2}\nmap_int32_int32 {key:3 value:4}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2, 3:4]
+        }
+        assertTextDecodeSucceeds("map_int32_int32 [{key:1 value:2}, {key:3 value:4}]") {(o: MessageTestType) in
             return o.mapInt32Int32 == [1:2, 3:4]
         }
     }
