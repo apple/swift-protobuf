@@ -340,13 +340,25 @@ fileprivate let implicitParameter = "\\A\\$[0-9]\\z"
 
 fileprivate let allOptions = [loneIdentifer, quotedIdentifier, implicitParameter].joined(separator: "|")
 
+#if os(OSX)
 fileprivate let swiftIdentifierRegex = try! NSRegularExpression(pattern: allOptions, options: [])
+#else
+fileprivate let swiftIdentifierRegex = try! RegularExpression(pattern: allOptions, options: [])
+#endif
 
+#if os(OSX)
 fileprivate func string(_ s: String, matches regex: NSRegularExpression) -> Bool {
     let nsLength = (s as NSString).length
     let range = NSRange(location: 0, length: nsLength)
     return regex.numberOfMatches(in: s, options: [], range: range) == 1
 }
+#else
+fileprivate func string(_ s: String, matches regex: RegularExpression) -> Bool {
+    let nsLength = s.utf16.count
+    let range = NSRange(location: 0, length: nsLength)
+    return regex.numberOfMatches(in: s, options: [], range: range) == 1
+}
+#endif
 
 func isValidSwiftIdentifier(_ s: String) -> Bool {
     return string(s, matches: swiftIdentifierRegex)
@@ -354,7 +366,11 @@ func isValidSwiftIdentifier(_ s: String) -> Bool {
 
 fileprivate let usableOptions = [loneIdentifer, quotedIdentifier].joined(separator: "|")
 
+#if os(OSX)
 fileprivate let usableSwiftIdentifierRegex = try! NSRegularExpression(pattern: usableOptions)
+#else
+fileprivate let usableSwiftIdentifierRegex = try! RegularExpression(pattern: usableOptions, options: [])
+#endif
 
 func isUsableSwiftIdentifier(_ s: String) -> Bool {
     guard s != "_" else { return false }
@@ -362,7 +378,13 @@ func isUsableSwiftIdentifier(_ s: String) -> Bool {
 }
 
 fileprivate let protobufIdentifierString = "\\A[a-zA-Z_][0-9a-zA-Z_]*\\z"
+
+#if os(OSX)
 fileprivate let protobufIdentifierRegex = try! NSRegularExpression(pattern: protobufIdentifierString, options: [])
+#else
+fileprivate let protobufIdentifierRegex = try! RegularExpression(pattern: protobufIdentifierString, options: [])
+#endif
+
 func isValidProtobufIdentifier(_ s: String) -> Bool {
     return string(s, matches: protobufIdentifierRegex)
 }
