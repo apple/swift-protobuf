@@ -388,10 +388,10 @@ test-conformance: check-for-protobufs-checkout $(SWIFT_CONFORMANCE_PLUGIN) $(CON
 # It generates test cases, feeds them to our plugin, and verifies the results:
 conformance-host $(CONFORMANCE_HOST): check-for-protobufs-checkout
 	( \
-		cd ${GOOGLE_PROTOBUFS_CHECKOUT}; \
-		./configure; \
-		$(MAKE) -C -j src; \
-		$(MAKE) -C -j conformance; \
+		cd ${GOOGLE_PROTOBUFS_CHECKOUT} && \
+		./configure && \
+		$(MAKE) -j -C src && \
+		$(MAKE) -j -C conformance \
 	)
 
 
