@@ -17,8 +17,8 @@
 import Foundation
 import Swift
 
-private func parseIdentifier(firstCharacter: Character, charGenerator: inout String.CharacterView.Generator) -> String? {
-    var result = "\(firstCharacter)"
+private func parseIdentifier(prefix: String, charGenerator: inout String.CharacterView.Generator) -> String? {
+    var result = prefix
     var previousCharGenerator = charGenerator
     while let c = charGenerator.next() {
         switch c {
@@ -169,6 +169,16 @@ class ProtobufTextScanner {
         }
 
         switch digit {
+        case "a"..."z", "A"..."Z":
+            // Treat "-" followed by a letter as a floating-point literal.
+            // This treats "-Infinity" as a single token
+            // Note that "Infinity" and "NaN" are regular identifiers.
+            wordSeparator = false
+            if let s = parseIdentifier(prefix: String(s + String(digit)), charGenerator: &charGenerator) {
+                return .floatingPointLiteral(s)
+            } else {
+                throw DecodingError.malformedText
+            }
         case "0":  // Octal or hex integer or floating point (e.g., "0.2")
             s += String(digit)
             if let second = charGenerator.next() {
@@ -262,7 +272,7 @@ class ProtobufTextScanner {
                 return try parseNumber(first: c)
             case "a"..."z", "A"..."Z":
                 wordSeparator = false
-                if let s = parseIdentifier(firstCharacter: c, charGenerator: &charGenerator) {
+                if let s = parseIdentifier(prefix: String(c), charGenerator: &charGenerator) {
                     return .identifier(s)
                 } else {
                     throw DecodingError.malformedText

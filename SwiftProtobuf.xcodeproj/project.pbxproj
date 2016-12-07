@@ -1282,7 +1282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				__src_cc_ref_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift in Sources */,
 				9C2F237A1D77807E008524F2 /* descriptor.pb.swift in Sources */,
@@ -1300,6 +1299,7 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Empty.swift /* Test_Empty.swift in Sources */,
 				F44F94431DBFE0BE00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Enum.swift /* Test_Enum.swift in Sources */,
+				AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Extensions.swift /* Test_Extensions.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_ExtremeDefaultValues.swift /* Test_ExtremeDefaultValues.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_FieldMask.swift /* Test_FieldMask.swift in Sources */,
@@ -1309,7 +1309,10 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_JSON_Group.swift /* Test_JSON_Group.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_JSON_Scanner.swift /* Test_JSON_Scanner.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Map.swift /* Test_Map.swift in Sources */,
+				F44F94481DBFF17F00BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */,
+				F44F944D1DBFF8DB00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Map_JSON.swift /* Test_Map_JSON.swift in Sources */,
+				F44F943E1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift in Sources */,
@@ -1318,42 +1321,37 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Reserved.swift /* Test_Reserved.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Struct.swift /* Test_Struct.swift in Sources */,
+				BCCA0E7A1DB124B800957D74 /* Test_Text_proto3.swift in Sources */,
+				F44F943A1DBFBB7400BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
+				F44F94351DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Timestamp.swift /* Test_Timestamp.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Type.swift /* Test_Type.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Unknown_proto2.swift /* Test_Unknown_proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift in Sources */,
-				F44F94481DBFF17F00BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift in Sources */,
-				BCCA0E7A1DB124B800957D74 /* Test_Text_proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_proto3.pb.swift /* unittest_import_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift in Sources */,
-				F44F943A1DBFBB7400BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public_proto3.pb.swift /* unittest_import_public_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift in Sources */,
-				F4D315481DEC8117005D4A80 /* unittest_swift_extension3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift in Sources */,
-				F4D315541DECA0EA005D4A80 /* unittest_swift_extension4.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift in Sources */,
-				AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */,
-				F44F94351DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift in Sources */,
-				F4D315471DEC8117005D4A80 /* unittest_swift_extension2.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift in Sources */,
@@ -1362,13 +1360,15 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_enum.pb.swift /* unittest_swift_enum.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_enum_optional_default.pb.swift /* unittest_swift_enum_optional_default.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_extension.pb.swift /* unittest_swift_extension.pb.swift in Sources */,
+				F4D315471DEC8117005D4A80 /* unittest_swift_extension2.pb.swift in Sources */,
+				F4D315481DEC8117005D4A80 /* unittest_swift_extension3.pb.swift in Sources */,
+				F4D315541DECA0EA005D4A80 /* unittest_swift_extension4.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift in Sources */,
-				F44F944D1DBFF8DB00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */,
+				__src_cc_ref_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift in Sources */,
-				F44F943E1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift in Sources */,
@@ -1776,7 +1776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1786,7 +1786,7 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1800,7 +1800,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1810,7 +1810,7 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1850,7 +1850,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = "";
 				USE_HEADERMAP = NO;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1899,7 +1899,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = "";
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;

@@ -108,6 +108,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_uint32 3\n")
         assertTextDecodeFails("3u")
         assertTextDecodeFails("single_uint32: a\n")
+        assertTextDecodeFails("single_uint32 single_uint32: 7\n")
     }
 
     func testEncoding_singleUint64() {
@@ -246,6 +247,25 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.singleFloat == 1.0
         }
+        assertTextEncode("single_float: inf\n") {(o: inout MessageTestType) in o.singleFloat = Float.infinity}
+        assertTextEncode("single_float: -inf\n") {(o: inout MessageTestType) in o.singleFloat = -Float.infinity}
+        
+        let b = Proto3TestAllTypes.with {$0.singleFloat = Float.nan}
+        XCTAssertEqual("single_float: nan\n", try b.serializeText())
+        
+        assertTextDecodeSucceeds("single_float: INFINITY\n") {(o: MessageTestType) in
+            return o.singleFloat == Float.infinity
+        }
+        assertTextDecodeSucceeds("single_float: Infinity\n") {(o: MessageTestType) in
+            return o.singleFloat == Float.infinity
+        }
+        assertTextDecodeSucceeds("single_float: -INFINITY\n") {(o: MessageTestType) in
+            return o.singleFloat == -Float.infinity
+        }
+        assertTextDecodeSucceeds("single_float: -Infinity\n") {(o: MessageTestType) in
+            return o.singleFloat == -Float.infinity
+        }
+        assertTextDecodeFails("single_float: INFINITY_AND_BEYOND\n")
 
         assertTextDecodeFails("single_float: a\n")
         assertTextDecodeFails("single_float: 1,2\n")
@@ -260,8 +280,29 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         XCTAssertEqual("single_double: 12\n", try a.serializeText())
 
         assertTextEncode("single_double: 12\n") {(o: inout MessageTestType) in o.singleDouble = 12 }
-
+        assertTextEncode("single_double: inf\n") {(o: inout MessageTestType) in o.singleDouble = Double.infinity}
+        assertTextEncode("single_double: -inf\n") {(o: inout MessageTestType) in o.singleDouble = -Double.infinity}
+        let b = Proto3TestAllTypes.with {$0.singleDouble = Double.nan}
+        XCTAssertEqual("single_double: nan\n", try b.serializeText())
+        
+        assertTextDecodeSucceeds("single_double: INFINITY\n") {(o: MessageTestType) in
+            return o.singleDouble == Double.infinity
+        }
+        assertTextDecodeSucceeds("single_double: Infinity\n") {(o: MessageTestType) in
+            return o.singleDouble == Double.infinity
+        }
+        assertTextDecodeSucceeds("single_double: -INFINITY\n") {(o: MessageTestType) in
+            return o.singleDouble == -Double.infinity
+        }
+        assertTextDecodeSucceeds("single_double: -Infinity\n") {(o: MessageTestType) in
+            return o.singleDouble == -Double.infinity
+        }
+        assertTextDecodeFails("single_double: INFINITY_AND_BEYOND\n")
+        assertTextDecodeFails("single_double: INFIN\n")
         assertTextDecodeFails("single_double: a\n")
+        assertTextDecodeFails("single_double: 1.2.3\n")
+        assertTextDecodeFails("single_double: 0xf\n")
+        assertTextDecodeFails("single_double: 0123\n")
     }
 
     func testEncoding_singleBool() {
@@ -319,11 +360,15 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.singleString == "abcdef"
         }
-        assertTextDecodeSucceeds("single_string: \"abc\"\n\"def\"\n\"ghi\"\n") {
+        assertTextDecodeSucceeds("single_string: \"abc\"\n      \t   \"def\"\n\"ghi\"\n") {
             (o: MessageTestType) in
             return o.singleString == "abcdefghi"
         }
         assertTextDecodeSucceeds("single_string: \"abc\"\n\'def\'\n\"ghi\"\n") {
+            (o: MessageTestType) in
+            return o.singleString == "abcdefghi"
+        }
+        assertTextDecodeSucceeds("single_string: \"abcdefghi\"") {
             (o: MessageTestType) in
             return o.singleString == "abcdefghi"
         }
@@ -375,13 +420,19 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual("single_nested_message {\n  bb: 7\n}\n", try a.serializeText())
 
-        assertTextEncode("single_nested_message {\n  bb: 7\n}\n") {(o: inout MessageTestType) in o.singleNestedMessage = nested }
-
-        do {
-            let message = try MessageTestType(text:"single_nested_message: {\n  bb: 7\n}\n")
-            XCTAssertEqual(message.singleNestedMessage.bb, 7)
-        } catch {
-            XCTFail("Presented error: \(error)")
+        assertTextEncode("single_nested_message {\n  bb: 7\n}\n") {(o: inout MessageTestType) in
+            o.singleNestedMessage = nested
+        }
+        // Google permits reading a message field with or without the separating ':'
+        assertTextDecodeSucceeds("single_nested_message: {bb:7}") {(o: MessageTestType) in
+            return o.singleNestedMessage.bb == 7
+        }
+        assertTextDecodeSucceeds("single_nested_message <bb:7>") {(o: MessageTestType) in
+            return o.singleNestedMessage.bb == 7
+        }
+        // Google permits reading a message field with or without the separating ':'
+        assertTextDecodeSucceeds("single_nested_message: <bb:7>") {(o: MessageTestType) in
+            return o.singleNestedMessage.bb == 7
         }
 
         assertTextDecodeFails("single_nested_message: a\n")
@@ -429,7 +480,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_import_message: a\n")
     }
 
-    func testEncoding_singleNestedEnum() {
+    func testEncoding_singleNestedEnum() throws {
         var a = MessageTestType()
         a.singleNestedEnum = .baz
 
@@ -449,6 +500,13 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         }
         assertTextDecodeFails("single_nested_enum: a\n")
         assertTextDecodeFails("single_nested_enum: FOOBAR")
+        assertTextDecodeFails("single_nested_enum: \"BAR\"\n")
+        
+        // Note: This implementation currently preserves numeric unknown
+        // enum values, unlike Google's C++ implementation, which considers
+        // it a parse error.
+        let b = try Proto3TestAllTypes(text: "single_nested_enum: 999\n")
+        XCTAssertEqual("single_nested_enum: 999\n", try b.serializeText())
     }
 
     func testEncoding_singleForeignEnum() {
@@ -534,9 +592,12 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("repeated_int32: 1\nrepeated_int32: a\n")
         assertTextDecodeFails("repeated_int32: [")
         assertTextDecodeFails("repeated_int32: [\n")
+        assertTextDecodeFails("repeated_int32: [,]\n")
         assertTextDecodeFails("repeated_int32: [1\n")
         assertTextDecodeFails("repeated_int32: [1,\n")
+        assertTextDecodeFails("repeated_int32: [1,]\n")
         assertTextDecodeFails("repeated_int32: [1,2\n")
+        assertTextDecodeFails("repeated_int32: [1,2,]\n")
     }
 
     func testEncoding_repeatedInt64() {
@@ -688,16 +749,14 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.repeatedString == ["abc", "def"]
         }
-        assertTextDecodeSucceeds("repeated_string:[\"abc\", \"def\",]") {
-            (o: MessageTestType) in
-            return o.repeatedString == ["abc", "def"]
-        }
         assertTextDecodeSucceeds("repeated_string:[\"abc\"] repeated_string: \"def\"") {
             (o: MessageTestType) in
             return o.repeatedString == ["abc", "def"]
         }
+        assertTextDecodeFails("repeated_string:[\"abc\", \"def\",]")
         assertTextDecodeFails("repeated_string:[\"abc\"")
         assertTextDecodeFails("repeated_string:[\"abc\",")
+        assertTextDecodeFails("repeated_string:[\"abc\",]")
         assertTextDecodeFails("repeated_string: \"abc\"]")
         assertTextDecodeFails("repeated_string: abc")
 
@@ -856,7 +915,24 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         XCTAssertEqual("repeated_public_import_message {\n  e: -999999\n}\nrepeated_public_import_message {\n  e: 999999\n}\n", try a.serializeText())
 
         assertTextEncode("repeated_public_import_message {\n  e: -999999\n}\nrepeated_public_import_message {\n  e: 999999\n}\n") {(o: inout MessageTestType) in o.repeatedPublicImportMessage = [publicImportMessage, publicImportMessage2] }
-
+        assertTextDecodeSucceeds("repeated_public_import_message <e: -999999> repeated_public_import_message <\n  e: 999999\n>\n") {
+            (o: MessageTestType) in
+            return o.repeatedPublicImportMessage == [publicImportMessage, publicImportMessage2]
+        }
+        assertTextDecodeSucceeds("repeated_public_import_message {e: -999999} repeated_public_import_message {\n  e: 999999\n}\n") {
+            (o: MessageTestType) in
+            return o.repeatedPublicImportMessage == [publicImportMessage, publicImportMessage2]
+        }
+        assertTextDecodeSucceeds("repeated_public_import_message [{e: -999999}, <e: 999999>]") {
+            (o: MessageTestType) in
+            return o.repeatedPublicImportMessage == [publicImportMessage, publicImportMessage2]
+        }
+        assertTextDecodeSucceeds("repeated_public_import_message:[{e:999999},{e:-999999}]") {
+            (o: MessageTestType) in
+            return o.repeatedPublicImportMessage == [publicImportMessage2, publicImportMessage]
+        }
+        assertTextDecodeFails("repeated_public_import_message:[{e:999999},{e:-999999},]")
+            
         do {
             let message = try MessageTestType(text:"repeated_public_import_message: {\n  e: -999999\n}\nrepeated_public_import_message: {\n  e: 999999\n}\n")
             XCTAssertEqual(message.repeatedPublicImportMessage[0].e, -999999)
@@ -866,6 +942,9 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         }
 
         assertTextDecodeFails("repeated_public_import_message: a\n")
+        assertTextDecodeFails("repeated_public_import_message: <e:99999}\n")
+        assertTextDecodeFails("repeated_public_import_message:[{e:99999}")
+        assertTextDecodeFails("repeated_public_import_message: {e:99999>\n")
     }
 
     func testEncoding_oneofUint32() {
@@ -880,7 +959,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     }
     
     //
-    // Nonexistent fields, other general concerns
+    // Various odd cases...
     //
     func testInvalidToken() {
         assertTextDecodeFails("optional_bool: true\n-5\n")
@@ -896,6 +975,12 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("optionalgroup {\na: 15\n}\n")
         assertTextDecodeFails("OPTIONALgroup {\na: 15\n}\n")
         assertTextDecodeFails("Optional_Bool: true\n")
+    }
+    
+    func testExplicitDelimiters() {
+        assertTextDecodeSucceeds("single_int32:1,single_int64:3;single_uint32:4") {(o: MessageTestType) in
+            return o.singleInt32 == 1 && o.singleInt64 == 3 && o.singleUint32 == 4
+        }
     }
 
     //

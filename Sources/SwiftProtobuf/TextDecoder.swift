@@ -420,25 +420,32 @@ internal struct TextArrayFieldDecoder: TextFieldDecoder {
 
     // Decode a field containing repeated basic type
     // The leading '[' has already been consumed
-    // Note: This explicitly tolerates trailing commas (as Google requires)
+    // Note: Google requires that we reject trailing commas
     mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+        var token: TextToken
+        if let startToken = try scanner.next() {
+            switch startToken {
+            case .endArray: return // Empty array case
+            default: token = startToken
+            }
+        } else {
+            throw DecodingError.truncatedInput
+        }
         while true {
-            if let t = try scanner.next() {
-                switch t {
-                case .endArray:
-                    return // Empty array case
-                case .string, .identifier, .octalInteger, .hexadecimalInteger, .decimalInteger, .floatingPointLiteral:
-                    try S.setFromTextToken(token: t, value: &value)
-                default:
-                    throw DecodingError.malformedText
-                }
-            } else {
-                throw DecodingError.truncatedInput
+            switch token {
+            case .string, .identifier, .octalInteger, .hexadecimalInteger, .decimalInteger, .floatingPointLiteral:
+                try S.setFromTextToken(token: token, value: &value)
+            default:
+                throw DecodingError.malformedText
             }
             if let separatorToken = try scanner.next() {
                 switch separatorToken {
                 case .comma:
-                    break
+                    if let t = try scanner.next() {
+                        token = t
+                    } else {
+                        throw DecodingError.truncatedInput
+                    }
                 case .endArray:
                     return
                 default:
@@ -483,12 +490,13 @@ internal struct TextArrayFieldDecoder: TextFieldDecoder {
                     } else {
                         throw DecodingError.truncatedInput
                     }
-                    break
                 case .endArray:
                     return
                 default:
                     throw DecodingError.malformedText
                 }
+            } else {
+                throw DecodingError.truncatedInput
             }
         }
     }

@@ -74,12 +74,12 @@ public struct TextEncoder {
     }
     mutating func putDoubleValue(value: Double, quote: Bool) {
         if value.isNaN {
-            append(text: "\"NaN\"")
+            append(text: "nan")
         } else if !value.isFinite {
             if value < 0 {
-                append(text: "\"-Infinity\"")
+                append(text: "-inf")
             } else {
-                append(text: "\"Infinity\"")
+                append(text: "inf")
             }
         } else {
             // TODO: Be smarter here about choosing significant digits

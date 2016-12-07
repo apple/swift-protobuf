@@ -331,22 +331,50 @@ public enum TextToken: Equatable, FieldDecoder {
 
     var asFloat: Float? {
         switch self {
-        case .identifier("inf"): return Float.infinity
-        case .identifier("nan"): return Float.nan
-        case .identifier("-inf"): return -Float.infinity
-        case .decimalInteger(let n): return Float(n)
-        case .floatingPointLiteral(let n): return Float(n)
+        case .identifier(let s):
+            let l = s.lowercased()
+            switch l {
+            case "inf": return Float.infinity
+            case "infinity": return Float.infinity
+            case "nan": return Float.nan
+            default: return nil
+            }
+        case .decimalInteger(let n):
+            return Float(n)
+        case .floatingPointLiteral(let n):
+            // There is special logic in the scanner to parse
+            // "-" followed by identifier as a single floatingPointLiteral
+            let l = n.lowercased()
+            switch l {
+            case "-inf": return -Float.infinity
+            case "-infinity": return -Float.infinity
+            default: return Float(n)
+            }
         default: return nil
         }
     }
 
     var asDouble: Double? {
         switch self {
-        case .identifier("inf"): return Double.infinity
-        case .identifier("nan"): return Double.nan
-        case .identifier("-inf"): return -Double.infinity
-        case .decimalInteger(let n): return Double(n)
-        case .floatingPointLiteral(let n): return Double(n)
+        case .identifier(let s):
+            let l = s.lowercased()
+            switch l {
+            case "inf": return Double.infinity
+            case "infinity": return Double.infinity
+            case "nan": return Double.nan
+            default: return nil
+            }
+        case .decimalInteger(let n):
+            return Double(n)
+        case .floatingPointLiteral(let n):
+            // There is special logic in the scanner to parse
+            // "-" followed by identifier as a single floatingPointLiteral
+            let l = n.lowercased()
+            switch l {
+            case "-inf": return -Double.infinity
+            case "-infinity": return -Double.infinity
+            default: return Double(n)
+            }
         default: return nil
         }
     }

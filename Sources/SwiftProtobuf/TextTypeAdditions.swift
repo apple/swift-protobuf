@@ -692,6 +692,7 @@ extension Enum where RawValue == Int {
             if token.isNumber {
                 if let n = token.asInt32 {
                     let e = Self(rawValue: Int(n))! // Note: Can never fail!
+                    // TODO: Google's C++ implementation of text format rejects unknown enum values
                     value.append(e)
                 } else {
                     throw DecodingError.malformedTextNumber
@@ -821,5 +822,8 @@ public extension Message {
                 throw DecodingError.malformedText
             }
         }
-    }
+        if state != .expectKey && state != .expectFirstKey {
+            throw DecodingError.malformedText
+        }
+   }
 }
