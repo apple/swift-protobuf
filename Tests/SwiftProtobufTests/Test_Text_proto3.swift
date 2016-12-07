@@ -335,6 +335,8 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_bool: a\n")
     }
 
+    // TODO: Need to verify the behavior here with extended Unicode text
+    // and UTF-8 encoded by C++ implementation
     func testEncoding_singleString() {
         var a = MessageTestType()
         a.singleString = "abc"
@@ -372,6 +374,25 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.singleString == "abcdefghi"
         }
+        // Note: Values 0-127 are same whether viewed as Unicode code
+        // points or UTF-8 bytes.
+        assertTextDecodeSucceeds("single_string: \"\\a\\b\\f\\n\\r\\t\\v\\\"\\'\\\\\\?\"") {
+            (o: MessageTestType) in
+            return o.singleString == "\u{07}\u{08}\u{0C}\u{0A}\u{0D}\u{09}\u{0B}\"'\\?"
+        }
+        assertTextDecodeFails("single_string: \"\\z\"")
+        assertTextDecodeSucceeds("single_string: \"\\000\\0\\001\\01\\1\\010\\289\"") {
+            (o: MessageTestType) in
+            return o.singleString == "\u{00}\u{00}\u{01}\u{01}\u{01}\u{08}\u{02}89"
+        }
+        assertTextDecodeSucceeds("single_string: \"\\x1\\x12\\x123\\x1234\"") {
+            (o: MessageTestType) in
+            return o.singleString == "\u{01}\u{12}\u{23}\u{34}"
+        }
+        assertTextDecodeSucceeds("single_string: \"\\x0f\\x0g\"") {
+            (o: MessageTestType) in
+            return o.singleString == "\u{0f}\u{00}g"
+        }
         assertTextEncode("single_string: \"abc\"\n") {(o: inout MessageTestType) in
             o.singleString = "abc"
         }
@@ -396,6 +417,14 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         }
         assertTextDecodeSucceeds("single_bytes: \"\\0\\1AB\\178\\189\\x61\\xdq\\x123456789\"\n") {(o: MessageTestType) in
             return o.singleBytes == Data(bytes: [0, 1, 65, 66, 15, 56, 1, 56, 57, 97, 13, 113, 137])
+        }
+        // "\1" followed by "2", not "\12"
+        assertTextDecodeSucceeds("single_bytes: \"\\1\" \"2\"") {(o: MessageTestType) in
+            return o.singleBytes == Data(bytes: [1, 50]) // Not [10]
+        }
+        // "\x61" followed by "6" and "2", not "\x6162" (== "\x62")
+        assertTextDecodeSucceeds("single_bytes: \"\\x61\" \"62\"") {(o: MessageTestType) in
+            return o.singleBytes == Data(bytes: [97, 54, 50]) // Not [98]
         }
         assertTextDecodeSucceeds("single_bytes: \"\"\n") {(o: MessageTestType) in
             return o.singleBytes == Data()
@@ -427,6 +456,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeSucceeds("single_nested_message: {bb:7}") {(o: MessageTestType) in
             return o.singleNestedMessage.bb == 7
         }
+        // Messages can be wrapped in {...} or <...>
         assertTextDecodeSucceeds("single_nested_message <bb:7>") {(o: MessageTestType) in
             return o.singleNestedMessage.bb == 7
         }

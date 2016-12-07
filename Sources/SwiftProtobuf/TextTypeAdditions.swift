@@ -578,8 +578,8 @@ public extension ProtobufBool {
 ///
 public extension ProtobufString {
     public static func setFromTextToken(token: TextToken, value: inout BaseType?) throws {
-        if case .string(_) = token {
-            value = token.asString
+        if case .string(_) = token, let s = token.asString {
+            value = s
         } else {
             throw DecodingError.malformedText
         }

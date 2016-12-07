@@ -18,7 +18,7 @@ import Foundation
 import Swift
 
 ///
-/// Provides a higher-level interface to the JSON token stream coming
+/// Provides a higher-level interface to the token stream coming
 /// from a ProtobufTextScanner.  In particular, this provides single-token
 /// pushback and convenience functions for iterating over complex
 /// structures.
@@ -347,8 +347,8 @@ private struct ProtobufTextObjectFieldDecoder: TextFieldDecoder {
             case .identifier("key") = keyFieldName {
             if let colon = try scanner.next(),
                 colon == .colon,
-                let keyToken = try scanner.next() {
-                if let mapKey = try KeyType.decodeTextMapKey(token: keyToken) {
+                let keyValueToken = try scanner.next() {
+                if let mapKey = try KeyType.decodeTextMapKey(token: keyValueToken) {
                     if let t = try scanner.next() {
                         let valueFieldName: TextToken
                         if t == .comma {

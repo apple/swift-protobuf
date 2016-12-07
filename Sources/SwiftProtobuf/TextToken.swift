@@ -17,6 +17,43 @@
 import Foundation
 import Swift
 
+
+private func fromOctalDigit(_ c: Character) -> UInt8? {
+    switch c {
+    case "0": return 0
+    case "1": return 1
+    case "2": return 2
+    case "3": return 3
+    case "4": return 4
+    case "5": return 5
+    case "6": return 6
+    case "7": return 7
+    default: return nil
+    }
+}
+
+private func fromHexDigit(_ c: Character) -> UInt8? {
+    switch c {
+    case "0": return 0
+    case "1": return 1
+    case "2": return 2
+    case "3": return 3
+    case "4": return 4
+    case "5": return 5
+    case "6": return 6
+    case "7": return 7
+    case "8": return 8
+    case "9": return 9
+    case "a", "A": return 10
+    case "b", "B": return 11
+    case "c", "C": return 12
+    case "d", "D": return 13
+    case "e", "E": return 14
+    case "f", "F": return 15
+    default: return nil
+    }
+}
+
 private func fromHexDigit(_ c: UInt8) -> UInt8? {
     if c >= 48 && c <= 57 {
         return c - 48
@@ -111,87 +148,79 @@ private func decodeBytes(_ s: String) -> Data? {
 }
 
 private func decodeString(_ s: String) -> String? {
-    return s
-/*
-    var result = ""
-    while let c = charGenerator.next() {
-        if c == terminator {
-            return result
-        }
-        switch c {
+    var out = ""
+    var chars = s.characters.makeIterator()
+    while let char = chars.next() {
+        switch char {
         case "\\":
-            if let escaped = charGenerator.next() {
+            if let escaped = chars.next() {
                 switch escaped {
-                case "b": result.append(Character("\u{0008}"))
-                case "t": result.append(Character("\u{0009}"))
-                case "n": result.append(Character("\u{000a}"))
-                case "f": result.append(Character("\u{000c}"))
-                case "r": result.append(Character("\u{000d}"))
-                case "\"": result.append(escaped)
-                case "\\": result.append(escaped)
-                case "/": result.append(escaped)
-                case "u":
-                    if let c1 = fromHexDigit(charGenerator.next()),
-                        let c2 = fromHexDigit(charGenerator.next()),
-                        let c3 = fromHexDigit(charGenerator.next()),
-                        let c4 = fromHexDigit(charGenerator.next()) {
-                        let scalar = ((c1 * 16 + c2) * 16 + c3) * 16 + c4
-                        if let char = UnicodeScalar(scalar) {
-                            result.append(String(char))
-                        } else if scalar < 0xD800 || scalar >= 0xE000 {
-                            // Invalid Unicode scalar
-                            return nil
-                        } else if scalar >= UInt32(0xDC00) {
-                            // Low surrogate is invalid
-                            return nil
+                case "0"..."7":
+                    // C standard allows 1, 2, or 3 octal digits.
+                    let savedPosition = chars
+                    if let digit2 = chars.next(),
+                        let digit2Value = fromOctalDigit(digit2) {
+                        let innerSavedPosition = chars
+                        if let digit3 = chars.next(),
+                            let digit3Value = fromOctalDigit(digit3) {
+                            let n = fromOctalDigit(escaped)! * 64 + digit2Value * 8 + digit3Value
+                            out.append(String(UnicodeScalar(n)))
                         } else {
-                            // We have a high surrogate, must be followed by low
-                            if let slash = charGenerator.next(), slash == "\\",
-                                let u = charGenerator.next(), u == "u",
-                                let c1 = fromHexDigit(charGenerator.next()),
-                                let c2 = fromHexDigit(charGenerator.next()),
-                                let c3 = fromHexDigit(charGenerator.next()),
-                                let c4 = fromHexDigit(charGenerator.next()) {
-                                let follower = ((c1 * 16 + c2) * 16 + c3) * 16 + c4
-                                if follower >= UInt32(0xDC00) && follower < UInt32(0xE000) {
-                                    let high = scalar - UInt32(0xD800)
-                                    let low = follower - UInt32(0xDC00)
-                                    let composed = UInt32(0x10000) + high << 10 + low
-                                    if let char = UnicodeScalar(composed) {
-                                        result.append(String(char))
-                                    } else {
-                                        // Composed value is not valid
-                                        return nil
-                                    }
-                                } else {
-                                    // high surrogate was not followed by low
-                                    return nil
-                                }
-                            } else {
-                                // high surrogate not followed by unicode hex escape
-                                return nil
-                            }
+                            let n = fromOctalDigit(escaped)! * 8 + digit2Value
+                            out.append(String(UnicodeScalar(n)))
+                            chars = innerSavedPosition
                         }
                     } else {
-                        // Broken unicode escape
-                        return nil
+                        let n = fromOctalDigit(escaped)!
+                        out.append(String(UnicodeScalar(n)))
+                        chars = savedPosition
                     }
+                case "x":
+                    // C standard allows any number of digits after \x
+                    // We ignore all but the last two
+                    var n: UInt8 = 0
+                    var count = 0
+                    var savedPosition = chars
+                    while let char = chars.next(), let digit = fromHexDigit(char) {
+                        n &= 15
+                        n = n * 16
+                        n += digit
+                        count += 1
+                        savedPosition = chars
+                    }
+                    chars = savedPosition
+                    if count > 0 {
+                        out.append(String(UnicodeScalar(n)))
+                    } else {
+                        return nil // Hex escape must have at least 1 digit
+                    }
+                case "a": // \a
+                    out.append("\u{07}")
+                case "b": // \b
+                    out.append("\u{08}")
+                case "f": // \f
+                    out.append("\u{0c}")
+                case "n": // \n
+                    out.append("\u{0a}")
+                case "r": // \r
+                    out.append("\u{0d}")
+                case "t": // \t
+                    out.append("\u{09}")
+                case "v": // \v
+                    out.append("\u{0b}")
+                case "'", "\"", "\\", "?":
+                    out.append(escaped)
                 default:
-                    // Unrecognized backslash escape
-                    return nil
+                    return nil // Unrecognized escape
                 }
             } else {
-                // Input ends in backslash
-                return nil
+                return nil // Input ends with backslash
             }
         default:
-            result.append(c)
+            out.append(char)
         }
     }
-    // Unterminated quoted string
-    return nil
-}
-*/
+    return out
 }
 
 
