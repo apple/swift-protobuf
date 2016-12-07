@@ -387,12 +387,14 @@ test-conformance: check-for-protobufs-checkout $(SWIFT_CONFORMANCE_PLUGIN) $(CON
 # The 'conformance-host' program is part of the protobuf project.
 # It generates test cases, feeds them to our plugin, and verifies the results:
 conformance-host $(CONFORMANCE_HOST): check-for-protobufs-checkout
-	( \
-		cd ${GOOGLE_PROTOBUFS_CHECKOUT} && \
-		./configure && \
-		$(MAKE) -j -C src && \
-		$(MAKE) -j -C conformance \
-	)
+	@if [ ! -f "${GOOGLE_PROTOBUFS_CHECKOUT}/Makefile" ]; then \
+		echo "No Makefile, running autogen.sh and configure." ; \
+		( cd ${GOOGLE_PROTOBUFS_CHECKOUT} && \
+		  ./autogen.sh && \
+		  ./configure ) \
+	fi
+	$(MAKE) -C ${GOOGLE_PROTOBUFS_CHECKOUT}/src
+	$(MAKE) -C ${GOOGLE_PROTOBUFS_CHECKOUT}/conformance
 
 
 # Helpers to put the Xcode project through all modes.
