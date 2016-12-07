@@ -29,7 +29,7 @@ SWIFT=swift
 
 # How to run a working version of protoc. Invoke make with PROTOC=[path] to
 # override this value, i.e. -
-#   make reference PROTOC=../protobuf/src/protoc
+#   make [TARGET] PROTOC=../protobuf/src/protoc
 PROTOC=protoc
 
 # How to run awk on your system
@@ -41,8 +41,10 @@ BINDIR=/usr/local/bin
 # Install tool name
 INSTALL=install
 
-# Where to find a google/protobufs checkout. This is only used for the
-# 'update-proto-files' target.  Defaults be being beside this checkout.
+# Where to find a google/protobufs checkout. Defaults be being beside this
+# checkout. Invoke make with GOOGLE_PROTOBUFS_CHECKOUT=[PATH_TO_CHECKOUT] to
+# override this value, i.e. -
+#   make [TARGET] GOOGLE_PROTOBUFS_CHECKOUT=[PATH_TO_CHECKOUT]
 GOOGLE_PROTOBUFS_CHECKOUT=../protobuf
 
 # Helpers for the common parts of source generation.
@@ -54,12 +56,12 @@ GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
 GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
 
 # Where to find the Swift conformance test runner executable.
-SWIFT_CONFORMANCE_PLUGIN = .build/debug/Conformance
+SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 
 # If you have already build conformance-test-runner in
 # a nearby directory, just set the full path here and
 # we'll use it instead.
-CONFORMANCE_HOST = ${GOOGLE_PROTOBUFS_CHECKOUT}/conformance/conformance-test-runner
+CONFORMANCE_HOST=${GOOGLE_PROTOBUFS_CHECKOUT}/conformance/conformance-test-runner
 
 # NOTE: TEST_PROTOS, LIBRARY_PROTOS, and PLUGIN_PROTOS are all full paths so
 # eventually we might be able to do proper dependencies and use them as inputs
@@ -170,6 +172,7 @@ endif
 	all \
 	build \
 	check \
+	check-for-protobufs-checkout \
 	clean \
 	conformance-host \
 	default \
@@ -342,16 +345,19 @@ regenerate-test-protos: build
 regenerate-conformance-protos: build
 	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/Conformance ${CONFORMANCE_PROTOS}
 
-#
-# Helper to update the .proto files copied from the google/protobufs distro.
-#
-update-proto-files:
+# Helper to check if there is a protobuf checkout as expected.
+check-for-protobufs-checkout:
 	@if [ ! -d "${GOOGLE_PROTOBUFS_CHECKOUT}/src/google/protobuf" ]; then \
 	  echo "ERROR: ${GOOGLE_PROTOBUFS_CHECKOUT} does not appear to be a checkout of"; \
 	  echo "ERROR:   github.com/google/protobuf. Please check it out or set"; \
 	  echo "ERROR:   GOOGLE_PROTOBUFS_CHECKOUT to point to a checkout."; \
 	  exit 1; \
 	fi
+
+#
+# Helper to update the .proto files copied from the google/protobufs distro.
+#
+update-proto-files: check-for-protobufs-checkout
 	@rm -rf Protos/conformance && mkdir Protos/conformance
 	@cp -v "${GOOGLE_PROTOBUFS_CHECKOUT}"/conformance/*.proto Protos/conformance/
 	@rm -rf Protos/google && mkdir -p Protos/google/protobuf/compiler
@@ -372,7 +378,7 @@ $(SWIFT_CONFORMANCE_PLUGIN): $(SWIFT_CONFORMANCE_PLUGIN_SOURCES)
 	${SWIFT} build
 
 # Runs the conformance tests.
-test-conformance: $(SWIFT_CONFORMANCE_PLUGIN) $(CONFORMANCE_HOST) failure_list_swift.txt
+test-conformance: check-for-protobufs-checkout $(SWIFT_CONFORMANCE_PLUGIN) $(CONFORMANCE_HOST) failure_list_swift.txt
 	( \
 		ABS_PBDIR=`cd ${GOOGLE_PROTOBUFS_CHECKOUT}; pwd`; \
 		$${ABS_PBDIR}/conformance/conformance-test-runner --failure_list failure_list_swift.txt $(SWIFT_CONFORMANCE_PLUGIN); \
@@ -380,14 +386,12 @@ test-conformance: $(SWIFT_CONFORMANCE_PLUGIN) $(CONFORMANCE_HOST) failure_list_s
 
 # The 'conformance-host' program is part of the protobuf project.
 # It generates test cases, feeds them to our plugin, and verifies the results:
-conformance-host: $(CONFORMANCE_HOST)
-
-$(CONFORMANCE_HOST):
+conformance-host $(CONFORMANCE_HOST): check-for-protobufs-checkout
 	( \
 		cd ${GOOGLE_PROTOBUFS_CHECKOUT}; \
 		./configure; \
-		$(MAKE) -C src; \
-		$(MAKE) -C conformance; \
+		$(MAKE) -C -j src; \
+		$(MAKE) -C -j conformance; \
 	)
 
 
