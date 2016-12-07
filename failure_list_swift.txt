@@ -1,0 +1,9 @@
+#
+# Google's spec for transforming proto names to JSON field names
+# is currently in flux.  The following cases will likely remain
+# broken until Google finishes their specification for JSON output.
+#
+JsonInput.FieldNameInSnakeCase.JsonOutput
+JsonInput.FieldNameInSnakeCase.ProtobufOutput
+JsonInput.FieldNameWithDoubleUnderscores.JsonOutput
+JsonInput.FieldNameWithDoubleUnderscores.ProtobufOutput
