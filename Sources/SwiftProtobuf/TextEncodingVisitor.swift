@@ -118,18 +118,18 @@ public struct TextEncodingVisitor: Visitor {
 
     mutating public func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws  where KeyType.BaseType: Hashable {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
-        encoder.startField(name: protoFieldName, tabLevel: tabLevel)
-        var arraySeparator = ""
-        encoder.append(text: "{")
         for (k,v) in value {
-            encoder.append(text: arraySeparator)
+            encoder.startField(name: protoFieldName, tabLevel: tabLevel, dropColon: true)
+            encoder.startObject()
+            encoder.startField(name: "key", tabLevel: tabLevel + 1)
             try KeyType.serializeTextValue(encoder: &encoder, value: k)
-            encoder.append(text: ":")
+            encoder.endField()
+            encoder.startField(name: "value", tabLevel: tabLevel + 1)
             try ValueType.serializeTextValue(encoder: &encoder, value: v)
-            arraySeparator = ","
+            encoder.endField()
+            encoder.endObject(tabLevel: tabLevel)
+            encoder.endField()
         }
-        encoder.append(text: "}")
-        encoder.endField()
     }
 
     /// Helper function that throws an error if the field number could not be

@@ -343,63 +343,59 @@ private struct ProtobufTextObjectFieldDecoder: TextFieldDecoder {
     }
 
     mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
-        var keyToken: TextToken?
-        var state = TextDecoder.ObjectParseState.expectFirstKey
-        while let token = try scanner.next() {
-            switch token {
-            case .string: // This is a key
-                if state != .expectKey && state != .expectFirstKey {
-                    throw DecodingError.malformedText
-                }
-                keyToken = token
-                state = .expectColon
-            case .colon:
-                if state != .expectColon {
-                    throw DecodingError.malformedText
-                }
-                if let keyToken = keyToken,
-                    let mapKey = try KeyType.decodeTextMapKey(token: keyToken),
-                    let token = try scanner.next() {
-
-                    let mapValue: ValueType.BaseType?
-                    scanner.pushback(token: token)
-                    var subDecoder = TextDecoder(scanner: scanner)
-                    switch token {
-                    case .beginObject, .string:
-                        mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
-                        if mapValue == nil {
-                            throw DecodingError.malformedText
-                        }
-                    default:
-                        if token.isNumber {
-                            mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
-                            if mapValue == nil {
-                                throw DecodingError.malformedText
+        if let keyFieldName = try scanner.next(),
+            case .identifier("key") = keyFieldName {
+            if let colon = try scanner.next(),
+                colon == .colon,
+                let keyToken = try scanner.next() {
+                if let mapKey = try KeyType.decodeTextMapKey(token: keyToken) {
+                    if let t = try scanner.next() {
+                        let valueFieldName: TextToken
+                        if t == .comma {
+                            if let t2 = try scanner.next() {
+                                valueFieldName = t2
+                            } else {
+                                throw DecodingError.truncatedInput
                             }
+                        } else {
+                            valueFieldName = t
+                        }
+                        if case .identifier("value") = valueFieldName {
+                            // Saw expected field name "value"
                         } else {
                             throw DecodingError.malformedText
                         }
                     }
-                    value[mapKey] = mapValue
-                } else {
-                    throw DecodingError.malformedText
+                    if let colon2 = try scanner.next(),
+                        colon2 == .colon {
+                        let mapValue: ValueType.BaseType?
+                        if let token = try scanner.next() {
+                            scanner.pushback(token: token)
+                            var subDecoder = TextDecoder(scanner: scanner)
+                            switch token {
+                            case .beginObject, .string:
+                                mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
+                                if mapValue == nil {
+                                    throw DecodingError.malformedText
+                                }
+                            default:
+                                if token.isNumber {
+                                    mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
+                                    if mapValue == nil {
+                                        throw DecodingError.malformedText
+                                    }
+                                } else {
+                                    throw DecodingError.malformedText
+                                }
+                            }
+                            value[mapKey] = mapValue
+                            return
+                        }
+                    }
                 }
-                state = .expectComma
-            case .comma:
-                if state != .expectComma {
-                    throw DecodingError.malformedText
-                }
-                state = .expectKey
-            case .endObject:
-                if state != .expectFirstKey && state != .expectComma {
-                    throw DecodingError.malformedText
-                }
-                return
-            default:
-                throw DecodingError.malformedText
             }
         }
-        throw DecodingError.truncatedInput
+        throw DecodingError.malformedText
     }
 
     mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
