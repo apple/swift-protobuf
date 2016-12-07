@@ -2,9 +2,7 @@
 
 **Welcome to Swift Protobuf!**
 
-Apple's Swift programming language is a perfect complement to Google's Protocol
-Buffer serialization technology.  They both emphasize high performance
-and programmer safety.
+Apple's Swift programming language is a perfect complement to Google's Protocol Buffer serialization technology.  They both emphasize high performance and programmer safety.
 
 Google's protobuf project includes a conformance checking host program that generates a large number of test cases, feeds them to a test program that executes those test cases, then verifies the results.  This project provides the test program for Swift Protobuf that works with Google's conformance checking host to verify that Swift Protobuf is completely compatible with other implementations of Google's protobuf specification.
 
@@ -14,13 +12,13 @@ This test suite requires Swift 3.0, standard command-line tools such as make and
 
 ## Building the Tests
 
-You should start by editing the `Makefile` and adjusting these two lines to match your system:
+The `Makefile` at the root of this project has the following lines, which specify how to run the installed `protoc` program on your system, and where to find the Google protobuf source tree:
 ```Makefile
 PROTOC=protoc
 GOOGLE_PROTOBUFS_CHECKOUT=../protobuf
 ```
 
-These lines specify how to run the installed `protoc` program on your system, and where to find the Google protobuf source tree.
+If these do not match your system, you can run `make [target] PROTOC=[path] GOOGLE_PROTOBUFS_CHECKOUT=[path]`, or edit the `Makefile` directly if you prefer.
 
 After setting these variables, you can type:
 ```console

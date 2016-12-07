@@ -171,14 +171,15 @@ endif
 	build \
 	check \
 	clean \
+	conformance-host \
 	default \
 	install \
 	reference \
 	regenerate \
+	regenerate-conformance-protos \
 	regenerate-library-protos \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
-	regenerate-conformance-protos \
 	test \
 	test-all \
 	test-everything \
@@ -339,7 +340,7 @@ regenerate-test-protos: build
 
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/Conformance ${CONFORMANCE_PROTOS}
+	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/Conformance ${CONFORMANCE_PROTOS}
 
 #
 # Helper to update the .proto files copied from the google/protobufs distro.

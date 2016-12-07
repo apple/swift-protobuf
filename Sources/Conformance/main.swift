@@ -1,4 +1,4 @@
-// ProtobufRuntime/Soruces/Conformance/main.swift - Conformance test main
+// ProtobufRuntime/Sources/Conformance/main.swift - Conformance test main
 //
 // This source file is part of the Swift.org open source project
 //
