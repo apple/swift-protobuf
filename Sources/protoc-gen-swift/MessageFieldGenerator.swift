@@ -33,6 +33,22 @@ extension Google_Protobuf_FieldDescriptorProto {
         }
     }
 
+    var bareTypeName: String {
+        if typeName.hasPrefix(".") {
+            var t = ""
+            for c in typeName.characters {
+                if c == "." {
+                    t = ""
+                } else {
+                    t.append(c)
+                }
+            }
+            return t
+        } else {
+            return typeName
+        }
+    }
+
     func getIsMap(context: Context) -> Bool {
         if type != .message {return false}
         let m = context.getMessageForPath(path: typeName)!
@@ -245,7 +261,21 @@ struct MessageFieldGenerator {
         // transformed with protoc's algorithm; if so, use a new case to ask
         // the runtime to do the same transformation instead of storing both
         // strings.
-        if let jsonName = jsonName, jsonName != protoName {
+
+        // Protobuf Text uses the unqualified group name for the field
+        // name instead of the field name provided by protoc.  As far
+        // as I can tell, no one uses the fieldname provided by protoc,
+        // so let's just put the field name that Protobuf Text
+        // actually uses here.
+        let protoName: String
+        let jsonName: String
+        if isGroup {
+            protoName = descriptor.bareTypeName
+        } else {
+            protoName = self.protoName
+        }
+        jsonName = self.jsonName ?? protoName
+        if jsonName != protoName {
             return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\", swift: \"\(swiftName)\")"
         } else {
             return ".same(proto: \"\(protoName)\", swift: \"\(swiftName)\")"
