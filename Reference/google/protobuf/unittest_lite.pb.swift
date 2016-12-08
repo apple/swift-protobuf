@@ -281,7 +281,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     13: .unique(proto: "optional_bool", json: "optionalBool", swift: "optionalBool"),
     14: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
     15: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
-    16: .same(proto: "optionalgroup", swift: "optionalGroup"),
+    16: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
     18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage", swift: "optionalNestedMessage"),
     19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage", swift: "optionalForeignMessage"),
     20: .unique(proto: "optional_import_message", json: "optionalImportMessage", swift: "optionalImportMessage"),
@@ -307,7 +307,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     43: .unique(proto: "repeated_bool", json: "repeatedBool", swift: "repeatedBool"),
     44: .unique(proto: "repeated_string", json: "repeatedString", swift: "repeatedString"),
     45: .unique(proto: "repeated_bytes", json: "repeatedBytes", swift: "repeatedBytes"),
-    46: .same(proto: "repeatedgroup", swift: "repeatedGroup"),
+    46: .unique(proto: "RepeatedGroup", json: "repeatedgroup", swift: "repeatedGroup"),
     48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
     49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage", swift: "repeatedForeignMessage"),
     50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage", swift: "repeatedImportMessage"),
@@ -2404,8 +2404,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     1: .unique(proto: "required_all_types", json: "requiredAllTypes", swift: "requiredAllTypes"),
     2: .unique(proto: "optional_all_types", json: "optionalAllTypes", swift: "optionalAllTypes"),
     3: .unique(proto: "repeated_all_types", json: "repeatedAllTypes", swift: "repeatedAllTypes"),
-    10: .same(proto: "optionalgroup", swift: "optionalGroup"),
-    20: .same(proto: "repeatedgroup", swift: "repeatedGroup"),
+    10: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
+    20: .unique(proto: "RepeatedGroup", json: "repeatedgroup", swift: "repeatedGroup"),
   ]
 
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
@@ -2492,8 +2492,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       1: .same(proto: "field1", swift: "field1"),
       2: .same(proto: "field2", swift: "field2"),
       3: .same(proto: "field3", swift: "field3"),
-      10: .same(proto: "group1", swift: "group1"),
-      20: .same(proto: "group2", swift: "group2"),
+      10: .unique(proto: "Group1", json: "group1", swift: "group1"),
+      20: .unique(proto: "Group2", json: "group2", swift: "group2"),
       1000: .same(proto: "ext1", swift: "ext1"),
       1001: .same(proto: "ext2", swift: "ext2"),
     ]
@@ -3203,7 +3203,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     536870005: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
     536870006: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
     536870007: .unique(proto: "optional_message", json: "optionalMessage", swift: "optionalMessage"),
-    536870008: .same(proto: "optionalgroup", swift: "optionalGroup"),
+    536870008: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
     536870010: .unique(proto: "string_string_map", json: "stringStringMap", swift: "stringStringMap"),
     536870011: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
     536870012: .unique(proto: "oneof_test_all_types", json: "oneofTestAllTypes", swift: "oneofTestAllTypes"),

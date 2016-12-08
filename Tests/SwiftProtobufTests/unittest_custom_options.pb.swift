@@ -1023,7 +1023,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "qux", swift: "qux"),
-    2: .same(proto: "complexoptiontype5", swift: "complexOptionType5"),
+    2: .unique(proto: "ComplexOptionType5", json: "complexoptiontype5", swift: "complexOptionType5"),
   ]
 
   private class _StorageClass {

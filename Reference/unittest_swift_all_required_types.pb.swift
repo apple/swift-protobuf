@@ -62,7 +62,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     13: .unique(proto: "required_bool", json: "requiredBool", swift: "requiredBool"),
     14: .unique(proto: "required_string", json: "requiredString", swift: "requiredString"),
     15: .unique(proto: "required_bytes", json: "requiredBytes", swift: "requiredBytes"),
-    16: .same(proto: "requiredgroup", swift: "requiredGroup"),
+    16: .unique(proto: "RequiredGroup", json: "requiredgroup", swift: "requiredGroup"),
     18: .unique(proto: "required_nested_message", json: "requiredNestedMessage", swift: "requiredNestedMessage"),
     19: .unique(proto: "required_foreign_message", json: "requiredForeignMessage", swift: "requiredForeignMessage"),
     20: .unique(proto: "required_import_message", json: "requiredImportMessage", swift: "requiredImportMessage"),

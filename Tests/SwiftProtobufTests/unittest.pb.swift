@@ -356,7 +356,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     13: .unique(proto: "optional_bool", json: "optionalBool", swift: "optionalBool"),
     14: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
     15: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
-    16: .same(proto: "optionalgroup", swift: "optionalGroup"),
+    16: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
     18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage", swift: "optionalNestedMessage"),
     19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage", swift: "optionalForeignMessage"),
     20: .unique(proto: "optional_import_message", json: "optionalImportMessage", swift: "optionalImportMessage"),
@@ -382,7 +382,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     43: .unique(proto: "repeated_bool", json: "repeatedBool", swift: "repeatedBool"),
     44: .unique(proto: "repeated_string", json: "repeatedString", swift: "repeatedString"),
     45: .unique(proto: "repeated_bytes", json: "repeatedBytes", swift: "repeatedBytes"),
-    46: .same(proto: "repeatedgroup", swift: "repeatedGroup"),
+    46: .unique(proto: "RepeatedGroup", json: "repeatedgroup", swift: "repeatedGroup"),
     48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
     49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage", swift: "repeatedForeignMessage"),
     50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage", swift: "repeatedImportMessage"),
@@ -3787,8 +3787,8 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a", swift: "a"),
-    2: .same(proto: "foo", swift: "foo"),
-    3: .same(proto: "bar", swift: "bar"),
+    2: .unique(proto: "Foo", json: "foo", swift: "foo"),
+    3: .unique(proto: "Bar", json: "bar", swift: "bar"),
   ]
 
   private class _StorageClass {
@@ -5809,7 +5809,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     1: .unique(proto: "foo_int", json: "fooInt", swift: "fooInt"),
     2: .unique(proto: "foo_string", json: "fooString", swift: "fooString"),
     3: .unique(proto: "foo_message", json: "fooMessage", swift: "fooMessage"),
-    4: .same(proto: "foogroup", swift: "fooGroup"),
+    4: .unique(proto: "FooGroup", json: "foogroup", swift: "fooGroup"),
   ]
 
   private class _StorageClass {
@@ -6073,7 +6073,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
     1: .unique(proto: "foo_int", json: "fooInt", swift: "fooInt"),
     2: .unique(proto: "foo_string", json: "fooString", swift: "fooString"),
     3: .unique(proto: "foo_message", json: "fooMessage", swift: "fooMessage"),
-    4: .same(proto: "foogroup", swift: "fooGroup"),
+    4: .unique(proto: "FooGroup", json: "foogroup", swift: "fooGroup"),
   ]
 
   private class _StorageClass {
@@ -6280,7 +6280,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     5: .unique(proto: "foo_bytes", json: "fooBytes", swift: "fooBytes"),
     6: .unique(proto: "foo_enum", json: "fooEnum", swift: "fooEnum"),
     7: .unique(proto: "foo_message", json: "fooMessage", swift: "fooMessage"),
-    8: .same(proto: "foogroup", swift: "fooGroup"),
+    8: .unique(proto: "FooGroup", json: "foogroup", swift: "fooGroup"),
     11: .unique(proto: "foo_lazy_message", json: "fooLazyMessage", swift: "fooLazyMessage"),
     12: .unique(proto: "bar_int", json: "barInt", swift: "barInt"),
     13: .unique(proto: "bar_string", json: "barString", swift: "barString"),
@@ -8018,8 +8018,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
     1: .unique(proto: "required_all_types", json: "requiredAllTypes", swift: "requiredAllTypes"),
     2: .unique(proto: "optional_all_types", json: "optionalAllTypes", swift: "optionalAllTypes"),
     3: .unique(proto: "repeated_all_types", json: "repeatedAllTypes", swift: "repeatedAllTypes"),
-    10: .same(proto: "optionalgroup", swift: "optionalGroup"),
-    20: .same(proto: "repeatedgroup", swift: "repeatedGroup"),
+    10: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
+    20: .unique(proto: "RepeatedGroup", json: "repeatedgroup", swift: "repeatedGroup"),
   ]
 
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
@@ -8111,8 +8111,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
       1: .same(proto: "field1", swift: "field1"),
       2: .same(proto: "field2", swift: "field2"),
       3: .same(proto: "field3", swift: "field3"),
-      10: .same(proto: "group1", swift: "group1"),
-      20: .same(proto: "group2", swift: "group2"),
+      10: .unique(proto: "Group1", json: "group1", swift: "group1"),
+      20: .unique(proto: "Group2", json: "group2", swift: "group2"),
       1000: .same(proto: "ext1", swift: "ext1"),
       1001: .same(proto: "ext2", swift: "ext2"),
     ]
@@ -8942,7 +8942,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     536870005: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
     536870006: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
     536870007: .unique(proto: "optional_message", json: "optionalMessage", swift: "optionalMessage"),
-    536870008: .same(proto: "optionalgroup", swift: "optionalGroup"),
+    536870008: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
     536870010: .unique(proto: "string_string_map", json: "stringStringMap", swift: "stringStringMap"),
     536870011: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
     536870012: .unique(proto: "oneof_test_all_types", json: "oneofTestAllTypes", swift: "oneofTestAllTypes"),

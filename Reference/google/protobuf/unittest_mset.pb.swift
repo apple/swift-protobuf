@@ -247,7 +247,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
   public var protoMessageName: String {return "RawMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "item", swift: "item"),
+    1: .unique(proto: "Item", json: "item", swift: "item"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
