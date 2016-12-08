@@ -41,4 +41,12 @@ class Test_Text_Map_proto3: XCTestCase, PBTestHelpers {
             return o.mapInt32Int32 == [1:2, 3:4]
         }
     }
+    
+    func test_StringMessage() {
+        let foo = ProtobufUnittest_ForeignMessage.with {$0.c = 999}
+
+        assertTextEncode("map_string_foreign_message {\n  key: \"foo\"\n  value: {\n    c:999\n  }\n}\n") {(o: inout MessageTestType) in
+            o.mapStringForeignMessage = ["foo": foo]
+        }
+    }
 }

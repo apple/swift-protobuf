@@ -773,6 +773,21 @@ extension Test_JSON_Value {
     }
 }
 
+extension Test_Text_Map_proto3 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_Int32Int32", {try run_test(test:($0 as! Test_Text_Map_proto3).test_Int32Int32)}),
+            ("test_StringMessage", {try run_test(test:($0 as! Test_Text_Map_proto3).test_StringMessage)})        ]
+    }
+}
+
+extension Test_Text_proto2 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_group", {try run_test(test:($0 as! Test_Text_proto2).test_group)})        ]
+    }
+}
+
 extension Test_Text_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -824,6 +839,7 @@ extension Test_Text_proto3 {
             ("testInvalidToken", {try run_test(test:($0 as! Test_Text_proto3).testInvalidToken)}),
             ("testInvalidFieldName", {try run_test(test:($0 as! Test_Text_proto3).testInvalidFieldName)}),
             ("testInvalidCapitalization", {try run_test(test:($0 as! Test_Text_proto3).testInvalidCapitalization)}),
+            ("testExplicitDelimiters", {try run_test(test:($0 as! Test_Text_proto3).testExplicitDelimiters)}),
             ("testMultipleFields", {try run_test(test:($0 as! Test_Text_proto3).testMultipleFields)})        ]
     }
 }
@@ -922,6 +938,8 @@ XCTMain(
         (testCaseClass: Test_Struct.self, allTests: Test_Struct.allTests),
         (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
         (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
+        (testCaseClass: Test_Text_Map_proto3.self, allTests: Test_Text_Map_proto3.allTests),
+        (testCaseClass: Test_Text_proto2.self, allTests: Test_Text_proto2.allTests),
         (testCaseClass: Test_Text_proto3.self, allTests: Test_Text_proto3.allTests),
         (testCaseClass: Test_Timestamp.self, allTests: Test_Timestamp.allTests),
         (testCaseClass: Test_Type.self, allTests: Test_Type.allTests),
