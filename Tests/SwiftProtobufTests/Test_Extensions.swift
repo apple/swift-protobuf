@@ -71,57 +71,6 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
     }
 
-    func assertJSONEncode(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
-        let empty = MessageTestType()
-        var configured = empty
-        configure(&configured)
-        XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
-        do {
-            let encoded = try configured.serializeJSON()
-            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
-            do {
-                let decoded = try MessageTestType(json: encoded, extensions: extensions)
-                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
-            } catch {
-                XCTFail("Encode/decode cycle should not throw error, decoding: \(encoded)", file: file, line: line)
-            }
-        } catch {
-            XCTFail("Failed to serialize JSON: \(configured)")
-        }
-    }
-
-    func assertJSONDecodeSucceeds(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
-        do {
-            let decoded = try MessageTestType(json: json)
-            XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
-
-            do {
-                let encoded = try decoded.serializeJSON()
-                do {
-                    let redecoded = try MessageTestType(json: json)
-                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
-                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
-                } catch {
-                    XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
-                }
-            } catch {
-                XCTFail("Swift should have recoded without error: \(decoded)", file: file, line: line)
-            }
-        } catch {
-            XCTFail("Swift should have decoded without error: \(json)", file: file, line: line)
-            return
-        }
-    }
-
-    func assertJSONDecodeFails(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
-        do {
-            let _ = try MessageTestType(json: json)
-            XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
-        } catch {
-            // Yay! It failed!
-        }
-    }
-
 
     override func setUp() {
         // Start with all the extensions from the unittest.proto file:
@@ -170,17 +119,6 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual(m2.debugDescription, "ProtobufUnittest_TestAllExtensions(ProtobufUnittest_optionalInt32Extension:18)")
         XCTAssertNotEqual(m1.hashValue, m2.hashValue)
-    }
-
-    // TODO: Test more types of fields with JSON encoding and fix them...
-    // TODO: Verify that JSON extensions work with proto field names as well.
-    func test_optionalInt32Extension_JSON() throws {
-        var m = MessageTestType()
-        m.ProtobufUnittest_optionalInt32Extension = 18
-        let json = try m.serializeJSON()
-        XCTAssertEqual("{\"optionalInt32Extension\":18}", json)
-
-        assertJSONEncode("{\"optionalInt32Extension\":18}") {(o: inout MessageTestType) in o.ProtobufUnittest_optionalInt32Extension = 18}
     }
 
     func test_extensionMessageSpecificity() throws {
@@ -309,22 +247,6 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
     }
 
 
-    func test_groupExtension_JSON() throws {
-        var m = SwiftTestGroupExtensions()
-        var group = ExtensionGroup()
-        group.a = 7
-        m.extensionGroup = group
-        let json = try m.serializeJSON()
-
-        XCTAssertEqual(json, "{\"extensiongroup\":{\"a\":7}}")
-
-        let m2 = try SwiftTestGroupExtensions(json: json, extensions: [Extensions_extensionGroup])
-        XCTAssertNotNil(m2.extensionGroup)
-        if m.hasExtensionGroup {
-            XCTAssertEqual(m.extensionGroup.a, 7)
-        }
-    }
-
     func test_repeatedGroupExtension() throws {
         var m = SwiftTestGroupExtensions()
         var group1 = RepeatedExtensionGroup() // Bug: This should be in SwiftTestGroupExtensions
@@ -354,25 +276,6 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             }
         } catch {
             XCTFail("Decoding into unextended message failed for \(coded)")
-        }
-    }
-
-    func test_repeatedGroupExtension_JSON() throws {
-        var m = SwiftTestGroupExtensions()
-        var group1 = RepeatedExtensionGroup()
-        group1.a = 7
-        var group2 = RepeatedExtensionGroup()
-        group2.a = 8
-        m.repeatedExtensionGroup = [group1, group2]
-        let json = try m.serializeJSON()
-
-        XCTAssertEqual(json, "{\"repeatedextensiongroup\":[{\"a\":7},{\"a\":8}]}")
-
-        let m2 = try SwiftTestGroupExtensions(json: json, extensions: [Extensions_repeatedExtensionGroup])
-        XCTAssertEqual(m2.repeatedExtensionGroup.count, 2)
-        if m2.repeatedExtensionGroup.count == 2 {
-            XCTAssertEqual(m2.repeatedExtensionGroup[0].a, 7)
-            XCTAssertEqual(m2.repeatedExtensionGroup[1].a, 8)
         }
     }
 }

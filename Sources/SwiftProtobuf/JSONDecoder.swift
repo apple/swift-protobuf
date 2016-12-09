@@ -47,8 +47,8 @@ public struct JSONDecoder {
         case expectComma
     }
 
-    public init(json: String, extensions: ExtensionSet? = nil) {
-        scanner = JSONScanner(json: json, tokens: [], extensions: extensions)
+    public init(json: String) {
+        scanner = JSONScanner(json: json, tokens: [])
     }
 
     public init(tokens: [JSONToken]) {
@@ -98,8 +98,7 @@ public struct JSONDecoder {
             throw DecodingError.missingFieldNames
         }
         if let token = try nextToken() {
-            let protoFieldNumber = (nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
-                ?? scanner.extensions?.fieldNumberForJson(messageType: M.self, jsonFieldName: key))
+            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
             switch token {
             case .colon, .comma, .endObject, .endArray:
                 throw DecodingError.malformedJSON
@@ -263,12 +262,6 @@ protocol JSONFieldDecoder: FieldDecoder {
 
 extension JSONFieldDecoder {
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
-        if let ext = scanner.extensions?[messageType, protoFieldNumber] {
-            var mutableSetter: FieldDecoder = self
-            var fieldValue = values[protoFieldNumber] ?? ext.newField()
-            try fieldValue.decodeField(setter: &mutableSetter)
-            values[protoFieldNumber] = fieldValue
-        }
     }
 }
 

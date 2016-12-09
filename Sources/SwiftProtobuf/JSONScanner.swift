@@ -16,9 +16,6 @@
 
 public class JSONScanner {
 
-  /// TODO: Remove this; JSON encoding does not preserve extension fields.
-  internal var extensions: ExtensionSet?
-
   /// A stack of tokens that should be returned upon the next call to `next()`
   /// before the input string is scanned again.
   private var tokenPushback: [JSONToken]
@@ -49,14 +46,11 @@ public class JSONScanner {
   }
 
   /// Creates a new JSON scanner for the given string.
-  public init(json: String,
-              tokens: [JSONToken],
-              extensions: ExtensionSet? = nil) {
+  public init(json: String, tokens: [JSONToken]) {
     self.scalars = json.unicodeScalars
     self.tokenStart = self.scalars.startIndex
     self.index = self.tokenStart
     tokenPushback = tokens.reversed()
-    self.extensions = extensions
   }
 
   /// Pushes a token back onto the scanner. Pushed-back tokens are read in the
