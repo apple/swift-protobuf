@@ -319,12 +319,6 @@ private struct JSONObjectFieldDecoder: JSONFieldDecoder {
         value = message
     }
 
-    mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
-        var group = G()
-        var subDecoder = JSONDecoder(scanner: scanner)
-        try group.decodeFromJSONObject(jsonDecoder: &subDecoder)
-        value = group
-    }
     mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
         var keyToken: JSONToken?
         var state = JSONDecoder.ObjectParseState.expectFirstKey
@@ -480,45 +474,4 @@ internal struct JSONArrayFieldDecoder: JSONFieldDecoder {
             }
         }
     }
-
-    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
-        var token: JSONToken
-        if let startToken = try scanner.next() {
-            switch startToken {
-            case .endArray: return // Empty array case
-            default: token = startToken
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-
-        while true {
-            switch token {
-            case .beginObject:
-                var group = G()
-                var subDecoder = JSONDecoder(scanner: scanner)
-                try group.decodeFromJSONObject(jsonDecoder: &subDecoder)
-                value.append(group)
-            default:
-                throw DecodingError.malformedJSON
-            }
-            if let separatorToken = try scanner.next() {
-                switch separatorToken {
-                case .comma:
-                    if let t = try scanner.next() {
-                        token = t
-                    } else {
-                        throw DecodingError.truncatedInput
-                    }
-                    break
-                case .endArray:
-                    return
-                default:
-                    throw DecodingError.malformedJSON
-                }
-            }
-        }
-    }
 }
-
-
