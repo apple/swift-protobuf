@@ -72,7 +72,7 @@ public protocol FieldType {
     // Protobuf Text coding for basic types
     //
     /// Serialize the value to a Text encoder
-    static func serializeTextValue(encoder: inout TextEncoder, value: BaseType) throws
+    static func serializeTextValue(encoder: TextEncoder, value: BaseType) throws
     /// Set a Swift optional from a single Text token
     static func setFromTextToken(token: TextToken, value: inout BaseType?) throws
     /// Update a Swift array given a single JSON token (used by repeated fields of basic types)

@@ -17,22 +17,25 @@
 import Foundation
 
 public struct TextEncodingVisitor: Visitor {
-    private var encoder = TextEncoder()
-    private var tabLevel: Int = 0
-    private var message: Message
+    private var encoder: TextEncoder
     public var result: String {return encoder.result}
     private var nameResolver: (Int) -> String?
 
-    public init(message: Message, tabLevel: Int) {
-        self.tabLevel = tabLevel
-        self.message = message
+    public init(message: Message) throws {
+        self.encoder = TextEncoder()
         self.nameResolver =
             ProtoNameResolvers.protoFieldNameResolver(for: message)
-    }
-    
-    mutating public func run() throws {
         try withAbstractVisitor {(visitor: inout Visitor) in
-            try self.message.traverse(visitor: &visitor)
+            try message.traverse(visitor: &visitor)
+        }
+    }
+
+    public init(message: Message, encoder: TextEncoder) throws {
+        self.encoder = encoder
+        self.nameResolver =
+            ProtoNameResolvers.protoFieldNameResolver(for: message)
+        try withAbstractVisitor {(visitor: inout Visitor) in
+            try message.traverse(visitor: &visitor)
         }
     }
 
@@ -48,16 +51,16 @@ public struct TextEncodingVisitor: Visitor {
 
     mutating public func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
-        encoder.startField(name: protoFieldName, tabLevel: tabLevel)
-        try S.serializeTextValue(encoder: &encoder, value: value)
+        encoder.startField(name: protoFieldName)
+        try S.serializeTextValue(encoder: encoder, value: value)
         encoder.endField()
     }
 
     mutating public func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
         for v in value {
-            encoder.startField(name: protoFieldName, tabLevel: tabLevel)
-            try S.serializeTextValue(encoder: &encoder, value: v)
+            encoder.startField(name: protoFieldName)
+            try S.serializeTextValue(encoder: encoder, value: v)
             encoder.endField()
         }
     }
@@ -68,66 +71,40 @@ public struct TextEncodingVisitor: Visitor {
 
     mutating public func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
-        encoder.startField(name: protoFieldName, tabLevel: tabLevel, dropColon: true)
-        // Note: We ask the message to serialize itself instead of
-        // using ProtobufJSONEncodingVisitor(message:) since
-        // some messages override the JSON format at this point.
-        encoder.startObject()
-        try M.serializeTextValue(encoder: &encoder, value: value, tabLevel: tabLevel + 1)
-        encoder.endObject(tabLevel: tabLevel)
+        encoder.startField(name: protoFieldName, dropColon: true)
+        try M.serializeTextValue(encoder: encoder, value: value)
         encoder.endField()
     }
 
     mutating public func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
         for v in value {
-            encoder.startField(name: protoFieldName, tabLevel: tabLevel, dropColon: true)
-            encoder.startObject()
-            // Note: We ask the message to serialize itself instead of
-            // using ProtobufJSONEncodingVisitor(message:) since
-            // some messages override the JSON format at this point.
-            try M.serializeTextValue(encoder: &encoder, value: v, tabLevel: tabLevel + 1)
-            encoder.endObject(tabLevel: tabLevel)
+            encoder.startField(name: protoFieldName, dropColon: true)
+            try M.serializeTextValue(encoder: encoder, value: v)
             encoder.endField()
         }
     }
 
-    // Note that JSON encoding for groups is not officially supported
-    // by any Google spec.  But it's trivial to support it here.
     mutating public func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws {
-        let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
-        encoder.startField(name: protoFieldName, tabLevel: tabLevel)
-        // Groups have no special JSON support, so we use only the generic traversal mechanism here
-        var t = TextEncodingVisitor(message: value, tabLevel:tabLevel)
-        try t.run()
-        encoder.append(text: t.result)
-        encoder.endField()
+        try visitSingularMessageField(value: value, protoFieldNumber: protoFieldNumber)
     }
 
     mutating public func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws {
-        let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
-        for v in value {
-            encoder.startField(name: protoFieldName, tabLevel: tabLevel)
-            // Groups have no special JSON support, so we use only the generic traversal mechanism here
-            var t = TextEncodingVisitor(message: v, tabLevel:tabLevel)
-            try t.run()
-            encoder.append(text: t.result)
-            encoder.endField()
-        }
+        try visitRepeatedMessageField(value: value, protoFieldNumber: protoFieldNumber)
     }
 
     mutating public func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws  where KeyType.BaseType: Hashable {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
         for (k,v) in value {
-            encoder.startField(name: protoFieldName, tabLevel: tabLevel, dropColon: true)
+            encoder.startField(name: protoFieldName, dropColon: true)
             encoder.startObject()
-            encoder.startField(name: "key", tabLevel: tabLevel + 1)
-            try KeyType.serializeTextValue(encoder: &encoder, value: k)
+            encoder.startField(name: "key")
+            try KeyType.serializeTextValue(encoder: encoder, value: k)
             encoder.endField()
-            encoder.startField(name: "value", tabLevel: tabLevel + 1)
-            try ValueType.serializeTextValue(encoder: &encoder, value: v)
+            encoder.startField(name: "value")
+            try ValueType.serializeTextValue(encoder: encoder, value: v)
             encoder.endField()
-            encoder.endObject(tabLevel: tabLevel)
+            encoder.endObject()
             encoder.endField()
         }
     }

@@ -26,4 +26,12 @@ class Test_Text_proto2: XCTestCase, PBTestHelpers {
             o.optionalGroup = ProtobufUnittest_TestAllTypes.OptionalGroup.with {$0.a = 17}
         }
     }
+    
+    func test_repeatedGroup() {
+        assertTextEncode("RepeatedGroup {\n  a: 17\n}\nRepeatedGroup {\n  a: 18\n}\n") {(o: inout MessageTestType) in
+            let group17 = ProtobufUnittest_TestAllTypes.RepeatedGroup.with {$0.a = 17}
+            let group18 = ProtobufUnittest_TestAllTypes.RepeatedGroup.with {$0.a = 18}
+            o.repeatedGroup = [group17, group18]
+        }
+    }
 }

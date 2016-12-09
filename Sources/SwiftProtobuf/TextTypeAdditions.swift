@@ -50,7 +50,7 @@ public extension ProtobufFloat {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Float) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Float) {
         encoder.putFloatValue(value: value, quote: false)
     }
 
@@ -86,7 +86,7 @@ public extension ProtobufDouble {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Double) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Double) {
         encoder.putDoubleValue(value: value, quote: false)
     }
 
@@ -121,7 +121,7 @@ public extension ProtobufInt32 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Int32) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: false)
     }
 
@@ -135,7 +135,7 @@ public extension ProtobufInt32 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: Int32) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: true)
     }
 
@@ -164,7 +164,7 @@ public extension ProtobufInt64 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Int64) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
 
@@ -178,7 +178,7 @@ public extension ProtobufInt64 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: Int64) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
 
@@ -207,7 +207,7 @@ public extension ProtobufUInt32 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: UInt32) {
+    public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: false)
     }
 
@@ -225,7 +225,7 @@ public extension ProtobufUInt32 {
         return token.asUInt32
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: UInt32) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: true)
     }
 }
@@ -250,7 +250,7 @@ public extension ProtobufUInt64 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: UInt64) {
+    public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
         encoder.putUInt64(value: value, quote: true)
     }
 
@@ -264,7 +264,7 @@ public extension ProtobufUInt64 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: UInt64) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: UInt64) {
         encoder.putUInt64(value: value, quote: true)
     }
 
@@ -293,7 +293,7 @@ public extension ProtobufSInt32 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Int32) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: false)
     }
 
@@ -311,7 +311,7 @@ public extension ProtobufSInt32 {
         return token.asInt32
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: Int32) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: true)
     }
 }
@@ -336,7 +336,7 @@ public extension ProtobufSInt64 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Int64) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
 
@@ -350,7 +350,7 @@ public extension ProtobufSInt64 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: Int64) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
 
@@ -379,7 +379,7 @@ public extension ProtobufFixed32 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: UInt32) {
+    public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: false)
     }
 
@@ -393,7 +393,7 @@ public extension ProtobufFixed32 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: UInt32) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: true)
     }
 
@@ -422,7 +422,7 @@ public extension ProtobufFixed64 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: UInt64) {
+    public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
         encoder.putUInt64(value: value, quote: true)
     }
     public static func decodeTextMapValue(textDecoder: inout TextDecoder) throws -> UInt64? {
@@ -435,7 +435,7 @@ public extension ProtobufFixed64 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: UInt64) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: UInt64) {
         encoder.putUInt64(value: value.littleEndian, quote: true)
     }
 
@@ -464,7 +464,7 @@ public extension ProtobufSFixed32 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Int32) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: false)
     }
 
@@ -478,7 +478,7 @@ public extension ProtobufSFixed32 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: Int32) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: true)
     }
 
@@ -507,7 +507,7 @@ public extension ProtobufSFixed64 {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Int64) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
 
@@ -521,7 +521,7 @@ public extension ProtobufSFixed64 {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: Int64) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
 
@@ -550,7 +550,7 @@ public extension ProtobufBool {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Bool) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Bool) {
         encoder.putBoolValue(value: value, quote: false)
     }
 
@@ -564,7 +564,7 @@ public extension ProtobufBool {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: Bool) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: Bool) {
         encoder.putBoolValue(value: value, quote: true)
     }
 
@@ -593,7 +593,7 @@ public extension ProtobufString {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: String) {
+    public static func serializeTextValue(encoder: TextEncoder, value: String) {
         encoder.putStringValue(value: value)
     }
 
@@ -608,7 +608,7 @@ public extension ProtobufString {
         throw DecodingError.truncatedInput
     }
 
-    public static func serializeTextMapKey(encoder: inout TextEncoder, value: String) {
+    public static func serializeTextMapKey(encoder: TextEncoder, value: String) {
         encoder.putStringValue(value: value)
     }
     public static func decodeTextMapKey(token: TextToken) -> String? {
@@ -636,7 +636,7 @@ public extension ProtobufBytes {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Data) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Data) {
         encoder.putBytesValue(value: value)
     }
 
@@ -703,7 +703,7 @@ extension Enum where RawValue == Int {
         }
     }
 
-    public static func serializeTextValue(encoder: inout TextEncoder, value: Self) {
+    public static func serializeTextValue(encoder: TextEncoder, value: Self) {
         encoder.append(text: value.json.trimmingCharacters(in:["\""]))
     }
 
@@ -743,24 +743,17 @@ public extension Message {
         }
     }
 
-    func serializeText(tabLevel:Int = 0) throws -> String {
-        var textVisitor = TextEncodingVisitor(message: self, tabLevel: tabLevel)
-        try textVisitor.run()
-        return textVisitor.result
+    public func serializeText() throws -> String {
+        return try TextEncodingVisitor(message: self).result
     }
 
-    // TODO: Can we get rid of this?  (This is leftover from an earlier generation of JSON encoding logic.)
-    static func serializeTextValue(encoder: inout TextEncoder, value: Self) throws {
-        try serializeTextValue(encoder:&encoder, value:value, tabLevel:0)
+    static func serializeTextValue(encoder: TextEncoder, value: Self) throws {
+        encoder.startObject()
+        _ = try TextEncodingVisitor(message: value as Message, encoder: encoder)
+        encoder.endObject()
     }
 
-    static func serializeTextValue(encoder: inout TextEncoder, value: Self, tabLevel:Int) throws {
-        let text = try value.serializeText(tabLevel:tabLevel)
-        encoder.append(text: text)
-    }
-
-    // TODO: Can we get rid of this?  (This is leftover from an earlier generation of JSON decoding logic.)
-    public mutating func decodeFromText(textDecoder: inout TextDecoder) throws -> Bool {
+    mutating func decodeFromText(textDecoder: inout TextDecoder) throws -> Bool {
         if let token = try textDecoder.nextToken() {
             switch token {
             case .beginObject:
@@ -793,7 +786,7 @@ public extension Message {
     }
 
     // Open curly brace already consumed.
-    public mutating func decodeFromTextObject(textDecoder: inout TextDecoder) throws {
+    mutating func decodeFromTextObject(textDecoder: inout TextDecoder) throws {
         var key = ""
         var state = TextDecoder.ObjectParseState.expectFirstKey
         while let token = try textDecoder.nextToken() {
