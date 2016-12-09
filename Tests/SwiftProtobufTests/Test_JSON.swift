@@ -224,8 +224,6 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleUint32\":true}")
         assertJSONDecodeFails("{\"singleUint32\":-1}")
         assertJSONDecodeFails("{\"singleUint32\":\"-1\"}")
-        assertJSONDecodeFails("{\"singleUint32\":\"-0\"}")
-        assertJSONDecodeFails("{\"singleUint32\":-0}")
         assertJSONDecodeFails("{\"singleUint32\":0x102}")
         assertJSONDecodeFails("{\"singleUint32\":{}}")
         assertJSONDecodeFails("{\"singleUint32\":[]}")
@@ -273,14 +271,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleInt64\": \"0\" }") {$0.singleInt64 == 0}
         // Protobuf JSON does accept exponential format
         assertJSONDecodeSucceeds("{\"singleInt64\":1e3}") {$0.singleInt64 == 1000}
-        assertJSONDecodeSucceeds("{\"singleInt64\":9.223372036854775807e18}") {$0.singleInt64 == Int64.max}
-        assertJSONDecodeSucceeds("{\"singleInt64\":9.223372036854775807e+18}") {$0.singleInt64 == Int64.max}
-        assertJSONDecodeSucceeds("{\"singleInt64\":-92.23372036854775808e17}") {$0.singleInt64 == Int64.min}
-        assertJSONDecodeSucceeds("{\"singleInt64\":9223372036854775807000e-3}") {$0.singleInt64 == Int64.max}
-        assertJSONDecodeSucceeds("{\"singleInt64\":9223372036854775807000000000e-9}") {$0.singleInt64 == Int64.max}
+        assertJSONDecodeSucceeds("{\"singleInt64\":\"9223372036854775807\"}") {$0.singleInt64 == Int64.max}
+        assertJSONDecodeSucceeds("{\"singleInt64\":-9.223372036854775808e18}") {$0.singleInt64 == Int64.min}
         assertJSONDecodeFails("{\"singleInt64\":9.223372036854775808e18}") // Out of range
-        assertJSONDecodeFails("{\"singleInt64\":-92.23372036854775809e17}") // Out of range
-        assertJSONDecodeFails("{\"singleInt64\":9.223372036854775807e17}")  // Not integer
         // Explicit 'null' is permitted, decodes to default (in proto3)
         assertJSONDecodeSucceeds("{\"singleInt64\":null}") {$0.singleInt64 == 0}
         assertJSONDecodeSucceeds("{\"singleInt64\":2147483648}") {$0.singleInt64 == 2147483648}
