@@ -16,305 +16,151 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
-// Protobuf JSON allows integers (signed and unsigned) to be
-// coded using floating-point exponential format, but does
-// reject anything that actually has a fractional part.
-// This code converts numbers like 4.294967e9 to a standard
-// integer decimal string format 429496700 using only pure
-// textual operations (adding/removing trailing zeros, removing
-// decimal point character).  The result can be handed
-// to IntMax(string:) or UIntMax(string:) as appropriate.
-//
-// Returns an array of Character (to make it easy for clients to
-// check specific character values) or nil if the provided string
-// cannot be normalized to a valid integer format.
-//
-// Here are some sample inputs and outputs to clarify what this function does:
-//   = "0.1.2" => nil (extra period)
-//   = "0x02" => nil (invalid 'x' character)
-//   = "4.123" => nil (not an integer)
-//   = "012" => nil (leading zero rejected)
-//   = "0" => "0" (bare zero is okay)
-//   = "400e-1" => "40" (adjust decimal point)
-//   = "4.12e2" => "412" (adjust decimal point)
-//   = "1.0000" => "1" (drop extraneous trailing zeros)
-//
-// Note:  This logic is not necessary for most text serializations.
-// It's needed for Protobuf JSON to correctly handle cases such as:
-//    Field type Int64, value "9.223372036854775807e+18"
-// Neither Double() nor Int64() can correctly parse this:  Double()
-// lacks the precision, and Int64() does not support exponential
-// notation.  So this code transforms cases like this into a non-exponential
-// form that Int64() can correctly handle.
-// TODO: Investigate using Float80() to parse 64-bit integers; it might
-// have both the exponential support and the 64-bit precision necessary,
-// which would remove the need for this complex bit of custom code.
-//
-// Note: This does reject sequences that are "obviously" out
-// of the range of a 64-bit integer, but that's just to avoid
-// crazy cases like trying to build million-character string for
-// "1e1000000".  The client code is responsible for real range
-// checking.
-//
-private func normalizeIntString(_ s: String) -> [Character]? {
-    var total = 0
-    var digits = 0
-    var fractionalDigits: Int?
-    var hasLeadingZero = false
-    var chars = s.characters.makeIterator()
-    var number = [Character]()
-    while let c = chars.next() {
-        if hasLeadingZero { // Leading zero must be last character
-            return nil
-        }
-        switch c {
-        case "-":
-            if total > 0 {
-                return nil
-            }
-            number.append(c)
-            total += 1
-        case "0":
-            if digits == 0 {
-                hasLeadingZero = true
-            }
-            fallthrough
-        case "1", "2", "3", "4", "5", "6", "7", "8", "9":
-            if fractionalDigits != nil {
-                fractionalDigits = fractionalDigits! + 1
-            } else {
-                digits += 1
-            }
-            number.append(c)
-            total += 1
-        case ".":
-            if fractionalDigits != nil {
-                return nil // Duplicate '.'
-            }
-            fractionalDigits = 0
-            total += 1
-        case "e", "E":
-            var expString = ""
-            var c2 = chars.next()
-            if c2 == "+" || c2 == "-" {
-                expString.append(c2!)
-                c2 = chars.next()
-            }
-            if c2 == nil {
-                return nil
-            }
-            while let expDigit = c2 {
-                switch expDigit {
-                case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                    expString.append(expDigit)
-                default:
-                    return nil
-                }
-                c2 = chars.next()
-            }
-            // Limit on exp here follows from:
-            //   = 64-bit int has range less than 10 ^ 20,
-            //     so a positive exponent can't result in
-            //     more than 20 digits wihout overflow
-            //   = Value must be integral, so a negative exponent
-            //     can't be greater than number of digits
-            // The limit here is deliberately sloppy, it is only intended
-            // to avoid painful abuse cases (e.g., 1e1000000000 will be
-            // quickly dropped without trying to build a an array
-            // of a billion characters).
-            if let exp = Int(expString), exp + digits < 20 && exp > -digits {
-                // Fold fractional digits into exponent
-                var adjustment = exp - (fractionalDigits ?? 0)
-                fractionalDigits = 0
-                // Adjust digit string to account for exponent
-                while adjustment > 0 {
-                    number.append("0")
-                    adjustment -= 1
-                }
-                while adjustment < 0 {
-                    if number.isEmpty || number[number.count - 1] != "0" {
-                        return nil
-                    }
-                    number.remove(at: number.count - 1)
-                    adjustment += 1
-                }
-            } else {
-                // Error if exponent is malformed or out of range
-                return nil
-            }
-        default:
-            return nil
-        }
+
+/// Returns a `Data` value containing bytes equivalent to the given
+/// Base64-encoded string, or nil if the conversion fails.
+private func decodedBytes(base64String s: String) -> Data? {
+  var out = [UInt8]()
+  let digits = s.utf8
+  var n = 0
+  var bits = 0
+  for (i, digit) in digits.enumerated() {
+    n <<= 6
+    switch digit {
+    case 65...90: n |= Int(digit - 65); bits += 6
+    case 97...122: n |= Int(digit - 97 + 26); bits += 6
+    case 48...57: n |= Int(digit - 48 + 52); bits += 6
+    case 43: n |= 62; bits += 6
+    case 47: n |= 63; bits += 6
+    case 61: n |= 0
+    default:
+      return nil
     }
-    if number.isEmpty {
-        return nil
-    }
-    // Allow 7.000 and 1.23000e2 by trimming fractional zero digits
-    if let f = fractionalDigits {
-        var fractionalDigits = f
-        while fractionalDigits > 0 && !number.isEmpty && number[number.count - 1] == "0" {
-            number.remove(at: number.count - 1)
-            fractionalDigits -= 1
+    if i % 4 == 3 {
+      out.append(UInt8(truncatingBitPattern: n >> 16))
+      if bits >= 16 {
+        out.append(UInt8(truncatingBitPattern: n >> 8))
+        if bits >= 24 {
+          out.append(UInt8(truncatingBitPattern: n))
         }
-        if fractionalDigits > 0 {
-            return nil
-        }
+      }
+      bits = 0
     }
-    return number
+  }
+  if bits != 0 {
+    return nil
+  }
+  return Data(bytes: out)
 }
 
-private func decodeBytes(_ s: String) -> Data? {
-    var out = [UInt8]()
-    let digits = s.utf8
-    var n = 0
-    var bits = 0
-    for (i, digit) in digits.enumerated() {
-        n <<= 6
-        switch digit {
-        case 65...90: n |= Int(digit - 65); bits += 6
-        case 97...122: n |= Int(digit - 97 + 26); bits += 6
-        case 48...57: n |= Int(digit - 48 + 52); bits += 6
-        case 43: n |= 62; bits += 6
-        case 47: n |= 63; bits += 6
-        case 61: n |= 0
-        default:
-            return nil
-        }
-        if i % 4 == 3 {
-            out.append(UInt8(truncatingBitPattern: n >> 16))
-            if bits >= 16 {
-                out.append(UInt8(truncatingBitPattern: n >> 8))
-                if bits >= 24 {
-                    out.append(UInt8(truncatingBitPattern: n))
-                }
-            }
-            bits = 0
-        }
-    }
-    if bits != 0 {
-        return nil
-    }
-    return Data(bytes: out)
-}
-
+/// A token scanned from string input using `JSONScanner`.
 public enum JSONToken: Equatable {
-    case colon
-    case comma
-    case beginObject
-    case endObject
-    case beginArray
-    case endArray
-    case null
-    case boolean(Bool)
-    case string(String)
-    case number(String)
-    
-    public var asBoolean: Bool? {
-        switch self {
-        case .boolean(let b): return b
-        default: return nil
-        }
-    }
-    
-    public var asBooleanMapKey: Bool? {
-        switch self {
-        case .string("true"): return true
-        case .string("false"): return false
-        default: return nil
-        }
-    }
-    
-    var asInt64: Int64? {
-        let text: String
-        switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
-        }
-        if let normalized = normalizeIntString(text) {
-            let numberString = String(normalized)
-            if let n = Int64(numberString) {
-                return n
-            }
-        }
-        return nil
-    }
-    
-    var asInt32: Int32? {
-        let text: String
-        switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
-        }
-        if let normalized = normalizeIntString(text) {
-            let numberString = String(normalized)
-            if let n = Int32(numberString) {
-                return n
-            }
-        }
-        return nil
-    }
-    
-    var asUInt64: UInt64? {
-        let text: String
-        switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
-        }
-        if let normalized = normalizeIntString(text), normalized[0] != "-" {
-            let numberString = String(normalized)
-            if let n = UInt64(numberString) {
-                return n
-            }
-        }
-        return nil
-    }
-    
-    var asUInt32: UInt32? {
-        let text: String
-        switch self {
-        case .string(let s): text = s
-        case .number(let n): text = n
-        default: return nil
-        }
-        if let normalized = normalizeIntString(text), normalized[0] != "-" {
-            let numberString = String(normalized)
-            if let n = UInt32(numberString) {
-                return n
-            }
-        }
-        return nil
-    }
-    
-    var asFloat: Float? {
-        switch self {
-        case .string(let s): return Float(s)
-        case .number(let n): return Float(n)
-        default: return nil
-        }
-    }
-    
-    var asDouble: Double? {
-        switch self {
-        case .string(let s): return Double(s)
-        case .number(let n): return Double(n)
-        default: return nil
-        }
-    }
-    
-    var asBytes: Data? {
-        switch self {
-        case .string(let s): return decodeBytes(s)
-        default: return nil
-        }
-    }
-}
 
-public func ==(lhs: JSONToken, rhs: JSONToken) -> Bool {
+  case colon
+  case comma
+  case beginObject
+  case endObject
+  case beginArray
+  case endArray
+  case null
+  case boolean(Bool)
+  case string(String)
+  case number(Number)
+
+  /// A `number` token can be represented as either a double, a signed integer
+  /// (which is always negative due to the scanning logic used), or an unsigned
+  /// integer. The type is determined at scanning type based on the appearance
+  /// of the literal; conversion from these types to actual field types occurs
+  /// later in the decoder.
+  public enum Number: Equatable {
+    case double(Double)
+    case int(Int64)
+    case uint(UInt64)
+
+    public static func ==(lhs: Number, rhs: Number) -> Bool {
+      switch (lhs, rhs) {
+      case (.double(let lhsValue), .double(let rhsValue)):
+        return lhsValue == rhsValue
+      case (.int(let lhsValue), .int(let rhsValue)):
+        return lhsValue == rhsValue
+      case (.uint(let lhsValue), .uint(let rhsValue)):
+        return lhsValue == rhsValue
+      default:
+        return false
+      }
+    }
+
+    /// Returns the receiver's value as the given integer type if the conversion
+    /// can be made safely and exactly; otherwise, it returns nil.
+    fileprivate func exactValue<
+      T: JSONIntegerConverting
+    >(as type: T.Type) -> T? {
+      switch self {
+      case .double(let value):
+        return type.init(safely: value)
+      case .int(let value):
+        return type.init(exactly: value)
+      case .uint(let value):
+        return type.init(exactly: value)
+      }
+    }
+
+    /// The single-precision floating point value of the receiver if the
+    /// conversion can be made exactly; otherwise, nil.
+    fileprivate var floatValue: Float? {
+      switch self {
+      case .double(let value):
+        // We can't use Float(exactly:) here because that would require that the
+        // scanned Double value be representable as a Float without loss of
+        // precision; this is too strict because Javascript and JSON treat all
+        // numbers as double-precision which could produce rounding/tolerance
+        // errors in some cases. Instead, we just ensure that the number's
+        // magnitude is within the allowable range for Floats and let precision
+        // loss happen silently.
+        let floatMax = Double(Float.greatestFiniteMagnitude)
+        if -floatMax <= value && value <= floatMax {
+          return Float(value)
+        }
+        return nil
+      case .int(let value):
+        let float = Float(value)
+        if Int64(float) == value {
+          return float
+        }
+        return nil
+      case .uint(let value):
+        let float = Float(value)
+        if UInt64(float) == value {
+          return float
+        }
+        return nil
+      }
+    }
+
+    /// The double-precision floating point value of the receiver if the
+    /// conversion can be made exactly; otherwise, nil.
+    fileprivate var doubleValue: Double? {
+      switch self {
+      case .double(let value):
+        return value
+      case .int(let value):
+        let double = Double(value)
+        if Int64(double) == value {
+          return double
+        }
+        return nil
+      case .uint(let value):
+        let double = Double(value)
+        if UInt64(double) == value {
+          return double
+        }
+        return nil
+      }
+    }
+  }
+
+  public static func ==(lhs: JSONToken, rhs: JSONToken) -> Bool {
     switch (lhs, rhs) {
     case (.colon, .colon),
          (.comma, .comma),
@@ -323,14 +169,123 @@ public func ==(lhs: JSONToken, rhs: JSONToken) -> Bool {
          (.beginArray, .beginArray),
          (.endArray, .endArray),
          (.null, .null):
-        return true
+      return true
     case (.boolean(let a), .boolean(let b)):
-        return a == b
+      return a == b
     case (.string(let a), .string(let b)):
-        return a == b
+      return a == b
     case (.number(let a), .number(let b)):
-        return a == b
+      return a == b
     default:
-        return false
+      return false
     }
+  }
+
+  public var asBoolean: Bool? {
+    if case .boolean(let b) = self {
+      return b
+    }
+    return nil
+  }
+
+  public var asBooleanMapKey: Bool? {
+    switch self {
+    case .string("true"): return true
+    case .string("false"): return false
+    default: return nil
+    }
+  }
+
+  var asInt64: Int64? {
+    switch self {
+    case .string(let s): return validatedIntegerValue(of: s, as: Int64.self)
+    case .number(let n): return n.exactValue(as: Int64.self)
+    default: return nil
+    }
+  }
+
+  var asInt32: Int32? {
+    switch self {
+    case .string(let s): return validatedIntegerValue(of: s, as: Int32.self)
+    case .number(let n): return n.exactValue(as: Int32.self)
+    default: return nil
+    }
+  }
+
+  var asUInt64: UInt64? {
+    switch self {
+    case .string(let s): return validatedIntegerValue(of: s, as: UInt64.self)
+    case .number(let n): return n.exactValue(as: UInt64.self)
+    default: return nil
+    }
+  }
+
+  var asUInt32: UInt32? {
+    switch self {
+    case .string(let s): return validatedIntegerValue(of: s, as: UInt32.self)
+    case .number(let n): return n.exactValue(as: UInt32.self)
+    default: return nil
+    }
+  }
+
+  var asFloat: Float? {
+    switch self {
+    case .string(let s): return Float(s)
+    case .number(let n): return n.floatValue
+    default: return nil
+    }
+  }
+
+  var asDouble: Double? {
+    switch self {
+    case .string(let s): return Double(s)
+    case .number(let n): return n.doubleValue
+    default: return nil
+    }
+  }
+
+  var asBytes: Data? {
+    if case .string(let s) = self {
+      return decodedBytes(base64String: s)
+    }
+    return nil
+  }
+}
+
+/// Returns the integer corresponding to the given JSON string token, or nil if
+/// the string does not represent a valid JSON integer literal according to the
+/// protobuf spec.
+///
+/// It is necessary for this validation to occur here since string literals are
+/// not validated during scanning like numeric literals are (because there is no
+/// context to determine if the string is destined for a numeric field or not).
+fileprivate func validatedIntegerValue<T: JSONIntegerConverting>(
+  of text: String,
+  as type: T.Type
+) -> T? {
+  let scalars = text.unicodeScalars
+  let count = scalars.count
+  let startIndex = scalars.startIndex
+
+  // If the string is empty, return nil.
+  if count == 0 {
+    return nil
+  }
+
+  if scalars[startIndex] == "-" {
+    // For an integer with a leading minus sign, zero is never allowed to follow
+    // it.
+    let secondIndex = scalars.index(after: startIndex)
+    if count == 1 || count > 2 && scalars[secondIndex] == "0" {
+      return nil
+    }
+    return T.init(text, radix: 10)
+  }
+
+  // For a non-negative integer, the only time a zero is allowed in the leading
+  // position is if it is the only digit.
+  if count > 1 && scalars[startIndex] == "0" {
+    return nil
+  }
+  return T.init(text, radix: 10)
 }
