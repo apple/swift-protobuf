@@ -381,17 +381,17 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             return o.singleString == "\u{07}\u{08}\u{0C}\u{0A}\u{0D}\u{09}\u{0B}\"'\\?"
         }
         assertTextDecodeFails("single_string: \"\\z\"")
-        assertTextDecodeSucceeds("single_string: \"\\000\\0\\001\\01\\1\\010\\289\"") {
+        assertTextDecodeSucceeds("single_string: \"\\001\\01\\1\\0011\\010\\289\"") {
             (o: MessageTestType) in
-            return o.singleString == "\u{00}\u{00}\u{01}\u{01}\u{01}\u{08}\u{02}89"
+            return o.singleString == "\u{01}\u{01}\u{01}\u{01}\u{31}\u{08}\u{02}89"
         }
         assertTextDecodeSucceeds("single_string: \"\\x1\\x12\\x123\\x1234\"") {
             (o: MessageTestType) in
             return o.singleString == "\u{01}\u{12}\u{23}\u{34}"
         }
-        assertTextDecodeSucceeds("single_string: \"\\x0f\\x0g\"") {
+        assertTextDecodeSucceeds("single_string: \"\\x0f\\x3g\"") {
             (o: MessageTestType) in
-            return o.singleString == "\u{0f}\u{00}g"
+            return o.singleString == "\u{0f}\u{03}g"
         }
         assertTextEncode("single_string: \"abc\"\n") {(o: inout MessageTestType) in
             o.singleString = "abc"
@@ -400,6 +400,24 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_string: \"hello\'")
         assertTextDecodeFails("single_string: \'hello\"")
         assertTextDecodeFails("single_string: \"hello")
+    }
+    
+    func testEncoding_singleString_UTF8() throws {
+        // We encode to/from a string, not a sequence of bytes, so valid
+        // Unicode characters just get preserved on both encode and decode:
+        assertTextEncode("single_string: \"☞\"\n") {(o: inout MessageTestType) in
+            o.singleString = "☞"
+        }
+        // Other encoders write each byte of a UTF-8 sequence, maybe in hex:
+        assertTextDecodeSucceeds("single_string: \"\\xE2\\x98\\x9E\"") {(o: MessageTestType) in
+            return o.singleString == "☞"
+        }
+        // Or maybe in octal:
+        assertTextDecodeSucceeds("single_string: \"\\342\\230\\236\"") {(o: MessageTestType) in
+            return o.singleString == "☞"
+        }
+        // Each string piece is decoded separately, broken UTF-8 is an error
+        assertTextDecodeFails("single_string: \"\\342\\230\" \"\\236\"")
     }
 
     func testEncoding_singleBytes() throws {

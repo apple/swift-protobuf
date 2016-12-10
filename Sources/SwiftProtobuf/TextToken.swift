@@ -147,68 +147,74 @@ private func decodeBytes(_ s: String) -> Data? {
     return Data(bytes: out)
 }
 
+// Protobuf Text encoding assumes that you're working directly
+// in UTF-8.  So this implementation converts the string to UTF8,
+// then decodes it into a sequence of bytes, then converts
+// it back into a string.
 private func decodeString(_ s: String) -> String? {
-    var out = ""
-    var chars = s.characters.makeIterator()
-    while let char = chars.next() {
-        switch char {
-        case "\\":
-            if let escaped = chars.next() {
+    var out = [UInt8]()
+    var bytes = s.utf8.makeIterator()
+    while let byte = bytes.next() {
+        switch byte {
+        case 92: // backslash
+            if let escaped = bytes.next() {
                 switch escaped {
-                case "0"..."7":
+                case 48...55:
                     // C standard allows 1, 2, or 3 octal digits.
-                    let savedPosition = chars
-                    if let digit2 = chars.next(),
-                        let digit2Value = fromOctalDigit(digit2) {
-                        let innerSavedPosition = chars
-                        if let digit3 = chars.next(),
-                            let digit3Value = fromOctalDigit(digit3) {
-                            let n = fromOctalDigit(escaped)! * 64 + digit2Value * 8 + digit3Value
-                            out.append(String(UnicodeScalar(n)))
+                    let savedPosition = bytes
+                    if let digit2 = bytes.next(),
+                       digit2 >= 48 && digit2 <= 55 {
+                        let digit2Value = digit2 - 48
+                        let innerSavedPosition = bytes
+                        if let digit3 = bytes.next(),
+                           digit3 >= 48 && digit3 <= 55 {
+                            let digit3Value = digit3 - 48
+                            let n = (escaped - 48) * 64 + digit2Value * 8 + digit3Value
+                            out.append(n)
                         } else {
-                            let n = fromOctalDigit(escaped)! * 8 + digit2Value
-                            out.append(String(UnicodeScalar(n)))
-                            chars = innerSavedPosition
+                            let n = (escaped - 48) * 8 + digit2Value
+                            out.append(n)
+                            bytes = innerSavedPosition
                         }
                     } else {
-                        let n = fromOctalDigit(escaped)!
-                        out.append(String(UnicodeScalar(n)))
-                        chars = savedPosition
+                        let n = escaped - 48
+                        out.append(n)
+                        bytes = savedPosition
                     }
-                case "x":
+                case 120: // "x"
                     // C standard allows any number of digits after \x
                     // We ignore all but the last two
                     var n: UInt8 = 0
                     var count = 0
-                    var savedPosition = chars
-                    while let char = chars.next(), let digit = fromHexDigit(char) {
+                    var savedPosition = bytes
+                    while let byte = bytes.next(), let digit = fromHexDigit(byte) {
                         n &= 15
                         n = n * 16
                         n += digit
                         count += 1
-                        savedPosition = chars
+                        savedPosition = bytes
                     }
-                    chars = savedPosition
+                    bytes = savedPosition
                     if count > 0 {
-                        out.append(String(UnicodeScalar(n)))
+                        out.append(n)
                     } else {
                         return nil // Hex escape must have at least 1 digit
                     }
-                case "a": // \a
-                    out.append("\u{07}")
-                case "b": // \b
-                    out.append("\u{08}")
-                case "f": // \f
-                    out.append("\u{0c}")
-                case "n": // \n
-                    out.append("\u{0a}")
-                case "r": // \r
-                    out.append("\u{0d}")
-                case "t": // \t
-                    out.append("\u{09}")
-                case "v": // \v
-                    out.append("\u{0b}")
-                case "'", "\"", "\\", "?":
+                case 97: // \a
+                    out.append(7)
+                case 98: // \b
+                    out.append(8)
+                case 102: // \f
+                    out.append(12)
+                case 110: // \n
+                    out.append(10)
+                case 114: // \r
+                    out.append(13)
+                case 116: // \t
+                    out.append(9)
+                case 118: // \v
+                    out.append(11)
+                case 34, 39, 63, 92: // " ' ? \
                     out.append(escaped)
                 default:
                     return nil // Unrecognized escape
@@ -217,10 +223,22 @@ private func decodeString(_ s: String) -> String? {
                 return nil // Input ends with backslash
             }
         default:
-            out.append(char)
+            out.append(byte)
         }
     }
-    return out
+    // There has got to be an easier way to convert a [UInt8] into a String.
+    out.append(0)
+    return out.withUnsafeBufferPointer { ptr in
+        if let addr = ptr.baseAddress {
+            return addr.withMemoryRebound(to: CChar.self, capacity: ptr.count) { p in
+                let q = UnsafePointer<CChar>(p)
+                let s = String(validatingUTF8: q)
+                return s
+            }
+        } else {
+            return ""
+        }
+    }
 }
 
 
