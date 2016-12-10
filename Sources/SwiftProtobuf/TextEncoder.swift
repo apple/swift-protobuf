@@ -108,11 +108,12 @@ public class TextEncoder {
             case 8: append(text: "\\b")
             case 9: append(text: "\\t")
             case 10: append(text: "\\n")
+            case 11: append(text: "\\v")
             case 12: append(text: "\\f")
             case 13: append(text: "\\r")
             case 34: append(text: "\\\"")
             case 92: append(text: "\\\\")
-            case 0...31, 127...159: // Hex form for C0 and C1 control chars
+            case 0...31, 127: // Hex form for C0 control chars
                 let digit1 = octalDigits[Int(c.value / 64)]
                 let digit2 = octalDigits[Int(c.value / 8 % 8)]
                 let digit3 = octalDigits[Int(c.value % 8)]
@@ -136,6 +137,7 @@ public class TextEncoder {
                 case 8: append(text: "\\b")
                 case 9: append(text: "\\t")
                 case 10: append(text: "\\n")
+                case 11: append(text: "\\v")
                 case 12: append(text: "\\f")
                 case 13: append(text: "\\r")
                 case 34: append(text: "\\\"")

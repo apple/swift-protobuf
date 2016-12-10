@@ -342,7 +342,47 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         a.singleString = "abc"
 
         XCTAssertEqual("single_string: \"abc\"\n", try a.serializeText())
+        
+        assertTextEncode("single_string: \"\\001\\002\\003\\004\\005\\006\\007\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
+        }
+        assertTextEncode("single_string: \"\\b\\t\\n\\v\\f\\r\\016\\017\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
+        }
+        assertTextEncode("single_string: \"\\020\\021\\022\\023\\024\\025\\026\\027\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}"
+        }
+        assertTextEncode("single_string: \"\\030\\031\\032\\033\\034\\035\\036\\037\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
+        }
+        assertTextEncode("single_string: \" !\\\"#$%&'\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{20}\u{21}\u{22}\u{23}\u{24}\u{25}\u{26}\u{27}"
+        }
+        
+        assertTextEncode("single_string: \"XYZ[\\\\]^_\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{58}\u{59}\u{5a}\u{5b}\u{5c}\u{5d}\u{5e}\u{5f}"
+        }
 
+        assertTextEncode("single_string: \"xyz{|}~\\177\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{78}\u{79}\u{7a}\u{7b}\u{7c}\u{7d}\u{7e}\u{7f}"
+        }
+        assertTextEncode("single_string: \"\u{80}\u{81}\u{82}\u{83}\u{84}\u{85}\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{80}\u{81}\u{82}\u{83}\u{84}\u{85}"
+        }
+        assertTextEncode("single_string: \"øùúûüýþÿ\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{f8}\u{f9}\u{fa}\u{fb}\u{fc}\u{fd}\u{fe}\u{ff}"
+        }
+        
+        
         // Adjacent quoted strings concatenate, see
         //   google/protobuf/text_format_unittest.cc#L597
         assertTextDecodeSucceeds("single_string: \"abc\"\"def\"") {
