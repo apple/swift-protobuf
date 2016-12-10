@@ -592,7 +592,9 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual("repeated_int32: 1\nrepeated_int32: 2\n", try a.serializeText())
 
-        assertTextEncode("repeated_int32: 1\nrepeated_int32: 2\n") {(o: inout MessageTestType) in o.repeatedInt32 = [1, 2] }
+        assertTextEncode("repeated_int32: 1\nrepeated_int32: 2\n") {(o: inout MessageTestType) in
+            o.repeatedInt32 = [1, 2]
+        }
 
         assertTextDecodeSucceeds("repeated_int32: [1, 2]\n") {
             (o: MessageTestType) in
@@ -771,7 +773,15 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.repeatedString == ["abc", "def"]
         }
+        assertTextDecodeSucceeds("repeated_string: \"a\" \"bc\"\nrepeated_string: 'd' \"e\" \"f\"\n") {
+            (o: MessageTestType) in
+            return o.repeatedString == ["abc", "def"]
+        }
         assertTextDecodeSucceeds("repeated_string:[\"abc\", \"def\"]") {
+            (o: MessageTestType) in
+            return o.repeatedString == ["abc", "def"]
+        }
+        assertTextDecodeSucceeds("repeated_string:[\"a\"\"bc\", \"d\" 'e' \"f\"]") {
             (o: MessageTestType) in
             return o.repeatedString == ["abc", "def"]
         }
@@ -800,6 +810,15 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         assertTextEncode("repeated_bytes: \"\"\nrepeated_bytes: \"AB\"\n") {(o: inout MessageTestType) in
             o.repeatedBytes = [Data(), Data(bytes: [65, 66])]
+        }
+        assertTextDecodeSucceeds("repeated_bytes: \"\"\nrepeated_bytes: \"A\" \"B\"\n") {(o: MessageTestType) in
+            return o.repeatedBytes == [Data(), Data(bytes: [65, 66])]
+        }
+        assertTextDecodeSucceeds("repeated_bytes: [\"\", \"AB\"]\n") {(o: MessageTestType) in
+            return o.repeatedBytes == [Data(), Data(bytes: [65, 66])]
+        }
+        assertTextDecodeSucceeds("repeated_bytes: [\"\", \"A\" \"B\"]\n") {(o: MessageTestType) in
+            return o.repeatedBytes == [Data(), Data(bytes: [65, 66])]
         }
     }
 
@@ -1010,6 +1029,12 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     func testExplicitDelimiters() {
         assertTextDecodeSucceeds("single_int32:1,single_int64:3;single_uint32:4") {(o: MessageTestType) in
             return o.singleInt32 == 1 && o.singleInt64 == 3 && o.singleUint32 == 4
+        }
+        assertTextDecodeSucceeds("single_int32:1,\n") {(o: MessageTestType) in
+            return o.singleInt32 == 1
+        }
+        assertTextDecodeSucceeds("single_int32:1;\n") {(o: MessageTestType) in
+            return o.singleInt32 == 1
         }
     }
 

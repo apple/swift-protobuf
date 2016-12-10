@@ -55,14 +55,14 @@ private func parseQuotedString(charGenerator: inout String.CharacterView.Generat
     return nil // Unterminated quoted string
 }
 
-class ProtobufTextScanner {
+public class TextScanner {
     internal var extensions: ExtensionSet?
     private var charGenerator: String.CharacterView.Generator
     private var characterPushback: Character?
     private var tokenPushback: [TextToken]
     private var eof: Bool = false
     private var wordSeparator: Bool = true
-    var complete: Bool {
+    internal var complete: Bool {
         switch characterPushback {
         case .some(" "), .some("\t"), .some("\r"), .some("\n"): break
         case .none: break
@@ -81,13 +81,13 @@ class ProtobufTextScanner {
         return true
     }
 
-    init(text: String, tokens: [TextToken], extensions: ExtensionSet? = nil) {
+    internal init(text: String, tokens: [TextToken], extensions: ExtensionSet? = nil) {
         charGenerator = text.characters.makeIterator()
         tokenPushback = tokens.reversed()
         self.extensions = extensions
     }
 
-    func pushback(token: TextToken) {
+    internal func pushback(token: TextToken) {
         tokenPushback.append(token)
     }
 
@@ -219,7 +219,7 @@ class ProtobufTextScanner {
         }
     }
 
-    func next() throws -> TextToken? {
+    internal func next() throws -> TextToken? {
         if let t = tokenPushback.popLast() {
             return t
         }
@@ -238,12 +238,21 @@ class ProtobufTextScanner {
             case ",":
                 wordSeparator = true
                 return .comma
+            case ";":
+                wordSeparator = true
+                return .semicolon
+            case "<":
+                wordSeparator = true
+                return .altBeginObject
             case "{":
                 wordSeparator = true
                 return .beginObject
             case "}":
                 wordSeparator = true
                 return .endObject
+            case ">":
+                wordSeparator = true
+                return .altEndObject
             case "[":
                 wordSeparator = true
                 return .beginArray
@@ -253,14 +262,6 @@ class ProtobufTextScanner {
             case "\'", "\"": // string
                 wordSeparator = true
                 if let s = parseQuotedString(charGenerator: &charGenerator, terminator: c) {
-                    // Recurse to combine consecutive strings
-                    if let n = try next() {
-                        if case .string(let additional) = n {
-                            return .string(s + additional)
-                        } else {
-                            pushback(token: n)
-                        }
-                    }
                     return .string(s)
                 }
                 throw DecodingError.malformedText
@@ -288,5 +289,55 @@ class ProtobufTextScanner {
         }
         eof = true
         return nil
+    }
+
+    // Consume the specified token, throw an error if the token isn't there
+    internal func skipRequired(token: TextToken) throws {
+        if let t = try next(), t == token {
+            return
+        } else {
+            throw DecodingError.malformedText
+        }
+    }
+
+    /// Consume the next token if it matches the specified one
+    ///  * return true if it was there, false otherwise
+    ///  * error only if there's a scanning failure
+    internal func skipOptional(token: TextToken) throws -> Bool {
+        if let t = try next() {
+            if t == token {
+                return true
+            } else {
+                pushback(token: t)
+                return false
+            }
+        } else {
+            throw DecodingError.malformedText
+        }
+    }
+
+    internal func skipOptionalSeparator() throws {
+        if let t = try next() {
+            if t == .comma || t == .semicolon {
+                return
+            } else {
+                pushback(token: t)
+            }
+        }
+    }
+
+    /// Returns the token that should end this field.
+    /// E.g., if object starts with "{", returns "}"
+    internal func readObjectStart() throws -> TextToken {
+        if let t = try next() {
+            switch t {
+            case .beginObject: // Starts with "{"
+                return .endObject // Should end with "}"
+            case .altBeginObject: // Starts with "<"
+                return .altEndObject // Should end with ">"
+            default: break
+            }
+        }
+        throw DecodingError.malformedText
     }
 }

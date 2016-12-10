@@ -74,9 +74,9 @@ public protocol FieldType {
     /// Serialize the value to a Text encoder
     static func serializeTextValue(encoder: TextEncoder, value: BaseType) throws
     /// Set a Swift optional from a single Text token
-    static func setFromTextToken(token: TextToken, value: inout BaseType?) throws
+    static func setFromText(scanner: TextScanner, value: inout BaseType?) throws
     /// Update a Swift array given a single JSON token (used by repeated fields of basic types)
-    static func setFromTextToken(token: TextToken, value: inout [BaseType]) throws
+    static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws
 
     //
     // JSON coding for basic types
@@ -97,8 +97,9 @@ public protocol MapKeyType: FieldType {
     // Protobuf does not treat map keys specially
     //
     
-    // TODO: Is this really needed?
-    static func decodeTextMapKey(token: TextToken) throws -> BaseType?
+    //
+    // Protobuf Text does not treat map keys specially
+    //
 
     //
     // JSON encoding for map keys: JSON requires map keys
@@ -114,9 +115,6 @@ public protocol MapKeyType: FieldType {
 public protocol MapValueType: FieldType {
     /// Special interface for decoding a value of this type as a map value.
     static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout BaseType?) throws
-
-    /// Special interface for decoding a value of this type as a map value.
-    static func decodeTextMapValue(textDecoder: inout TextDecoder) throws -> BaseType?
     
     /// Consume tokens from a JSON decoder, only used in map decoding
     static func decodeJSONMapValue(jsonDecoder: inout JSONDecoder) throws -> BaseType?

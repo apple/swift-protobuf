@@ -19,12 +19,12 @@ import Swift
 
 ///
 /// Provides a higher-level interface to the token stream coming
-/// from a ProtobufTextScanner.  In particular, this provides single-token
+/// from a TextScanner.  In particular, this provides single-token
 /// pushback and convenience functions for iterating over complex
 /// structures.
 ///
 public struct TextDecoder {
-    private var scanner: ProtobufTextScanner
+    private var scanner: TextScanner
     public var complete: Bool {return scanner.complete}
 
 
@@ -35,260 +35,48 @@ public struct TextDecoder {
         case expectComma
     }
 
-    public init(text: String, extensions: ExtensionSet? = nil) {
-        scanner = ProtobufTextScanner(text: text, tokens: [], extensions: extensions)
+    internal init(text: String, extensions: ExtensionSet? = nil) {
+        scanner = TextScanner(text: text, tokens: [], extensions: extensions)
     }
 
-    public init(tokens: [TextToken]) {
-        scanner = ProtobufTextScanner(text: "", tokens: tokens)
-    }
-
-    fileprivate init(scanner: ProtobufTextScanner) {
+    internal init(scanner: TextScanner) {
         self.scanner = scanner
     }
 
-    public mutating func pushback(token: TextToken) {
-        scanner.pushback(token: token)
-    }
-
-    /// Returns nil if no more tokens, throws an error if
-    /// the data being parsed is malformed.
-    public mutating func nextToken() throws -> TextToken? {
-        return try scanner.next()
-    }
-
-    public func nextTokenIsBeginObject() throws -> Bool {
-        guard let nextToken = try scanner.next() else {throw DecodingError.truncatedInput}
-        if (nextToken == .beginObject) {
-            return true
-        }
-        scanner.pushback(token: nextToken)
-        return false
-    }
-
-    public mutating func decodeFullObject<M: Message>(message: inout M, alreadyInsideObject: Bool = false) throws {
-        if alreadyInsideObject {
-            try message.decodeFromTextObject(textDecoder: &self)
-            if !complete {
-                throw DecodingError.trailingGarbage
-            }
-        } else {
-            guard let token = try nextToken() else {throw DecodingError.truncatedInput}
-            switch token {
-            case .beginObject:
-                try message.decodeFromTextObject(textDecoder: &self)
-                if !complete {
-                    throw DecodingError.trailingGarbage
-                }
-            default:
-                throw DecodingError.malformedText
-            }
-        }
-    }
-
-    public mutating func decodeValue<M: Message>(key: String, message: inout M, parsingObject:Bool = false) throws {
+    public mutating func decodeFullObject<M: Message>(message: inout M, terminator: TextToken?) throws {
         guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
             throw DecodingError.missingFieldNames
         }
-        let protoFieldNumber = (nameProviding._protobuf_fieldNames.fieldNumber(forProtoName: key)
-            ?? scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key))
-
-        if parsingObject {
-            var fieldDecoder:FieldDecoder = ProtobufTextObjectFieldDecoder(scanner: scanner)
-            if let protoFieldNumber = protoFieldNumber {
-                try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+        while let token = try scanner.next() {
+            if terminator != nil && terminator == token {
+                return
             }
-        } else {
-            if let token = try nextToken() {
-                switch token {
-                case .colon, .comma, .endObject, .endArray:
-                    throw DecodingError.malformedText
-                case .beginObject:
-                    break
-                case .beginArray:
-                    var fieldDecoder:FieldDecoder = TextArrayFieldDecoder(scanner: scanner)
-                    if let protoFieldNumber = protoFieldNumber {
-                        try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                    } else {
-                        var skipped: [TextToken] = []
-                        try skipArray(tokens: &skipped)
-                    }
-                case .string, .identifier, .octalInteger, .hexadecimalInteger, .decimalInteger, .floatingPointLiteral:
-                    var fieldDecoder:FieldDecoder = ProtobufTextSingleTokenFieldDecoder(token: token, scanner: scanner)
-                    if let protoFieldNumber = protoFieldNumber {
-                        try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                    } else {
-                        throw DecodingError.unknownField
-                    }
+            if case .identifier(let key) = token {
+                if let protoFieldNumber =
+                    (nameProviding._protobuf_fieldNames.fieldNumber(forProtoName: key)
+                        ?? scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key)) {
+                    var fieldDecoder: FieldDecoder = TextFieldDecoder(scanner: scanner)
+                    try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+                } else {
+                    throw DecodingError.unknownField
                 }
             } else {
-                throw DecodingError.truncatedInput
-            }
-        }
-    }
-
-    public mutating func decodeValue<G: Message>(key: String, group: inout G) throws {
-        guard let nameProviding = (G.self as? ProtoNameProviding.Type) else {
-            throw DecodingError.missingFieldNames
-        }
-        if let token = try nextToken() {
-            let protoFieldNumber = (nameProviding._protobuf_fieldNames.fieldNumber(forProtoName: key))
-            // TODO: Look up field number for extension?
-            //?? scanner.extensions?.fieldNumberForJson(messageType: G.self, jsonFieldName: key))
-            switch token {
-            case .colon, .comma, .endObject, .endArray:
-                throw DecodingError.malformedText
-            case .beginObject:
-                var fieldDecoder:FieldDecoder = ProtobufTextObjectFieldDecoder(scanner: scanner)
-                if let protoFieldNumber = protoFieldNumber {
-                    try group.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                } else {
-                    var skipped: [TextToken] = []
-                    try skipObject(tokens: &skipped)
-                }
-            case .beginArray:
-                var fieldDecoder:FieldDecoder = TextArrayFieldDecoder(scanner: scanner)
-                if let protoFieldNumber = protoFieldNumber {
-                    try group.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                } else {
-                    var skipped: [TextToken] = []
-                    try skipArray(tokens: &skipped)
-                }
-            default:
-                var fieldDecoder:FieldDecoder = ProtobufTextSingleTokenFieldDecoder(token: token, scanner: scanner)
-                if let protoFieldNumber = protoFieldNumber {
-                    try group.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                } else {
-                    // Token was already implicitly skipped, but we
-                    // need to handle one deferred failure check:
-                    if !token.isValid {
-                        throw DecodingError.malformedTextNumber
-                    }
-                }
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-    }
-
-
-    // Build parseArrayFields() method, use it.
-
-    /// Updates the provided array with the tokens that were skipped.
-    /// This is used for deferred parsing of Any fields.
-    public mutating func skip() throws -> [TextToken] {
-        var tokens = [TextToken]()
-        try skipValue(tokens: &tokens)
-        return tokens
-    }
-
-    private mutating func skipValue(tokens: inout [TextToken]) throws {
-        if let token = try nextToken() {
-            switch token {
-            case .beginObject:
-                try skipObject(tokens: &tokens)
-            case .beginArray:
-                try skipArray(tokens: &tokens)
-            case .endObject, .endArray, .comma, .colon:
-                throw DecodingError.malformedText
-            default:
-                if !token.isValid {
-                    throw DecodingError.malformedText
-                }
-                tokens.append(token)
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-    }
-
-    // Assumes begin object already consumed
-    private mutating func skipObject( tokens: inout [TextToken]) throws {
-        tokens.append(.beginObject)
-        if let token = try nextToken() {
-            switch token {
-            case .endObject:
-                tokens.append(token)
-                return
-            case .string:
-                pushback(token: token)
-            default:
                 throw DecodingError.malformedText
             }
+            try scanner.skipOptionalSeparator()
+        }
+        if terminator == nil {
+            return
         } else {
             throw DecodingError.truncatedInput
-        }
-    
-        while true {
-            if let token = try nextToken() {
-                if case .string = token {
-                    tokens.append(token)
-                } else {
-                    throw DecodingError.malformedText
-                }
-            }
-        
-            if let token = try nextToken() {
-                if case .colon = token {
-                    tokens.append(token)
-                } else {
-                    throw DecodingError.malformedText
-                }
-            }
-        
-            try skipValue(tokens: &tokens)
-        
-            if let token = try nextToken() {
-                switch token {
-                case .comma:
-                    tokens.append(token)
-                case .endObject:
-                    tokens.append(token)
-                    return
-                default:
-                    throw DecodingError.malformedText
-                }
-            }
-        }
-    }
-
-    private mutating func skipArray( tokens: inout [TextToken]) throws {
-        tokens.append(.beginArray)
-        if let token = try nextToken() {
-            switch token {
-            case .endArray:
-                tokens.append(token)
-                return
-            default:
-                pushback(token: token)
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-    
-        while true {
-            try skipValue(tokens: &tokens)
-        
-            if let token = try nextToken() {
-                switch token {
-                case .comma:
-                    tokens.append(token)
-                case .endArray:
-                    tokens.append(token)
-                    return
-                default:
-                    throw DecodingError.malformedText
-                }
-            }
         }
     }
 }
 
-protocol TextFieldDecoder: FieldDecoder {
-    var scanner: ProtobufTextScanner {get}
-}
+struct TextFieldDecoder: FieldDecoder {
+    var rejectConflictingOneof: Bool {return true}
+    var scanner: TextScanner
 
-extension TextFieldDecoder {
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, protoFieldNumber] {
             var mutableSetter: FieldDecoder = self
@@ -297,241 +85,123 @@ extension TextFieldDecoder {
             values[protoFieldNumber] = fieldValue
         }
     }
-}
-
-private struct ProtobufTextSingleTokenFieldDecoder: TextFieldDecoder {
-    var rejectConflictingOneof: Bool {return true}
-
-    var token: TextToken
-    var scanner: ProtobufTextScanner
 
     mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-        try S.setFromTextToken(token: token, value: &value)
+        try scanner.skipRequired(token: .colon)
+        try S.setFromText(scanner: scanner, value: &value)
     }
 
     mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try S.setFromTextToken(token: token, value: &value)
+        try scanner.skipRequired(token: .colon)
+        if try scanner.skipOptional(token: .beginArray) {
+            var firstItem = true
+            while true {
+                if try scanner.skipOptional(token: .endArray) {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequired(token: .comma)
+                }
+                try S.setFromText(scanner: scanner, value: &value)
+            }
+        } else {
+            try S.setFromText(scanner: scanner, value: &value)
+        }
     }
 
     mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try decodeRepeatedField(fieldType: fieldType, value: &value)
     }
 
-    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
-        // TODO: Complete this
-    }
-}
-
-private struct ProtobufTextObjectFieldDecoder: TextFieldDecoder {
-    var rejectConflictingOneof: Bool {return true}
-
-    var scanner: ProtobufTextScanner
-
     mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        var message = M()
-        var subDecoder = TextDecoder(scanner: scanner)
-        try message.decodeFromTextObject(textDecoder: &subDecoder)
-        value = message
+        _ = try scanner.skipOptional(token: .colon)
+        try M.setFromText(scanner: scanner, value: &value)
+    }
+
+    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
+        _ = try scanner.skipOptional(token: .colon)
+        if try scanner.skipOptional(token: .beginArray) {
+            var firstItem = true
+            while true {
+                if try scanner.skipOptional(token: .endArray) {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequired(token: .comma)
+                }
+                try M.setFromText(scanner: scanner, value: &value)
+            }
+        } else {
+            try M.setFromText(scanner: scanner, value: &value)
+        }
     }
 
     mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
-        var group = G()
-        var subDecoder = TextDecoder(scanner: scanner)
-        try group.decodeFromTextObject(textDecoder: &subDecoder)
-        value = group
-
+        try decodeSingularMessageField(fieldType: fieldType, value: &value)
     }
 
+    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
+        try decodeRepeatedMessageField(fieldType: fieldType, value: &value)
+    }
+    
+    private func decodeMapEntry<KeyType: MapKeyType, ValueType: MapValueType>(mapType: ProtobufMap<KeyType, ValueType>.Type, keyField: inout KeyType.BaseType?, valueField: inout ValueType.BaseType?) throws where KeyType.BaseType: Hashable {
+        let terminator = try scanner.readObjectStart()
+        while let token = try scanner.next() {
+            if token == terminator {
+                return
+            }
+            switch token {
+            case .identifier("key"):
+                _ = try scanner.skipRequired(token: .colon)
+                try KeyType.setFromText(scanner: scanner, value: &keyField)
+            case .identifier("value"):
+                // Awkward:  If the value is message-typed, the colon is optional,
+                // otherwise, it's required.
+                _ = try scanner.skipOptional(token: .colon)
+                try ValueType.setFromText(scanner: scanner, value: &valueField)
+            default:
+                throw DecodingError.unknownField
+            }
+            try scanner.skipOptionalSeparator()
+        }
+        throw DecodingError.truncatedInput
+ 
+    }
+    
     mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
-        if let keyFieldName = try scanner.next(),
-            case .identifier("key") = keyFieldName {
-            if let colon = try scanner.next(),
-                colon == .colon,
-                let keyValueToken = try scanner.next() {
-                if let mapKey = try KeyType.decodeTextMapKey(token: keyValueToken) {
-                    if let t = try scanner.next() {
-                        let valueFieldName: TextToken
-                        if t == .comma {
-                            if let t2 = try scanner.next() {
-                                valueFieldName = t2
-                            } else {
-                                throw DecodingError.truncatedInput
-                            }
-                        } else {
-                            valueFieldName = t
-                        }
-                        if case .identifier("value") = valueFieldName {
-                            // Saw expected field name "value"
-                        } else {
-                            throw DecodingError.malformedText
-                        }
-                    }
-                    if let colon2 = try scanner.next(),
-                        colon2 == .colon {
-                        let mapValue: ValueType.BaseType?
-                        if let token = try scanner.next() {
-                            scanner.pushback(token: token)
-                            var subDecoder = TextDecoder(scanner: scanner)
-                            switch token {
-                            case .beginObject, .string:
-                                mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
-                                if mapValue == nil {
-                                    throw DecodingError.malformedText
-                                }
-                            default:
-                                if token.isNumber {
-                                    mapValue = try ValueType.decodeTextMapValue(textDecoder: &subDecoder)
-                                    if mapValue == nil {
-                                        throw DecodingError.malformedText
-                                    }
-                                } else {
-                                    throw DecodingError.malformedText
-                                }
-                            }
-                            value[mapKey] = mapValue
-                            return
-                        }
-                    }
-                }
-            }
-        }
-        throw DecodingError.malformedText
-    }
-
-    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
-        var message = M()
-        var subDecoder = TextDecoder(scanner: scanner)
-        try message.decodeFromTextObject(textDecoder: &subDecoder)
-        value.append(message)
-    }
-
-    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
-        // TODO: Complete this
-    }
-
-}
-
-internal struct TextArrayFieldDecoder: TextFieldDecoder {
-    var scanner: ProtobufTextScanner
-
-    // Decode a field containing repeated basic type
-    // The leading '[' has already been consumed
-    // Note: Google requires that we reject trailing commas
-    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        var token: TextToken
-        if let startToken = try scanner.next() {
-            switch startToken {
-            case .endArray: return // Empty array case
-            default: token = startToken
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-        while true {
-            switch token {
-            case .string, .identifier, .octalInteger, .hexadecimalInteger, .decimalInteger, .floatingPointLiteral:
-                try S.setFromTextToken(token: token, value: &value)
-            default:
-                throw DecodingError.malformedText
-            }
-            if let separatorToken = try scanner.next() {
-                switch separatorToken {
-                case .comma:
-                    if let t = try scanner.next() {
-                        token = t
-                    } else {
-                        throw DecodingError.truncatedInput
-                    }
-                case .endArray:
+        _ = try scanner.skipOptional(token: .colon)
+        if try scanner.skipOptional(token: .beginArray) {
+            var firstItem = true
+            while true {
+                if try scanner.skipOptional(token: .endArray) {
                     return
-                default:
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequired(token: .comma)
+                }
+                var keyField: KeyType.BaseType?
+                var valueField: ValueType.BaseType?
+                try decodeMapEntry(mapType: fieldType, keyField: &keyField, valueField: &valueField)
+                if let keyField = keyField, let valueField = valueField {
+                    value[keyField] = valueField
+                } else {
                     throw DecodingError.malformedText
                 }
+            }
+        } else {
+            var keyField: KeyType.BaseType?
+            var valueField: ValueType.BaseType?
+            try decodeMapEntry(mapType: fieldType, keyField: &keyField, valueField: &valueField)
+            if let keyField = keyField, let valueField = valueField {
+                value[keyField] = valueField
             } else {
-                throw DecodingError.truncatedInput
-            }
-        }
-    }
-
-    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
-    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
-        var token: TextToken
-        if let startToken = try scanner.next() {
-            switch startToken {
-            case .endArray: return // Empty array case
-            default: token = startToken
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-
-        while true {
-            switch token {
-            case .beginObject:
-                var message = M()
-                var subDecoder = TextDecoder(scanner: scanner)
-                try message.decodeFromTextObject(textDecoder: &subDecoder)
-                value.append(message)
-            default:
                 throw DecodingError.malformedText
-            }
-            if let separatorToken = try scanner.next() {
-                switch separatorToken {
-                case .comma:
-                    if let t = try scanner.next() {
-                        token = t
-                    } else {
-                        throw DecodingError.truncatedInput
-                    }
-                case .endArray:
-                    return
-                default:
-                    throw DecodingError.malformedText
-                }
-            } else {
-                throw DecodingError.truncatedInput
-            }
-        }
-    }
-
-    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
-        var token: TextToken
-        if let startToken = try scanner.next() {
-            switch startToken {
-            case .endArray: return // Empty array case
-            default: token = startToken
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-
-        while true {
-            switch token {
-            case .beginObject:
-                var group = G()
-                var subDecoder = TextDecoder(scanner: scanner)
-                try group.decodeFromTextObject(textDecoder: &subDecoder)
-                value.append(group)
-            default:
-                throw DecodingError.malformedText
-            }
-            if let separatorToken = try scanner.next() {
-                switch separatorToken {
-                case .comma:
-                    if let t = try scanner.next() {
-                        token = t
-                    } else {
-                        throw DecodingError.truncatedInput
-                    }
-                    break
-                case .endArray:
-                    return
-                default:
-                    throw DecodingError.malformedText
-                }
             }
         }
     }

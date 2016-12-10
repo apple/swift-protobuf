@@ -40,6 +40,13 @@ class Test_Text_Map_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeSucceeds("map_int32_int32 [{key:1 value:2}, {key:3 value:4}]") {(o: MessageTestType) in
             return o.mapInt32Int32 == [1:2, 3:4]
         }
+        assertTextDecodeSucceeds("map_int32_int32 [{key:1 value:2}];map_int32_int32 {key:3 value:4}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2, 3:4]
+        }
+        assertTextDecodeFails("map_int32_int32 [{key:1 value:2},]")
+        assertTextDecodeFails("map_int32_int32 [{key:1 value:2}")
+        assertTextDecodeFails("map_int32_int32 [{key:1 value:2 nonsense:3}")
+        assertTextDecodeFails("map_int32_int32 {key:1}")
     }
     
     func test_StringMessage() {

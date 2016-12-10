@@ -226,9 +226,12 @@ private func decodeString(_ s: String) -> String? {
 
 public enum TextToken: Equatable, FieldDecoder {
     case colon
+    case semicolon
     case comma
     case beginObject
     case endObject
+    case altBeginObject
+    case altEndObject
     case beginArray
     case endArray
     case string(String)
@@ -426,9 +429,12 @@ public enum TextToken: Equatable, FieldDecoder {
 public func ==(lhs: TextToken, rhs: TextToken) -> Bool {
     switch (lhs, rhs) {
     case (.colon, .colon),
+         (.semicolon, .semicolon),
          (.comma, .comma),
          (.beginObject, .beginObject),
          (.endObject, .endObject),
+         (.altBeginObject, .altBeginObject),
+         (.altEndObject, .altEndObject),
          (.beginArray, .beginArray),
          (.endArray, .endArray):
         return true
