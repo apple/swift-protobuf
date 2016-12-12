@@ -91,11 +91,11 @@ class Test_Scanner: XCTestCase {
             .beginArray,
             .null,
             .comma,
-            .number("123"),
+            .number(JSONToken.Number.uint(123)),
             .comma,
-            .number("-123"),
+            .number(JSONToken.Number.int(-123)),
             .comma,
-            .number("-0.34E+77"),
+            .number(JSONToken.Number.double(-0.34E+77)),
             .comma,
             .beginObject,
             .string("a"),
@@ -139,8 +139,8 @@ class Test_Scanner: XCTestCase {
 
     func testSingleTokens() {
         assertTokens(json: "\"abc\"", expected: [.string("abc")])
-        assertTokens(json: "7", expected: [.number("7")])
-        assertTokens(json: "7.3", expected: [.number("7.3")])
+        assertTokens(json: "7", expected: [.number(.uint(7))])
+        assertTokens(json: "7.3", expected: [.number(.double(7.3))])
         assertTokens(json: "true", expected: [.boolean(true)])
         assertTokens(json: "false", expected: [.boolean(false)])
         assertTokens(json: "null", expected: [.null])

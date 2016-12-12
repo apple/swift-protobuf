@@ -5,3 +5,7 @@
 xcuserdata
 /_test
 protoc-gen-swift
+
+# Intermediate conformance test outputs
+failing_tests.txt
+nonexistent_tests.txt

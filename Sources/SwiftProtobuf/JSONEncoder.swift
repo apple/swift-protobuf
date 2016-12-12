@@ -179,7 +179,9 @@ public struct JSONEncoder {
             case .endArray: append(text: "]")
             case .endObject: append(text: "}")
             case .null: putNullValue()
-            case .number(let v): append(text: v)
+            case .number(.double(let v)): append(text: String(v))
+            case .number(.int(let v)): append(text: String(v))
+            case .number(.uint(let v)): append(text: String(v))
             case .string(let v): putStringValue(value: v)
             }
         }

@@ -10,12 +10,9 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Google has not specified a JSON coding for groups.  But proto3 types
-/// can use proto2 types and vice-versa, so it seems reasonable to support
-/// JSON coding for proto2 groups.
-///
-/// This implementation treats groups just like messages for the purposes
-/// of JSON encoding.
+/// Google has not specified a JSON coding for groups. The C++ implementation
+/// fails when decoding a JSON string that contains a group, so we verify that
+/// we do the same for consistency.
 ///
 // -----------------------------------------------------------------------------
 
@@ -26,20 +23,10 @@ class Test_JSON_Group: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestAllTypes
 
     func testOptionalGroup() {
-        assertJSONEncode("{\"optionalgroup\":{\"a\":3}}") {(o: inout MessageTestType) in
-            var g = MessageTestType.OptionalGroup()
-            g.a = 3
-            o.optionalGroup = g
-        }
+        assertJSONDecodeFails("{\"optionalgroup\":{\"a\":3}}")
     }
 
     func testRepeatedGroup() {
-        assertJSONEncode("{\"repeatedgroup\":[{\"a\":1},{\"a\":2}]}") {(o: inout MessageTestType) in
-            var g1 = MessageTestType.RepeatedGroup()
-            g1.a = 1
-            var g2 = MessageTestType.RepeatedGroup()
-            g2.a = 2
-            o.repeatedGroup = [g1, g2]
-        }
+        assertJSONDecodeFails("{\"repeatedgroup\":[{\"a\":1},{\"a\":2}]}")
     }
 }

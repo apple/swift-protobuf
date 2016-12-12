@@ -398,16 +398,13 @@ extension Test_Extensions {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("test_optionalInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_optionalInt32Extension)}),
-            ("test_optionalInt32Extension_JSON", {try run_test(test:($0 as! Test_Extensions).test_optionalInt32Extension_JSON)}),
             ("test_extensionMessageSpecificity", {try run_test(test:($0 as! Test_Extensions).test_extensionMessageSpecificity)}),
             ("test_optionalStringExtension", {try run_test(test:($0 as! Test_Extensions).test_optionalStringExtension)}),
             ("test_repeatedInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_repeatedInt32Extension)}),
             ("test_defaultInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_defaultInt32Extension)}),
             ("test_reflection", {try run_test(test:($0 as! Test_Extensions).test_reflection)}),
             ("test_groupExtension", {try run_test(test:($0 as! Test_Extensions).test_groupExtension)}),
-            ("test_groupExtension_JSON", {try run_test(test:($0 as! Test_Extensions).test_groupExtension_JSON)}),
-            ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)}),
-            ("test_repeatedGroupExtension_JSON", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension_JSON)})        ]
+            ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)})        ]
     }
 }
 
@@ -784,7 +781,8 @@ extension Test_Text_Map_proto3 {
 extension Test_Text_proto2 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("test_group", {try run_test(test:($0 as! Test_Text_proto2).test_group)})        ]
+            ("test_group", {try run_test(test:($0 as! Test_Text_proto2).test_group)}),
+            ("test_repeatedGroup", {try run_test(test:($0 as! Test_Text_proto2).test_repeatedGroup)})        ]
     }
 }
 
@@ -805,6 +803,7 @@ extension Test_Text_proto3 {
             ("testEncoding_singleDouble", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleDouble)}),
             ("testEncoding_singleBool", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleBool)}),
             ("testEncoding_singleString", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleString)}),
+            ("testEncoding_singleString_UTF8", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleString_UTF8)}),
             ("testEncoding_singleBytes", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleBytes)}),
             ("testEncoding_singleNestedMessage", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleNestedMessage)}),
             ("testEncoding_singleForeignMessage", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleForeignMessage)}),

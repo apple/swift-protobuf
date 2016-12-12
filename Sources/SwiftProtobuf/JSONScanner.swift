@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufJSONDecoding.swift - JSON decoding
+// ProtobufRuntime/Sources/Protobuf/JSONScanner.swift - JSON tokenizer/scanner
 //
 // This source file is part of the Swift.org open source project
 //
@@ -14,245 +14,335 @@
 ///
 // -----------------------------------------------------------------------------
 
-private func fromHexDigit(_ c: Character?) -> UInt32? {
-    if let c = c {
-        switch c {
-        case "0": return 0
-        case "1": return 1
-        case "2": return 2
-        case "3": return 3
-        case "4": return 4
-        case "5": return 5
-        case "6": return 6
-        case "7": return 7
-        case "8": return 8
-        case "9": return 9
-        case "a", "A": return 10
-        case "b", "B": return 11
-        case "c", "C": return 12
-        case "d", "D": return 13
-        case "e", "E": return 14
-        case "f", "F": return 15
-        default: return nil
-        }
-    }
-    return nil
-}
-
-private func parseQuotedString( charGenerator: inout String.CharacterView.Generator) -> String? {
-    var result = ""
-    while let c = charGenerator.next() {
-        switch c {
-        case "\"":
-            return result
-        case "\\":
-            if let escaped = charGenerator.next() {
-                switch escaped {
-                case "b": result.append(Character("\u{0008}"))
-                case "t": result.append(Character("\u{0009}"))
-                case "n": result.append(Character("\u{000a}"))
-                case "f": result.append(Character("\u{000c}"))
-                case "r": result.append(Character("\u{000d}"))
-                case "\"": result.append(escaped)
-                case "\\": result.append(escaped)
-                case "/": result.append(escaped)
-                case "u":
-                    if let c1 = fromHexDigit(charGenerator.next()),
-                        let c2 = fromHexDigit(charGenerator.next()),
-                        let c3 = fromHexDigit(charGenerator.next()),
-                        let c4 = fromHexDigit(charGenerator.next()) {
-                        let scalar = ((c1 * 16 + c2) * 16 + c3) * 16 + c4
-                        if let char = UnicodeScalar(scalar) {
-                            result.append(String(char))
-                        } else if scalar < 0xD800 || scalar >= 0xE000 {
-                            // Invalid Unicode scalar
-                            return nil
-                        } else if scalar >= UInt32(0xDC00) {
-                            // Low surrogate is invalid
-                            return nil
-                        } else {
-                            // We have a high surrogate, must be followed by low
-                            if let slash = charGenerator.next(), slash == "\\",
-                                let u = charGenerator.next(), u == "u",
-                                let c1 = fromHexDigit(charGenerator.next()),
-                                let c2 = fromHexDigit(charGenerator.next()),
-                                let c3 = fromHexDigit(charGenerator.next()),
-                                let c4 = fromHexDigit(charGenerator.next()) {
-                                let follower = ((c1 * 16 + c2) * 16 + c3) * 16 + c4
-                                if follower >= UInt32(0xDC00) && follower < UInt32(0xE000) {
-                                    let high = scalar - UInt32(0xD800)
-                                    let low = follower - UInt32(0xDC00)
-                                    let composed = UInt32(0x10000) + high << 10 + low
-                                    if let char = UnicodeScalar(composed) {
-                                        result.append(String(char))
-                                    } else {
-                                        // Composed value is not valid
-                                        return nil
-                                    }
-                                } else {
-                                    // high surrogate was not followed by low
-                                    return nil
-                                }
-                            } else {
-                                // high surrogate not followed by unicode hex escape
-                                return nil
-                            }
-                        }
-                    } else {
-                        // Broken unicode escape
-                        return nil
-                    }
-                default:
-                    // Unrecognized backslash escape
-                    return nil
-                }
-            } else {
-                // Input ends in backslash
-                return nil
-            }
-        default:
-            result.append(c)
-        }
-    }
-    // Unterminated quoted string
-    return nil
-}
-
-
 public class JSONScanner {
-    internal var extensions: ExtensionSet?
-    private var charGenerator: String.CharacterView.Generator
-    private var characterPushback: Character?
-    private var tokenPushback: [JSONToken]
-    private var eof: Bool = false
-    private var wordSeparator: Bool = true
-    public var complete: Bool {
-        switch characterPushback {
-        case .some(" "), .some("\t"), .some("\r"), .some("\n"): break
-        case .none: break
-        default:
-            return false
-        }
-        var g = charGenerator
-        while let c = g.next() {
-            switch c {
-            case " ", "\t", "\r", "\n":
-                break
-            default:
-                return false
-            }
-        }
-        return true
+
+  /// A stack of tokens that should be returned upon the next call to `next()`
+  /// before the input string is scanned again.
+  private var tokenPushback: [JSONToken]
+
+  /// The scanner uses the UnicodeScalarView of the string, which is
+  /// significantly faster than operating on Characters.
+  private let scalars: String.UnicodeScalarView
+
+  /// The index where the current token being scanned begins.
+  private var tokenStart: String.UnicodeScalarView.Index
+
+  /// The index of the next scalar to be scanned.
+  private var index: String.UnicodeScalarView.Index
+
+  /// Returns true if a complete and well-formed JSON string was fully scanned
+  /// (that is, the only scalars remaining after the current index are
+  /// whitespace).
+  public var complete: Bool {
+    while let scalar = nextScalar() {
+      switch scalar {
+      case " ", "\t", "\r", "\n":
+        continue
+      default:
+        return false
+      }
     }
-    
-    public init(json: String, tokens: [JSONToken], extensions: ExtensionSet? = nil) {
-        charGenerator = json.characters.makeIterator()
-        tokenPushback = tokens.reversed()
-        self.extensions = extensions
+    return true
+  }
+
+  /// Creates a new JSON scanner for the given string.
+  public init(json: String, tokens: [JSONToken]) {
+    self.scalars = json.unicodeScalars
+    self.tokenStart = self.scalars.startIndex
+    self.index = self.tokenStart
+    tokenPushback = tokens.reversed()
+  }
+
+  /// Pushes a token back onto the scanner. Pushed-back tokens are read in the
+  /// reverse order that they were pushed until the stack is exhausted, at which
+  /// point tokens will again be read from the input string.
+  public func pushback(token: JSONToken) {
+    tokenPushback.append(token)
+  }
+
+  /// Returns the next token in the JSON string, or nil if the end of the string
+  /// has been reached.
+  public func next() throws -> JSONToken? {
+    if let pushedBackToken = tokenPushback.popLast() {
+      return pushedBackToken
     }
-    
-    public func pushback(token: JSONToken) {
-        tokenPushback.append(token)
+
+    while let scalar = nextScalar() {
+      switch scalar {
+      case " ", "\t", "\r", "\n":
+        skip()
+      case ":":
+        skip()
+        return .colon
+      case ",":
+        skip()
+        return .comma
+      case "{":
+        skip()
+        return .beginObject
+      case "}":
+        skip()
+        return .endObject
+      case "[":
+        skip()
+        return .beginArray
+      case "]":
+        skip()
+        return .endArray
+      case "n":
+        if couldSkip("ull") {
+          return .null
+        }
+        throw DecodingError.malformedJSON
+      case "f":
+        if couldSkip("alse") {
+          return .boolean(false)
+        }
+        throw DecodingError.malformedJSON
+      case "t":
+        if couldSkip("rue") {
+          return .boolean(true)
+        }
+        throw DecodingError.malformedJSON
+      case "-", "0"..."9":
+        return try numberToken(startingWith: scalar)
+      case "\"":
+        return try quotedStringToken()
+      default:
+        throw DecodingError.malformedJSON
+      }
     }
-    
-    public func next() throws -> JSONToken? {
-        if eof {
-            return nil
-        }
-        if let t = tokenPushback.popLast() {
-            return t
-        }
-        while let next = characterPushback ?? charGenerator.next() {
-            characterPushback = nil
-            switch next {
-            case " ", "\t", "\r", "\n":
-                wordSeparator = true
-                break
-            case ":":
-                wordSeparator = true
-                return .colon
-            case ",":
-                wordSeparator = true
-                return .comma
-            case "{":
-                wordSeparator = true
-                return .beginObject
-            case "}":
-                wordSeparator = true
-                return .endObject
-            case "[":
-                wordSeparator = true
-                return .beginArray
-            case "]":
-                wordSeparator = true
-                return .endArray
-            case "n": // null
-                if wordSeparator {
-                    wordSeparator = false
-                    if let u = charGenerator.next(), u == "u" {
-                        if let l = charGenerator.next(), l == "l" {
-                            if let l = charGenerator.next(), l == "l" {
-                                return .null
-                            }
-                        }
-                    }
-                }
-                throw DecodingError.malformedJSON
-            case "t": // true
-                if wordSeparator {
-                    wordSeparator = false
-                    if let r = charGenerator.next(), r == "r" {
-                        if let u = charGenerator.next(), u == "u" {
-                            if let e = charGenerator.next(), e == "e" {
-                                return .boolean(true)
-                            }
-                        }
-                    }
-                }
-                throw DecodingError.malformedJSON
-            case "f": // false
-                if wordSeparator {
-                    wordSeparator = false
-                    if let a = charGenerator.next(), a == "a" {
-                        if let l = charGenerator.next(), l == "l" {
-                            if let s = charGenerator.next(), s == "s" {
-                                if let e = charGenerator.next(), e == "e" {
-                                    return .boolean(false)
-                                }
-                            }
-                        }
-                    }
-                }
-                throw DecodingError.malformedJSON
-            case "\"": // string
-                if wordSeparator {
-                    wordSeparator = false
-                    if let s = parseQuotedString(charGenerator: &charGenerator) {
-                        return .string(s)
-                    }
-                }
-                throw DecodingError.malformedJSON
-            case "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                if wordSeparator {
-                    wordSeparator = false
-                    var s = String(next)
-                    while let c = charGenerator.next() {
-                        switch c {
-                        case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "e", "E":
-                            s.append(c)
-                        default:
-                            characterPushback = c // Note: Only place we need pushback
-                            return .number(s)
-                        }
-                    }
-                    return .number(s)
-                }
-                throw DecodingError.malformedJSON
-            default:
-                throw DecodingError.malformedJSON
-            }
-        }
-        eof = true
-        return nil
+
+    return nil
+  }
+
+  /// Returns the next scalar being scanned and advances the index, or nil if
+  /// the end of the string has been reached.
+  private func nextScalar() -> UnicodeScalar? {
+    guard index != scalars.endIndex else {
+      return nil
     }
+    let scalar = scalars[index]
+    index = scalars.index(after: index)
+    return scalar
+  }
+
+  /// Returns a `String` containing the text of the current token being scanned.
+  private func currentTokenText(omittingLastScalar: Bool) -> String {
+    let lastIndex = omittingLastScalar ? scalars.index(before: index) : index
+    let text = String(scalars[tokenStart..<lastIndex])
+    skip()
+    return text
+  }
+
+  /// Backs up the current index to the scalar just before it.
+  private func backtrack() {
+    if index != scalars.startIndex {
+      index = scalars.index(before: index)
+    }
+  }
+
+  /// Updates the token-start index to indicate that the next token should begin
+  /// at the scanner's current index.
+  private func skip() {
+    tokenStart = index
+  }
+
+  /// Looksahead at the scalars following the current index to see if they
+  /// match those in `string`. If so, the index is advanced to the scalar just
+  /// after the last one in `string` and the function returns `true`. Otherwise,
+  /// the index is unchanged and this function returns `false`.
+  private func couldSkip(_ string: String) -> Bool {
+    let otherScalars = string.unicodeScalars
+    let count = otherScalars.count
+    if let possibleEnd = scalars.index(index,
+                                       offsetBy: count,
+                                       limitedBy: scalars.endIndex) {
+      let slice = scalars[index..<possibleEnd]
+      for (l, r) in zip(slice, otherScalars) {
+        if l != r {
+          return false
+        }
+      }
+      index = possibleEnd
+      skip()
+      return true
+    }
+    return false
+  }
+
+  /// Scans a number and returns an appropriate token depending on the
+  /// representation of that number (floating point, signed integer, or unsigned
+  /// integer).
+  private func numberToken(
+    startingWith first: UnicodeScalar
+  ) throws -> JSONToken {
+    let isNegative = (first == "-")
+    var isFloatingPoint = false
+
+    loop: while let scalar = nextScalar() {
+      switch scalar {
+      case "0"..."9", "+", "-":
+        continue
+      case ".", "e", "E":
+        isFloatingPoint = true
+      default:
+        backtrack()
+        break loop
+      }
+    }
+
+    let numberString = currentTokenText(omittingLastScalar: false)
+
+    if isFloatingPoint {
+      guard let parsedDouble = Double(numberString) else {
+        throw DecodingError.malformedJSONNumber
+      }
+      return .number(.double(parsedDouble))
+    }
+
+    let scalars = numberString.unicodeScalars
+    if isNegative {
+      // Leading zeros (i.e., for octal or hexadecimal literals) are not allowed
+      // for protobuf JSON.
+      if scalars.count > 2 &&
+        scalars[scalars.index(after: scalars.startIndex)] == "0" {
+        throw DecodingError.malformedJSONNumber
+      }
+      guard let parsedInteger = IntMax(numberString) else {
+        throw DecodingError.malformedJSONNumber
+      }
+      return .number(.int(parsedInteger))
+    }
+
+    // Likewise, forbid leading zeros for unsigned integers, but allow "0" if it
+    // is alone. (See above.)
+    if scalars.count > 1 && scalars.first == "0" {
+      throw DecodingError.malformedJSONNumber
+    }
+    guard let parsedUnsignedInteger = UIntMax(numberString) else {
+      throw DecodingError.malformedJSONNumber
+    }
+    return .number(.uint(parsedUnsignedInteger))
+  }
+
+  /// Scans a quoted string and returns its contents, unescaped and unquoted, as
+  /// a token.
+  private func quotedStringToken() throws -> JSONToken {
+    var foundEndQuote = false
+    var stringValue = ""
+
+    // We want the token to start after the initial quote.
+    skip()
+
+    loop: while let scalar = nextScalar() {
+      switch scalar {
+      case "\"":
+        foundEndQuote = true
+        break loop
+      case "\\":
+        stringValue += currentTokenText(omittingLastScalar: true)
+        stringValue += try String(unescapedSequence())
+        skip()
+      default:
+        continue
+      }
+    }
+
+    // If the loop terminated without finding the end quote, it means we reached
+    // the end of the input while still inside a string.
+    if !foundEndQuote {
+      throw DecodingError.malformedJSON
+    }
+
+    stringValue += currentTokenText(omittingLastScalar: true)
+    return .string(stringValue)
+  }
+
+  /// Returns a `UnicodeScalar` corresponding to the next escape sequence
+  /// scanned from the input.
+  private func unescapedSequence() throws -> UnicodeScalar {
+    guard let scalar = nextScalar() else {
+      // Input terminated after the backslash but an escape sequence was
+      // expected.
+      throw DecodingError.malformedJSON
+    }
+
+    switch scalar {
+    case "b":
+      return "\u{0008}"
+    case "t":
+      return "\u{0009}"
+    case "n":
+      return "\u{000a}"
+    case "f":
+      return "\u{000c}"
+    case "r":
+      return "\u{000d}"
+    case "\"", "\\", "/":
+      return scalar
+    case "u":
+      return try unescapedUnicodeSequence()
+    default:
+      // Unrecognized escape sequence.
+      throw DecodingError.malformedJSON
+    }
+  }
+
+  /// Returns a `UnicodeScalar` corresponding to the next Unicode escape
+  /// sequence scanned from the input.
+  private func unescapedUnicodeSequence() throws -> UnicodeScalar {
+    let codePoint = try nextHexadecimalCodePoint()
+    if let scalar = UnicodeScalar(codePoint) {
+      return scalar
+    } else if codePoint < 0xD800 || codePoint >= 0xE000 {
+      // Not a valid Unicode scalar.
+      throw DecodingError.malformedJSON
+    } else if codePoint >= 0xDC00 {
+      // Low surrogate without a preceding high surrogate.
+      throw DecodingError.malformedJSON
+    } else {
+      // We have a high surrogate (in the range 0xD800..<0xDC00), so verify that
+      // it is followed by a low surrogate.
+      guard nextScalar() == "\\", nextScalar() == "u" else {
+        // High surrogate was not followed by a Unicode escape sequence.
+        throw DecodingError.malformedJSON
+      }
+
+      let follower = try nextHexadecimalCodePoint()
+      guard 0xDC00 <= follower && follower < 0xE000 else {
+        // High surrogate was not followed by a low surrogate.
+        throw DecodingError.malformedJSON
+      }
+
+      let high = codePoint - 0xD800
+      let low = follower - 0xDC00
+      let composed = 0x10000 | high << 10 | low
+      guard let composedScalar = UnicodeScalar(composed) else {
+        // Composed value is not a valid Unicode scalar.
+        throw DecodingError.malformedJSON
+      }
+      return composedScalar
+    }
+  }
+
+  /// Returns the unsigned 32-bit value represented by the next four scalars in
+  /// the input when treated as hexadecimal digits. Throws an error if the next
+  /// four scalars do not form a valid hexadecimal number.
+  private func nextHexadecimalCodePoint() throws -> UInt32 {
+    guard let end = scalars.index(index,
+                                  offsetBy: 4,
+                                  limitedBy: scalars.endIndex) else {
+      // Input terminated before the expected number of scalars was found.
+      throw DecodingError.malformedJSON
+    }
+
+    guard let value = UInt32(String(scalars[index..<end]), radix: 16) else {
+      // Not a valid hexadecimal number.
+      throw DecodingError.malformedJSON
+    }
+
+    index = end
+    return value
+  }
 }

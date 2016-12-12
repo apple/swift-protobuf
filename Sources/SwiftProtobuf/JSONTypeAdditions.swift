@@ -813,15 +813,6 @@ public extension Message {
         }
     }
 
-    public init(json: String, extensions: ExtensionSet) throws {
-        self.init()
-        var jsonDecoder = JSONDecoder(json: json, extensions: extensions)
-        try jsonDecoder.decodeFullObject(message: &self)
-        if !jsonDecoder.complete {
-            throw DecodingError.trailingGarbage
-        }
-    }
-
     public static func decodeFromJSONNull() throws -> Self? {
         return nil
     }

@@ -47,8 +47,8 @@ public struct JSONDecoder {
         case expectComma
     }
 
-    public init(json: String, extensions: ExtensionSet? = nil) {
-        scanner = JSONScanner(json: json, tokens: [], extensions: extensions)
+    public init(json: String) {
+        scanner = JSONScanner(json: json, tokens: [])
     }
 
     public init(tokens: [JSONToken]) {
@@ -98,8 +98,7 @@ public struct JSONDecoder {
             throw DecodingError.missingFieldNames
         }
         if let token = try nextToken() {
-            let protoFieldNumber = (nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
-                ?? scanner.extensions?.fieldNumberForJson(messageType: M.self, jsonFieldName: key))
+            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
             switch token {
             case .colon, .comma, .endObject, .endArray:
                 throw DecodingError.malformedJSON
@@ -263,12 +262,6 @@ protocol JSONFieldDecoder: FieldDecoder {
 
 extension JSONFieldDecoder {
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
-        if let ext = scanner.extensions?[messageType, protoFieldNumber] {
-            var mutableSetter: FieldDecoder = self
-            var fieldValue = values[protoFieldNumber] ?? ext.newField()
-            try fieldValue.decodeField(setter: &mutableSetter)
-            values[protoFieldNumber] = fieldValue
-        }
     }
 }
 
@@ -326,12 +319,6 @@ private struct JSONObjectFieldDecoder: JSONFieldDecoder {
         value = message
     }
 
-    mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
-        var group = G()
-        var subDecoder = JSONDecoder(scanner: scanner)
-        try group.decodeFromJSONObject(jsonDecoder: &subDecoder)
-        value = group
-    }
     mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
         var keyToken: JSONToken?
         var state = JSONDecoder.ObjectParseState.expectFirstKey
@@ -487,45 +474,4 @@ internal struct JSONArrayFieldDecoder: JSONFieldDecoder {
             }
         }
     }
-
-    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
-        var token: JSONToken
-        if let startToken = try scanner.next() {
-            switch startToken {
-            case .endArray: return // Empty array case
-            default: token = startToken
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
-
-        while true {
-            switch token {
-            case .beginObject:
-                var group = G()
-                var subDecoder = JSONDecoder(scanner: scanner)
-                try group.decodeFromJSONObject(jsonDecoder: &subDecoder)
-                value.append(group)
-            default:
-                throw DecodingError.malformedJSON
-            }
-            if let separatorToken = try scanner.next() {
-                switch separatorToken {
-                case .comma:
-                    if let t = try scanner.next() {
-                        token = t
-                    } else {
-                        throw DecodingError.truncatedInput
-                    }
-                    break
-                case .endArray:
-                    return
-                default:
-                    throw DecodingError.malformedJSON
-                }
-            }
-        }
-    }
 }
-
-

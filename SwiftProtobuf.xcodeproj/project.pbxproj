@@ -196,6 +196,10 @@
 		BCCA0E6A1DB1210E00957D74 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
 		BCCA0E6B1DB1210E00957D74 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
 		BCCA0E7A1DB124B800957D74 /* Test_Text_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */; };
+		AAF2EDFF1DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
+		AAF2EE001DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
+		AAF2EE011DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
+		AAF2EE021DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
 		ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
 		ECBC5C4B1DF6ABC500F658E8 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
@@ -539,6 +543,7 @@
 		BCCA0E671DB1210E00957D74 /* TextEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEncoder.swift; sourceTree = "<group>"; };
 		BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTypeAdditions.swift; sourceTree = "<group>"; };
 		BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_proto3.swift; sourceTree = "<group>"; };
+		AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONIntegerConverting.swift; sourceTree = "<group>"; };
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTestSuite_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -746,10 +751,10 @@
 				__PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */,
-				9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */,
-				9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */,
 				9C75F88E1DDD3108005CCFF2 /* ExtensibleMessage.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */,
+				9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */,
+				9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */,
 				__PBXFileRef_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */,
 				AAF2ED391DEF3FBC007B510F /* FieldNameMap.swift */,
@@ -764,6 +769,7 @@
 				__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */,
+				AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */,
 				9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */,
 				9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */,
@@ -776,9 +782,9 @@
 				__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */,
 				AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */,
 				9C75F8931DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */,
 				AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */,
 				AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */,
 				__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */,
 				BCCA0E661DB1210E00957D74 /* TextDecoder.swift */,
 				BCCA0E671DB1210E00957D74 /* TextEncoder.swift */,
@@ -1187,6 +1193,7 @@
 				9C2F237F1D7780D1008524F2 /* Google_Protobuf_Any.swift in Sources */,
 				9C2F23801D7780D1008524F2 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
 				9C2F23811D7780D1008524F2 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
+				AAF2EE001DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				AA28A4AD1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */,
 				9C2F23821D7780D1008524F2 /* Google_Protobuf_Struct.swift in Sources */,
 				9C2F23831D7780D1008524F2 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
@@ -1244,6 +1251,7 @@
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
+				AAF2EDFF1DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				AA28A4AC1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
@@ -1402,6 +1410,7 @@
 				F44F93971DAEA76700BC5B85 /* type.pb.swift in Sources */,
 				F44F937F1DAEA76700BC5B85 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
 				F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */,
+				AAF2EE011DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				F44F93801DAEA76700BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 				F44F938C1DAEA76700BC5B85 /* JSONDecoder.swift in Sources */,
 				F44F93901DAEA76700BC5B85 /* MirrorVisitor.swift in Sources */,
@@ -1555,6 +1564,7 @@
 				ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
 				ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 				AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
+				AAF2EE021DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				AAF2ED3D1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
 				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */,
 				F44F94071DAEB23500BC5B85 /* duration.pb.swift in Sources */,
@@ -1652,7 +1662,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1670,7 +1679,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1688,7 +1696,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1706,7 +1713,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1752,7 +1758,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1770,7 +1775,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1787,7 +1791,6 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1811,7 +1814,6 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1848,7 +1850,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1891,7 +1895,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
