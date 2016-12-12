@@ -1618,7 +1618,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1636,7 +1635,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1654,7 +1652,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1672,7 +1669,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1718,7 +1714,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1736,7 +1731,6 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1753,7 +1747,6 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1777,7 +1770,6 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
@@ -1814,7 +1806,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1857,7 +1851,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
