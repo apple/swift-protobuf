@@ -104,6 +104,10 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
+    /// Verify the preferred encoding/decoding of a particular object.
+    /// This uses the provided block to initialize the object, then:
+    /// * Encodes the object and checks that the result is the expected result
+    /// * Decodes it again and verifies that the round-trip gives an equal object
     func assertTextEncode(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
