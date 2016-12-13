@@ -22,15 +22,43 @@ private func parseIdentifier(prefix: String, charGenerator: inout String.Charact
     var previousCharGenerator = charGenerator
     while let c = charGenerator.next() {
         switch c {
-        case " ", "\t", "\r", "\n", ":", ",", "{", "}", "[", "]":
-            charGenerator = previousCharGenerator
-            return result
-        default:
+        case "a"..."z", "A"..."Z", "0"..."9", "_":
             result.append(c)
             previousCharGenerator = charGenerator
+        default:
+            charGenerator = previousCharGenerator
+            return result
         }
     }
     return result
+}
+
+/// Parse the rest of an [extension_field_name] in the input, assuming the
+/// initial "[" character has already been read (and is in the prefix)
+private func parseExtensionIdentifier(prefix: String, charGenerator: inout String.CharacterView.Generator) -> String? {
+    var result = prefix
+    if let c = charGenerator.next() {
+        switch c {
+        case "a"..."z", "A"..."Z":
+            result.append(c)
+        default:
+            return nil
+        }
+    } else {
+        return nil
+    }
+    while let c = charGenerator.next() {
+        switch c {
+        case "a"..."z", "A"..."Z", "0"..."9", "_", ".":
+            result.append(c)
+        case "]":
+            result.append(c)
+            return result
+        default:
+            return nil
+        }
+    }
+    return nil
 }
 
 private func parseQuotedString(charGenerator: inout String.CharacterView.Generator, terminator: Character) -> String? {
@@ -61,7 +89,6 @@ public class TextScanner {
     private var characterPushback: Character?
     private var tokenPushback: [TextToken]
     private var eof: Bool = false
-    private var wordSeparator: Bool = true
     internal var complete: Bool {
         switch characterPushback {
         case .some(" "), .some("\t"), .some("\r"), .some("\n"): break
@@ -173,7 +200,6 @@ public class TextScanner {
             // Treat "-" followed by a letter as a floating-point literal.
             // This treats "-Infinity" as a single token
             // Note that "Infinity" and "NaN" are regular identifiers.
-            wordSeparator = false
             if let s = parseIdentifier(prefix: String(s + String(digit)), charGenerator: &charGenerator) {
                 return .floatingPointLiteral(s)
             } else {
@@ -230,49 +256,33 @@ public class TextScanner {
             characterPushback = nil
             switch c {
             case " ", "\t", "\r", "\n":
-                wordSeparator = true
                 break
             case ":":
-                wordSeparator = true
                 return .colon
             case ",":
-                wordSeparator = true
                 return .comma
             case ";":
-                wordSeparator = true
                 return .semicolon
             case "<":
-                wordSeparator = true
                 return .altBeginObject
             case "{":
-                wordSeparator = true
                 return .beginObject
             case "}":
-                wordSeparator = true
                 return .endObject
             case ">":
-                wordSeparator = true
                 return .altEndObject
             case "[":
-                wordSeparator = true
                 return .beginArray
             case "]":
-                wordSeparator = true
                 return .endArray
             case "\'", "\"": // string
-                wordSeparator = true
                 if let s = parseQuotedString(charGenerator: &charGenerator, terminator: c) {
                     return .string(s)
                 }
                 throw DecodingError.malformedText
             case "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                if !wordSeparator {
-                    throw DecodingError.malformedText
-                }
-                wordSeparator = false
                 return try parseNumber(first: c)
             case "a"..."z", "A"..."Z":
-                wordSeparator = false
                 if let s = parseIdentifier(prefix: String(c), charGenerator: &charGenerator) {
                     return .identifier(s)
                 } else {
@@ -282,7 +292,49 @@ public class TextScanner {
                 while let s = charGenerator.next(), s != "\n", s != "\r" {
                     // Skip until end of line
                 }
-                wordSeparator = true
+            default:
+                throw DecodingError.malformedText
+            }
+        }
+        eof = true
+        return nil
+    }
+
+    /// Returns end-of-message terminator or next key
+    /// Note:  This treats [abc] as a single identifier token, consistent
+    /// with Text format key handling.
+    internal func nextKey() throws -> TextToken? {
+        if let t = tokenPushback.popLast() {
+            return t
+        }
+        if eof {
+            return nil
+        }
+        while let c = characterPushback ?? charGenerator.next() {
+            characterPushback = nil
+            switch c {
+            case " ", "\t", "\r", "\n":
+                break
+            case "}":
+                return .endObject
+            case ">":
+                return .altEndObject
+            case "[":
+                if let s = parseExtensionIdentifier(prefix: String(c), charGenerator: &charGenerator) {
+                    return .identifier(s)
+                } else {
+                    throw DecodingError.malformedText
+                }
+            case "a"..."z", "A"..."Z":
+                if let s = parseIdentifier(prefix: String(c), charGenerator: &charGenerator) {
+                    return .identifier(s)
+                } else {
+                    throw DecodingError.malformedText
+                }
+            case "#":
+                while let s = charGenerator.next(), s != "\n", s != "\r" {
+                    // Skip until end of line
+                }
             default:
                 throw DecodingError.malformedText
             }

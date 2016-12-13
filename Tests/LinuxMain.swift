@@ -786,6 +786,14 @@ extension Test_Text_proto2 {
     }
 }
 
+extension Test_Text_proto2_extensions {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_file_level_extension", {try run_test(test:($0 as! Test_Text_proto2_extensions).test_file_level_extension)}),
+            ("test_nested_extension", {try run_test(test:($0 as! Test_Text_proto2_extensions).test_nested_extension)})        ]
+    }
+}
+
 extension Test_Text_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -939,6 +947,7 @@ XCTMain(
         (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
         (testCaseClass: Test_Text_Map_proto3.self, allTests: Test_Text_Map_proto3.allTests),
         (testCaseClass: Test_Text_proto2.self, allTests: Test_Text_proto2.allTests),
+        (testCaseClass: Test_Text_proto2_extensions.self, allTests: Test_Text_proto2_extensions.allTests),
         (testCaseClass: Test_Text_proto3.self, allTests: Test_Text_proto3.allTests),
         (testCaseClass: Test_Timestamp.self, allTests: Test_Timestamp.allTests),
         (testCaseClass: Test_Type.self, allTests: Test_Type.allTests),

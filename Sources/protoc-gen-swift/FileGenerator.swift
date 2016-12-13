@@ -327,7 +327,7 @@ class FileGenerator {
         for e in descriptor.extension_p {
             let extPath = path + [7, i]
             i += 1
-            extensions.append(ExtensionGenerator(descriptor: e, path: extPath, declaringMessageName: nil, file: self, context: context))
+            extensions.append(ExtensionGenerator(descriptor: e, path: extPath, parentProtoPath: descriptor.protoPath, swiftDeclaringMessageName: nil, file: self, context: context))
         }
 
         for e in enums {

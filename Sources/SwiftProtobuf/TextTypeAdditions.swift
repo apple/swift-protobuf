@@ -522,17 +522,7 @@ public extension Message {
         encoder.endObject()
     }
 
-    /// Decode an instance of this message type from the provided text format string.
-    public init(text: String) throws {
-        self.init()
-        var textDecoder = TextDecoder(text: text)
-        try textDecoder.decodeFullObject(message: &self, terminator: nil)
-        if !textDecoder.complete {
-            throw DecodingError.trailingGarbage
-        }
-    }
-
-    public init(text: String, extensions: ExtensionSet) throws {
+    public init(text: String, extensions: ExtensionSet? = nil) throws {
         self.init()
         var textDecoder = TextDecoder(text: text, extensions: extensions)
         try textDecoder.decodeFullObject(message: &self, terminator: nil)

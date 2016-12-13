@@ -142,7 +142,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
 
   struct Extensions {
 
-    static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, fieldNames: .unique(proto: "message_set_extension", json: "messageSetExtension", swift: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension"), defaultValue: ProtobufUnittest_TestMessageSetExtension1())
+    static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1545008, fieldNames: .same(proto: "[protobuf_unittest.TestMessageSetExtension1.message_set_extension]", swift: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension"), defaultValue: ProtobufUnittest_TestMessageSetExtension1())
   }
 
   private var _i: Int32? = nil
@@ -192,7 +192,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
 
   struct Extensions {
 
-    static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, fieldNames: .unique(proto: "message_set_extension", json: "messageSetExtension", swift: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension"), defaultValue: ProtobufUnittest_TestMessageSetExtension2())
+    static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(protoFieldNumber: 1547769, fieldNames: .same(proto: "[protobuf_unittest.TestMessageSetExtension2.message_set_extension]", swift: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension"), defaultValue: ProtobufUnittest_TestMessageSetExtension2())
   }
 
   private var _str: String? = nil

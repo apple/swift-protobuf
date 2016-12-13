@@ -90,7 +90,6 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
             try visitor.visitSingularField(fieldType: T.self, value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
         }
     }
-
 }
 
 public func ==<T: FieldType>(lhs: OptionalExtensionField<T>, rhs: OptionalExtensionField<T>) -> Bool {

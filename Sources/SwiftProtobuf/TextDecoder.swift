@@ -47,20 +47,31 @@ public struct TextDecoder {
         guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
             throw DecodingError.missingFieldNames
         }
-        while let token = try scanner.next() {
-            if terminator != nil && terminator == token {
-                return
-            }
-            if case .identifier(let key) = token {
-                if let protoFieldNumber =
-                    (nameProviding._protobuf_fieldNames.fieldNumber(forProtoName: key)
-                        ?? scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key)) {
-                    var fieldDecoder: FieldDecoder = TextFieldDecoder(scanner: scanner)
-                    try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+        while let token = try scanner.nextKey() {
+            switch token {
+            case .identifier(let key):
+                let protoFieldNumber: Int
+                if key.hasPrefix("[") {
+                    // Extension key
+                    if let n = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
+                        protoFieldNumber = n
+                    } else {
+                        throw DecodingError.unknownField
+                    }
                 } else {
-                    throw DecodingError.unknownField
+                    // Regular key; look it up on the message
+                    if let n = nameProviding._protobuf_fieldNames.fieldNumber(forProtoName: key) {
+                        protoFieldNumber = n
+                    } else {
+                        throw DecodingError.unknownField
+                    }
                 }
-            } else {
+                var fieldDecoder: FieldDecoder = TextFieldDecoder(scanner: scanner)
+                try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+            default:
+                if terminator != nil && terminator == token {
+                    return
+                }
                 throw DecodingError.malformedText
             }
             try scanner.skipOptionalSeparator()

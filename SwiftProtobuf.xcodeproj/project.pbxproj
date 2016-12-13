@@ -38,6 +38,25 @@
 		9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		9C2F239D1D7780D1008524F2 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */; };
+		9C5890A71DFF5FFC001CFC34 /* Test_Text_proto2_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5890A51DFF5EC8001CFC34 /* Test_Text_proto2_extensions.swift */; };
+		9C5890A81DFF6375001CFC34 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E661DB1210E00957D74 /* TextDecoder.swift */; };
+		9C5890A91DFF6375001CFC34 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
+		9C5890AA1DFF6375001CFC34 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
+		9C5890AB1DFF6375001CFC34 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
+		9C5890AC1DFF6375001CFC34 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
+		9C5890AD1DFF6375001CFC34 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
+		9C5890AE1DFF6384001CFC34 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E661DB1210E00957D74 /* TextDecoder.swift */; };
+		9C5890AF1DFF6384001CFC34 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
+		9C5890B01DFF6384001CFC34 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
+		9C5890B11DFF6384001CFC34 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
+		9C5890B21DFF6384001CFC34 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
+		9C5890B31DFF6384001CFC34 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
+		9C5890B41DFF6389001CFC34 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E661DB1210E00957D74 /* TextDecoder.swift */; };
+		9C5890B51DFF6389001CFC34 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
+		9C5890B61DFF6389001CFC34 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
+		9C5890B71DFF6389001CFC34 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
+		9C5890B81DFF6389001CFC34 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
+		9C5890B91DFF6389001CFC34 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
 		9C60CBE81DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */; };
 		9C60CBE91DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */; };
 		9C60CBEA1DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */; };
@@ -192,14 +211,14 @@
 		AAF2ED451DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */; };
 		AAF2ED461DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */; };
 		AAF2ED471DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */; };
-		BCCA0E691DB1210E00957D74 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E661DB1210E00957D74 /* TextDecoder.swift */; };
-		BCCA0E6A1DB1210E00957D74 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
-		BCCA0E6B1DB1210E00957D74 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
-		BCCA0E7A1DB124B800957D74 /* Test_Text_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */; };
 		AAF2EDFF1DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
 		AAF2EE001DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
 		AAF2EE011DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
 		AAF2EE021DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
+		BCCA0E691DB1210E00957D74 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E661DB1210E00957D74 /* TextDecoder.swift */; };
+		BCCA0E6A1DB1210E00957D74 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
+		BCCA0E6B1DB1210E00957D74 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
+		BCCA0E7A1DB124B800957D74 /* Test_Text_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */; };
 		ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
 		ECBC5C4B1DF6ABC500F658E8 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
@@ -514,6 +533,7 @@
 
 /* Begin PBXFileReference section */
 		9C2F23781D778003008524F2 /* descriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = descriptor.pb.swift; sourceTree = "<group>"; };
+		9C5890A51DFF5EC8001CFC34 /* Test_Text_proto2_extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_proto2_extensions.swift; sourceTree = "<group>"; };
 		9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_Map_proto3.swift; sourceTree = "<group>"; };
 		9C60CBEB1DF9DEEA00F7B14E /* Test_Text_proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_proto2.swift; sourceTree = "<group>"; };
 		9C75F87F1DDBE0DE005CCFF2 /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
@@ -539,11 +559,11 @@
 		AAF2ED391DEF3FBC007B510F /* FieldNameMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldNameMap.swift; sourceTree = "<group>"; };
 		AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoNameProviding.swift; sourceTree = "<group>"; };
 		AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoNameResolvers.swift; sourceTree = "<group>"; };
+		AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONIntegerConverting.swift; sourceTree = "<group>"; };
 		BCCA0E661DB1210E00957D74 /* TextDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDecoder.swift; sourceTree = "<group>"; };
 		BCCA0E671DB1210E00957D74 /* TextEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEncoder.swift; sourceTree = "<group>"; };
 		BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTypeAdditions.swift; sourceTree = "<group>"; };
 		BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_proto3.swift; sourceTree = "<group>"; };
-		AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONIntegerConverting.swift; sourceTree = "<group>"; };
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTestSuite_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -850,6 +870,7 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_Struct.swift /* Test_Struct.swift */,
 				9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */,
 				9C60CBEB1DF9DEEA00F7B14E /* Test_Text_proto2.swift */,
+				9C5890A51DFF5EC8001CFC34 /* Test_Text_proto2_extensions.swift */,
 				BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Timestamp.swift /* Test_Timestamp.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Type.swift /* Test_Type.swift */,
@@ -1222,6 +1243,12 @@
 				9C2F23951D7780D1008524F2 /* OneofEnum.swift in Sources */,
 				9C2F23981D7780D1008524F2 /* FieldTypes.swift in Sources */,
 				9C2F23991D7780D1008524F2 /* UnknownStorage.swift in Sources */,
+				9C5890B41DFF6389001CFC34 /* TextDecoder.swift in Sources */,
+				9C5890B51DFF6389001CFC34 /* TextEncoder.swift in Sources */,
+				9C5890B61DFF6389001CFC34 /* TextEncodingVisitor.swift in Sources */,
+				9C5890B71DFF6389001CFC34 /* TextScanner.swift in Sources */,
+				9C5890B81DFF6389001CFC34 /* TextToken.swift in Sources */,
+				9C5890B91DFF6389001CFC34 /* TextTypeAdditions.swift in Sources */,
 				9C75F8861DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
 				9C75F8811DDBE0FC005CCFF2 /* Visitor.swift in Sources */,
 				AAF2ED451DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
@@ -1240,61 +1267,61 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				BCCA0E6B1DB1210E00957D74 /* TextTypeAdditions.swift in Sources */,
-				9C75F8991DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/api.pb.swift /* api.pb.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/duration.pb.swift /* duration.pb.swift in Sources */,
-				BCCA0E6A1DB1210E00957D74 /* TextEncoder.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/empty.pb.swift /* empty.pb.swift in Sources */,
-				9C75F89E1DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* Errors.swift in Sources */,
+				9C75F88F1DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */,
+				9C75F88A1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				9C75F8851DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift in Sources */,
+				AAF2ED3A1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
+				AA05BF4F1DAEB7E800619042 /* FieldTag.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
-				AAF2EDFF1DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
-				AA28A4AC1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift in Sources */,
-				AAEA52741DA80DEA003F318F /* wrappers.pb.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* Errors.swift in Sources */,
-				9C75F88A1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift in Sources */,
-				AAF2ED3F1DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				AAF2ED3A1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
-				9CEB0D681DF5E934002D80F0 /* TextEncodingVisitor.swift in Sources */,
-				AA05BF4F1DAEB7E800619042 /* FieldTag.swift in Sources */,
-				9C75F8A31DDD44A1005CCFF2 /* Map.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift in Sources */,
 				AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
-				AA28A4A91DA40B0900C866D9 /* Varint.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift in Sources */,
+				AAF2EDFF1DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
+				9C75F89E1DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
+				9C75F8991DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift in Sources */,
+				9C75F8A31DDD44A1005CCFF2 /* Map.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* Message.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift in Sources */,
-				9C75F8851DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift in Sources */,
-				9C75F8801DDBE0DE005CCFF2 /* Visitor.swift in Sources */,
-				9CEB0D6C1DF5F921002D80F0 /* TextScanner.swift in Sources */,
-				AAF2ED441DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
-				BCCA0E691DB1210E00957D74 /* TextDecoder.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift in Sources */,
-				9CEB0D6A1DF5E99E002D80F0 /* TextToken.swift in Sources */,
-				AA28A4A61DA30E5900C866D9 /* ZigZag.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift in Sources */,
+				AA28A4AC1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift in Sources */,
 				9C75F8941DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */,
-				AA05BF4A1DAEB7E400619042 /* WireFormat.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift in Sources */,
+				AAF2ED3F1DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
+				AAF2ED441DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */,
+				BCCA0E691DB1210E00957D74 /* TextDecoder.swift in Sources */,
+				BCCA0E6A1DB1210E00957D74 /* TextEncoder.swift in Sources */,
+				9CEB0D681DF5E934002D80F0 /* TextEncodingVisitor.swift in Sources */,
+				9CEB0D6C1DF5F921002D80F0 /* TextScanner.swift in Sources */,
+				9CEB0D6A1DF5E99E002D80F0 /* TextToken.swift in Sources */,
+				BCCA0E6B1DB1210E00957D74 /* TextTypeAdditions.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/type.pb.swift /* type.pb.swift in Sources */,
-				9C75F88F1DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift in Sources */,
+				AA28A4A91DA40B0900C866D9 /* Varint.swift in Sources */,
+				9C75F8801DDBE0DE005CCFF2 /* Visitor.swift in Sources */,
+				AA05BF4A1DAEB7E400619042 /* WireFormat.swift in Sources */,
+				AAEA52741DA80DEA003F318F /* wrappers.pb.swift in Sources */,
+				AA28A4A61DA30E5900C866D9 /* ZigZag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,7 +1347,6 @@
 				F44F94431DBFE0BE00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Enum.swift /* Test_Enum.swift in Sources */,
 				AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */,
-				9C60CBEC1DF9DEEA00F7B14E /* Test_Text_proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Extensions.swift /* Test_Extensions.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_ExtremeDefaultValues.swift /* Test_ExtremeDefaultValues.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_FieldMask.swift /* Test_FieldMask.swift in Sources */,
@@ -1342,6 +1368,8 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Reserved.swift /* Test_Reserved.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Struct.swift /* Test_Struct.swift in Sources */,
+				9C60CBEC1DF9DEEA00F7B14E /* Test_Text_proto2.swift in Sources */,
+				9C5890A71DFF5FFC001CFC34 /* Test_Text_proto2_extensions.swift in Sources */,
 				BCCA0E7A1DB124B800957D74 /* Test_Text_proto3.swift in Sources */,
 				F44F943A1DBFBB7400BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				F44F94351DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
@@ -1439,6 +1467,12 @@
 				AAF2ED461DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
 				F44F93981DAEA76700BC5B85 /* Varint.swift in Sources */,
 				F44F937C1DAEA76700BC5B85 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
+				9C5890AE1DFF6384001CFC34 /* TextDecoder.swift in Sources */,
+				9C5890AF1DFF6384001CFC34 /* TextEncoder.swift in Sources */,
+				9C5890B01DFF6384001CFC34 /* TextEncodingVisitor.swift in Sources */,
+				9C5890B11DFF6384001CFC34 /* TextScanner.swift in Sources */,
+				9C5890B21DFF6384001CFC34 /* TextToken.swift in Sources */,
+				9C5890B31DFF6384001CFC34 /* TextTypeAdditions.swift in Sources */,
 				F44F93931DAEA76700BC5B85 /* FieldTypes.swift in Sources */,
 				9C75F8871DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
 				F44F93871DAEA76700BC5B85 /* Errors.swift in Sources */,
@@ -1555,55 +1589,61 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C75F89C1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
 				F44F94061DAEB23500BC5B85 /* api.pb.swift in Sources */,
-				ECBC5C4B1DF6ABC500F658E8 /* timestamp.pb.swift in Sources */,
-				ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */,
-				ECBC5C4F1DF6ABC500F658E8 /* ZigZag.swift in Sources */,
-				ECBC5C4E1DF6ABC500F658E8 /* type.pb.swift in Sources */,
-				ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
-				ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
-				AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				AAF2EE021DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
-				AAF2ED3D1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
-				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */,
+				F44F94141DAEB23500BC5B85 /* DebugDescriptionVisitor.swift in Sources */,
 				F44F94071DAEB23500BC5B85 /* duration.pb.swift in Sources */,
 				F44F94081DAEB23500BC5B85 /* empty.pb.swift in Sources */,
-				9C75F8A11DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
-				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
+				F44F94151DAEB23500BC5B85 /* Enum.swift in Sources */,
+				F44F94161DAEB23500BC5B85 /* Errors.swift in Sources */,
+				9C75F8921DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
+				F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */,
+				9C75F88D1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				9C75F8881DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
+				F44F94191DAEB23500BC5B85 /* FieldDecoder.swift in Sources */,
+				AAF2ED3D1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
 				AA05BF521DAEB7E800619042 /* FieldTag.swift in Sources */,
+				F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */,
+				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
 				F44F940A1DAEB23500BC5B85 /* Google_Protobuf_Any.swift in Sources */,
-				ECBC5C511DF6ABC500F658E8 /* wrappers.pb.swift in Sources */,
-				AAF2ED471DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
-				ECBC5C4C1DF6ABC500F658E8 /* Varint.swift in Sources */,
 				F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
 				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
+				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */,
+				ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
+				ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */,
+				F44F941B1DAEB23500BC5B85 /* JSONDecoder.swift in Sources */,
+				F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */,
+				AAF2EE021DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
+				9C75F8A11DDD3FA3005CCFF2 /* JSONScanner.swift in Sources */,
+				9C75F89C1DDD3F1E005CCFF2 /* JSONToken.swift in Sources */,
+				F44F941D1DAEB23500BC5B85 /* JSONTypeAdditions.swift in Sources */,
+				9C75F8A61DDD44A1005CCFF2 /* Map.swift in Sources */,
+				F44F941E1DAEB23500BC5B85 /* Message.swift in Sources */,
+				F44F94181DAEB23500BC5B85 /* MessageExtension.swift in Sources */,
+				F44F941F1DAEB23500BC5B85 /* MirrorVisitor.swift in Sources */,
+				F44F94201DAEB23500BC5B85 /* OneofEnum.swift in Sources */,
 				F44F94101DAEB23500BC5B85 /* ProtobufDecoder.swift in Sources */,
 				F44F94111DAEB23500BC5B85 /* ProtobufEncoder.swift in Sources */,
 				F44F94121DAEB23500BC5B85 /* ProtobufEncodingSizeVisitor.swift in Sources */,
-				F44F94131DAEB23500BC5B85 /* ProtobufTypeAdditions.swift in Sources */,
-				F44F94141DAEB23500BC5B85 /* DebugDescriptionVisitor.swift in Sources */,
-				F44F94151DAEB23500BC5B85 /* Enum.swift in Sources */,
-				9C75F88D1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
-				F44F94161DAEB23500BC5B85 /* Errors.swift in Sources */,
-				F44F94181DAEB23500BC5B85 /* MessageExtension.swift in Sources */,
-				F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */,
-				F44F94191DAEB23500BC5B85 /* FieldDecoder.swift in Sources */,
-				F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */,
-				9C75F8A61DDD44A1005CCFF2 /* Map.swift in Sources */,
-				F44F941B1DAEB23500BC5B85 /* JSONDecoder.swift in Sources */,
-				F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */,
-				F44F941D1DAEB23500BC5B85 /* JSONTypeAdditions.swift in Sources */,
-				F44F941E1DAEB23500BC5B85 /* Message.swift in Sources */,
-				F44F941F1DAEB23500BC5B85 /* MirrorVisitor.swift in Sources */,
-				F44F94201DAEB23500BC5B85 /* OneofEnum.swift in Sources */,
-				F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */,
-				F44F94231DAEB23500BC5B85 /* UnknownStorage.swift in Sources */,
-				9C75F8831DDBE118005CCFF2 /* Visitor.swift in Sources */,
-				9C75F8881DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
-				AA05BF4D1DAEB7E400619042 /* WireFormat.swift in Sources */,
 				9C75F8971DDD3D20005CCFF2 /* ProtobufEncodingVisitor.swift in Sources */,
-				9C75F8921DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
+				F44F94131DAEB23500BC5B85 /* ProtobufTypeAdditions.swift in Sources */,
+				AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
+				AAF2ED471DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
+				ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */,
+				9C5890A81DFF6375001CFC34 /* TextDecoder.swift in Sources */,
+				9C5890A91DFF6375001CFC34 /* TextEncoder.swift in Sources */,
+				9C5890AA1DFF6375001CFC34 /* TextEncodingVisitor.swift in Sources */,
+				9C5890AB1DFF6375001CFC34 /* TextScanner.swift in Sources */,
+				9C5890AC1DFF6375001CFC34 /* TextToken.swift in Sources */,
+				9C5890AD1DFF6375001CFC34 /* TextTypeAdditions.swift in Sources */,
+				ECBC5C4B1DF6ABC500F658E8 /* timestamp.pb.swift in Sources */,
+				ECBC5C4E1DF6ABC500F658E8 /* type.pb.swift in Sources */,
+				F44F94231DAEB23500BC5B85 /* UnknownStorage.swift in Sources */,
+				ECBC5C4C1DF6ABC500F658E8 /* Varint.swift in Sources */,
+				9C75F8831DDBE118005CCFF2 /* Visitor.swift in Sources */,
+				AA05BF4D1DAEB7E400619042 /* WireFormat.swift in Sources */,
+				ECBC5C511DF6ABC500F658E8 /* wrappers.pb.swift in Sources */,
+				ECBC5C4F1DF6ABC500F658E8 /* ZigZag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
