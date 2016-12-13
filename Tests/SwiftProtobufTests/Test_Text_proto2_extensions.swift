@@ -33,7 +33,7 @@ class Test_Text_proto2_extensions: XCTestCase, PBTestHelpers {
         assertTextEncode("[protobuf_unittest.OptionalGroup_extension] {\n  a: 789\n}\n",
                          extensions: ProtobufUnittest_Unittest_Extensions) {
             (o: inout MessageTestType) in
-            o.ProtobufUnittest_optionalGroupExtension = ProtobufUnittest_OptionalGroup_extension.with {$0.a = 789}
+            o.ProtobufUnittest_optionalGroupExtension.a = 789
         }
         // Fails if we don't provide the extensions to the decoder:
         assertTextDecodeFails("[protobuf_unittest.OptionalGroup_extension] {\n  a: 789\n}\n")
