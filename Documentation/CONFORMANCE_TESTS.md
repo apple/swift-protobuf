@@ -15,10 +15,10 @@ This test suite requires Swift 3.0, standard command-line tools such as make and
 The `Makefile` at the root of this project has the following lines, which specify how to run the installed `protoc` program on your system, and where to find the Google protobuf source tree:
 ```Makefile
 PROTOC=protoc
-GOOGLE_PROTOBUFS_CHECKOUT=../protobuf
+GOOGLE_PROTOBUF_CHECKOUT=../protobuf
 ```
 
-If these do not match your system, you can run `make [target] PROTOC=[path] GOOGLE_PROTOBUFS_CHECKOUT=[path]`, or edit the `Makefile` directly if you prefer.
+If these do not match your system, you can run `make [target] PROTOC=[path] GOOGLE_PROTOBUF_CHECKOUT=[path]`, or edit the `Makefile` directly if you prefer.
 
 After setting these variables, you can type:
 ```console
