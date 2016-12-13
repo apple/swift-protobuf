@@ -83,7 +83,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
   }
 
   public func _protoc_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
-    if (a != other.a) {return false}
+    if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
     return true
@@ -153,7 +153,7 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, Swift
   }
 
   public func _protoc_generated_isEqualTo(other: ExtensionGroup) -> Bool {
-    if (a != other.a) {return false}
+    if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -198,7 +198,7 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Messag
   }
 
   public func _protoc_generated_isEqualTo(other: RepeatedExtensionGroup) -> Bool {
-    if (a != other.a) {return false}
+    if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -243,7 +243,7 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
   }
 
   public func _protoc_generated_isEqualTo(other: SwiftTestGroupUnextended) -> Bool {
-    if (a != other.a) {return false}
+    if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }

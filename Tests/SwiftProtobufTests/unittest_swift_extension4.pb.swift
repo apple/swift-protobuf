@@ -75,7 +75,7 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
     }
 
     public func _protoc_generated_isEqualTo(other: Ext4MyMessage.C) -> Bool {
-      if (c != other.c) {return false}
+      if ((_c != nil || other._c != nil) && (_c == nil || other._c == nil || _c! != other._c!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -142,7 +142,7 @@ struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.
   }
 
   public func _protoc_generated_isEqualTo(other: Ext4C) -> Bool {
-    if (c != other.c) {return false}
+    if ((_c != nil || other._c != nil) && (_c == nil || other._c == nil || _c! != other._c!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }

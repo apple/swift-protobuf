@@ -246,7 +246,7 @@ struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobu
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessage) -> Bool {
-    if (d != other.d) {return false}
+    if ((_d != nil || other._d != nil) && (_d == nil || other._d == nil || _d! != other._d!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }

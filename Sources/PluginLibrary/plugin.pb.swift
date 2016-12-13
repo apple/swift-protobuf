@@ -126,7 +126,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if fileToGenerate != other.fileToGenerate {return false}
-    if (parameter != other.parameter) {return false}
+    if ((_parameter != nil || other._parameter != nil) && (_parameter == nil || other._parameter == nil || _parameter! != other._parameter!)) {return false}
     if protoFile != other.protoFile {return false}
     if unknown != other.unknown {return false}
     return true
@@ -268,9 +268,9 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
-      if (name != other.name) {return false}
-      if (insertionPoint != other.insertionPoint) {return false}
-      if (content != other.content) {return false}
+      if ((_name != nil || other._name != nil) && (_name == nil || other._name == nil || _name! != other._name!)) {return false}
+      if ((_insertionPoint != nil || other._insertionPoint != nil) && (_insertionPoint == nil || other._insertionPoint == nil || _insertionPoint! != other._insertionPoint!)) {return false}
+      if ((_content != nil || other._content != nil) && (_content == nil || other._content == nil || _content! != other._content!)) {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -319,7 +319,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
-    if (error != other.error) {return false}
+    if ((_error != nil || other._error != nil) && (_error == nil || other._error == nil || _error! != other._error!)) {return false}
     if file != other.file {return false}
     if unknown != other.unknown {return false}
     return true

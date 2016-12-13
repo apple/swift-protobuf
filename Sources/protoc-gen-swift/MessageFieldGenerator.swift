@@ -302,14 +302,12 @@ struct MessageFieldGenerator {
             return "\(name) != other.\(name)"
         } else if isGroup || isMessage {
             return "((\(name) != nil || other.\(name) != nil) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
-        } else if let def = swiftProto2DefaultValue {
+        } else {
             var name = name
             if !usesHeapStorage {
                 name = "_" + name
             }
-            return "(((\(name) != nil && \(name)! != \(def)) || (other.\(name) != nil && other.\(name)! != \(def))) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
-        } else {
-            return "(\(name) != other.\(name))"
+            return "((\(name) != nil || other.\(name) != nil) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
         }
     }
 

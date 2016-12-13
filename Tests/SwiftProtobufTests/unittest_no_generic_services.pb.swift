@@ -150,7 +150,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_NoGenericServicesTest_TestMessage) -> Bool {
-    if (a != other.a) {return false}
+    if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
     return true

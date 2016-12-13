@@ -91,7 +91,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_i != other._i) {return false}
+      if ((_i != nil || other._i != nil) && (_i == nil || other._i == nil || _i! != other._i!)) {return false}
       if ((_msg != nil || other._msg != nil) && (_msg == nil || other._msg == nil || _msg! != other._msg!)) {return false}
       if _foo != other._foo {return false}
       if unknown != other.unknown {return false}
@@ -306,7 +306,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOptimizedForSize) -> Bool {
-    if (x != other.x) {return false}
+    if ((_x != nil || other._x != nil) && (_x == nil || other._x == nil || _x! != other._x!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }

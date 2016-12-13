@@ -79,7 +79,7 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, Sw
   }
 
   public func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_ImportNoArenaNestedMessage) -> Bool {
-    if (d != other.d) {return false}
+    if ((_d != nil || other._d != nil) && (_d == nil || other._d == nil || _d! != other._d!)) {return false}
     if unknown != other.unknown {return false}
     return true
   }
