@@ -414,24 +414,24 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_optionalInt32 != other._optionalInt32) {return false}
-      if (_optionalInt64 != other._optionalInt64) {return false}
-      if (_optionalUint32 != other._optionalUint32) {return false}
-      if (_optionalUint64 != other._optionalUint64) {return false}
-      if (_optionalSint32 != other._optionalSint32) {return false}
-      if (_optionalSint64 != other._optionalSint64) {return false}
-      if (_optionalFixed32 != other._optionalFixed32) {return false}
-      if (_optionalFixed64 != other._optionalFixed64) {return false}
-      if (_optionalSfixed32 != other._optionalSfixed32) {return false}
-      if (_optionalSfixed64 != other._optionalSfixed64) {return false}
-      if (_optionalFloat != other._optionalFloat) {return false}
-      if (_optionalDouble != other._optionalDouble) {return false}
-      if (_optionalBool != other._optionalBool) {return false}
-      if (_optionalString != other._optionalString) {return false}
-      if (_optionalBytes != other._optionalBytes) {return false}
-      if ((_optionalGroup != nil || other._optionalGroup != nil) && (_optionalGroup == nil || other._optionalGroup == nil || _optionalGroup! != other._optionalGroup!)) {return false}
-      if ((_optionalMessage != nil || other._optionalMessage != nil) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
-      if (_optionalEnum != other._optionalEnum) {return false}
+      if _optionalInt32 != other._optionalInt32 {return false}
+      if _optionalInt64 != other._optionalInt64 {return false}
+      if _optionalUint32 != other._optionalUint32 {return false}
+      if _optionalUint64 != other._optionalUint64 {return false}
+      if _optionalSint32 != other._optionalSint32 {return false}
+      if _optionalSint64 != other._optionalSint64 {return false}
+      if _optionalFixed32 != other._optionalFixed32 {return false}
+      if _optionalFixed64 != other._optionalFixed64 {return false}
+      if _optionalSfixed32 != other._optionalSfixed32 {return false}
+      if _optionalSfixed64 != other._optionalSfixed64 {return false}
+      if _optionalFloat != other._optionalFloat {return false}
+      if _optionalDouble != other._optionalDouble {return false}
+      if _optionalBool != other._optionalBool {return false}
+      if _optionalString != other._optionalString {return false}
+      if _optionalBytes != other._optionalBytes {return false}
+      if _optionalGroup != other._optionalGroup {return false}
+      if _optionalMessage != other._optionalMessage {return false}
+      if _optionalEnum != other._optionalEnum {return false}
       if _repeatedInt32 != other._repeatedInt32 {return false}
       if _repeatedInt64 != other._repeatedInt64 {return false}
       if _repeatedUint32 != other._repeatedUint32 {return false}
@@ -898,7 +898,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OptionalGroup) -> Bool {
-      if (a != other.a) {return false}
+      if _a != other._a {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -943,7 +943,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.RepeatedGroup) -> Bool {
-      if (a != other.a) {return false}
+      if _a != other._a {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1005,8 +1005,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OneofGroup) -> Bool {
-      if (((_a != nil && _a! != 116) || (other._a != nil && other._a! != 116)) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
-      if (b != other.b) {return false}
+      if _a != other._a {return false}
+      if _b != other._b {return false}
       if unknown != other.unknown {return false}
       return true
     }

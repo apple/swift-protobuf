@@ -77,7 +77,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_messageSet != nil || other._messageSet != nil) && (_messageSet == nil || other._messageSet == nil || _messageSet! != other._messageSet!)) {return false}
+      if _messageSet != other._messageSet {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -174,7 +174,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
-    if (i != other.i) {return false}
+    if _i != other._i {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -224,7 +224,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
-    if (str != other.str) {return false}
+    if _str != other._str {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -304,8 +304,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
-      if (typeId != other.typeId) {return false}
-      if (message != other.message) {return false}
+      if _typeId != other._typeId {return false}
+      if _message != other._message {return false}
       if unknown != other.unknown {return false}
       return true
     }

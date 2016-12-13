@@ -1108,9 +1108,9 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredLite) -> Bool {
-    if (a != other.a) {return false}
-    if (b != other.b) {return false}
-    if (c != other.c) {return false}
+    if _a != other._a {return false}
+    if _b != other._b {return false}
+    if _c != other._c {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -1155,7 +1155,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftPro
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ForeignMessageArenaLite) -> Bool {
-    if (c != other.c) {return false}
+    if _c != other._c {return false}
     if unknown != other.unknown {return false}
     return true
   }
