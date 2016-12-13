@@ -59,18 +59,18 @@ import SwiftProtobuf
 //    - running as a sub-process may be more tricky in unusual environments like
 //      iOS apps, where fork/stdin/stdout are not available.
 
-public enum Conformance_WireFormat: SwiftProtobuf.Enum {
-  public typealias RawValue = Int
+enum Conformance_WireFormat: SwiftProtobuf.Enum {
+  typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
   case json_ // = 2
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .unspecified
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .protobuf
@@ -79,7 +79,7 @@ public enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "unspecified": self = .unspecified
     case "protobuf": self = .protobuf
@@ -88,7 +88,7 @@ public enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
@@ -97,7 +97,7 @@ public enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
@@ -106,7 +106,7 @@ public enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .unspecified: return 0
@@ -117,7 +117,7 @@ public enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .unspecified: return "\"UNSPECIFIED\""
@@ -128,9 +128,9 @@ public enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .unspecified: return ".unspecified"
@@ -143,18 +143,18 @@ public enum Conformance_WireFormat: SwiftProtobuf.Enum {
 
 }
 
-public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
-  public typealias RawValue = Int
+enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
+  typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
   case foreignBaz // = 2
   case UNRECOGNIZED(Int)
 
-  public init() {
+  init() {
     self = .foreignFoo
   }
 
-  public init?(rawValue: Int) {
+  init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .foreignFoo
     case 1: self = .foreignBar
@@ -163,7 +163,7 @@ public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(name: String) {
+  init?(name: String) {
     switch name {
     case "foreignFoo": self = .foreignFoo
     case "foreignBar": self = .foreignBar
@@ -172,7 +172,7 @@ public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(jsonName: String) {
+  init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_FOO": self = .foreignFoo
     case "FOREIGN_BAR": self = .foreignBar
@@ -181,7 +181,7 @@ public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public init?(protoName: String) {
+  init?(protoName: String) {
     switch protoName {
     case "FOREIGN_FOO": self = .foreignFoo
     case "FOREIGN_BAR": self = .foreignBar
@@ -190,7 +190,7 @@ public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public var rawValue: Int {
+  var rawValue: Int {
     get {
       switch self {
       case .foreignFoo: return 0
@@ -201,7 +201,7 @@ public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public var json: String {
+  var json: String {
     get {
       switch self {
       case .foreignFoo: return "\"FOREIGN_FOO\""
@@ -212,9 +212,9 @@ public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  public var hashValue: Int { return rawValue }
+  var hashValue: Int { return rawValue }
 
-  public var debugDescription: String {
+  var debugDescription: String {
     get {
       switch self {
       case .foreignFoo: return ".foreignFoo"
@@ -232,7 +232,7 @@ public enum Conformance_ForeignEnum: SwiftProtobuf.Enum {
 ///     1. parse this proto (which should always succeed)
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
-public struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ConformanceRequest"}
   public var protoMessageName: String {return "ConformanceRequest"}
   public var protoPackageName: String {return "conformance"}
@@ -243,7 +243,7 @@ public struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtob
   ]
 
 
-  public enum OneOf_Payload: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Payload: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case protobufPayload(Data)
     case jsonPayload(String)
     case None
@@ -290,7 +290,7 @@ public struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public var protobufPayload: Data {
+  var protobufPayload: Data {
     get {
       if case .protobufPayload(let v) = payload {
         return v
@@ -304,7 +304,7 @@ public struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtob
 
   public var payload: Conformance_ConformanceRequest.OneOf_Payload = .None
 
-  public var jsonPayload: String {
+  var jsonPayload: String {
     get {
       if case .jsonPayload(let v) = payload {
         return v
@@ -317,9 +317,9 @@ public struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtob
   }
 
   ///   Which format should the testee serialize its message to?
-  public var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
+  var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -344,7 +344,7 @@ public struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtob
 }
 
 ///   Represents a single test case's output.
-public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ConformanceResponse"}
   public var protoMessageName: String {return "ConformanceResponse"}
   public var protoPackageName: String {return "conformance"}
@@ -358,7 +358,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
   ]
 
 
-  public enum OneOf_Result: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Result: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case parseError(String)
     case serializeError(String)
     case runtimeError(String)
@@ -446,7 +446,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
   ///  
   ///   Setting this string does not necessarily mean the testee failed the
   ///   test.  Some of the test cases are intentionally invalid input.
-  public var parseError: String {
+  var parseError: String {
     get {
       if case .parseError(let v) = result {
         return v
@@ -463,7 +463,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
   ///   If the input was successfully parsed but errors occurred when
   ///   serializing it to the requested output format, set the error message in
   ///   this field.
-  public var serializeError: String {
+  var serializeError: String {
     get {
       if case .serializeError(let v) = result {
         return v
@@ -478,7 +478,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
   ///   This should be set if some other error occurred.  This will always
   ///   indicate that the test failed.  The string can provide more information
   ///   about the failure.
-  public var runtimeError: String {
+  var runtimeError: String {
     get {
       if case .runtimeError(let v) = result {
         return v
@@ -492,7 +492,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
 
   ///   If the input was successfully parsed and the requested output was
   ///   protobuf, serialize it to protobuf and set it in this field.
-  public var protobufPayload: Data {
+  var protobufPayload: Data {
     get {
       if case .protobufPayload(let v) = result {
         return v
@@ -506,7 +506,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
 
   ///   If the input was successfully parsed and the requested output was JSON,
   ///   serialize to JSON and set it in this field.
-  public var jsonPayload: String {
+  var jsonPayload: String {
     get {
       if case .jsonPayload(let v) = result {
         return v
@@ -520,7 +520,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
 
   ///   For when the testee skipped the test, likely because a certain feature
   ///   wasn't supported, like JSON input/output.
-  public var skipped: String {
+  var skipped: String {
     get {
       if case .skipped(let v) = result {
         return v
@@ -532,7 +532,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -553,7 +553,7 @@ public struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProto
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "conformance"}
@@ -1481,7 +1481,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
   private var _storage = _StorageClass()
 
 
-  public enum OneOf_OneofField: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_OneofField: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Conformance_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -1593,8 +1593,8 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public enum NestedEnum: SwiftProtobuf.Enum {
-    public typealias RawValue = Int
+  enum NestedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
@@ -1603,11 +1603,11 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     case neg // = -1
     case UNRECOGNIZED(Int)
 
-    public init() {
+    init() {
       self = .foo
     }
 
-    public init?(rawValue: Int) {
+    init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .foo
       case 1: self = .bar
@@ -1617,7 +1617,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public init?(name: String) {
+    init?(name: String) {
       switch name {
       case "foo": self = .foo
       case "bar": self = .bar
@@ -1627,7 +1627,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public init?(jsonName: String) {
+    init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -1637,7 +1637,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public init?(protoName: String) {
+    init?(protoName: String) {
       switch protoName {
       case "FOO": self = .foo
       case "BAR": self = .bar
@@ -1647,7 +1647,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public var rawValue: Int {
+    var rawValue: Int {
       get {
         switch self {
         case .foo: return 0
@@ -1659,7 +1659,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public var json: String {
+    var json: String {
       get {
         switch self {
         case .foo: return "\"FOO\""
@@ -1671,9 +1671,9 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public var hashValue: Int { return rawValue }
+    var hashValue: Int { return rawValue }
 
-    public var debugDescription: String {
+    var debugDescription: String {
       get {
         switch self {
         case .foo: return ".foo"
@@ -1687,7 +1687,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   }
 
-  public struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var swiftClassName: String {return "Conformance_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "conformance"}
@@ -1737,12 +1737,12 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     private var _storage = _StorageClass()
 
 
-    public var a: Int32 {
+    var a: Int32 {
       get {return _storage._a}
       set {_uniqueStorage()._a = newValue}
     }
 
-    public var corecursive: Conformance_TestAllTypes {
+    var corecursive: Conformance_TestAllTypes {
       get {return _storage._corecursive ?? Conformance_TestAllTypes()}
       set {_uniqueStorage()._corecursive = newValue}
     }
@@ -1753,7 +1753,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       return _storage._corecursive = nil
     }
 
-    public init() {}
+    init() {}
 
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
       try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1776,82 +1776,82 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
   }
 
   ///   Singular
-  public var optionalInt32: Int32 {
+  var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
-  public var optionalInt64: Int64 {
+  var optionalInt64: Int64 {
     get {return _storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
-  public var optionalUint32: UInt32 {
+  var optionalUint32: UInt32 {
     get {return _storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
-  public var optionalUint64: UInt64 {
+  var optionalUint64: UInt64 {
     get {return _storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
-  public var optionalSint32: Int32 {
+  var optionalSint32: Int32 {
     get {return _storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
-  public var optionalSint64: Int64 {
+  var optionalSint64: Int64 {
     get {return _storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
-  public var optionalFixed32: UInt32 {
+  var optionalFixed32: UInt32 {
     get {return _storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
-  public var optionalFixed64: UInt64 {
+  var optionalFixed64: UInt64 {
     get {return _storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
-  public var optionalSfixed32: Int32 {
+  var optionalSfixed32: Int32 {
     get {return _storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
-  public var optionalSfixed64: Int64 {
+  var optionalSfixed64: Int64 {
     get {return _storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
-  public var optionalFloat: Float {
+  var optionalFloat: Float {
     get {return _storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
-  public var optionalDouble: Double {
+  var optionalDouble: Double {
     get {return _storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
-  public var optionalBool: Bool {
+  var optionalBool: Bool {
     get {return _storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
-  public var optionalString: String {
+  var optionalString: String {
     get {return _storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  public var optionalBytes: Data {
+  var optionalBytes: Data {
     get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
-  public var optionalNestedMessage: Conformance_TestAllTypes.NestedMessage {
+  var optionalNestedMessage: Conformance_TestAllTypes.NestedMessage {
     get {return _storage._optionalNestedMessage ?? Conformance_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
@@ -1862,7 +1862,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalNestedMessage = nil
   }
 
-  public var optionalForeignMessage: Conformance_ForeignMessage {
+  var optionalForeignMessage: Conformance_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? Conformance_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
@@ -1873,27 +1873,27 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalForeignMessage = nil
   }
 
-  public var optionalNestedEnum: Conformance_TestAllTypes.NestedEnum {
+  var optionalNestedEnum: Conformance_TestAllTypes.NestedEnum {
     get {return _storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
-  public var optionalForeignEnum: Conformance_ForeignEnum {
+  var optionalForeignEnum: Conformance_ForeignEnum {
     get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
-  public var optionalStringPiece: String {
+  var optionalStringPiece: String {
     get {return _storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
 
-  public var optionalCord: String {
+  var optionalCord: String {
     get {return _storage._optionalCord}
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
-  public var recursiveMessage: Conformance_TestAllTypes {
+  var recursiveMessage: Conformance_TestAllTypes {
     get {return _storage._recursiveMessage ?? Conformance_TestAllTypes()}
     set {_uniqueStorage()._recursiveMessage = newValue}
   }
@@ -1905,208 +1905,208 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
   }
 
   ///   Repeated
-  public var repeatedInt32: [Int32] {
+  var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
-  public var repeatedInt64: [Int64] {
+  var repeatedInt64: [Int64] {
     get {return _storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
-  public var repeatedUint32: [UInt32] {
+  var repeatedUint32: [UInt32] {
     get {return _storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
-  public var repeatedUint64: [UInt64] {
+  var repeatedUint64: [UInt64] {
     get {return _storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
-  public var repeatedSint32: [Int32] {
+  var repeatedSint32: [Int32] {
     get {return _storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
-  public var repeatedSint64: [Int64] {
+  var repeatedSint64: [Int64] {
     get {return _storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
-  public var repeatedFixed32: [UInt32] {
+  var repeatedFixed32: [UInt32] {
     get {return _storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
-  public var repeatedFixed64: [UInt64] {
+  var repeatedFixed64: [UInt64] {
     get {return _storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
-  public var repeatedSfixed32: [Int32] {
+  var repeatedSfixed32: [Int32] {
     get {return _storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
-  public var repeatedSfixed64: [Int64] {
+  var repeatedSfixed64: [Int64] {
     get {return _storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
-  public var repeatedFloat: [Float] {
+  var repeatedFloat: [Float] {
     get {return _storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
-  public var repeatedDouble: [Double] {
+  var repeatedDouble: [Double] {
     get {return _storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
-  public var repeatedBool: [Bool] {
+  var repeatedBool: [Bool] {
     get {return _storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
-  public var repeatedString: [String] {
+  var repeatedString: [String] {
     get {return _storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  public var repeatedBytes: [Data] {
+  var repeatedBytes: [Data] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
-  public var repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] {
+  var repeatedNestedMessage: [Conformance_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  public var repeatedForeignMessage: [Conformance_ForeignMessage] {
+  var repeatedForeignMessage: [Conformance_ForeignMessage] {
     get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  public var repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] {
+  var repeatedNestedEnum: [Conformance_TestAllTypes.NestedEnum] {
     get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
-  public var repeatedForeignEnum: [Conformance_ForeignEnum] {
+  var repeatedForeignEnum: [Conformance_ForeignEnum] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
-  public var repeatedStringPiece: [String] {
+  var repeatedStringPiece: [String] {
     get {return _storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
-  public var repeatedCord: [String] {
+  var repeatedCord: [String] {
     get {return _storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
   ///   Map
-  public var mapInt32Int32: Dictionary<Int32,Int32> {
+  var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
-  public var mapInt64Int64: Dictionary<Int64,Int64> {
+  var mapInt64Int64: Dictionary<Int64,Int64> {
     get {return _storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
-  public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
+  var mapUint32Uint32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
-  public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
+  var mapUint64Uint64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
-  public var mapSint32Sint32: Dictionary<Int32,Int32> {
+  var mapSint32Sint32: Dictionary<Int32,Int32> {
     get {return _storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
-  public var mapSint64Sint64: Dictionary<Int64,Int64> {
+  var mapSint64Sint64: Dictionary<Int64,Int64> {
     get {return _storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
-  public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
+  var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
     get {return _storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
-  public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
+  var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
     get {return _storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
-  public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
+  var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
     get {return _storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
-  public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
+  var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
     get {return _storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
-  public var mapInt32Float: Dictionary<Int32,Float> {
+  var mapInt32Float: Dictionary<Int32,Float> {
     get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
-  public var mapInt32Double: Dictionary<Int32,Double> {
+  var mapInt32Double: Dictionary<Int32,Double> {
     get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
-  public var mapBoolBool: Dictionary<Bool,Bool> {
+  var mapBoolBool: Dictionary<Bool,Bool> {
     get {return _storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
-  public var mapStringString: Dictionary<String,String> {
+  var mapStringString: Dictionary<String,String> {
     get {return _storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  public var mapStringBytes: Dictionary<String,Data> {
+  var mapStringBytes: Dictionary<String,Data> {
     get {return _storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
-  public var mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> {
+  var mapStringNestedMessage: Dictionary<String,Conformance_TestAllTypes.NestedMessage> {
     get {return _storage._mapStringNestedMessage}
     set {_uniqueStorage()._mapStringNestedMessage = newValue}
   }
 
-  public var mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> {
+  var mapStringForeignMessage: Dictionary<String,Conformance_ForeignMessage> {
     get {return _storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
-  public var mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> {
+  var mapStringNestedEnum: Dictionary<String,Conformance_TestAllTypes.NestedEnum> {
     get {return _storage._mapStringNestedEnum}
     set {_uniqueStorage()._mapStringNestedEnum = newValue}
   }
 
-  public var mapStringForeignEnum: Dictionary<String,Conformance_ForeignEnum> {
+  var mapStringForeignEnum: Dictionary<String,Conformance_ForeignEnum> {
     get {return _storage._mapStringForeignEnum}
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
 
-  public var oneofUint32: UInt32 {
+  var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v) = _storage._oneofField {
         return v
@@ -2118,7 +2118,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofNestedMessage: Conformance_TestAllTypes.NestedMessage {
+  var oneofNestedMessage: Conformance_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v) = _storage._oneofField {
         return v
@@ -2130,7 +2130,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofString: String {
+  var oneofString: String {
     get {
       if case .oneofString(let v) = _storage._oneofField {
         return v
@@ -2142,7 +2142,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofBytes: Data {
+  var oneofBytes: Data {
     get {
       if case .oneofBytes(let v) = _storage._oneofField {
         return v
@@ -2154,7 +2154,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofBool: Bool {
+  var oneofBool: Bool {
     get {
       if case .oneofBool(let v) = _storage._oneofField {
         return v
@@ -2166,7 +2166,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofUint64: UInt64 {
+  var oneofUint64: UInt64 {
     get {
       if case .oneofUint64(let v) = _storage._oneofField {
         return v
@@ -2178,7 +2178,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofFloat: Float {
+  var oneofFloat: Float {
     get {
       if case .oneofFloat(let v) = _storage._oneofField {
         return v
@@ -2190,7 +2190,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofDouble: Double {
+  var oneofDouble: Double {
     get {
       if case .oneofDouble(let v) = _storage._oneofField {
         return v
@@ -2202,7 +2202,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var oneofEnum: Conformance_TestAllTypes.NestedEnum {
+  var oneofEnum: Conformance_TestAllTypes.NestedEnum {
     get {
       if case .oneofEnum(let v) = _storage._oneofField {
         return v
@@ -2215,7 +2215,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
   }
 
   ///   Well-known types
-  public var optionalBoolWrapper: Google_Protobuf_BoolValue {
+  var optionalBoolWrapper: Google_Protobuf_BoolValue {
     get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
   }
@@ -2226,7 +2226,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalBoolWrapper = nil
   }
 
-  public var optionalInt32Wrapper: Google_Protobuf_Int32Value {
+  var optionalInt32Wrapper: Google_Protobuf_Int32Value {
     get {return _storage._optionalInt32Wrapper ?? Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._optionalInt32Wrapper = newValue}
   }
@@ -2237,7 +2237,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalInt32Wrapper = nil
   }
 
-  public var optionalInt64Wrapper: Google_Protobuf_Int64Value {
+  var optionalInt64Wrapper: Google_Protobuf_Int64Value {
     get {return _storage._optionalInt64Wrapper ?? Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._optionalInt64Wrapper = newValue}
   }
@@ -2248,7 +2248,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalInt64Wrapper = nil
   }
 
-  public var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
+  var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
     get {return _storage._optionalUint32Wrapper ?? Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._optionalUint32Wrapper = newValue}
   }
@@ -2259,7 +2259,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalUint32Wrapper = nil
   }
 
-  public var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
+  var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
     get {return _storage._optionalUint64Wrapper ?? Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._optionalUint64Wrapper = newValue}
   }
@@ -2270,7 +2270,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalUint64Wrapper = nil
   }
 
-  public var optionalFloatWrapper: Google_Protobuf_FloatValue {
+  var optionalFloatWrapper: Google_Protobuf_FloatValue {
     get {return _storage._optionalFloatWrapper ?? Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._optionalFloatWrapper = newValue}
   }
@@ -2281,7 +2281,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalFloatWrapper = nil
   }
 
-  public var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
+  var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
     get {return _storage._optionalDoubleWrapper ?? Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._optionalDoubleWrapper = newValue}
   }
@@ -2292,7 +2292,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalDoubleWrapper = nil
   }
 
-  public var optionalStringWrapper: Google_Protobuf_StringValue {
+  var optionalStringWrapper: Google_Protobuf_StringValue {
     get {return _storage._optionalStringWrapper ?? Google_Protobuf_StringValue()}
     set {_uniqueStorage()._optionalStringWrapper = newValue}
   }
@@ -2303,7 +2303,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalStringWrapper = nil
   }
 
-  public var optionalBytesWrapper: Google_Protobuf_BytesValue {
+  var optionalBytesWrapper: Google_Protobuf_BytesValue {
     get {return _storage._optionalBytesWrapper ?? Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._optionalBytesWrapper = newValue}
   }
@@ -2314,52 +2314,52 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalBytesWrapper = nil
   }
 
-  public var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
+  var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
     get {return _storage._repeatedBoolWrapper}
     set {_uniqueStorage()._repeatedBoolWrapper = newValue}
   }
 
-  public var repeatedInt32Wrapper: [Google_Protobuf_Int32Value] {
+  var repeatedInt32Wrapper: [Google_Protobuf_Int32Value] {
     get {return _storage._repeatedInt32Wrapper}
     set {_uniqueStorage()._repeatedInt32Wrapper = newValue}
   }
 
-  public var repeatedInt64Wrapper: [Google_Protobuf_Int64Value] {
+  var repeatedInt64Wrapper: [Google_Protobuf_Int64Value] {
     get {return _storage._repeatedInt64Wrapper}
     set {_uniqueStorage()._repeatedInt64Wrapper = newValue}
   }
 
-  public var repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] {
+  var repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] {
     get {return _storage._repeatedUint32Wrapper}
     set {_uniqueStorage()._repeatedUint32Wrapper = newValue}
   }
 
-  public var repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] {
+  var repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] {
     get {return _storage._repeatedUint64Wrapper}
     set {_uniqueStorage()._repeatedUint64Wrapper = newValue}
   }
 
-  public var repeatedFloatWrapper: [Google_Protobuf_FloatValue] {
+  var repeatedFloatWrapper: [Google_Protobuf_FloatValue] {
     get {return _storage._repeatedFloatWrapper}
     set {_uniqueStorage()._repeatedFloatWrapper = newValue}
   }
 
-  public var repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] {
+  var repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] {
     get {return _storage._repeatedDoubleWrapper}
     set {_uniqueStorage()._repeatedDoubleWrapper = newValue}
   }
 
-  public var repeatedStringWrapper: [Google_Protobuf_StringValue] {
+  var repeatedStringWrapper: [Google_Protobuf_StringValue] {
     get {return _storage._repeatedStringWrapper}
     set {_uniqueStorage()._repeatedStringWrapper = newValue}
   }
 
-  public var repeatedBytesWrapper: [Google_Protobuf_BytesValue] {
+  var repeatedBytesWrapper: [Google_Protobuf_BytesValue] {
     get {return _storage._repeatedBytesWrapper}
     set {_uniqueStorage()._repeatedBytesWrapper = newValue}
   }
 
-  public var optionalDuration: Google_Protobuf_Duration {
+  var optionalDuration: Google_Protobuf_Duration {
     get {return _storage._optionalDuration ?? Google_Protobuf_Duration()}
     set {_uniqueStorage()._optionalDuration = newValue}
   }
@@ -2370,7 +2370,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalDuration = nil
   }
 
-  public var optionalTimestamp: Google_Protobuf_Timestamp {
+  var optionalTimestamp: Google_Protobuf_Timestamp {
     get {return _storage._optionalTimestamp ?? Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._optionalTimestamp = newValue}
   }
@@ -2381,7 +2381,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalTimestamp = nil
   }
 
-  public var optionalFieldMask: Google_Protobuf_FieldMask {
+  var optionalFieldMask: Google_Protobuf_FieldMask {
     get {return _storage._optionalFieldMask ?? Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._optionalFieldMask = newValue}
   }
@@ -2392,7 +2392,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalFieldMask = nil
   }
 
-  public var optionalStruct: Google_Protobuf_Struct {
+  var optionalStruct: Google_Protobuf_Struct {
     get {return _storage._optionalStruct ?? Google_Protobuf_Struct()}
     set {_uniqueStorage()._optionalStruct = newValue}
   }
@@ -2403,7 +2403,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalStruct = nil
   }
 
-  public var optionalAny: Google_Protobuf_Any {
+  var optionalAny: Google_Protobuf_Any {
     get {return _storage._optionalAny ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._optionalAny = newValue}
   }
@@ -2414,7 +2414,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalAny = nil
   }
 
-  public var optionalValue: Google_Protobuf_Value {
+  var optionalValue: Google_Protobuf_Value {
     get {return _storage._optionalValue ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._optionalValue = newValue}
   }
@@ -2425,124 +2425,124 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     return _storage._optionalValue = nil
   }
 
-  public var repeatedDuration: [Google_Protobuf_Duration] {
+  var repeatedDuration: [Google_Protobuf_Duration] {
     get {return _storage._repeatedDuration}
     set {_uniqueStorage()._repeatedDuration = newValue}
   }
 
-  public var repeatedTimestamp: [Google_Protobuf_Timestamp] {
+  var repeatedTimestamp: [Google_Protobuf_Timestamp] {
     get {return _storage._repeatedTimestamp}
     set {_uniqueStorage()._repeatedTimestamp = newValue}
   }
 
-  public var repeatedFieldmask: [Google_Protobuf_FieldMask] {
+  var repeatedFieldmask: [Google_Protobuf_FieldMask] {
     get {return _storage._repeatedFieldmask}
     set {_uniqueStorage()._repeatedFieldmask = newValue}
   }
 
-  public var repeatedStruct: [Google_Protobuf_Struct] {
+  var repeatedStruct: [Google_Protobuf_Struct] {
     get {return _storage._repeatedStruct}
     set {_uniqueStorage()._repeatedStruct = newValue}
   }
 
-  public var repeatedAny: [Google_Protobuf_Any] {
+  var repeatedAny: [Google_Protobuf_Any] {
     get {return _storage._repeatedAny}
     set {_uniqueStorage()._repeatedAny = newValue}
   }
 
-  public var repeatedValue: [Google_Protobuf_Value] {
+  var repeatedValue: [Google_Protobuf_Value] {
     get {return _storage._repeatedValue}
     set {_uniqueStorage()._repeatedValue = newValue}
   }
 
   ///   Test field-name-to-JSON-name convention.
   ///   (protobuf says names can be any valid C/C++ identifier.)
-  public var fieldname1: Int32 {
+  var fieldname1: Int32 {
     get {return _storage._fieldname1}
     set {_uniqueStorage()._fieldname1 = newValue}
   }
 
-  public var fieldName2: Int32 {
+  var fieldName2: Int32 {
     get {return _storage._fieldName2}
     set {_uniqueStorage()._fieldName2 = newValue}
   }
 
-  public var fieldName3: Int32 {
+  var fieldName3: Int32 {
     get {return _storage._fieldName3}
     set {_uniqueStorage()._fieldName3 = newValue}
   }
 
-  public var field_Name4_: Int32 {
+  var field_Name4_: Int32 {
     get {return _storage._field_Name4_}
     set {_uniqueStorage()._field_Name4_ = newValue}
   }
 
-  public var field0Name5: Int32 {
+  var field0Name5: Int32 {
     get {return _storage._field0Name5}
     set {_uniqueStorage()._field0Name5 = newValue}
   }
 
-  public var field0Name6: Int32 {
+  var field0Name6: Int32 {
     get {return _storage._field0Name6}
     set {_uniqueStorage()._field0Name6 = newValue}
   }
 
-  public var fieldName7: Int32 {
+  var fieldName7: Int32 {
     get {return _storage._fieldName7}
     set {_uniqueStorage()._fieldName7 = newValue}
   }
 
-  public var fieldName8: Int32 {
+  var fieldName8: Int32 {
     get {return _storage._fieldName8}
     set {_uniqueStorage()._fieldName8 = newValue}
   }
 
-  public var fieldName9: Int32 {
+  var fieldName9: Int32 {
     get {return _storage._fieldName9}
     set {_uniqueStorage()._fieldName9 = newValue}
   }
 
-  public var fieldName10: Int32 {
+  var fieldName10: Int32 {
     get {return _storage._fieldName10}
     set {_uniqueStorage()._fieldName10 = newValue}
   }
 
-  public var fieldName11: Int32 {
+  var fieldName11: Int32 {
     get {return _storage._fieldName11}
     set {_uniqueStorage()._fieldName11 = newValue}
   }
 
-  public var fieldName12: Int32 {
+  var fieldName12: Int32 {
     get {return _storage._fieldName12}
     set {_uniqueStorage()._fieldName12 = newValue}
   }
 
-  public var _FieldName13: Int32 {
+  var _FieldName13: Int32 {
     get {return _storage.__FieldName13}
     set {_uniqueStorage().__FieldName13 = newValue}
   }
 
-  public var _FieldName14: Int32 {
+  var _FieldName14: Int32 {
     get {return _storage.__FieldName14}
     set {_uniqueStorage().__FieldName14 = newValue}
   }
 
-  public var field_Name15: Int32 {
+  var field_Name15: Int32 {
     get {return _storage._field_Name15}
     set {_uniqueStorage()._field_Name15 = newValue}
   }
 
-  public var field_Name16: Int32 {
+  var field_Name16: Int32 {
     get {return _storage._field_Name16}
     set {_uniqueStorage()._field_Name16 = newValue}
   }
 
-  public var fieldName17__: Int32 {
+  var fieldName17__: Int32 {
     get {return _storage._fieldName17__}
     set {_uniqueStorage()._fieldName17__ = newValue}
   }
 
-  public var fieldName18__: Int32 {
+  var fieldName18__: Int32 {
     get {return _storage._fieldName18__}
     set {_uniqueStorage()._fieldName18__ = newValue}
   }
@@ -2554,7 +2554,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2576,7 +2576,7 @@ public struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
   }
 }
 
-public struct Conformance_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Conformance_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Conformance_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "conformance"}
@@ -2585,9 +2585,9 @@ public struct Conformance_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   ]
 
 
-  public var c: Int32 = 0
+  var c: Int32 = 0
 
-  public init() {}
+  init() {}
 
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2608,7 +2608,7 @@ public struct Conformance_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 }
 
-public func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
+func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
   switch (lhs, rhs) {
   case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
   case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
@@ -2617,7 +2617,7 @@ public func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conforman
   }
 }
 
-public func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
+func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
   switch (lhs, rhs) {
   case (.parseError(let l), .parseError(let r)): return l == r
   case (.serializeError(let l), .serializeError(let r)): return l == r
@@ -2630,7 +2630,7 @@ public func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conforman
   }
 }
 
-public func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAllTypes.OneOf_OneofField) -> Bool {
+func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAllTypes.OneOf_OneofField) -> Bool {
   switch (lhs, rhs) {
   case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
   case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
