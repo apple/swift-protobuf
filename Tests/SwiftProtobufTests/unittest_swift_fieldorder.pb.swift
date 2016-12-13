@@ -88,11 +88,11 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_myString != nil || other._myString != nil) && (_myString == nil || other._myString == nil || _myString! != other._myString!)) {return false}
-      if ((_myInt != nil || other._myInt != nil) && (_myInt == nil || other._myInt == nil || _myInt! != other._myInt!)) {return false}
-      if ((_myFloat != nil || other._myFloat != nil) && (_myFloat == nil || other._myFloat == nil || _myFloat! != other._myFloat!)) {return false}
+      if _myString != other._myString {return false}
+      if _myInt != other._myInt {return false}
+      if _myFloat != other._myFloat {return false}
       if _options != other._options {return false}
-      if ((_optionalNestedMessage != nil || other._optionalNestedMessage != nil) && (_optionalNestedMessage == nil || other._optionalNestedMessage == nil || _optionalNestedMessage! != other._optionalNestedMessage!)) {return false}
+      if _optionalNestedMessage != other._optionalNestedMessage {return false}
       if unknown != other.unknown {return false}
       if extensionFieldValues != other.extensionFieldValues {return false}
       return true
@@ -247,8 +247,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     }
 
     public func _protoc_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
-      if ((_oo != nil || other._oo != nil) && (_oo == nil || other._oo == nil || _oo! != other._oo!)) {return false}
-      if ((_bb != nil || other._bb != nil) && (_bb == nil || other._bb == nil || _bb! != other._bb!)) {return false}
+      if _oo != other._oo {return false}
+      if _bb != other._bb {return false}
       if unknown != other.unknown {return false}
       return true
     }

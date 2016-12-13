@@ -70,8 +70,8 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       }
 
       func isEqualTo(other: _StorageClass) -> Bool {
-        if ((_message != nil || other._message != nil) && (_message == nil || other._message == nil || _message! != other._message!)) {return false}
-        if ((_optionalEnum != nil || other._optionalEnum != nil) && (_optionalEnum == nil || other._optionalEnum == nil || _optionalEnum! != other._optionalEnum!)) {return false}
+        if _message != other._message {return false}
+        if _optionalEnum != other._optionalEnum {return false}
         if unknown != other.unknown {return false}
         return true
       }
@@ -305,7 +305,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
-      if ((_optionalEnum != nil || other._optionalEnum != nil) && (_optionalEnum == nil || other._optionalEnum == nil || _optionalEnum! != other._optionalEnum!)) {return false}
+      if _optionalEnum != other._optionalEnum {return false}
       if unknown != other.unknown {return false}
       return true
     }

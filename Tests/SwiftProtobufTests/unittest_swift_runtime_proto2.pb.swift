@@ -414,24 +414,24 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_optionalInt32 != nil || other._optionalInt32 != nil) && (_optionalInt32 == nil || other._optionalInt32 == nil || _optionalInt32! != other._optionalInt32!)) {return false}
-      if ((_optionalInt64 != nil || other._optionalInt64 != nil) && (_optionalInt64 == nil || other._optionalInt64 == nil || _optionalInt64! != other._optionalInt64!)) {return false}
-      if ((_optionalUint32 != nil || other._optionalUint32 != nil) && (_optionalUint32 == nil || other._optionalUint32 == nil || _optionalUint32! != other._optionalUint32!)) {return false}
-      if ((_optionalUint64 != nil || other._optionalUint64 != nil) && (_optionalUint64 == nil || other._optionalUint64 == nil || _optionalUint64! != other._optionalUint64!)) {return false}
-      if ((_optionalSint32 != nil || other._optionalSint32 != nil) && (_optionalSint32 == nil || other._optionalSint32 == nil || _optionalSint32! != other._optionalSint32!)) {return false}
-      if ((_optionalSint64 != nil || other._optionalSint64 != nil) && (_optionalSint64 == nil || other._optionalSint64 == nil || _optionalSint64! != other._optionalSint64!)) {return false}
-      if ((_optionalFixed32 != nil || other._optionalFixed32 != nil) && (_optionalFixed32 == nil || other._optionalFixed32 == nil || _optionalFixed32! != other._optionalFixed32!)) {return false}
-      if ((_optionalFixed64 != nil || other._optionalFixed64 != nil) && (_optionalFixed64 == nil || other._optionalFixed64 == nil || _optionalFixed64! != other._optionalFixed64!)) {return false}
-      if ((_optionalSfixed32 != nil || other._optionalSfixed32 != nil) && (_optionalSfixed32 == nil || other._optionalSfixed32 == nil || _optionalSfixed32! != other._optionalSfixed32!)) {return false}
-      if ((_optionalSfixed64 != nil || other._optionalSfixed64 != nil) && (_optionalSfixed64 == nil || other._optionalSfixed64 == nil || _optionalSfixed64! != other._optionalSfixed64!)) {return false}
-      if ((_optionalFloat != nil || other._optionalFloat != nil) && (_optionalFloat == nil || other._optionalFloat == nil || _optionalFloat! != other._optionalFloat!)) {return false}
-      if ((_optionalDouble != nil || other._optionalDouble != nil) && (_optionalDouble == nil || other._optionalDouble == nil || _optionalDouble! != other._optionalDouble!)) {return false}
-      if ((_optionalBool != nil || other._optionalBool != nil) && (_optionalBool == nil || other._optionalBool == nil || _optionalBool! != other._optionalBool!)) {return false}
-      if ((_optionalString != nil || other._optionalString != nil) && (_optionalString == nil || other._optionalString == nil || _optionalString! != other._optionalString!)) {return false}
-      if ((_optionalBytes != nil || other._optionalBytes != nil) && (_optionalBytes == nil || other._optionalBytes == nil || _optionalBytes! != other._optionalBytes!)) {return false}
-      if ((_optionalGroup != nil || other._optionalGroup != nil) && (_optionalGroup == nil || other._optionalGroup == nil || _optionalGroup! != other._optionalGroup!)) {return false}
-      if ((_optionalMessage != nil || other._optionalMessage != nil) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
-      if ((_optionalEnum != nil || other._optionalEnum != nil) && (_optionalEnum == nil || other._optionalEnum == nil || _optionalEnum! != other._optionalEnum!)) {return false}
+      if _optionalInt32 != other._optionalInt32 {return false}
+      if _optionalInt64 != other._optionalInt64 {return false}
+      if _optionalUint32 != other._optionalUint32 {return false}
+      if _optionalUint64 != other._optionalUint64 {return false}
+      if _optionalSint32 != other._optionalSint32 {return false}
+      if _optionalSint64 != other._optionalSint64 {return false}
+      if _optionalFixed32 != other._optionalFixed32 {return false}
+      if _optionalFixed64 != other._optionalFixed64 {return false}
+      if _optionalSfixed32 != other._optionalSfixed32 {return false}
+      if _optionalSfixed64 != other._optionalSfixed64 {return false}
+      if _optionalFloat != other._optionalFloat {return false}
+      if _optionalDouble != other._optionalDouble {return false}
+      if _optionalBool != other._optionalBool {return false}
+      if _optionalString != other._optionalString {return false}
+      if _optionalBytes != other._optionalBytes {return false}
+      if _optionalGroup != other._optionalGroup {return false}
+      if _optionalMessage != other._optionalMessage {return false}
+      if _optionalEnum != other._optionalEnum {return false}
       if _repeatedInt32 != other._repeatedInt32 {return false}
       if _repeatedInt64 != other._repeatedInt64 {return false}
       if _repeatedUint32 != other._repeatedUint32 {return false}
@@ -898,7 +898,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OptionalGroup) -> Bool {
-      if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
+      if _a != other._a {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -943,7 +943,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.RepeatedGroup) -> Bool {
-      if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
+      if _a != other._a {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1005,8 +1005,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OneofGroup) -> Bool {
-      if ((_a != nil || other._a != nil) && (_a == nil || other._a == nil || _a! != other._a!)) {return false}
-      if ((_b != nil || other._b != nil) && (_b == nil || other._b == nil || _b! != other._b!)) {return false}
+      if _a != other._a {return false}
+      if _b != other._b {return false}
       if unknown != other.unknown {return false}
       return true
     }

@@ -300,14 +300,12 @@ struct MessageFieldGenerator {
     func generateNotEqual(name: String, usesHeapStorage: Bool) -> String {
         if isProto3 || isRepeated {
             return "\(name) != other.\(name)"
-        } else if isGroup || isMessage {
-            return "((\(name) != nil || other.\(name) != nil) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
         } else {
             var name = name
             if !usesHeapStorage {
                 name = "_" + name
             }
-            return "((\(name) != nil || other.\(name) != nil) && (\(name) == nil || other.\(name) == nil || \(name)! != other.\(name)!))"
+            return "\(name) != other.\(name)"
         }
     }
 

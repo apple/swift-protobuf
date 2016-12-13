@@ -262,7 +262,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
   }
 
   public func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
-    if ((_e != nil || other._e != nil) && (_e == nil || other._e == nil || _e! != other._e!)) {return false}
+    if _e != other._e {return false}
     if repeatedE != other.repeatedE {return false}
     if repeatedPackedE != other.repeatedPackedE {return false}
     if repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}

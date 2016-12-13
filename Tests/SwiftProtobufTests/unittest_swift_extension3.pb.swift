@@ -75,7 +75,7 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend3_MyMessage.C) -> Bool {
-      if ((_c != nil || other._c != nil) && (_c == nil || other._c == nil || _c! != other._c!)) {return false}
+      if _c != other._c {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -142,7 +142,7 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend3_C) -> Bool {
-    if ((_c != nil || other._c != nil) && (_c == nil || other._c == nil || _c! != other._c!)) {return false}
+    if _c != other._c {return false}
     if unknown != other.unknown {return false}
     return true
   }
