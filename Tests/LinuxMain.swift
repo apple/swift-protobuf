@@ -398,16 +398,13 @@ extension Test_Extensions {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("test_optionalInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_optionalInt32Extension)}),
-            ("test_optionalInt32Extension_JSON", {try run_test(test:($0 as! Test_Extensions).test_optionalInt32Extension_JSON)}),
             ("test_extensionMessageSpecificity", {try run_test(test:($0 as! Test_Extensions).test_extensionMessageSpecificity)}),
             ("test_optionalStringExtension", {try run_test(test:($0 as! Test_Extensions).test_optionalStringExtension)}),
             ("test_repeatedInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_repeatedInt32Extension)}),
             ("test_defaultInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_defaultInt32Extension)}),
             ("test_reflection", {try run_test(test:($0 as! Test_Extensions).test_reflection)}),
             ("test_groupExtension", {try run_test(test:($0 as! Test_Extensions).test_groupExtension)}),
-            ("test_groupExtension_JSON", {try run_test(test:($0 as! Test_Extensions).test_groupExtension_JSON)}),
-            ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)}),
-            ("test_repeatedGroupExtension_JSON", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension_JSON)})        ]
+            ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)})        ]
     }
 }
 
