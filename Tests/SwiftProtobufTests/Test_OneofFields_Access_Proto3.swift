@@ -14,6 +14,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 import XCTest
 
 // NOTE: The generator changes what is generated based on the number/types
