@@ -174,6 +174,9 @@
 		9C8CDA681D7A28F600E207CA /* unittest_swift_runtime_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */; };
 		9C8CDA691D7A28F600E207CA /* unittest_swift_startup.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift */; };
 		9C8CDA6A1D7A28F600E207CA /* unittest_well_known_types.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift */; };
+		9CCD5F931E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */; };
+		9CCD5F941E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */; };
+		9CCD5F951E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */; };
 		9CEB0D681DF5E934002D80F0 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
 		9CEB0D6A1DF5E99E002D80F0 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
 		9CEB0D6C1DF5F921002D80F0 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
@@ -544,6 +547,7 @@
 		9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONToken.swift; sourceTree = "<group>"; };
 		9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONScanner.swift; sourceTree = "<group>"; };
 		9C75F8A21DDD44A1005CCFF2 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_WKT_proto3.swift; sourceTree = "<group>"; };
 		9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEncodingVisitor.swift; sourceTree = "<group>"; };
 		9CEB0D691DF5E99E002D80F0 /* TextToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToken.swift; sourceTree = "<group>"; };
 		9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
@@ -872,6 +876,7 @@
 				9C60CBEB1DF9DEEA00F7B14E /* Test_Text_proto2.swift */,
 				9C5890A51DFF5EC8001CFC34 /* Test_Text_proto2_extensions.swift */,
 				BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */,
+				9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Timestamp.swift /* Test_Timestamp.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Type.swift /* Test_Type.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto2.swift /* Test_Unknown_proto2.swift */,
@@ -1115,6 +1120,7 @@
 				AAEA52211DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */,
 				9C8CDA201D7A28F600E207CA /* TestHelpers.swift in Sources */,
 				9C8CDA231D7A28F600E207CA /* Test_AllTypes.swift in Sources */,
+				9CCD5F941E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */,
 				9C8CDA241D7A28F600E207CA /* Test_AllTypes_Proto3.swift in Sources */,
 				9C8CDA251D7A28F600E207CA /* Test_Any.swift in Sources */,
 				9C8CDA261D7A28F600E207CA /* Test_Api.swift in Sources */,
@@ -1371,6 +1377,7 @@
 				9C60CBEC1DF9DEEA00F7B14E /* Test_Text_proto2.swift in Sources */,
 				9C5890A71DFF5FFC001CFC34 /* Test_Text_proto2_extensions.swift in Sources */,
 				BCCA0E7A1DB124B800957D74 /* Test_Text_proto3.swift in Sources */,
+				9CCD5F931E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */,
 				F44F943A1DBFBB7400BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				F44F94351DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Timestamp.swift /* Test_Timestamp.swift in Sources */,
@@ -1499,6 +1506,7 @@
 				F44F93DF1DAEA8C900BC5B85 /* unittest_mset.pb.swift in Sources */,
 				F44F93D51DAEA8C900BC5B85 /* unittest_empty.pb.swift in Sources */,
 				F44F93C11DAEA8C900BC5B85 /* Test_JSON.swift in Sources */,
+				9CCD5F951E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */,
 				F44F93E21DAEA8C900BC5B85 /* unittest_no_arena.pb.swift in Sources */,
 				F44F93EB1DAEA8C900BC5B85 /* unittest_swift_cycle.pb.swift in Sources */,
 				F44F93C81DAEA8C900BC5B85 /* Test_RecursiveMap.swift in Sources */,

@@ -778,6 +778,30 @@ extension Test_Text_Map_proto3 {
     }
 }
 
+extension Test_Text_WKT_proto3 {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testAny", {try run_test(test:($0 as! Test_Text_WKT_proto3).testAny)}),
+            ("testApi", {try run_test(test:($0 as! Test_Text_WKT_proto3).testApi)}),
+            ("testDuration", {try run_test(test:($0 as! Test_Text_WKT_proto3).testDuration)}),
+            ("testEmpty", {try run_test(test:($0 as! Test_Text_WKT_proto3).testEmpty)}),
+            ("testFieldMask", {try run_test(test:($0 as! Test_Text_WKT_proto3).testFieldMask)}),
+            ("testStruct", {try run_test(test:($0 as! Test_Text_WKT_proto3).testStruct)}),
+            ("testTimestamp", {try run_test(test:($0 as! Test_Text_WKT_proto3).testTimestamp)}),
+            ("testType", {try run_test(test:($0 as! Test_Text_WKT_proto3).testType)}),
+            ("testDoubleValue", {try run_test(test:($0 as! Test_Text_WKT_proto3).testDoubleValue)}),
+            ("testFloatValue", {try run_test(test:($0 as! Test_Text_WKT_proto3).testFloatValue)}),
+            ("testInt64Value", {try run_test(test:($0 as! Test_Text_WKT_proto3).testInt64Value)}),
+            ("testUInt64Value", {try run_test(test:($0 as! Test_Text_WKT_proto3).testUInt64Value)}),
+            ("testInt32Value", {try run_test(test:($0 as! Test_Text_WKT_proto3).testInt32Value)}),
+            ("testUInt32Value", {try run_test(test:($0 as! Test_Text_WKT_proto3).testUInt32Value)}),
+            ("testBoolValue", {try run_test(test:($0 as! Test_Text_WKT_proto3).testBoolValue)}),
+            ("testStringValue", {try run_test(test:($0 as! Test_Text_WKT_proto3).testStringValue)}),
+            ("testBytesValue", {try run_test(test:($0 as! Test_Text_WKT_proto3).testBytesValue)}),
+            ("testValue", {try run_test(test:($0 as! Test_Text_WKT_proto3).testValue)})        ]
+    }
+}
+
 extension Test_Text_proto2 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -946,6 +970,7 @@ XCTMain(
         (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
         (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
         (testCaseClass: Test_Text_Map_proto3.self, allTests: Test_Text_Map_proto3.allTests),
+        (testCaseClass: Test_Text_WKT_proto3.self, allTests: Test_Text_WKT_proto3.allTests),
         (testCaseClass: Test_Text_proto2.self, allTests: Test_Text_proto2.allTests),
         (testCaseClass: Test_Text_proto2_extensions.self, allTests: Test_Text_proto2_extensions.allTests),
         (testCaseClass: Test_Text_proto3.self, allTests: Test_Text_proto3.allTests),
