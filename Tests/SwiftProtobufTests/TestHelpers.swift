@@ -151,16 +151,25 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertTextDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertTextDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) throws -> Bool) {
         do {
             let decoded: MessageTestType = try MessageTestType(text: text)
-            XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
-
+            do {
+                let r = try check(decoded)
+                XCTAssert(r, "Condition failed for \(decoded)", file: file, line: line)
+            } catch let e {
+                XCTFail("Object check failed: \(e)")
+            }
             do {
                 let encoded = try decoded.serializeText()
                 do {
                     let redecoded = try MessageTestType(text: text)
-                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
+                    do {
+                        let r = try check(redecoded)
+                        XCTAssert(r, "Condition failed for redecoded \(redecoded)", file: file, line: line)
+                    } catch let e {
+                        XCTFail("Object check failed for redecoded: \(e)\n   \(redecoded)")
+                    }
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
                     XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
