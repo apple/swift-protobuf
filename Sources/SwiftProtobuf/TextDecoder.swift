@@ -27,14 +27,6 @@ public struct TextDecoder {
     private var scanner: TextScanner
     public var complete: Bool {return scanner.complete}
 
-
-    public enum ObjectParseState {
-        case expectFirstKey
-        case expectKey
-        case expectColon
-        case expectComma
-    }
-
     internal init(text: String, extensions: ExtensionSet? = nil) {
         scanner = TextScanner(text: text, tokens: [], extensions: extensions)
     }
@@ -43,7 +35,7 @@ public struct TextDecoder {
         self.scanner = scanner
     }
 
-    public mutating func decodeFullObject<M: Message>(message: inout M, terminator: TextToken?) throws {
+    internal mutating func decodeFullObject<M: Message>(message: inout M, terminator: TextToken?) throws {
         guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
             throw DecodingError.missingFieldNames
         }
@@ -88,7 +80,7 @@ struct TextFieldDecoder: FieldDecoder {
     var rejectConflictingOneof: Bool {return true}
     var scanner: TextScanner
 
-    public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
+    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, protoFieldNumber] {
             var mutableSetter: FieldDecoder = self
             var fieldValue = values[protoFieldNumber] ?? ext.newField()
