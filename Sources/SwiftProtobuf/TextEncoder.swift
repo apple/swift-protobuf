@@ -40,6 +40,7 @@ public class TextEncoder {
         for _ in 0..<tabLevel {
             append(text: indent)
         }
+        append(text: name)
         append(text: ":")
         append(text: " ")
     }
