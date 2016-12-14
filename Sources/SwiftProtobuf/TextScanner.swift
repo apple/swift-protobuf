@@ -83,6 +83,9 @@ private func parseQuotedString(charGenerator: inout String.CharacterView.Generat
     return nil // Unterminated quoted string
 }
 
+///
+/// TextScanner has no public members.
+///
 public class TextScanner {
     internal var extensions: ExtensionSet?
     private var charGenerator: String.CharacterView.Generator
