@@ -71,7 +71,7 @@ public struct TextEncodingVisitor: Visitor {
 
     mutating public func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
-        encoder.startField(name: protoFieldName, dropColon: true)
+        encoder.startMessageField(name: protoFieldName)
         try M.serializeTextValue(encoder: encoder, value: value)
         encoder.endField()
     }
@@ -79,7 +79,7 @@ public struct TextEncodingVisitor: Visitor {
     mutating public func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
         for v in value {
-            encoder.startField(name: protoFieldName, dropColon: true)
+            encoder.startMessageField(name: protoFieldName)
             try M.serializeTextValue(encoder: encoder, value: v)
             encoder.endField()
         }
@@ -96,7 +96,7 @@ public struct TextEncodingVisitor: Visitor {
     mutating public func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws  where KeyType.BaseType: Hashable {
         let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
         for (k,v) in value {
-            encoder.startField(name: protoFieldName, dropColon: true)
+            encoder.startMessageField(name: protoFieldName)
             encoder.startObject()
             encoder.startField(name: "key")
             try KeyType.serializeTextValue(encoder: encoder, value: k)
