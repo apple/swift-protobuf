@@ -19,16 +19,8 @@ import Foundation
 public class TextEncoder {
     var text: [String] = []
     private var tabLevel = 0
-    private var indent = "  "
 
-    public enum Option {
-    // case singleLine
-    // case verboseAny
-    // case indent(Int)
-    }
-
-    init(options: [Option] = []) {
-    }
+    init() {}
 
     var result: String { return text.joined(separator: "") }
 
@@ -38,7 +30,7 @@ public class TextEncoder {
 
     func startField(name: String) {
         for _ in 0..<tabLevel {
-            append(text: indent)
+            append(text:"  ")
         }
         append(text: name)
         append(text: ":")
@@ -47,7 +39,7 @@ public class TextEncoder {
 
     func startMessageField(name: String) {
         for _ in 0..<tabLevel {
-            append(text: indent)
+            append(text: "  ")
         }
         append(text: name)
         append(text: " ")
@@ -56,25 +48,24 @@ public class TextEncoder {
     func endField() {
         append(text: "\n")
     }
-
     func startObject() {
         tabLevel += 1
         append(text: "{\n")
     }
-
     func endObject() {
         tabLevel -= 1
         for _ in 0..<tabLevel {
-            append(text: indent)
+            append(text:"  ")
         }
 
         append(text: "}")
     }
-
+    func putNullValue() {
+        append(text: "null")
+    }
     func putFloatValue(value: Float, quote: Bool) {
         putDoubleValue(value: Double(value), quote: quote)
     }
-
     func putDoubleValue(value: Double, quote: Bool) {
         if value.isNaN {
             append(text: "nan")
@@ -100,11 +91,9 @@ public class TextEncoder {
             }
         }
     }
-
     func putInt64(value: Int64, quote: Bool) {
         append(text: String(value))
     }
-
     func putUInt64(value: UInt64, quote: Bool) {
         append(text: String(value))
     }
@@ -116,7 +105,6 @@ public class TextEncoder {
             append(text: value ? "true" : "false")
         }
     }
-
     func putStringValue(value: String) {
         let octalDigits = ["0", "1", "2", "3", "4", "5", "6", "7"]
         append(text: "\"")

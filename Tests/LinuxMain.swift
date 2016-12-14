@@ -782,6 +782,7 @@ extension Test_Text_WKT_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testAny", {try run_test(test:($0 as! Test_Text_WKT_proto3).testAny)}),
+            ("testAny_verbose", {try run_test(test:($0 as! Test_Text_WKT_proto3).testAny_verbose)}),
             ("testApi", {try run_test(test:($0 as! Test_Text_WKT_proto3).testApi)}),
             ("testDuration", {try run_test(test:($0 as! Test_Text_WKT_proto3).testDuration)}),
             ("testEmpty", {try run_test(test:($0 as! Test_Text_WKT_proto3).testEmpty)}),

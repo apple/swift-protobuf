@@ -495,14 +495,14 @@ extension Enum where RawValue == Int {
 /// Messages
 ///
 public extension Message {
-
+    
     init(scanner: TextScanner) throws {
         self.init()
         let terminator = try scanner.readObjectStart()
         var subDecoder = TextDecoder(scanner: scanner)
         try subDecoder.decodeFullObject(message: &self, terminator: terminator)
     }
-
+    
     static func setFromText(scanner: TextScanner, value: inout Self?) throws {
         let message = try Self(scanner: scanner)
         value = message
@@ -513,7 +513,7 @@ public extension Message {
         value.append(message)
     }
 
-    public func serializeText(options: [TextEncoder.Option] = []) throws -> String {
+    public func serializeText() throws -> String {
         return try TextEncodingVisitor(message: self).result
     }
 
