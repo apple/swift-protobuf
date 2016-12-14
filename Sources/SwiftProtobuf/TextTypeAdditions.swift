@@ -496,19 +496,20 @@ extension Enum where RawValue == Int {
 ///
 public extension Message {
     
-    static func setFromText(scanner: TextScanner, value: inout Self?) throws {
+    init(scanner: TextScanner) throws {
+        self.init()
         let terminator = try scanner.readObjectStart()
-        var message = Self()
         var subDecoder = TextDecoder(scanner: scanner)
-        try subDecoder.decodeFullObject(message: &message, terminator: terminator)
+        try subDecoder.decodeFullObject(message: &self, terminator: terminator)
+    }
+    
+    static func setFromText(scanner: TextScanner, value: inout Self?) throws {
+        let message = try Self(scanner: scanner)
         value = message
     }
 
     static func setFromText(scanner: TextScanner, value: inout [Self]) throws {
-        let terminator = try scanner.readObjectStart()
-        var message = Self()
-        var subDecoder = TextDecoder(scanner: scanner)
-        try subDecoder.decodeFullObject(message: &message, terminator: terminator)
+        let message = try Self(scanner: scanner)
         value.append(message)
     }
 

@@ -79,6 +79,9 @@ public protocol Message: CustomDebugStringConvertible, CustomReflectable {
   //
   mutating func decodeIntoSelf(protobuf: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws
 
+  // Protobuf Text decoding
+  init(scanner: TextScanner) throws
+
   //
   // google.protobuf.Any support
   //
