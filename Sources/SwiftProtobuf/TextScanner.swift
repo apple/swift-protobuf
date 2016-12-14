@@ -49,7 +49,7 @@ private func parseExtensionIdentifier(prefix: String, charGenerator: inout Strin
     }
     while let c = charGenerator.next() {
         switch c {
-        case "a"..."z", "A"..."Z", "0"..."9", "_", ".":
+        case "a"..."z", "A"..."Z", "0"..."9", "_", ".", "/":
             result.append(c)
         case "]":
             result.append(c)
