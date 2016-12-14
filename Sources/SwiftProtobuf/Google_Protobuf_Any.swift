@@ -302,17 +302,23 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             throw DecodingError.malformedAnyField
         }
         var protobuf: Data?
-        if let message = _message {
+        if let message = _message as? M {
+            target = message
+        } else if let message = _message {
             protobuf = try message.serializeProtobuf()
         } else if let value = _value {
             protobuf = value
         }
         if let protobuf = protobuf {
             // Decode protobuf from the stored bytes
-            try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
-                var protobufDecoder = ProtobufDecoder(protobufPointer: bp)
-                try protobufDecoder.decodeFullObject(message: &target)
+            if protobuf.count == 0 {
+                target = M()
+            } else {
+                try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
+                    let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
+                    var protobufDecoder = ProtobufDecoder(protobufPointer: bp)
+                    try protobufDecoder.decodeFullObject(message: &target)
+                }
             }
             return
         } else if let jsonFields = _jsonFields {
