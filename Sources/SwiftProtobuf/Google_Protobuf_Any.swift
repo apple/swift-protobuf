@@ -464,20 +464,51 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 
+    // Caveat:  This can be very expensive.  We should consider organizing
+    // the code generation so that generated equality tests check Any fields last.
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
-        // TODO: Fix this for case where Any holds a message or jsonFields or the two Any hold different stuff... <ugh>  This seems unsolvable in the general case.  <ugh>
         if ((typeURL != nil && typeURL != "") || (other.typeURL != nil && other.typeURL != "")) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
             return false
         }
-        if (_value != nil || other._value != nil) && (_value == nil || other._value == nil || _value! != other._value!) {
-            return false
+
+        // The best option is to decode and compare the messages; this
+        // insulates us from variations in serialization details.  For
+        // example, one Any might hold protobuf binary bytes from one
+        // language implementation and the other from another language
+        // implementation.  But of course this only works if we
+        // actually know the message type.
+
+        //if let myMessage = _message {
+        //    if let otherMessage = other._message {
+        //        ... compare them directly
+        //    } else {
+        //        ... try to decode other and compare
+        //    }
+        //} else if let otherMessage = other._message {
+        //    ... try to decode ourselves and compare
+        //} else {
+        //    ... try to decode both and compare
+        //}
+
+        // If we don't know the message type, we have few options:
+
+        // If we were both deserialized from proto, compare the binary value:
+        if let myValue = _value, let otherValue = other._value, myValue == otherValue {
+            return true
         }
-        return true
+
+        // If we were both deserialized from JSON, compare the JSON token streams:
+        //if let myJSON = _jsonFields, let otherJSON = other._jsonFields, myJSON == otherJSON {
+        //    return true
+        //}
+
+        return false
     }
 
     public func _protoc_generated_traverse(visitor: inout Visitor) throws {
         if let typeURL = typeURL {
             try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1)
+            // Try to generate bytes for this field...
             if let value = value {
                 try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2)
             } else {
