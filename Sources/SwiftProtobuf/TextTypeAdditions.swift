@@ -39,7 +39,7 @@ public extension ProtobufFloat {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Float) {
-        encoder.putFloatValue(value: value, quote: false)
+        encoder.putDoubleValue(value: Double(value))
     }
 }
 
@@ -65,7 +65,7 @@ public extension ProtobufDouble {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Double) {
-        encoder.putDoubleValue(value: value, quote: false)
+        encoder.putDoubleValue(value: value)
     }
 }
 
@@ -90,7 +90,7 @@ public extension ProtobufInt32 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: false)
+        encoder.putInt64(value: Int64(value))
     }
 }
 
@@ -115,7 +115,7 @@ public extension ProtobufInt64 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
+        encoder.putInt64(value: value)
     }
 }
 
@@ -140,7 +140,7 @@ public extension ProtobufUInt32 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
-        encoder.putUInt64(value: UInt64(value), quote: false)
+        encoder.putUInt64(value: UInt64(value))
     }
 }
 
@@ -165,7 +165,7 @@ public extension ProtobufUInt64 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
-        encoder.putUInt64(value: value, quote: true)
+        encoder.putUInt64(value: value)
     }
 }
 
@@ -190,7 +190,7 @@ public extension ProtobufSInt32 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: false)
+        encoder.putInt64(value: Int64(value))
     }
 }
 
@@ -215,7 +215,7 @@ public extension ProtobufSInt64 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
+        encoder.putInt64(value: value)
     }
 }
 
@@ -240,7 +240,7 @@ public extension ProtobufFixed32 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
-        encoder.putUInt64(value: UInt64(value), quote: false)
+        encoder.putUInt64(value: UInt64(value))
     }
 }
 
@@ -265,7 +265,7 @@ public extension ProtobufFixed64 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
-        encoder.putUInt64(value: value, quote: true)
+        encoder.putUInt64(value: value)
     }
 }
 
@@ -290,7 +290,7 @@ public extension ProtobufSFixed32 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: false)
+        encoder.putInt64(value: Int64(value))
     }
 }
 
@@ -315,7 +315,7 @@ public extension ProtobufSFixed64 {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
+        encoder.putInt64(value: value)
     }
 }
 
@@ -340,7 +340,7 @@ public extension ProtobufBool {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Bool) {
-        encoder.putBoolValue(value: value, quote: false)
+        encoder.putBoolValue(value: value)
     }
 }
 
@@ -495,14 +495,14 @@ extension Enum where RawValue == Int {
 /// Messages
 ///
 public extension Message {
-    
+
     init(scanner: TextScanner) throws {
         self.init()
         let terminator = try scanner.readObjectStart()
         var subDecoder = TextDecoder(scanner: scanner)
         try subDecoder.decodeFullObject(message: &self, terminator: terminator)
     }
-    
+
     static func setFromText(scanner: TextScanner, value: inout Self?) throws {
         let message = try Self(scanner: scanner)
         value = message

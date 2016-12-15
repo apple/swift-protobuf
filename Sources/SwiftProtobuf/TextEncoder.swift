@@ -48,10 +48,12 @@ public class TextEncoder {
     func endField() {
         append(text: "\n")
     }
+
     func startObject() {
         tabLevel += 1
         append(text: "{\n")
     }
+
     func endObject() {
         tabLevel -= 1
         for _ in 0..<tabLevel {
@@ -60,13 +62,8 @@ public class TextEncoder {
 
         append(text: "}")
     }
-    func putNullValue() {
-        append(text: "null")
-    }
-    func putFloatValue(value: Float, quote: Bool) {
-        putDoubleValue(value: Double(value), quote: quote)
-    }
-    func putDoubleValue(value: Double, quote: Bool) {
+
+    func putDoubleValue(value: Double) {
         if value.isNaN {
             append(text: "nan")
         } else if !value.isFinite {
@@ -84,27 +81,22 @@ public class TextEncoder {
             } else {
                 s = String(value)
             }
-            if quote {
-                append(text: "\"" + s + "\"")
-            } else {
-                append(text: s)
-            }
+            append(text: s)
         }
     }
-    func putInt64(value: Int64, quote: Bool) {
-        append(text: String(value))
-    }
-    func putUInt64(value: UInt64, quote: Bool) {
+
+    func putInt64(value: Int64) {
         append(text: String(value))
     }
 
-    func putBoolValue(value: Bool, quote: Bool) {
-        if quote {
-            append(text: value ? "\"true\"" : "\"false\"")
-        } else {
-            append(text: value ? "true" : "false")
-        }
+    func putUInt64(value: UInt64) {
+        append(text: String(value))
     }
+
+    func putBoolValue(value: Bool) {
+        append(text: value ? "true" : "false")
+    }
+
     func putStringValue(value: String) {
         let octalDigits = ["0", "1", "2", "3", "4", "5", "6", "7"]
         append(text: "\"")
