@@ -35,6 +35,7 @@ private func parseIdentifier(prefix: String, scalarGenerator: inout String.Unico
 
 /// Parse the rest of an [extension_field_name] in the input, assuming the
 /// initial "[" character has already been read (and is in the prefix)
+/// This is also used in Any for the typeURL, so we include "/", "."
 private func parseExtensionIdentifier(prefix: String, scalarGenerator: inout String.UnicodeScalarView.Generator) -> String? {
     var result = prefix
     if let c = scalarGenerator.next() {
@@ -125,8 +126,7 @@ public class TextScanner {
         var s = String()
         while let c = scalarGenerator.next() {
             switch c {
-            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-                 "a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F":
+            case "0"..."9", "a"..."f", "A"..."F":
                 s.append(String(c))
             default:
                 scalarPushback = c
@@ -140,7 +140,7 @@ public class TextScanner {
         var s = String()
         while let c = scalarGenerator.next() {
             switch c {
-            case "0", "1", "2", "3", "4", "5", "6", "7":
+            case "0"..."7":
                 s.append(String(c))
             default:
                 scalarPushback = c
@@ -158,7 +158,7 @@ public class TextScanner {
         var s = String()
         while let c = scalarGenerator.next() {
             switch c {
-            case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+            case "0"..."9":
                 s.append(String(c))
             case ".":
                 s.append(String(c))
@@ -212,7 +212,7 @@ public class TextScanner {
             s += String(digit)
             if let second = scalarGenerator.next() {
                 switch second {
-                case "1", "2", "3", "4", "5", "6", "7":
+                case "1"..."7":
                     s += String(second)
                     if let n = parseOctalInteger() {
                         return .octalInteger(s + n)
@@ -283,7 +283,7 @@ public class TextScanner {
                     return .string(s)
                 }
                 throw DecodingError.malformedText
-            case "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+            case "-", "0"..."9":
                 return try parseNumber(first: c)
             case "a"..."z", "A"..."Z":
                 if let s = parseIdentifier(prefix: String(c), scalarGenerator: &scalarGenerator) {
