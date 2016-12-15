@@ -872,7 +872,9 @@ extension Test_Text_proto3 {
             ("testInvalidFieldName", {try run_test(test:($0 as! Test_Text_proto3).testInvalidFieldName)}),
             ("testInvalidCapitalization", {try run_test(test:($0 as! Test_Text_proto3).testInvalidCapitalization)}),
             ("testExplicitDelimiters", {try run_test(test:($0 as! Test_Text_proto3).testExplicitDelimiters)}),
-            ("testMultipleFields", {try run_test(test:($0 as! Test_Text_proto3).testMultipleFields)})        ]
+            ("testMultipleFields", {try run_test(test:($0 as! Test_Text_proto3).testMultipleFields)}),
+            ("testEncodePerf", {try run_test(test:($0 as! Test_Text_proto3).testEncodePerf)}),
+            ("testDecodePerf", {try run_test(test:($0 as! Test_Text_proto3).testDecodePerf)})        ]
     }
 }
 
