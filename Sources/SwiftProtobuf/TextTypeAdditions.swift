@@ -487,7 +487,7 @@ extension Enum where RawValue == Int {
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Self) {
-        encoder.append(text: value.json.trimmingCharacters(in:["\""]))
+        encoder.putEnumValue(value: value)
     }
 }
 
