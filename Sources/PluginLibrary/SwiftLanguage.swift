@@ -26,7 +26,7 @@ fileprivate func isSwiftIdentifierHeadCharacter(_ c: UnicodeScalar) -> Bool {
     // identifier-head → U+00A8, U+00AA, U+00AD, U+00AF, U+00B2–U+00B5, or U+00B7–U+00BA
     case 0xa8, 0xaa, 0xad, 0xaf, 0xb2...0xb5, 0xb7...0xba: return true
     // identifier-head → U+00BC–U+00BE, U+00C0–U+00D6, U+00D8–U+00F6, or U+00F8–U+00FF
-    case 0xbc...0xbe, 0xc0...0xd6 /*, 0xd8...0xf6 */ /*, 0xf8...0xff */: return true
+    case 0xbc...0xbe, 0xc0...0xd6, 0xd8...0xf6, 0xf8...0xff: return true
     // identifier-head → U+0100–U+02FF, U+0370–U+167F, U+1681–U+180D, or U+180F–U+1DBF
     case 0x100...0x2ff, 0x370...0x167f, 0x1681...0x180d, 0x180f...0x1dbf: return true
     // identifier-head → U+1E00–U+1FFF
