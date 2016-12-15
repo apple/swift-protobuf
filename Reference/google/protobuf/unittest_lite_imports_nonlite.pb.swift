@@ -74,7 +74,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_message != nil || other._message != nil) && (_message == nil || other._message == nil || _message! != other._message!)) {return false}
+      if _message != other._message {return false}
       if unknown != other.unknown {return false}
       return true
     }

@@ -269,52 +269,52 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_requiredInt32 != other._requiredInt32) {return false}
-      if (_requiredInt64 != other._requiredInt64) {return false}
-      if (_requiredUint32 != other._requiredUint32) {return false}
-      if (_requiredUint64 != other._requiredUint64) {return false}
-      if (_requiredSint32 != other._requiredSint32) {return false}
-      if (_requiredSint64 != other._requiredSint64) {return false}
-      if (_requiredFixed32 != other._requiredFixed32) {return false}
-      if (_requiredFixed64 != other._requiredFixed64) {return false}
-      if (_requiredSfixed32 != other._requiredSfixed32) {return false}
-      if (_requiredSfixed64 != other._requiredSfixed64) {return false}
-      if (_requiredFloat != other._requiredFloat) {return false}
-      if (_requiredDouble != other._requiredDouble) {return false}
-      if (_requiredBool != other._requiredBool) {return false}
-      if (_requiredString != other._requiredString) {return false}
-      if (_requiredBytes != other._requiredBytes) {return false}
-      if ((_requiredGroup != nil || other._requiredGroup != nil) && (_requiredGroup == nil || other._requiredGroup == nil || _requiredGroup! != other._requiredGroup!)) {return false}
-      if ((_requiredNestedMessage != nil || other._requiredNestedMessage != nil) && (_requiredNestedMessage == nil || other._requiredNestedMessage == nil || _requiredNestedMessage! != other._requiredNestedMessage!)) {return false}
-      if ((_requiredForeignMessage != nil || other._requiredForeignMessage != nil) && (_requiredForeignMessage == nil || other._requiredForeignMessage == nil || _requiredForeignMessage! != other._requiredForeignMessage!)) {return false}
-      if ((_requiredImportMessage != nil || other._requiredImportMessage != nil) && (_requiredImportMessage == nil || other._requiredImportMessage == nil || _requiredImportMessage! != other._requiredImportMessage!)) {return false}
-      if (_requiredNestedEnum != other._requiredNestedEnum) {return false}
-      if (_requiredForeignEnum != other._requiredForeignEnum) {return false}
-      if (_requiredImportEnum != other._requiredImportEnum) {return false}
-      if (_requiredStringPiece != other._requiredStringPiece) {return false}
-      if (_requiredCord != other._requiredCord) {return false}
-      if ((_requiredPublicImportMessage != nil || other._requiredPublicImportMessage != nil) && (_requiredPublicImportMessage == nil || other._requiredPublicImportMessage == nil || _requiredPublicImportMessage! != other._requiredPublicImportMessage!)) {return false}
-      if ((_requiredLazyMessage != nil || other._requiredLazyMessage != nil) && (_requiredLazyMessage == nil || other._requiredLazyMessage == nil || _requiredLazyMessage! != other._requiredLazyMessage!)) {return false}
-      if (((_defaultInt32 != nil && _defaultInt32! != 41) || (other._defaultInt32 != nil && other._defaultInt32! != 41)) && (_defaultInt32 == nil || other._defaultInt32 == nil || _defaultInt32! != other._defaultInt32!)) {return false}
-      if (((_defaultInt64 != nil && _defaultInt64! != 42) || (other._defaultInt64 != nil && other._defaultInt64! != 42)) && (_defaultInt64 == nil || other._defaultInt64 == nil || _defaultInt64! != other._defaultInt64!)) {return false}
-      if (((_defaultUint32 != nil && _defaultUint32! != 43) || (other._defaultUint32 != nil && other._defaultUint32! != 43)) && (_defaultUint32 == nil || other._defaultUint32 == nil || _defaultUint32! != other._defaultUint32!)) {return false}
-      if (((_defaultUint64 != nil && _defaultUint64! != 44) || (other._defaultUint64 != nil && other._defaultUint64! != 44)) && (_defaultUint64 == nil || other._defaultUint64 == nil || _defaultUint64! != other._defaultUint64!)) {return false}
-      if (((_defaultSint32 != nil && _defaultSint32! != -45) || (other._defaultSint32 != nil && other._defaultSint32! != -45)) && (_defaultSint32 == nil || other._defaultSint32 == nil || _defaultSint32! != other._defaultSint32!)) {return false}
-      if (((_defaultSint64 != nil && _defaultSint64! != 46) || (other._defaultSint64 != nil && other._defaultSint64! != 46)) && (_defaultSint64 == nil || other._defaultSint64 == nil || _defaultSint64! != other._defaultSint64!)) {return false}
-      if (((_defaultFixed32 != nil && _defaultFixed32! != 47) || (other._defaultFixed32 != nil && other._defaultFixed32! != 47)) && (_defaultFixed32 == nil || other._defaultFixed32 == nil || _defaultFixed32! != other._defaultFixed32!)) {return false}
-      if (((_defaultFixed64 != nil && _defaultFixed64! != 48) || (other._defaultFixed64 != nil && other._defaultFixed64! != 48)) && (_defaultFixed64 == nil || other._defaultFixed64 == nil || _defaultFixed64! != other._defaultFixed64!)) {return false}
-      if (((_defaultSfixed32 != nil && _defaultSfixed32! != 49) || (other._defaultSfixed32 != nil && other._defaultSfixed32! != 49)) && (_defaultSfixed32 == nil || other._defaultSfixed32 == nil || _defaultSfixed32! != other._defaultSfixed32!)) {return false}
-      if (((_defaultSfixed64 != nil && _defaultSfixed64! != -50) || (other._defaultSfixed64 != nil && other._defaultSfixed64! != -50)) && (_defaultSfixed64 == nil || other._defaultSfixed64 == nil || _defaultSfixed64! != other._defaultSfixed64!)) {return false}
-      if (((_defaultFloat != nil && _defaultFloat! != 51.5) || (other._defaultFloat != nil && other._defaultFloat! != 51.5)) && (_defaultFloat == nil || other._defaultFloat == nil || _defaultFloat! != other._defaultFloat!)) {return false}
-      if (((_defaultDouble != nil && _defaultDouble! != 52000) || (other._defaultDouble != nil && other._defaultDouble! != 52000)) && (_defaultDouble == nil || other._defaultDouble == nil || _defaultDouble! != other._defaultDouble!)) {return false}
-      if (((_defaultBool != nil && _defaultBool! != true) || (other._defaultBool != nil && other._defaultBool! != true)) && (_defaultBool == nil || other._defaultBool == nil || _defaultBool! != other._defaultBool!)) {return false}
-      if (((_defaultString != nil && _defaultString! != "hello") || (other._defaultString != nil && other._defaultString! != "hello")) && (_defaultString == nil || other._defaultString == nil || _defaultString! != other._defaultString!)) {return false}
-      if (((_defaultBytes != nil && _defaultBytes! != Data(bytes: [119, 111, 114, 108, 100])) || (other._defaultBytes != nil && other._defaultBytes! != Data(bytes: [119, 111, 114, 108, 100]))) && (_defaultBytes == nil || other._defaultBytes == nil || _defaultBytes! != other._defaultBytes!)) {return false}
-      if (((_defaultNestedEnum != nil && _defaultNestedEnum! != ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar) || (other._defaultNestedEnum != nil && other._defaultNestedEnum! != ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar)) && (_defaultNestedEnum == nil || other._defaultNestedEnum == nil || _defaultNestedEnum! != other._defaultNestedEnum!)) {return false}
-      if (((_defaultForeignEnum != nil && _defaultForeignEnum! != ProtobufUnittest_ForeignEnum.foreignBar) || (other._defaultForeignEnum != nil && other._defaultForeignEnum! != ProtobufUnittest_ForeignEnum.foreignBar)) && (_defaultForeignEnum == nil || other._defaultForeignEnum == nil || _defaultForeignEnum! != other._defaultForeignEnum!)) {return false}
-      if (((_defaultImportEnum != nil && _defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar) || (other._defaultImportEnum != nil && other._defaultImportEnum! != ProtobufUnittestImport_ImportEnum.importBar)) && (_defaultImportEnum == nil || other._defaultImportEnum == nil || _defaultImportEnum! != other._defaultImportEnum!)) {return false}
-      if (((_defaultStringPiece != nil && _defaultStringPiece! != "abc") || (other._defaultStringPiece != nil && other._defaultStringPiece! != "abc")) && (_defaultStringPiece == nil || other._defaultStringPiece == nil || _defaultStringPiece! != other._defaultStringPiece!)) {return false}
-      if (((_defaultCord != nil && _defaultCord! != "123") || (other._defaultCord != nil && other._defaultCord! != "123")) && (_defaultCord == nil || other._defaultCord == nil || _defaultCord! != other._defaultCord!)) {return false}
+      if _requiredInt32 != other._requiredInt32 {return false}
+      if _requiredInt64 != other._requiredInt64 {return false}
+      if _requiredUint32 != other._requiredUint32 {return false}
+      if _requiredUint64 != other._requiredUint64 {return false}
+      if _requiredSint32 != other._requiredSint32 {return false}
+      if _requiredSint64 != other._requiredSint64 {return false}
+      if _requiredFixed32 != other._requiredFixed32 {return false}
+      if _requiredFixed64 != other._requiredFixed64 {return false}
+      if _requiredSfixed32 != other._requiredSfixed32 {return false}
+      if _requiredSfixed64 != other._requiredSfixed64 {return false}
+      if _requiredFloat != other._requiredFloat {return false}
+      if _requiredDouble != other._requiredDouble {return false}
+      if _requiredBool != other._requiredBool {return false}
+      if _requiredString != other._requiredString {return false}
+      if _requiredBytes != other._requiredBytes {return false}
+      if _requiredGroup != other._requiredGroup {return false}
+      if _requiredNestedMessage != other._requiredNestedMessage {return false}
+      if _requiredForeignMessage != other._requiredForeignMessage {return false}
+      if _requiredImportMessage != other._requiredImportMessage {return false}
+      if _requiredNestedEnum != other._requiredNestedEnum {return false}
+      if _requiredForeignEnum != other._requiredForeignEnum {return false}
+      if _requiredImportEnum != other._requiredImportEnum {return false}
+      if _requiredStringPiece != other._requiredStringPiece {return false}
+      if _requiredCord != other._requiredCord {return false}
+      if _requiredPublicImportMessage != other._requiredPublicImportMessage {return false}
+      if _requiredLazyMessage != other._requiredLazyMessage {return false}
+      if _defaultInt32 != other._defaultInt32 {return false}
+      if _defaultInt64 != other._defaultInt64 {return false}
+      if _defaultUint32 != other._defaultUint32 {return false}
+      if _defaultUint64 != other._defaultUint64 {return false}
+      if _defaultSint32 != other._defaultSint32 {return false}
+      if _defaultSint64 != other._defaultSint64 {return false}
+      if _defaultFixed32 != other._defaultFixed32 {return false}
+      if _defaultFixed64 != other._defaultFixed64 {return false}
+      if _defaultSfixed32 != other._defaultSfixed32 {return false}
+      if _defaultSfixed64 != other._defaultSfixed64 {return false}
+      if _defaultFloat != other._defaultFloat {return false}
+      if _defaultDouble != other._defaultDouble {return false}
+      if _defaultBool != other._defaultBool {return false}
+      if _defaultString != other._defaultString {return false}
+      if _defaultBytes != other._defaultBytes {return false}
+      if _defaultNestedEnum != other._defaultNestedEnum {return false}
+      if _defaultForeignEnum != other._defaultForeignEnum {return false}
+      if _defaultImportEnum != other._defaultImportEnum {return false}
+      if _defaultStringPiece != other._defaultStringPiece {return false}
+      if _defaultCord != other._defaultCord {return false}
       if _oneofField != other._oneofField {return false}
       if unknown != other.unknown {return false}
       return true
@@ -584,7 +584,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
-      if (bb != other.bb) {return false}
+      if _bb != other._bb {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -627,7 +627,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
-      if (a != other.a) {return false}
+      if _a != other._a {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1396,12 +1396,12 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {
-    if (requiredInt32 != other.requiredInt32) {return false}
-    if (requiredFloat != other.requiredFloat) {return false}
-    if (requiredBool != other.requiredBool) {return false}
-    if (requiredString != other.requiredString) {return false}
-    if (requiredBytes != other.requiredBytes) {return false}
-    if (requiredNestedEnum != other.requiredNestedEnum) {return false}
+    if _requiredInt32 != other._requiredInt32 {return false}
+    if _requiredFloat != other._requiredFloat {return false}
+    if _requiredBool != other._requiredBool {return false}
+    if _requiredString != other._requiredString {return false}
+    if _requiredBytes != other._requiredBytes {return false}
+    if _requiredNestedEnum != other._requiredNestedEnum {return false}
     if unknown != other.unknown {return false}
     return true
   }

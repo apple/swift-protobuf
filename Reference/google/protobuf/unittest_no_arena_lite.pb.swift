@@ -79,7 +79,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftP
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {
-    if (c != other.c) {return false}
+    if _c != other._c {return false}
     if unknown != other.unknown {return false}
     return true
   }

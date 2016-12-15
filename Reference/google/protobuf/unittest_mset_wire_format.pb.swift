@@ -129,7 +129,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_messageSet != nil || other._messageSet != nil) && (_messageSet == nil || other._messageSet == nil || _messageSet! != other._messageSet!)) {return false}
+      if _messageSet != other._messageSet {return false}
       if unknown != other.unknown {return false}
       return true
     }
