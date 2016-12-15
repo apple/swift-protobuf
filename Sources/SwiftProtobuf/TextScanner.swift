@@ -17,16 +17,16 @@
 import Foundation
 import Swift
 
-private func parseIdentifier(prefix: String, charGenerator: inout String.CharacterView.Generator) -> String? {
+private func parseIdentifier(prefix: String, scalarGenerator: inout String.UnicodeScalarView.Generator) -> String? {
     var result = prefix
-    var previousCharGenerator = charGenerator
-    while let c = charGenerator.next() {
+    var previousScalarGenerator = scalarGenerator
+    while let c = scalarGenerator.next() {
         switch c {
         case "a"..."z", "A"..."Z", "0"..."9", "_":
-            result.append(c)
-            previousCharGenerator = charGenerator
+            result.append(String(c))
+            previousScalarGenerator = scalarGenerator
         default:
-            charGenerator = previousCharGenerator
+            scalarGenerator = previousScalarGenerator
             return result
         }
     }
@@ -35,24 +35,24 @@ private func parseIdentifier(prefix: String, charGenerator: inout String.Charact
 
 /// Parse the rest of an [extension_field_name] in the input, assuming the
 /// initial "[" character has already been read (and is in the prefix)
-private func parseExtensionIdentifier(prefix: String, charGenerator: inout String.CharacterView.Generator) -> String? {
+private func parseExtensionIdentifier(prefix: String, scalarGenerator: inout String.UnicodeScalarView.Generator) -> String? {
     var result = prefix
-    if let c = charGenerator.next() {
+    if let c = scalarGenerator.next() {
         switch c {
         case "a"..."z", "A"..."Z":
-            result.append(c)
+            result.append(String(c))
         default:
             return nil
         }
     } else {
         return nil
     }
-    while let c = charGenerator.next() {
+    while let c = scalarGenerator.next() {
         switch c {
         case "a"..."z", "A"..."Z", "0"..."9", "_", ".", "/":
-            result.append(c)
+            result.append(String(c))
         case "]":
-            result.append(c)
+            result.append(String(c))
             return result
         default:
             return nil
@@ -61,23 +61,23 @@ private func parseExtensionIdentifier(prefix: String, charGenerator: inout Strin
     return nil
 }
 
-private func parseQuotedString(charGenerator: inout String.CharacterView.Generator, terminator: Character) -> String? {
+private func parseQuotedString(scalarGenerator: inout String.UnicodeScalarView.Generator, terminator: UnicodeScalar) -> String? {
     var result = ""
-    while let c = charGenerator.next() {
+    while let c = scalarGenerator.next() {
         if c == terminator {
             return result
         }
         switch c {
         case "\\":
-            if let escaped = charGenerator.next() {
+            if let escaped = scalarGenerator.next() {
                 result.append("\\")
-                result.append(escaped)
+                result.append(String(escaped))
             } else {
                 return nil // Input ends in backslash
 
             }
         default:
-            result.append(c)
+            result.append(String(c))
         }
     }
     return nil // Unterminated quoted string
@@ -88,18 +88,18 @@ private func parseQuotedString(charGenerator: inout String.CharacterView.Generat
 ///
 public class TextScanner {
     internal var extensions: ExtensionSet?
-    private var charGenerator: String.CharacterView.Generator
-    private var characterPushback: Character?
+    private var scalarGenerator: String.UnicodeScalarView.Generator
+    private var scalarPushback: UnicodeScalar?
     private var tokenPushback: [TextToken]
     private var eof: Bool = false
     internal var complete: Bool {
-        switch characterPushback {
+        switch scalarPushback {
         case .some(" "), .some("\t"), .some("\r"), .some("\n"): break
         case .none: break
         default:
             return false
         }
-        var g = charGenerator
+        var g = scalarGenerator
         while let c = g.next() {
             switch c {
             case " ", "\t", "\r", "\n":
@@ -112,7 +112,7 @@ public class TextScanner {
     }
 
     internal init(text: String, tokens: [TextToken], extensions: ExtensionSet? = nil) {
-        charGenerator = text.characters.makeIterator()
+        scalarGenerator = text.unicodeScalars.makeIterator()
         tokenPushback = tokens.reversed()
         self.extensions = extensions
     }
@@ -123,13 +123,13 @@ public class TextScanner {
 
     private func parseHexInteger() -> String? {
         var s = String()
-        while let c = charGenerator.next() {
+        while let c = scalarGenerator.next() {
             switch c {
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
                  "a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F":
-                s.append(c)
+                s.append(String(c))
             default:
-                characterPushback = c
+                scalarPushback = c
                 return s
             }
         }
@@ -138,12 +138,12 @@ public class TextScanner {
 
     private func parseOctalInteger() -> String? {
         var s = String()
-        while let c = charGenerator.next() {
+        while let c = scalarGenerator.next() {
             switch c {
             case "0", "1", "2", "3", "4", "5", "6", "7":
-                s.append(c)
+                s.append(String(c))
             default:
-                characterPushback = c
+                scalarPushback = c
                 return s
             }
         }
@@ -156,23 +156,23 @@ public class TextScanner {
 
     private func parseUnsignedNumber() throws -> String? {
         var s = String()
-        while let c = charGenerator.next() {
+        while let c = scalarGenerator.next() {
             switch c {
             case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
-                s.append(c)
+                s.append(String(c))
             case ".":
-                s.append(c)
+                s.append(String(c))
             case "+", "-":
-                s.append(c)
+                s.append(String(c))
             case "e", "E":
-                s.append(c)
+                s.append(String(c))
             case "f", "u":
                 // proto1 allowed floats to be suffixed with 'f'
                 // and unsigned integers to be suffixed with 'u'
                 // Just ignore it:
                 return s
             default:
-                characterPushback = c
+                scalarPushback = c
                 return s
             }
         }
@@ -183,11 +183,11 @@ public class TextScanner {
         return try parseUnsignedNumber()
     }
 
-    private func parseNumber(first: Character) throws -> TextToken {
+    private func parseNumber(first: UnicodeScalar) throws -> TextToken {
         var s: String
-        var digit: Character
+        var digit: UnicodeScalar
         if first == "-" {
-            if let d = charGenerator.next() {
+            if let d = scalarGenerator.next() {
                 s = String("-")
                 digit = d
             } else {
@@ -203,14 +203,14 @@ public class TextScanner {
             // Treat "-" followed by a letter as a floating-point literal.
             // This treats "-Infinity" as a single token
             // Note that "Infinity" and "NaN" are regular identifiers.
-            if let s = parseIdentifier(prefix: String(s + String(digit)), charGenerator: &charGenerator) {
+            if let s = parseIdentifier(prefix: String(s + String(digit)), scalarGenerator: &scalarGenerator) {
                 return .floatingPointLiteral(s)
             } else {
                 throw DecodingError.malformedText
             }
         case "0":  // Octal or hex integer or floating point (e.g., "0.2")
             s += String(digit)
-            if let second = charGenerator.next() {
+            if let second = scalarGenerator.next() {
                 switch second {
                 case "1", "2", "3", "4", "5", "6", "7":
                     s += String(second)
@@ -234,7 +234,7 @@ public class TextScanner {
                         return .floatingPointLiteral(s)
                     }
                 default:
-                    characterPushback = second
+                    scalarPushback = second
                 }
             }
             return .decimalInteger(s) // Either "0" or "-0"
@@ -255,8 +255,8 @@ public class TextScanner {
         if eof {
             return nil
         }
-        while let c = characterPushback ?? charGenerator.next() {
-            characterPushback = nil
+        while let c = scalarPushback ?? scalarGenerator.next() {
+            scalarPushback = nil
             switch c {
             case " ", "\t", "\r", "\n":
                 break
@@ -279,20 +279,20 @@ public class TextScanner {
             case "]":
                 return .endArray
             case "\'", "\"": // string
-                if let s = parseQuotedString(charGenerator: &charGenerator, terminator: c) {
+                if let s = parseQuotedString(scalarGenerator: &scalarGenerator, terminator: c) {
                     return .string(s)
                 }
                 throw DecodingError.malformedText
             case "-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
                 return try parseNumber(first: c)
             case "a"..."z", "A"..."Z":
-                if let s = parseIdentifier(prefix: String(c), charGenerator: &charGenerator) {
+                if let s = parseIdentifier(prefix: String(c), scalarGenerator: &scalarGenerator) {
                     return .identifier(s)
                 } else {
                     throw DecodingError.malformedText
                 }
             case "#":
-                while let s = charGenerator.next(), s != "\n", s != "\r" {
+                while let s = scalarGenerator.next(), s != "\n", s != "\r" {
                     // Skip until end of line
                 }
             default:
@@ -313,8 +313,8 @@ public class TextScanner {
         if eof {
             return nil
         }
-        while let c = characterPushback ?? charGenerator.next() {
-            characterPushback = nil
+        while let c = scalarPushback ?? scalarGenerator.next() {
+            scalarPushback = nil
             switch c {
             case " ", "\t", "\r", "\n":
                 break
@@ -323,19 +323,19 @@ public class TextScanner {
             case ">":
                 return .altEndObject
             case "[":
-                if let s = parseExtensionIdentifier(prefix: String(c), charGenerator: &charGenerator) {
+                if let s = parseExtensionIdentifier(prefix: String(c), scalarGenerator: &scalarGenerator) {
                     return .identifier(s)
                 } else {
                     throw DecodingError.malformedText
                 }
             case "a"..."z", "A"..."Z":
-                if let s = parseIdentifier(prefix: String(c), charGenerator: &charGenerator) {
+                if let s = parseIdentifier(prefix: String(c), scalarGenerator: &scalarGenerator) {
                     return .identifier(s)
                 } else {
                     throw DecodingError.malformedText
                 }
             case "#":
-                while let s = charGenerator.next(), s != "\n", s != "\r" {
+                while let s = scalarGenerator.next(), s != "\n", s != "\r" {
                     // Skip until end of line
                 }
             default:
