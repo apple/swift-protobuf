@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufOneof.swift - Oneof support
+// Sources/SwiftProtobuf/OneofEnum.swift - Oneof support
 //
 // This source file is part of the Swift.org open source project
 //

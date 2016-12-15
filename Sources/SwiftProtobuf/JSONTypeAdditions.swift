@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufJSONTypes.swift - JSON primitive types
+// Sources/SwiftProtobuf/JSONTypeAdditions.swift - JSON primitive types
 //
 // This source file is part of the Swift.org open source project
 //

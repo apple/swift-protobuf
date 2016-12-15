@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Performance.swift - Performance tests
+// Tests/SwiftProtobufTests/Test_Performance.swift - Performance tests
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Extensions.swift - Exercise proto2 extensions
+// Tests/SwiftProtobufTests/Test_Extensions.swift - Exercise proto2 extensions
 //
 // This source file is part of the Swift.org open source project
 //

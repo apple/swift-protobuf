@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/Google_Protobuf_Any.swift - Well-known Any type
+// Sources/SwiftProtobuf/Google_Protobuf_Any.swift - Well-known Any type
 //
 // This source file is part of the Swift.org open source project
 //

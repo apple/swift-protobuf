@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_FieldOrdering.swift - Check ordering of binary fields
+// Tests/SwiftProtobufTests/Test_FieldOrdering.swift - Check ordering of binary fields
 //
 // This source file is part of the Swift.org open source project
 //

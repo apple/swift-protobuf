@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Required.swift - Test required field handling
+// Tests/SwiftProtobufTests/Test_Required.swift - Test required field handling
 //
 // This source file is part of the Swift.org open source project
 //

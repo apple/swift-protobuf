@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Empty.swift - Verify well-known empty message
+// Tests/SwiftProtobufTests/Test_Empty.swift - Verify well-known empty message
 //
 // This source file is part of the Swift.org open source project
 //

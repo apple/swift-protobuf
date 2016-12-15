@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/JSONScanner.swift - JSON tokenizer/scanner
+// Sources/SwiftProtobuf/JSONScanner.swift - JSON tokenizer/scanner
 //
 // This source file is part of the Swift.org open source project
 //

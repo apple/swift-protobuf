@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Wrappers.swift - Test well-known wrapper types
+// Tests/SwiftProtobufTests/Test_Wrappers.swift - Test well-known wrapper types
 //
 // This source file is part of the Swift.org open source project
 //

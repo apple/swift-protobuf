@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift - Extensions for Duration type
+// Sources/SwiftProtobuf/Google_Protobuf_Duration_Extensions.swift - Extensions for Duration type
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtoNameProviding.swift - Resolve proto field names
+// Sources/SwiftProtobuf/ProtoNameResolvers.swift - Resolve proto field names
 //
 // This source file is part of the Swift.org open source project
 //

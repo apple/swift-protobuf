@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Duration.swift - Exercise well-known Duration type
+// Tests/SwiftProtobufTests/Test_Duration.swift - Exercise well-known Duration type
 //
 // This source file is part of the Swift.org open source project
 //

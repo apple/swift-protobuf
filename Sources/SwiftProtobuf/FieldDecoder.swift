@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufFieldDecoder.swift - Basic field setting
+// Sources/SwiftProtobuf/FieldDecoder.swift - Basic field setting
 //
 // This source file is part of the Swift.org open source project
 //

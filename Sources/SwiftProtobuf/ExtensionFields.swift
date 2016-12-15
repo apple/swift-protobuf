@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufExtensionFields.swift - Extension support
+// Sources/SwiftProtobuf/ExtensionFields.swift - Extension support
 //
 // This source file is part of the Swift.org open source project
 //

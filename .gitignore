@@ -3,6 +3,7 @@
 /Packages
 *~
 xcuserdata
+xcbaselines
 /_test
 protoc-gen-swift
 

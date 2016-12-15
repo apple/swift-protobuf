@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_RecursiveMap.swift - Test maps within maps
+// Tests/SwiftProtobufTests/Test_RecursiveMap.swift - Test maps within maps
 //
 // This source file is part of the Swift.org open source project
 //

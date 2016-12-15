@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/JSONIntegerConverting.swift - JSON integer helpers
+// Sources/SwiftProtobuf/JSONIntegerConverting.swift - JSON integer helpers
 //
 // This source file is part of the Swift.org open source project
 //

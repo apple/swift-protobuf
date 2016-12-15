@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Helpers.swift - UInt8 array message helpers
+// Tests/SwiftProtobufTests/ProtobufMessage+UInt8ArrayHelpers.swift - UInt8 array message helpers
 //
 // This source file is part of the Swift.org open source project
 //

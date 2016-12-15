@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_ReallyLargeTagNumber.swift - Exercise extreme tag values
+// Tests/SwiftProtobufTests/Test_ReallyLargeTagNumber.swift - Exercise extreme tag values
 //
 // This source file is part of the Swift.org open source project
 //

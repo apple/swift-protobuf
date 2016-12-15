@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufError.swift - Error constants
+// Sources/SwiftProtobuf/Errors.swift - Error constants
 //
 // This source file is part of the Swift.org open source project
 //

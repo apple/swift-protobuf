@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_JSON_Conformance.swift - Various JSON tests
+// Tests/SwiftProtobufTests/Test_JSON_Conformance.swift - Various JSON tests
 //
 // This source file is part of the Swift.org open source project
 //

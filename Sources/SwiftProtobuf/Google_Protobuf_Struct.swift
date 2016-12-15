@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/Google_Protobuf_Struct.swift - Well-known Struct types.
+// Sources/SwiftProtobuf/Google_Protobuf_Struct.swift - Well-known Struct types.
 //
 // This source file is part of the Swift.org open source project
 //

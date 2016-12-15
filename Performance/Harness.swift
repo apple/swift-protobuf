@@ -1,4 +1,4 @@
-// SwiftProtobuf/Performance/Harness.swift - Performance harness definition
+// Performance/Harness.swift - Performance harness definition
 //
 // This source file is part of the Swift.org open source project
 //

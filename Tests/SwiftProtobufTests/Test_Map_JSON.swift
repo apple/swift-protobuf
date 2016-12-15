@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Map_JSON.swift - Verify JSON coding for maps
+// Tests/SwiftProtobufTests/Test_Map_JSON.swift - Verify JSON coding for maps
 //
 // This source file is part of the Swift.org open source project
 //

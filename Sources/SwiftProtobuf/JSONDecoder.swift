@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufJSONDecoding.swift - JSON decoding
+// Sources/SwiftProtobuf/JSONDecoder.swift - JSON decoding
 //
 // This source file is part of the Swift.org open source project
 //
