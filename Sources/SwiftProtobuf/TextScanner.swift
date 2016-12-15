@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufTextDecoding.swift - Text format decoding
+// Sources/SwiftProtobuf/TextScanner.swift - Text format decoding
 //
 // This source file is part of the Swift.org open source project
 //

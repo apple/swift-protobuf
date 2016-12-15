@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufTextTypes.swift - Text format primitive types
+// Sources/SwiftProtobuf/TextTypeAdditions.swift - Text format primitive types
 //
 // This source file is part of the Swift.org open source project
 //

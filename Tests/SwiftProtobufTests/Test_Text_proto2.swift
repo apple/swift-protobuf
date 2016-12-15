@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Test_proto3.swift - Exercise proto3 text format coding
+// Tests/SwiftProtobufTests/Test_Text_proto2.swift - Exercise proto3 text format coding
 //
 // This source file is part of the Swift.org open source project
 //

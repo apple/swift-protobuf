@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufTextEncoding.swift - Text format encoding support
+// Sources/SwiftProtobuf/TextEncodingVisitor.swift - Text format encoding support
 //
 // This source file is part of the Swift.org open source project
 //
