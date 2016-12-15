@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Enum.swift - Exercise generated enums
+// Tests/SwiftProtobufTests/Test_Enum_Proto2.swift - Exercise generated enums
 //
 // This source file is part of the Swift.org open source project
 //

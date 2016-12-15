@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_ParsingMerge.swift - Exercise "parsing merge" behavior
+// Tests/SwiftProtobufTests/Test_ParsingMerge.swift - Exercise "parsing merge" behavior
 //
 // This source file is part of the Swift.org open source project
 //

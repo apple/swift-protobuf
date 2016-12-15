@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Type.swift - Exercise well-known "Type" message
+// Tests/SwiftProtobufTests/Test_Type.swift - Exercise well-known "Type" message
 //
 // This source file is part of the Swift.org open source project
 //

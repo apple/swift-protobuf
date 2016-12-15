@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift - Fieldmask extensions
+// Sources/SwiftProtobuf/Google_Protobuf_FieldMask_Extensions.swift - Fieldmask extensions
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Descriptor.swift - Exercise Descriptor type
+// Tests/SwiftProtobufTests/Test_Descriptor.swift - Exercise Descriptor type
 //
 // This source file is part of the Swift.org open source project
 //

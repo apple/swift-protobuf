@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Struct.swift - Verify Struct well-known type
+// Tests/SwiftProtobufTests/Test_Struct.swift - Verify Struct well-known type
 //
 // This source file is part of the Swift.org open source project
 //

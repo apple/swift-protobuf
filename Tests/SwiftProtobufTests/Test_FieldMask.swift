@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_FieldMask.swift - Exercise well-known FieldMask type
+// Tests/SwiftProtobufTests/Test_FieldMask.swift - Exercise well-known FieldMask type
 //
 // This source file is part of the Swift.org open source project
 //

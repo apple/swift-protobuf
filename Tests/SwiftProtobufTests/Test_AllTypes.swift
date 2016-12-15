@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_AllTypes.swift - Basic encoding/decoding test
+// Tests/SwiftProtobufTests/Test_AllTypes.swift - Basic encoding/decoding test
 //
 // This source file is part of the Swift.org open source project
 //

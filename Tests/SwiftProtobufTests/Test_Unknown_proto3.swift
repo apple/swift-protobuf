@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Unknown_proto3.swift - Unknown field handling for proto3
+// Tests/SwiftProtobufTests/Test_Unknown_proto3.swift - Unknown field handling for proto3
 //
 // This source file is part of the Swift.org open source project
 //

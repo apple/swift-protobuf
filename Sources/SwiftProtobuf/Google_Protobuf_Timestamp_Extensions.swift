@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift - Timestamp extensions
+// Sources/SwiftProtobuf/Google_Protobuf_Timestamp_Extensions.swift - Timestamp extensions
 //
 // This source file is part of the Swift.org open source project
 //

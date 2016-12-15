@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_AllTypes_Proto3.swift - Proto3 coding/decoding
+// Tests/SwiftProtobufTests/Test_AllTypes_Proto3.swift - Proto3 coding/decoding
 //
 // This source file is part of the Swift.org open source project
 //

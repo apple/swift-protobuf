@@ -1,4 +1,4 @@
-// SwiftProtobuf/Sources/SwiftProtobuf/ZigZagEncoding.swift - ZigZag encoding/decoding helpers
+// Sources/SwiftProtobuf/ZigZag.swift - ZigZag encoding/decoding helpers
 //
 // This source file is part of the Swift.org open source project
 //

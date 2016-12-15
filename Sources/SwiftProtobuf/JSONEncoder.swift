@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufJSONEncoding.swift - JSON Encoding support
+// Sources/SwiftProtobuf/JSONEncoder.swift - JSON Encoding support
 //
 // This source file is part of the Swift.org open source project
 //

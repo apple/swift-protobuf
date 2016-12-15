@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_JSON_Scanner.swift - Exercise JSON scanner
+// Tests/SwiftProtobufTests/Test_JSON_Scanner.swift - Exercise JSON scanner
 //
 // This source file is part of the Swift.org open source project
 //

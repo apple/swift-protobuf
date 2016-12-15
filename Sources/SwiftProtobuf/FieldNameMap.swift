@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/FieldNameMap.swift - Bidirectional field number/name mapping
+// Sources/SwiftProtobuf/FieldNameMap.swift - Bidirectional field number/name mapping
 //
 // This source file is part of the Swift.org open source project
 //

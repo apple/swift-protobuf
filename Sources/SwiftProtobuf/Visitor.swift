@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufTraversal.swift - Basic serialization machinery
+// Sources/SwiftProtobuf/Visitor.swift - Basic serialization machinery
 //
 // This source file is part of the Swift.org open source project
 //

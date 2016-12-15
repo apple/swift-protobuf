@@ -1,4 +1,4 @@
-// SwiftProtobuf/Performance/main.swift - Performance harness entry point
+// Performance/main.swift - Performance harness entry point
 //
 // This source file is part of the Swift.org open source project
 //

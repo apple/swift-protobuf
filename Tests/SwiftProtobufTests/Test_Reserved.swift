@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Reserved.swift - Verify handling of reserved words
+// Tests/SwiftProtobufTests/Test_Reserved.swift - Verify handling of reserved words
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/TestHelpers.swift - Test helpers
+// Tests/SwiftProtobufTests/TestHelpers.swift - Test helpers
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufBinaryDecoding.swift - Binary decoding
+// Sources/SwiftProtobuf/ProtobufDecoder.swift - Binary decoding
 //
 // This source file is part of the Swift.org open source project
 //

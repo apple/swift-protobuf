@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Timestamp.swift - VerifyA well-known Timestamp type
+// Tests/SwiftProtobufTests/Test_Timestamp.swift - VerifyA well-known Timestamp type
 //
 // This source file is part of the Swift.org open source project
 //

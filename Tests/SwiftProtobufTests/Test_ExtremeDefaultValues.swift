@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_ExtremeDefaultValues.swift - Test default values
+// Tests/SwiftProtobufTests/Test_ExtremeDefaultValues.swift - Test default values
 //
 // This source file is part of the Swift.org open source project
 //

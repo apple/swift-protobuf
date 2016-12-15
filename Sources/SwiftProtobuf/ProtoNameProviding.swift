@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtoNameProviding.swift - Support for accessing proto names
+// Sources/SwiftProtobuf/ProtoNameProviding.swift - Support for accessing proto names
 //
 // This source file is part of the Swift.org open source project
 //

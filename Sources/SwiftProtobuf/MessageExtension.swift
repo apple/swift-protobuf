@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufExtensions.swift - Extension support
+// Sources/SwiftProtobuf/MessageExtension.swift - Extension support
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Packed.swift - Verify coding/decoding of packed fields
+// Tests/SwiftProtobufTests/Test_Packed.swift - Verify coding/decoding of packed fields
 //
 // This source file is part of the Swift.org open source project
 //

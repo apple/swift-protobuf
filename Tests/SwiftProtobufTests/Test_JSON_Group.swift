@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_JSON_Group.swift - Exercise JSON coding for groups
+// Tests/SwiftProtobufTests/Test_JSON_Group.swift - Exercise JSON coding for groups
 //
 // This source file is part of the Swift.org open source project
 //

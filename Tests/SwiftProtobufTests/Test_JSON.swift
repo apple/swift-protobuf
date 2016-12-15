@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_JSON.swift - Exercise JSON coding
+// Tests/SwiftProtobufTests/Test_JSON.swift - Exercise JSON coding
 //
 // This source file is part of the Swift.org open source project
 //

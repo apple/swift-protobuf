@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufDebugDescription.swift - debugDescription support
+// Sources/SwiftProtobuf/DebugDescriptionVisitor.swift - debugDescription support
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Conformance.swift - Various conformance issues
+// Tests/SwiftProtobufTests/Test_Conformance.swift - Various conformance issues
 //
 // This source file is part of the Swift.org open source project
 //

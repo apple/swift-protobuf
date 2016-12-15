@@ -1,4 +1,4 @@
-// SwiftProtobuf/Sources/SwiftProtobuf/FieldTag.swift - Describes a binary field tag
+// Sources/SwiftProtobuf/FieldTag.swift - Describes a binary field tag
 //
 // This source file is part of the Swift.org open source project
 //

@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Any.swift - Verify well-known Any type
+// Tests/SwiftProtobufTests/Test_Any.swift - Verify well-known Any type
 //
 // This source file is part of the Swift.org open source project
 //

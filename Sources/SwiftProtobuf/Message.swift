@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufMessage.swift - Message support
+// Sources/SwiftProtobuf/Message.swift - Message support
 //
 // This source file is part of the Swift.org open source project
 //

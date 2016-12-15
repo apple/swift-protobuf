@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufHash.swift - Hashing support
+// Sources/SwiftProtobuf/HashVisitor.swift - Hashing support
 //
 // This source file is part of the Swift.org open source project
 //

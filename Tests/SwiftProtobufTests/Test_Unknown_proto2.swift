@@ -1,4 +1,4 @@
-// Test/Soures/TestSuite/Test_Unknown_proto2.swift - Exercise unknown field handling for proto2 messages
+// Tests/SwiftProtobufTests/Test_Unknown_proto2.swift - Exercise unknown field handling for proto2 messages
 //
 // This source file is part of the Swift.org open source project
 //

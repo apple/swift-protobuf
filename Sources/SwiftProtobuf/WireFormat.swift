@@ -1,4 +1,4 @@
-// SwiftProtobuf/Sources/SwiftProtobuf/WireFormat.swift - Describes proto wire formats
+// Sources/SwiftProtobuf/WireFormat.swift - Describes proto wire formats
 //
 // This source file is part of the Swift.org open source project
 //

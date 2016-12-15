@@ -1,4 +1,4 @@
-// ProtobufRuntime/Sources/Protobuf/ProtobufBinaryTypes.swift - Per-type binary coding
+// Sources/SwiftProtobuf/ProtobufTypeAdditions.swift - Per-type binary coding
 //
 // This source file is part of the Swift.org open source project
 //

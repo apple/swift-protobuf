@@ -1,4 +1,4 @@
-// Test/Sources/TestSuite/Test_Map.swift - Exercise Map handling
+// Tests/SwiftProtobufTests/Test_Map.swift - Exercise Map handling
 //
 // This source file is part of the Swift.org open source project
 //
