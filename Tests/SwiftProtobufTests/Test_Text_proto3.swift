@@ -647,14 +647,13 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     func testEncoding_repeatedInt32() {
         var a = MessageTestType()
         a.repeatedInt32 = [1, 2]
+        XCTAssertEqual("repeated_int32: [1, 2]\n", try a.serializeText())
 
-        XCTAssertEqual("repeated_int32: 1\nrepeated_int32: 2\n", try a.serializeText())
-
-        assertTextEncode("repeated_int32: 1\nrepeated_int32: 2\n") {(o: inout MessageTestType) in
+        assertTextEncode("repeated_int32: [1, 2]\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1, 2]
         }
 
-        assertTextDecodeSucceeds("repeated_int32: [1, 2]\n") {
+        assertTextDecodeSucceeds("repeated_int32: 1\n repeated_int32: 2\n") {
             (o: MessageTestType) in
             return o.repeatedInt32 == [1, 2]
         }
@@ -691,133 +690,103 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedInt64() {
-        var a = MessageTestType()
-        a.repeatedInt64 = [3, 4]
+        assertTextEncode("repeated_int64: [3, 4]\n") {(o: inout MessageTestType) in
+            o.repeatedInt64 = [3, 4]
+        }
 
-        XCTAssertEqual("repeated_int64: 3\nrepeated_int64: 4\n", try a.serializeText())
-
-        assertTextEncode("repeated_int64: 3\nrepeated_int64: 4\n") {(o: inout MessageTestType) in o.repeatedInt64 = [3, 4] }
-
+        assertTextDecodeSucceeds("repeated_int64: 3\nrepeated_int64: 4\n") {(o: MessageTestType) in
+            return o.repeatedInt64 == [3, 4]
+        }
         assertTextDecodeFails("repeated_int64: 3\nrepeated_int64: a\n")
     }
 
     func testEncoding_repeatedUint32() {
-        var a = MessageTestType()
-        a.repeatedUint32 = [5, 6]
-
-        XCTAssertEqual("repeated_uint32: 5\nrepeated_uint32: 6\n", try a.serializeText())
-
-        assertTextEncode("repeated_uint32: 5\nrepeated_uint32: 6\n") {(o: inout MessageTestType) in o.repeatedUint32 = [5, 6] }
+        assertTextEncode("repeated_uint32: [5, 6]\n") {(o: inout MessageTestType) in
+            o.repeatedUint32 = [5, 6]
+        }
 
         assertTextDecodeFails("repeated_uint32: 5\nrepeated_uint32: a\n")
     }
 
     func testEncoding_repeatedUint64() {
-        var a = MessageTestType()
-        a.repeatedUint64 = [7, 8]
-
-        XCTAssertEqual("repeated_uint64: 7\nrepeated_uint64: 8\n", try a.serializeText())
-
-        assertTextEncode("repeated_uint64: 7\nrepeated_uint64: 8\n") {(o: inout MessageTestType) in o.repeatedUint64 = [7, 8] }
+        assertTextEncode("repeated_uint64: [7, 8]\n") {(o: inout MessageTestType) in
+            o.repeatedUint64 = [7, 8]
+        }
 
         assertTextDecodeFails("repeated_uint64: 7\nrepeated_uint64: a\n")
     }
 
     func testEncoding_repeatedSint32() {
-        var a = MessageTestType()
-        a.repeatedSint32 = [9, 10]
-
-        XCTAssertEqual("repeated_sint32: 9\nrepeated_sint32: 10\n", try a.serializeText())
-
-        assertTextEncode("repeated_sint32: 9\nrepeated_sint32: 10\n") {(o: inout MessageTestType) in o.repeatedSint32 = [9, 10] }
+        assertTextEncode("repeated_sint32: [9, 10]\n") {(o: inout MessageTestType) in
+            o.repeatedSint32 = [9, 10]
+        }
 
         assertTextDecodeFails("repeated_sint32: 9\nrepeated_sint32: a\n")
     }
 
     func testEncoding_repeatedSint64() {
-        var a = MessageTestType()
-        a.repeatedSint64 = [11, 12]
-
-        XCTAssertEqual("repeated_sint64: 11\nrepeated_sint64: 12\n", try a.serializeText())
-
-        assertTextEncode("repeated_sint64: 11\nrepeated_sint64: 12\n") {(o: inout MessageTestType) in o.repeatedSint64 = [11, 12] }
+        assertTextEncode("repeated_sint64: [11, 12]\n") {(o: inout MessageTestType) in
+            o.repeatedSint64 = [11, 12]
+        }
 
         assertTextDecodeFails("repeated_sint64: 11\nrepeated_sint64: a\n")
     }
 
     func testEncoding_repeatedFixed32() {
-        var a = MessageTestType()
-        a.repeatedFixed32 = [13, 14]
-
-        XCTAssertEqual("repeated_fixed32: 13\nrepeated_fixed32: 14\n", try a.serializeText())
-
-        assertTextEncode("repeated_fixed32: 13\nrepeated_fixed32: 14\n") {(o: inout MessageTestType) in o.repeatedFixed32 = [13, 14] }
+        assertTextEncode("repeated_fixed32: [13, 14]\n") {(o: inout MessageTestType) in
+            o.repeatedFixed32 = [13, 14]
+        }
 
         assertTextDecodeFails("repeated_fixed32: 13\nrepeated_fixed32: a\n")
     }
 
     func testEncoding_repeatedFixed64() {
-        var a = MessageTestType()
-        a.repeatedFixed64 = [15, 16]
-
-        XCTAssertEqual("repeated_fixed64: 15\nrepeated_fixed64: 16\n", try a.serializeText())
-
-        assertTextEncode("repeated_fixed64: 15\nrepeated_fixed64: 16\n") {(o: inout MessageTestType) in o.repeatedFixed64 = [15, 16] }
+        assertTextEncode("repeated_fixed64: [15, 16]\n") {(o: inout MessageTestType) in
+            o.repeatedFixed64 = [15, 16]
+        }
 
         assertTextDecodeFails("repeated_fixed64: 15\nrepeated_fixed64: a\n")
     }
 
     func testEncoding_repeatedSfixed32() {
-        var a = MessageTestType()
-        a.repeatedSfixed32 = [17, 18]
-
-        XCTAssertEqual("repeated_sfixed32: 17\nrepeated_sfixed32: 18\n", try a.serializeText())
-
-        assertTextEncode("repeated_sfixed32: 17\nrepeated_sfixed32: 18\n") {(o: inout MessageTestType) in o.repeatedSfixed32 = [17, 18] }
+        assertTextEncode("repeated_sfixed32: [17, 18]\n") {(o: inout MessageTestType) in
+            o.repeatedSfixed32 = [17, 18]
+        }
 
         assertTextDecodeFails("repeated_sfixed32: 17\nrepeated_sfixed32: a\n")
     }
 
     func testEncoding_repeatedSfixed64() {
-        var a = MessageTestType()
-        a.repeatedSfixed64 = [19, 20]
-
-        XCTAssertEqual("repeated_sfixed64: 19\nrepeated_sfixed64: 20\n", try a.serializeText())
-
-        assertTextEncode("repeated_sfixed64: 19\nrepeated_sfixed64: 20\n") {(o: inout MessageTestType) in o.repeatedSfixed64 = [19, 20] }
+        assertTextEncode("repeated_sfixed64: [19, 20]\n") {(o: inout MessageTestType) in
+            o.repeatedSfixed64 = [19, 20]
+        }
 
         assertTextDecodeFails("repeated_sfixed64: 19\nrepeated_sfixed64: a\n")
     }
 
     func testEncoding_repeatedFloat() {
-        var a = MessageTestType()
-        a.repeatedFloat = [21, 22]
-
-        XCTAssertEqual("repeated_float: 21\nrepeated_float: 22\n", try a.serializeText())
-
-        assertTextEncode("repeated_float: 21\nrepeated_float: 22\n") {(o: inout MessageTestType) in o.repeatedFloat = [21, 22] }
+        assertTextEncode("repeated_float: [21, 22]\n") {(o: inout MessageTestType) in
+            o.repeatedFloat = [21, 22]
+        }
 
         assertTextDecodeFails("repeated_float: 21\nrepeated_float: a\n")
     }
 
     func testEncoding_repeatedDouble() {
-        var a = MessageTestType()
-        a.repeatedDouble = [23, 24]
-
-        XCTAssertEqual("repeated_double: 23\nrepeated_double: 24\n", try a.serializeText())
-
-        assertTextEncode("repeated_double: 23\nrepeated_double: 24\n") {(o: inout MessageTestType) in o.repeatedDouble = [23, 24] }
+        assertTextEncode("repeated_double: [23, 24]\n") {(o: inout MessageTestType) in
+            o.repeatedDouble = [23, 24]
+        }
+        assertTextEncode("repeated_double: [2.25, 2.5]\n") {(o: inout MessageTestType) in
+            o.repeatedDouble = [2.25, 2.5]
+        }
 
         assertTextDecodeFails("repeated_double: 23\nrepeated_double: a\n")
     }
 
     func testEncoding_repeatedBool() {
-        var a = MessageTestType()
-        a.repeatedBool = [true, false]
-
-        XCTAssertEqual("repeated_bool: true\nrepeated_bool: false\n", try a.serializeText())
-
-        assertTextEncode("repeated_bool: true\nrepeated_bool: false\n") {(o: inout MessageTestType) in o.repeatedBool = [true, false] }
+        assertTextEncode("repeated_bool: [true, false]\n") {(o: inout MessageTestType) in
+            o.repeatedBool = [true, false]
+        }
         assertTextDecodeSucceeds("repeated_bool: [true, false, True, False, t, f, 1, 0]") {
             (o: MessageTestType) in
             return o.repeatedBool == [true, false, true, false, true, false, true, false]
@@ -964,13 +933,11 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedNestedEnum() {
-        var a = MessageTestType()
-        a.repeatedNestedEnum = [.bar, .baz]
-        XCTAssertEqual("repeated_nested_enum: BAR\nrepeated_nested_enum: BAZ\n", try a.serializeText())
+        assertTextEncode("repeated_nested_enum: [BAR, BAZ]\n") {(o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.bar, .baz]
+        }
 
-        assertTextEncode("repeated_nested_enum: BAR\nrepeated_nested_enum: BAZ\n") {(o: inout MessageTestType) in o.repeatedNestedEnum = [.bar, .baz] }
-
-        assertTextDecodeSucceeds("repeated_nested_enum: [BAR, BAZ]") {
+        assertTextDecodeSucceeds("repeated_nested_enum: BAR repeated_nested_enum: BAZ") {
             (o: MessageTestType) in
             return o.repeatedNestedEnum == [.bar, .baz]
         }
@@ -988,23 +955,17 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedForeignEnum() {
-        var a = MessageTestType()
-        a.repeatedForeignEnum = [.foreignBar, .foreignBaz]
-
-        XCTAssertEqual("repeated_foreign_enum: FOREIGN_BAR\nrepeated_foreign_enum: FOREIGN_BAZ\n", try a.serializeText())
-
-        assertTextEncode("repeated_foreign_enum: FOREIGN_BAR\nrepeated_foreign_enum: FOREIGN_BAZ\n") {(o: inout MessageTestType) in o.repeatedForeignEnum = [.foreignBar, .foreignBaz] }
+        assertTextEncode("repeated_foreign_enum: [FOREIGN_BAR, FOREIGN_BAZ]\n") {(o: inout MessageTestType) in
+            o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
+        }
 
         assertTextDecodeFails("repeated_foreign_enum: FOREIGN_BAR\nrepeated_foreign_enum: a\n")
     }
 
     func testEncoding_repeatedImportEnum() {
-        var a = MessageTestType()
-        a.repeatedImportEnum = [.importBar, .importBaz]
-
-        XCTAssertEqual("repeated_import_enum: IMPORT_BAR\nrepeated_import_enum: IMPORT_BAZ\n", try a.serializeText())
-
-        assertTextEncode("repeated_import_enum: IMPORT_BAR\nrepeated_import_enum: IMPORT_BAZ\n") {(o: inout MessageTestType) in o.repeatedImportEnum = [.importBar, .importBaz] }
+        assertTextEncode("repeated_import_enum: [IMPORT_BAR, IMPORT_BAZ]\n") {(o: inout MessageTestType) in
+            o.repeatedImportEnum = [.importBar, .importBaz]
+        }
 
         assertTextDecodeFails("repeated_import_enum: IMPORT_BAR\nrepeated_import_enum: a\n")
     }
@@ -1039,7 +1000,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             return o.repeatedPublicImportMessage == [publicImportMessage2, publicImportMessage]
         }
         assertTextDecodeFails("repeated_public_import_message:[{e:999999},{e:-999999},]")
-            
+
         do {
             let message = try MessageTestType(text:"repeated_public_import_message: {\n  e: -999999\n}\nrepeated_public_import_message: {\n  e: 999999\n}\n")
             XCTAssertEqual(message.repeatedPublicImportMessage[0].e, -999999)

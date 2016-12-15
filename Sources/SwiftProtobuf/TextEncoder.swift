@@ -63,6 +63,18 @@ public class TextEncoder {
         append(text: "}")
     }
 
+    func startArray() {
+        append(text: "[")
+    }
+
+    func arraySeparator() {
+        append(text: ", ")
+    }
+
+    func endArray() {
+        append(text: "]")
+    }
+
     func putDoubleValue(value: Double) {
         if value.isNaN {
             append(text: "nan")

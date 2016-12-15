@@ -66,7 +66,19 @@ public struct TextEncodingVisitor: Visitor {
     }
 
     mutating public func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        try visitRepeatedField(fieldType: fieldType, value: value, protoFieldNumber: protoFieldNumber)
+        let protoFieldName = try self.protoFieldName(for: protoFieldNumber)
+        encoder.startField(name: protoFieldName)
+        var firstItem = true
+        encoder.startArray()
+        for v in value {
+            if !firstItem {
+                encoder.arraySeparator()
+            }
+            try S.serializeTextValue(encoder: encoder, value: v)
+            firstItem = false
+        }
+        encoder.endArray()
+        encoder.endField()
     }
 
     mutating public func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
