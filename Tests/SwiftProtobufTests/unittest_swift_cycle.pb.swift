@@ -89,9 +89,9 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_aFoo != nil || other._aFoo != nil) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
-      if ((_aBar != nil || other._aBar != nil) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
-      if ((_aBaz != nil || other._aBaz != nil) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
+      if _aFoo != other._aFoo {return false}
+      if _aBar != other._aBar {return false}
+      if _aBaz != other._aBaz {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -210,9 +210,9 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_aBar != nil || other._aBar != nil) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
-      if ((_aBaz != nil || other._aBaz != nil) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
-      if ((_aFoo != nil || other._aFoo != nil) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
+      if _aBar != other._aBar {return false}
+      if _aBaz != other._aBaz {return false}
+      if _aFoo != other._aFoo {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -331,9 +331,9 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_aBaz != nil || other._aBaz != nil) && (_aBaz == nil || other._aBaz == nil || _aBaz! != other._aBaz!)) {return false}
-      if ((_aFoo != nil || other._aFoo != nil) && (_aFoo == nil || other._aFoo == nil || _aFoo! != other._aFoo!)) {return false}
-      if ((_aBar != nil || other._aBar != nil) && (_aBar == nil || other._aBar == nil || _aBar! != other._aBar!)) {return false}
+      if _aBaz != other._aBaz {return false}
+      if _aFoo != other._aFoo {return false}
+      if _aBar != other._aBar {return false}
       if unknown != other.unknown {return false}
       return true
     }

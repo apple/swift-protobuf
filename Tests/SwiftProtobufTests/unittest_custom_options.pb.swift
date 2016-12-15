@@ -352,7 +352,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageWithCustomOptions) -> Bool {
-    if (field1 != other.field1) {return false}
+    if _field1 != other._field1 {return false}
     if anOneof != other.anOneof {return false}
     if unknown != other.unknown {return false}
     return true
@@ -774,9 +774,9 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType1) -> Bool {
-    if (foo != other.foo) {return false}
-    if (foo2 != other.foo2) {return false}
-    if (foo3 != other.foo3) {return false}
+    if _foo != other._foo {return false}
+    if _foo2 != other._foo2 {return false}
+    if _foo3 != other._foo3 {return false}
     if foo4 != other.foo4 {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -860,9 +860,9 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_bar != nil || other._bar != nil) && (_bar == nil || other._bar == nil || _bar! != other._bar!)) {return false}
-      if (_baz != other._baz) {return false}
-      if ((_fred != nil || other._fred != nil) && (_fred == nil || other._fred == nil || _fred! != other._fred!)) {return false}
+      if _bar != other._bar {return false}
+      if _baz != other._baz {return false}
+      if _fred != other._fred {return false}
       if _barney != other._barney {return false}
       if unknown != other.unknown {return false}
       if extensionFieldValues != other.extensionFieldValues {return false}
@@ -932,7 +932,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4) -> Bool {
-      if (waldo != other.waldo) {return false}
+      if _waldo != other._waldo {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1053,8 +1053,8 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_qux != other._qux) {return false}
-      if ((_complexOptionType5 != nil || other._complexOptionType5 != nil) && (_complexOptionType5 == nil || other._complexOptionType5 == nil || _complexOptionType5! != other._complexOptionType5!)) {return false}
+      if _qux != other._qux {return false}
+      if _complexOptionType5 != other._complexOptionType5 {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1114,7 +1114,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5) -> Bool {
-      if (plugh != other.plugh) {return false}
+      if _plugh != other._plugh {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1203,7 +1203,7 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOpt6) -> Bool {
-    if (xyzzy != other.xyzzy) {return false}
+    if _xyzzy != other._xyzzy {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -1333,7 +1333,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, Swift
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_AggregateMessageSetElement) -> Bool {
-    if (s != other.s) {return false}
+    if _s != other._s {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -1394,11 +1394,11 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_i != other._i) {return false}
-      if (_s != other._s) {return false}
-      if ((_sub != nil || other._sub != nil) && (_sub == nil || other._sub == nil || _sub! != other._sub!)) {return false}
-      if ((_file != nil || other._file != nil) && (_file == nil || other._file == nil || _file! != other._file!)) {return false}
-      if ((_mset != nil || other._mset != nil) && (_mset == nil || other._mset == nil || _mset! != other._mset!)) {return false}
+      if _i != other._i {return false}
+      if _s != other._s {return false}
+      if _sub != other._sub {return false}
+      if _file != other._file {return false}
+      if _mset != other._mset {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1546,7 +1546,7 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_AggregateMessage) -> Bool {
-    if (fieldname != other.fieldname) {return false}
+    if _fieldname != other._fieldname {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -1664,7 +1664,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_NestedOptionType.NestedMessage) -> Bool {
-      if (nestedField != other.nestedField) {return false}
+      if _nestedField != other._nestedField {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1793,7 +1793,7 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_OldOptionType) -> Bool {
-    if (value != other.value) {return false}
+    if _value != other._value {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -1909,7 +1909,7 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_NewOptionType) -> Bool {
-    if (value != other.value) {return false}
+    if _value != other._value {return false}
     if unknown != other.unknown {return false}
     return true
   }

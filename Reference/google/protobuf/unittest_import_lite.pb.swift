@@ -163,7 +163,7 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftPro
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessageLite) -> Bool {
-    if (d != other.d) {return false}
+    if _d != other._d {return false}
     if unknown != other.unknown {return false}
     return true
   }

@@ -182,8 +182,8 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
-      if (_package != other._package) {return false}
+      if _name != other._name {return false}
+      if _package != other._package {return false}
       if _dependency != other._dependency {return false}
       if _publicDependency != other._publicDependency {return false}
       if _weakDependency != other._weakDependency {return false}
@@ -191,9 +191,9 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       if _enumType != other._enumType {return false}
       if _service != other._service {return false}
       if _extension_p != other._extension_p {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
-      if ((_sourceCodeInfo != nil || other._sourceCodeInfo != nil) && (_sourceCodeInfo == nil || other._sourceCodeInfo == nil || _sourceCodeInfo! != other._sourceCodeInfo!)) {return false}
-      if (_syntax != other._syntax) {return false}
+      if _options != other._options {return false}
+      if _sourceCodeInfo != other._sourceCodeInfo {return false}
+      if _syntax != other._syntax {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -434,14 +434,14 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
+      if _name != other._name {return false}
       if _field != other._field {return false}
       if _extension_p != other._extension_p {return false}
       if _nestedType != other._nestedType {return false}
       if _enumType != other._enumType {return false}
       if _extensionRange != other._extensionRange {return false}
       if _oneofDecl != other._oneofDecl {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if _options != other._options {return false}
       if _reservedRange != other._reservedRange {return false}
       if _reservedName != other._reservedName {return false}
       if unknown != other.unknown {return false}
@@ -528,8 +528,8 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
-      if (start != other.start) {return false}
-      if (end != other.end) {return false}
+      if _start != other._start {return false}
+      if _end != other._end {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -596,8 +596,8 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
-      if (start != other.start) {return false}
-      if (end != other.end) {return false}
+      if _start != other._start {return false}
+      if _end != other._end {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -774,16 +774,16 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
-      if (_number != other._number) {return false}
-      if (_label != other._label) {return false}
-      if (_type != other._type) {return false}
-      if (_typeName != other._typeName) {return false}
-      if (_extendee != other._extendee) {return false}
-      if (_defaultValue != other._defaultValue) {return false}
-      if (_oneofIndex != other._oneofIndex) {return false}
-      if (_jsonName != other._jsonName) {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if _name != other._name {return false}
+      if _number != other._number {return false}
+      if _label != other._label {return false}
+      if _type != other._type {return false}
+      if _typeName != other._typeName {return false}
+      if _extendee != other._extendee {return false}
+      if _defaultValue != other._defaultValue {return false}
+      if _oneofIndex != other._oneofIndex {return false}
+      if _jsonName != other._jsonName {return false}
+      if _options != other._options {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1302,8 +1302,8 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if _name != other._name {return false}
+      if _options != other._options {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1411,9 +1411,9 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
+      if _name != other._name {return false}
       if _value != other._value {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if _options != other._options {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1527,9 +1527,9 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
-      if (_number != other._number) {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if _name != other._name {return false}
+      if _number != other._number {return false}
+      if _options != other._options {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1649,9 +1649,9 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
+      if _name != other._name {return false}
       if _method != other._method {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
+      if _options != other._options {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -1783,12 +1783,12 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if (_name != other._name) {return false}
-      if (_inputType != other._inputType) {return false}
-      if (_outputType != other._outputType) {return false}
-      if ((_options != nil || other._options != nil) && (_options == nil || other._options == nil || _options! != other._options!)) {return false}
-      if (((_clientStreaming != nil && _clientStreaming! != false) || (other._clientStreaming != nil && other._clientStreaming! != false)) && (_clientStreaming == nil || other._clientStreaming == nil || _clientStreaming! != other._clientStreaming!)) {return false}
-      if (((_serverStreaming != nil && _serverStreaming! != false) || (other._serverStreaming != nil && other._serverStreaming! != false)) && (_serverStreaming == nil || other._serverStreaming == nil || _serverStreaming! != other._serverStreaming!)) {return false}
+      if _name != other._name {return false}
+      if _inputType != other._inputType {return false}
+      if _outputType != other._outputType {return false}
+      if _options != other._options {return false}
+      if _clientStreaming != other._clientStreaming {return false}
+      if _serverStreaming != other._serverStreaming {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -2362,21 +2362,21 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
-    if (javaPackage != other.javaPackage) {return false}
-    if (javaOuterClassname != other.javaOuterClassname) {return false}
-    if (((_javaMultipleFiles != nil && _javaMultipleFiles! != false) || (other._javaMultipleFiles != nil && other._javaMultipleFiles! != false)) && (_javaMultipleFiles == nil || other._javaMultipleFiles == nil || _javaMultipleFiles! != other._javaMultipleFiles!)) {return false}
-    if (javaGenerateEqualsAndHash != other.javaGenerateEqualsAndHash) {return false}
-    if (((_javaStringCheckUtf8 != nil && _javaStringCheckUtf8! != false) || (other._javaStringCheckUtf8 != nil && other._javaStringCheckUtf8! != false)) && (_javaStringCheckUtf8 == nil || other._javaStringCheckUtf8 == nil || _javaStringCheckUtf8! != other._javaStringCheckUtf8!)) {return false}
-    if (((_optimizeFor != nil && _optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed) || (other._optimizeFor != nil && other._optimizeFor! != Google_Protobuf_FileOptions.OptimizeMode.speed)) && (_optimizeFor == nil || other._optimizeFor == nil || _optimizeFor! != other._optimizeFor!)) {return false}
-    if (goPackage != other.goPackage) {return false}
-    if (((_ccGenericServices != nil && _ccGenericServices! != false) || (other._ccGenericServices != nil && other._ccGenericServices! != false)) && (_ccGenericServices == nil || other._ccGenericServices == nil || _ccGenericServices! != other._ccGenericServices!)) {return false}
-    if (((_javaGenericServices != nil && _javaGenericServices! != false) || (other._javaGenericServices != nil && other._javaGenericServices! != false)) && (_javaGenericServices == nil || other._javaGenericServices == nil || _javaGenericServices! != other._javaGenericServices!)) {return false}
-    if (((_pyGenericServices != nil && _pyGenericServices! != false) || (other._pyGenericServices != nil && other._pyGenericServices! != false)) && (_pyGenericServices == nil || other._pyGenericServices == nil || _pyGenericServices! != other._pyGenericServices!)) {return false}
-    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
-    if (((_ccEnableArenas != nil && _ccEnableArenas! != false) || (other._ccEnableArenas != nil && other._ccEnableArenas! != false)) && (_ccEnableArenas == nil || other._ccEnableArenas == nil || _ccEnableArenas! != other._ccEnableArenas!)) {return false}
-    if (objcClassPrefix != other.objcClassPrefix) {return false}
-    if (csharpNamespace != other.csharpNamespace) {return false}
-    if (swiftPrefix != other.swiftPrefix) {return false}
+    if _javaPackage != other._javaPackage {return false}
+    if _javaOuterClassname != other._javaOuterClassname {return false}
+    if _javaMultipleFiles != other._javaMultipleFiles {return false}
+    if _javaGenerateEqualsAndHash != other._javaGenerateEqualsAndHash {return false}
+    if _javaStringCheckUtf8 != other._javaStringCheckUtf8 {return false}
+    if _optimizeFor != other._optimizeFor {return false}
+    if _goPackage != other._goPackage {return false}
+    if _ccGenericServices != other._ccGenericServices {return false}
+    if _javaGenericServices != other._javaGenericServices {return false}
+    if _pyGenericServices != other._pyGenericServices {return false}
+    if _deprecated != other._deprecated {return false}
+    if _ccEnableArenas != other._ccEnableArenas {return false}
+    if _objcClassPrefix != other._objcClassPrefix {return false}
+    if _csharpNamespace != other._csharpNamespace {return false}
+    if _swiftPrefix != other._swiftPrefix {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -2555,10 +2555,10 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MessageOptions) -> Bool {
-    if (((_messageSetWireFormat != nil && _messageSetWireFormat! != false) || (other._messageSetWireFormat != nil && other._messageSetWireFormat! != false)) && (_messageSetWireFormat == nil || other._messageSetWireFormat == nil || _messageSetWireFormat! != other._messageSetWireFormat!)) {return false}
-    if (((_noStandardDescriptorAccessor != nil && _noStandardDescriptorAccessor! != false) || (other._noStandardDescriptorAccessor != nil && other._noStandardDescriptorAccessor! != false)) && (_noStandardDescriptorAccessor == nil || other._noStandardDescriptorAccessor == nil || _noStandardDescriptorAccessor! != other._noStandardDescriptorAccessor!)) {return false}
-    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
-    if (mapEntry != other.mapEntry) {return false}
+    if _messageSetWireFormat != other._messageSetWireFormat {return false}
+    if _noStandardDescriptorAccessor != other._noStandardDescriptorAccessor {return false}
+    if _deprecated != other._deprecated {return false}
+    if _mapEntry != other._mapEntry {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -2944,12 +2944,12 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldOptions) -> Bool {
-    if (((_ctype != nil && _ctype! != Google_Protobuf_FieldOptions.CType.string) || (other._ctype != nil && other._ctype! != Google_Protobuf_FieldOptions.CType.string)) && (_ctype == nil || other._ctype == nil || _ctype! != other._ctype!)) {return false}
-    if (packed != other.packed) {return false}
-    if (((_jstype != nil && _jstype! != Google_Protobuf_FieldOptions.JSType.jsNormal) || (other._jstype != nil && other._jstype! != Google_Protobuf_FieldOptions.JSType.jsNormal)) && (_jstype == nil || other._jstype == nil || _jstype! != other._jstype!)) {return false}
-    if (((_lazy != nil && _lazy! != false) || (other._lazy != nil && other._lazy! != false)) && (_lazy == nil || other._lazy == nil || _lazy! != other._lazy!)) {return false}
-    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
-    if (((_weak != nil && _weak! != false) || (other._weak != nil && other._weak! != false)) && (_weak == nil || other._weak == nil || _weak! != other._weak!)) {return false}
+    if _ctype != other._ctype {return false}
+    if _packed != other._packed {return false}
+    if _jstype != other._jstype {return false}
+    if _lazy != other._lazy {return false}
+    if _deprecated != other._deprecated {return false}
+    if _weak != other._weak {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -3118,8 +3118,8 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumOptions) -> Bool {
-    if (allowAlias != other.allowAlias) {return false}
-    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
+    if _allowAlias != other._allowAlias {return false}
+    if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -3205,7 +3205,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValueOptions) -> Bool {
-    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
+    if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -3296,7 +3296,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_ServiceOptions) -> Bool {
-    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
+    if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -3491,8 +3491,8 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodOptions) -> Bool {
-    if (((_deprecated != nil && _deprecated! != false) || (other._deprecated != nil && other._deprecated! != false)) && (_deprecated == nil || other._deprecated == nil || _deprecated! != other._deprecated!)) {return false}
-    if (((_idempotencyLevel != nil && _idempotencyLevel! != Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown) || (other._idempotencyLevel != nil && other._idempotencyLevel! != Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown)) && (_idempotencyLevel == nil || other._idempotencyLevel == nil || _idempotencyLevel! != other._idempotencyLevel!)) {return false}
+    if _deprecated != other._deprecated {return false}
+    if _idempotencyLevel != other._idempotencyLevel {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknown != other.unknown {return false}
     if extensionFieldValues != other.extensionFieldValues {return false}
@@ -3603,8 +3603,8 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
-      if (namePart != other.namePart) {return false}
-      if (isExtension != other.isExtension) {return false}
+      if _namePart != other._namePart {return false}
+      if _isExtension != other._isExtension {return false}
       if unknown != other.unknown {return false}
       return true
     }
@@ -3728,12 +3728,12 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption) -> Bool {
     if name != other.name {return false}
-    if (identifierValue != other.identifierValue) {return false}
-    if (positiveIntValue != other.positiveIntValue) {return false}
-    if (negativeIntValue != other.negativeIntValue) {return false}
-    if (doubleValue != other.doubleValue) {return false}
-    if (stringValue != other.stringValue) {return false}
-    if (aggregateValue != other.aggregateValue) {return false}
+    if _identifierValue != other._identifierValue {return false}
+    if _positiveIntValue != other._positiveIntValue {return false}
+    if _negativeIntValue != other._negativeIntValue {return false}
+    if _doubleValue != other._doubleValue {return false}
+    if _stringValue != other._stringValue {return false}
+    if _aggregateValue != other._aggregateValue {return false}
     if unknown != other.unknown {return false}
     return true
   }
@@ -3908,8 +3908,8 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
       if path != other.path {return false}
       if span != other.span {return false}
-      if (leadingComments != other.leadingComments) {return false}
-      if (trailingComments != other.trailingComments) {return false}
+      if _leadingComments != other._leadingComments {return false}
+      if _trailingComments != other._trailingComments {return false}
       if leadingDetachedComments != other.leadingDetachedComments {return false}
       if unknown != other.unknown {return false}
       return true
@@ -4086,9 +4086,9 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
       if path != other.path {return false}
-      if (sourceFile != other.sourceFile) {return false}
-      if (begin != other.begin) {return false}
-      if (end != other.end) {return false}
+      if _sourceFile != other._sourceFile {return false}
+      if _begin != other._begin {return false}
+      if _end != other._end {return false}
       if unknown != other.unknown {return false}
       return true
     }

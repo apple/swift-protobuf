@@ -82,7 +82,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
-      if ((_optionalMessage != nil || other._optionalMessage != nil) && (_optionalMessage == nil || other._optionalMessage == nil || _optionalMessage! != other._optionalMessage!)) {return false}
+      if _optionalMessage != other._optionalMessage {return false}
       if _repeatedMessage != other._repeatedMessage {return false}
       if unknown != other.unknown {return false}
       return true

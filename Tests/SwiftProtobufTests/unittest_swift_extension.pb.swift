@@ -84,7 +84,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
 
       public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar.Baz) -> Bool {
-        if (a != other.a) {return false}
+        if _a != other._a {return false}
         if unknown != other.unknown {return false}
         if extensionFieldValues != other.extensionFieldValues {return false}
         return true
@@ -185,7 +185,7 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_C) -> Bool {
-    if (c != other.c) {return false}
+    if _c != other._c {return false}
     if unknown != other.unknown {return false}
     return true
   }
