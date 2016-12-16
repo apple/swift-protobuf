@@ -95,6 +95,15 @@ fileprivate func isValidSwiftQuotedIdentifier(_ s: String) -> Bool {
 /// Use this to check whether a generated identifier is actually
 /// valid for use in generated Swift code.
 ///
+/// This implements the full grammar for validating an arbitrary Swift
+/// identifier as documented in "The Swift Programming Language."
+/// In particular, it does correctly handle identifiers with
+/// arbitrary Unicode in them.
+///
+/// For details, see:
+///
+/// https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html
+///
 /// Note: This is purely a syntactic check; it does not test whether
 /// the identifier is a Swift reserved word.  We do exclude implicit
 /// parameter identifiers ("$1", "$2", etc) and "_", though.
