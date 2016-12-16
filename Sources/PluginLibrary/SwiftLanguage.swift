@@ -92,8 +92,18 @@ fileprivate func isValidSwiftQuotedIdentifier(_ s: String) -> Bool {
     return false
 }
 
-// Note:  We're not checking implicit parameter identifiers of the form "$1", "$2", etc.
-
+/// Use this to check whether a generated identifier is actually
+/// valid for use in generated Swift code.
+///
+/// Note: This is purely a syntactic check; it does not test whether
+/// the identifier is a Swift reserved word.  We do exclude implicit
+/// parameter identifiers ("$1", "$2", etc) and "_", though.
+///
 public func isValidSwiftIdentifier(_ s: String) -> Bool {
+    // "_" is technically a valid identifier but is magic so we don't
+    // want to generate it.
+    if s == "_" {
+        return false
+    }
     return isValidSwiftLoneIdentifier(s) || isValidSwiftQuotedIdentifier(s)
 }

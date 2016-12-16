@@ -19,13 +19,13 @@ import PluginLibrary
 
 class Test_SwiftLanguage: XCTestCase {
     func testIsValidSwiftIdentifier() {
-        for identifier in ["_", "H9000", "\u{1f436}\u{1f431}"] {
+        for identifier in ["H9000", "\u{1f436}\u{1f431}"] {
             XCTAssert(isValidSwiftIdentifier(identifier), "Should be valid: \(identifier)")
         }
     }
 
     func testIsNotValidSwiftIdentifier() {
-        for identifier in ["$0", "$f00", "12Hour", "This is bad"] {
+        for identifier in ["_", "$0", "$f00", "12Hour", "This is bad"] {
             XCTAssert(!isValidSwiftIdentifier(identifier), "Should not be valid: \(identifier)")
         }
     }
