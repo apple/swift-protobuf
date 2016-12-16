@@ -44,6 +44,10 @@ public enum DecodingError: Error {
     case malformedJSONNumber
     /// A JSON timestamp was not parseable
     case malformedJSONTimestamp
+    /// The Protobuf text-format input was syntactically invalid
+    case malformedText
+    /// A Protobuf text-format number was not parseable
+    case malformedTextNumber
     /// The enum value was not recognized (for JSON, this is a parse error)
     case unrecognizedEnumValue
     /// Strings must always be valid UTF-8
@@ -52,6 +56,8 @@ public enum DecodingError: Error {
     case malformedProtobuf
     /// Field names were not compiled into the binary
     case missingFieldNames
+    /// The field identifier (name or number) was not recognized
+    case unknownField
     /// TODO: More here?
 }
 

@@ -104,6 +104,30 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
+    /// Verify the preferred encoding/decoding of a particular object.
+    /// This uses the provided block to initialize the object, then:
+    /// * Encodes the object and checks that the result is the expected result
+    /// * Decodes it again and verifies that the round-trip gives an equal object
+    func assertTextEncode(_ expected: String, extensions: ExtensionSet? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+        let empty = MessageTestType()
+        var configured = empty
+        configure(&configured)
+        XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
+        do {
+            let encoded = try configured.serializeText()
+
+            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            do {
+                let decoded = try MessageTestType(text: encoded, extensions: extensions)
+                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+            } catch {
+                XCTFail("Encode/decode cycle should not throw error, decoding: \(error)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
+        }
+    }
+
     func assertJSONDecodeSucceeds(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
             let decoded: MessageTestType = try MessageTestType(json: json)
@@ -127,10 +151,51 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
+    func assertTextDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) throws -> Bool) {
+        do {
+            let decoded: MessageTestType = try MessageTestType(text: text)
+            do {
+                let r = try check(decoded)
+                XCTAssert(r, "Condition failed for \(decoded)", file: file, line: line)
+            } catch let e {
+                XCTFail("Object check failed: \(e)")
+            }
+            do {
+                let encoded = try decoded.serializeText()
+                do {
+                    let redecoded = try MessageTestType(text: text)
+                    do {
+                        let r = try check(redecoded)
+                        XCTAssert(r, "Condition failed for redecoded \(redecoded)", file: file, line: line)
+                    } catch let e {
+                        XCTFail("Object check failed for redecoded: \(e)\n   \(redecoded)")
+                    }
+                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
+                } catch {
+                    XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
+                }
+            } catch let e {
+                XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
+            }
+        } catch {
+            XCTFail("Swift should have decoded without error: \(text)", file: file, line: line)
+            return
+        }
+    }
+
     func assertJSONDecodeFails(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let _ = try MessageTestType(json: json)
             XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
+        } catch {
+            // Yay! It failed!
+        }
+    }
+
+    func assertTextDecodeFails(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let _ = try MessageTestType(text: text)
+            XCTFail("Swift decode should have failed: \(text)", file: file, line: line)
         } catch {
             // Yay! It failed!
         }

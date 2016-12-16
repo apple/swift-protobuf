@@ -212,7 +212,8 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             case "ProtobufUnittest_repeatedInt32Extension":
                 XCTAssertEqual((value as! [Int32]), [1, 2, 3])
             default:
-                XCTFail("Unexpected child element \(name)")
+                let n = String(describing: name)
+                XCTFail("Unexpected child element \(n)")
             }
         }
     }

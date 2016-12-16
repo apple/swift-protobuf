@@ -73,6 +73,18 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         return nil
     }
 
+    public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
+        // TODO: Make this faster...
+        for (_, list) in fields {
+            for (_, e) in list {
+                if e.fieldNames.protoName == protoFieldName {
+                    return e.protoFieldNumber
+                }
+            }
+        }
+        return nil
+    }
+
     public mutating func insert(_ e: Element) {
         self[e.messageType, e.protoFieldNumber] = e
     }
