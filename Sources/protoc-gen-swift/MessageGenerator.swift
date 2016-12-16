@@ -360,7 +360,7 @@ class MessageGenerator {
             extPath.append(6)
             extPath.append(i)
             i += 1
-            extensions.append(ExtensionGenerator(descriptor: e, path: extPath, declaringMessageName: swiftFullName, file: file, context: context))
+            extensions.append(ExtensionGenerator(descriptor: e, path: extPath, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
         }
         self.extensions = extensions
 

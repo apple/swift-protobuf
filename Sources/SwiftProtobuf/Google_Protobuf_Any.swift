@@ -302,6 +302,11 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             throw DecodingError.malformedAnyField
         }
         var protobuf: Data?
+        if let message = _message as? M {
+            target = message
+            return
+        }
+
         if let message = _message {
             protobuf = try message.serializeProtobuf()
         } else if let value = _value {
@@ -309,10 +314,14 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
         if let protobuf = protobuf {
             // Decode protobuf from the stored bytes
-            try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
-                var protobufDecoder = ProtobufDecoder(protobufPointer: bp)
-                try protobufDecoder.decodeFullObject(message: &target)
+            if protobuf.count == 0 {
+                target = M()
+            } else {
+                try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
+                    let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
+                    var protobufDecoder = ProtobufDecoder(protobufPointer: bp)
+                    try protobufDecoder.decodeFullObject(message: &target)
+                }
             }
             return
         } else if let jsonFields = _jsonFields {
@@ -458,20 +467,77 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 
+    public init(scanner: TextScanner) throws {
+        self.init()
+        let terminator = try scanner.readObjectStart()
+        if let keyToken = try scanner.nextKey() {
+            if case .identifier(let key) = keyToken, key.hasPrefix("["), key.hasSuffix("]") {
+                var url = key
+                url.remove(at: url.startIndex)
+                url.remove(at: url.index(before: url.endIndex))
+                typeURL = url
+                let messageTypeName = typeName(fromURL: url)
+                if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
+                    _message = try messageType.init(scanner: scanner)
+                    try scanner.skipRequired(token: terminator)
+                    return
+                }
+                throw DecodingError.malformedText
+            } else {
+                scanner.pushback(token: keyToken)
+                var subDecoder = TextDecoder(scanner: scanner)
+                try subDecoder.decodeFullObject(message: &self, terminator: terminator)
+            }
+        } else {
+            throw DecodingError.truncatedInput
+        }
+    }
+
+    // Caveat:  This can be very expensive.  We should consider organizing
+    // the code generation so that generated equality tests check Any fields last.
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
-        // TODO: Fix this for case where Any holds a message or jsonFields or the two Any hold different stuff... <ugh>  This seems unsolvable in the general case.  <ugh>
         if ((typeURL != nil && typeURL != "") || (other.typeURL != nil && other.typeURL != "")) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
             return false
         }
-        if (_value != nil || other._value != nil) && (_value == nil || other._value == nil || _value! != other._value!) {
-            return false
+
+        // The best option is to decode and compare the messages; this
+        // insulates us from variations in serialization details.  For
+        // example, one Any might hold protobuf binary bytes from one
+        // language implementation and the other from another language
+        // implementation.  But of course this only works if we
+        // actually know the message type.
+
+        //if let myMessage = _message {
+        //    if let otherMessage = other._message {
+        //        ... compare them directly
+        //    } else {
+        //        ... try to decode other and compare
+        //    }
+        //} else if let otherMessage = other._message {
+        //    ... try to decode ourselves and compare
+        //} else {
+        //    ... try to decode both and compare
+        //}
+
+        // If we don't know the message type, we have few options:
+
+        // If we were both deserialized from proto, compare the binary value:
+        if let myValue = _value, let otherValue = other._value, myValue == otherValue {
+            return true
         }
-        return true
+
+        // If we were both deserialized from JSON, compare the JSON token streams:
+        //if let myJSON = _jsonFields, let otherJSON = other._jsonFields, myJSON == otherJSON {
+        //    return true
+        //}
+
+        return false
     }
 
     public func _protoc_generated_traverse(visitor: inout Visitor) throws {
         if let typeURL = typeURL {
             try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1)
+            // Try to generate bytes for this field...
             if let value = value {
                 try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2)
             } else {

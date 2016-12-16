@@ -22,6 +22,7 @@ import Swift
 public protocol Enum: RawRepresentable, Hashable, CustomDebugStringConvertible, FieldType, MapValueType {
     init?(name: String)
     init?(jsonName: String)
+    init?(protoName: String)
     var json: String { get }
     var rawValue: Int { get }
 }
