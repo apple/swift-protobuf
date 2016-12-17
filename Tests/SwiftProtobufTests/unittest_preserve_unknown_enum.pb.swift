@@ -235,6 +235,15 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case None
 
+    static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofE1(let l), .oneofE1(let r)): return l == r
+      case (.oneofE2(let l), .oneofE2(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -370,6 +379,15 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case None
 
+    static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofE1(let l), .oneofE1(let r)): return l == r
+      case (.oneofE2(let l), .oneofE2(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -482,23 +500,5 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     if repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
     if o != other.o {return false}
     return true
-  }
-}
-
-func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofE1(let l), .oneofE1(let r)): return l == r
-  case (.oneofE2(let l), .oneofE2(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
-  }
-}
-
-func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofE1(let l), .oneofE1(let r)): return l == r
-  case (.oneofE2(let l), .oneofE2(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }

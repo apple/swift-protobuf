@@ -125,6 +125,17 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     case oneofInt32(Int32)
     case None
 
+    static func ==(lhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options, rhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofInt64(let l), .oneofInt64(let r)): return l == r
+      case (.oneofBool(let l), .oneofBool(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -397,17 +408,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 let Swift_Protobuf_Extensions_myExtensionString = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 50, fieldNames: .same(proto: "[swift.protobuf.my_extension_string]", swift: "Swift_Protobuf_myExtensionString"), defaultValue: "")
 
 let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 5, fieldNames: .same(proto: "[swift.protobuf.my_extension_int]", swift: "Swift_Protobuf_myExtensionInt"), defaultValue: 0)
-
-func ==(lhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options, rhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofInt64(let l), .oneofInt64(let r)): return l == r
-  case (.oneofBool(let l), .oneofBool(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
-  }
-}
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {

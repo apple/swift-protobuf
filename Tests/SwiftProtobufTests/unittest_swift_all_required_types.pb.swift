@@ -388,6 +388,17 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     case oneofBytes(Data)
     case None
 
+    static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -1404,16 +1415,5 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     if _requiredNestedEnum != other._requiredNestedEnum {return false}
     if unknown != other.unknown {return false}
     return true
-  }
-}
-
-func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }
