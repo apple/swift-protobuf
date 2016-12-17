@@ -16,22 +16,22 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
 import Foundation
 
 public struct UnknownStorage: Equatable {
-    internal var data = Data()
-    public init() {}
+  internal var data = Data()
 
-    public mutating func append(protobufData: Data) {
-        data.append(protobufData)
-    }
-
-    public func traverse(visitor: inout Visitor) {
-        visitor.visitUnknown(bytes: data)
-    }
-}
-
-public func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
+  public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
     return lhs.data == rhs.data
+  }
+
+  public init() {}
+
+  public mutating func append(protobufData: Data) {
+    data.append(protobufData)
+  }
+
+  public func traverse(visitor: inout Visitor) {
+    visitor.visitUnknown(bytes: data)
+  }
 }

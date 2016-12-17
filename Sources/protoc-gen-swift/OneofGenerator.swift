@@ -58,6 +58,20 @@ class OneofGenerator {
         }
         p.print("case None\n")
 
+        // Equatable conformance
+        p.print("\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
+        p.indent()
+        p.print("switch (lhs, rhs) {\n")
+        for f in fields {
+            p.print("case (.\(f.swiftName)(let l), .\(f.swiftName)(let r)): return l == r\n")
+        }
+        p.print("case (.None, .None): return true\n")
+        p.print("default: return false\n")
+        p.print("}\n")
+        p.outdent()
+        p.print("}\n")
+
         // ExpressibleByNilLiteral conformance
         p.print("\n")
         p.print("public init(nilLiteral: ()) {\n")
@@ -151,20 +165,5 @@ class OneofGenerator {
     func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n")
         p.print("public var \(descriptor.swiftFieldName): \(swiftFullName) = .None\n")
-    }
-
-    func generateTopLevel(printer p: inout CodePrinter) {
-        p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
-        p.indent()
-        p.print("switch (lhs, rhs) {\n")
-        for f in fields {
-            p.print("case (.\(f.swiftName)(let l), .\(f.swiftName)(let r)): return l == r\n")
-        }
-        p.print("case (.None, .None): return true\n")
-        p.print("default: return false\n")
-        p.print("}\n")
-        p.outdent()
-        p.print("}\n")
     }
 }

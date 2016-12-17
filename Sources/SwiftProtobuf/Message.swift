@@ -19,7 +19,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
 
 ///
 /// See ProtobufBinaryTypes and ProtobufJSONTypes for extensions
@@ -206,21 +205,22 @@ public protocol Proto3Message: Message {
 /// tests or put it in a `Set<>`.
 ///
 public protocol _MessageImplementationBase: Message, Hashable, MapValueType {
-    func isEqualTo(other: Self) -> Bool
+  // The compiler actually generates the following methods. Default
+  // implementations below redirect the standard names. This allows developers
+  // to override the standard names to customize the behavior.
+  mutating func _protoc_generated_decodeField(setter: inout FieldDecoder,
+                                              protoFieldNumber: Int) throws
 
-    // The compiler actually generates the following methods. Default
-    // implementations below redirect the standard names. This allows developers
-    // to override the standard names to customize the behavior.
-    mutating func _protoc_generated_decodeField(
-        setter: inout FieldDecoder,
-        protoFieldNumber: Int) throws
+  func _protoc_generated_traverse(visitor: inout Visitor) throws
 
-    func _protoc_generated_traverse(visitor: inout Visitor) throws
-
-    func _protoc_generated_isEqualTo(other: Self) -> Bool
+  func _protoc_generated_isEqualTo(other: Self) -> Bool
 }
 
 public extension _MessageImplementationBase {
+  public static func ==(lhs: Self, rhs: Self) -> Bool {
+    return lhs._protoc_generated_isEqualTo(other: rhs)
+  }
+
   // Default implementations simply redirect to the generated versions.
   public func traverse(visitor: inout Visitor) throws {
     try _protoc_generated_traverse(visitor: &visitor)
@@ -228,15 +228,7 @@ public extension _MessageImplementationBase {
 
   mutating func decodeField(setter: inout FieldDecoder,
                             protoFieldNumber: Int) throws {
-      try _protoc_generated_decodeField(setter: &setter,
-                                        protoFieldNumber: protoFieldNumber)
+    try _protoc_generated_decodeField(setter: &setter,
+                                      protoFieldNumber: protoFieldNumber)
   }
-
-  func isEqualTo(other: Self) -> Bool {
-    return _protoc_generated_isEqualTo(other: other)
-  }
-}
-
-public func ==<M: _MessageImplementationBase>(lhs: M, rhs: M) -> Bool {
-  return lhs.isEqualTo(other: rhs)
 }
