@@ -1,0 +1,14 @@
+body {
+  margin: 16px;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.chart {
+  display: inline-block;
+  border: 1px solid #ccc;
+  width: 600px;
+  height: 400px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+}
