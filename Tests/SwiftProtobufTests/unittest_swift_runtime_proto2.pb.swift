@@ -565,6 +565,31 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     case oneofEnum(ProtobufUnittest_Message2.Enum)
     case None
 
+    static func ==(lhs: ProtobufUnittest_Message2.OneOf_O, rhs: ProtobufUnittest_Message2.OneOf_O) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
+      case (.oneofInt64(let l), .oneofInt64(let r)): return l == r
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
+      case (.oneofSint32(let l), .oneofSint32(let r)): return l == r
+      case (.oneofSint64(let l), .oneofSint64(let r)): return l == r
+      case (.oneofFixed32(let l), .oneofFixed32(let r)): return l == r
+      case (.oneofFixed64(let l), .oneofFixed64(let r)): return l == r
+      case (.oneofSfixed32(let l), .oneofSfixed32(let r)): return l == r
+      case (.oneofSfixed64(let l), .oneofSfixed64(let r)): return l == r
+      case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
+      case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
+      case (.oneofBool(let l), .oneofBool(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofGroup(let l), .oneofGroup(let r)): return l == r
+      case (.oneofMessage(let l), .oneofMessage(let r)): return l == r
+      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -1638,30 +1663,5 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       _storage = _storage.copy()
     }
     return _storage
-  }
-}
-
-func ==(lhs: ProtobufUnittest_Message2.OneOf_O, rhs: ProtobufUnittest_Message2.OneOf_O) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
-  case (.oneofInt64(let l), .oneofInt64(let r)): return l == r
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
-  case (.oneofSint32(let l), .oneofSint32(let r)): return l == r
-  case (.oneofSint64(let l), .oneofSint64(let r)): return l == r
-  case (.oneofFixed32(let l), .oneofFixed32(let r)): return l == r
-  case (.oneofFixed64(let l), .oneofFixed64(let r)): return l == r
-  case (.oneofSfixed32(let l), .oneofSfixed32(let r)): return l == r
-  case (.oneofSfixed64(let l), .oneofSfixed64(let r)): return l == r
-  case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
-  case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
-  case (.oneofBool(let l), .oneofBool(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.oneofGroup(let l), .oneofGroup(let r)): return l == r
-  case (.oneofMessage(let l), .oneofMessage(let r)): return l == r
-  case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }

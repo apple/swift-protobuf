@@ -199,6 +199,14 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
     case oneofField(Int32)
     case None
 
+    static func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof, rhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofField(let l), .oneofField(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -2024,14 +2032,6 @@ let ProtobufUnittest_Extensions_serviceopt = SwiftProtobuf.MessageExtension<Opti
 let ProtobufUnittest_Extensions_methodopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_MethodOptions>(protoFieldNumber: 15512713, fieldNames: .same(proto: "[protobuf_unittest.methodopt]", swift: "ProtobufUnittest_methodopt"), defaultValue: ProtobufUnittest_Aggregate())
 
 let ProtobufUnittest_Extensions_requiredEnumOpt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_OldOptionType>, Google_Protobuf_MessageOptions>(protoFieldNumber: 106161807, fieldNames: .same(proto: "[protobuf_unittest.required_enum_opt]", swift: "ProtobufUnittest_requiredEnumOpt"), defaultValue: ProtobufUnittest_OldOptionType())
-
-func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof, rhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofField(let l), .oneofField(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
-  }
-}
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {

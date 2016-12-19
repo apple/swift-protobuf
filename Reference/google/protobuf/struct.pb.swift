@@ -214,6 +214,19 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
     case listValue(Google_Protobuf_ListValue)
     case None
 
+    static func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
+      switch (lhs, rhs) {
+      case (.nullValue(let l), .nullValue(let r)): return l == r
+      case (.numberValue(let l), .numberValue(let r)): return l == r
+      case (.stringValue(let l), .stringValue(let r)): return l == r
+      case (.boolValue(let l), .boolValue(let r)): return l == r
+      case (.structValue(let l), .structValue(let r)): return l == r
+      case (.listValue(let l), .listValue(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -432,18 +445,5 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
     if values != other.values {return false}
     return true
-  }
-}
-
-func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
-  switch (lhs, rhs) {
-  case (.nullValue(let l), .nullValue(let r)): return l == r
-  case (.numberValue(let l), .numberValue(let r)): return l == r
-  case (.stringValue(let l), .stringValue(let r)): return l == r
-  case (.boolValue(let l), .boolValue(let r)): return l == r
-  case (.structValue(let l), .structValue(let r)): return l == r
-  case (.listValue(let l), .listValue(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }

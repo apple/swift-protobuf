@@ -140,6 +140,15 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     case oneofE2(Proto2PreserveUnknownEnumUnittest_MyEnum)
     case None
 
+    static func ==(lhs: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofE1(let l), .oneofE1(let r)): return l == r
+      case (.oneofE2(let l), .oneofE2(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -269,14 +278,5 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     if o != other.o {return false}
     if unknown != other.unknown {return false}
     return true
-  }
-}
-
-func ==(lhs: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofE1(let l), .oneofE1(let r)): return l == r
-  case (.oneofE2(let l), .oneofE2(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }

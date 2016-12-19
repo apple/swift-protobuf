@@ -897,6 +897,18 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
     case None
 
+    static func ==(lhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofLazyNestedMessage(let l), .oneofLazyNestedMessage(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -3334,6 +3346,17 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     case oneofBytes(Data)
     case None
 
+    static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField, rhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofTestAllTypes(let l), .oneofTestAllTypes(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -3817,18 +3840,6 @@ let ProtobufUnittest_Extensions_packedEnumExtensionLite = SwiftProtobuf.MessageE
 
 let ProtobufUnittest_Extensions_testAllTypesLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestHugeFieldNumbersLite>(protoFieldNumber: 536860000, fieldNames: .same(proto: "[protobuf_unittest.test_all_types_lite]", swift: "ProtobufUnittest_testAllTypesLite"), defaultValue: ProtobufUnittest_TestAllTypesLite())
 
-func ==(lhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.oneofLazyNestedMessage(let l), .oneofLazyNestedMessage(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
-  }
-}
-
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_TestNestedExtensionLite_nestedExtension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nestedExtension) ?? 0}
@@ -3865,17 +3876,6 @@ extension ProtobufUnittest_TestParsingMergeLite {
   }
   mutating func clearProtobufUnittest_TestParsingMergeLite_repeatedExt() {
     clearExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeatedExt)
-  }
-}
-
-func ==(lhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField, rhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofTestAllTypes(let l), .oneofTestAllTypes(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }
 

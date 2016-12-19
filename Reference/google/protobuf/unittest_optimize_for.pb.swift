@@ -122,6 +122,15 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     case stringField(String)
     case None
 
+    static func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo) -> Bool {
+      switch (lhs, rhs) {
+      case (.integerField(let l), .integerField(let r)): return l == r
+      case (.stringField(let l), .stringField(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -392,15 +401,6 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
       _storage = _storage.copy()
     }
     return _storage
-  }
-}
-
-func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo) -> Bool {
-  switch (lhs, rhs) {
-  case (.integerField(let l), .integerField(let r)): return l == r
-  case (.stringField(let l), .stringField(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }
 

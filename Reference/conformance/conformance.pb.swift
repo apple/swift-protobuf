@@ -248,6 +248,15 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
     case jsonPayload(String)
     case None
 
+    static func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
+      switch (lhs, rhs) {
+      case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
+      case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -366,6 +375,19 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
     case jsonPayload(String)
     case skipped(String)
     case None
+
+    static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
+      switch (lhs, rhs) {
+      case (.parseError(let l), .parseError(let r)): return l == r
+      case (.serializeError(let l), .serializeError(let r)): return l == r
+      case (.runtimeError(let l), .runtimeError(let r)): return l == r
+      case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
+      case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
+      case (.skipped(let l), .skipped(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
 
     public init(nilLiteral: ()) {
       self = .None
@@ -1493,6 +1515,22 @@ struct Conformance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     case oneofEnum(Conformance_TestAllTypes.NestedEnum)
     case None
 
+    static func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAllTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofBool(let l), .oneofBool(let r)): return l == r
+      case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
+      case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
+      case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
+      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -2605,43 +2643,5 @@ struct Conformance_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   public func _protoc_generated_isEqualTo(other: Conformance_ForeignMessage) -> Bool {
     if c != other.c {return false}
     return true
-  }
-}
-
-func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
-  switch (lhs, rhs) {
-  case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
-  case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
-  }
-}
-
-func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
-  switch (lhs, rhs) {
-  case (.parseError(let l), .parseError(let r)): return l == r
-  case (.serializeError(let l), .serializeError(let r)): return l == r
-  case (.runtimeError(let l), .runtimeError(let r)): return l == r
-  case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
-  case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
-  case (.skipped(let l), .skipped(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
-  }
-}
-
-func ==(lhs: Conformance_TestAllTypes.OneOf_OneofField, rhs: Conformance_TestAllTypes.OneOf_OneofField) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.oneofBool(let l), .oneofBool(let r)): return l == r
-  case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
-  case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
-  case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
-  case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }
