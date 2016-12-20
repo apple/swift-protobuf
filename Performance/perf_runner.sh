@@ -232,4 +232,5 @@ EOF
 
 insert_visualization_results "$partial_results" "$results_js"
 
-open "$results_trace.trace"
+open -g "$results_trace.trace"
+open -g "$script_dir/harness-visualization.html"
