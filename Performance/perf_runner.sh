@@ -30,6 +30,13 @@
 
 set -eu
 
+readonly script_dir="$(dirname $0)"
+
+# Change this if your checkout of github.com/google/protobuf is in a different
+# location.
+readonly GOOGLE_PROTOBUF_CHECKOUT="$script_dir/../../protobuf"
+
+
 function usage() {
   cat >&2 <<EOF
 Usage: $0 [-p <true|false>] [-s2|-s3] <field count> <field type>
@@ -98,9 +105,23 @@ EOF
 
   echo "Running $language test harness in Instruments..."
   instruments -t "$script_dir/Protobuf" -D "$results_trace" \
-      "$harness" "$partial_results"
+      "$harness" -e DYLD_LIBRARY_PATH "$script_dir/_generated" \
+      "$partial_results"
+
+  cp "$harness" "${harness}_stripped"
+  strip -u -r "${harness}_stripped"
+  unstripped_size=$(stat -f "%z" "$harness")
+  stripped_size=$(stat -f "%z" "${harness}_stripped")
+
+  echo "${language} harness size before stripping: $unstripped_size bytes"
+  echo "${language} harness size after stripping:  $stripped_size bytes"
+  echo
 
   cat >> "$partial_results" <<EOF
+      harnessSize: {
+        "Unstripped": $unstripped_size,
+        "Stripped": $stripped_size,
+      },
     },
 EOF
 }
@@ -122,8 +143,7 @@ function insert_visualization_results() {
 
 # ---------------------------------------------------------------
 # Pull in language specific helpers.
-readonly script_dir="$(dirname $0)"
-
+source "$script_dir/perf_runner_cpp.sh"
 source "$script_dir/perf_runner_swift.sh"
 
 # ---------------------------------------------------------------
@@ -174,17 +194,18 @@ mkdir -p "$script_dir/_results"
 # that the harnesses can populate it.
 results_js="$script_dir/_results/results.js"
 if [[ ! -f "$results_js" ]]; then
-  cp "$script_dir/results.js.template" "$results_js"
+  cp "$script_dir/js/results.js.template" "$results_js"
 fi
 
 gen_message_path="$script_dir/_generated/message.proto"
 results_trace="$script_dir/_results/$field_count fields of $field_type"
 
-echo "Generating test proto with $field_count fields..."
+echo "Generating test proto with $field_count fields of type $field_type..."
 generate_test_proto "$field_count" "$field_type"
 
 protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForPerf" \
     --swiftForPerf_out=FileNaming=DropPath:"$script_dir/_generated" \
+    --cpp_out="$script_dir" \
     "$gen_message_path"
 
 # Start a session.
@@ -192,12 +213,17 @@ partial_results="$script_dir/_results/partial.js"
 cat > "$partial_results" <<EOF
   {
     date: "$(date -u +"%FT%T.000Z")",
-    type: "$field_count $field_type",
+    type: "$field_count fields of type $field_type",
+    branch: "$(git rev-parse --abbrev-ref HEAD)",
+    commit: "$(git rev-parse HEAD)",
+    uncommitted_changes: $([[ -z $(git status -s) ]] && echo false || echo true),
 EOF
 
 harness_swift="$script_dir/_generated/harness_swift"
-build_swift_harness "$harness_swift"
-run_harness_and_concatenate_results Swift "$harness_swift" "$partial_results"
+run_swift_harness "$harness_swift"
+
+harness_cpp="$script_dir/_generated/harness_cpp"
+run_cpp_harness "$harness_cpp"
 
 # Close out the session.
 cat >> "$partial_results" <<EOF
@@ -207,13 +233,3 @@ EOF
 insert_visualization_results "$partial_results" "$results_js"
 
 open "$results_trace.trace"
-
-dylib="$script_dir/../.build/release/libSwiftProtobuf.dylib"
-echo "Dylib size before stripping: $(stat -f "%z" "$dylib") bytes"
-strip -u -r "$dylib"
-echo "Dylib size after stripping:  $(stat -f "%z" "$dylib") bytes"
-echo
-
-# We have to print the harness sizes after they've all executed because we
-# strip them for comparison, and we need the symbols earlier for Instruments.
-print_swift_harness_sizes "$harness_swift"

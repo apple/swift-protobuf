@@ -50,7 +50,7 @@ extension Harness {
       // Loop enough times to get meaningfully large measurements.
       for _ in 0..<runCount {
         var message = PerfMessage()
-        measureSubtask("Populate message fields") {
+        measureSubtask("Populate fields") {
           populateFields(of: &message)
         }
 
@@ -68,6 +68,14 @@ extension Harness {
         }
         let jsonDecodedMessage = try measureSubtask("Decode JSON") {
           return try PerfMessage(json: json)
+        }
+
+        // Exercise text serialization.
+        let text = try measureSubtask("Encode text") {
+          return try message.serializeText()
+        }
+        _ = try measureSubtask("Decode text") {
+          return try PerfMessage(text: text)
         }
 
         // Exercise equality.
@@ -93,7 +101,7 @@ EOF
 EOF
 }
 
-function build_swift_harness() {
+function run_swift_harness() {
   harness="$1"
 
   echo "Generating Swift harness source..."
@@ -112,13 +120,13 @@ function build_swift_harness() {
       "$script_dir/main.swift" \
   )
   echo
-}
 
-function print_swift_harness_sizes() {
-  harness="$1"
-
-  echo "Swift harness size before stripping: $(stat -f "%z" "$harness") bytes"
-  strip -u -r "$harness"
-  echo "Swift harness size after stripping:  $(stat -f "%z" "$harness") bytes"
+  dylib="$script_dir/../.build/release/libSwiftProtobuf.dylib"
+  echo "Swift dylib size before stripping: $(stat -f "%z" "$dylib") bytes"
+  cp "$dylib" "${dylib}_stripped"
+  strip -u -r "${dylib}_stripped"
+  echo "Swift dylib size after stripping:  $(stat -f "%z" "${dylib}_stripped") bytes"
   echo
+
+  run_harness_and_concatenate_results "Swift" "$harness_swift" "$partial_results"
 }
