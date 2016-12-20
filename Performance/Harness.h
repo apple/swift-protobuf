@@ -115,7 +115,7 @@ void Harness::measure(const Function& func) {
 
   // Do each measurement multiple times and collect the means and standard
   // deviation to account for noise.
-  for (int attempt = 1; attempt <= measurementCount; attempt++) {
+  for (int attempt = 1; attempt <= measurement_count; attempt++) {
     printf("Attempt %d, %d runs\n", attempt, run_count);
     current_subtasks.clear();
 
