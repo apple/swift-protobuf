@@ -291,7 +291,7 @@ class FileGenerator {
         if !comments.isEmpty {
             p.print(comments)
             // If the was a leading or tailing comment it won't have a blank
-            // line, after it, so esure there is one.
+            // line, after it, so ensure there is one.
             if !comments.hasSuffix("\n\n") {
                 p.print("\n")
             }
