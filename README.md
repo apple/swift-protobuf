@@ -143,7 +143,7 @@ And run `pod install`.
 If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-github 'apple/swift-protobuf' '0.9.24'
+github "apple/swift-protobuf" "0.9.24"
 ```
 
 Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.
