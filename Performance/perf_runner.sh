@@ -36,16 +36,19 @@ readonly script_dir="$(dirname $0)"
 # location.
 readonly GOOGLE_PROTOBUF_CHECKOUT="$script_dir/../../protobuf"
 
-
 function usage() {
   cat >&2 <<EOF
-Usage: $0 [-p <true|false>] [-s2|-s3] <field count> <field type>
+Usage: $0 [-p <true|false>] [-s2|-s3] <field count> <field types...>
 
 Currently supported field types:
     int32, sint32, uint32, fixed32, sfixed32,
     int64, sint64, uint64, fixed64, sfixed64,
     float, double, string,
     ...and repeated variants of the above.
+
+    Additionally, you can specify "all" to run the harness
+    multiple times with all of the (non-repeated) field types
+    listed above.
 
 Options:
     -p <true|false>: Adds a packed option to each field.
@@ -168,16 +171,20 @@ if [[ "$proto_syntax" != "2" ]] && [[ "$proto_syntax" != "3" ]]; then
   usage
 fi
 
-if [[ "$#" -ne 2 ]]; then
+if [[ "$#" -lt 2 ]]; then
   usage
 fi
 
-readonly field_count=$1
-readonly field_type=$2
-
-# If the Instruments template has changed since the last run, copy it into the
-# user's template folder. (Would be nice if we could just run the template from
-# the local directory, but Instruments doesn't seem to support that.)
+readonly field_count="$1"; shift
+if [[ "$1" == "all" ]]; then
+  readonly requested_field_types=( \
+    int32 sint32 uint32 fixed32 sfixed32 \
+    int64 sint64 uint64 fixed64 sfixed64 \
+    float double string \
+  )
+else
+  readonly requested_field_types=( "$@" )
+fi
 
 # Make sure the runtime and plug-in are up to date first.
 ( cd "$script_dir/.." >/dev/null; swift build -c release )
@@ -197,20 +204,22 @@ if [[ ! -f "$results_js" ]]; then
   cp "$script_dir/js/results.js.template" "$results_js"
 fi
 
-gen_message_path="$script_dir/_generated/message.proto"
-results_trace="$script_dir/_results/$field_count fields of $field_type"
+# Iterate over the requested field types and run the harnesses.
+for field_type in "${requested_field_types[@]}"; do
+  gen_message_path="$script_dir/_generated/message.proto"
+  results_trace="$script_dir/_results/$field_count fields of $field_type"
 
-echo "Generating test proto with $field_count fields of type $field_type..."
-generate_test_proto "$field_count" "$field_type"
+  echo "Generating test proto with $field_count fields of type $field_type..."
+  generate_test_proto "$field_count" "$field_type"
 
-protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForPerf" \
-    --swiftForPerf_out=FileNaming=DropPath:"$script_dir/_generated" \
-    --cpp_out="$script_dir" \
-    "$gen_message_path"
+  protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForPerf" \
+      --swiftForPerf_out=FileNaming=DropPath:"$script_dir/_generated" \
+      --cpp_out="$script_dir" \
+      "$gen_message_path"
 
-# Start a session.
-partial_results="$script_dir/_results/partial.js"
-cat > "$partial_results" <<EOF
+  # Start a session.
+  partial_results="$script_dir/_results/partial.js"
+  cat > "$partial_results" <<EOF
   {
     date: "$(date -u +"%FT%T.000Z")",
     type: "$field_count fields of type $field_type",
@@ -219,18 +228,21 @@ cat > "$partial_results" <<EOF
     uncommitted_changes: $([[ -z $(git status -s) ]] && echo false || echo true),
 EOF
 
-harness_swift="$script_dir/_generated/harness_swift"
-run_swift_harness "$harness_swift"
+  harness_swift="$script_dir/_generated/harness_swift"
+  run_swift_harness "$harness_swift"
 
-harness_cpp="$script_dir/_generated/harness_cpp"
-run_cpp_harness "$harness_cpp"
+  harness_cpp="$script_dir/_generated/harness_cpp"
+  run_cpp_harness "$harness_cpp"
 
-# Close out the session.
-cat >> "$partial_results" <<EOF
+  # Close out the session.
+  cat >> "$partial_results" <<EOF
   },
 EOF
 
-insert_visualization_results "$partial_results" "$results_js"
+  insert_visualization_results "$partial_results" "$results_js"
 
-open -g "$results_trace.trace"
+  open -g "$results_trace.trace"
+done
+
+# Open the HTML once at the end.
 open -g "$script_dir/harness-visualization.html"
