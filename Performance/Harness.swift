@@ -22,6 +22,9 @@ import Foundation
 /// run() method, which the main.swift file calls.
 class Harness {
 
+  /// The number of times to execute the block passed to measure().
+  var measurementCount = 10
+
   /// The number of times to loop the body of the run() method.
   var runCount = 100
 
@@ -52,7 +55,7 @@ class Harness {
     do {
       // Do each measurement 5 times and collect the means and standard
       // deviation to account for noise.
-      for attempt in 1...5 {
+      for attempt in 1...measurementCount {
         print("Attempt \(attempt), \(runCount) runs:")
         currentSubtasks.removeAll()
 

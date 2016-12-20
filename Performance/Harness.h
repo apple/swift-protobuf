@@ -64,6 +64,9 @@ private:
   /** The number of times to loop the body of the run() method. */
   int run_count;
 
+  /** The number of times to measure the function passed to measure(). */
+  int measurement_count;
+
   /** The number of times to add values to repeated fields. */
   int repeated_count;
 
@@ -110,9 +113,9 @@ void Harness::measure(const Function& func) {
   vector<steady_clock::duration> timings;
   subtask_timings.clear();
 
-  // Do each measurement 5 times and collect the means and standard
+  // Do each measurement multiple times and collect the means and standard
   // deviation to account for noise.
-  for (int attempt = 1; attempt <= 5; attempt++) {
+  for (int attempt = 1; attempt <= measurementCount; attempt++) {
     printf("Attempt %d, %d runs\n", attempt, run_count);
     current_subtasks.clear();
 
