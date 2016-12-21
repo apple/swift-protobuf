@@ -14,10 +14,12 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 public protocol OneofEnum: Equatable {
-    init()
-    func traverse(visitor: inout Visitor, start: Int, end: Int) throws
-    mutating func decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws
+
+  init()
+
+  func traverse(visitor: Visitor, start: Int, end: Int) throws
+
+  mutating func decodeField(setter: inout FieldDecoder,
+                            protoFieldNumber: Int) throws
 }

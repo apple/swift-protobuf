@@ -121,12 +121,12 @@ public struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if seconds != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: seconds, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: seconds, fieldNumber: 1)
     }
     if nanos != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: nanos, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: nanos, fieldNumber: 2)
     }
   }
 

@@ -15,95 +15,74 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
 import Foundation
 
 private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
 
-//
-// The hashValue property is computed with a visitor that
-// traverses the message tree.
-//
-struct HashVisitor: Visitor {
-    // Roughly based on FNV hash:
-    // http://tools.ietf.org/html/draft-eastlake-fnv-03
-    private(set) var hashValue = i_2166136261
+/// Computes the hash value of a message by visiting its fields recursively.
+///
+/// Note that because this visits every field, it has the potential to be slow
+/// for large or deeply nested messages. Users who need to use such messages as
+/// dictionary keys or set members should override `hashValue` in an extension
+/// and provide a more efficient implementation by examining only a subset of
+/// key fields.
+final class HashVisitor: Visitor {
 
-    private mutating func mix(_ hash: Int) {
-        hashValue = (hashValue ^ hash) &* i_16777619
+  // Roughly based on FNV hash: http://tools.ietf.org/html/draft-eastlake-fnv-03
+  private(set) var hashValue = i_2166136261
+
+  private func mix(_ hash: Int) {
+    hashValue = (hashValue ^ hash) &* i_16777619
+  }
+
+  init() {}
+
+  func visitUnknown(bytes: Data) {
+    mix(bytes.hashValue)
+  }
+
+  func visitSingularField<S: FieldType>(fieldType: S.Type,
+                                        value: S.BaseType,
+                                        fieldNumber: Int) {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  func visitRepeatedField<S: FieldType>(fieldType: S.Type,
+                                        value: [S.BaseType],
+                                        fieldNumber: Int) {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
     }
+  }
 
-    init() {}
+  func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
 
-    init(message: Message) {
-        withAbstractVisitor {(visitor: inout Visitor) in
-            try message.traverse(visitor: &visitor)
-        }
+  func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
     }
+  }
 
-    mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) {
-        var visitor: Visitor = self
-        let _ = try? clause(&visitor)
-        hashValue = (visitor as! HashVisitor).hashValue
+  func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+    fieldType: ProtobufMap<KeyType, ValueType>.Type,
+    value: ProtobufMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) where KeyType.BaseType: Hashable {
+    mix(fieldNumber)
+    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
+    // simplify to mix(value.hashValue).
+    var mapHash = 0
+    for (k, v) in value {
+      // Note: This calculation cannot depend on the order of the items.
+      mapHash += k.hashValue ^ v.hashValue
     }
-
-    mutating func visitUnknown(bytes: Data) {
-        mix(bytes.hashValue)
-    }
-
-    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
-        mix(protoFieldNumber)
-        mix(value.hashValue)
-    }
-
-    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        mix(protoFieldNumber)
-        for v in value {
-            mix(v.hashValue)
-        }
-    }
-
-    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        mix(protoFieldNumber)
-        for v in value {
-            mix(v.hashValue)
-        }
-    }
-
-    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
-        mix(protoFieldNumber)
-        mix(value.hashValue)
-    }
-
-    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws {
-        mix(protoFieldNumber)
-        for v in value {
-            mix(v.hashValue)
-        }
-   }
-
-    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws {
-        mix(protoFieldNumber)
-        mix(value.hashValue)
-    }
-
-    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws {
-        mix(protoFieldNumber)
-        for v in value {
-            mix(v.hashValue)
-        }
-    }
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
-        mix(protoFieldNumber)
-        // Note: When ProtobufMap<Hashable,Hashable> is Hashable, this will simplify to
-        // mix(value.hashValue)
-        var mapHash = 0
-        for (k,v) in value {
-            // Note: This calculation cannot depend on the order of the items.
-            mapHash += k.hashValue ^ v.hashValue
-        }
-        mix(mapHash)
-    }
+    mix(mapHash)
+  }
 }

@@ -54,11 +54,11 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
     return hash
   }
 
-  public func traverse(visitor: inout Visitor, start: Int, end: Int) throws {
+  public func traverse(visitor: Visitor, start: Int, end: Int) throws {
     let validIndexes = values.keys.filter {$0 >= start && $0 < end}
     for i in validIndexes.sorted() {
       let value = values[i]!
-      try value.traverse(visitor: &visitor)
+      try value.traverse(visitor: visitor)
     }
   }
 

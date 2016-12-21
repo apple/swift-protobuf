@@ -156,9 +156,9 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         }
     }
 
-    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
+    public func _protoc_generated_traverse(visitor: Visitor) throws {
         if !fields.isEmpty {
-            try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1)
+            try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
         }
     }
 
@@ -341,8 +341,8 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
-        try kind.traverse(visitor: &visitor, start:1, end: 7)
+    public func _protoc_generated_traverse(visitor: Visitor) throws {
+        try kind.traverse(visitor: visitor, start:1, end: 7)
     }
 
     // Storage ivars
@@ -542,31 +542,31 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             }
         }
 
-        public func traverse(visitor: inout Visitor, start: Int, end: Int) throws {
+        public func traverse(visitor: Visitor, start: Int, end: Int) throws {
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {
-                    try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, protoFieldNumber: 1)
+                    try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, fieldNumber: 1)
                 }
             case .numberValue(let v):
                 if start <= 2 && 2 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, protoFieldNumber: 2)
+                    try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, fieldNumber: 2)
                 }
             case .stringValue(let v):
                 if start <= 3 && 3 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, protoFieldNumber: 3)
+                    try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, fieldNumber: 3)
                 }
             case .boolValue(let v):
                 if start <= 4 && 4 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, protoFieldNumber: 4)
+                    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, fieldNumber: 4)
                 }
             case .structValue(let v):
                 if start <= 5 && 5 < end {
-                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
+                    try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
                 }
             case .listValue(let v):
                 if start <= 6 && 6 < end {
-                    try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
+                    try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
                 }
             case .None:
                 break
@@ -708,9 +708,9 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         }
     }
 
-    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
+    public func _protoc_generated_traverse(visitor: Visitor) throws {
         if !values.isEmpty {
-            try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1)
+            try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
         }
     }
 

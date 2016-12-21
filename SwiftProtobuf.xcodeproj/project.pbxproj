@@ -31,7 +31,6 @@
 		9C2F23911D7780D1008524F2 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		9C2F23921D7780D1008524F2 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
 		9C2F23931D7780D1008524F2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
-		9C2F23941D7780D1008524F2 /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
 		9C2F23951D7780D1008524F2 /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
 		9C2F23981D7780D1008524F2 /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
 		9C2F23991D7780D1008524F2 /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
@@ -197,6 +196,10 @@
 		AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
 		AA6CF6F61DB6D228007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
 		AA6CF6F71DB6D229007DF26B /* Test_Enum_Proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */; };
+		AA86F6FA1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86F6F91E0A0F0B006CC38A /* JSONEncodingVisitor.swift */; };
+		AA86F6FB1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86F6F91E0A0F0B006CC38A /* JSONEncodingVisitor.swift */; };
+		AA86F6FC1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86F6F91E0A0F0B006CC38A /* JSONEncodingVisitor.swift */; };
+		AA86F6FD1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA86F6F91E0A0F0B006CC38A /* JSONEncodingVisitor.swift */; };
 		AAEA52201DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */; };
 		AAEA52211DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */; };
 		AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
@@ -257,7 +260,6 @@
 		F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
 		F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
-		F44F93901DAEA76700BC5B85 /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
 		F44F93911DAEA76700BC5B85 /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
 		F44F93931DAEA76700BC5B85 /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
 		F44F93941DAEA76700BC5B85 /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
@@ -369,7 +371,6 @@
 		F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		F44F941D1DAEB23500BC5B85 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
 		F44F941E1DAEB23500BC5B85 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
-		F44F941F1DAEB23500BC5B85 /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
 		F44F94201DAEB23500BC5B85 /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
 		F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
 		F44F94231DAEB23500BC5B85 /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
@@ -420,7 +421,6 @@
 		__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */; };
@@ -553,10 +553,11 @@
 		9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
 		AA05BF491DAEB7E400619042 /* WireFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormat.swift; sourceTree = "<group>"; };
 		AA05BF4E1DAEB7E800619042 /* FieldTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldTag.swift; sourceTree = "<group>"; };
-		AA28A4A51DA30E5900C866D9 /* ZigZag.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ZigZag.swift; sourceTree = "<group>"; tabWidth = 4; };
+		AA28A4A51DA30E5900C866D9 /* ZigZag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZigZag.swift; sourceTree = "<group>"; };
 		AA28A4A81DA40B0900C866D9 /* Varint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Varint.swift; sourceTree = "<group>"; };
-		AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufEncodingSizeVisitor.swift; sourceTree = "<group>"; tabWidth = 4; };
+		AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufEncodingSizeVisitor.swift; sourceTree = "<group>"; };
 		AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Enum_Proto2.swift; sourceTree = "<group>"; };
+		AA86F6F91E0A0F0B006CC38A /* JSONEncodingVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingVisitor.swift; sourceTree = "<group>"; };
 		AAEA521F1DA5BB81003F318F /* ProtobufMessage+UInt8ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProtobufMessage+UInt8ArrayHelpers.swift"; sourceTree = "<group>"; };
 		AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Wrappers+Extensions.swift"; sourceTree = "<group>"; };
 		AAEA52731DA80DEA003F318F /* wrappers.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wrappers.pb.swift; sourceTree = "<group>"; };
@@ -589,8 +590,8 @@
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google_Protobuf_Struct.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google_Protobuf_Timestamp_Extensions.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufDecoder.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufEncoder.swift; sourceTree = "<group>"; tabWidth = 4; };
-		__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ProtobufTypeAdditions.swift; sourceTree = "<group>"; tabWidth = 4; };
+		__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufEncoder.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufTypeAdditions.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugDescriptionVisitor.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -602,7 +603,6 @@
 		__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTypeAdditions.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorVisitor.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneofEnum.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTypes.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownStorage.swift; sourceTree = "<group>"; };
@@ -613,7 +613,7 @@
 		__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = source_context.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timestamp.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = type.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; tabWidth = 4; };
+		__PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_AllTypes.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_AllTypes_Proto3.swift /* Test_AllTypes_Proto3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_AllTypes_Proto3.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Any.swift; sourceTree = "<group>"; };
@@ -793,6 +793,7 @@
 				__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */,
+				AA86F6F91E0A0F0B006CC38A /* JSONEncodingVisitor.swift */,
 				AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */,
 				9C75F89D1DDD3FA3005CCFF2 /* JSONScanner.swift */,
 				9C75F8981DDD3F1E005CCFF2 /* JSONToken.swift */,
@@ -800,7 +801,6 @@
 				9C75F8A21DDD44A1005CCFF2 /* Map.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufMessage.swift /* Message.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */,
@@ -1232,6 +1232,7 @@
 				9C2F238A1D7780D1008524F2 /* Errors.swift in Sources */,
 				9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */,
 				9C75F88B1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				AA86F6FB1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */,
 				9C2F238D1D7780D1008524F2 /* FieldDecoder.swift in Sources */,
 				9C2F238F1D7780D1008524F2 /* HashVisitor.swift in Sources */,
@@ -1245,7 +1246,6 @@
 				9C2F23921D7780D1008524F2 /* JSONTypeAdditions.swift in Sources */,
 				AAEA52771DA832A8003F318F /* wrappers.pb.swift in Sources */,
 				9C2F23931D7780D1008524F2 /* Message.swift in Sources */,
-				9C2F23941D7780D1008524F2 /* MirrorVisitor.swift in Sources */,
 				9C2F23951D7780D1008524F2 /* OneofEnum.swift in Sources */,
 				9C2F23981D7780D1008524F2 /* FieldTypes.swift in Sources */,
 				9C2F23991D7780D1008524F2 /* UnknownStorage.swift in Sources */,
@@ -1294,6 +1294,7 @@
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
 				AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				AA86F6FA1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufJSONDecoding.swift /* JSONDecoder.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift in Sources */,
@@ -1304,7 +1305,6 @@
 				9C75F8A31DDD44A1005CCFF2 /* Map.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufMessage.swift /* Message.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufMirror.swift /* MirrorVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufOneof.swift /* OneofEnum.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift in Sources */,
@@ -1448,7 +1448,6 @@
 				AAF2EE011DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				F44F93801DAEA76700BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 				F44F938C1DAEA76700BC5B85 /* JSONDecoder.swift in Sources */,
-				F44F93901DAEA76700BC5B85 /* MirrorVisitor.swift in Sources */,
 				F44F93911DAEA76700BC5B85 /* OneofEnum.swift in Sources */,
 				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
 				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
@@ -1457,6 +1456,7 @@
 				F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */,
 				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
 				9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				AA86F6FC1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				AAF2ED411DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
 				AAF2ED3C1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
 				F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct.swift in Sources */,
@@ -1618,6 +1618,7 @@
 				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */,
 				ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
 				ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				AA86F6FD1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */,
 				F44F941B1DAEB23500BC5B85 /* JSONDecoder.swift in Sources */,
 				F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */,
@@ -1628,7 +1629,6 @@
 				9C75F8A61DDD44A1005CCFF2 /* Map.swift in Sources */,
 				F44F941E1DAEB23500BC5B85 /* Message.swift in Sources */,
 				F44F94181DAEB23500BC5B85 /* MessageExtension.swift in Sources */,
-				F44F941F1DAEB23500BC5B85 /* MirrorVisitor.swift in Sources */,
 				F44F94201DAEB23500BC5B85 /* OneofEnum.swift in Sources */,
 				F44F94101DAEB23500BC5B85 /* ProtobufDecoder.swift in Sources */,
 				F44F94111DAEB23500BC5B85 /* ProtobufEncoder.swift in Sources */,

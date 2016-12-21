@@ -508,7 +508,7 @@ struct MessageFieldGenerator {
         if conditional {
             p.indent()
         }
-        p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), protoFieldNumber: \(number))\n")
+        p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), fieldNumber: \(number))\n")
         if conditional {
             p.outdent()
             p.print("}\n")
