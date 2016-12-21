@@ -189,35 +189,6 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         }
     }
 
-    func test_reflection() throws {
-        var m = ProtobufUnittest_TestAllExtensions()
-        m.ProtobufUnittest_defaultInt32Extension = 1
-        let mirror1 = Mirror(reflecting: m)
-
-        XCTAssertEqual(mirror1.children.count, 1)
-        if let (name, value) = mirror1.children.first {
-            XCTAssertEqual(name!, "ProtobufUnittest_defaultInt32Extension")
-            XCTAssertEqual((value as! Int32), 1)
-        }
-
-        m.ProtobufUnittest_repeatedInt32Extension = [1, 2, 3]
-        let mirror2 = Mirror(reflecting: m)
-
-        XCTAssertEqual(mirror2.children.count, 2)
-
-        for (name, value) in mirror2.children {
-            switch name! {
-            case "ProtobufUnittest_defaultInt32Extension":
-                XCTAssertEqual((value as! Int32), 1)
-            case "ProtobufUnittest_repeatedInt32Extension":
-                XCTAssertEqual((value as! [Int32]), [1, 2, 3])
-            default:
-                let n = String(describing: name)
-                XCTFail("Unexpected child element \(n)")
-            }
-        }
-    }
-
     ///
     /// Verify group extensions and handling of unknown groups
     ///

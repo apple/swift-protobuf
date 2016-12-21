@@ -148,12 +148,12 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, fieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
-      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: enumValue, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: enumValue, fieldNumber: 2)
     }
   }
 
@@ -284,15 +284,15 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, fieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {
-      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: enumValue, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: enumValue, fieldNumber: 2)
     }
     if extraInt32Value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: extraInt32Value, protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: extraInt32Value, fieldNumber: 3)
     }
   }
 

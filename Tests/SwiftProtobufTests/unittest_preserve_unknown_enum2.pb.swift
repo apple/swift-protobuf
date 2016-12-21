@@ -179,15 +179,15 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
       }
     }
 
-    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    public func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofE1(let v):
         if start <= 5 && 5 < end {
-          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 5)
+          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, fieldNumber: 5)
         }
       case .oneofE2(let v):
         if start <= 6 && 6 < end {
-          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 6)
+          try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, fieldNumber: 6)
         }
       case .None:
         break
@@ -253,21 +253,21 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _e {
-      try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: v, fieldNumber: 1)
     }
     if !repeatedE.isEmpty {
-      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedE, protoFieldNumber: 2)
+      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedE, fieldNumber: 2)
     }
     if !repeatedPackedE.isEmpty {
-      try visitor.visitPackedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedE, protoFieldNumber: 3)
+      try visitor.visitPackedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedE, fieldNumber: 3)
     }
     if !repeatedPackedUnexpectedE.isEmpty {
-      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedUnexpectedE, protoFieldNumber: 4)
+      try visitor.visitRepeatedField(fieldType: Proto2PreserveUnknownEnumUnittest_MyEnum.self, value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try o.traverse(visitor: &visitor, start: 5, end: 7)
-    unknown.traverse(visitor: &visitor)
+    try o.traverse(visitor: visitor, start: 5, end: 7)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
