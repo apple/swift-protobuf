@@ -233,14 +233,14 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: knownMapField, protoFieldNumber: 101)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: knownMapField, fieldNumber: 101)
     }
     if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: unknownMapField, protoFieldNumber: 102)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: unknownMapField, fieldNumber: 102)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
@@ -276,14 +276,14 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: knownMapField, protoFieldNumber: 101)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: knownMapField, fieldNumber: 101)
     }
     if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: unknownMapField, protoFieldNumber: 102)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: unknownMapField, fieldNumber: 102)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
@@ -315,11 +315,11 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !importEnumAmp.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, protoFieldNumber: 1)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, fieldNumber: 1)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
@@ -350,11 +350,11 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !m.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: m, protoFieldNumber: 1)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: m, fieldNumber: 1)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
@@ -430,44 +430,44 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !mInt32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: mInt32, protoFieldNumber: 1)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: mInt32, fieldNumber: 1)
     }
     if !mInt64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: mInt64, protoFieldNumber: 2)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt64,ProtobufUnittest_TestIntIntMap>.self, value: mInt64, fieldNumber: 2)
     }
     if !mUint32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: mUint32, protoFieldNumber: 3)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt32,ProtobufUnittest_TestIntIntMap>.self, value: mUint32, fieldNumber: 3)
     }
     if !mUint64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: mUint64, protoFieldNumber: 4)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt64,ProtobufUnittest_TestIntIntMap>.self, value: mUint64, fieldNumber: 4)
     }
     if !mSint32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: mSint32, protoFieldNumber: 5)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt32,ProtobufUnittest_TestIntIntMap>.self, value: mSint32, fieldNumber: 5)
     }
     if !mSint64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: mSint64, protoFieldNumber: 6)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt64,ProtobufUnittest_TestIntIntMap>.self, value: mSint64, fieldNumber: 6)
     }
     if !mFixed32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mFixed32, protoFieldNumber: 7)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mFixed32, fieldNumber: 7)
     }
     if !mFixed64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mFixed64, protoFieldNumber: 8)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mFixed64, fieldNumber: 8)
     }
     if !mSfixed32.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed32, protoFieldNumber: 9)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed32,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed32, fieldNumber: 9)
     }
     if !mSfixed64.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed64, protoFieldNumber: 10)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed64,ProtobufUnittest_TestIntIntMap>.self, value: mSfixed64, fieldNumber: 10)
     }
     if !mBool.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: mBool, protoFieldNumber: 11)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufBool,ProtobufUnittest_TestIntIntMap>.self, value: mBool, fieldNumber: 11)
     }
     if !mString.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: mString, protoFieldNumber: 12)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: mString, fieldNumber: 12)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMaps) -> Bool {

@@ -69,11 +69,11 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _messageSet {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      unknown.traverse(visitor: &visitor)
+      unknown.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -114,8 +114,8 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
@@ -166,11 +166,11 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _i {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, protoFieldNumber: 15)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 15)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
@@ -216,11 +216,11 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _str {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 25)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 25)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
@@ -297,10 +297,10 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _typeId ?? 0, protoFieldNumber: 2)
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _message ?? Data(), protoFieldNumber: 3)
-      unknown.traverse(visitor: &visitor)
+    public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _typeId ?? 0, fieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _message ?? Data(), fieldNumber: 3)
+      unknown.traverse(visitor: visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
@@ -322,11 +322,11 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !item.isEmpty {
-      try visitor.visitRepeatedGroupField(value: item, protoFieldNumber: 1)
+      try visitor.visitRepeatedGroupField(value: item, fieldNumber: 1)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {

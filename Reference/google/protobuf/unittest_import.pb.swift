@@ -238,11 +238,11 @@ struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _d {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
-    unknown.traverse(visitor: &visitor)
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessage) -> Bool {

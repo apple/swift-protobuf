@@ -38,15 +38,15 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if httpRequest != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httpRequest, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httpRequest, fieldNumber: 1)
     }
     if url != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, fieldNumber: 3)
     }
     if aBC != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: aBC, protoFieldNumber: 6)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: aBC, fieldNumber: 6)
     }
   }
 
@@ -82,12 +82,12 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if httprequest != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httprequest, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httprequest, fieldNumber: 2)
     }
     if url != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, protoFieldNumber: 4)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, fieldNumber: 4)
     }
   }
 
@@ -118,9 +118,9 @@ struct Swift_Protobuf_Test_NamesTest3: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if url != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, protoFieldNumber: 5)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, fieldNumber: 5)
     }
   }
 

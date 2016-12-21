@@ -142,9 +142,9 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !fields.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: fields, protoFieldNumber: 1)
+      try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
     }
   }
 
@@ -186,8 +186,8 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      try _kind.traverse(visitor: &visitor, start: 1, end: 7)
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
+      try _kind.traverse(visitor: visitor, start: 1, end: 7)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -273,31 +273,31 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    public func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .nullValue(let v):
         if start <= 1 && 1 < end {
-          try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, protoFieldNumber: 1)
+          try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, fieldNumber: 1)
         }
       case .numberValue(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, protoFieldNumber: 2)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 2)
         }
       case .stringValue(let v):
         if start <= 3 && 3 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, protoFieldNumber: 3)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 3)
         }
       case .boolValue(let v):
         if start <= 4 && 4 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, protoFieldNumber: 4)
+          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 4)
         }
       case .structValue(let v):
         if start <= 5 && 5 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
         }
       case .listValue(let v):
         if start <= 6 && 6 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
         }
       case .None:
         break
@@ -396,8 +396,8 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
@@ -436,9 +436,9 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !values.isEmpty {
-      try visitor.visitRepeatedMessageField(value: values, protoFieldNumber: 1)
+      try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
     }
   }
 

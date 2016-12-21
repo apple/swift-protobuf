@@ -66,11 +66,11 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _message {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      unknown.traverse(visitor: &visitor)
+      unknown.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -111,8 +111,8 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
