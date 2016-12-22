@@ -560,6 +560,17 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
     case oneofBytes(Data)
     case None
 
+    static func ==(lhs: Proto3ArenaLiteUnittest_TestAllTypes.OneOf_OneofField, rhs: Proto3ArenaLiteUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -1544,16 +1555,5 @@ struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftPro
 
   public func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestEmptyMessage) -> Bool {
     return true
-  }
-}
-
-func ==(lhs: Proto3ArenaLiteUnittest_TestAllTypes.OneOf_OneofField, rhs: Proto3ArenaLiteUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }

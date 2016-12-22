@@ -769,6 +769,17 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     case oneofBytes(Data)
     case None
 
+    static func ==(lhs: Proto3TestAllTypes.OneOf_OneofField, rhs: Proto3TestAllTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -2554,6 +2565,16 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
     case fooMessage(Proto3TestAllTypes)
     case None
 
+    static func ==(lhs: Proto3TestOneof.OneOf_Foo, rhs: Proto3TestOneof.OneOf_Foo) -> Bool {
+      switch (lhs, rhs) {
+      case (.fooInt(let l), .fooInt(let r)): return l == r
+      case (.fooString(let l), .fooString(let r)): return l == r
+      case (.fooMessage(let l), .fooMessage(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -3176,26 +3197,5 @@ struct Proto3BarResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Sw
 
   public func _protoc_generated_isEqualTo(other: Proto3BarResponse) -> Bool {
     return true
-  }
-}
-
-func ==(lhs: Proto3TestAllTypes.OneOf_OneofField, rhs: Proto3TestAllTypes.OneOf_OneofField) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
-  }
-}
-
-func ==(lhs: Proto3TestOneof.OneOf_Foo, rhs: Proto3TestOneof.OneOf_Foo) -> Bool {
-  switch (lhs, rhs) {
-  case (.fooInt(let l), .fooInt(let r)): return l == r
-  case (.fooString(let l), .fooString(let r)): return l == r
-  case (.fooMessage(let l), .fooMessage(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }

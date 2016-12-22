@@ -41,4 +41,12 @@ message SwiftEnumTest {
         ENUM_TEST_2_FIRST_VALUE = 1;
         SECOND_VALUE = 2;
     }
+    enum EnumTestNoStem {
+        ENUM_TEST_NO_STEM_1 = 1;
+        ENUM_TEST_NO_STEM_2 = 2;
+    }
+    enum EnumTestReservedWord {
+        ENUM_TEST_RESERVED_WORD_VAR = 1;
+        ENUM_TEST_RESERVED_WORD_NOT_RESERVED = 2;
+    }
 }

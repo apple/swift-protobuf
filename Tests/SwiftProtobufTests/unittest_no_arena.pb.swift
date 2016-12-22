@@ -758,6 +758,18 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
     case lazyOneofNestedMessage(ProtobufUnittestNoArena_TestAllTypes.NestedMessage)
     case None
 
+    static func ==(lhs: ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.lazyOneofNestedMessage(let l), .lazyOneofNestedMessage(let r)): return l == r
+      case (.None, .None): return true
+      default: return false
+      }
+    }
+
     public init(nilLiteral: ()) {
       self = .None
     }
@@ -1913,17 +1925,5 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
       _storage = _storage.copy()
     }
     return _storage
-  }
-}
-
-func ==(lhs: ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField) -> Bool {
-  switch (lhs, rhs) {
-  case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-  case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-  case (.oneofString(let l), .oneofString(let r)): return l == r
-  case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-  case (.lazyOneofNestedMessage(let l), .lazyOneofNestedMessage(let r)): return l == r
-  case (.None, .None): return true
-  default: return false
   }
 }

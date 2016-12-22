@@ -55,7 +55,8 @@ protobuf project is being developed and tested against the release version of
 Swift 3.0 available from [Swift.org](https://swift.org)
 
 * Google's protoc compiler.  The Swift protoc plugin is being actively developed
-and tested against the protobuf 3.0 release.  It may work with earlier versions
+and tested against the latest protobuf 3.x sources; in particular, the tests need a version
+of protoc which supports the `swift_prefix` option.  It may work with earlier versions
 of protoc.  You can get recent versions from
 [Google's github repository](https://github.com/google/protobuf).
 
@@ -142,7 +143,7 @@ And run `pod install`.
 If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-github 'apple/swift-protobuf' '0.9.24'
+github "apple/swift-protobuf" "0.9.24"
 ```
 
 Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.

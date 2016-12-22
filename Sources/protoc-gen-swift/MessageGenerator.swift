@@ -722,11 +722,6 @@ class MessageGenerator {
     }
 
     func generateTopLevel(printer p: inout CodePrinter) {
-        // nested oneofs
-        for o in oneofs {
-            o.generateTopLevel(printer: &p)
-        }
-
         // nested messages
         for m in messages {
             m.generateTopLevel(printer: &p)
