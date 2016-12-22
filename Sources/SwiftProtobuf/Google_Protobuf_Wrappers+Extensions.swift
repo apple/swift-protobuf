@@ -15,6 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
 
 /// Internal protocol that minimizes the code duplication across the multiple
 /// wrapper types extended below.
@@ -79,12 +80,10 @@ extension Google_Protobuf_DoubleValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asDouble {
-        value = t
-    } else {
-        throw DecodingError.malformedJSONNumber
-    }
+  public mutating func setFromJSON(decoder: JSONDecoder) throws {
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: decoder, value: &v)
+    value = v ?? 0
   }
 }
 
@@ -107,12 +106,10 @@ extension Google_Protobuf_FloatValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asFloat {
-      value = t
-    } else {
-      throw DecodingError.malformedJSONNumber
-    }
+  public mutating func setFromJSON(decoder: JSONDecoder) throws {
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: decoder, value: &v)
+    value = v ?? 0
   }
 }
 
@@ -135,13 +132,11 @@ extension Google_Protobuf_Int64Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asInt64 {
-      value = t
-    } else {
-      throw DecodingError.malformedJSONNumber
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        var v: WrappedType.BaseType?
+        try WrappedType.setFromJSON(decoder: decoder, value: &v)
+        value = v ?? 0
     }
-  }
 }
 
 extension Google_Protobuf_UInt64Value:
@@ -163,13 +158,11 @@ extension Google_Protobuf_UInt64Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asUInt64 {
-      value = t
-    } else {
-      throw DecodingError.malformedJSONNumber
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        var v: WrappedType.BaseType?
+        try WrappedType.setFromJSON(decoder: decoder, value: &v)
+        value = v ?? 0
     }
-  }
 }
 
 extension Google_Protobuf_Int32Value:
@@ -191,13 +184,11 @@ extension Google_Protobuf_Int32Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asInt32 {
-      value = t
-    } else {
-      throw DecodingError.malformedJSONNumber
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        var v: WrappedType.BaseType?
+        try WrappedType.setFromJSON(decoder: decoder, value: &v)
+        value = v ?? 0
     }
-  }
 }
 
 extension Google_Protobuf_UInt32Value:
@@ -219,13 +210,11 @@ extension Google_Protobuf_UInt32Value:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asUInt32 {
-      value = t
-    } else {
-      throw DecodingError.malformedJSONNumber
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        var v: WrappedType.BaseType?
+        try WrappedType.setFromJSON(decoder: decoder, value: &v)
+        value = v ?? 0
     }
-  }
 }
 
 extension Google_Protobuf_BoolValue:
@@ -247,13 +236,11 @@ extension Google_Protobuf_BoolValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asBoolean {
-      value = t
-    } else {
-      throw DecodingError.schemaMismatch
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        var v: WrappedType.BaseType?
+        try WrappedType.setFromJSON(decoder: decoder, value: &v)
+        value = v ?? false
     }
-  }
 }
 
 extension Google_Protobuf_StringValue:
@@ -285,13 +272,11 @@ extension Google_Protobuf_StringValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if case .string(let s) = token {
-      value = s
-    } else {
-      throw DecodingError.schemaMismatch
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        var v: WrappedType.BaseType?
+        try WrappedType.setFromJSON(decoder: decoder, value: &v)
+        value = v ?? ""
     }
-  }
 }
 
 extension Google_Protobuf_BytesValue: ProtobufWrapper {
@@ -307,11 +292,9 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
     return try serializeWrapperJSON()
   }
 
-  public mutating func decodeFromJSONToken(token: JSONToken) throws {
-    if let t = token.asBytes {
-      value = t
-    } else {
-      throw DecodingError.schemaMismatch
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        var v: WrappedType.BaseType?
+        try WrappedType.setFromJSON(decoder: decoder, value: &v)
+        value = v ?? Data()
     }
-  }
 }

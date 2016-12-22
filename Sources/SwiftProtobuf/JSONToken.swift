@@ -54,7 +54,7 @@ private func decodedBytes(base64String s: String) -> Data? {
   return Data(bytes: out)
 }
 
-/// A token scanned from string input using `JSONScanner`.
+/// A token scanned from string input using `JSONDecoder`.
 public enum JSONToken: Equatable {
 
   case colon

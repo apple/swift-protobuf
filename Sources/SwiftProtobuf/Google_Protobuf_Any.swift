@@ -243,45 +243,38 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
-        var key = ""
-        var state = JSONDecoder.ObjectParseState.expectFirstKey
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        if try decoder.isObjectEmpty() {
+            return
+        }
         _jsonFields = nil
         var jsonFields = [String:[JSONToken]]()
-        while let token = try jsonDecoder.nextToken() {
-            switch token {
-            case .string(let s): // This is a key
-                if state != .expectKey && state != .expectFirstKey {
-                    throw DecodingError.malformedJSON
-                }
-                key = s
-                state = .expectColon
-            case .colon:
-                if state != .expectColon {
-                    throw DecodingError.malformedJSON
-                }
-                if key == "@type" {
-                    try jsonDecoder.decodeValue(key: key, message: &self)
+        while true {
+            let key = try decoder.nextKey()
+            if key == "@type" {
+                if let typeNameToken = try decoder.nextToken(),
+                    case .string(let typeName) = typeNameToken {
+                    typeURL = typeName
                 } else {
-                    jsonFields[key] = try jsonDecoder.skip()
-                }
-                state = .expectComma
-            case .comma:
-                if state != .expectComma {
                     throw DecodingError.malformedJSON
                 }
-                state = .expectKey
-            case .endObject:
-                if state != .expectFirstKey && state != .expectComma {
+            } else {
+                jsonFields[key] = try decoder.skip()
+            }
+            if let token = try decoder.nextToken() {
+                switch token {
+                case .comma:
+                    break
+                case .endObject:
+                    _jsonFields = jsonFields
+                    return
+                default:
                     throw DecodingError.malformedJSON
                 }
-                _jsonFields = jsonFields
-                return
-            default:
+            } else {
                 throw DecodingError.malformedJSON
             }
         }
-        throw DecodingError.malformedJSON
     }
 
     /// Update the provided object from the data in the Any container.
@@ -331,40 +324,28 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 if jsonFields.count != 1 || jsonFields["value"] == nil {
                     throw DecodingError.schemaMismatch
                 }
-                var v = jsonFields["value"]!
+                let v = jsonFields["value"]!
                 guard v.count > 0 else {
                     throw DecodingError.schemaMismatch
                 }
-                switch v[0] {
-                case .beginObject:
-                    var decoder = JSONDecoder(tokens: v)
-                    let _ = try decoder.nextToken() // Discard {
-                    try target.decodeFromJSONObject(jsonDecoder: &decoder)
-                    if !decoder.complete {
-                        throw DecodingError.trailingGarbage
-                    }
-                case .beginArray:
-                    var decoder = JSONDecoder(tokens: v)
-                    let _ = try decoder.nextToken() // Discard [
-                    try target.decodeFromJSONArray(jsonDecoder: &decoder)
-                case .number(_), .string(_), .boolean(_):
-                    try target.decodeFromJSONToken(token: v[0])
-                case .null:
-                    if let n = try M.decodeFromJSONNull() {
-                        target = n
-                    } else {
-                        throw DecodingError.malformedJSON
-                    }
-                default:
-                    throw DecodingError.malformedJSON
-                }
+                let decoder = JSONDecoder(tokens: v)
+                var m: M? = M()
+                try M.setFromJSON(decoder: decoder, value: &m)
+                target = m!
             } else {
                 // Decode JSON from the stored tokens for generated messages
+                guard let nameProviding = (target as? ProtoNameProviding) else {
+                    throw DecodingError.missingFieldNames
+                }
+                let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
-                    var decoder = JSONDecoder(tokens: v)
-                    try decoder.decodeValue(key: k, message: &target)
-                    if !decoder.complete {
-                        throw DecodingError.trailingGarbage
+                    if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: k) {
+                        let decoder = JSONDecoder(tokens: v)
+                        var fieldDecoder: FieldDecoder = decoder
+                        try target.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+                        if !decoder.complete {
+                            throw DecodingError.trailingGarbage
+                        }
                     }
                 }
             }

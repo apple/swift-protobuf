@@ -123,16 +123,20 @@ public extension Google_Protobuf_FieldMask {
     // names, but translating between swift and protobuf/json property
     // names is not entirely deterministic.
 
-    mutating public func decodeFromJSONToken(token: JSONToken) throws {
-        switch token {
-        case .string(let s):
-            if let names = parseJSONFieldNames(names: s) {
-                paths = names
-            } else {
-                throw DecodingError.fieldMaskConversion
+    mutating public func setFromJSON(decoder: JSONDecoder) throws {
+        if let token = try decoder.nextToken() {
+            switch token {
+            case .string(let s):
+                if let names = parseJSONFieldNames(names: s) {
+                    paths = names
+                } else {
+                    throw DecodingError.fieldMaskConversion
+                }
+            default:
+                throw DecodingError.schemaMismatch
             }
-        default:
-            throw DecodingError.schemaMismatch
+        } else {
+            throw DecodingError.truncatedInput
         }
     }
 

@@ -73,9 +73,9 @@ public protocol FieldType {
     //
     /// Serialize the value to a Text encoder
     static func serializeTextValue(encoder: TextEncoder, value: BaseType) throws
-    /// Set a Swift optional from a single Text token
+    /// Set a Swift optional from upcoming Text tokens
     static func setFromText(scanner: TextScanner, value: inout BaseType?) throws
-    /// Update a Swift array given a single JSON token (used by repeated fields of basic types)
+    /// Update a Swift array from upcoming Text tokens
     static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws
 
     //
@@ -83,10 +83,10 @@ public protocol FieldType {
     //
     /// Serialize the value to a JSON encoder
     static func serializeJSONValue(encoder: inout JSONEncoder, value: BaseType) throws
-    /// Set a Swift optional from a single JSON token
-    static func setFromJSONToken(token: JSONToken, value: inout BaseType?) throws
-    /// Update a Swift array given a single JSON token (used by repeated fields of basic types)
-    static func setFromJSONToken(token: JSONToken, value: inout [BaseType]) throws
+    /// Set a Swift optional from the upcoming JSON tokens
+    static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws
+    /// Update a Swift array from a JSON decoder (used by repeated fields)
+    static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws
 }
 
 ///
@@ -115,9 +115,6 @@ public protocol MapKeyType: FieldType {
 public protocol MapValueType: FieldType {
     /// Special interface for decoding a value of this type as a map value.
     static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout BaseType?) throws
-    
-    /// Consume tokens from a JSON decoder, only used in map decoding
-    static func decodeJSONMapValue(jsonDecoder: inout JSONDecoder) throws -> BaseType?
 }
 
 //

@@ -76,6 +76,10 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
     for (number, name) in elements {
       numberToNameMap[number] = name
       protoToNumberMap[name.protoName] = number
+    }
+    // JSON map includes proto names as well.
+    jsonToNumberMap = protoToNumberMap
+    for (number, name) in elements {
       jsonToNumberMap[name.jsonName] = number
     }
   }
@@ -100,6 +104,6 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
   /// this function checks both mappings -- first the JSON mapping, then the
   /// proto mapping.
   public func fieldNumber(forJSONName name: String) -> Int? {
-    return jsonToNumberMap[name] ?? protoToNumberMap[name]
+    return jsonToNumberMap[name]
   }
 }

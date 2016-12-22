@@ -129,13 +129,18 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
 }
 
 public extension Google_Protobuf_Duration {
-    public mutating func decodeFromJSONToken(token: JSONToken) throws {
-        if case .string(let s) = token,
-            let duration = parseDuration(text: s) {
-            seconds = duration.0
-            nanos = duration.1
+    
+    mutating func setFromJSON(decoder: JSONDecoder) throws {
+        if let token = try decoder.nextToken() {
+            if case .string(let s) = token,
+                let duration = parseDuration(text: s) {
+                seconds = duration.0
+                nanos = duration.1
+            } else {
+                throw DecodingError.schemaMismatch
+            }
         } else {
-            throw DecodingError.schemaMismatch
+            throw DecodingError.truncatedInput
         }
     }
 
