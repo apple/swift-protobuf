@@ -34,7 +34,7 @@ readonly script_dir="$(dirname $0)"
 
 # Change this if your checkout of github.com/google/protobuf is in a different
 # location.
-readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"/Users/tkientzle/projects/protobuf"}
+readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"$script_dir/../../protobuf"}
 
 function usage() {
   cat >&2 <<EOF
