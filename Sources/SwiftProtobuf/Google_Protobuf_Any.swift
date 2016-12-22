@@ -337,8 +337,9 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 guard let nameProviding = (target as? ProtoNameProviding) else {
                     throw DecodingError.missingFieldNames
                 }
+                let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
-                    if let protoFieldNumber = nameProviding._protobuf_fieldNumber(forJSONName: k) {
+                    if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: k) {
                         let decoder = JSONDecoder(tokens: v)
                         var fieldDecoder: FieldDecoder = decoder
                         try target.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)

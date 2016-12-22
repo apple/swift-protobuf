@@ -657,6 +657,7 @@ public extension Message {
         guard let nameProviding = (self as? ProtoNameProviding) else {
             throw DecodingError.missingFieldNames
         }
+        let fieldNames = type(of: nameProviding)._protobuf_fieldNames
         if try decoder.skipOptionalNull() {
             return
         }
@@ -665,7 +666,7 @@ public extension Message {
         }
         while true {
             let key = try decoder.nextKey()
-            if let protoFieldNumber = nameProviding._protobuf_fieldNumber(forJSONName: key) {
+            if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: key) {
                 var fieldDecoder: FieldDecoder = decoder
                 try decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
             } else {

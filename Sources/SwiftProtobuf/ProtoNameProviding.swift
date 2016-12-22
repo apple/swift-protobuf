@@ -36,11 +36,6 @@ public protocol ProtoNameProviding {
   /// instance method allows generated messages to override it and ask their
   /// extension sets for names as well.
   func _protobuf_fieldNumber(forProtoName name: String) -> Int?
-
-  /// Returns the field number for the field with the given json name.
-  ///
-  /// The default implementation looks up the field in the static name map.
-  func _protobuf_fieldNumber(forJSONName name: String) -> Int?
 }
 
 
@@ -52,9 +47,5 @@ extension ProtoNameProviding {
 
   public func _protobuf_fieldNumber(forProtoName name: String) -> Int? {
     return Self._protobuf_fieldNames.fieldNumber(forProtoName: name)
-  }
-
-  public func _protobuf_fieldNumber(forJSONName name: String) -> Int? {
-    return Self._protobuf_fieldNames.fieldNumber(forJSONName: name)
   }
 }
