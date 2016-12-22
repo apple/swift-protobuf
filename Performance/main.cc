@@ -1,4 +1,4 @@
-// Performance/main.swift - Performance harness entry point
+// Performance/main.cc - C++ performance harness entry point
 //
 // This source file is part of the Swift.org open source project
 //
@@ -10,18 +10,28 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Entry point that creates the performance harness and runs it.
+/// Entry point for the C++ performance harness.
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
+#include <fstream>
 
-let args = CommandLine.arguments
-let resultsFile = args.count > 1 ?
-    FileHandle(forWritingAtPath: args[1]) : nil
-resultsFile?.seekToEndOfFile()
+#include "Harness.h"
 
-let harness = Harness(resultsFile: resultsFile)
-harness.run()
+using std::ios_base;
+using std::ofstream;
 
-resultsFile?.closeFile()
+int main(int argc, char **argv) {
+  ofstream* results_stream = (argc > 1) ?
+      new ofstream(argv[1], ios_base::app) : nullptr;
+
+  Harness harness(results_stream);
+  harness.run();
+
+  if (results_stream) {
+    results_stream->close();
+    delete results_stream;
+  }
+
+  return 0;
+}
