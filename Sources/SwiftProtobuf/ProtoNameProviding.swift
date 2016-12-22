@@ -40,7 +40,7 @@ public protocol ProtoNameProviding {
   /// Returns the field number for the field with the given json name.
   ///
   /// The default implementation looks up the field in the static name map.
-    func _protobuf_fieldNumber(forJSONName name: String) -> Int?
+  func _protobuf_fieldNumber(forJSONName name: String) -> Int?
 }
 
 
