@@ -26,14 +26,6 @@ protocol ProtobufWrapper {
   /// Exposes the generated property to the extensions here.
   var value: WrappedType.BaseType { get set }
 
-  /// Returns true if the given value is the zero or empty value for the wrapped
-  /// type.
-  ///
-  /// TODO(#64): This currently exists to duplicate the current behavior of the
-  /// old hand-generated types. If these should be serialized as zero/empty
-  /// instead of null, remove this.
-  var isZeroOrEmpty: Bool { get }
-
   /// Exposes the parameterless initializer to the extensions here.
   init()
 
@@ -42,13 +34,14 @@ protocol ProtobufWrapper {
 
   /// Implements the JSON serialization logic for the wrapper types.
   ///
-  /// We cannot have the `ProtobufWrapper` extension below implement this method
-  /// because it is also implemented in extensions to other protocols. In other
-  /// words, the compiler cannot disambiguate between them because both are
-  /// equally valid. Instead, we have to override `serializeJSON` in the
-  /// extensions to the generated concrete structs -- since the struct extension
-  /// is more specific than the protocol extensions, it takes priority. In order
-  /// to share the implementation, we have those extensions "hop" to this one.
+  /// We cannot have the `ProtobufWrapper` extension below implement
+  /// `serializeJSON` because it is also implemented in extensions to other
+  /// protocols. In other words, the compiler cannot disambiguate between them
+  /// because both extension implementations have equal "weight". Instead, we
+  /// have to override `serializeJSON` in the extensions to the generated
+  /// concrete structs -- since the struct extension is more specific than the
+  /// protocol extensions, it takes priority. In order to share the
+  /// implementation, we have those extensions "hop" to this one.
   func serializeWrapperJSON() throws -> String
 }
 
@@ -61,13 +54,9 @@ extension ProtobufWrapper {
   // bloat.
 
   func serializeWrapperJSON() throws -> String {
-    if !isZeroOrEmpty {
-      var encoder = JSONEncoder()
-      try WrappedType.serializeJSONValue(encoder: &encoder, value: value)
-      return encoder.result
-    } else {
-      return "null"
-    }
+    var encoder = JSONEncoder()
+    try WrappedType.serializeJSONValue(encoder: &encoder, value: value)
+    return encoder.result
   }
 }
 
@@ -76,10 +65,6 @@ extension Google_Protobuf_DoubleValue:
 
   public typealias WrappedType = ProtobufDouble
   public typealias FloatLiteralType = WrappedType.BaseType
-
-  var isZeroOrEmpty: Bool {
-    return value == 0
-  }
 
   public init(_ value: WrappedType.BaseType) {
     self.init()
@@ -109,10 +94,6 @@ extension Google_Protobuf_FloatValue:
   public typealias WrappedType = ProtobufFloat
   public typealias FloatLiteralType = Float
 
-  var isZeroOrEmpty: Bool {
-    return value.isZero
-  }
-
   public init(_ value: WrappedType.BaseType) {
     self.init()
     self.value = value
@@ -140,10 +121,6 @@ extension Google_Protobuf_Int64Value:
 
   public typealias WrappedType = ProtobufInt64
   public typealias IntegerLiteralType = WrappedType.BaseType
-
-  var isZeroOrEmpty: Bool {
-    return value == 0
-  }
 
   public init(_ value: WrappedType.BaseType) {
     self.init()
@@ -173,10 +150,6 @@ extension Google_Protobuf_UInt64Value:
   public typealias WrappedType = ProtobufUInt64
   public typealias IntegerLiteralType = WrappedType.BaseType
 
-  var isZeroOrEmpty: Bool {
-    return value == 0
-  }
-
   public init(_ value: WrappedType.BaseType) {
     self.init()
     self.value = value
@@ -204,10 +177,6 @@ extension Google_Protobuf_Int32Value:
 
   public typealias WrappedType = ProtobufInt32
   public typealias IntegerLiteralType = WrappedType.BaseType
-
-  var isZeroOrEmpty: Bool {
-    return value == 0
-  }
 
   public init(_ value: WrappedType.BaseType) {
     self.init()
@@ -237,10 +206,6 @@ extension Google_Protobuf_UInt32Value:
   public typealias WrappedType = ProtobufUInt32
   public typealias IntegerLiteralType = WrappedType.BaseType
 
-  var isZeroOrEmpty: Bool {
-    return value == 0
-  }
-
   public init(_ value: WrappedType.BaseType) {
     self.init()
     self.value = value
@@ -268,10 +233,6 @@ extension Google_Protobuf_BoolValue:
 
   public typealias WrappedType = ProtobufBool
   public typealias BooleanLiteralType = Bool
-
-  var isZeroOrEmpty: Bool {
-    return !value
-  }
 
   public init(_ value: WrappedType.BaseType) {
     self.init()
@@ -302,10 +263,6 @@ extension Google_Protobuf_StringValue:
   public typealias StringLiteralType = String
   public typealias ExtendedGraphemeClusterLiteralType = String
   public typealias UnicodeScalarLiteralType = String
-
-  var isZeroOrEmpty: Bool {
-    return value.isEmpty
-  }
 
   public init(_ value: WrappedType.BaseType) {
     self.init()
@@ -340,10 +297,6 @@ extension Google_Protobuf_StringValue:
 extension Google_Protobuf_BytesValue: ProtobufWrapper {
 
   public typealias WrappedType = ProtobufBytes
-
-  var isZeroOrEmpty: Bool {
-    return value.isEmpty
-  }
 
   public init(_ value: WrappedType.BaseType) {
     self.init()

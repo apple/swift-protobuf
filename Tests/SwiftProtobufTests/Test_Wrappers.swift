@@ -25,7 +25,7 @@ class Test_Wrappers: XCTestCase {
 
     func testDoubleValue() throws {
         var m = Google_Protobuf_DoubleValue()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("0", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_DoubleValue(json:"null"))
         m.value = 1.0
         XCTAssertEqual("1", try m.serializeJSON())
@@ -59,7 +59,7 @@ class Test_Wrappers: XCTestCase {
 
     func testFloatValue() throws {
         var m = Google_Protobuf_FloatValue()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("0", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_FloatValue(json:"null"))
         m.value = 1.0
         XCTAssertEqual("1", try m.serializeJSON())
@@ -96,7 +96,7 @@ class Test_Wrappers: XCTestCase {
 
     func testInt64Value() throws {
         var m = Google_Protobuf_Int64Value()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("\"0\"", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_Int64Value(json: "null"))
         m.value = 777
         let j2 = try m.serializeJSON()
@@ -111,7 +111,7 @@ class Test_Wrappers: XCTestCase {
 
     func testUInt64Value() throws {
         var m = Google_Protobuf_UInt64Value()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("\"0\"", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_UInt64Value(json: "null"))
         m.value = 777
         XCTAssertEqual("\"777\"", try m.serializeJSON())
@@ -125,7 +125,7 @@ class Test_Wrappers: XCTestCase {
 
     func testInt32Value() throws {
         var m = Google_Protobuf_Int32Value()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("0", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_Int32Value(json: "null"))
         m.value = 777
         XCTAssertEqual("777", try m.serializeJSON())
@@ -139,7 +139,7 @@ class Test_Wrappers: XCTestCase {
 
     func testUInt32Value() throws {
         var m = Google_Protobuf_UInt32Value()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("0", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_UInt32Value(json: "null"))
         m.value = 777
         XCTAssertEqual("777", try m.serializeJSON())
@@ -153,7 +153,7 @@ class Test_Wrappers: XCTestCase {
 
     func testBoolValue() throws {
         var m = Google_Protobuf_BoolValue()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("false", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_BoolValue(json: "null"))
         m.value = true
         XCTAssertEqual("true", try m.serializeJSON())
@@ -167,7 +167,7 @@ class Test_Wrappers: XCTestCase {
 
     func testStringValue() throws {
         var m = Google_Protobuf_StringValue()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("\"\"", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_StringValue(json: "null"))
         m.value = "abc"
         XCTAssertEqual("\"abc\"", try m.serializeJSON())
@@ -184,7 +184,7 @@ class Test_Wrappers: XCTestCase {
 
     func testBytesValue() throws {
         var m = Google_Protobuf_BytesValue()
-        XCTAssertEqual("null", try m.serializeJSON())
+        XCTAssertEqual("\"\"", try m.serializeJSON())
         XCTAssertEqual(m, try Google_Protobuf_BytesValue(json: "null"))
         m.value = Data(bytes: [0, 1, 2])
         XCTAssertEqual("\"AAEC\"", try m.serializeJSON())
