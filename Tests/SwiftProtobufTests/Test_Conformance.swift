@@ -31,8 +31,8 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             let decoded = try Conformance_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
-        } catch {
-            XCTFail("Could not decode?")
+        } catch let e {
+            XCTFail("Could not decode? Error: \(e)")
         }
     }
 
@@ -46,8 +46,8 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             let decoded = try Conformance_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
-        } catch {
-            XCTFail("Could not decode?")
+        } catch let e {
+            XCTFail("Could not decode? Error: \(e)")
         }
     }
 
@@ -74,16 +74,6 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
 
     func testRepeatedBoolWrapper() {
         assertJSONDecodeSucceeds("{\"repeatedBoolWrapper\": [true, false]}") {
-            (o: Conformance_TestAllTypes) -> Bool in
-            let a = o.repeatedBoolWrapper.count == 2
-            let b = o.repeatedBoolWrapper[0] == Google_Protobuf_BoolValue(true)
-            let c = o.repeatedBoolWrapper[1] == Google_Protobuf_BoolValue(false)
-            return a && b && c
-        }
-
-        // Google doesn't mention this, but the current Swift
-        // architecture handles it through the general case
-        assertJSONDecodeSucceeds("{\"repeatedBoolWrapper\": [{\"value\":true}, {\"value\":false}]}") {
             (o: Conformance_TestAllTypes) -> Bool in
             let a = o.repeatedBoolWrapper.count == 2
             let b = o.repeatedBoolWrapper[0] == Google_Protobuf_BoolValue(true)

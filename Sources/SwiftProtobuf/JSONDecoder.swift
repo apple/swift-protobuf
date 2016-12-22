@@ -10,148 +10,517 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// JSON decoding engine.
-///
-/// This comprises:
-/// * A token struct that represents a single JSON token
-/// * A scanner that decomposes a string into JSON tokens.
-/// * A decoder that provides high-level parsing functions
-///   of the token string.
-/// * A collection of FieldDecoder types that handle field-level
-///   parsing for each type of JSON data.
-///
-/// A wrinkle:  you can also instantiate a JSON scanner with
-/// a pre-parsed list of tokens.  This is used by Any to defer
-/// JSON decoding when schema details are not yet available.
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-import Swift
-
 ///
-/// Provides a higher-level interface to the JSON token stream coming
-/// from a ProtobufJSONScanner.  In particular, this provides single-token
-/// pushback and convenience functions for iterating over complex
-/// structures.
+/// Note: Only `init(json:)` and `nextToken()` are public (they're used
+/// by the test harness and @testable breaks release builds at this writing).
+/// The rest is `private` where possible.
 ///
-public struct JSONDecoder {
-    private var scanner: JSONScanner
-    public var complete: Bool {return scanner.complete}
+public class JSONDecoder {
 
+    /// A stack of tokens that should be returned upon the next call to `nextToken()`
+    /// before the input string is scanned again.
+    private var tokenPushback: [JSONToken]
 
-    public enum ObjectParseState {
-        case expectFirstKey
-        case expectKey
-        case expectColon
-        case expectComma
+    /// The decoder uses the UnicodeScalarView of the string, which is
+    /// significantly faster than operating on Characters.
+    private let scalars: String.UnicodeScalarView
+
+    /// The index where the current token being scanned begins.
+    private var tokenStart: String.UnicodeScalarView.Index
+
+    /// The index of the next scalar to be scanned.
+    private var index: String.UnicodeScalarView.Index
+
+    /// Returns true if a complete and well-formed JSON string was fully scanned
+    /// (that is, the only scalars remaining after the current index are
+    /// whitespace).
+    var complete: Bool {
+        skipWhitespace()
+        return index == scalars.endIndex && tokenPushback.isEmpty
     }
 
+    /// Creates a new JSON decoder for the given string.
     public init(json: String) {
-        scanner = JSONScanner(json: json, tokens: [])
+        self.scalars = json.unicodeScalars
+        self.tokenStart = self.scalars.startIndex
+        self.index = self.tokenStart
+        tokenPushback = []
     }
 
-    public init(tokens: [JSONToken]) {
-        scanner = JSONScanner(json: "", tokens: tokens)
+    init(tokens: [JSONToken]) {
+        self.scalars = "".unicodeScalars
+        self.tokenStart = self.scalars.startIndex
+        self.index = self.tokenStart
+        tokenPushback = tokens.reversed()
     }
 
-    fileprivate init(scanner: JSONScanner) {
-        self.scanner = scanner
+    /// Pushes a token back onto the decoder. Pushed-back tokens are read in the
+    /// reverse order that they were pushed until the stack is exhausted, at which
+    /// point tokens will again be read from the input string.
+    func pushback(token: JSONToken) {
+        tokenPushback.append(token)
     }
 
-    public mutating func pushback(token: JSONToken) {
-        scanner.pushback(token: token)
+    /// Returns the next scalar being scanned and advances the index, or nil if
+    /// the end of the string has been reached.
+    private func nextScalar() -> UnicodeScalar? {
+        guard index != scalars.endIndex else {
+            return nil
+        }
+        let scalar = scalars[index]
+        index = scalars.index(after: index)
+        return scalar
     }
 
-    /// Returns nil if no more tokens, throws an error if
-    /// the data being parsed is malformed.
-    public mutating func nextToken() throws -> JSONToken? {
-        return try scanner.next()
+    /// Updates the token-start index to indicate that the next token should begin
+    /// at the decoder's current index.
+    private func skipScalars() {
+        tokenStart = index
     }
 
-    public mutating func decodeFullObject<M: Message>(message: inout M) throws {
-        guard let token = try nextToken() else {throw DecodingError.truncatedInput}
-        switch token {
-        case .null:
-            return
-        case .beginArray:
-            try message.decodeFromJSONArray(jsonDecoder: &self)
-            if !complete {
-                throw DecodingError.trailingGarbage
+    /// Skip whitespace, set token start to first non-whitespace character
+    private func skipWhitespace() {
+        var lastIndex = index
+        while index != scalars.endIndex {
+            let scalar = scalars[index]
+            switch scalar {
+            case " ", "\t", "\r", "\n":
+                index = scalars.index(after: index)
+                lastIndex = index
+            default:
+                index = lastIndex
+                tokenStart = index
+                return
             }
-        case .beginObject:
-            try message.decodeFromJSONObject(jsonDecoder: &self)
-            if !complete {
-                throw DecodingError.trailingGarbage
+        }
+    }
+
+    /// Returns the next token in the JSON string, or nil if the end of the string
+    /// has been reached.
+    public func nextToken() throws -> JSONToken? {
+        if let pushedBackToken = tokenPushback.popLast() {
+            return pushedBackToken
+        }
+        skipWhitespace()
+        if index == scalars.endIndex {
+            return nil
+        }
+        tokenStart = index
+        let scalar = scalars[index]
+        switch scalar {
+        case "\"":
+            let s = try quotedString()
+            return .string(s)
+        case "-", "0"..."9":
+            return try numberToken(startingWith: scalar)
+        case ":":
+            index = scalars.index(after: index)
+            return .colon
+        case ",":
+            index = scalars.index(after: index)
+            return .comma
+        case "{":
+            index = scalars.index(after: index)
+            return .beginObject
+        case "}":
+            index = scalars.index(after: index)
+            return .endObject
+        case "[":
+            index = scalars.index(after: index)
+            return .beginArray
+        case "]":
+            index = scalars.index(after: index)
+            return .endArray
+        case "n":
+            index = scalars.index(after: index)
+            if matchesKeyword("ull") {
+                return .null
             }
-        case .string(_), .number(_), .boolean(_):
-            // Some special types can decode themselves
-            // from a single token (e.g., Timestamp)
-            try message.decodeFromJSONToken(token: token)
+            throw DecodingError.malformedJSON
+        case "f":
+            index = scalars.index(after: index)
+            if matchesKeyword("alse") {
+                return .boolean(false)
+            }
+            throw DecodingError.malformedJSON
+        case "t":
+            index = scalars.index(after: index)
+            if matchesKeyword("rue") {
+                return .boolean(true)
+            }
+            throw DecodingError.malformedJSON
         default:
             throw DecodingError.malformedJSON
         }
     }
 
-    public mutating func decodeValue<M: Message>(key: String, message: inout M) throws {
-        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
-            throw DecodingError.missingFieldNames
-        }
-        if let token = try nextToken() {
-            let protoFieldNumber = nameProviding._protobuf_fieldNames.fieldNumber(forJSONName: key)
-            switch token {
-            case .colon, .comma, .endObject, .endArray:
+    /// Parse an object key and consume the following colon.
+    ///
+    /// This is likely the most-run function in the entire JSON decoder
+    /// and therefore would likely benefit from ambitious optimization.
+    /// Optimizing this is tricky because of the pushback case and
+    /// because protobuf explicitly allows for keys to include escaped
+    /// characters (e.g., {"name":1} can be written as {"n\u0061me":1}
+    func nextKey() throws -> String {
+        if let pushedBackToken = tokenPushback.popLast() {
+            if case .string(let key) = pushedBackToken {
+                try skipRequiredColon()
+                return key
+            } else {
                 throw DecodingError.malformedJSON
-            case .beginObject:
-                var fieldDecoder:FieldDecoder = JSONObjectFieldDecoder(scanner: scanner)
-                if let protoFieldNumber = protoFieldNumber {
-                    try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                } else {
-                    var skipped: [JSONToken] = []
-                    try skipObject(tokens: &skipped)
-                }
-            case .beginArray:
-                var fieldDecoder:FieldDecoder = JSONArrayFieldDecoder(scanner: scanner)
-                if let protoFieldNumber = protoFieldNumber {
-                    try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                } else {
-                    var skipped: [JSONToken] = []
-                    try skipArray(tokens: &skipped)
-                }
-            case .null:
-                var fieldDecoder:FieldDecoder = JSONNullFieldDecoder(scanner: scanner)
-                if let protoFieldNumber = protoFieldNumber {
-                    try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                }
-                // Don't need to handle false case here; null token is already skipped
-            case .boolean(_), .string(_), .number(_):
-                var fieldDecoder:FieldDecoder = JSONSingleTokenFieldDecoder(token: token, scanner: scanner)
-                if let protoFieldNumber = protoFieldNumber {
-                    try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
-                } else {
-                    // Token was already implicitly skipped, but we
-                    // need to handle one deferred failure check:
-                    if case .number(_) = token, token.asDouble == nil {
-                        throw DecodingError.malformedJSONNumber
-                    }
-                }
+            }
+        } else {
+            skipWhitespace()
+            if index == scalars.endIndex {
+                throw DecodingError.truncatedInput
+            }
+            tokenStart = index
+            if scalars[index] != "\"" {
+                throw DecodingError.malformedJSON
+            }
+            let s = try quotedString()
+            skipWhitespace()
+            if index == scalars.endIndex {
+                throw DecodingError.truncatedInput
+            }
+            if scalars[index] != ":" {
+                throw DecodingError.malformedJSON
+            }
+            index = scalars.index(after: index)
+            return s
+        }
+    }
+
+    func skipRequiredColon() throws {
+        if tokenPushback.isEmpty {
+            skipWhitespace()
+            if let scalar = nextScalar(), scalar == ":" {
+                skipScalars()
+                return
+            }
+            throw DecodingError.malformedJSON
+        } else if let pushedBackToken = tokenPushback.popLast(), pushedBackToken == .colon {
+            return
+        }
+        throw DecodingError.malformedJSON
+    }
+
+    /// Skip the next token if it matches the expected token, else throw an error
+    func skipRequired(token expected: JSONToken) throws {
+        if let seen = try nextToken() {
+            if seen != expected {
+                throw DecodingError.malformedJSON
             }
         } else {
             throw DecodingError.truncatedInput
         }
     }
 
-    // Build parseArrayFields() method, use it.
+    /// If the next token is 'null', consume it and return true.
+    /// Otherwise leave it alone and return false.
+    func skipOptionalNull() throws -> Bool {
+        if tokenPushback.isEmpty {
+            skipWhitespace()
+            if let scalar = nextScalar(), scalar == "n" {
+                if matchesKeyword("ull") {
+                    return true
+                }
+                throw DecodingError.malformedJSON
+            } else {
+                index = tokenStart
+                return false
+            }
+        } else if let pushedBackToken = tokenPushback.last {
+            if pushedBackToken == .null {
+                _ = tokenPushback.popLast()
+                return true
+            }
+        }
+        return false
+    }
 
-    /// Updates the provided array with the tokens that were skipped.
-    /// This is used for deferred parsing of Any fields.
-    public mutating func skip() throws -> [JSONToken] {
+    /// Skip the next token and return `true` if it matches, else leave it and return `false`
+    func skipOptional(token expected: JSONToken) throws -> Bool {
+        if let seen = try nextToken() {
+            if seen != expected {
+                pushback(token: seen)
+                return false
+            } else {
+                return true
+            }
+        } else {
+            return false
+        }
+    }
+
+    /// Parse the initial "{" for an object type.
+    /// If the immediately following token is "}",
+    /// then consume it and return true.
+    func isObjectEmpty() throws -> Bool {
+        if tokenPushback.isEmpty {
+            skipWhitespace()
+            if index == scalars.endIndex {
+                throw DecodingError.truncatedInput
+            }
+            if scalars[index] != "{" {
+                throw DecodingError.malformedJSON
+            }
+            index = scalars.index(after: index)
+            skipWhitespace()
+            if index == scalars.endIndex {
+                throw DecodingError.truncatedInput
+            }
+            if scalars[index] == "}" {
+                index = scalars.index(after: index)
+                return true
+            }
+            return false
+        } else {
+            try skipRequired(token: .beginObject)
+            return try skipOptional(token: .endObject)
+        }
+    }
+
+    /// Returns a `String` containing the text of the current token being scanned.
+    private func currentTokenText(omittingLastScalar: Bool) -> String {
+        let lastIndex = omittingLastScalar ? scalars.index(before: index) : index
+        let text = String(scalars[tokenStart..<lastIndex])
+        skipScalars()
+        return text
+    }
+
+    /// Backs up the current index to the scalar just before it.
+    private func backtrack() {
+        if index != scalars.startIndex {
+            index = scalars.index(before: index)
+        }
+    }
+
+    /// Looksahead at the scalars following the current index to see if they
+    /// match the provided keyword in `string`. If so, the index is advanced
+    /// to the scalar just after the last one in `string` and the function
+    /// returns `true`. Otherwise, the index is unchanged and this function
+    /// returns `false`.
+    private func matchesKeyword(_ string: String) -> Bool {
+        let otherScalars = string.unicodeScalars
+        let count = otherScalars.count
+        if let possibleEnd = scalars.index(index,
+                                           offsetBy: count,
+                                           limitedBy: scalars.endIndex) {
+            let slice = scalars[index..<possibleEnd]
+            for (l, r) in zip(slice, otherScalars) {
+                if l != r {
+                    return false
+                }
+            }
+            index = possibleEnd
+            skipScalars()
+            if index == scalars.endIndex {
+                return true
+            } else {
+                switch scalars[index] {
+                case "a"..."z": return false
+                case "A"..."Z": return false
+                case "0"..."9": return false
+                default:
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    /// Scans a number and returns an appropriate token depending on the
+    /// representation of that number (floating point, signed integer, or unsigned
+    /// integer).
+    private func numberToken(
+        startingWith first: UnicodeScalar
+        ) throws -> JSONToken {
+        let isNegative = (first == "-")
+        var isFloatingPoint = false
+
+        loop: while let scalar = nextScalar() {
+            switch scalar {
+            case "0"..."9", "+", "-":
+                continue
+            case ".", "e", "E":
+                isFloatingPoint = true
+            default:
+                backtrack()
+                break loop
+            }
+        }
+
+        let numberString = currentTokenText(omittingLastScalar: false)
+
+        if isFloatingPoint {
+            guard let parsedDouble = Double(numberString) else {
+                throw DecodingError.malformedJSONNumber
+            }
+            return .number(.double(parsedDouble))
+        }
+
+        let scalars = numberString.unicodeScalars
+        if isNegative {
+            // Leading zeros (i.e., for octal or hexadecimal literals) are not allowed
+            // for protobuf JSON.
+            if scalars.count > 2 &&
+                scalars[scalars.index(after: scalars.startIndex)] == "0" {
+                throw DecodingError.malformedJSONNumber
+            }
+            guard let parsedInteger = IntMax(numberString) else {
+                throw DecodingError.malformedJSONNumber
+            }
+            return .number(.int(parsedInteger))
+        }
+
+        // Likewise, forbid leading zeros for unsigned integers, but allow "0" if it
+        // is alone. (See above.)
+        if scalars.count > 1 && scalars.first == "0" {
+            throw DecodingError.malformedJSONNumber
+        }
+        guard let parsedUnsignedInteger = UIntMax(numberString) else {
+            throw DecodingError.malformedJSONNumber
+        }
+        return .number(.uint(parsedUnsignedInteger))
+    }
+
+    /// Scans a quoted string and returns its contents, unescaped and unquoted, as
+    /// a string.
+    /// Assumes index and tokenStart are currently pointing at the open quote.
+    private func quotedString() throws -> String {
+        var foundEndQuote = false
+        var stringValue = ""
+
+        // We want the token to start after the initial quote.
+        index = scalars.index(after: index)
+        tokenStart = index
+
+        loop: while let scalar = nextScalar() {
+            switch scalar {
+            case "\"":
+                foundEndQuote = true
+                break loop
+            case "\\":
+                stringValue += currentTokenText(omittingLastScalar: true)
+                stringValue += try String(unescapedSequence())
+                skipScalars()
+            default:
+                continue
+            }
+        }
+
+        // If the loop terminated without finding the end quote, it means we reached
+        // the end of the input while still inside a string.
+        if !foundEndQuote {
+            throw DecodingError.malformedJSON
+        }
+
+        stringValue += currentTokenText(omittingLastScalar: true)
+        return stringValue
+    }
+
+    /// Returns a `UnicodeScalar` corresponding to the next escape sequence
+    /// scanned from the input.
+    private func unescapedSequence() throws -> UnicodeScalar {
+        guard let scalar = nextScalar() else {
+            // Input terminated after the backslash but an escape sequence was
+            // expected.
+            throw DecodingError.malformedJSON
+        }
+
+        switch scalar {
+        case "b":
+            return "\u{0008}"
+        case "t":
+            return "\u{0009}"
+        case "n":
+            return "\u{000a}"
+        case "f":
+            return "\u{000c}"
+        case "r":
+            return "\u{000d}"
+        case "\"", "\\", "/":
+            return scalar
+        case "u":
+            return try unescapedUnicodeSequence()
+        default:
+            // Unrecognized escape sequence.
+            throw DecodingError.malformedJSON
+        }
+    }
+
+    /// Returns a `UnicodeScalar` corresponding to the next Unicode escape
+    /// sequence scanned from the input.
+    private func unescapedUnicodeSequence() throws -> UnicodeScalar {
+        let codePoint = try nextHexadecimalCodePoint()
+        if let scalar = UnicodeScalar(codePoint) {
+            return scalar
+        } else if codePoint < 0xD800 || codePoint >= 0xE000 {
+            // Not a valid Unicode scalar.
+            throw DecodingError.malformedJSON
+        } else if codePoint >= 0xDC00 {
+            // Low surrogate without a preceding high surrogate.
+            throw DecodingError.malformedJSON
+        } else {
+            // We have a high surrogate (in the range 0xD800..<0xDC00), so verify that
+            // it is followed by a low surrogate.
+            guard nextScalar() == "\\", nextScalar() == "u" else {
+                // High surrogate was not followed by a Unicode escape sequence.
+                throw DecodingError.malformedJSON
+            }
+
+            let follower = try nextHexadecimalCodePoint()
+            guard 0xDC00 <= follower && follower < 0xE000 else {
+                // High surrogate was not followed by a low surrogate.
+                throw DecodingError.malformedJSON
+            }
+
+            let high = codePoint - 0xD800
+            let low = follower - 0xDC00
+            let composed = 0x10000 | high << 10 | low
+            guard let composedScalar = UnicodeScalar(composed) else {
+                // Composed value is not a valid Unicode scalar.
+                throw DecodingError.malformedJSON
+            }
+            return composedScalar
+        }
+    }
+
+    /// Returns the unsigned 32-bit value represented by the next four scalars in
+    /// the input when treated as hexadecimal digits. Throws an error if the next
+    /// four scalars do not form a valid hexadecimal number.
+    private func nextHexadecimalCodePoint() throws -> UInt32 {
+        guard let end = scalars.index(index,
+                                      offsetBy: 4,
+                                      limitedBy: scalars.endIndex) else {
+                                        // Input terminated before the expected number of scalars was found.
+                                        throw DecodingError.malformedJSON
+        }
+
+        guard let value = UInt32(String(scalars[index..<end]), radix: 16) else {
+            // Not a valid hexadecimal number.
+            throw DecodingError.malformedJSON
+        }
+
+        index = end
+        return value
+    }
+
+    /// Parses the next syntactically complete JSON value and returns
+    /// an array containing the corresponding tokens.
+    /// This is used to skip field bodies when the field name is not recognized.
+    /// It is also used for deferred parsing of Any fields.
+    func skip() throws -> [JSONToken] {
         var tokens = [JSONToken]()
         try skipValue(tokens: &tokens)
         return tokens
     }
 
-    private mutating func skipValue(tokens: inout [JSONToken]) throws {
+    private func skipValue(tokens: inout [JSONToken]) throws {
         if let token = try nextToken() {
             switch token {
             case .beginObject:
@@ -175,7 +544,7 @@ public struct JSONDecoder {
     }
 
     // Assumes begin object already consumed
-    private mutating func skipObject( tokens: inout [JSONToken]) throws {
+    private func skipObject( tokens: inout [JSONToken]) throws {
         tokens.append(.beginObject)
         if let token = try nextToken() {
             switch token {
@@ -224,7 +593,7 @@ public struct JSONDecoder {
         }
     }
 
-    private mutating func skipArray( tokens: inout [JSONToken]) throws {
+    private func skipArray(tokens: inout [JSONToken]) throws {
         tokens.append(.beginArray)
         if let token = try nextToken() {
             switch token {
@@ -256,222 +625,154 @@ public struct JSONDecoder {
     }
 }
 
-protocol JSONFieldDecoder: FieldDecoder {
-    var scanner: JSONScanner {get}
-}
 
-extension JSONFieldDecoder {
-    public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
-    }
-}
+/// FieldDecoder interface for JSONDecoder.
+///
+/// Note that the JSON decode flow just passes the decoder itself
+/// as the field decoder for every field.  The general decoding flow
+/// starts in the `setFromJSON()` method defined on `Message` in
+/// `JSONTypeAdditions.swift`.  The logic runs as follows:
+///
+/// * Read field name via `getNextKey()`
+/// * Look up field number on object
+/// * Call `decodeField` on the object with the field number above (providing this decoder object as the field decoder)
+/// * Object calls appropriate function below with schema details
+/// * Function here parses value of field
+///
+/// Note that everything here is `public` since these methods
+/// are called directly from the generated code (which is not part
+/// of this library).
+extension JSONDecoder: FieldDecoder {
+    /// JSON decoder always rejects conflicting values for the same `oneof` group
+    public var rejectConflictingOneof: Bool {return true}
 
-private struct JSONNullFieldDecoder: JSONFieldDecoder {
-    let scanner: JSONScanner
-    var rejectConflictingOneof: Bool {return true}
-
-    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-    }
-    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-    }
-    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-    }
-    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        value = try M.decodeFromJSONNull()
-    }
-    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
-    }
-    mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
-    }
-    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
-    }
-    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
-    }
-    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
-    }
-}
-
-private struct JSONSingleTokenFieldDecoder: JSONFieldDecoder {
-    var rejectConflictingOneof: Bool {return true}
-
-    var token: JSONToken
-    var scanner: JSONScanner
-
-    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-        try S.setFromJSONToken(token: token, value: &value)
-    }
-
-    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        var m = M()
-        try m.decodeFromJSONToken(token: token)
-        value = m
-    }
-}
-
-private struct JSONObjectFieldDecoder: JSONFieldDecoder {
-    var rejectConflictingOneof: Bool {return true}
-
-    var scanner: JSONScanner
-
-    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        var message = M()
-        var subDecoder = JSONDecoder(scanner: scanner)
-        try message.decodeFromJSONObject(jsonDecoder: &subDecoder)
-        value = message
-    }
-
-    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
-        var keyToken: JSONToken?
-        var state = JSONDecoder.ObjectParseState.expectFirstKey
-        while let token = try scanner.next() {
-            switch token {
-            case .string(_): // This is a key
-                if state != .expectKey && state != .expectFirstKey {
-                    throw DecodingError.malformedJSON
-                }
-                keyToken = token
-                state = .expectColon
-            case .colon:
-                if state != .expectColon {
-                    throw DecodingError.malformedJSON
-                }
-                if let keyToken = keyToken,
-                    let mapKey = try KeyType.decodeJSONMapKey(token: keyToken),
-                    let token = try scanner.next() {
-
-                    let mapValue: ValueType.BaseType?
-                    scanner.pushback(token: token)
-                    var subDecoder = JSONDecoder(scanner: scanner)
-                    switch token {
-                    case .beginObject, .boolean(_), .string(_), .number(_):
-                        mapValue = try ValueType.decodeJSONMapValue(jsonDecoder: &subDecoder)
-                        if mapValue == nil {
-                            throw DecodingError.malformedJSON
-                        }
-                    default:
-                        throw DecodingError.malformedJSON
-                    }
-                    value[mapKey] = mapValue
-                } else {
-                    throw DecodingError.malformedJSON
-                }
-                state = .expectComma
-            case .comma:
-                if state != .expectComma {
-                    throw DecodingError.malformedJSON
-                }
-                state = .expectKey
-            case .endObject:
-                if state != .expectFirstKey && state != .expectComma {
-                    throw DecodingError.malformedJSON
-                }
-                return
-            default:
-                throw DecodingError.malformedJSON
-            }
+    public func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
+        if try skipOptionalNull() {
+            value = nil
+            return
         }
-        throw DecodingError.truncatedInput
+        try S.setFromJSON(decoder: self, value: &value)
     }
-}
 
-internal struct JSONArrayFieldDecoder: JSONFieldDecoder {
-    var scanner: JSONScanner
-
-    // Decode a field containing repeated basic type
-    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        var token: JSONToken
-        if let startToken = try scanner.next() {
-            switch startToken {
-            case .endArray: return // Empty array case
-            default: token = startToken
-            }
-        } else {
-            throw DecodingError.truncatedInput
+    public func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+        if try skipOptionalNull() {
+            return
         }
-
+        try skipRequired(token: .beginArray)
+        if try skipOptional(token: .endArray) {
+            return
+        }
         while true {
-            switch token {
-            case .boolean(_), .string(_), .number(_):
-                try S.setFromJSONToken(token: token, value: &value)
-            default:
-                throw DecodingError.malformedJSON
-            }
-            if let separatorToken = try scanner.next() {
-                switch separatorToken {
-                case .comma:
-                    if let t = try scanner.next() {
-                       token = t
-                    } else {
-                       throw DecodingError.malformedJSON
-                    }
-                    break
+            try S.setFromJSON(decoder: self, value: &value)
+            if let token = try nextToken() {
+                switch token {
                 case .endArray:
                     return
+                case .comma:
+                    break
                 default:
                     throw DecodingError.malformedJSON
                 }
+            } else {
+                throw DecodingError.truncatedInput
             }
         }
     }
 
-    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    public func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try decodeRepeatedField(fieldType: fieldType, value: &value)
     }
 
-    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        var m = value ?? M()
-        var subDecoder = JSONDecoder(scanner: scanner)
-        try m.decodeFromJSONArray(jsonDecoder: &subDecoder)
-        value = m
+    public func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
+        try M.setFromJSON(decoder: self, value: &value)
     }
 
-    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
-        var token: JSONToken
-        if let startToken = try scanner.next() {
-            switch startToken {
-            case .endArray: return // Empty array case
-            default: token = startToken
-            }
-        } else {
-            throw DecodingError.truncatedInput
+    public func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
+        if try skipOptionalNull() {
+            return
         }
-
+        try skipRequired(token: .beginArray)
+        if try skipOptional(token: .endArray) {
+            return
+        }
         while true {
-            switch token {
-            case .beginObject:
-                var message = M()
-                var subDecoder = JSONDecoder(scanner: scanner)
-                try message.decodeFromJSONObject(jsonDecoder: &subDecoder)
-                value.append(message)
-            case .boolean(_), .string(_), .number(_):
-                var message = M()
-                try message.decodeFromJSONToken(token: token)
-                value.append(message)
-            case .null:
-                if let message = try M.decodeFromJSONNull() {
-                    // Sometimes 'null' is a valid message value
-                    value.append(message)
+            // In repeated lists, 'null' is forbidden EXCEPT for
+            // repeated Value objects:
+            if try skipOptionalNull() {
+                if M.self == Google_Protobuf_Value.self {
+                    value.append(M())
                 } else {
-                    // Otherwise, null is not allowed in repeated fields
                     throw DecodingError.malformedJSON
                 }
-            default:
-                throw DecodingError.malformedJSON
+            } else {
+                var m = M()
+                try m.setFromJSON(decoder: self)
+                value.append(m)
             }
-            if let separatorToken = try scanner.next() {
-                switch separatorToken {
-                case .comma:
-                    if let t = try scanner.next() {
-                       token = t
-                    } else {
-                       throw DecodingError.truncatedInput
-                    }
-                    break
-                case .endArray:
-                    return
+            if let token = try nextToken() {
+                switch token {
+                case .endArray: return
+                case .comma: break
                 default:
                     throw DecodingError.malformedJSON
                 }
+            } else {
+                throw DecodingError.truncatedInput
             }
         }
     }
+
+    public func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
+        /// Protobuf JSON explicitly rejects group fields
+        throw DecodingError.schemaMismatch
+    }
+
+    public func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
+        /// Protobuf JSON explicitly rejects group fields
+        throw DecodingError.schemaMismatch
+    }
+
+    public func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
+        if try skipOptionalNull() {
+            return
+        }
+        if try isObjectEmpty() {
+            return
+        }
+        while true {
+            if let mapKeyToken = try nextToken(),
+                case .string = mapKeyToken,
+                let mapKey = try KeyType.decodeJSONMapKey(token: mapKeyToken) {
+                try skipRequiredColon()
+                var mapValue: ValueType.BaseType?
+                try ValueType.setFromJSON(decoder: self, value: &mapValue)
+                if mapValue == nil {
+                    throw DecodingError.malformedJSON
+                }
+                value[mapKey] = mapValue
+            } else {
+                throw DecodingError.malformedJSON
+            }
+            if let token = try nextToken() {
+                switch token {
+                case .endObject:
+                    return
+                case .comma:
+                    break
+                default:
+                    throw DecodingError.malformedJSON
+                }
+            } else {
+                throw DecodingError.truncatedInput
+            }
+        }
+
+
+    }
+
+    public func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
+        /// Protobuf JSON explicitly rejects extension fields
+        throw DecodingError.schemaMismatch
+    }
 }
+

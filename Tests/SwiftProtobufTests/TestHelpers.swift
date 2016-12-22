@@ -145,8 +145,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             } catch let e {
                 XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
             }
-        } catch {
-            XCTFail("Swift should have decoded without error: \(json)", file: file, line: line)
+        } catch let e {
+            XCTFail("Swift should have decoded without error but got \(e): \(json)", file: file, line: line)
             return
         }
     }

@@ -82,54 +82,29 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         set(newValue) {fields[index] = newValue}
     }
 
-    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
-        var key = ""
-        var state = JSONDecoder.ObjectParseState.expectFirstKey
-        while let token = try jsonDecoder.nextToken() {
-            switch token {
-            case .string(let s): // This is a key
-                if state != .expectKey && state != .expectFirstKey {
-                    throw DecodingError.malformedJSON
-                }
-                key = s
-                state = .expectColon
-            case .colon:
-                if state != .expectColon {
-                    throw DecodingError.malformedJSON
-                }
-                guard let valueToken = try jsonDecoder.nextToken() else {
-                    throw DecodingError.malformedJSON
-                }
-                var value = Google_Protobuf_Value()
-                switch valueToken {
-                case .number(_), .string(_), .boolean(_):
-                    try value.decodeFromJSONToken(token: valueToken)
-                case .null:
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        if try decoder.skipOptionalNull() {
+            return
+        }
+        if try decoder.isObjectEmpty() {
+            return
+        }
+        while true {
+            let key = try decoder.nextKey()
+            var value = Google_Protobuf_Value()
+            try value.setFromJSON(decoder: decoder)
+            fields[key] = value
+            if let token = try decoder.nextToken() {
+                switch token {
+                case .comma:
                     break
-                case .beginArray:
-                    try value.decodeFromJSONArray(jsonDecoder: &jsonDecoder)
-                case .beginObject:
-                    try value.decodeFromJSONObject(jsonDecoder: &jsonDecoder)
+                case .endObject:
+                    return
                 default:
                     throw DecodingError.malformedJSON
                 }
-                fields[key] = value
-                state = .expectComma
-            case .comma:
-                if state != .expectComma {
-                    throw DecodingError.malformedJSON
-                }
-                state = .expectKey
-            case .endObject:
-                if state != .expectFirstKey && state != .expectComma {
-                    throw DecodingError.malformedJSON
-                }
-                return
-            default:
-                throw DecodingError.malformedJSON
             }
         }
-        throw DecodingError.truncatedInput
     }
 
     public func serializeJSON() throws -> String {
@@ -278,25 +253,41 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         default: break
         }
     }
-
-    public static func decodeFromJSONNull() throws -> Google_Protobuf_Value? {
-        return Google_Protobuf_Value()
-    }
-
-    public mutating func decodeFromJSONToken(token: JSONToken) throws {
-        try kind.decodeFromJSONToken(token: token)
-    }
-
-    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
-        var s = Google_Protobuf_Struct()
-        try s.decodeFromJSONObject(jsonDecoder: &jsonDecoder)
-        kind = .structValue(s)
-    }
-
-    public mutating func decodeFromJSONArray(jsonDecoder: inout JSONDecoder) throws {
-        var s = Google_Protobuf_ListValue()
-        try s.decodeFromJSONArray(jsonDecoder: &jsonDecoder)
-        kind = .listValue(s)
+    
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        if let token = try decoder.nextToken() {
+            switch token {
+            case .null:
+                kind = .nullValue(.nullValue)
+                return
+            case .beginObject:
+                decoder.pushback(token: token)
+                var s = Google_Protobuf_Struct()
+                try s.setFromJSON(decoder: decoder)
+                kind = .structValue(s)
+                return
+            case .beginArray:
+                decoder.pushback(token: token)
+                var l = Google_Protobuf_ListValue()
+                try l.setFromJSON(decoder: decoder)
+                kind = .listValue(l)
+                return
+            case .boolean(let b):
+                kind = .boolValue(b)
+                return
+            case .string(let s):
+                kind = .stringValue(s)
+                return
+            case .number(_):
+                if let n = token.asDouble {
+                    kind = .numberValue(n)
+                    return
+                }
+            default:
+                break
+            }
+        }
+        throw DecodingError.malformedJSON
     }
 
     public func serializeJSON() throws -> String {
@@ -523,25 +514,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             }
         }
 
-        public mutating func decodeFromJSONToken(token: JSONToken) throws {
-            switch token {
-            case .null:
-                self = .nullValue(.nullValue)
-            case .number(_):
-                if let value = token.asDouble {
-                    self = .numberValue(value)
-                } else {
-                    throw DecodingError.malformedJSONNumber
-                }
-            case .string(let s):
-                self = .stringValue(s)
-            case .boolean(let b):
-                self = .boolValue(b)
-            default:
-                throw DecodingError.schemaMismatch
-            }
-        }
-
         public func traverse(visitor: inout Visitor, start: Int, end: Int) throws {
             switch self {
             case .nullValue(let v):
@@ -624,50 +596,6 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         set(newValue) {values[index] = newValue}
     }
 
-    public mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public mutating func decodeFromJSONArray(jsonDecoder: inout JSONDecoder) throws {
-        var firstItem = true
-        while true {
-            guard let token = try jsonDecoder.nextToken() else {
-                throw DecodingError.truncatedInput
-            }
-            switch token {
-            case .endArray:
-                if !firstItem {
-                    throw DecodingError.malformedJSON
-                }
-                return
-            case .null:
-                values.append(Google_Protobuf_Value())
-            case .beginObject:
-                var message = Google_Protobuf_Value()
-                try message.decodeFromJSONObject(jsonDecoder: &jsonDecoder)
-                values.append(message)
-            case .beginArray:
-                var message = Google_Protobuf_Value()
-                try message.decodeFromJSONArray(jsonDecoder: &jsonDecoder)
-                values.append(message)
-            case .boolean(_), .string(_), .number(_):
-                var message = Google_Protobuf_Value()
-                try message.decodeFromJSONToken(token: token)
-                values.append(message)
-            default:
-                throw DecodingError.malformedJSON
-            }
-            firstItem = false
-            if let separatorToken = try jsonDecoder.nextToken() {
-                switch separatorToken {
-                case .comma: break
-                case .endArray: return
-                default: throw DecodingError.malformedJSON
-                }
-            }
-        }
-    }
-
     public func serializeJSON() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.append(text: "[")
@@ -679,6 +607,33 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         }
         jsonEncoder.append(text: "]")
         return jsonEncoder.result
+    }
+    
+    public mutating func setFromJSON(decoder: JSONDecoder) throws {
+        if try decoder.skipOptionalNull() {
+            return
+        }
+        try decoder.skipRequired(token: .beginArray)
+        if try decoder.skipOptional(token: .endArray) {
+            return
+        }
+        while true {
+            var v = Google_Protobuf_Value()
+            try v.setFromJSON(decoder: decoder)
+            values.append(v)
+            if let token = try decoder.nextToken() {
+                switch token {
+                case .comma:
+                    break
+                case .endArray:
+                    return
+                default:
+                    throw DecodingError.malformedJSON
+                }
+            } else {
+                throw DecodingError.malformedJSON
+            }
+        }
     }
 
     public func serializeAnyJSON() throws -> String {
