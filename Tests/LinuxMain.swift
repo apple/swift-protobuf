@@ -1,3 +1,8 @@
+//
+// GENERATED FILE
+// DO NOT EDIT
+//
+
 import XCTest
 @testable import SwiftProtobufTests
 
