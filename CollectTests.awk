@@ -31,6 +31,11 @@ BEGIN {
     CLASS=""
     TESTCASES=""
     TESTCASE_separator=""
+    printf("//\n")
+    printf("// GENERATED FILE\n")
+    printf("// DO NOT EDIT\n")
+    printf("//\n")
+    printf("\n")
     printf("import XCTest\n")
     printf("@testable import SwiftProtobufTests\n")
     printf("\n")
