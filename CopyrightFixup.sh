@@ -2,7 +2,7 @@
 
 new_copyright=""
 
-for f in `find . -name '*.swift' | sed -e 's|./||' | grep -v '.pb.swift'`; do
+for f in `find . -name '*.swift' -o -name '*.cc' | sed -e 's|./||' | grep -v '.pb.swift'`; do
     if head -n 4 $f | grep 'DO NOT EDIT' > /dev/null; then
         # If the first lines contain 'DO NOT EDIT', then
         # this is a generated file and we should not
