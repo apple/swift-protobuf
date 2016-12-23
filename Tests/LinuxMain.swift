@@ -1,3 +1,8 @@
+//
+// GENERATED FILE
+// DO NOT EDIT
+//
+
 import XCTest
 @testable import SwiftProtobufTests
 
@@ -461,6 +466,8 @@ extension Test_JSON {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testMultipleFields", {try run_test(test:($0 as! Test_JSON).testMultipleFields)}),
+            ("testEncodePerf", {try run_test(test:($0 as! Test_JSON).testEncodePerf)}),
+            ("testDecodePerf", {try run_test(test:($0 as! Test_JSON).testDecodePerf)}),
             ("testSingleInt32", {try run_test(test:($0 as! Test_JSON).testSingleInt32)}),
             ("testSingleUInt32", {try run_test(test:($0 as! Test_JSON).testSingleUInt32)}),
             ("testSingleInt64", {try run_test(test:($0 as! Test_JSON).testSingleInt64)}),
@@ -506,22 +513,22 @@ extension Test_JSON_Conformance {
     }
 }
 
+extension Test_JSON_Decoder {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testWellFormed", {try run_test(test:($0 as! Test_JSON_Decoder).testWellFormed)}),
+            ("testString", {try run_test(test:($0 as! Test_JSON_Decoder).testString)}),
+            ("testBrokenString", {try run_test(test:($0 as! Test_JSON_Decoder).testBrokenString)}),
+            ("testSingleTokens", {try run_test(test:($0 as! Test_JSON_Decoder).testSingleTokens)}),
+            ("testInvalidTokens", {try run_test(test:($0 as! Test_JSON_Decoder).testInvalidTokens)})        ]
+    }
+}
+
 extension Test_JSON_Group {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testOptionalGroup", {try run_test(test:($0 as! Test_JSON_Group).testOptionalGroup)}),
             ("testRepeatedGroup", {try run_test(test:($0 as! Test_JSON_Group).testRepeatedGroup)})        ]
-    }
-}
-
-extension Test_Scanner {
-    static var allTests: [(String, (XCTestCase) throws -> ())] {
-        return [
-            ("testWellFormed", {try run_test(test:($0 as! Test_Scanner).testWellFormed)}),
-            ("testString", {try run_test(test:($0 as! Test_Scanner).testString)}),
-            ("testBrokenString", {try run_test(test:($0 as! Test_Scanner).testBrokenString)}),
-            ("testSingleTokens", {try run_test(test:($0 as! Test_Scanner).testSingleTokens)}),
-            ("testInvalidTokens", {try run_test(test:($0 as! Test_Scanner).testInvalidTokens)})        ]
     }
 }
 
@@ -950,8 +957,8 @@ XCTMain(
         (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
         (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),
         (testCaseClass: Test_JSON_Conformance.self, allTests: Test_JSON_Conformance.allTests),
+        (testCaseClass: Test_JSON_Decoder.self, allTests: Test_JSON_Decoder.allTests),
         (testCaseClass: Test_JSON_Group.self, allTests: Test_JSON_Group.allTests),
-        (testCaseClass: Test_Scanner.self, allTests: Test_Scanner.allTests),
         (testCaseClass: Test_Map.self, allTests: Test_Map.allTests),
         (testCaseClass: Test_MapFields_Access_Proto2.self, allTests: Test_MapFields_Access_Proto2.allTests),
         (testCaseClass: Test_MapFields_Access_Proto3.self, allTests: Test_MapFields_Access_Proto3.allTests),

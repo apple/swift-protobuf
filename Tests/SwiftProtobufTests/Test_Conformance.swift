@@ -1,12 +1,10 @@
 // Tests/SwiftProtobufTests/Test_Conformance.swift - Various conformance issues
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -31,8 +29,8 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             let decoded = try Conformance_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
-        } catch {
-            XCTFail("Could not decode?")
+        } catch let e {
+            XCTFail("Could not decode? Error: \(e)")
         }
     }
 
@@ -46,8 +44,8 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             let decoded = try Conformance_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
-        } catch {
-            XCTFail("Could not decode?")
+        } catch let e {
+            XCTFail("Could not decode? Error: \(e)")
         }
     }
 
@@ -74,16 +72,6 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
 
     func testRepeatedBoolWrapper() {
         assertJSONDecodeSucceeds("{\"repeatedBoolWrapper\": [true, false]}") {
-            (o: Conformance_TestAllTypes) -> Bool in
-            let a = o.repeatedBoolWrapper.count == 2
-            let b = o.repeatedBoolWrapper[0] == Google_Protobuf_BoolValue(true)
-            let c = o.repeatedBoolWrapper[1] == Google_Protobuf_BoolValue(false)
-            return a && b && c
-        }
-
-        // Google doesn't mention this, but the current Swift
-        // architecture handles it through the general case
-        assertJSONDecodeSucceeds("{\"repeatedBoolWrapper\": [{\"value\":true}, {\"value\":false}]}") {
             (o: Conformance_TestAllTypes) -> Bool in
             let a = o.repeatedBoolWrapper.count == 2
             let b = o.repeatedBoolWrapper[0] == Google_Protobuf_BoolValue(true)

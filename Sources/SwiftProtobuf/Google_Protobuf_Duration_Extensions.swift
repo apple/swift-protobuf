@@ -1,12 +1,10 @@
 // Sources/SwiftProtobuf/Google_Protobuf_Duration_Extensions.swift - Extensions for Duration type
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -129,13 +127,18 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
 }
 
 public extension Google_Protobuf_Duration {
-    public mutating func decodeFromJSONToken(token: JSONToken) throws {
-        if case .string(let s) = token,
-            let duration = parseDuration(text: s) {
-            seconds = duration.0
-            nanos = duration.1
+    
+    mutating func setFromJSON(decoder: JSONDecoder) throws {
+        if let token = try decoder.nextToken() {
+            if case .string(let s) = token,
+                let duration = parseDuration(text: s) {
+                seconds = duration.0
+                nanos = duration.1
+            } else {
+                throw DecodingError.schemaMismatch
+            }
         } else {
-            throw DecodingError.schemaMismatch
+            throw DecodingError.truncatedInput
         }
     }
 

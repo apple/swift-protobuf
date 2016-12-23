@@ -1,12 +1,10 @@
 // Sources/SwiftProtobuf/Google_Protobuf_Timestamp_Extensions.swift - Timestamp extensions
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -269,13 +267,17 @@ public extension Google_Protobuf_Timestamp {
         self.nanos = nanos
     }
 
-    public mutating func decodeFromJSONToken(token: JSONToken) throws {
-        if case .string(let s) = token {
-            let timestamp = try parseTimestamp(s: s)
-            seconds = timestamp.0
-            nanos = timestamp.1
+    mutating func setFromJSON(decoder: JSONDecoder) throws {
+        if let token = try decoder.nextToken() {
+            if case .string(let s) = token {
+                let timestamp = try parseTimestamp(s: s)
+                seconds = timestamp.0
+                nanos = timestamp.1
+            } else {
+                throw DecodingError.schemaMismatch
+            }
         } else {
-            throw DecodingError.schemaMismatch
+            throw DecodingError.truncatedInput
         }
     }
 

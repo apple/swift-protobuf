@@ -1,12 +1,10 @@
 // Tests/SwiftProtobufTests/Test_JSON.swift - Exercise JSON coding
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -22,6 +20,70 @@ import SwiftProtobuf
 
 class Test_JSON: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3TestAllTypes
+
+    private func configureLargeObject(_ o: inout MessageTestType) {
+        o.singleInt32 = 1
+        o.singleInt64 = 2
+        o.singleUint32 = 3
+        o.singleUint64 = 4
+        o.singleSint32 = 5
+        o.singleSint64 = 6
+        o.singleFixed32 = 7
+        o.singleFixed64 = 8
+        o.singleSfixed32 = 9
+        o.singleSfixed64 = 10
+        o.singleFloat = 11
+        o.singleDouble = 12
+        o.singleBool = true
+        o.singleString = "abc"
+        o.singleBytes = Data(bytes: [65, 66])
+        var nested = MessageTestType.NestedMessage()
+        nested.bb = 7
+        o.singleNestedMessage = nested
+        var foreign = Proto3ForeignMessage()
+        foreign.c = 88
+        o.singleForeignMessage = foreign
+        var importMessage = Proto3ImportMessage()
+        importMessage.d = -9
+        o.singleImportMessage = importMessage
+        o.singleNestedEnum = .baz
+        o.singleForeignEnum = .foreignBaz
+        o.singleImportEnum = .importBaz
+        var publicImportMessage = Proto3PublicImportMessage()
+        publicImportMessage.e = -999999
+        o.singlePublicImportMessage = publicImportMessage
+        o.repeatedInt32 = [1, 2]
+        o.repeatedInt64 = [3, 4]
+        o.repeatedUint32 = [5, 6]
+        o.repeatedUint64 = [7, 8]
+        o.repeatedSint32 = [9, 10]
+        o.repeatedSint64 = [11, 12]
+        o.repeatedFixed32 = [13, 14]
+        o.repeatedFixed64 = [15, 16]
+        o.repeatedSfixed32 = [17, 18]
+        o.repeatedSfixed64 = [19, 20]
+        o.repeatedFloat = [21, 22]
+        o.repeatedDouble = [23, 24]
+        o.repeatedBool = [true, false]
+        o.repeatedString = ["abc", "def"]
+        o.repeatedBytes = [Data(), Data(bytes: [65, 66])]
+        var nested2 = nested
+        nested2.bb = -7
+        o.repeatedNestedMessage = [nested, nested2]
+        var foreign2 = foreign
+        foreign2.c = -88
+        o.repeatedForeignMessage = [foreign, foreign2]
+        var importMessage2 = importMessage
+        importMessage2.d = 999999
+        o.repeatedImportMessage = [importMessage, importMessage2]
+        o.repeatedNestedEnum = [.bar, .baz]
+        o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
+        o.repeatedImportEnum = [.importBar, .importBaz]
+        var publicImportMessage2 = publicImportMessage
+        publicImportMessage2.e = 999999
+        o.repeatedPublicImportMessage = [publicImportMessage, publicImportMessage2]
+        o.oneofUint32 = 99
+    }
 
     func testMultipleFields() {
         let expected: String = ("{"
@@ -71,68 +133,31 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             + "\"repeatedPublicImportMessage\":[{\"e\":-999999},{\"e\":999999}],"
             + "\"oneofUint32\":99"
             + "}")
-        assertJSONEncode(expected) {(o: inout MessageTestType) in
-            o.singleInt32 = 1
-            o.singleInt64 = 2
-            o.singleUint32 = 3
-            o.singleUint64 = 4
-            o.singleSint32 = 5
-            o.singleSint64 = 6
-            o.singleFixed32 = 7
-            o.singleFixed64 = 8
-            o.singleSfixed32 = 9
-            o.singleSfixed64 = 10
-            o.singleFloat = 11
-            o.singleDouble = 12
-            o.singleBool = true
-            o.singleString = "abc"
-            o.singleBytes = Data(bytes: [65, 66])
-            var nested = MessageTestType.NestedMessage()
-            nested.bb = 7
-            o.singleNestedMessage = nested
-            var foreign = Proto3ForeignMessage()
-            foreign.c = 88
-            o.singleForeignMessage = foreign
-            var importMessage = Proto3ImportMessage()
-            importMessage.d = -9
-            o.singleImportMessage = importMessage
-            o.singleNestedEnum = .baz
-            o.singleForeignEnum = .foreignBaz
-            o.singleImportEnum = .importBaz
-            var publicImportMessage = Proto3PublicImportMessage()
-            publicImportMessage.e = -999999
-            o.singlePublicImportMessage = publicImportMessage
-            o.repeatedInt32 = [1, 2]
-            o.repeatedInt64 = [3, 4]
-            o.repeatedUint32 = [5, 6]
-            o.repeatedUint64 = [7, 8]
-            o.repeatedSint32 = [9, 10]
-            o.repeatedSint64 = [11, 12]
-            o.repeatedFixed32 = [13, 14]
-            o.repeatedFixed64 = [15, 16]
-            o.repeatedSfixed32 = [17, 18]
-            o.repeatedSfixed64 = [19, 20]
-            o.repeatedFloat = [21, 22]
-            o.repeatedDouble = [23, 24]
-            o.repeatedBool = [true, false]
-            o.repeatedString = ["abc", "def"]
-            o.repeatedBytes = [Data(), Data(bytes: [65, 66])]
-            var nested2 = nested
-            nested2.bb = -7
-            o.repeatedNestedMessage = [nested, nested2]
-            var foreign2 = foreign
-            foreign2.c = -88
-            o.repeatedForeignMessage = [foreign, foreign2]
-            var importMessage2 = importMessage
-            importMessage2.d = 999999
-            o.repeatedImportMessage = [importMessage, importMessage2]
-            o.repeatedNestedEnum = [.bar, .baz]
-            o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
-            o.repeatedImportEnum = [.importBar, .importBaz]
-            var publicImportMessage2 = publicImportMessage
-            publicImportMessage2.e = 999999
-            o.repeatedPublicImportMessage = [publicImportMessage, publicImportMessage2]
-            o.oneofUint32 = 99
+        assertJSONEncode(expected, configure: configureLargeObject)
+    }
+    
+    func testEncodePerf() {
+        let m = MessageTestType.with(populator: configureLargeObject)
+        self.measure {
+            do {
+                for _ in 0..<1000 {
+                    let _ = try m.serializeJSON()
+                }
+            } catch {
+            }
+        }
+    }
+    
+    func testDecodePerf() throws {
+        let m = MessageTestType.with(populator: configureLargeObject)
+        let json = try m.serializeJSON()
+        self.measure {
+            do {
+                for _ in 0..<1000 {
+                    let _ = try MessageTestType(json: json)
+                }
+            } catch {
+            }
         }
     }
 
@@ -507,6 +532,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             var sub2 = Proto3TestAllTypes.NestedMessage()
             sub2.bb = 2
             o.repeatedNestedMessage = [sub1, sub2]
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedMessage\": []}") {
+            $0.repeatedNestedMessage == []
         }
     }
 

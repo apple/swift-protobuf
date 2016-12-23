@@ -1,12 +1,10 @@
 // Sources/SwiftProtobuf/Message.swift - Message support
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -61,11 +59,11 @@ public protocol Message: CustomDebugStringConvertible {
   /// Support for traversing the object tree.
   ///
   /// This is used by:
-  /// = Protobuf serialization
+  /// = Protobuf binary serialization
   /// = JSON serialization (with some twists to account for specialty JSON
   ///   encodings)
+  /// = Protouf Text serialization
   /// = hashValue computation
-  /// = mirror generation
   ///
   /// Conceptually, serializers create visitor objects that are
   /// then passed recursively to every message and field via generated
@@ -104,19 +102,8 @@ public protocol Message: CustomDebugStringConvertible {
   /// Serialize to JSON
   /// Overridden by well-known-types with custom JSON requirements.
   func serializeJSON() throws -> String
-  /// Value, NullValue override this to decode themselves from a JSON "null".
-  /// Default just returns nil.
-  static func decodeFromJSONNull() throws -> Self?
-  /// Duration, Timestamp, FieldMask override this to
-  /// update themselves from a single JSON token.
-  /// Default always throws an error.
-  mutating func decodeFromJSONToken(token: JSONToken) throws
-  /// Value, Struct, Any override this to update themselves from a JSON object.
-  /// Default decodes keys and feeds them to decodeField()
-  mutating func decodeFromJSONObject(jsonDecoder: inout JSONDecoder) throws
-  /// Value, ListValue override this to update themselves from a JSON array.
-  /// Default always throws an error
-  mutating func decodeFromJSONArray(jsonDecoder: inout JSONDecoder) throws
+  /// Decode from tokens read from a JSON decoder
+  mutating func setFromJSON(decoder: JSONDecoder) throws
 
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.
@@ -206,7 +193,7 @@ public protocol Proto3Message: Message {
 /// `SwiftProtobuf.Message & Hashable` if you need to use equality
 /// tests or put it in a `Set<>`.
 ///
-public protocol _MessageImplementationBase: Message, Hashable, MapValueType {
+public protocol _MessageImplementationBase: Message, Hashable, MapValueType, FieldType {
   // The compiler actually generates the following methods. Default
   // implementations below redirect the standard names. This allows developers
   // to override the standard names to customize the behavior.

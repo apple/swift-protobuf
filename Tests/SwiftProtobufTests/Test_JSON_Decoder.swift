@@ -1,17 +1,16 @@
-// Tests/SwiftProtobufTests/Test_JSON_Scanner.swift - Exercise JSON scanner
+// Tests/SwiftProtobufTests/Test_JSON_Decoder.swift - Exercise JSON scanner
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
-/// The JSON low-level scanner parses a string and returns a sequence of JSON
-/// tokens.
+/// Exercise the JSON decoder's ability to break a JSON text into individual
+/// tokens.  This is the core of the JSON parsing logic, so benefits from
+/// a separate test.
 ///
 // -----------------------------------------------------------------------------
 
@@ -19,23 +18,23 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Scanner: XCTestCase {
+class Test_JSON_Decoder: XCTestCase {
 
     func assertTokens(json: String, expected: Array<SwiftProtobuf.JSONToken>, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) {
-        var scanner = SwiftProtobuf.JSONScanner(json: json, tokens: [])
-        assertTokens(scanner: &scanner, expected: expected.makeIterator(), expectFail: expectFail, file: file, line: line)
+        var decoder = SwiftProtobuf.JSONDecoder(json: json)
+        assertTokens(decoder: &decoder, expected: expected.makeIterator(), expectFail: expectFail, file: file, line: line)
     }
 
-    func assertTokens(scanner: inout SwiftProtobuf.JSONScanner, expected: Array<SwiftProtobuf.JSONToken>, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) {
-        assertTokens(scanner: &scanner, expected: expected.makeIterator(), expectFail: expectFail, file: file, line: line)
+    func assertTokens(decoder: inout SwiftProtobuf.JSONDecoder, expected: Array<SwiftProtobuf.JSONToken>, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) {
+        assertTokens(decoder: &decoder, expected: expected.makeIterator(), expectFail: expectFail, file: file, line: line)
     }
 
-    func assertTokens<G: IteratorProtocol>(scanner: inout SwiftProtobuf.JSONScanner, expected: G, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) where G.Element == SwiftProtobuf.JSONToken {
+    func assertTokens<G: IteratorProtocol>(decoder: inout SwiftProtobuf.JSONDecoder, expected: G, expectFail: Bool = false, file: XCTestFileArgType = #file, line: UInt = #line) where G.Element == SwiftProtobuf.JSONToken {
         var _expected = expected
         var n = 0
         while let expectedToken = _expected.next() {
             do {
-                if let actualToken = try scanner.next() {
+                if let actualToken = try decoder.nextToken() {
                     XCTAssertEqual(expectedToken, actualToken, "At position \(n): Expected \(expectedToken) but saw \(actualToken)", file: file, line: line)
                 } else {
                     XCTFail("At position \(n): Expected \(expectedToken) but stream ended", file: file, line: line)
@@ -47,7 +46,7 @@ class Test_Scanner: XCTestCase {
             n += 1
         }
         do {
-            if let actualToken = try scanner.next() {
+            if let actualToken = try decoder.nextToken() {
                 XCTFail("At position \(n): Expected stream to end, but got \(actualToken)", file: file, line: line)
             }
             if expectFail {
@@ -63,8 +62,8 @@ class Test_Scanner: XCTestCase {
     // Test a long well-formed JSON sample to verify that we can scan every kind of token as expected.
     // This also includes a mix of varying whitespace and string escapes
     func testWellFormed() throws {
-        var s = SwiftProtobuf.JSONScanner(json: "{\"foo\": \"bar\",\"foo2\":\"\\\"bar2\",\"tr\\u0075e\": true, \"false\": false, \"string\": \"\\b\\t\\n\\f\\r\\\"\\\\\\/\", \"array\": [null, 123, -123, -0.34E+77,{\"a\":{}}], \"b\":\n   {\n   }\n  }", tokens: [])
-        assertTokens(scanner: &s, expected: [
+        var d = SwiftProtobuf.JSONDecoder(json: "{\"foo\": \"bar\",\"foo2\":\"\\\"bar2\",\"tr\\u0075e\": true, \"false\": false, \"string\": \"\\b\\t\\n\\f\\r\\\"\\\\\\/\", \"array\": [null, 123, -123, -0.34E+77,{\"a\":{}}], \"b\":\n   {\n   }\n  }")
+        assertTokens(decoder: &d, expected: [
             .beginObject,
             .string("foo"),
             .colon,
@@ -111,7 +110,7 @@ class Test_Scanner: XCTestCase {
             .endObject,
             .endObject
             ])
-        XCTAssertNil(try s.next()) // End of tokens is a sticky state
+        XCTAssertNil(try d.nextToken()) // End of tokens is a sticky state
     }
 
     func testString() {
@@ -154,12 +153,13 @@ class Test_Scanner: XCTestCase {
 
     func testInvalidTokens() {
         // Invalid JSON tokens should fail
-        // TODO: Error behavior here is a little funky; should "nullll" fail before it returns the .null token?
-        assertTokens(json: "nulll", expected: [.null], expectFail: true)
-        assertTokens(json: "{nulll", expected: [.beginObject, .null], expectFail: true)
-        assertTokens(json: "{nulll}", expected: [.beginObject, .null], expectFail: true)
-        assertTokens(json: "truee", expected: [.boolean(true)], expectFail: true)
-        assertTokens(json: "falsee", expected: [.boolean(false)], expectFail: true)
+        assertTokens(json: "nul", expected: [], expectFail: true)
+        assertTokens(json: "nulll", expected: [], expectFail: true)
+        assertTokens(json: "nullnull", expected: [], expectFail: true)
+        assertTokens(json: "{nulll", expected: [.beginObject], expectFail: true)
+        assertTokens(json: "{nulll}", expected: [.beginObject], expectFail: true)
+        assertTokens(json: "truee", expected: [], expectFail: true)
+        assertTokens(json: "falsee", expected: [], expectFail: true)
         assertTokens(json: "*", expected: [], expectFail: true)
         assertTokens(json: "&", expected: [], expectFail: true)
     }

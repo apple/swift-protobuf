@@ -1,12 +1,10 @@
 // Tests/SwiftProtobufTests/TestHelpers.swift - Test helpers
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -145,8 +143,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             } catch let e {
                 XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
             }
-        } catch {
-            XCTFail("Swift should have decoded without error: \(json)", file: file, line: line)
+        } catch let e {
+            XCTFail("Swift should have decoded without error but got \(e): \(json)", file: file, line: line)
             return
         }
     }

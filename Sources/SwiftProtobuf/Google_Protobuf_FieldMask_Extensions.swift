@@ -1,12 +1,10 @@
 // Sources/SwiftProtobuf/Google_Protobuf_FieldMask_Extensions.swift - Fieldmask extensions
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -123,16 +121,20 @@ public extension Google_Protobuf_FieldMask {
     // names, but translating between swift and protobuf/json property
     // names is not entirely deterministic.
 
-    mutating public func decodeFromJSONToken(token: JSONToken) throws {
-        switch token {
-        case .string(let s):
-            if let names = parseJSONFieldNames(names: s) {
-                paths = names
-            } else {
-                throw DecodingError.fieldMaskConversion
+    mutating public func setFromJSON(decoder: JSONDecoder) throws {
+        if let token = try decoder.nextToken() {
+            switch token {
+            case .string(let s):
+                if let names = parseJSONFieldNames(names: s) {
+                    paths = names
+                } else {
+                    throw DecodingError.fieldMaskConversion
+                }
+            default:
+                throw DecodingError.schemaMismatch
             }
-        default:
-            throw DecodingError.schemaMismatch
+        } else {
+            throw DecodingError.truncatedInput
         }
     }
 

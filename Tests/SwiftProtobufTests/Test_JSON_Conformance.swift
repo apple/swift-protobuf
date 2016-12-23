@@ -1,12 +1,10 @@
 // Tests/SwiftProtobufTests/Test_JSON_Conformance.swift - Various JSON tests
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -117,16 +115,26 @@ class Test_JSON_Conformance: XCTestCase {
     func testNullSupport_RepeatedValue() throws {
         // BUT: null is valid within repeated Value fields
         let repeatedValueWithNull = "{\"repeatedValue\": [1, null]}"
+        let decoded: Conformance_TestAllTypes
         do {
-            let decoded = try Conformance_TestAllTypes(json: repeatedValueWithNull)
+            decoded = try Conformance_TestAllTypes(json: repeatedValueWithNull)
             XCTAssertNotEqual(decoded, Conformance_TestAllTypes())
             XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), Google_Protobuf_Value()])
+        } catch {
+            XCTFail("Decode failed with error: \(repeatedValueWithNull)")
+            return
+        }
+        do {
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"repeatedValue\":[1,null]}")
+        } catch {
+            XCTFail("Re-encode failed with error: \(repeatedValueWithNull)")
+        }
+        do {
             let protobuf = try decoded.serializeProtobufBytes()
             XCTAssertEqual(protobuf, [226, 19, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 226, 19, 2, 8, 0])
         } catch {
-            XCTFail("Decode failed with error: \(repeatedValueWithNull)")
+            XCTFail("Protobuf encoding failed with error: \(repeatedValueWithNull)")
         }
     }
     

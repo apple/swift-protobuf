@@ -1,12 +1,10 @@
 // Sources/SwiftProtobuf/JSONToken.swift - JSON decoding
 //
-// This source file is part of the Swift.org open source project
-//
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
-// See http://swift.org/LICENSE.txt for license information
-// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -54,7 +52,7 @@ private func decodedBytes(base64String s: String) -> Data? {
   return Data(bytes: out)
 }
 
-/// A token scanned from string input using `JSONScanner`.
+/// A token scanned from string input using `JSONDecoder`.
 public enum JSONToken: Equatable {
 
   case colon
