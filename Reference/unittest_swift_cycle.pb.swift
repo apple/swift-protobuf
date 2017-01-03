@@ -75,17 +75,17 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
       if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
       if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknown.traverse(visitor: &visitor)
+      unknown.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -152,8 +152,8 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
@@ -196,17 +196,17 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
       if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
       if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknown.traverse(visitor: &visitor)
+      unknown.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -273,8 +273,8 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
@@ -317,17 +317,17 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
       if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
       if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknown.traverse(visitor: &visitor)
+      unknown.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -394,8 +394,8 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {

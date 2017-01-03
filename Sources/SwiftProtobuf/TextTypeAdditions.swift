@@ -512,12 +512,15 @@ public extension Message {
     }
 
     public func serializeText() throws -> String {
-        return try TextEncodingVisitor(message: self).result
+        let visitor = TextEncodingVisitor(message: self)
+        try traverse(visitor: visitor)
+        return visitor.result
     }
 
     static func serializeTextValue(encoder: TextEncoder, value: Self) throws {
         encoder.startObject()
-        _ = try TextEncodingVisitor(message: value as Message, encoder: encoder)
+        let visitor = TextEncodingVisitor(message: value, encoder: encoder)
+        try value.traverse(visitor: visitor)
         encoder.endObject()
     }
 

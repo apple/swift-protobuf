@@ -79,27 +79,27 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if _name != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _name, protoFieldNumber: 1)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _name, fieldNumber: 1)
       }
       if !_methods.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _methods, protoFieldNumber: 2)
+        try visitor.visitRepeatedMessageField(value: _methods, fieldNumber: 2)
       }
       if !_options.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _options, protoFieldNumber: 3)
+        try visitor.visitRepeatedMessageField(value: _options, fieldNumber: 3)
       }
       if _version != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _version, protoFieldNumber: 4)
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _version, fieldNumber: 4)
       }
       if let v = _sourceContext {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
       if !_mixins.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _mixins, protoFieldNumber: 6)
+        try visitor.visitRepeatedMessageField(value: _mixins, fieldNumber: 6)
       }
       if _syntax != Google_Protobuf_Syntax.proto2 {
-        try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: _syntax, protoFieldNumber: 7)
+        try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: _syntax, fieldNumber: 7)
       }
     }
 
@@ -205,8 +205,8 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
@@ -273,27 +273,27 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if name != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, fieldNumber: 1)
     }
     if requestTypeURL != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: requestTypeURL, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: requestTypeURL, fieldNumber: 2)
     }
     if requestStreaming != false {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: requestStreaming, protoFieldNumber: 3)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: requestStreaming, fieldNumber: 3)
     }
     if responseTypeURL != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: responseTypeURL, protoFieldNumber: 4)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: responseTypeURL, fieldNumber: 4)
     }
     if responseStreaming != false {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: responseStreaming, protoFieldNumber: 5)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: responseStreaming, fieldNumber: 5)
     }
     if !options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: options, protoFieldNumber: 6)
+      try visitor.visitRepeatedMessageField(value: options, fieldNumber: 6)
     }
     if syntax != Google_Protobuf_Syntax.proto2 {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: syntax, protoFieldNumber: 7)
+      try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: syntax, fieldNumber: 7)
     }
   }
 
@@ -413,12 +413,12 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3
     }
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if name != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, protoFieldNumber: 1)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, fieldNumber: 1)
     }
     if root != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: root, protoFieldNumber: 2)
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: root, fieldNumber: 2)
     }
   }
 

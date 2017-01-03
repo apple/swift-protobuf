@@ -215,8 +215,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     }
 
-    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      unknown.traverse(visitor: &visitor)
+    public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+      unknown.traverse(visitor: visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
@@ -238,8 +238,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     }
 
-    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      unknown.traverse(visitor: &visitor)
+    public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+      unknown.traverse(visitor: visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.TypeMessage) -> Bool {
@@ -261,8 +261,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
     }
 
-    public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      unknown.traverse(visitor: &visitor)
+    public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+      unknown.traverse(visitor: visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqualMessage) -> Bool {
@@ -276,8 +276,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    unknown.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    unknown.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {

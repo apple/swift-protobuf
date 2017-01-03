@@ -29,7 +29,7 @@ public struct UnknownStorage: Equatable {
     data.append(protobufData)
   }
 
-  public func traverse(visitor: inout Visitor) {
+  public func traverse(visitor: Visitor) {
     visitor.visitUnknown(bytes: data)
   }
 }

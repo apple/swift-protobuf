@@ -30,7 +30,7 @@
 /// In particular, this has no associated types or self references so can be
 /// used as a variable or argument type.
 ///
-public protocol Message: CustomDebugStringConvertible, CustomReflectable {
+public protocol Message: CustomDebugStringConvertible {
   init()
 
   // Metadata
@@ -60,22 +60,23 @@ public protocol Message: CustomDebugStringConvertible, CustomReflectable {
   ///
   /// This is used by:
   /// = Protobuf binary serialization
-  /// = JSON serialization (with some twists to account for specialty JSON encodings)
+  /// = JSON serialization (with some twists to account for specialty JSON
+  ///   encodings)
   /// = Protouf Text serialization
   /// = hashValue computation
-  /// = mirror generation
   ///
   /// Conceptually, serializers create visitor objects that are
   /// then passed recursively to every message and field via generated
   /// 'traverse' methods.  The details get a little involved due to
   /// the need to allow particular messages to override particular
   /// behaviors for specific encodings, but the general idea is quite simple.
-  func traverse(visitor: inout Visitor) throws
+  func traverse(visitor: Visitor) throws
 
   //
   // Protobuf Binary decoding
   //
-  mutating func decodeIntoSelf(protobuf: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws
+  mutating func decodeIntoSelf(protobuf: UnsafeBufferPointer<UInt8>,
+                               extensions: ExtensionSet?) throws
 
   // Protobuf Text decoding
   init(scanner: TextScanner) throws
@@ -111,23 +112,23 @@ public protocol Message: CustomDebugStringConvertible, CustomReflectable {
   // the generated struct.
   var hashValue: Int { get }
   var debugDescription: String { get }
-  var customMirror: Mirror { get }
 }
 
 public extension Message {
-  var hashValue: Int { return HashVisitor(message: self).hashValue }
+  var hashValue: Int {
+    let visitor = HashVisitor()
+    try? traverse(visitor: visitor)
+    return visitor.hashValue
+  }
 
   var debugDescription: String {
     return DebugDescriptionVisitor(message: self).description
   }
 
-  var customMirror: Mirror {
-    return MirrorVisitor(message: self).mirror
-  }
-
-  // TODO:  Add an option to the generator to override this in particular messages.
-  // TODO:  It would be nice if this could default to "" instead; that would save ~20
-  // bytes on every serialized Any.
+  // TODO: Add an option to the generator to override this in particular
+  // messages.
+  // TODO: It would be nice if this could default to "" instead; that would save
+  // ~20 bytes on every serialized Any.
   var anyTypePrefix: String { return "type.googleapis.com" }
 
   var anyTypeURL: String {
@@ -199,7 +200,7 @@ public protocol _MessageImplementationBase: Message, Hashable, MapValueType, Fie
   mutating func _protoc_generated_decodeField(setter: inout FieldDecoder,
                                               protoFieldNumber: Int) throws
 
-  func _protoc_generated_traverse(visitor: inout Visitor) throws
+  func _protoc_generated_traverse(visitor: Visitor) throws
 
   func _protoc_generated_isEqualTo(other: Self) -> Bool
 }
@@ -210,8 +211,8 @@ public extension _MessageImplementationBase {
   }
 
   // Default implementations simply redirect to the generated versions.
-  public func traverse(visitor: inout Visitor) throws {
-    try _protoc_generated_traverse(visitor: &visitor)
+  public func traverse(visitor: Visitor) throws {
+    try _protoc_generated_traverse(visitor: visitor)
   }
 
   mutating func decodeField(setter: inout FieldDecoder,

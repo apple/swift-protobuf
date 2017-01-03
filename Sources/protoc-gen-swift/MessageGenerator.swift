@@ -190,7 +190,7 @@ class StorageClassGenerator {
 
         // traverse
         p.print("\n")
-        p.print("func traverse(visitor: inout SwiftProtobuf.Visitor) throws {\n")
+        p.print("func traverse(visitor: SwiftProtobuf.Visitor) throws {\n")
         p.indent()
         var currentOneof: Google_Protobuf_OneofDescriptorProto?
         var oneofStart = 0
@@ -199,14 +199,14 @@ class StorageClassGenerator {
         var nextRange = ranges.next()
         for f in (fields.sorted {$0.number < $1.number}) {
             while nextRange != nil && Int(nextRange!.start) < f.number {
-                p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if let c = currentOneof, let n = f.oneof, n.name == c.name {
                 oneofEnd = f.number + 1
             } else {
                 if let oneof = currentOneof {
-                    p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+                    p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
                     currentOneof = nil
                 }
                 if let newOneof = f.oneof {
@@ -219,14 +219,14 @@ class StorageClassGenerator {
             }
         }
         if let oneof = currentOneof {
-            p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+            p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
         }
         while nextRange != nil {
-            p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+            p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
             nextRange = ranges.next()
         }
         if !isProto3 {
-            p.print("unknown.traverse(visitor: &visitor)\n")
+            p.print("unknown.traverse(visitor: visitor)\n")
         }
         p.outdent()
         p.print("}\n")
@@ -569,10 +569,10 @@ class MessageGenerator {
 
         // Traversal method
         p.print("\n")
-        p.print("public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {\n")
+        p.print("public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {\n")
         p.indent()
         if storage != nil {
-            p.print("try _storage.traverse(visitor: &visitor)\n")
+            p.print("try _storage.traverse(visitor: visitor)\n")
         } else {
             var ranges = descriptor.extensionRange.makeIterator()
             var nextRange = ranges.next()
@@ -581,14 +581,14 @@ class MessageGenerator {
             var oneofEnd = 0
             for f in (fields.sorted {$0.number < $1.number}) {
                 while nextRange != nil && Int(nextRange!.start) < f.number {
-                    p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                    p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                     nextRange = ranges.next()
                 }
                 if let c = currentOneof, let n = f.oneof, n.name == c.name {
                     oneofEnd = f.number + 1
                 } else {
                     if let oneof = currentOneof {
-                        p.print("try \(oneof.swiftFieldName).traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+                        p.print("try \(oneof.swiftFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
                         currentOneof = nil
                     }
                     if let newOneof = f.oneof {
@@ -601,14 +601,14 @@ class MessageGenerator {
                 }
             }
             if let oneof = currentOneof {
-                p.print("try \(oneof.swiftFieldName).traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+                p.print("try \(oneof.swiftFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
             }
             while nextRange != nil {
-                p.print("try extensionFieldValues.traverse(visitor: &visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if !file.isProto3 {
-                p.print("unknown.traverse(visitor: &visitor)\n")
+                p.print("unknown.traverse(visitor: visitor)\n")
             }
         }
         p.outdent()

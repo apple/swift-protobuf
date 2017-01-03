@@ -13,149 +13,114 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
 import Foundation
 
-struct DebugDescriptionVisitor: Visitor {
-    var description = ""
-    private var separator = ""
+/// Visitor that generates the debug description of a message.
+///
+/// TODO: Remove this and use text format instead.
+final class DebugDescriptionVisitor: Visitor {
 
-    private let nameResolver: (Int) -> String?
+  var description = ""
+  private var separator = ""
 
-    init(message: Message) {
-        self.nameResolver =
-            ProtoNameResolvers.swiftFieldNameResolver(for: message)
-        description.append(message.swiftClassName)
-        description.append("(")
-        withAbstractVisitor {(visitor: inout Visitor) in
-            try message.traverse(visitor: &visitor)
-        }
-        description.append(")")
+  private let nameResolver: (Int) -> String?
+
+  /// Creates a new visitor that generates the debug description for the given
+  /// message.
+  init(message: Message) {
+    self.nameResolver =
+      ProtoNameResolvers.swiftFieldNameResolver(for: message)
+
+    description.append(message.swiftClassName)
+    description.append("(")
+    do {
+      try message.traverse(visitor: self)
+    } catch let e {
+      description.append("\(e)")
     }
+    description.append(")")
+  }
 
-    mutating func withAbstractVisitor(clause: (inout Visitor) throws -> ()) {
-        var visitor: Visitor = self
-        do {
-            try clause(&visitor)
-            description = (visitor as! DebugDescriptionVisitor).description
-        } catch let e {
-            description = (visitor as! DebugDescriptionVisitor).description
-            description.append("\(e)")
-        }
+  func visitUnknown(bytes: Data) {}
+
+  func visitSingularField<S: FieldType>(fieldType: S.Type,
+                                        value: S.BaseType,
+                                        fieldNumber: Int) throws {
+    let swiftFieldName = self.swiftFieldName(for: fieldNumber)
+    description.append(separator)
+    separator = ","
+    description.append(swiftFieldName + ":" + String(reflecting: value))
+  }
+
+  func visitRepeatedField<S: FieldType>(fieldType: S.Type,
+                                        value: [S.BaseType],
+                                        fieldNumber: Int) throws {
+    let swiftFieldName = self.swiftFieldName(for: fieldNumber)
+    description.append(separator)
+    description.append(swiftFieldName)
+    description.append(":[")
+    var arraySeparator = ""
+    for v in value {
+      description.append(arraySeparator)
+      arraySeparator = ","
+      description.append(String(reflecting: v))
     }
+    description.append("]")
+    separator = ","
+  }
 
-    mutating func visitUnknown(bytes: Data) {}
+  func visitSingularMessageField<M: Message>(value: M,
+                                             fieldNumber: Int) throws {
+    let swiftFieldName = self.swiftFieldName(for: fieldNumber)
+    description.append(separator)
+    description.append(swiftFieldName)
+    description.append(":")
+    let messageDescription = DebugDescriptionVisitor(message: value).description
+    description.append(messageDescription)
+    separator = ","
+  }
 
-    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        separator = ","
-        description.append(swiftFieldName + ":" + String(reflecting: value))
+  func visitRepeatedMessageField<M: Message>(value: [M],
+                                             fieldNumber: Int) throws {
+    let swiftFieldName = self.swiftFieldName(for: fieldNumber)
+    description.append(separator)
+    description.append(swiftFieldName)
+    description.append(":[")
+    var arraySeparator = ""
+    for v in value {
+      description.append(arraySeparator)
+      let messageDescription = DebugDescriptionVisitor(message: v).description
+      description.append(messageDescription)
+      arraySeparator = ","
     }
+    description.append("]")
+    separator = ","
+  }
 
-    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        description.append(swiftFieldName)
-        description.append(":[")
-        var arraySeparator = ""
-        for v in value {
-            description.append(arraySeparator)
-            arraySeparator = ","
-            description.append(String(reflecting: v))
-        }
-        description.append("]")
-        separator = ","
+  func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+    fieldType: ProtobufMap<KeyType, ValueType>.Type,
+    value: ProtobufMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    let swiftFieldName = self.swiftFieldName(for: fieldNumber)
+    description.append(separator)
+    description.append(swiftFieldName)
+    description.append(":{")
+    var mapSeparator = ""
+    for (k,v) in value {
+      description.append(mapSeparator)
+      description.append(String(reflecting: k))
+      description.append(":")
+      description.append(String(reflecting: v))
+      mapSeparator = ","
     }
+    description.append("}")
+    separator = ","
+  }
 
-    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        description.append(swiftFieldName)
-        description.append(":[")
-        var arraySeparator = ""
-        for v in value {
-            description.append(arraySeparator)
-            arraySeparator = ","
-            description.append(String(reflecting: v))
-        }
-        description.append("]")
-        separator = ","
-    }
-
-    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        description.append(swiftFieldName)
-        description.append(":")
-        let messageDescription = DebugDescriptionVisitor(message: value).description
-        description.append(messageDescription)
-        separator = ","
-    }
-
-    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        description.append(swiftFieldName)
-        description.append(":[")
-        var arraySeparator = ""
-        for v in value {
-            description.append(arraySeparator)
-            let messageDescription = DebugDescriptionVisitor(message: v).description
-            description.append(messageDescription)
-            arraySeparator = ","
-        }
-        description.append("]")
-        separator = ","
-   }
-
-
-    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        description.append(swiftFieldName)
-        description.append(":")
-        let groupDescription = DebugDescriptionVisitor(message: value).description
-        description.append(groupDescription)
-        separator = ","
-    }
-
-    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        description.append(swiftFieldName)
-        description.append(":[")
-        var arraySeparator = ""
-        for v in value {
-            description.append(arraySeparator)
-            let groupDescription = DebugDescriptionVisitor(message: v).description
-            description.append(groupDescription)
-            arraySeparator = ","
-        }
-        description.append("]")
-        separator = ","
-    }
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
-        let swiftFieldName = self.swiftFieldName(for: protoFieldNumber)
-        description.append(separator)
-        description.append(swiftFieldName)
-        description.append(":{")
-        var mapSeparator = ""
-        for (k,v) in value {
-            description.append(mapSeparator)
-            description.append(String(reflecting: k))
-            description.append(":")
-            description.append(String(reflecting: v))
-            mapSeparator = ","
-        }
-        description.append("}")
-        separator = ","
-    }
-
-    /// Helper function that stringifies the field number if the name could not
-    /// be resolved.
-    private func swiftFieldName(for number: Int) -> String {
-        return nameResolver(number) ?? String(number)
-    }
+  /// Helper function that stringifies the field number if the name could not
+  /// be resolved.
+  private func swiftFieldName(for number: Int) -> String {
+    return nameResolver(number) ?? String(number)
+  }
 }

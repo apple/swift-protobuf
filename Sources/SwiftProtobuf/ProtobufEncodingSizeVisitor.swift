@@ -15,98 +15,112 @@
 
 import Foundation
 
-/// Visitor that calculates the binary-encoded size of a message so that a properly sized `Data` or
-/// `UInt8` array can be pre-allocated before serialization.
-struct ProtobufEncodingSizeVisitor: Visitor {
+/// Visitor that calculates the binary-encoded size of a message so that a
+/// properly sized `Data` or `UInt8` array can be pre-allocated before
+/// serialization.
+final class ProtobufEncodingSizeVisitor: Visitor {
 
-    /// Accumulates the required size of the message during traversal.
-    var serializedSize: Int = 0
+  /// Accumulates the required size of the message during traversal.
+  var serializedSize: Int = 0
 
-    init(message: Message) throws {
-        try withAbstractVisitor {(visitor: inout Visitor) in
-            try message.traverse(visitor: &visitor)
-        }
+  init() {}
+
+  func visitUnknown(bytes: Data) {
+    serializedSize += bytes.count
+  }
+
+  func visitSingularField<S: FieldType>(fieldType: S.Type,
+                                        value: S.BaseType,
+                                        fieldNumber: Int) throws {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: S.protobufWireFormat).encodedSize
+    serializedSize += try tagSize + S.encodedSizeWithoutTag(of: value)
+  }
+
+  func visitRepeatedField<S: FieldType>(fieldType: S.Type,
+                                        value: [S.BaseType],
+                                        fieldNumber: Int) throws {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: S.protobufWireFormat).encodedSize
+    serializedSize += value.count * tagSize
+    for v in value {
+      serializedSize += try S.encodedSizeWithoutTag(of: v)
+    }
+  }
+
+  func visitPackedField<S: FieldType>(fieldType: S.Type,
+                                      value: [S.BaseType],
+                                      fieldNumber: Int) throws {
+    guard !value.isEmpty else {
+      return
     }
 
-    mutating func withAbstractVisitor(clause: (inout Visitor) throws ->()) throws {
-        var visitor: Visitor = self
-        try clause(&visitor)
-        serializedSize = (visitor as! ProtobufEncodingSizeVisitor).serializedSize
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: S.protobufWireFormat).encodedSize
+    var dataSize = 0
+    for v in value {
+      dataSize += try S.encodedSizeWithoutTag(of: v)
     }
+    serializedSize +=
+      tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+  }
 
-    mutating func visitUnknown(bytes: Data) {
-        serializedSize += bytes.count
+  func visitSingularMessageField<M: Message>(value: M,
+                                             fieldNumber: Int) throws {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: M.protobufWireFormat).encodedSize
+    let messageSize = try value.serializedProtobufSize()
+    serializedSize +=
+      tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
+  }
+
+  func visitRepeatedMessageField<M: Message>(value: [M],
+                                             fieldNumber: Int) throws {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: M.protobufWireFormat).encodedSize
+    serializedSize += value.count * tagSize
+    for v in value {
+      let messageSize = try v.serializedProtobufSize()
+      serializedSize +=
+        Varint.encodedSize(of: UInt64(messageSize)) + messageSize
     }
+  }
 
-    mutating func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, protoFieldNumber: Int) throws {
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: S.protobufWireFormat).encodedSize
-        serializedSize += try tagSize + S.encodedSizeWithoutTag(of: value)
+  func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
+    // The wire format doesn't matter here because the encoded size of the
+    // integer won't change based on the low three bits.
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .startGroup).encodedSize
+    serializedSize += 2 * tagSize
+    try value.traverse(visitor: self)
+  }
+
+  func visitRepeatedGroupField<G: Message>(value: [G],
+                                           fieldNumber: Int) throws {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .startGroup).encodedSize
+    serializedSize += 2 * value.count * tagSize
+    for v in value {
+      try v.traverse(visitor: self)
     }
+  }
 
-    mutating func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: S.protobufWireFormat).encodedSize
-        serializedSize += value.count * tagSize
-        for v in value {
-            serializedSize += try S.encodedSizeWithoutTag(of: v)
-        }
+  func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+    fieldType: ProtobufMap<KeyType, ValueType>.Type,
+    value: ProtobufMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .lengthDelimited).encodedSize
+    let keyTagSize = FieldTag(
+      fieldNumber: 1, wireFormat: KeyType.protobufWireFormat).encodedSize
+    let valueTagSize = FieldTag(
+      fieldNumber: 2, wireFormat: ValueType.protobufWireFormat).encodedSize
+    for (k,v) in value {
+      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
+        valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
+      serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
     }
-
-    mutating func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], protoFieldNumber: Int) throws {
-        guard !value.isEmpty else {
-            return
-        }
-
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: S.protobufWireFormat).encodedSize
-        var dataSize = 0
-        for v in value {
-            dataSize += try S.encodedSizeWithoutTag(of: v)
-        }
-        serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
-    }
-
-    mutating func visitSingularMessageField<M: Message>(value: M, protoFieldNumber: Int) throws {
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: M.protobufWireFormat).encodedSize
-        let messageSize = try value.serializedProtobufSize()
-        serializedSize += tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
-    }
-
-    mutating func visitRepeatedMessageField<M: Message>(value: [M], protoFieldNumber: Int) throws {
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: M.protobufWireFormat).encodedSize
-        serializedSize += value.count * tagSize
-        for v in value {
-            let messageSize = try v.serializedProtobufSize()
-            serializedSize += Varint.encodedSize(of: UInt64(messageSize)) + messageSize
-        }
-    }
-
-    mutating func visitSingularGroupField<G: Message>(value: G, protoFieldNumber: Int) throws {
-        // The wire format doesn't matter here because the encoded size of the integer won't change
-        // based on the low three bits.
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: .startGroup).encodedSize
-        serializedSize += 2 * tagSize
-        try withAbstractVisitor {(visitor: inout Visitor) in
-            try value.traverse(visitor: &visitor)
-        }
-    }
-
-    mutating func visitRepeatedGroupField<G: Message>(value: [G], protoFieldNumber: Int) throws {
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: .startGroup).encodedSize
-        serializedSize += 2 * value.count * tagSize
-        for v in value {
-            try withAbstractVisitor {(visitor: inout Visitor) in
-                try v.traverse(visitor: &visitor)
-            }
-        }
-    }
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, protoFieldNumber: Int) throws where KeyType.BaseType: Hashable {
-        let tagSize = FieldTag(fieldNumber: protoFieldNumber, wireFormat: .lengthDelimited).encodedSize
-        let keyTagSize = FieldTag(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat).encodedSize
-        let valueTagSize = FieldTag(fieldNumber: 2, wireFormat: ValueType.protobufWireFormat).encodedSize
-        for (k,v) in value {
-            let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) + valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
-            serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
-        }
-        serializedSize += value.count * tagSize
-    }
+    serializedSize += value.count * tagSize
+  }
 }

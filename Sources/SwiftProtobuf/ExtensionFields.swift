@@ -34,7 +34,7 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
   mutating func decodeField(setter: inout FieldDecoder) throws
 
   /// Fields know their own type, so can dispatch to a visitor
-  func traverse(visitor: inout Visitor) throws
+  func traverse(visitor: Visitor) throws
 }
 
 ///
@@ -86,12 +86,12 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     try setter.decodeSingularField(fieldType: T.self, value: &value)
   }
 
-  public func traverse(visitor: inout Visitor) throws {
+  public func traverse(visitor: Visitor) throws {
     if let v = value {
       try visitor.visitSingularField(
         fieldType: T.self,
         value: v,
-        protoFieldNumber: protobufExtension.protoFieldNumber)
+        fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
 }
@@ -137,12 +137,12 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     try setter.decodeRepeatedField(fieldType: T.self, value: &value)
   }
 
-  public func traverse(visitor: inout Visitor) throws {
+  public func traverse(visitor: Visitor) throws {
     if value.count > 0 {
       try visitor.visitRepeatedField(
         fieldType: T.self,
         value: value,
-        protoFieldNumber: protobufExtension.protoFieldNumber)
+        fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
 }
@@ -191,12 +191,12 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     try setter.decodePackedField(fieldType: T.self, value: &value)
   }
 
-  public func traverse(visitor: inout Visitor) throws {
+  public func traverse(visitor: Visitor) throws {
     if value.count > 0 {
       try visitor.visitPackedField(
         fieldType: T.self,
         value: value,
-        protoFieldNumber: protobufExtension.protoFieldNumber)
+        fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
 }
@@ -240,10 +240,10 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
     try setter.decodeSingularMessageField(fieldType: M.self, value: &value)
   }
 
-  public func traverse(visitor: inout Visitor) throws {
+  public func traverse(visitor: Visitor) throws {
     if let v = value {
       try visitor.visitSingularMessageField(
-        value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
+        value: v, fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
 }
@@ -287,10 +287,10 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
     try setter.decodeRepeatedMessageField(fieldType: M.self, value: &value)
   }
 
-  public func traverse(visitor: inout Visitor) throws {
+  public func traverse(visitor: Visitor) throws {
     if value.count > 0 {
       try visitor.visitRepeatedMessageField(
-        value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
+        value: value, fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
 }
@@ -330,10 +330,10 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
     try setter.decodeSingularGroupField(fieldType: G.self, value: &value)
   }
 
-  public func traverse(visitor: inout Visitor) throws {
+  public func traverse(visitor: Visitor) throws {
     if let v = value {
       try visitor.visitSingularGroupField(
-        value: v, protoFieldNumber: protobufExtension.protoFieldNumber)
+        value: v, fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
 }
@@ -377,10 +377,10 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
     try setter.decodeRepeatedGroupField(fieldType: G.self, value: &value)
   }
 
-  public func traverse(visitor: inout Visitor) throws {
+  public func traverse(visitor: Visitor) throws {
     if value.count > 0 {
       try visitor.visitRepeatedGroupField(
-        value: value, protoFieldNumber: protobufExtension.protoFieldNumber)
+        value: value, fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
 }

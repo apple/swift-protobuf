@@ -97,7 +97,6 @@ extension Test_AllTypes {
             ("testEncoding_oneofBytes5", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes5)}),
             ("testEncoding_oneofBytes_failures", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes_failures)}),
             ("testEncoding_oneofBytes_debugDescription", {try run_test(test:($0 as! Test_AllTypes).testEncoding_oneofBytes_debugDescription)}),
-            ("test_reflection", {try run_test(test:($0 as! Test_AllTypes).test_reflection)}),
             ("testDebugDescription", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription)}),
             ("testDebugDescription2", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription2)}),
             ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription3)}),
@@ -161,7 +160,6 @@ extension Test_AllTypes_Proto3 {
             ("testEncoding_oneofBytes5", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes5)}),
             ("testEncoding_oneofBytes_failures", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes_failures)}),
             ("testEncoding_oneofBytes_debugDescription", {try run_test(test:($0 as! Test_AllTypes_Proto3).testEncoding_oneofBytes_debugDescription)}),
-            ("test_reflection", {try run_test(test:($0 as! Test_AllTypes_Proto3).test_reflection)}),
             ("testDebugDescription", {try run_test(test:($0 as! Test_AllTypes_Proto3).testDebugDescription)}),
             ("testDebugDescription2", {try run_test(test:($0 as! Test_AllTypes_Proto3).testDebugDescription2)}),
             ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes_Proto3).testDebugDescription3)})        ]
@@ -407,7 +405,6 @@ extension Test_Extensions {
             ("test_optionalStringExtension", {try run_test(test:($0 as! Test_Extensions).test_optionalStringExtension)}),
             ("test_repeatedInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_repeatedInt32Extension)}),
             ("test_defaultInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_defaultInt32Extension)}),
-            ("test_reflection", {try run_test(test:($0 as! Test_Extensions).test_reflection)}),
             ("test_groupExtension", {try run_test(test:($0 as! Test_Extensions).test_groupExtension)}),
             ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)})        ]
     }

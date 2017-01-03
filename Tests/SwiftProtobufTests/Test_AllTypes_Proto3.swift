@@ -1381,35 +1381,6 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
     }
 
-    func test_reflection() {
-        var m = MessageTestType()
-        m.singleInt32 = 1
-        let mirror1 = Mirror(reflecting: m)
-
-        XCTAssertEqual(mirror1.children.count, 1)
-        if let (name, value) = mirror1.children.first {
-            XCTAssertEqual(name!, "singleInt32")
-            XCTAssertEqual((value as! Int32), 1)
-        }
-
-        m.repeatedInt32 = [1, 2, 3]
-        let mirror2 = Mirror(reflecting: m)
-
-        XCTAssertEqual(mirror2.children.count, 2)
-
-        for (name, value) in mirror2.children {
-            switch name! {
-            case "singleInt32":
-                XCTAssertEqual((value as! Int32), 1)
-            case "repeatedInt32":
-                XCTAssertEqual((value as! [Int32]), [1, 2, 3])
-            default:
-                let n = String(describing: name)
-                XCTFail("Unexpected child element \(n)")
-            }
-        }
-    }
-
     func testDebugDescription() {
         var m = MessageTestType()
         let d = m.debugDescription

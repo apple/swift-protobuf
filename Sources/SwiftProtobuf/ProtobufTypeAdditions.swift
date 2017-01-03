@@ -706,11 +706,14 @@ public extension Message {
         return data
     }
     private func serializeProtobuf(into pointer: UnsafeMutablePointer<UInt8>) throws {
-        _ = try ProtobufEncodingVisitor(message: self, pointer: pointer)
+        let visitor = ProtobufEncodingVisitor(forWritingInto: pointer)
+        try traverse(visitor: visitor)
     }
 
     func serializedProtobufSize() throws -> Int {
-        return try ProtobufEncodingSizeVisitor(message: self).serializedSize
+        let visitor = ProtobufEncodingSizeVisitor()
+        try traverse(visitor: visitor)
+        return visitor.serializedSize
     }
 
     static var protobufWireFormat: WireFormat { return .lengthDelimited }

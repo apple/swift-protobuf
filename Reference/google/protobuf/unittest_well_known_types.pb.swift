@@ -88,63 +88,63 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _anyField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
       if let v = _apiField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
       if let v = _durationField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
       if let v = _emptyField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
       }
       if let v = _fieldMaskField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
       if let v = _sourceContextField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
       }
       if let v = _structField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 7)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
       }
       if let v = _timestampField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 8)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
       }
       if let v = _typeField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 9)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
       }
       if let v = _doubleField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 10)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
       }
       if let v = _floatField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 11)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
       }
       if let v = _int64Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 12)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
       }
       if let v = _uint64Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 13)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
       }
       if let v = _int32Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 14)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
       }
       if let v = _uint32Field {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 15)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
       }
       if let v = _boolField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 16)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
       }
       if let v = _stringField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 17)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
       }
       if let v = _bytesField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
       }
       if let v = _valueField {
-        try visitor.visitSingularMessageField(value: v, protoFieldNumber: 19)
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
     }
 
@@ -415,8 +415,8 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
@@ -504,60 +504,60 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if !_anyField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _anyField, protoFieldNumber: 1)
+        try visitor.visitRepeatedMessageField(value: _anyField, fieldNumber: 1)
       }
       if !_apiField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _apiField, protoFieldNumber: 2)
+        try visitor.visitRepeatedMessageField(value: _apiField, fieldNumber: 2)
       }
       if !_durationField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _durationField, protoFieldNumber: 3)
+        try visitor.visitRepeatedMessageField(value: _durationField, fieldNumber: 3)
       }
       if !_emptyField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _emptyField, protoFieldNumber: 4)
+        try visitor.visitRepeatedMessageField(value: _emptyField, fieldNumber: 4)
       }
       if !_fieldMaskField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _fieldMaskField, protoFieldNumber: 5)
+        try visitor.visitRepeatedMessageField(value: _fieldMaskField, fieldNumber: 5)
       }
       if !_sourceContextField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _sourceContextField, protoFieldNumber: 6)
+        try visitor.visitRepeatedMessageField(value: _sourceContextField, fieldNumber: 6)
       }
       if !_structField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _structField, protoFieldNumber: 7)
+        try visitor.visitRepeatedMessageField(value: _structField, fieldNumber: 7)
       }
       if !_timestampField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _timestampField, protoFieldNumber: 8)
+        try visitor.visitRepeatedMessageField(value: _timestampField, fieldNumber: 8)
       }
       if !_typeField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _typeField, protoFieldNumber: 9)
+        try visitor.visitRepeatedMessageField(value: _typeField, fieldNumber: 9)
       }
       if !_doubleField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _doubleField, protoFieldNumber: 10)
+        try visitor.visitRepeatedMessageField(value: _doubleField, fieldNumber: 10)
       }
       if !_floatField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _floatField, protoFieldNumber: 11)
+        try visitor.visitRepeatedMessageField(value: _floatField, fieldNumber: 11)
       }
       if !_int64Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _int64Field, protoFieldNumber: 12)
+        try visitor.visitRepeatedMessageField(value: _int64Field, fieldNumber: 12)
       }
       if !_uint64Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _uint64Field, protoFieldNumber: 13)
+        try visitor.visitRepeatedMessageField(value: _uint64Field, fieldNumber: 13)
       }
       if !_int32Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _int32Field, protoFieldNumber: 14)
+        try visitor.visitRepeatedMessageField(value: _int32Field, fieldNumber: 14)
       }
       if !_uint32Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _uint32Field, protoFieldNumber: 15)
+        try visitor.visitRepeatedMessageField(value: _uint32Field, fieldNumber: 15)
       }
       if !_boolField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _boolField, protoFieldNumber: 16)
+        try visitor.visitRepeatedMessageField(value: _boolField, fieldNumber: 16)
       }
       if !_stringField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _stringField, protoFieldNumber: 17)
+        try visitor.visitRepeatedMessageField(value: _stringField, fieldNumber: 17)
       }
       if !_bytesField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _bytesField, protoFieldNumber: 18)
+        try visitor.visitRepeatedMessageField(value: _bytesField, fieldNumber: 18)
       }
     }
 
@@ -707,8 +707,8 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
@@ -761,8 +761,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-      try _oneofField.traverse(visitor: &visitor, start: 1, end: 19)
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
+      try _oneofField.traverse(visitor: visitor, start: 1, end: 19)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -952,79 +952,79 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    public func traverse(visitor: inout SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    public func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .anyField(let v):
         if start <= 1 && 1 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 1)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
         }
       case .apiField(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 2)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
         }
       case .durationField(let v):
         if start <= 3 && 3 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 3)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
         }
       case .emptyField(let v):
         if start <= 4 && 4 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 4)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
         }
       case .fieldMaskField(let v):
         if start <= 5 && 5 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 5)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
         }
       case .sourceContextField(let v):
         if start <= 6 && 6 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 6)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
         }
       case .structField(let v):
         if start <= 7 && 7 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 7)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
         }
       case .timestampField(let v):
         if start <= 8 && 8 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 8)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
         }
       case .typeField(let v):
         if start <= 9 && 9 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 9)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
         }
       case .doubleField(let v):
         if start <= 10 && 10 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 10)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
         }
       case .floatField(let v):
         if start <= 11 && 11 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 11)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
         }
       case .int64Field(let v):
         if start <= 12 && 12 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 12)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
         }
       case .uint64Field(let v):
         if start <= 13 && 13 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 13)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
         }
       case .int32Field(let v):
         if start <= 14 && 14 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 14)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
         }
       case .uint32Field(let v):
         if start <= 15 && 15 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 15)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
         }
       case .boolField(let v):
         if start <= 16 && 16 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 16)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
         }
       case .stringField(let v):
         if start <= 17 && 17 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 17)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
         }
       case .bytesField(let v):
         if start <= 18 && 18 < end {
-          try visitor.visitSingularMessageField(value: v, protoFieldNumber: 18)
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
         }
       case .None:
         break
@@ -1261,8 +1261,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
@@ -1352,60 +1352,60 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    func traverse(visitor: inout SwiftProtobuf.Visitor) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
       if !_anyField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, protoFieldNumber: 1)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, fieldNumber: 1)
       }
       if !_apiField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Api>.self, value: _apiField, protoFieldNumber: 2)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Api>.self, value: _apiField, fieldNumber: 2)
       }
       if !_durationField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Duration>.self, value: _durationField, protoFieldNumber: 3)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Duration>.self, value: _durationField, fieldNumber: 3)
       }
       if !_emptyField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Empty>.self, value: _emptyField, protoFieldNumber: 4)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Empty>.self, value: _emptyField, fieldNumber: 4)
       }
       if !_fieldMaskField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FieldMask>.self, value: _fieldMaskField, protoFieldNumber: 5)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FieldMask>.self, value: _fieldMaskField, fieldNumber: 5)
       }
       if !_sourceContextField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_SourceContext>.self, value: _sourceContextField, protoFieldNumber: 6)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_SourceContext>.self, value: _sourceContextField, fieldNumber: 6)
       }
       if !_structField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Struct>.self, value: _structField, protoFieldNumber: 7)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Struct>.self, value: _structField, fieldNumber: 7)
       }
       if !_timestampField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Timestamp>.self, value: _timestampField, protoFieldNumber: 8)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Timestamp>.self, value: _timestampField, fieldNumber: 8)
       }
       if !_typeField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Type>.self, value: _typeField, protoFieldNumber: 9)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Type>.self, value: _typeField, fieldNumber: 9)
       }
       if !_doubleField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: _doubleField, protoFieldNumber: 10)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: _doubleField, fieldNumber: 10)
       }
       if !_floatField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FloatValue>.self, value: _floatField, protoFieldNumber: 11)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FloatValue>.self, value: _floatField, fieldNumber: 11)
       }
       if !_int64Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int64Value>.self, value: _int64Field, protoFieldNumber: 12)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int64Value>.self, value: _int64Field, fieldNumber: 12)
       }
       if !_uint64Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: _uint64Field, protoFieldNumber: 13)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: _uint64Field, fieldNumber: 13)
       }
       if !_int32Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int32Value>.self, value: _int32Field, protoFieldNumber: 14)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int32Value>.self, value: _int32Field, fieldNumber: 14)
       }
       if !_uint32Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: _uint32Field, protoFieldNumber: 15)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: _uint32Field, fieldNumber: 15)
       }
       if !_boolField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BoolValue>.self, value: _boolField, protoFieldNumber: 16)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BoolValue>.self, value: _boolField, fieldNumber: 16)
       }
       if !_stringField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_StringValue>.self, value: _stringField, protoFieldNumber: 17)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_StringValue>.self, value: _stringField, fieldNumber: 17)
       }
       if !_bytesField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _bytesField, protoFieldNumber: 18)
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _bytesField, fieldNumber: 18)
       }
     }
 
@@ -1554,8 +1554,8 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: inout SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: &visitor)
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: ProtobufUnittest_MapWellKnownTypes) -> Bool {

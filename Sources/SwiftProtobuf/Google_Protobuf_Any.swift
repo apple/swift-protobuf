@@ -513,12 +513,12 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         return false
     }
 
-    public func _protoc_generated_traverse(visitor: inout Visitor) throws {
+    public func _protoc_generated_traverse(visitor: Visitor) throws {
         if let typeURL = typeURL {
-            try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, protoFieldNumber: 1)
+            try visitor.visitSingularField(fieldType: ProtobufString.self, value: typeURL, fieldNumber: 1)
             // Try to generate bytes for this field...
             if let value = value {
-                try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, protoFieldNumber: 2)
+                try visitor.visitSingularField(fieldType: ProtobufBytes.self, value: value, fieldNumber: 2)
             } else {
                 throw EncodingError.anyTranscodeFailure
             }
