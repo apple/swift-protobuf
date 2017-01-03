@@ -34,7 +34,7 @@ readonly script_dir="$(dirname $0)"
 
 # Change this if your checkout of github.com/google/protobuf is in a different
 # location.
-readonly GOOGLE_PROTOBUF_CHECKOUT="$script_dir/../../protobuf"
+readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"$script_dir/../../protobuf"}
 
 function usage() {
   cat >&2 <<EOF
@@ -106,10 +106,14 @@ function run_harness_and_concatenate_results() {
     "$language": {
 EOF
 
+  echo "Running $language test harness alone..."
+  sleep 3
+  DYLD_LIBRARY_PATH="$script_dir/_generated" "$harness" "$partial_results"
+  sleep 3
+
   echo "Running $language test harness in Instruments..."
   instruments -t "$script_dir/Protobuf" -D "$results_trace" \
-      "$harness" -e DYLD_LIBRARY_PATH "$script_dir/_generated" \
-      "$partial_results"
+      "$harness" -e DYLD_LIBRARY_PATH "$script_dir/_generated"
 
   cp "$harness" "${harness}_stripped"
   strip -u -r "${harness}_stripped"
