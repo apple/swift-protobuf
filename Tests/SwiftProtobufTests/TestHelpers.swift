@@ -64,8 +64,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             } catch let e {
                 XCTFail("Failed to encode: \(e)\n    \(decoded)", file: file, line: line)
             }
-        } catch {
-            XCTFail("Failed to decode", file: file, line: line)
+        } catch let e {
+            XCTFail("Failed to decode: \(e)", file: file, line: line)
         }
     }
 
