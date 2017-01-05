@@ -102,25 +102,16 @@
 
   // Populates a multiplier cell with the ratio between the given two values
   // and sets its background color depending on the magnitude.
-  function populateMultiplierCell(cell, language, swiftValue, otherValue) {
-    if (language != 'Swift') {
-      var multiplier = swiftValue / otherValue;
-
-      if (multiplier < 1) {
-        cell.text('(<1x)');
-      } else {
-        cell.text('(' + multiplier.toFixed(0) + 'x)');
-      }
-
-      if (multiplier < 3) {
-        cssClass = 'bg-success';
+    function decorateMultiplierCell(cell, multiplier) {
+      if (multiplier == 1) {
+          cell.addClass('bg-success');
+      } else if (multiplier < 3) {
+//        cssClass = 'bg-success';
       } else if (multiplier < 10) {
-        cssClass = 'bg-warning';
+        cell.addClass('bg-warning');
       } else {
-        cssClass = 'bg-danger';
+        cell.addClass('bg-danger');
       }
-      cell.addClass(cssClass);
-    }
   }
 
   // Creates and returns the summary table displayed next to the chart for a
@@ -135,6 +126,7 @@
     for (var j = 0; j < languages.length; j++) {
       header.append($('<th></th>').text(languages[j]));
       header.append($('<th></th>'));
+      header.append($('<th></th>'));
     }
 
     for (var i = 0; i < benchmarks.length; i++) {
@@ -143,19 +135,38 @@
       table.append(tr);
       tr.append($('<td></td>').text(benchmark));
 
+      // Compute the median time for each language,
+      // Track which language was the fastest
+      var timings = [];
+      var bestLanguage = 0;
       for (var j = 0; j < languages.length; j++) {
         var language = languages[j];
-
-        var timings = session[language][benchmark];
-        if (timings) {
-          var med = median(timings);
-          var formattedMedian = med.toFixed(3) + '&nbsp;ms';
-          tr.append($('<td></td>').html(formattedMedian));
-
-          var multiplierCell = $('<td></td>').appendTo(tr);
-          var swiftMed = median(session['Swift'][benchmark]);
-          populateMultiplierCell(multiplierCell, language, swiftMed, med);
+        var languageTimings = session[language][benchmark];
+        if (languageTimings) {
+          var med = median(languageTimings);
+          timings.push(med);
+          if (med < timings[bestLanguage]) {
+            bestLanguage = j;
+          }
         }
+      }
+
+      // Insert the per-language timings into the table
+      var bestValue = timings[bestLanguage];
+      for (var j = 0; j < languages.length; j++) {
+        var language = languages[j];
+        var med = timings[j];
+        var formattedMedian = med.toFixed(3) + '&nbsp;ms';
+        var valueCell = $('<td></td>').html(formattedMedian).appendTo(tr);
+        var multiplier = med / bestValue;
+        decorateMultiplierCell(valueCell, multiplier);
+
+        var multiplierCell = $('<td></td>').appendTo(tr);
+        if (j != bestLanguage) {
+            multiplierCell.text('(' + multiplier.toFixed(1) + 'x)');
+        }
+        decorateMultiplierCell(multiplierCell, multiplier);
+        tr.append($('<td></td>'));
       }
     }
 
@@ -163,6 +174,7 @@
     header = $('<tr></tr>').appendTo(table);
     header.append($('<th>Harness size</th>'));
     for (var j = 0; j < languages.length; j++) {
+      header.append($('<th></th>'));
       header.append($('<th></th>'));
       header.append($('<th></th>'));
     }
@@ -173,26 +185,42 @@
       table.append(tr);
       tr.append($('<td></td>').text(harnessSizeKey));
 
+      var bestLanguage = 0;
+      var sizes = [];
       for (var j = 0; j < languages.length; j++) {
         var language = languages[j];
+          var size = session[language].harnessSize[harnessSizeKey];
+          sizes.push(size);
+          if (size < sizes[bestLanguage]) {
+              bestLanguage = j;
+          }
+      }
 
-        var size = session[language].harnessSize[harnessSizeKey];
+      for (var j = 0; j < languages.length; j++) {
+        var size = sizes[j];
+        var multiplier = size / sizes[bestLanguage];
         var formattedSize = size.toLocaleString() + '&nbsp;b';
-        tr.append($('<td></td>').html(formattedSize));
+        var valueCell = $('<td></td>').html(formattedSize).appendTo(tr);
+        decorateMultiplierCell(valueCell, multiplier);
 
         var multiplierCell = $('<td></td>').appendTo(tr);
-        var swiftSize = session['Swift'].harnessSize[harnessSizeKey];
-        populateMultiplierCell(multiplierCell, language, swiftSize, size);
+        if (j != bestLanguage) {
+            multiplierCell.text('(' + multiplier.toFixed(1) + 'x)');
+        }
+        decorateMultiplierCell(multiplierCell, multiplier);
+        tr.append($('<td></td>'));
       }
     }
 
     var tfoot = $('<tfoot></tfoot>').appendTo(table);
     var footerRow = $('<tr></tr>').appendTo(tfoot);
-    var colspan = 2 * languages.length + 1;
+    var colspan = 3 * languages.length + 1;
     var footerCell =
         $('<td colspan="' + colspan + '"></td>').appendTo(footerRow);
-    footerCell.text('Multipliers indicate how much slower/larger the Swift ' +
-        'harness is compared to the other language.');
+      footerCell.text('Green highlights the best result for each test. ' +
+                      'Multipliers indicate how much worse ' +
+                      '(slower/larger) a particular result is ' +
+                      'compared to the best result.');
 
     return table;
   }
