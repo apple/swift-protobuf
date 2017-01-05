@@ -40,13 +40,11 @@ extension ProtobufFieldDecoder {
 
 private struct FieldWireTypeVarint: ProtobufFieldDecoder {
     let varint: UInt64
-    let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
     var consumed = false
 
-    init(varint: UInt64, unknown: UnsafeBufferPointer<UInt8>, scanner: ProtobufScanner) {
+    init(varint: UInt64, scanner: ProtobufScanner) {
         self.varint = varint
-        self.unknown = unknown
         self.scanner = scanner
     }
 
@@ -63,19 +61,22 @@ private struct FieldWireTypeVarint: ProtobufFieldDecoder {
     }
 
     mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
-        return consumed ? nil : Data(buffer: unknown)
+        if consumed {
+            return nil
+        } else {
+            let raw = try scanner.getRawField()
+            return Data(buffer: raw)
+        }
     }
 }
 
 private struct FieldWireTypeFixed64: ProtobufFieldDecoder {
     let fixed8: [UInt8]
-    let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
     var consumed = false
 
-    init(fixed8: [UInt8], unknown: UnsafeBufferPointer<UInt8>, scanner: ProtobufScanner) {
+    init(fixed8: [UInt8], scanner: ProtobufScanner) {
         self.fixed8 = fixed8
-        self.unknown = unknown
         self.scanner = scanner
     }
 
@@ -95,20 +96,23 @@ private struct FieldWireTypeFixed64: ProtobufFieldDecoder {
     }
 
     mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
-        return consumed ? nil : Data(buffer: unknown)
+        if consumed {
+            return nil
+        } else {
+            let raw = try scanner.getRawField()
+            return Data(buffer: raw)
+        }
     }
 }
 
 private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
     let buffer: UnsafeBufferPointer<UInt8>
-    let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
     var consumed = false
     var unknownOverride: Data?
 
-    init(buffer: UnsafeBufferPointer<UInt8>, unknown: UnsafeBufferPointer<UInt8>, scanner: ProtobufScanner) {
+    init(buffer: UnsafeBufferPointer<UInt8>, scanner: ProtobufScanner) {
         self.buffer = buffer
-        self.unknown = unknown
         self.scanner = scanner
     }
 
@@ -184,7 +188,8 @@ private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
             }
             return data
         } else if !consumed {
-            return Data(buffer: unknown)
+            let raw = try scanner.getRawField()
+            return Data(buffer: raw)
         } else {
             return nil
         }
@@ -224,13 +229,11 @@ private struct FieldWireTypeStartGroup: ProtobufFieldDecoder {
 
 private struct FieldWireTypeFixed32: ProtobufFieldDecoder {
     let fixed4: [UInt8]
-    let unknown: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
     var consumed = false
 
-    init(fixed4: [UInt8], unknown: UnsafeBufferPointer<UInt8>, scanner: ProtobufScanner) {
+    init(fixed4: [UInt8], scanner: ProtobufScanner) {
         self.fixed4 = fixed4
-        self.unknown = unknown
         self.scanner = scanner
     }
 
@@ -251,7 +254,12 @@ private struct FieldWireTypeFixed32: ProtobufFieldDecoder {
     }
 
     mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
-        return consumed ? nil : Data(buffer: unknown)
+        if consumed {
+            return nil
+        } else {
+            let raw = try scanner.getRawField()
+            return Data(buffer: raw)
+        }
     }
 }
 
@@ -325,24 +333,20 @@ public struct ProtobufDecoder {
         switch scanner.fieldWireFormat {
         case .varint:
             let value = try getVarint()
-            let raw = try scanner.getRawField()
-            return FieldWireTypeVarint(varint: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeVarint(varint: value, scanner: scanner)
         case .fixed64:
             let value = try getFixed8()
-            let raw = try scanner.getRawField()
-            return FieldWireTypeFixed64(fixed8: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeFixed64(fixed8: value, scanner: scanner)
         case .lengthDelimited:
             let value = try getBytesRef()
-            let raw = try scanner.getRawField()
-            return FieldWireTypeLengthDelimited(buffer: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeLengthDelimited(buffer: value, scanner: scanner)
         case .startGroup:
             return FieldWireTypeStartGroup(scanner: scanner, protoFieldNumber: fieldNumber)
         case .endGroup:
             throw DecodingError.malformedProtobuf
         case .fixed32:
             let value = try getFixed4()
-            let raw = try scanner.getRawField()
-            return FieldWireTypeFixed32(fixed4: value, unknown: raw, scanner: scanner)
+            return FieldWireTypeFixed32(fixed4: value, scanner: scanner)
         }
     }
 
