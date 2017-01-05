@@ -30,7 +30,10 @@
 
 set -eu
 
-readonly script_dir="$(dirname $0)"
+cd "$(dirname $0)"
+
+# Directory containing this script
+readonly script_dir="."
 
 # Change this if your checkout of github.com/google/protobuf is in a different
 # location.
@@ -211,7 +214,6 @@ fi
 # Iterate over the requested field types and run the harnesses.
 for field_type in "${requested_field_types[@]}"; do
   gen_message_path="$script_dir/_generated/message.proto"
-  results_trace="$script_dir/_results/$field_count fields of $field_type"
 
   echo "Generating test proto with $field_count fields of type $field_type..."
   generate_test_proto "$field_count" "$field_type"
@@ -233,9 +235,12 @@ for field_type in "${requested_field_types[@]}"; do
 EOF
 
   harness_swift="$script_dir/_generated/harness_swift"
+  results_trace="$script_dir/_results/$field_count fields of $field_type (swift)"
+  display_results_trace="$results_trace"
   run_swift_harness "$harness_swift"
 
   harness_cpp="$script_dir/_generated/harness_cpp"
+  results_trace="$script_dir/_results/$field_count fields of $field_type (cpp)"
   run_cpp_harness "$harness_cpp"
 
   # Close out the session.
@@ -245,7 +250,7 @@ EOF
 
   insert_visualization_results "$partial_results" "$results_js"
 
-  open -g "$results_trace.trace"
+  open -g "$display_results_trace.trace"
 done
 
 # Open the HTML once at the end.
