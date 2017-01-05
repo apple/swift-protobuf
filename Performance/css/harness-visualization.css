@@ -16,6 +16,7 @@ table.numeric td {
 
 table.numeric th {
   background-color: #eee;
+  text-align: right;
 }
 
 table.numeric tfoot td {
