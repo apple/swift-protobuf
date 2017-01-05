@@ -309,8 +309,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 target = M()
             } else {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                    let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
-                    var protobufDecoder = ProtobufDecoder(protobufPointer: bp)
+                    var protobufDecoder = ProtobufDecoder(protobufPointer: p, count: protobuf.count)
                     try protobufDecoder.decodeFullObject(message: &target)
                 }
             }

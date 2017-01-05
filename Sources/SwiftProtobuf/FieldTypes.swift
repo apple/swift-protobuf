@@ -47,18 +47,14 @@ public protocol FieldType {
     /// Write the protobuf-encoded value to the encoder
     static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: BaseType)
 
+    /// Set the variable from a protobuf scanner
+    static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool
+    /// Set the variable from a protobuf scanner
+    static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool
     /// Set the variable from a decoded varint value
     static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool
     /// Update the array from a decoded varint value
     static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool
-    /// Set the variable from a decoded 4-byte value
-    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws
-    /// Update the array from a decoded 4-byte value
-    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws
-    /// Set the variable from a decoded 8-byte value
-    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws
-    /// Update the array from a decoded 4-byte value
-    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws
     /// Set the variable from a block of bytes
     static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws
     // Special variant used when decoding packed enum fields.
@@ -94,7 +90,7 @@ public protocol MapKeyType: FieldType {
     //
     // Protobuf does not treat map keys specially
     //
-    
+
     //
     // Protobuf Text does not treat map keys specially
     //

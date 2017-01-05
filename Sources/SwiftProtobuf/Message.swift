@@ -75,7 +75,8 @@ public protocol Message: CustomDebugStringConvertible {
   //
   // Protobuf Binary decoding
   //
-  mutating func decodeIntoSelf(protobuf: UnsafeBufferPointer<UInt8>,
+  mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>,
+                               count: Int,
                                extensions: ExtensionSet?) throws
 
   // Protobuf Text decoding
