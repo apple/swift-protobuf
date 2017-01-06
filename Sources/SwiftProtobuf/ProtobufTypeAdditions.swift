@@ -27,14 +27,6 @@ public extension FieldType {
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
         throw DecodingError.schemaMismatch
     }
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
-        throw DecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        throw DecodingError.schemaMismatch
-    }
-
     public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws {
         throw DecodingError.schemaMismatch
     }
@@ -147,12 +139,20 @@ extension ProtobufInt32: ProtobufMapValueType {
         encoder.putVarInt(value: Int64(value))
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value = Int32(truncatingBitPattern: varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value.append(Int32(truncatingBitPattern: varint))
         return true
     }
@@ -179,12 +179,20 @@ extension ProtobufInt64: ProtobufMapValueType {
         encoder.putVarInt(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value = Int64(bitPattern: varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value.append(Int64(bitPattern: varint))
         return true
     }
@@ -211,12 +219,20 @@ extension ProtobufUInt32: ProtobufMapValueType {
         encoder.putVarInt(value: UInt64(value))
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value = UInt32(truncatingBitPattern: varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value.append(UInt32(truncatingBitPattern: varint))
         return true
     }
@@ -243,12 +259,19 @@ extension ProtobufUInt64: ProtobufMapValueType {
         encoder.putVarInt(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
-        value = varint
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        value = try scanner.decodeVarint()
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value.append(varint)
         return true
     }
@@ -275,13 +298,21 @@ extension ProtobufSInt32: ProtobufMapValueType {
         encoder.putZigZagVarInt(value: Int64(value))
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         let t = UInt32(truncatingBitPattern: varint)
         value = ZigZag.decoded(t)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         let t = UInt32(truncatingBitPattern: varint)
         value.append(ZigZag.decoded(t))
         return true
@@ -309,12 +340,21 @@ extension ProtobufSInt64: ProtobufMapValueType {
         encoder.putZigZagVarInt(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value = ZigZag.decoded(varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value.append(ZigZag.decoded(varint))
         return true
     }
@@ -505,12 +545,21 @@ extension ProtobufBool: ProtobufMapValueType {
         encoder.putBoolValue(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value = (varint != 0)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         value.append(varint != 0)
         return true
     }
@@ -610,7 +659,11 @@ extension Enum where RawValue == Int {
         encoder.putVarInt(value: value.rawValue)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout Self?) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout Self?) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
             value = v
             return true
@@ -619,7 +672,11 @@ extension Enum where RawValue == Int {
         }
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [Self]) throws -> Bool {
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [Self]) throws -> Bool {
+        guard scanner.fieldWireFormat == .varint else {
+            throw DecodingError.schemaMismatch
+        }
+        let varint = try scanner.decodeVarint()
         if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
             value.append(v)
             return true
