@@ -753,19 +753,25 @@ extension Enum where RawValue == Int {
                     extras.append(t)
                 }
             }
-            if !extras.isEmpty {
-                var dataSize = 0
+            if extras.isEmpty {
+                scanner.unknownOverride = nil
+            } else {
+                let fieldTag = FieldTag(fieldNumber: scanner.fieldNumber, wireFormat: .lengthDelimited)
+                var bodySize = 0
                 for v in extras {
-                    dataSize += Varint.encodedSize(of: Int64(v))
+                    bodySize += Varint.encodedSize(of: Int64(v))
                 }
-                var data = Data(count: dataSize)
-                data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
+                let fieldSize = Varint.encodedSize(of: fieldTag.rawValue) + Varint.encodedSize(of: Int64(bodySize)) + bodySize
+                var field = Data(count: fieldSize)
+                field.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
                     var encoder = ProtobufEncoder(pointer: pointer)
+                    encoder.startField(tag: fieldTag)
+                    encoder.putVarInt(value: Int64(bodySize))
                     for v in extras {
                         encoder.putVarInt(value: Int64(v))
                     }
                 }
-                scanner.unknownPushback = data
+                scanner.unknownOverride = field
             }
             return true
         default:

@@ -21,12 +21,42 @@
 import Swift
 import Foundation
 
-private protocol ProtobufFieldDecoder: FieldDecoder {
-    var scanner: ProtobufScanner {get}
-    var consumed: Bool {get set}
-}
+private struct ProtobufFieldDecoder: FieldDecoder {
+    let scanner: ProtobufScanner
+    var consumed = false
+    // Used only by packed repeated enums; see below
+    var unknownOverride: Data?
 
-extension ProtobufFieldDecoder {
+    init(scanner: ProtobufScanner) {
+        self.scanner = scanner
+    }
+
+    mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
+        if let override = unknownOverride {
+            return override
+        } else if !consumed {
+            return try scanner.getRawField()
+        } else {
+            return nil
+        }
+    }
+
+    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
+        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
+    }
+
+    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
+        // If `S` is Enum and the data was packed on the wire (regardless of
+        // whether the schema prefers packed format), then the Enum may
+        // have synthesized a new field to carry the unknown values.
+        unknownOverride = scanner.unknownOverride
+    }
+
+    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+        try decodeRepeatedField(fieldType: fieldType, value: &value)
+    }
+
     mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, protoFieldNumber] {
             var mutableSetter: FieldDecoder = self
@@ -36,57 +66,11 @@ extension ProtobufFieldDecoder {
             self.consumed = (mutableSetter as! ProtobufFieldDecoder).consumed
         }
     }
-}
-
-private struct NumericFieldDecoder: ProtobufFieldDecoder {
-    let scanner: ProtobufScanner
-    var consumed = false
-
-    init(scanner: ProtobufScanner) {
-        self.scanner = scanner
-    }
-
-    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
-    }
-
-    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
-    }
-
-    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
-    mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
-        return consumed ? nil : try scanner.getRawField()
-    }
-}
-
-private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
-    let scanner: ProtobufScanner
-    var consumed = false
-    var unknownOverride: Data?
-
-    init(scanner: ProtobufScanner) {
-        self.scanner = scanner
-    }
-
-    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
-    }
-
-    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        scanner.unknownPushback = nil
-        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
-        unknownOverride = scanner.unknownPushback
-    }
-
-    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
 
     mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
+        guard scanner.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
+        }
         if value == nil {
             value = M()
         }
@@ -97,6 +81,9 @@ private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
     }
 
     mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
+        guard scanner.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
+        }
         var count: Int = 0
         let p = try scanner.getFieldBodyBytes(count: &count)
         var newValue = M()
@@ -129,39 +116,10 @@ private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
         }
     }
 
-    mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
-        if let override = unknownOverride {
-            let fieldTag = FieldTag(fieldNumber: protoFieldNumber, wireFormat: .lengthDelimited)
-            let dataSize = Varint.encodedSize(of: fieldTag.rawValue) + Varint.encodedSize(of: Int64(override.count)) + override.count
-            var data = Data(count: dataSize)
-            data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) -> () in
-                var encoder = ProtobufEncoder(pointer: pointer)
-                encoder.startField(tag: fieldTag)
-                encoder.putBytesValue(value: override)
-            }
-            return data
-        } else if !consumed {
-            return try scanner.getRawField()
-        } else {
-            return nil
-        }
-    }
-}
-
-private struct FieldWireTypeStartGroup: ProtobufFieldDecoder {
-    let scanner: ProtobufScanner
-    let protoFieldNumber: Int
-    var consumed = false
-
-    init(scanner: ProtobufScanner, protoFieldNumber: Int) {
-        self.scanner = scanner
-        self.protoFieldNumber = protoFieldNumber
-    }
-
     mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
         var group = value ?? G()
         var decoder = ProtobufDecoder(scanner: scanner)
-        try decoder.decodeFullGroup(group: &group, protoFieldNumber: protoFieldNumber)
+        try decoder.decodeFullGroup(group: &group, protoFieldNumber: scanner.fieldNumber)
         value = group
         consumed = true
     }
@@ -169,13 +127,9 @@ private struct FieldWireTypeStartGroup: ProtobufFieldDecoder {
     mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
         var group = G()
         var decoder = ProtobufDecoder(scanner: scanner)
-        try decoder.decodeFullGroup(group: &group, protoFieldNumber: protoFieldNumber)
+        try decoder.decodeFullGroup(group: &group, protoFieldNumber: scanner.fieldNumber)
         value.append(group)
         consumed = true
-    }
-
-    mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
-        return consumed ? nil : try scanner.getRawField()
     }
 }
 
@@ -211,8 +165,11 @@ public struct ProtobufDecoder {
 
     mutating func decodeFullObject(decodeField: (inout FieldDecoder, Int) throws -> ()) throws {
         while let tag = try scanner.getTag() {
+            if tag.wireFormat == .endGroup {
+                throw DecodingError.malformedProtobuf
+            }
             let protoFieldNumber = tag.fieldNumber
-            var fieldDecoder = try decoder(forFieldNumber: protoFieldNumber, scanner: scanner)
+            var fieldDecoder: FieldDecoder = ProtobufFieldDecoder(scanner: scanner)
             try decodeField(&fieldDecoder, protoFieldNumber)
             if let unknownBytes = try fieldDecoder.asProtobufUnknown(protoFieldNumber: protoFieldNumber) {
                 unknownData.append(unknownBytes)
@@ -232,31 +189,18 @@ public struct ProtobufDecoder {
     mutating func decodeFullGroup<G: Message>(group: inout G, protoFieldNumber: Int) throws {
         guard scanner.fieldWireFormat == .startGroup else {throw DecodingError.malformedProtobuf}
         while let tag = try scanner.getTag() {
-            if tag.fieldNumber == protoFieldNumber {
-                if tag.wireFormat == .endGroup {
+            if tag.wireFormat == .endGroup {
+                if tag.fieldNumber == protoFieldNumber {
                     return
                 }
-                break // Fail and exit
+                throw DecodingError.malformedProtobuf
             }
-            var fieldDecoder = try decoder(forFieldNumber: tag.fieldNumber, scanner: scanner)
+            var fieldDecoder: FieldDecoder = ProtobufFieldDecoder(scanner: scanner)
             // Proto2 groups always consume fields or throw errors, so we can ignore return here
             let _ = try group.decodeField(setter: &fieldDecoder, protoFieldNumber: tag.fieldNumber)
             try scanner.skip()
         }
         throw DecodingError.truncatedInput
-    }
-
-    private mutating func decoder(forFieldNumber fieldNumber: Int, scanner: ProtobufScanner) throws -> FieldDecoder {
-        switch scanner.fieldWireFormat {
-        case .varint, .fixed64, .fixed32:
-            return NumericFieldDecoder(scanner: scanner)
-        case .lengthDelimited:
-            return FieldWireTypeLengthDelimited(scanner: scanner)
-        case .startGroup:
-            return FieldWireTypeStartGroup(scanner: scanner, protoFieldNumber: fieldNumber)
-        case .endGroup:
-            throw DecodingError.malformedProtobuf
-        }
     }
 
     // Marks failure if no or broken varint but returns zero
@@ -443,10 +387,12 @@ public class ProtobufScanner {
     private var fieldStartAvailable : Int
     // Wire format for last-examined field
     private(set) var fieldWireFormat: WireFormat = .varint
+    // Field number for last-parsed field tag
+    private(set) var fieldNumber: Int = 0
     // Collection of extension fields for this decode
     fileprivate var extensions: ExtensionSet?
     // Holder for Enum fields to push back unknown values:
-    internal var unknownPushback: Data?
+    internal var unknownOverride: Data?
 
     internal init(protobufPointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet? = nil) {
         // Assuming baseAddress is not nil.
@@ -582,6 +528,7 @@ public class ProtobufScanner {
                     throw DecodingError.malformedProtobuf
                 }
                 fieldWireFormat = tag.wireFormat
+                fieldNumber = tag.fieldNumber
                 return tag
             } else {
                 throw DecodingError.malformedProtobuf
