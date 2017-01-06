@@ -55,7 +55,7 @@ private struct NumericFieldDecoder: ProtobufFieldDecoder {
     }
 
     mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
+        try decodeRepeatedField(fieldType: fieldType, value: &value)
     }
 
     mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
@@ -64,50 +64,43 @@ private struct NumericFieldDecoder: ProtobufFieldDecoder {
 }
 
 private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
-    let buffer: UnsafeBufferPointer<UInt8>
     let scanner: ProtobufScanner
     var consumed = false
     var unknownOverride: Data?
 
-    init(buffer: UnsafeBufferPointer<UInt8>, scanner: ProtobufScanner) {
-        self.buffer = buffer
+    init(scanner: ProtobufScanner) {
         self.scanner = scanner
     }
 
     mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-        try S.setFromProtobufBuffer(buffer: buffer, value: &value)
-        consumed = true
+        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
     }
 
     mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        var unknownData = Data()
-        try S.setFromProtobufBuffer(buffer: buffer, value: &value, unknown: &unknownData)
-        consumed = true
-        if !unknownData.isEmpty {
-            unknownOverride = unknownData
-        }
+        scanner.unknownPushback = nil
+        consumed = try S.setFromProtobuf(scanner: scanner, value: &value)
+        unknownOverride = scanner.unknownPushback
     }
 
     mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        var unknownData = Data()
-        try S.setFromProtobufBuffer(buffer: buffer, value: &value, unknown: &unknownData)
-        consumed = true
-        if !unknownData.isEmpty {
-            unknownOverride = unknownData
-        }
+        try decodeRepeatedField(fieldType: fieldType, value: &value)
     }
 
     mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
         if value == nil {
             value = M()
         }
-        try value!.decodeIntoSelf(protobufBytes: buffer.baseAddress!, count: buffer.count, extensions: scanner.extensions)
+        var count: Int = 0
+        let p = try scanner.getFieldBodyBytes(count: &count)
+        try value!.decodeIntoSelf(protobufBytes: p, count: count, extensions: scanner.extensions)
         consumed = true
     }
 
     mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
+        var count: Int = 0
+        let p = try scanner.getFieldBodyBytes(count: &count)
         var newValue = M()
-        try newValue.decodeIntoSelf(protobufBytes: buffer.baseAddress!, count: buffer.count, extensions: scanner.extensions)
+        try newValue.decodeIntoSelf(protobufBytes: p, count: count, extensions: scanner.extensions)
         value.append(newValue)
         consumed = true
     }
@@ -115,7 +108,9 @@ private struct FieldWireTypeLengthDelimited: ProtobufFieldDecoder {
     mutating func decodeMapField<KeyType: FieldType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType: MapKeyType, KeyType.BaseType: Hashable {
         var k: KeyType.BaseType?
         var v: ValueType.BaseType?
-        var subdecoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count, extensions: scanner.extensions)
+        var count: Int = 0
+        let p = try scanner.getFieldBodyBytes(count: &count)
+        var subdecoder = ProtobufDecoder(protobufPointer: p, count: count, extensions: scanner.extensions)
         try subdecoder.decodeFullObject {(decoder: inout FieldDecoder, protoFieldNumber: Int) throws in
             switch protoFieldNumber {
             case 1:
@@ -256,8 +251,7 @@ public struct ProtobufDecoder {
         case .varint, .fixed64, .fixed32:
             return NumericFieldDecoder(scanner: scanner)
         case .lengthDelimited:
-            let value = try getBytesRef()
-            return FieldWireTypeLengthDelimited(buffer: value, scanner: scanner)
+            return FieldWireTypeLengthDelimited(scanner: scanner)
         case .startGroup:
             return FieldWireTypeStartGroup(scanner: scanner, protoFieldNumber: fieldNumber)
         case .endGroup:
@@ -360,7 +354,8 @@ public struct ProtobufDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeSInt32() throws -> Int32? {
         if let t = try scanner.getRawVarint() {
-            return unZigZag32(zigZag: t)
+            let n = UInt32(truncatingBitPattern: t)
+            return ZigZag.decoded(n)
         } else {
             return nil
         }
@@ -369,7 +364,7 @@ public struct ProtobufDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeSInt64() throws -> Int64? {
         if let t = try scanner.getRawVarint() {
-            return unZigZag64(zigZag: t)
+            return ZigZag.decoded(t)
         } else {
             return nil
         }
@@ -433,32 +428,6 @@ public struct ProtobufDecoder {
             return nil
         }
     }
-
-    // Throws on broken data or premature end-of-input
-    mutating func decodeBytes() throws -> [UInt8]? {
-        return [UInt8](try getBytesRef())
-    }
-
-    mutating func getBytesRef() throws -> UnsafeBufferPointer<UInt8> {
-        if let length = try scanner.getRawVarint(), length <= UInt64(scanner.available) {
-            let n = Int(length)
-            let bp = UnsafeBufferPointer<UInt8>(start: scanner.p, count: n)
-            scanner.consume(length: n)
-            return bp
-        }
-        throw DecodingError.truncatedInput
-    }
-
-    // Convert a 64-bit value from zigzag coding.
-    fileprivate func unZigZag64(zigZag: UIntMax) -> Int64 {
-        return ZigZag.decoded(zigZag)
-    }
-
-    // Convert a 32-bit value from zigzag coding.
-    fileprivate func unZigZag32(zigZag: UIntMax) -> Int32 {
-        let t = UInt32(truncatingBitPattern: zigZag)
-        return ZigZag.decoded(t)
-    }
 }
 
 public class ProtobufScanner {
@@ -476,6 +445,8 @@ public class ProtobufScanner {
     private(set) var fieldWireFormat: WireFormat = .varint
     // Collection of extension fields for this decode
     fileprivate var extensions: ExtensionSet?
+    // Holder for Enum fields to push back unknown values:
+    internal var unknownPushback: Data?
 
     internal init(protobufPointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet? = nil) {
         // Assuming baseAddress is not nil.
@@ -650,5 +621,15 @@ public class ProtobufScanner {
             dest.initialize(from: src, count: 8)
         }
         consume(length: 8)
+    }
+
+    func getFieldBodyBytes(count: inout Int) throws -> UnsafePointer<UInt8> {
+        if let length = try getRawVarint(), length <= UInt64(available) {
+            count = Int(length)
+            let body = p
+            consume(length: count)
+            return body
+        }
+        throw DecodingError.truncatedInput
     }
 }

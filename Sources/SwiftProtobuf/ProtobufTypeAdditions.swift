@@ -27,13 +27,6 @@ public extension FieldType {
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
         throw DecodingError.schemaMismatch
     }
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        throw DecodingError.schemaMismatch
-    }
 }
 
 protocol ProtobufMapValueType: MapValueType {
@@ -66,19 +59,22 @@ extension ProtobufFloat: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .fixed32 else {
+        switch scanner.fieldWireFormat {
+        case .fixed32:
+            var i: Float = 0
+            try scanner.decodeFourByteNumber(value: &i)
+            value.append(i)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeFloat() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        var i: Float = 0
-        try scanner.decodeFourByteNumber(value: &i)
-        value.append(i)
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeFloat() {
-            value.append(t)
         }
     }
 
@@ -108,19 +104,22 @@ extension ProtobufDouble: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .fixed64 else {
+        switch scanner.fieldWireFormat {
+        case .fixed64:
+            var i: Double = 0
+            try scanner.decodeEightByteNumber(value: &i)
+            value.append(i)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeDouble() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        var i: Double = 0
-        try scanner.decodeEightByteNumber(value: &i)
-        value.append(i)
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeDouble() {
-            value.append(t)
         }
     }
 
@@ -149,18 +148,21 @@ extension ProtobufInt32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            value.append(Int32(truncatingBitPattern: varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeInt32() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        value.append(Int32(truncatingBitPattern: varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeInt32() {
-            value.append(t)
         }
     }
 
@@ -189,18 +191,21 @@ extension ProtobufInt64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            value.append(Int64(bitPattern: varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeInt64() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        value.append(Int64(bitPattern: varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeInt64() {
-            value.append(t)
         }
     }
 
@@ -229,18 +234,21 @@ extension ProtobufUInt32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            value.append(UInt32(truncatingBitPattern: varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeUInt32() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        value.append(UInt32(truncatingBitPattern: varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeUInt32() {
-            value.append(t)
         }
     }
 
@@ -268,18 +276,21 @@ extension ProtobufUInt64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            value.append(varint)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeUInt64() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        value.append(varint)
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeUInt64() {
-            value.append(t)
         }
     }
 
@@ -309,19 +320,22 @@ extension ProtobufSInt32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            let t = UInt32(truncatingBitPattern: varint)
+            value.append(ZigZag.decoded(t))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeSInt32() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        let t = UInt32(truncatingBitPattern: varint)
-        value.append(ZigZag.decoded(t))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeSInt32() {
-            value.append(t)
         }
     }
 
@@ -351,18 +365,21 @@ extension ProtobufSInt64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            value.append(ZigZag.decoded(varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeSInt64() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        value.append(ZigZag.decoded(varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeSInt64() {
-            value.append(t)
         }
     }
 
@@ -391,19 +408,22 @@ extension ProtobufFixed32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .fixed32 else {
+        switch scanner.fieldWireFormat {
+        case .fixed32:
+            var i: UInt32 = 0
+            try scanner.decodeFourByteNumber(value: &i)
+            value.append(UInt32(littleEndian: i))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeFixed32() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        var i: UInt32 = 0
-        try scanner.decodeFourByteNumber(value: &i)
-        value.append(UInt32(littleEndian: i))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeFixed32() {
-            value.append(t)
         }
     }
 
@@ -432,20 +452,24 @@ extension ProtobufFixed64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .fixed64 else {
+        switch scanner.fieldWireFormat {
+        case .fixed64:
+            var i: UInt64 = 0
+            try scanner.decodeEightByteNumber(value: &i)
+            value.append(i)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeFixed64() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
         }
-        var i: UInt64 = 0
-        try scanner.decodeEightByteNumber(value: &i)
-        value.append(i)
-        return true
-    }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeFixed64() {
-            value.append(t)
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
@@ -473,19 +497,22 @@ extension ProtobufSFixed32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .fixed32 else {
+        switch scanner.fieldWireFormat {
+        case .fixed32:
+            var i: Int32 = 0
+            try scanner.decodeFourByteNumber(value: &i)
+            value.append(Int32(littleEndian: i))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeSFixed32() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        var i: Int32 = 0
-        try scanner.decodeFourByteNumber(value: &i)
-        value.append(Int32(littleEndian: i))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeSFixed32() {
-            value.append(t)
         }
     }
 
@@ -514,19 +541,22 @@ extension ProtobufSFixed64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .fixed64 else {
+        switch scanner.fieldWireFormat {
+        case .fixed64:
+            var i: Int64 = 0
+            try scanner.decodeEightByteNumber(value: &i)
+            value.append(i)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeSFixed64() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        var i: Int64 = 0
-        try scanner.decodeEightByteNumber(value: &i)
-        value.append(i)
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeSFixed64() {
-            value.append(t)
         }
     }
 
@@ -556,18 +586,21 @@ extension ProtobufBool: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            value.append(varint != 0)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeBool() {
+                value.append(t)
+            }
+            return true
+        default:
             throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        value.append(varint != 0)
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        while let t = try decoder.decodeBool() {
-            value.append(t)
         }
     }
 
@@ -579,17 +612,26 @@ extension ProtobufBool: ProtobufMapValueType {
 ///
 /// String traits
 ///
-private func bufferToString(buffer: UnsafeBufferPointer<UInt8>) -> String? {
-    var s = ""
-    var bytes = buffer.makeIterator()
-    var utf8Decoder = UTF8()
-    while true {
-        switch utf8Decoder.decode(&bytes) {
-        case .scalarValue(let scalar): s.append(String(scalar))
-        case .emptyInput: return s
-        case .error: return nil
-        }
+
+// Note:  When decoding a lot of string fields, this function
+// accounts for ~50% of the total run time.  Optimizations here
+// can have big impacts.
+private func bufferToString(buffer p: UnsafePointer<UInt8>, count: Int) throws -> String {
+    // The extra copy here is regrettable, but even with that,
+    // this seems to be faster than many alternatives (see below).
+    let data = Data(bytes: p, count: count)
+    if let s = String(data: data, encoding: String.Encoding.utf8) {
+        return s
+    } else {
+        throw DecodingError.invalidUTF8
     }
+    // Other alternatives that have been tried (roughly ordered from
+    // faster to slower):
+    // = Passing an UnsafeBufferPointer to String(bytes:encoding:)
+    // = Using a UTF8() codec to decode character-by-character
+    // = Copy the data, append a zero byte, then use String(utf8String:)
+    // Of course, any of these may suddenly become much faster in a
+    // future Swift release.
 }
 
 extension ProtobufString: ProtobufMapValueType {
@@ -598,20 +640,25 @@ extension ProtobufString: ProtobufMapValueType {
         encoder.putStringValue(value: value)
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout String?) throws {
-        if let s = bufferToString(buffer: buffer) {
-            value = s
-        } else {
-            throw DecodingError.invalidUTF8
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout String?) throws -> Bool {
+        guard scanner.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
         }
+        var n: Int = 0
+        let p = try scanner.getFieldBodyBytes(count: &n)
+        value = try bufferToString(buffer: p, count: n)
+        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [String], unknown: inout Data) throws {
-        if let s = bufferToString(buffer: buffer) {
-            value.append(s)
-         } else {
-            throw DecodingError.invalidUTF8
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [String]) throws -> Bool {
+        guard scanner.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
         }
+        var n: Int = 0
+        let p = try scanner.getFieldBodyBytes(count: &n)
+        let s = try bufferToString(buffer: p, count: n)
+        value.append(s)
+        return true
     }
 
     public static func encodedSizeWithoutTag(of value: String) -> Int {
@@ -631,12 +678,24 @@ extension ProtobufBytes: ProtobufMapValueType {
         encoder.putBytesValue(value: value)
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout Data?) throws {
-        value = Data(bytes: [UInt8](buffer))
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout Data?) throws -> Bool {
+        guard scanner.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
+        }
+        var n: Int = 0
+        let p = try scanner.getFieldBodyBytes(count: &n)
+        value = Data(bytes: p, count: n)
+        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Data], unknown: inout Data) throws {
-        value.append(Data(bytes: [UInt8](buffer)))
+    public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [Data]) throws -> Bool {
+        guard scanner.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
+        }
+        var n: Int = 0
+        let p = try scanner.getFieldBodyBytes(count: &n)
+        value.append(Data(bytes: p, count: n))
+        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Data) -> Int {
@@ -673,41 +732,44 @@ extension Enum where RawValue == Int {
     }
 
     public static func setFromProtobuf(scanner: ProtobufScanner, value: inout [Self]) throws -> Bool {
-        guard scanner.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
-        let varint = try scanner.decodeVarint()
-        if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
-            value.append(v)
-            return true
-        } else {
-            return false
-        }
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Self], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer.baseAddress!, count: buffer.count)
-        var extras = [Int32]()
-        while let t = try decoder.decodeInt32() {
-            if let e = Self(rawValue:Int(t)) {
-                value.append(e)
+        switch scanner.fieldWireFormat {
+        case .varint:
+            let varint = try scanner.decodeVarint()
+            if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
+                value.append(v)
+                return true
             } else {
-                extras.append(t)
+                return false
             }
-        }
-        if !extras.isEmpty {
-            var dataSize = 0
-            for v in extras {
-                dataSize += Varint.encodedSize(of: Int64(v))
-            }
-            var data = Data(count: dataSize)
-            data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
-                var encoder = ProtobufEncoder(pointer: pointer)
-                for v in extras {
-                    encoder.putVarInt(value: Int64(v))
+        case .lengthDelimited:
+            var n: Int = 0
+            var extras = [Int32]()
+            let p = try scanner.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while let t = try decoder.decodeInt32() {
+                if let v = Self(rawValue: Int(t)) {
+                    value.append(v)
+                } else {
+                    extras.append(t)
                 }
             }
-            unknown.append(data)
+            if !extras.isEmpty {
+                var dataSize = 0
+                for v in extras {
+                    dataSize += Varint.encodedSize(of: Int64(v))
+                }
+                var data = Data(count: dataSize)
+                data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
+                    var encoder = ProtobufEncoder(pointer: pointer)
+                    for v in extras {
+                        encoder.putVarInt(value: Int64(v))
+                    }
+                }
+                scanner.unknownPushback = data
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 

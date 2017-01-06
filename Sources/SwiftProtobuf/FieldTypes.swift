@@ -51,12 +51,6 @@ public protocol FieldType {
     static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool
     /// Set the variable from a protobuf scanner
     static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool
-    /// Set the variable from a block of bytes
-    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws
-    // Special variant used when decoding packed enum fields.
-    // The extra `unknown` argument will be updated with a re-encoded
-    // representation of any unknown enum values.
-    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws
 
     //
     // Protobuf Text coding for basic types
