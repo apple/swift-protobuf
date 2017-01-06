@@ -100,18 +100,21 @@
     }
   }
 
-  // Populates a multiplier cell with the ratio between the given two values
-  // and sets its background color depending on the magnitude.
-    function decorateMultiplierCell(cell, multiplier) {
-      if (multiplier == 1) {
-          cell.addClass('bg-success');
-      } else if (multiplier < 3) {
-//        cssClass = 'bg-success';
-      } else if (multiplier < 10) {
-        cell.addClass('bg-warning');
-      } else {
-        cell.addClass('bg-danger');
-      }
+  // Decorate a cell with the an appropriate background based
+  // on the magnitude of the multiplier.
+  function decorateMultiplierCell(cell, multiplier) {
+    if (multiplier == 1) {
+      // Decorate the best case with green
+      cell.addClass('bg-success');
+    } else if (multiplier < 3) {
+      // < 3: Leave this cell white
+    } else if (multiplier < 10) {
+      // 3 - 10: Mark this cell yellow
+      cell.addClass('bg-warning');
+    } else {
+      // > 10: Mark this cell red
+      cell.addClass('bg-danger');
+    }
   }
 
   // Creates and returns the summary table displayed next to the chart for a
