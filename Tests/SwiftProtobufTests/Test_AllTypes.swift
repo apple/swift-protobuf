@@ -1335,22 +1335,34 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
 
         // The out-of-range enum value should be preserved as an unknown field
-        let decoded1 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [152, 3, 1, 152, 3, 128, 1]))
-        XCTAssertEqual(decoded1.repeatedNestedEnum, [.foo])
-        let recoded1 = try decoded1.serializeProtobufBytes()
-        XCTAssertEqual(recoded1, [152, 3, 1, 152, 3, 128, 1])
+        do {
+            let decoded1 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [152, 3, 1, 152, 3, 128, 1]))
+            XCTAssertEqual(decoded1.repeatedNestedEnum, [.foo])
+            let recoded1 = try decoded1.serializeProtobufBytes()
+            XCTAssertEqual(recoded1, [152, 3, 1, 152, 3, 128, 1])
+        } catch let e {
+            XCTFail("Decode failed: \(e)")
+        }
 
         // Unknown fields always get reserialized last, which trashes order here:
-        let decoded2 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [152, 3, 128, 1, 152, 3, 2]))
-        XCTAssertEqual(decoded2.repeatedNestedEnum, [.bar])
-        let recoded2 = try decoded2.serializeProtobufBytes()
-        XCTAssertEqual(recoded2, [152, 3, 2, 152, 3, 128, 1])
+        do {
+            let decoded2 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [152, 3, 128, 1, 152, 3, 2]))
+            XCTAssertEqual(decoded2.repeatedNestedEnum, [.bar])
+            let recoded2 = try decoded2.serializeProtobufBytes()
+            XCTAssertEqual(recoded2, [152, 3, 2, 152, 3, 128, 1])
+        } catch let e {
+            XCTFail("Decode failed: \(e)")
+        }
 
         // Unknown enums within packed behave as if it were plain repeated
-        let decoded3 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [154, 3, 3, 128, 1, 2]))
-        XCTAssertEqual(decoded3.repeatedNestedEnum, [.bar])
-        let recoded3 = try decoded3.serializeProtobufBytes()
-        XCTAssertEqual(recoded3, [152, 3, 2, 154, 3, 2, 128, 1])
+        do {
+            let decoded3 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [154, 3, 3, 128, 1, 2]))
+            XCTAssertEqual(decoded3.repeatedNestedEnum, [.bar])
+            let recoded3 = try decoded3.serializeProtobufBytes()
+            XCTAssertEqual(recoded3, [152, 3, 2, 154, 3, 2, 128, 1])
+        } catch let e {
+            XCTFail("Decode failed: \(e)")
+        }
     }
 
     //
