@@ -493,6 +493,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_bytes: \"\\\"\n")
         assertTextDecodeFails("single_bytes: \"\\x\"\n")
         assertTextDecodeFails("single_bytes: \"\\x&\"\n")
+        assertTextDecodeFails("single_bytes: \"\\xg\"\n")
         assertTextDecodeFails("single_bytes: \"\\q\"\n")
     }
 
