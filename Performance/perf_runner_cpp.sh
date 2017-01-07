@@ -28,6 +28,11 @@ function print_cpp_set_field() {
       echo "          message.add_field$num(\"$((200+num))\");"
       echo "        }"
       ;;
+    repeated\ bytes)
+      echo "        for (auto i = 0; i < repeated_count; i++) {"
+      echo "          message.add_field$num(std::string(20, (char)$((num))));"
+      echo "        }"
+      ;;
     repeated\ *)
       echo "        for (auto i = 0; i < repeated_count; i++) {"
       echo "          message.add_field$num($((200+num)));"
@@ -35,6 +40,9 @@ function print_cpp_set_field() {
       ;;
     string)
       echo "        message.set_field$num(\"$((200+num))\");"
+      ;;
+    bytes)
+      echo "        message.set_field$num(std::string(20, (char)$((num))));"
       ;;
     *)
       echo "        message.set_field$num($((200+num)));"
@@ -75,7 +83,7 @@ static string GetTypeUrl(const Descriptor* message) {
 TypeResolver* type_resolver;
 string* type_url;
 
-static void populate_fields(PerfMessage& message);
+static void populate_fields(PerfMessage& message, int repeated_count);
 
 void Harness::run() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -90,7 +98,7 @@ void Harness::run() {
       auto message = PerfMessage();
 
       measure_subtask("Populate fields", [&]() {
-        populate_fields(message);
+        populate_fields(message, repeated_count);
         // Dummy return value since void won't propagate.
         return false;
       });
@@ -139,7 +147,9 @@ void Harness::run() {
   google::protobuf::ShutdownProtobufLibrary();
 }
 
-void populate_fields(PerfMessage& message) {
+void populate_fields(PerfMessage& message, int repeated_count) {
+  (void)repeated_count; /* Possibly unused: Quiet the compiler */
+
 EOF
 
   for field_number in $(seq 1 "$field_count"); do
