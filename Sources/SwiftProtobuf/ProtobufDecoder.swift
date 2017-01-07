@@ -30,6 +30,10 @@ private struct ProtobufFieldDecoder: FieldDecoder {
     init(scanner: ProtobufScanner) {
         self.scanner = scanner
     }
+    
+    mutating func reset() {
+        consumed = false
+    }
 
     mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
         if let override = unknownOverride {
@@ -155,15 +159,8 @@ public struct ProtobufDecoder {
         self.scanner = scanner
     }
 
-    internal func getTag() throws -> FieldTag? {
-        return try scanner.getTag()
-    }
-
-    internal func skip() throws {
-        try scanner.skip()
-    }
-
-    mutating func decodeFullObject(decodeField: (inout FieldDecoder, Int) throws -> ()) throws {
+    // Only used by decodeMapField above...
+    fileprivate mutating func decodeFullObject(decodeField: (inout FieldDecoder, Int) throws -> ()) throws {
         while let tag = try scanner.getTag() {
             if tag.wireFormat == .endGroup {
                 throw DecodingError.malformedProtobuf
@@ -181,8 +178,20 @@ public struct ProtobufDecoder {
     }
 
     mutating func decodeFullObject<M: Message>(message: inout M) throws {
-        try decodeFullObject {(setter: inout FieldDecoder, protoFieldNumber: Int) throws in
-            try message.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+        var fieldDecoder: FieldDecoder = ProtobufFieldDecoder(scanner: scanner)
+        while let tag = try scanner.getTag() {
+            if tag.wireFormat == .endGroup {
+                throw DecodingError.malformedProtobuf
+            }
+            let protoFieldNumber = tag.fieldNumber
+            fieldDecoder.reset()
+            try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+            if let unknownBytes = try fieldDecoder.asProtobufUnknown(protoFieldNumber: protoFieldNumber) {
+                unknownData.append(unknownBytes)
+            }
+        }
+        if scanner.available != 0 {
+            throw DecodingError.trailingGarbage
         }
     }
 
@@ -197,65 +206,23 @@ public struct ProtobufDecoder {
             }
             var fieldDecoder: FieldDecoder = ProtobufFieldDecoder(scanner: scanner)
             // Proto2 groups always consume fields or throw errors, so we can ignore return here
-            let _ = try group.decodeField(setter: &fieldDecoder, protoFieldNumber: tag.fieldNumber)
+            try group.decodeField(setter: &fieldDecoder, protoFieldNumber: tag.fieldNumber)
             try scanner.skip()
         }
         throw DecodingError.truncatedInput
     }
 
-    // Marks failure if no or broken varint but returns zero
-    fileprivate mutating func getVarint() throws -> UInt64 {
-        if let t = try scanner.getRawVarint() {
-            return t
-        }
-        throw DecodingError.malformedProtobuf
-    }
-
-    fileprivate mutating func getFixed8() throws -> [UInt8] {
-        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
-        var i = Array<UInt8>(repeating: 0, count: 8)
-        i.withUnsafeMutableBufferPointer { ip -> Void in
-            let src = UnsafeMutablePointer<UInt8>(mutating: scanner.p)
-            ip.baseAddress!.initialize(from: src, count: 8)
-        }
-        scanner.consume(length: 8)
-        return i
-    }
-
-    fileprivate mutating func getFixed4() throws -> [UInt8] {
-        guard scanner.available >= 4 else {throw DecodingError.truncatedInput}
-        var i = Array<UInt8>(repeating: 0, count: 4)
-        i.withUnsafeMutableBufferPointer { ip -> Void in
-            let src = UnsafeMutablePointer<UInt8>(mutating: scanner.p)
-            ip.baseAddress!.initialize(from: src, count: 4)
-        }
-        scanner.consume(length: 4)
-        return i
-    }
-
     mutating func decodeFloat() throws -> Float? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 4 else {throw DecodingError.truncatedInput}
         var i: Float = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
-            let src = UnsafeRawPointer(scanner.p).assumingMemoryBound(to: UInt8.self)
-            dest.initialize(from: src, count: 4)
-        }
-        scanner.consume(length: 4)
+        try scanner.decodeFourByteNumber(value: &i)
         return i
     }
 
     mutating func decodeDouble() throws -> Double? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
         var i: Double = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
-            let src = UnsafeRawPointer(scanner.p).assumingMemoryBound(to: UInt8.self)
-            dest.initialize(from: src, count: 8)
-        }
-        scanner.consume(length: 8)
+        try scanner.decodeEightByteNumber(value: &i)
         return i
     }
 
@@ -317,28 +284,16 @@ public struct ProtobufDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeFixed32() throws -> UInt32? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 4 else {throw DecodingError.truncatedInput}
         var i: UInt32 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
-            let src = UnsafeRawPointer(scanner.p).assumingMemoryBound(to: UInt8.self)
-            dest.initialize(from: src, count: 4)
-        }
-        scanner.consume(length: 4)
+        try scanner.decodeFourByteNumber(value: &i)
         return UInt32(littleEndian: i)
     }
 
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeFixed64() throws -> UInt64? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
         var i: UInt64 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
-            let src = UnsafeRawPointer(scanner.p).assumingMemoryBound(to: UInt8.self)
-            dest.initialize(from: src, count: 8)
-        }
-        scanner.consume(length: 8)
+        try scanner.decodeEightByteNumber(value: &i)
         return UInt64(littleEndian: i)
     }
 
@@ -353,14 +308,8 @@ public struct ProtobufDecoder {
     // Returns nil at end-of-input, throws on broken data
     mutating func decodeSFixed64() throws -> Int64? {
         guard scanner.available > 0 else {return nil}
-        guard scanner.available >= 8 else {throw DecodingError.truncatedInput}
         var i: Int64 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            let dest = UnsafeMutableRawPointer(ip).assumingMemoryBound(to: UInt8.self)
-            let src = UnsafeRawPointer(scanner.p).assumingMemoryBound(to: UInt8.self)
-            dest.initialize(from: src, count: 8)
-        }
-        scanner.consume(length: 8)
+        try scanner.decodeEightByteNumber(value: &i)
         return Int64(littleEndian: i)
     }
 
@@ -469,7 +418,7 @@ public class ProtobufScanner {
     // On exit, fieldStartP points to the first byte of the tag, fieldEndP points
     // to the first byte after the field contents.
     //
-    internal func skip() throws {
+    fileprivate func skip() throws {
         if let end = fieldEndP {
             p = end
         } else {
@@ -512,7 +461,7 @@ public class ProtobufScanner {
 
     // Parse index/type marker that starts each field.
     // This also bookmarks the start of field for a possible skip().
-    internal func getTag() throws -> FieldTag? {
+    fileprivate func getTag() throws -> FieldTag? {
         fieldStartP = p
         fieldEndP = nil
         fieldStartAvailable = available
