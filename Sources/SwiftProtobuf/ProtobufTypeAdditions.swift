@@ -68,6 +68,7 @@ extension ProtobufFloat: ProtobufMapValueType {
         case .lengthDelimited:
             var n: Int = 0
             let p = try scanner.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
             var decoder = ProtobufDecoder(protobufPointer: p, count: n)
             while let t = try decoder.decodeFloat() {
                 value.append(t)
@@ -113,6 +114,7 @@ extension ProtobufDouble: ProtobufMapValueType {
         case .lengthDelimited:
             var n: Int = 0
             let p = try scanner.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
             var decoder = ProtobufDecoder(protobufPointer: p, count: n)
             while let t = try decoder.decodeDouble() {
                 value.append(t)
@@ -417,6 +419,7 @@ extension ProtobufFixed32: ProtobufMapValueType {
         case .lengthDelimited:
             var n: Int = 0
             let p = try scanner.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
             var decoder = ProtobufDecoder(protobufPointer: p, count: n)
             while let t = try decoder.decodeFixed32() {
                 value.append(t)
@@ -461,6 +464,7 @@ extension ProtobufFixed64: ProtobufMapValueType {
         case .lengthDelimited:
             var n: Int = 0
             let p = try scanner.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
             var decoder = ProtobufDecoder(protobufPointer: p, count: n)
             while let t = try decoder.decodeFixed64() {
                 value.append(t)
@@ -506,6 +510,7 @@ extension ProtobufSFixed32: ProtobufMapValueType {
         case .lengthDelimited:
             var n: Int = 0
             let p = try scanner.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
             var decoder = ProtobufDecoder(protobufPointer: p, count: n)
             while let t = try decoder.decodeSFixed32() {
                 value.append(t)
@@ -550,6 +555,7 @@ extension ProtobufSFixed64: ProtobufMapValueType {
         case .lengthDelimited:
             var n: Int = 0
             let p = try scanner.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
             var decoder = ProtobufDecoder(protobufPointer: p, count: n)
             while let t = try decoder.decodeSFixed64() {
                 value.append(t)
