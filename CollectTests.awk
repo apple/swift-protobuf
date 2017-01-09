@@ -69,7 +69,7 @@ BEGIN {
 }
 
 
-/ *func *test.*/ {
+/^ *func *test.*/ {
     split($0, a, "(")
     split(a[1], words, " ")
     FUNC=words[2]
