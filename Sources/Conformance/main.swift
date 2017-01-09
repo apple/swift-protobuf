@@ -120,6 +120,8 @@ func singleTest() throws -> Bool {
 }
 
 Google_Protobuf_Any.register(messageType: Conformance_TestAllTypes.self)
+Google_Protobuf_Any.register(messageType: ProtobufTestMessages_Proto3_TestAllTypes.self)
+
 while try singleTest() {
 }
 
