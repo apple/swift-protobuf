@@ -13,6 +13,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
+import Foundation
 
 // NOTE: The generator changes what is generated based on the number/types
 // of fields (using a nested storage class or not), to be completel, all
