@@ -721,13 +721,7 @@ extension Test_Required {
 
 extension Test_SmallRequired {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
-        return [
-            ("func", {try run_test(test:($0 as! Test_SmallRequired).func)}),
-            ("func", {try run_test(test:($0 as! Test_SmallRequired).func)}),
-            ("func", {try run_test(test:($0 as! Test_SmallRequired).func)}),
-            ("func", {try run_test(test:($0 as! Test_SmallRequired).func)}),
-            ("func", {try run_test(test:($0 as! Test_SmallRequired).func)}),
-            ("func", {try run_test(test:($0 as! Test_SmallRequired).func)})        ]
+        return [        ]
     }
 }
 

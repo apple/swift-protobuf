@@ -26,7 +26,7 @@ public struct TextDecoder {
     public var complete: Bool {return scanner.complete}
 
     internal init(text: String, extensions: ExtensionSet? = nil) {
-        scanner = TextScanner(text: text, tokens: [], extensions: extensions)
+        scanner = TextScanner(text: text, extensions: extensions)
     }
 
     internal init(scanner: TextScanner) {

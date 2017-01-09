@@ -37,7 +37,9 @@ final class HashVisitor: Visitor {
   init() {}
 
   func visitUnknown(bytes: Data) {
-    mix(bytes.hashValue)
+    if bytes.count > 0 { // Workaround for Linux Foundation bug
+      mix(bytes.hashValue)
+    }
   }
 
   func visitSingularField<S: FieldType>(fieldType: S.Type,

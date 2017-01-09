@@ -36,7 +36,7 @@ Harness::Harness(std::ostream* results_stream) :
     results_stream(results_stream),
     measurement_count(10),
     run_count(100),
-    repeated_count(100) {}
+    repeated_count(10) {}
 
 void Harness::write_to_log(const string& name,
                            const vector<milliseconds_d>& timings) const {

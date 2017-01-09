@@ -15,94 +15,22 @@
 import Foundation
 import Swift
 
-private func parseIdentifier(prefix: String, scalarGenerator: inout String.UnicodeScalarView.Generator) -> String? {
-    var result = prefix
-    var previousScalarGenerator = scalarGenerator
-    while let c = scalarGenerator.next() {
-        switch c {
-        case "a"..."z", "A"..."Z", "0"..."9", "_":
-            result.append(String(c))
-            previousScalarGenerator = scalarGenerator
-        default:
-            scalarGenerator = previousScalarGenerator
-            return result
-        }
-    }
-    return result
-}
-
-/// Parse the rest of an [extension_field_name] in the input, assuming the
-/// initial "[" character has already been read (and is in the prefix)
-/// This is also used in Any for the typeURL, so we include "/", "."
-private func parseExtensionIdentifier(prefix: String, scalarGenerator: inout String.UnicodeScalarView.Generator) -> String? {
-    var result = prefix
-    if let c = scalarGenerator.next() {
-        switch c {
-        case "a"..."z", "A"..."Z":
-            result.append(String(c))
-        default:
-            return nil
-        }
-    } else {
-        return nil
-    }
-    while let c = scalarGenerator.next() {
-        switch c {
-        case "a"..."z", "A"..."Z", "0"..."9", "_", ".", "/":
-            result.append(String(c))
-        case "]":
-            result.append(String(c))
-            return result
-        default:
-            return nil
-        }
-    }
-    return nil
-}
-
-private func parseQuotedString(scalarGenerator: inout String.UnicodeScalarView.Generator, terminator: UnicodeScalar) -> String? {
-    var result = ""
-    while let c = scalarGenerator.next() {
-        if c == terminator {
-            return result
-        }
-        switch c {
-        case "\\":
-            if let escaped = scalarGenerator.next() {
-                result.append("\\")
-                result.append(String(escaped))
-            } else {
-                return nil // Input ends in backslash
-
-            }
-        default:
-            result.append(String(c))
-        }
-    }
-    return nil // Unterminated quoted string
-}
-
 ///
 /// TextScanner has no public members.
 ///
 public class TextScanner {
     internal var extensions: ExtensionSet?
-    private var scalarGenerator: String.UnicodeScalarView.Generator
-    private var scalarPushback: UnicodeScalar?
-    private var tokenPushback: [TextToken]
+    private var scalars: String.UnicodeScalarView
+    private var index: String.UnicodeScalarView.Index
+    private var tokenStart: String.UnicodeScalarView.Index
+    private var tokenPushback = [TextToken]()
     private var eof: Bool = false
     internal var complete: Bool {
-        switch scalarPushback {
-        case .some(" "), .some("\t"), .some("\r"), .some("\n"): break
-        case .none: break
-        default:
-            return false
-        }
-        var g = scalarGenerator
-        while let c = g.next() {
+        while index != scalars.endIndex {
+            let c = scalars[index]
             switch c {
             case " ", "\t", "\r", "\n":
-                break
+                index = scalars.index(after: index)
             default:
                 return false
             }
@@ -110,9 +38,10 @@ public class TextScanner {
         return true
     }
 
-    internal init(text: String, tokens: [TextToken], extensions: ExtensionSet? = nil) {
-        scalarGenerator = text.unicodeScalars.makeIterator()
-        tokenPushback = tokens.reversed()
+    internal init(text: String, extensions: ExtensionSet? = nil) {
+        scalars = text.unicodeScalars
+        index = scalars.startIndex
+        tokenStart = index
         self.extensions = extensions
     }
 
@@ -120,80 +49,156 @@ public class TextScanner {
         tokenPushback.append(token)
     }
 
-    private func parseHexInteger() -> String? {
-        var s = String()
-        while let c = scalarGenerator.next() {
-            switch c {
-            case "0"..."9", "a"..."f", "A"..."F":
-                s.append(String(c))
+    /// Skip whitespace, set token start to first non-whitespace character
+    private func skipWhitespace() {
+        var lastIndex = index
+        while index != scalars.endIndex {
+            let scalar = scalars[index]
+            switch scalar {
+            case " ", "\t", "\r", "\n":
+                index = scalars.index(after: index)
+                lastIndex = index
+            case "#":
+                while index != scalars.endIndex {
+                    // Skip until end of line
+                    let c = scalars[index]
+                    index = scalars.index(after: index)
+                    if c == "\n" || c == "\r" {
+                        break
+                    }
+                }
             default:
-                scalarPushback = c
-                return s
+                index = lastIndex
+                return
             }
         }
-        return s
     }
 
-    private func parseOctalInteger() -> String? {
-        var s = String()
-        while let c = scalarGenerator.next() {
+    private func parseIdentifier() -> String? {
+        while index != scalars.endIndex {
+            let c = scalars[index]
             switch c {
-            case "0"..."7":
-                s.append(String(c))
+            case "a"..."z", "A"..."Z", "0"..."9", "_":
+                index = scalars.index(after: index)
             default:
-                scalarPushback = c
-                return s
+                return String(scalars[tokenStart..<index])
             }
         }
-        return s
+        return String(scalars[tokenStart..<index])
     }
-
-    private func parseUnsignedInteger() -> String? {
+    
+    /// Parse the rest of an [extension_field_name] in the input, assuming the
+    /// initial "[" character has already been read (and is in the prefix)
+    /// This is also used in Any for the typeURL, so we include "/", "."
+    private func parseExtensionIdentifier() -> String? {
+        if index == scalars.endIndex {
+            return nil
+        }
+        let c = scalars[index]
+        switch c {
+        case "a"..."z", "A"..."Z":
+            index = scalars.index(after: index)
+        default:
+            return nil
+        }
+        while index != scalars.endIndex {
+            let c = scalars[index]
+            switch c {
+            case "a"..."z", "A"..."Z", "0"..."9", "_", ".", "/":
+                index = scalars.index(after: index)
+            case "]":
+                index = scalars.index(after: index)
+                return String(scalars[tokenStart..<index])
+            default:
+                return nil
+            }
+        }
         return nil
     }
+    
+    /// Assumes the leading quote has already been consumed
+    private func parseQuotedString(terminator: UnicodeScalar) -> String? {
+        tokenStart = index
+        while index != scalars.endIndex {
+            let c = scalars[index]
+            if c == terminator {
+                let s = String(scalars[tokenStart..<index])
+                index = scalars.index(after: index)
+                return s
+            }
+            index = scalars.index(after: index)
+            if c == "\\" {
+                if index == scalars.endIndex {
+                    return nil
+                }
+                index = scalars.index(after: index)
+            }
+        }
+        return nil // Unterminated quoted string
+    }
 
-    private func parseUnsignedNumber() throws -> String? {
-        var s = String()
-        while let c = scalarGenerator.next() {
+    private func parseHexInteger() -> String {
+        while index != scalars.endIndex {
+            let c = scalars[index]
             switch c {
-            case "0"..."9":
-                s.append(String(c))
-            case ".":
-                s.append(String(c))
-            case "+", "-":
-                s.append(String(c))
-            case "e", "E":
-                s.append(String(c))
+            case "0"..."9", "a"..."f", "A"..."F":
+                index = scalars.index(after: index)
+            default:
+                return String(scalars[tokenStart..<index])
+            }
+        }
+        return String(scalars[tokenStart..<index])
+    }
+    
+    private func parseOctalInteger() -> String {
+        while index != scalars.endIndex {
+            let c = scalars[index]
+            switch c {
+            case "0"..."7":
+                index = scalars.index(after: index)
+            default:
+                return String(scalars[tokenStart..<index])
+            }
+        }
+        return String(scalars[tokenStart..<index])
+    }
+
+    private func parseUnsignedNumber() -> String {
+        while index != scalars.endIndex {
+            let c = scalars[index]
+            switch c {
+            case "0"..."9", ".", "+", "-", "e", "E":
+                index = scalars.index(after: index)
             case "f", "u":
                 // proto1 allowed floats to be suffixed with 'f'
                 // and unsigned integers to be suffixed with 'u'
                 // Just ignore it:
+                let s = String(scalars[tokenStart..<index])
+                index = scalars.index(after: index)
                 return s
             default:
-                scalarPushback = c
-                return s
+                return String(scalars[tokenStart..<index])
             }
         }
-        return s
+        return String(scalars[tokenStart..<index])
     }
 
-    private func parseFloat() throws -> String? {
-        return try parseUnsignedNumber()
+    private func parseFloat() -> String {
+        return parseUnsignedNumber()
     }
 
-    private func parseNumber(first: UnicodeScalar) throws -> TextToken {
-        var s: String
-        var digit: UnicodeScalar
-        if first == "-" {
-            if let d = scalarGenerator.next() {
-                s = String("-")
-                digit = d
-            } else {
+    private func parseNumber() throws -> TextToken {
+        // Restart parse at start of token
+        index = tokenStart
+        var digit = scalars[index]
+        index = scalars.index(after: index)
+        if digit == "-" {
+            if index == scalars.endIndex {
                 throw DecodingError.malformedText
+            } else {
+                digit = scalars[index]
+                index = scalars.index(after: index)
             }
-        } else {
-            digit = first
-            s = String()
         }
 
         switch digit {
@@ -201,48 +206,31 @@ public class TextScanner {
             // Treat "-" followed by a letter as a floating-point literal.
             // This treats "-Infinity" as a single token
             // Note that "Infinity" and "NaN" are regular identifiers.
-            if let s = parseIdentifier(prefix: String(s + String(digit)), scalarGenerator: &scalarGenerator) {
+            if let s = parseIdentifier() {
                 return .floatingPointLiteral(s)
             } else {
                 throw DecodingError.malformedText
             }
         case "0":  // Octal or hex integer or floating point (e.g., "0.2")
-            s += String(digit)
-            if let second = scalarGenerator.next() {
-                switch second {
-                case "1"..."7":
-                    s += String(second)
-                    if let n = parseOctalInteger() {
-                        return .octalInteger(s + n)
-                    } else {
-                        return .octalInteger(s)
-                    }
-                case "x":
-                    if let n = parseHexInteger() {
-                        s += "x"
-                        return .hexadecimalInteger(s + n)
-                    } else {
-                        throw DecodingError.malformedText
-                    }
-                case ".":
-                    s += "."
-                    if let n = try parseFloat() {
-                        return .floatingPointLiteral(s + n)
-                    } else {
-                        return .floatingPointLiteral(s)
-                    }
-                default:
-                    scalarPushback = second
-                }
+            let second = scalars[index]
+            switch second {
+            case "1"..."7":
+                let n = parseOctalInteger()
+                return .octalInteger(n)
+            case "x":
+                index = scalars.index(after: index)
+                let n = parseHexInteger()
+                return .hexadecimalInteger(n)
+            case ".":
+                let n = parseFloat()
+                return .floatingPointLiteral(n)
+            default: // Either "0" or "-0"
+                let n = String(scalars[tokenStart..<index])
+                return .decimalInteger(n)
             }
-            return .decimalInteger(s) // Either "0" or "-0"
         default:
-            s += String(digit)
-            if let n = try parseUnsignedNumber() {
-                return .decimalInteger(s + n)
-            } else {
-                return .decimalInteger(s)
-            }
+            let n = parseUnsignedNumber()
+            return .decimalInteger(n)
         }
     }
 
@@ -250,55 +238,49 @@ public class TextScanner {
         if let t = tokenPushback.popLast() {
             return t
         }
-        if eof {
+        skipWhitespace()
+        if index == scalars.endIndex {
+            eof = true
             return nil
         }
-        while let c = scalarPushback ?? scalarGenerator.next() {
-            scalarPushback = nil
-            switch c {
-            case " ", "\t", "\r", "\n":
-                break
-            case ":":
-                return .colon
-            case ",":
-                return .comma
-            case ";":
-                return .semicolon
-            case "<":
-                return .altBeginObject
-            case "{":
-                return .beginObject
-            case "}":
-                return .endObject
-            case ">":
-                return .altEndObject
-            case "[":
-                return .beginArray
-            case "]":
-                return .endArray
-            case "\'", "\"": // string
-                if let s = parseQuotedString(scalarGenerator: &scalarGenerator, terminator: c) {
-                    return .string(s)
-                }
-                throw DecodingError.malformedText
-            case "-", "0"..."9":
-                return try parseNumber(first: c)
-            case "a"..."z", "A"..."Z":
-                if let s = parseIdentifier(prefix: String(c), scalarGenerator: &scalarGenerator) {
-                    return .identifier(s)
-                } else {
-                    throw DecodingError.malformedText
-                }
-            case "#":
-                while let s = scalarGenerator.next(), s != "\n", s != "\r" {
-                    // Skip until end of line
-                }
-            default:
+        tokenStart = index
+        let c = scalars[index]
+        index = scalars.index(after: index)
+        switch c {
+        case ":":
+            return .colon
+        case ",":
+            return .comma
+        case ";":
+            return .semicolon
+        case "<":
+            return .altBeginObject
+        case "{":
+            return .beginObject
+        case "}":
+            return .endObject
+        case ">":
+            return .altEndObject
+        case "[":
+            return .beginArray
+        case "]":
+            return .endArray
+        case "\'", "\"": // string
+            if let s = parseQuotedString(terminator: c) {
+                return .string(s)
+            }
+            throw DecodingError.malformedText
+        case "-", "0"..."9":
+            return try parseNumber()
+        case "a"..."z", "A"..."Z":
+            if let s = parseIdentifier() {
+                return .identifier(s)
+            } else {
                 throw DecodingError.malformedText
             }
+        default:
+            throw DecodingError.malformedText
         }
-        eof = true
-        return nil
     }
 
     /// Returns end-of-message terminator or next key
@@ -308,40 +290,34 @@ public class TextScanner {
         if let t = tokenPushback.popLast() {
             return t
         }
-        if eof {
+        skipWhitespace()
+        if index == scalars.endIndex {
+            eof = true
             return nil
         }
-        while let c = scalarPushback ?? scalarGenerator.next() {
-            scalarPushback = nil
-            switch c {
-            case " ", "\t", "\r", "\n":
-                break
-            case "}":
-                return .endObject
-            case ">":
-                return .altEndObject
-            case "[":
-                if let s = parseExtensionIdentifier(prefix: String(c), scalarGenerator: &scalarGenerator) {
-                    return .identifier(s)
-                } else {
-                    throw DecodingError.malformedText
-                }
-            case "a"..."z", "A"..."Z":
-                if let s = parseIdentifier(prefix: String(c), scalarGenerator: &scalarGenerator) {
-                    return .identifier(s)
-                } else {
-                    throw DecodingError.malformedText
-                }
-            case "#":
-                while let s = scalarGenerator.next(), s != "\n", s != "\r" {
-                    // Skip until end of line
-                }
-            default:
+        tokenStart = index
+        let c = scalars[index]
+        index = scalars.index(after: index)
+        switch c {
+        case "}":
+            return .endObject
+        case ">":
+            return .altEndObject
+        case "[":
+            if let s = parseExtensionIdentifier() {
+                return .identifier(s)
+            } else {
                 throw DecodingError.malformedText
             }
+        case "a"..."z", "A"..."Z":
+            if let s = parseIdentifier() {
+                return .identifier(s)
+            } else {
+                throw DecodingError.malformedText
+            }
+        default:
+            throw DecodingError.malformedText
         }
-        eof = true
-        return nil
     }
 
     // Consume the specified token, throw an error if the token isn't there

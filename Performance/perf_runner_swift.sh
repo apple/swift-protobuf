@@ -23,6 +23,11 @@ function print_swift_set_field() {
   type=$2
 
   case "$type" in
+    repeated\ bytes)
+      echo "        for _ in 0..<repeatedCount {"
+      echo "          message.field$num.append(Data(repeating:$((num)), count: 20))"
+      echo "        }"
+      ;;
     repeated\ string)
       echo "        for _ in 0..<repeatedCount {"
       echo "          message.field$num.append(\"$((200+num))\")"
@@ -32,6 +37,9 @@ function print_swift_set_field() {
       echo "        for _ in 0..<repeatedCount {"
       echo "          message.field$num.append($((200+num)))"
       echo "        }"
+      ;;
+    bytes)
+      echo "        message.field$num = Data(repeating:$((num)), count: 20)"
       ;;
     string)
       echo "        message.field$num = \"$((200+num))\""
@@ -44,6 +52,8 @@ function print_swift_set_field() {
 
 function generate_swift_harness() {
   cat >"$gen_harness_path" <<EOF
+import Foundation
+
 extension Harness {
   func run() {
     measure {
