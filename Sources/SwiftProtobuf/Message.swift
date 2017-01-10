@@ -43,10 +43,12 @@ public protocol Message: CustomDebugStringConvertible {
   var anyTypeURL: String { get }
 
   //
-  // General serialization machinery
+  // General serialization/deserialization machinery
   //
 
   /// Decode a field identified by a field number (as given in the .proto file).
+  /// The Message will call the FieldDecoder method corresponding
+  /// to the declared type of the field.
   ///
   /// This is the core method used by the deserialization machinery.
   ///
@@ -79,7 +81,9 @@ public protocol Message: CustomDebugStringConvertible {
                                count: Int,
                                extensions: ExtensionSet?) throws
 
+  //
   // Protobuf Text decoding
+  //
   init(scanner: TextScanner) throws
 
   //
