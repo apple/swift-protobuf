@@ -835,10 +835,6 @@ public extension Message {
         try self.init(protobuf: protobuf, extensions: nil)
     }
 
-    init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws {
-        try self.init(protobufBuffer: protobufBuffer, extensions: nil)
-    }
-
     init(protobuf: Data, extensions: ExtensionSet?) throws {
         self.init()
         if !protobuf.isEmpty {
@@ -846,6 +842,10 @@ public extension Message {
                 try decodeIntoSelf(protobufBytes: pointer, count: protobuf.count, extensions: extensions)
             }
         }
+    }
+
+    init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws {
+        try self.init(protobufBuffer: protobufBuffer, extensions: nil)
     }
 
     init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws {
@@ -859,7 +859,9 @@ public extension Proto2Message {
     public mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try protobufDecoder.decodeFullObject(message: &self)
-        unknown.append(protobufData: protobufDecoder.unknownData)
+        if let unknownData = protobufDecoder.unknownData {
+            unknown.append(protobufData: unknownData)
+        }
     }
 }
 

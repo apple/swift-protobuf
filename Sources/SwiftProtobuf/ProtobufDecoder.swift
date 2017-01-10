@@ -30,7 +30,7 @@ private struct ProtobufFieldDecoder: FieldDecoder {
     init(scanner: ProtobufScanner) {
         self.scanner = scanner
     }
-    
+
     mutating func reset() {
         consumed = false
     }
@@ -146,7 +146,7 @@ private struct ProtobufFieldDecoder: FieldDecoder {
  */
 public struct ProtobufDecoder {
     private var scanner: ProtobufScanner
-    var unknownData = Data()
+    var unknownData: Data?
 
     public var complete: Bool {return scanner.available == 0}
     public var fieldWireFormat: WireFormat {return scanner.fieldWireFormat}
@@ -169,7 +169,10 @@ public struct ProtobufDecoder {
             var fieldDecoder: FieldDecoder = ProtobufFieldDecoder(scanner: scanner)
             try decodeField(&fieldDecoder, protoFieldNumber)
             if let unknownBytes = try fieldDecoder.asProtobufUnknown(protoFieldNumber: protoFieldNumber) {
-                unknownData.append(unknownBytes)
+                if unknownData == nil {
+                    unknownData = Data()
+                }
+                unknownData!.append(unknownBytes)
             }
         }
         if scanner.available != 0 {
@@ -187,7 +190,10 @@ public struct ProtobufDecoder {
             fieldDecoder.reset()
             try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
             if let unknownBytes = try fieldDecoder.asProtobufUnknown(protoFieldNumber: protoFieldNumber) {
-                unknownData.append(unknownBytes)
+                if unknownData == nil {
+                    unknownData = Data()
+                }
+                unknownData!.append(unknownBytes)
             }
         }
         if scanner.available != 0 {
@@ -332,8 +338,6 @@ public class ProtobufScanner {
     private var fieldStartP : UnsafePointer<UInt8>
     // Position of end of field currently being parsed, nil if we don't know.
     private var fieldEndP : UnsafePointer<UInt8>?
-    // Remaining bytes from start of field to end of input
-    private var fieldStartAvailable : Int
     // Wire format for last-examined field
     private(set) var fieldWireFormat: WireFormat = .varint
     // Field number for last-parsed field tag
@@ -348,7 +352,6 @@ public class ProtobufScanner {
         p = protobufPointer
         available = count
         fieldStartP = p
-        fieldStartAvailable = available
         self.extensions = extensions
     }
 
@@ -422,8 +425,8 @@ public class ProtobufScanner {
         if let end = fieldEndP {
             p = end
         } else {
+            available += p - fieldStartP
             p = fieldStartP
-            available = fieldStartAvailable
             guard let tag = try getTagWithoutUpdatingFieldStart() else {
                 throw DecodingError.truncatedInput
             }
@@ -464,7 +467,6 @@ public class ProtobufScanner {
     fileprivate func getTag() throws -> FieldTag? {
         fieldStartP = p
         fieldEndP = nil
-        fieldStartAvailable = available
         return try getTagWithoutUpdatingFieldStart()
     }
 
