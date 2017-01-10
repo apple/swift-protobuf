@@ -305,9 +305,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
         if let protobuf = protobuf {
             // Decode protobuf from the stored bytes
-            if protobuf.count == 0 {
-                target = M()
-            } else {
+            if protobuf.count > 0 {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
                     try target.decodeIntoSelf(protobufBytes: p, count: protobuf.count, extensions: nil)
                 }
