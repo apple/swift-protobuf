@@ -48,7 +48,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
             }
             XCTAssert(availableBlocks.isEmpty && t.isEmpty, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType(protobuf: Data(bytes: encoded))
+                let decoded = try MessageTestType(protobufBytes: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object", file: file, line: line)
             } catch let e {
                 XCTFail("Encode/decode cycle should not fail: \(e)", file: file, line: line)
