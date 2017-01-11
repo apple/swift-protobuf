@@ -66,7 +66,7 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
     init() {}
 
-    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_name)
       case 2: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Method.self, value: &_methods)
@@ -201,7 +201,7 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
@@ -260,7 +260,7 @@ struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &name)
     case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &requestTypeURL)
@@ -405,7 +405,7 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &name)
     case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &root)

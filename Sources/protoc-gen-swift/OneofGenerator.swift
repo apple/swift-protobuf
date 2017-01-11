@@ -84,7 +84,7 @@ class OneofGenerator {
 
         // Decode one of our members
         p.print("\n")
-        p.print("public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {\n")
+        p.print("public mutating func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {\n")
         p.indent()
         p.print("if self != .None && setter.rejectConflictingOneof {\n")
         p.print("  throw SwiftProtobuf.DecodingError.duplicatedOneOf\n")

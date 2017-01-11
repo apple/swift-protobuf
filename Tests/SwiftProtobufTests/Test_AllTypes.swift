@@ -82,6 +82,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             }
         }
 
+        // We should recognize a valid field after an unknown field:
+        assertDecodeSucceeds([208, 41, 0, 8, 1]) {$0.optionalInt32 == 1}
+
         assertDecodeFails([8])
 
         assertDecodeFails([9, 57]) // Cannot use wire type 1

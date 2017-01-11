@@ -140,7 +140,7 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &int32Value)
     case 2: try setter.decodeSingularField(fieldType: UnittestDropUnknownFields_Foo.NestedEnum.self, value: &enumValue)
@@ -275,7 +275,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &int32Value)
     case 2: try setter.decodeSingularField(fieldType: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.self, value: &enumValue)

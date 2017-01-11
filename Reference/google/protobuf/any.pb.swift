@@ -146,7 +146,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &typeURL)
     case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)

@@ -56,8 +56,8 @@ public struct TextDecoder {
                         throw DecodingError.unknownField
                     }
                 }
-                var fieldDecoder: FieldDecoder = TextFieldDecoder(scanner: scanner)
-                try message.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+                var subdecoder = TextFieldDecoder(scanner: scanner)
+                try message.decodeField(setter: &subdecoder, protoFieldNumber: protoFieldNumber)
             default:
                 if terminator != nil && terminator == token {
                     return
@@ -80,9 +80,8 @@ struct TextFieldDecoder: FieldDecoder {
 
     mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, protoFieldNumber] {
-            var mutableSetter: FieldDecoder = self
             var fieldValue = values[protoFieldNumber] ?? ext.newField()
-            try fieldValue.decodeField(setter: &mutableSetter)
+            try fieldValue.decodeField(setter: &self)
             values[protoFieldNumber] = fieldValue
         }
     }

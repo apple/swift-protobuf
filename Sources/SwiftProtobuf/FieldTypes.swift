@@ -47,10 +47,10 @@ public protocol FieldType {
     /// Write the protobuf-encoded value to the encoder
     static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: BaseType)
 
-    /// Set the variable from a protobuf scanner
-    static func setFromProtobuf(scanner: ProtobufScanner, value: inout BaseType?) throws -> Bool
-    /// Set the variable from a protobuf scanner
-    static func setFromProtobuf(scanner: ProtobufScanner, value: inout [BaseType]) throws -> Bool
+    /// Set the variable from a protobuf decoder
+    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool
+    /// Set the variable from a protobuf decoder
+    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool
 
     //
     // Protobuf Text coding for basic types
@@ -98,7 +98,7 @@ public protocol MapKeyType: FieldType {
 ///
 public protocol MapValueType: FieldType {
     /// Special interface for decoding a value of this type as a map value.
-    static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout BaseType?) throws
+    static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout BaseType?) throws
 }
 
 //
