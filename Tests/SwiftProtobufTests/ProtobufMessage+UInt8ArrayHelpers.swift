@@ -19,7 +19,7 @@ import SwiftProtobuf
 
 extension SwiftProtobuf.Message {
     init(protobufBytes: [UInt8]) throws {
-        try self.init(protobuf: Data(protobufBytes))
+        try self.init(protobuf: Data(bytes: protobufBytes))
     }
 
     func serializeProtobufBytes() throws -> [UInt8] {
