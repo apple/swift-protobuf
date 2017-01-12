@@ -195,12 +195,6 @@ extension ProtobufInt64: ProtobufMapValueType {
         return true
     }
 
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool {
-        let varint = try decoder.decodeVarint()
-        value = Int64(bitPattern: varint)
-        return true
-    }
-
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
         switch decoder.fieldWireFormat {
         case .varint:
