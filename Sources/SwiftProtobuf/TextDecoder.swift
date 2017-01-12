@@ -21,9 +21,10 @@ import Swift
 /// pushback and convenience functions for iterating over complex
 /// structures.
 ///
-public struct TextDecoder {
+public struct TextDecoder: FieldDecoder {
     private var scanner: TextScanner
     public var complete: Bool {return scanner.complete}
+    public var rejectConflictingOneof: Bool {return true}
 
     internal init(text: String, extensions: ExtensionSet? = nil) {
         scanner = TextScanner(text: text, extensions: extensions)
@@ -33,52 +34,45 @@ public struct TextDecoder {
         self.scanner = scanner
     }
 
-    internal mutating func decodeFullObject<M: Message>(message: inout M, terminator: TextToken?) throws {
+    internal mutating func decodeFullObject<M: Message>(message: inout M, terminator: UInt8?) throws {
         guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
             throw DecodingError.missingFieldNames
         }
-        while let token = try scanner.nextKey() {
-            switch token {
-            case .identifier(let key):
-                let protoFieldNumber: Int
-                if key.hasPrefix("[") {
-                    // Extension key
-                    if let n = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
-                        protoFieldNumber = n
-                    } else {
-                        throw DecodingError.unknownField
-                    }
-                } else {
-                    // Regular key; look it up on the message
-                    if let n = nameProviding._protobuf_fieldNames.fieldNumber(forProtoName: key) {
-                        protoFieldNumber = n
-                    } else {
-                        throw DecodingError.unknownField
-                    }
-                }
-                var subdecoder = TextFieldDecoder(scanner: scanner)
-                try message.decodeField(setter: &subdecoder, protoFieldNumber: protoFieldNumber)
-            default:
-                if terminator != nil && terminator == token {
+        let names = nameProviding._protobuf_fieldNames
+        while true {
+            if let terminator = terminator {
+                if scanner.skipOptionalObjectEnd(terminator) {
                     return
                 }
-                throw DecodingError.malformedText
             }
-            try scanner.skipOptionalSeparator()
-        }
-        if terminator == nil {
-            return
-        } else {
-            throw DecodingError.truncatedInput
+            if let token = try scanner.nextKey() {
+                switch token {
+                case .extensionIdentifier(let key):
+                    // Extension key; look up in the extension registry
+                    if let protoFieldNumber = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
+                        try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
+                    } else {
+                        print("Unknown extension field \(key)")
+                        throw DecodingError.unknownField
+                    }
+                case .identifier(let key):
+                    // Regular key; look it up on the message
+                    if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
+                        try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
+                    } else {
+                        throw DecodingError.unknownField
+                    }
+                }
+            } else if terminator == nil {
+                return
+            } else {
+                throw DecodingError.truncatedInput
+            }
+            scanner.skipOptionalSeparator()
         }
     }
-}
 
-struct TextFieldDecoder: FieldDecoder {
-    var rejectConflictingOneof: Bool {return true}
-    var scanner: TextScanner
-
-    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
+    public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, protoFieldNumber] {
             var fieldValue = values[protoFieldNumber] ?? ext.newField()
             try fieldValue.decodeField(setter: &self)
@@ -86,23 +80,23 @@ struct TextFieldDecoder: FieldDecoder {
         }
     }
 
-    mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-        try scanner.skipRequired(token: .colon)
+    public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
+        try scanner.skipRequiredColon()
         try S.setFromText(scanner: scanner, value: &value)
     }
 
-    mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try scanner.skipRequired(token: .colon)
-        if try scanner.skipOptional(token: .beginArray) {
+    public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
             var firstItem = true
             while true {
-                if try scanner.skipOptional(token: .endArray) {
+                if scanner.skipOptionalEndArray() {
                     return
                 }
                 if firstItem {
                     firstItem = false
                 } else {
-                    try scanner.skipRequired(token: .comma)
+                    try scanner.skipRequiredComma()
                 }
                 try S.setFromText(scanner: scanner, value: &value)
             }
@@ -111,27 +105,27 @@ struct TextFieldDecoder: FieldDecoder {
         }
     }
 
-    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    public mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try decodeRepeatedField(fieldType: fieldType, value: &value)
     }
 
-    mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
-        _ = try scanner.skipOptional(token: .colon)
+    public mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
+        _ = scanner.skipOptionalColon()
         try M.setFromText(scanner: scanner, value: &value)
     }
 
-    mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
-        _ = try scanner.skipOptional(token: .colon)
-        if try scanner.skipOptional(token: .beginArray) {
+    public mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws {
+        _ = scanner.skipOptionalColon()
+        if scanner.skipOptionalBeginArray() {
             var firstItem = true
             while true {
-                if try scanner.skipOptional(token: .endArray) {
+                if scanner.skipOptionalEndArray() {
                     return
                 }
                 if firstItem {
                     firstItem = false
                 } else {
-                    try scanner.skipRequired(token: .comma)
+                    try scanner.skipRequiredComma()
                 }
                 try M.setFromText(scanner: scanner, value: &value)
             }
@@ -140,50 +134,50 @@ struct TextFieldDecoder: FieldDecoder {
         }
     }
 
-    mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
+    public mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws {
         try decodeSingularMessageField(fieldType: fieldType, value: &value)
     }
 
-    mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
+    public mutating func decodeRepeatedGroupField<G: Message>(fieldType: G.Type, value: inout [G]) throws {
         try decodeRepeatedMessageField(fieldType: fieldType, value: &value)
     }
-    
+
     private func decodeMapEntry<KeyType: MapKeyType, ValueType: MapValueType>(mapType: ProtobufMap<KeyType, ValueType>.Type, keyField: inout KeyType.BaseType?, valueField: inout ValueType.BaseType?) throws where KeyType.BaseType: Hashable {
-        let terminator = try scanner.readObjectStart()
-        while let token = try scanner.next() {
-            if token == terminator {
+        let terminator = try scanner.skipObjectStart()
+        while true {
+            if scanner.skipOptionalObjectEnd(terminator) {
                 return
             }
-            switch token {
-            case .identifier("key"):
-                _ = try scanner.skipRequired(token: .colon)
-                try KeyType.setFromText(scanner: scanner, value: &keyField)
-            case .identifier("value"):
-                // Awkward:  If the value is message-typed, the colon is optional,
-                // otherwise, it's required.
-                _ = try scanner.skipOptional(token: .colon)
-                try ValueType.setFromText(scanner: scanner, value: &valueField)
-            default:
-                throw DecodingError.unknownField
+            if let keyToken = try scanner.nextKey() {
+                switch keyToken {
+                case .identifier("key"):
+                    try scanner.skipRequiredColon()
+                    try KeyType.setFromText(scanner: scanner, value: &keyField)
+                case .identifier("value"):
+                    // Awkward:  If the value is message-typed, the colon is
+                    // optional, otherwise, it's required.
+                    _ = scanner.skipOptionalColon()
+                    try ValueType.setFromText(scanner: scanner, value: &valueField)
+                default:
+                    throw DecodingError.unknownField
+                }
+                scanner.skipOptionalSeparator()
             }
-            try scanner.skipOptionalSeparator()
         }
-        throw DecodingError.truncatedInput
- 
     }
-    
-    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
-        _ = try scanner.skipOptional(token: .colon)
-        if try scanner.skipOptional(token: .beginArray) {
+
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
+        _ = scanner.skipOptionalColon()
+        if scanner.skipOptionalBeginArray() {
             var firstItem = true
             while true {
-                if try scanner.skipOptional(token: .endArray) {
+                if scanner.skipOptionalEndArray() {
                     return
                 }
                 if firstItem {
                     firstItem = false
                 } else {
-                    try scanner.skipRequired(token: .comma)
+                    try scanner.skipRequiredComma()
                 }
                 var keyField: KeyType.BaseType?
                 var valueField: ValueType.BaseType?
