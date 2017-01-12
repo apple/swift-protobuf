@@ -49,6 +49,7 @@ public protocol FieldType {
 
     /// Set the variable from a protobuf decoder
     static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool
+    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool
     /// Set the variable from a protobuf decoder
     static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool
 

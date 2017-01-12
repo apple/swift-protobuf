@@ -76,6 +76,13 @@ public struct ProtobufDecoder: FieldDecoder {
         consumed = try S.setFromProtobuf(decoder: &self, value: &value)
     }
 
+    public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
+        guard fieldWireFormat == S.protobufWireFormat else {
+            throw DecodingError.schemaMismatch
+        }
+        consumed = try S.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         consumed = try S.setFromProtobuf(decoder: &self, value: &value)
         // If `S` is Enum and the data was packed on the wire (regardless of

@@ -24,6 +24,16 @@ public extension FieldType {
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         throw DecodingError.schemaMismatch
     }
+
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool {
+        var v: BaseType?
+        let consumed = try setFromProtobuf(decoder: &decoder, value: &v)
+        if let v = v {
+            value = v
+        }
+        return consumed
+    }
+
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
         throw DecodingError.schemaMismatch
     }
@@ -180,6 +190,12 @@ extension ProtobufInt64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
+        value = Int64(bitPattern: varint)
+        return true
+    }
+
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool {
         let varint = try decoder.decodeVarint()
         value = Int64(bitPattern: varint)
         return true
