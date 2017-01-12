@@ -49,9 +49,6 @@ extension ProtobufFloat: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .fixed32 else {
-            throw DecodingError.schemaMismatch
-        }
         var i: Float = 0
         try decoder.decodeFourByteNumber(value: &i)
         value = i
@@ -97,9 +94,6 @@ extension ProtobufDouble: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .fixed64 else {
-            throw DecodingError.schemaMismatch
-        }
         var i: Double = 0
         try decoder.decodeEightByteNumber(value: &i)
         value = i
@@ -145,9 +139,6 @@ extension ProtobufInt32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         let varint = try decoder.decodeVarint()
         value = Int32(truncatingBitPattern: varint)
         return true
@@ -189,9 +180,6 @@ extension ProtobufInt64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         let varint = try decoder.decodeVarint()
         value = Int64(bitPattern: varint)
         return true
@@ -233,9 +221,6 @@ extension ProtobufUInt32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         let varint = try decoder.decodeVarint()
         value = UInt32(truncatingBitPattern: varint)
         return true
@@ -277,9 +262,6 @@ extension ProtobufUInt64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         value = try decoder.decodeVarint()
         return true
     }
@@ -320,9 +302,6 @@ extension ProtobufSInt32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         let varint = try decoder.decodeVarint()
         let t = UInt32(truncatingBitPattern: varint)
         value = ZigZag.decoded(t)
@@ -368,9 +347,6 @@ extension ProtobufSInt64: ProtobufMapValueType {
 
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         let varint = try decoder.decodeVarint()
         value = ZigZag.decoded(varint)
         return true
@@ -411,9 +387,6 @@ extension ProtobufFixed32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .fixed32 else {
-            throw DecodingError.schemaMismatch
-        }
         var i: UInt32 = 0
         try decoder.decodeFourByteNumber(value: &i)
         value = UInt32(littleEndian: i)
@@ -458,9 +431,6 @@ extension ProtobufFixed64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .fixed64 else {
-            throw DecodingError.schemaMismatch
-        }
         var i: UInt64 = 0
         try decoder.decodeEightByteNumber(value: &i)
         value = UInt64(littleEndian: i)
@@ -506,9 +476,6 @@ extension ProtobufSFixed32: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .fixed32 else {
-            throw DecodingError.schemaMismatch
-        }
         var i: Int32 = 0
         try decoder.decodeFourByteNumber(value: &i)
         value = Int32(littleEndian: i)
@@ -553,9 +520,6 @@ extension ProtobufSFixed64: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .fixed64 else {
-            throw DecodingError.schemaMismatch
-        }
         var i: Int64 = 0
         try decoder.decodeEightByteNumber(value: &i)
         value = Int64(littleEndian: i)
@@ -602,9 +566,6 @@ extension ProtobufBool: ProtobufMapValueType {
 
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         let varint = try decoder.decodeVarint()
         value = (varint != 0)
         return true
@@ -667,9 +628,6 @@ extension ProtobufString: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout String?) throws -> Bool {
-        guard decoder.fieldWireFormat == .lengthDelimited else {
-            throw DecodingError.schemaMismatch
-        }
         var n: Int = 0
         let p = try decoder.getFieldBodyBytes(count: &n)
         value = try bufferToString(buffer: p, count: n)
@@ -705,9 +663,6 @@ extension ProtobufBytes: ProtobufMapValueType {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout Data?) throws -> Bool {
-        guard decoder.fieldWireFormat == .lengthDelimited else {
-            throw DecodingError.schemaMismatch
-        }
         var n: Int = 0
         let p = try decoder.getFieldBodyBytes(count: &n)
         value = Data(bytes: p, count: n)
@@ -745,9 +700,6 @@ extension Enum where RawValue == Int {
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout Self?) throws -> Bool {
-        guard decoder.fieldWireFormat == .varint else {
-            throw DecodingError.schemaMismatch
-        }
         let varint = try decoder.decodeVarint()
         if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
             value = v

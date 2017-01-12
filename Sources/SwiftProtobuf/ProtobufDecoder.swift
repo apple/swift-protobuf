@@ -70,6 +70,9 @@ public struct ProtobufDecoder: FieldDecoder {
     }
 
     public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
+        guard fieldWireFormat == S.protobufWireFormat else {
+            throw DecodingError.schemaMismatch
+        }
         consumed = try S.setFromProtobuf(decoder: &self, value: &value)
     }
 
