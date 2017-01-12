@@ -249,9 +249,9 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
   }
 }
 
-let Extensions_extensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 2, fieldNames: .same(proto: "[ExtensionGroup]", swift: "extensionGroup"), defaultValue: ExtensionGroup())
+let Extensions_extensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 2, fieldNames: .same(proto: "ExtensionGroup", swift: "extensionGroup"), defaultValue: ExtensionGroup())
 
-let Extensions_repeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 3, fieldNames: .same(proto: "[RepeatedExtensionGroup]", swift: "repeatedExtensionGroup"), defaultValue: [])
+let Extensions_repeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(protoFieldNumber: 3, fieldNames: .same(proto: "RepeatedExtensionGroup", swift: "repeatedExtensionGroup"), defaultValue: [])
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
