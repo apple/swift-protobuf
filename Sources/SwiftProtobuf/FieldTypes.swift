@@ -33,6 +33,8 @@ public protocol FieldType {
     // Other types will override this
     associatedtype BaseType: Hashable = Self
 
+    static var proto3DefaultValue: BaseType { get }
+
     //
     // Protobuf coding for basic types
     //
@@ -44,10 +46,10 @@ public protocol FieldType {
     /// size includes the space required for the length prefix. For messages, this is a subtle
     /// distinction from the `serializedSize()` method, which does *not* include the length prefix.
     static func encodedSizeWithoutTag(of value: BaseType) throws -> Int
+
     /// Write the protobuf-encoded value to the encoder
     static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: BaseType)
-
-    /// Set the variable from a protobuf decoder
+    /// Update a field from a protobuf decoder
     static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool
     static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool
     static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool
@@ -57,11 +59,9 @@ public protocol FieldType {
     //
     /// Serialize the value to a Text encoder
     static func serializeTextValue(encoder: TextEncoder, value: BaseType) throws
-    /// Set a Swift optional from upcoming Text tokens
+    /// Update the field from the Text scanner
     static func setFromText(scanner: TextScanner, value: inout BaseType?) throws
-    /// Set a Swift non-optional from upcoming Text tokens
     static func setFromText(scanner: TextScanner, value: inout BaseType) throws
-    /// Update a Swift array from upcoming Text tokens
     static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws
 
     //
@@ -69,10 +69,10 @@ public protocol FieldType {
     //
     /// Serialize the value to a JSON encoder
     static func serializeJSONValue(encoder: inout JSONEncoder, value: BaseType) throws
-    /// Set a Swift optional from the upcoming JSON tokens
-    static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws
-    /// Update a Swift array from a JSON decoder (used by repeated fields)
-    static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws
+    /// Update the field from the JSON scanner
+    static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws
+    static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType) throws
+    static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws
 }
 
 ///
@@ -92,7 +92,6 @@ public protocol MapKeyType: FieldType {
     // to be quoted, so needs special handling.
     //
     static func serializeJSONMapKey(encoder: inout JSONEncoder, value: BaseType)
-    static func decodeJSONMapKey(token: JSONToken) throws -> BaseType?
 }
 
 ///
@@ -113,6 +112,7 @@ public protocol MapValueType: FieldType {
 ///
 public struct ProtobufFloat: FieldType, MapValueType {
     public typealias BaseType = Float
+    static public var proto3DefaultValue: Float {return 0.0}
 }
 
 ///
@@ -120,6 +120,7 @@ public struct ProtobufFloat: FieldType, MapValueType {
 ///
 public struct ProtobufDouble: FieldType, MapValueType {
     public typealias BaseType = Double
+    static public var proto3DefaultValue: Double {return 0.0}
 }
 
 ///
@@ -127,6 +128,7 @@ public struct ProtobufDouble: FieldType, MapValueType {
 ///
 public struct ProtobufInt32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int32
+    static public var proto3DefaultValue: Int32 {return 0}
 }
 
 ///
@@ -135,6 +137,7 @@ public struct ProtobufInt32: FieldType, MapKeyType, MapValueType {
 
 public struct ProtobufInt64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int64
+    static public var proto3DefaultValue: Int64 {return 0}
 }
 
 ///
@@ -142,6 +145,7 @@ public struct ProtobufInt64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufUInt32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt32
+    static public var proto3DefaultValue: UInt32 {return 0}
 }
 
 ///
@@ -150,6 +154,7 @@ public struct ProtobufUInt32: FieldType, MapKeyType, MapValueType {
 
 public struct ProtobufUInt64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt64
+    static public var proto3DefaultValue: UInt64 {return 0}
 }
 
 ///
@@ -157,6 +162,7 @@ public struct ProtobufUInt64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufSInt32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int32
+    static public var proto3DefaultValue: Int32 {return 0}
 }
 
 ///
@@ -165,6 +171,7 @@ public struct ProtobufSInt32: FieldType, MapKeyType, MapValueType {
 
 public struct ProtobufSInt64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int64
+    static public var proto3DefaultValue: Int64 {return 0}
 }
 
 ///
@@ -172,6 +179,7 @@ public struct ProtobufSInt64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufFixed32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt32
+    static public var proto3DefaultValue: UInt32 {return 0}
 }
 
 ///
@@ -179,6 +187,7 @@ public struct ProtobufFixed32: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufFixed64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt64
+    static public var proto3DefaultValue: UInt64 {return 0}
 }
 
 ///
@@ -186,6 +195,7 @@ public struct ProtobufFixed64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufSFixed32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int32
+    static public var proto3DefaultValue: Int32 {return 0}
 }
 
 ///
@@ -193,6 +203,7 @@ public struct ProtobufSFixed32: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufSFixed64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int64
+    static public var proto3DefaultValue: Int64 {return 0}
 }
 
 ///
@@ -200,6 +211,7 @@ public struct ProtobufSFixed64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Bool
+    static public var proto3DefaultValue: Bool {return false}
 }
 
 ///
@@ -207,6 +219,7 @@ public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufString: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = String
+    static public var proto3DefaultValue: String {return ""}
 }
 
 ///
@@ -214,4 +227,19 @@ public struct ProtobufString: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufBytes: FieldType, MapValueType {
     public typealias BaseType = Data
+    static public var proto3DefaultValue: Data {return Data()}
+}
+
+///
+/// Enum
+///
+public extension Enum {
+    static public var proto3DefaultValue: Self {return Self()}
+}
+
+///
+/// Messages
+///
+public extension Message {
+    static public var proto3DefaultValue: Self {return Self()}
 }

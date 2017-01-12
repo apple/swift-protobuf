@@ -73,10 +73,7 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
     func testRepeatedBoolWrapper() {
         assertJSONDecodeSucceeds("{\"repeatedBoolWrapper\": [true, false]}") {
             (o: Conformance_TestAllTypes) -> Bool in
-            let a = o.repeatedBoolWrapper.count == 2
-            let b = o.repeatedBoolWrapper[0] == Google_Protobuf_BoolValue(true)
-            let c = o.repeatedBoolWrapper[1] == Google_Protobuf_BoolValue(false)
-            return a && b && c
+            return o.repeatedBoolWrapper == [Google_Protobuf_BoolValue(true), Google_Protobuf_BoolValue(false)]
         }
     }
 

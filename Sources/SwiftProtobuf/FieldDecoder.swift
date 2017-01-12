@@ -58,12 +58,7 @@ public extension FieldDecoder {
         throw DecodingError.schemaMismatch
     }
     public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
-        var t: S.BaseType? = nil
-        try decodeSingularField(fieldType: fieldType, value: &t)
-        if let newValue = t {
-            value = newValue
-        }
-        // TODO: else value = S.proto3DefaultValue
+        throw DecodingError.schemaMismatch
     }
     public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         throw DecodingError.schemaMismatch

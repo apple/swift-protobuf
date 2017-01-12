@@ -23,26 +23,6 @@ public struct JSONEncoder {
     mutating func append(text: String) {
         json.append(text)
     }
-    mutating func appendTokens(tokens: [JSONToken]) {
-        for t in tokens {
-            switch t {
-            case .beginArray: append(text: "[")
-            case .beginObject: append(text: "{")
-            case .boolean(let v):
-                // Note that quoted boolean map keys get stored as .string()
-                putBoolValue(value: v, quote: false)
-            case .colon: append(text: ":")
-            case .comma: append(text: ",")
-            case .endArray: append(text: "]")
-            case .endObject: append(text: "}")
-            case .null: putNullValue()
-            case .number(.double(let v)): append(text: String(v))
-            case .number(.int(let v)): append(text: String(v))
-            case .number(.uint(let v)): append(text: String(v))
-            case .string(let v): putStringValue(value: v)
-            }
-        }
-    }
     mutating func startField(name: String) {
         append(text: separator + "\"" + name + "\":")
         separator = ","

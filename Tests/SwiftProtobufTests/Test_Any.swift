@@ -232,33 +232,60 @@ class Test_Any: XCTestCase {
 
     func test_Any_Any() throws {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Any\",\"value\":{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":1}}}"
+        let decoded: Conformance_TestAllTypes
         do {
-            let decoded = try Conformance_TestAllTypes(json: start)
-            XCTAssertNotNil(decoded.optionalAny)
-            let outerAny = decoded.optionalAny
+             decoded = try Conformance_TestAllTypes(json: start)
+        } catch {
+            XCTFail("Failed to decode \(start)")
+            return
+        }
+        XCTAssertNotNil(decoded.optionalAny)
+        let outerAny = decoded.optionalAny
+        do {
+            let innerAny = try Google_Protobuf_Any(any: outerAny)
             do {
-                let innerAny = try Google_Protobuf_Any(any: outerAny)
-                do {
-                    let value = try Google_Protobuf_Int32Value(any: innerAny)
-                    XCTAssertEqual(value.value, 1)
-                } catch {
-                    XCTFail("Failed to decode innerAny")
-                    return
-                }
+                let value = try Google_Protobuf_Int32Value(any: innerAny)
+                XCTAssertEqual(value.value, 1)
             } catch {
-                XCTFail("Failed to unpack outerAny \(outerAny): \(error)")
+                XCTFail("Failed to decode innerAny")
                 return
             }
+        } catch {
+            XCTFail("Failed to unpack outerAny \(outerAny): \(error)")
+            return
+        }
 
-            let protobuf = try decoded.serializeProtobuf()
-            XCTAssertEqual(protobuf, Data(bytes: [138, 19, 95, 10, 39, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 65, 110, 121, 18, 52, 10, 46, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 73, 110, 116, 51, 50, 86, 97, 108, 117, 101, 18, 2, 8, 1]))
-            let redecoded = try Conformance_TestAllTypes(protobuf: protobuf)
-            let json = try redecoded.serializeJSON()
-            XCTAssertEqual(json, start)
+        let protobuf: Data
+        do {
+            protobuf = try decoded.serializeProtobuf()
+        } catch {
+            XCTFail("Failed to serialize \(decoded)")
+            return
+        }
+        XCTAssertEqual(protobuf, Data(bytes: [138, 19, 95, 10, 39, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 65, 110, 121, 18, 52, 10, 46, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 73, 110, 116, 51, 50, 86, 97, 108, 117, 101, 18, 2, 8, 1]))
+
+        let redecoded: Conformance_TestAllTypes
+        do {
+            redecoded = try Conformance_TestAllTypes(protobuf: protobuf)
+        } catch {
+            XCTFail("Failed to decode \(protobuf)")
+            return
+        }
+
+        let json: String
+        do {
+            json = try redecoded.serializeJSON()
+        } catch {
+            XCTFail("Failed to recode \(redecoded)")
+            return
+        }
+        XCTAssertEqual(json, start)
+
+        do {
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, start)
         } catch {
-            XCTFail("Failed to decode \(start)")
+            XCTFail("Failed to recode \(start)")
         }
     }
 

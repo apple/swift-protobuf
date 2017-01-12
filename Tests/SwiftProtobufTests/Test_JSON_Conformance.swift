@@ -87,18 +87,30 @@ class Test_JSON_Conformance: XCTestCase {
     func testNullSupport_Value() throws {
         // BUT: Value fields treat null as a regular value
         let valueNull = "{\"optionalValue\": null}"
+        let decoded: Conformance_TestAllTypes
         do {
-            let decoded = try Conformance_TestAllTypes(json: valueNull)
+            decoded = try Conformance_TestAllTypes(json: valueNull)
             XCTAssertNotEqual(decoded, Conformance_TestAllTypes())
+        } catch let e {
+            XCTFail("Decode failed with error \(e): \(valueNull)")
+            return
+        }
+
+        do {
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"optionalValue\":null}")
+        } catch let e {
+            XCTFail("JSON encode failed with error: \(e)")
+        }
+
+        do {
             let protobuf = try decoded.serializeProtobufBytes()
             XCTAssertEqual(protobuf, [146, 19, 2, 8, 0])
-        } catch {
-            XCTFail("Decode failed with error: \(valueNull)")
+        } catch let e {
+            XCTFail("Protobuf encode failed with error: \(e)")
         }
     }
-    
+
     func testNullSupport_Repeated() throws {
         // Nulls within repeated lists are errors
         let json1 = "{\"repeatedBoolWrapper\":[true, null, false]}"
@@ -111,7 +123,7 @@ class Test_JSON_Conformance: XCTestCase {
         let json4 = "{\"repeatedNestedMessage\":[null]}"
         XCTAssertThrowsError(try Conformance_TestAllTypes(json: json4))
     }
-    
+
     func testNullSupport_RepeatedValue() throws {
         // BUT: null is valid within repeated Value fields
         let repeatedValueWithNull = "{\"repeatedValue\": [1, null]}"
@@ -137,7 +149,7 @@ class Test_JSON_Conformance: XCTestCase {
             XCTFail("Protobuf encoding failed with error: \(repeatedValueWithNull)")
         }
     }
-    
+
     func testNullConformance() {
         let start = "{\n        \"optionalBoolWrapper\": null,\n        \"optionalInt32Wrapper\": null,\n        \"optionalUint32Wrapper\": null,\n        \"optionalInt64Wrapper\": null,\n        \"optionalUint64Wrapper\": null,\n        \"optionalFloatWrapper\": null,\n        \"optionalDoubleWrapper\": null,\n        \"optionalStringWrapper\": null,\n        \"optionalBytesWrapper\": null,\n        \"repeatedBoolWrapper\": null,\n        \"repeatedInt32Wrapper\": null,\n        \"repeatedUint32Wrapper\": null,\n        \"repeatedInt64Wrapper\": null,\n        \"repeatedUint64Wrapper\": null,\n        \"repeatedFloatWrapper\": null,\n        \"repeatedDoubleWrapper\": null,\n        \"repeatedStringWrapper\": null,\n        \"repeatedBytesWrapper\": null\n      }"
         do {
@@ -150,11 +162,13 @@ class Test_JSON_Conformance: XCTestCase {
 
     func testValueList() {
         let start = "{\"optionalValue\":[0,\"hello\"]}"
+        let t: Conformance_TestAllTypes
         do {
-            let t = try Conformance_TestAllTypes(json: start)
-            XCTAssertEqual(try t.serializeJSON(), start)
+            t = try Conformance_TestAllTypes(json: start)
         } catch {
-            XCTFail()
+            XCTFail("Failed to decode: \(start)")
+            return
         }
+        XCTAssertEqual(try t.serializeJSON(), start)
     }
 }
