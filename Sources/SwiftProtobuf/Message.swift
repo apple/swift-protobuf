@@ -158,9 +158,9 @@ public extension Message {
   /// - Parameter populator: A block or function that populates the new message,
   ///   which is passed into the block as an `inout` argument.
   /// - Returns: The message after execution of the block.
-  public static func with(populator: (inout Self) -> ()) -> Self {
+  public static func with(_ populator: (inout Self) throws -> ()) rethrows -> Self {
     var message = Self()
-    populator(&message)
+    try populator(&message)
     return message
   }
 }

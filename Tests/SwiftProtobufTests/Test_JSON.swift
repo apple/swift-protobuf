@@ -135,9 +135,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             + "}")
         assertJSONEncode(expected, configure: configureLargeObject)
     }
-    
+
     func testEncodePerf() {
-        let m = MessageTestType.with(populator: configureLargeObject)
+        let m = MessageTestType.with(configureLargeObject)
         self.measure {
             do {
                 for _ in 0..<1000 {
@@ -147,9 +147,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             }
         }
     }
-    
+
     func testDecodePerf() throws {
-        let m = MessageTestType.with(populator: configureLargeObject)
+        let m = MessageTestType.with(configureLargeObject)
         let json = try m.serializeJSON()
         self.measure {
             do {

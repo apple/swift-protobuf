@@ -76,7 +76,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeSucceeds("single_int64: 0x1234567812345678\n") {(o: MessageTestType) in
             return o.singleInt64 == 0x1234567812345678
         }
-        
+
         assertTextDecodeFails("single_int64: a\n")
         assertTextDecodeFails("single_int64: 999999999999999999999999999999999999\n")
         assertTextDecodeFails("single_int64: 1,2\n")
@@ -247,10 +247,10 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         }
         assertTextEncode("single_float: inf\n") {(o: inout MessageTestType) in o.singleFloat = Float.infinity}
         assertTextEncode("single_float: -inf\n") {(o: inout MessageTestType) in o.singleFloat = -Float.infinity}
-        
+
         let b = Proto3TestAllTypes.with {$0.singleFloat = Float.nan}
         XCTAssertEqual("single_float: nan\n", try b.serializeText())
-        
+
         assertTextDecodeSucceeds("single_float: INFINITY\n") {(o: MessageTestType) in
             return o.singleFloat == Float.infinity
         }
@@ -282,7 +282,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextEncode("single_double: -inf\n") {(o: inout MessageTestType) in o.singleDouble = -Double.infinity}
         let b = Proto3TestAllTypes.with {$0.singleDouble = Double.nan}
         XCTAssertEqual("single_double: nan\n", try b.serializeText())
-        
+
         assertTextDecodeSucceeds("single_double: INFINITY\n") {(o: MessageTestType) in
             return o.singleDouble == Double.infinity
         }
@@ -323,7 +323,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeSucceeds("single_bool:true\n ") {(o: MessageTestType) in
             return o.singleBool == true
         }
-        
+
         assertTextDecodeFails("single_bool: 10\n")
         assertTextDecodeFails("single_bool: tRue\n")
         assertTextDecodeFails("single_bool: faLse\n")
@@ -340,7 +340,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         a.singleString = "abc"
 
         XCTAssertEqual("single_string: \"abc\"\n", try a.serializeText())
-        
+
         assertTextEncode("single_string: \"\\001\\002\\003\\004\\005\\006\\007\"\n") {
             (o: inout MessageTestType) in
             o.singleString = "\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
@@ -361,7 +361,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: inout MessageTestType) in
             o.singleString = "\u{20}\u{21}\u{22}\u{23}\u{24}\u{25}\u{26}\u{27}"
         }
-        
+
         assertTextEncode("single_string: \"XYZ[\\\\]^_\"\n") {
             (o: inout MessageTestType) in
             o.singleString = "\u{58}\u{59}\u{5a}\u{5b}\u{5c}\u{5d}\u{5e}\u{5f}"
@@ -379,8 +379,8 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             (o: inout MessageTestType) in
             o.singleString = "\u{f8}\u{f9}\u{fa}\u{fb}\u{fc}\u{fd}\u{fe}\u{ff}"
         }
-        
-        
+
+
         // Adjacent quoted strings concatenate, see
         //   google/protobuf/text_format_unittest.cc#L597
         assertTextDecodeSucceeds("single_string: \"abc\"\"def\"") {
@@ -439,7 +439,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_string: \'hello\"")
         assertTextDecodeFails("single_string: \"hello")
     }
-    
+
     func testEncoding_singleString_UTF8() throws {
         // We encode to/from a string, not a sequence of bytes, so valid
         // Unicode characters just get preserved on both encode and decode:
@@ -488,7 +488,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeSucceeds("single_bytes: \"\\b\\t\\n\\v\\f\\r\\\"\\'\\?'\"\n") {(o: MessageTestType) in
             return o.singleBytes == Data(bytes: [8, 9, 10, 11, 12, 13, 34, 39, 63, 39])
         }
-        
+
         assertTextDecodeFails("single_bytes: 10\n")
         assertTextDecodeFails("single_bytes: \"\\\"\n")
         assertTextDecodeFails("single_bytes: \"\\x\"\n")
@@ -588,7 +588,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_nested_enum: a\n")
         assertTextDecodeFails("single_nested_enum: FOOBAR")
         assertTextDecodeFails("single_nested_enum: \"BAR\"\n")
-        
+
         // Note: This implementation currently preserves numeric unknown
         // enum values, unlike Google's C++ implementation, which considers
         // it a parse error.
@@ -1205,7 +1205,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncodePerf() {
-        let m = MessageTestType.with(populator: configureLargeObject)
+        let m = MessageTestType.with(configureLargeObject)
         self.measure {
             do {
                 for _ in 0..<1000 {
@@ -1217,7 +1217,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testDecodePerf() throws {
-        let m = MessageTestType.with(populator: configureLargeObject)
+        let m = MessageTestType.with(configureLargeObject)
         let text = try m.serializeText()
         self.measure {
             do {

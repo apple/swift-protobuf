@@ -2045,5 +2045,24 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let m = ProtobufUnittest_ForeignMessage.with { $0.c = 5 }
         XCTAssertEqual(5, m.c)
     }
-}
 
+    func testWithFactoryHelperRethrows() {
+        class TestWithFactoryHelperRethrows_Error : Error {}
+
+        let pNoThrow: (inout ProtobufUnittest_ForeignMessage) -> () = { $0.c = 1 }
+        let m1 = ProtobufUnittest_ForeignMessage.with(pNoThrow)
+        XCTAssertEqual(1, m1.c)
+
+        var populatorRan = false
+        let pThrow: (inout ProtobufUnittest_ForeignMessage) throws -> () = {
+            $0.c = 2
+            populatorRan = true
+            throw TestWithFactoryHelperRethrows_Error()
+        }
+
+        let m2 = try? ProtobufUnittest_ForeignMessage.with(pThrow)
+        XCTAssertNil(m2)
+        XCTAssert(populatorRan)
+    }
+
+}
