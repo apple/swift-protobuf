@@ -610,27 +610,6 @@ extension ProtobufBool: ProtobufMapValueType {
 /// String traits
 ///
 
-// Note:  When decoding a lot of string fields, this function
-// accounts for ~50% of the total run time.  Optimizations here
-// can have big impacts.
-private func bufferToString(buffer p: UnsafePointer<UInt8>, count: Int) throws -> String {
-    // The extra copy here is regrettable, but even with that,
-    // this seems to be faster than many alternatives (see below).
-    let data = Data(bytes: p, count: count)
-    if let s = String(data: data, encoding: String.Encoding.utf8) {
-        return s
-    } else {
-        throw DecodingError.invalidUTF8
-    }
-    // Other alternatives that have been tried (roughly ordered from
-    // faster to slower):
-    // = Passing an UnsafeBufferPointer to String(bytes:encoding:)
-    // = Using a UTF8() codec to decode character-by-character
-    // = Copy the data, append a zero byte, then use String(utf8String:)
-    // Of course, any of these may suddenly become much faster in a
-    // future Swift release.
-}
-
 extension ProtobufString: ProtobufMapValueType {
     public static var protobufWireFormat: WireFormat { return .lengthDelimited }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: String) {
@@ -640,8 +619,12 @@ extension ProtobufString: ProtobufMapValueType {
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout String?) throws -> Bool {
         var n: Int = 0
         let p = try decoder.getFieldBodyBytes(count: &n)
-        value = try bufferToString(buffer: p, count: n)
-        return true
+        if let s = utf8ToString(bytes: p, count: n) {
+            value = s
+            return true
+        } else {
+            throw DecodingError.invalidUTF8
+        }
     }
 
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [String]) throws -> Bool {
@@ -650,9 +633,12 @@ extension ProtobufString: ProtobufMapValueType {
         }
         var n: Int = 0
         let p = try decoder.getFieldBodyBytes(count: &n)
-        let s = try bufferToString(buffer: p, count: n)
-        value.append(s)
-        return true
+        if let s = utf8ToString(bytes: p, count: n) {
+            value.append(s)
+            return true
+        } else {
+            throw DecodingError.invalidUTF8
+        }
     }
 
     public static func encodedSizeWithoutTag(of value: String) -> Int {
