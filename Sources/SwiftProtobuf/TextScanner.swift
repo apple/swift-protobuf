@@ -332,78 +332,34 @@ public class TextScanner {
         }
         return nil // Unterminated quoted string
     }
-/*
-    private func parseUnsignedNumber() -> String {
+
+    /// Assumes the leading quote has already been consumed
+    private func parseStringSegment(terminator: UInt8) -> String? {
+        let start = index
+        var sawBackslash = false
         while index != utf8.endIndex {
             let c = utf8[index]
-            switch c {
-            case 48...57, 46, 43, 45, 101, 69: // 0...9, ., +, -, e, E
+            if c == terminator {
+                let s = String(utf8[start..<index])
                 index = utf8.index(after: index)
-            case 102, 117: // f, u
-                // proto1 allowed floats to be suffixed with 'f'
-                // and unsigned integers to be suffixed with 'u'
-                // Just ignore it:
-                let s = String(utf8[tokenStart..<index])!
-                index = utf8.index(after: index)
-                return s
-            default:
-                return String(utf8[tokenStart..<index])!
+                if let s = s, sawBackslash {
+                    return decodeString(s)
+                } else {
+                    return s
+                }
             }
-        }
-        return String(utf8[tokenStart..<index])!
-    }
-
-    private func parseFloat() -> String {
-        return parseUnsignedNumber()
-    }
-
-    private func parseNumber() throws -> TextToken {
-        // Restart parse at start of token
-        index = tokenStart
-        var digit = utf8[index]
-        index = utf8.index(after: index)
-        if digit == 45 { // -
-            if index == utf8.endIndex {
-                throw DecodingError.malformedText
-            } else {
-                digit = utf8[index]
+            index = utf8.index(after: index)
+            if c == 92 { //  \
+                if index == utf8.endIndex {
+                    return nil
+                }
+                sawBackslash = true
                 index = utf8.index(after: index)
             }
         }
-
-        switch digit {
-        case 97...122, 65...90:
-            // Treat "-" followed by a letter as a floating-point literal.
-            // This treats "-Infinity" as a single token
-            // Note that "Infinity" and "NaN" are regular identifiers.
-            if let s = parseIdentifier() {
-                return .floatingPointLiteral(s)
-            } else {
-                throw DecodingError.malformedText
-            }
-        case 48:  // Leading zero: Octal, hex, or floating point (e.g., "0.2")
-            let second = utf8[index]
-            switch second {
-            case 49...55: // 1...7
-                let n = parseOctalInteger()
-                return .octalInteger(n)
-            case 120: // x
-                index = utf8.index(after: index)
-                let n = parseHexInteger()
-                return .hexadecimalInteger(n)
-            case 46: // .
-                let n = parseFloat()
-                return .floatingPointLiteral(n)
-            default: // Either "0" or "-0"
-                let n = String(utf8[tokenStart..<index])!
-                return .decimalInteger(n)
-            }
-        default:
-            let n = parseUnsignedNumber()
-            return .decimalInteger(n)
-        }
+        return nil // Unterminated quoted string
     }
-*/
+
     internal func nextUInt() throws -> UInt64 {
         skipWhitespace()
         if index == utf8.endIndex {
@@ -526,8 +482,8 @@ public class TextScanner {
             throw DecodingError.malformedText
         }
         index = utf8.index(after: index)
-        if let s = parseQuotedString(terminator: c), let d = decodeString(s) {
-            result = d
+        if let s = parseStringSegment(terminator: c) {
+            result = s
         } else {
             throw DecodingError.malformedText
         }
@@ -542,8 +498,8 @@ public class TextScanner {
                 return result
             }
             index = utf8.index(after: index)
-            if let s = parseQuotedString(terminator: c), let d = decodeString(s) {
-                result.append(d)
+            if let s = parseStringSegment(terminator: c) {
+                result.append(s)
             } else {
                 throw DecodingError.malformedText
             }
