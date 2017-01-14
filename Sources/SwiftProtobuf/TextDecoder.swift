@@ -45,22 +45,18 @@ public struct TextDecoder: FieldDecoder {
                     return
                 }
             }
-            if let token = try scanner.nextKey() {
-                switch token {
-                case .extensionIdentifier(let key):
-                    // Extension key; look up in the extension registry
-                    if let protoFieldNumber = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
-                        try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
-                    } else {
-                        throw DecodingError.unknownField
-                    }
-                case .identifier(let key):
-                    // Regular key; look it up on the message
-                    if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
-                        try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
-                    } else {
-                        throw DecodingError.unknownField
-                    }
+            if let key = try scanner.nextOptionalExtensionKey() {
+                // Extension key; look up in the extension registry
+                if let protoFieldNumber = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
+                    try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
+                } else {
+                    throw DecodingError.unknownField
+                }
+            } else if let key = try scanner.nextKey() {
+                if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
+                    try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
+                } else {
+                    throw DecodingError.unknownField
                 }
             } else if terminator == nil {
                 return
@@ -152,12 +148,12 @@ public struct TextDecoder: FieldDecoder {
             if scanner.skipOptionalObjectEnd(terminator) {
                 return
             }
-            if let keyToken = try scanner.nextKey() {
-                switch keyToken {
-                case .identifier("key"):
+            if let key = try scanner.nextKey() {
+                switch key {
+                case "key":
                     try scanner.skipRequiredColon()
                     try KeyType.setFromText(scanner: scanner, value: &keyField)
-                case .identifier("value"):
+                case "value":
                     // Awkward:  If the value is message-typed, the colon is
                     // optional, otherwise, it's required.
                     _ = scanner.skipOptionalColon()

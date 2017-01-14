@@ -263,7 +263,7 @@ public class TextScanner {
     /// Parse the rest of an [extension_field_name] in the input, assuming the
     /// initial "[" character has already been read (and is in the prefix)
     /// This is also used for AnyURL, so we include "/", "."
-    private func parseExtensionIdentifier() -> String? {
+    private func parseExtensionKey() -> String? {
         let start = index
         if index == utf8.endIndex {
             return nil
@@ -706,16 +706,32 @@ public class TextScanner {
         return nil
     }
 
+    /// Any URLs are syntactically (almost) identical to extension
+    /// keys, so we share the code for those.
     internal func nextOptionalAnyURL() throws -> String? {
+        return try nextOptionalExtensionKey()
+    }
+
+    /// Returns next extension key or nil if end-of-input or
+    /// if next token is not an extension key.
+    ///
+    /// Throws an error if the next token starts with '[' but
+    /// cannot be parsed as an extension key.
+    ///
+    /// Note: This accepts / characters to support Any URL parsing.
+    /// Technically, Any URLs can contain / characters and extension
+    /// key names cannot.  But in practice, accepting / chracters for
+    /// extension keys works fine, since the result just gets rejected
+    /// when the key is looked up.
+    internal func nextOptionalExtensionKey() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
             eof = true
             return nil
         }
-        let c = utf8[index]
-        if c == 91 { // [
+        if utf8[index] == 91 { // [
             index = utf8.index(after: index)
-            if let s = parseExtensionIdentifier() {
+            if let s = parseExtensionKey() {
                 if index == utf8.endIndex || utf8[index] != 93 {
                     throw DecodingError.malformedText
                 }
@@ -723,17 +739,28 @@ public class TextScanner {
                 index = utf8.index(after: index)
                 return s
             } else {
+                print("Error parsing extension identifier")
                 throw DecodingError.malformedText
             }
-        } else {
-            return nil
         }
+        return nil
     }
 
-    /// Returns next key
-    /// Note:  This treats [abc] as a single "extension identifier"
-    /// token, consistent with Text format key handling.
-    internal func nextKey() throws -> TextToken? {
+    /// Returns next regular key or nil if end-of-input.
+    /// This considers an extension key [keyname] to be an
+    /// error, so call nextOptionalExtensionKey first if you
+    /// want to handle extension keys.
+    ///
+    /// Note: This accounts for around half of our total decode time
+    /// for most cases, so improvements here can have a big impact.
+    /// In particular, parseIdentifier spends a lot of time creating a
+    /// new String that is just discarded immediately.
+    ///
+    /// One idea: pass the field name lookup down through this
+    /// function into parseIdentifier(); use a ternary tree or similar
+    /// lookup structure and walk it character-by-character to get the
+    /// field number directly.  This would avoid creating the string.
+    internal func nextKey() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
             eof = true
@@ -742,21 +769,10 @@ public class TextScanner {
         let c = utf8[index]
         switch c {
         case 91: // [
-            index = utf8.index(after: index)
-            if let s = parseExtensionIdentifier() {
-                if index == utf8.endIndex || utf8[index] != 93 {
-                    throw DecodingError.malformedText
-                }
-                // Skip ]
-                index = utf8.index(after: index)
-                return .extensionIdentifier(s)
-            } else {
-                print("Error parsing extension identifier")
-                throw DecodingError.malformedText
-            }
+            throw DecodingError.malformedText
         case 97...122, 65...90: // a...z, A...Z
             if let s = parseIdentifier() {
-                return .identifier(s)
+                return s
             } else {
                 throw DecodingError.malformedText
             }
