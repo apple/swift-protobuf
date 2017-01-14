@@ -16,6 +16,16 @@
 import Foundation
 import Swift
 
+public extension FieldType {
+    public static func setFromText(scanner: TextScanner, value: inout BaseType) throws {
+        var v: BaseType?
+        try setFromText(scanner: scanner, value: &v)
+        if let v = v {
+            value = v
+        }
+    }
+}
+
 ///
 /// Float traits
 ///

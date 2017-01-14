@@ -85,6 +85,11 @@ public struct TextDecoder: FieldDecoder {
         try S.setFromText(scanner: scanner, value: &value)
     }
 
+    public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
+        try scanner.skipRequiredColon()
+        try S.setFromText(scanner: scanner, value: &value)
+    }
+
     public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {

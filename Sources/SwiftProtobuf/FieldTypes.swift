@@ -59,6 +59,8 @@ public protocol FieldType {
     static func serializeTextValue(encoder: TextEncoder, value: BaseType) throws
     /// Set a Swift optional from upcoming Text tokens
     static func setFromText(scanner: TextScanner, value: inout BaseType?) throws
+    /// Set a Swift non-optional from upcoming Text tokens
+    static func setFromText(scanner: TextScanner, value: inout BaseType) throws
     /// Update a Swift array from upcoming Text tokens
     static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws
 
