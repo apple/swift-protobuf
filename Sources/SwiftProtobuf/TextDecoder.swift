@@ -52,7 +52,6 @@ public struct TextDecoder: FieldDecoder {
                     if let protoFieldNumber = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
                         try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
                     } else {
-                        print("Unknown extension field \(key)")
                         throw DecodingError.unknownField
                     }
                 case .identifier(let key):
