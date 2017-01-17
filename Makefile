@@ -150,7 +150,8 @@ PLUGIN_PROTOS= \
 
 # Protos that are used by the conformance test runner.
 CONFORMANCE_PROTOS= \
-	Protos/conformance/conformance.proto
+	Protos/conformance/conformance.proto \
+	Protos/google/protobuf/test_messages_proto3.proto
 
 XCODEBUILD_EXTRAS =
 # Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
