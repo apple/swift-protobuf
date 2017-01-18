@@ -1447,6 +1447,7 @@
 				F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */,
 				AAF2EE011DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				F44F93801DAEA76700BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				F44F938C1DAEA76700BC5B85 /* JSONDecoder.swift in Sources */,
 				F44F93911DAEA76700BC5B85 /* OneofEnum.swift in Sources */,
 				9CA424441E286D4E00C0E5B4 /* Strings.swift in Sources */,
 				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
