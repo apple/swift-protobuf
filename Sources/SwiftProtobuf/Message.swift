@@ -56,7 +56,6 @@ public protocol Message: CustomDebugStringConvertible {
   /// textual identifiers translate those to protoFieldNumbers and then invoke
   /// this to decode the field value.
  mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws
-//  mutating func decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws
 
   /// Support for traversing the object tree.
   ///
@@ -203,7 +202,6 @@ public protocol _MessageImplementationBase: Message, Hashable, MapValueType, Fie
   // implementations below redirect the standard names. This allows developers
   // to override the standard names to customize the behavior.
   mutating func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T,
-//  mutating func _protoc_generated_decodeField(setter: inout FieldDecoder,
                                               protoFieldNumber: Int) throws
 
   func _protoc_generated_traverse(visitor: Visitor) throws
@@ -222,7 +220,6 @@ public extension _MessageImplementationBase {
   }
 
   mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-//  mutating func decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
     try _protoc_generated_decodeField(setter: &setter,
                                       protoFieldNumber: protoFieldNumber)
   }
