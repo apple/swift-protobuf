@@ -61,7 +61,7 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &value)
     default: break
@@ -97,7 +97,7 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &value)
     default: break
@@ -133,7 +133,7 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &value)
     default: break
@@ -169,7 +169,7 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &value)
     default: break
@@ -205,7 +205,7 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &value)
     default: break
@@ -241,7 +241,7 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &value)
     default: break
@@ -277,7 +277,7 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &value)
     default: break
@@ -313,7 +313,7 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
     default: break
@@ -349,7 +349,7 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.P
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)
     default: break

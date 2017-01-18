@@ -15,27 +15,6 @@
 import Foundation
 import XCTest
 
-
-/// Since [UInt8] is not Equatable in Swift 3, we need a custom
-/// implementation of == for Dictionaries whose keys are [UInt8]
-
-func ==<K>(lhs: Dictionary<K, [UInt8]>, rhs: Dictionary<K, [UInt8]>) -> Bool {
-    if lhs.count != rhs.count {
-        return false
-    }
-    for (k,lv) in lhs {
-        if let rv = rhs[k] {
-            if lv != rv {
-                return false
-            }
-        } else {
-            return false
-        }
-    }
-    return true
-}
-
-
 class Test_Map: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestMap
 
@@ -71,8 +50,8 @@ class Test_Map: XCTestCase, PBTestHelpers {
             do {
                 let decoded = try MessageTestType(protobufBytes: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object", file: file, line: line)
-            } catch {
-                XCTFail("Encode/decode cycle should not fail", file: file, line: line)
+            } catch let e {
+                XCTFail("Encode/decode cycle should not fail: \(e)", file: file, line: line)
             }
         } catch let e {
             XCTFail("Serialization failed for \(configured): \(e)", file: file, line: line)

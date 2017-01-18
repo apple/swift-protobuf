@@ -121,7 +121,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 
-    public mutating func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
         case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
         default:
@@ -244,7 +244,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    mutating public func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
+    mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
         case 1, 2, 3, 4, 5, 6:
             try kind.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -456,7 +456,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             self = .None
         }
 
-        public mutating func decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
+        public mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
             switch protoFieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
@@ -673,7 +673,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         }
     }
 
-    mutating public func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
+    mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
         case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &values)
         default: break

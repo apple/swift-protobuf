@@ -144,7 +144,7 @@ class StorageClassGenerator {
 
         // decodeField
         p.print("\n")
-        p.print("func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {\n")
+        p.print("func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {\n")
         p.indent()
         p.print("switch protoFieldNumber {\n")
         oneofHandled.removeAll(keepingCapacity: true)
@@ -513,7 +513,7 @@ class MessageGenerator {
 
         // Field-addressable decoding
         p.print("\n")
-        p.print("public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {\n")
+        p.print("public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {\n")
         p.indent()
         if storage != nil {
             p.print("try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")

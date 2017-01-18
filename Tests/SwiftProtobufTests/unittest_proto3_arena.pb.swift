@@ -245,7 +245,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
     init() {}
 
-    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_optionalInt32)
       case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_optionalInt64)
@@ -579,7 +579,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pr
       self = .None
     }
 
-    public mutating func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       if self != .None && setter.rejectConflictingOneof {
         throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
@@ -749,7 +749,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &bb)
       default: break
@@ -1113,7 +1113,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
@@ -1187,7 +1187,7 @@ struct Proto3ArenaUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 90: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &packedInt32)
     case 91: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &packedInt64)
@@ -1324,7 +1324,7 @@ struct Proto3ArenaUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtob
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &repeatedInt32)
     case 2: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &repeatedInt64)
@@ -1425,7 +1425,7 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
 
     init() {}
 
-    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: Proto3ArenaUnittest_NestedTestAllTypes.self, value: &_child)
       case 2: try setter.decodeSingularMessageField(fieldType: Proto3ArenaUnittest_TestAllTypes.self, value: &_payload)
@@ -1483,7 +1483,7 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
@@ -1518,7 +1518,7 @@ struct Proto3ArenaUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &c)
     default: break
@@ -1547,7 +1547,7 @@ struct Proto3ArenaUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobu
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {

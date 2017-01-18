@@ -145,7 +145,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 
     init() {}
 
-    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_name)
       case 2: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Field.self, value: &_fields)
@@ -247,7 +247,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
@@ -672,7 +672,7 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: Google_Protobuf_Field.Kind.self, value: &kind)
     case 2: try setter.decodeSingularField(fieldType: Google_Protobuf_Field.Cardinality.self, value: &cardinality)
@@ -759,7 +759,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 
     init() {}
 
-    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_name)
       case 2: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_EnumValue.self, value: &_enumvalue)
@@ -849,7 +849,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
@@ -892,7 +892,7 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &name)
     case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &number)
@@ -939,7 +939,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
     init() {}
 
-    func decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_name)
       case 2: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Any.self, value: &_value)
@@ -993,7 +993,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField(setter: inout SwiftProtobuf.FieldDecoder, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 

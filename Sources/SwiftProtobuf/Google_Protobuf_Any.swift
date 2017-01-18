@@ -233,7 +233,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         typeURL = message.anyTypeURL
     }
 
-    mutating public func _protoc_generated_decodeField(setter: inout FieldDecoder, protoFieldNumber: Int) throws {
+    mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
         switch protoFieldNumber {
         case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
         case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
@@ -305,13 +305,9 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
         if let protobuf = protobuf {
             // Decode protobuf from the stored bytes
-            if protobuf.count == 0 {
-                target = M()
-            } else {
+            if protobuf.count > 0 {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                    let bp = UnsafeBufferPointer(start: p, count: protobuf.count)
-                    var protobufDecoder = ProtobufDecoder(protobufPointer: bp)
-                    try protobufDecoder.decodeFullObject(message: &target)
+                    try target.decodeIntoSelf(protobufBytes: p, count: protobuf.count, extensions: nil)
                 }
             }
             return
@@ -338,9 +334,8 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
                     if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: k) {
-                        let decoder = JSONDecoder(tokens: v)
-                        var fieldDecoder: FieldDecoder = decoder
-                        try target.decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+                        var decoder = JSONDecoder(tokens: v)
+                        try target.decodeField(setter: &decoder, protoFieldNumber: protoFieldNumber)
                         if !decoder.complete {
                             throw DecodingError.trailingGarbage
                         }

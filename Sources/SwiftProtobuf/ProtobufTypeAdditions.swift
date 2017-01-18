@@ -21,35 +21,20 @@ import Foundation
 /// it treats them as unknown fields, consider changing the following
 /// to 'return false' to match.
 public extension FieldType {
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         throw DecodingError.schemaMismatch
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        throw DecodingError.schemaMismatch
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool {
+        var v: BaseType?
+        let consumed = try setFromProtobuf(decoder: &decoder, value: &v)
+        if let v = v {
+            value = v
+        }
+        return consumed
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws {
-        throw DecodingError.schemaMismatch
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
         throw DecodingError.schemaMismatch
     }
 }
@@ -58,7 +43,7 @@ protocol ProtobufMapValueType: MapValueType {
 }
 
 extension ProtobufMapValueType {
-    public static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout BaseType?) throws {
+    public static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout BaseType?) throws {
         try decoder.decodeSingularField(fieldType: Self.self, value: &value)
         assert(value != nil)
     }
@@ -73,34 +58,33 @@ extension ProtobufFloat: ProtobufMapValueType {
         encoder.putFloatValue(value: value)
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
-        assert(fixed4.count == 4)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         var i: Float = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 4) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed4)
-                dest.initialize(from: src, count: 4)
-            }
-        }
+        try decoder.decodeFourByteNumber(value: &i)
         value = i
+        return true
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
-        assert(fixed4.count == 4)
-        var i: Float = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 4) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed4)
-                dest.initialize(from: src, count: 4)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .fixed32:
+            var i: Float = 0
+            try decoder.decodeFourByteNumber(value: &i)
+            value.append(i)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            var i: Float = 0
+            while !decoder.complete {
+                try decoder.decodeFourByteNumber(value: &i)
+                value.append(i)
             }
-        }
-        value.append(i)
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeFloat() {
-            value.append(t)
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -119,34 +103,33 @@ extension ProtobufDouble: ProtobufMapValueType {
         encoder.putDoubleValue(value: value)
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
-        assert(fixed8.count == 8)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         var i: Double = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 8) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed8)
-                dest.initialize(from: src, count: 8)
-            }
-        }
+        try decoder.decodeEightByteNumber(value: &i)
         value = i
+        return true
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
-        assert(fixed8.count == 8)
-        var i: Double = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 8) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed8)
-                dest.initialize(from: src, count: 8)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .fixed64:
+            var i: Double = 0
+            try decoder.decodeEightByteNumber(value: &i)
+            value.append(i)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            var i: Double = 0
+            while !decoder.complete {
+                try decoder.decodeEightByteNumber(value: &i)
+                value.append(i)
             }
-        }
-        value.append(i)
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeDouble() {
-            value.append(t)
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -165,20 +148,29 @@ extension ProtobufInt32: ProtobufMapValueType {
         encoder.putVarInt(value: Int64(value))
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
         value = Int32(truncatingBitPattern: varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        value.append(Int32(truncatingBitPattern: varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeInt32() {
-            value.append(t)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            value.append(Int32(truncatingBitPattern: varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !decoder.complete {
+                let varint = try decoder.decodeVarint()
+                value.append(Int32(truncatingBitPattern: varint))
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -197,20 +189,29 @@ extension ProtobufInt64: ProtobufMapValueType {
         encoder.putVarInt(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
         value = Int64(bitPattern: varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        value.append(Int64(bitPattern: varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeInt64() {
-            value.append(t)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            value.append(Int64(bitPattern: varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !decoder.complete {
+                let varint = try decoder.decodeVarint()
+                value.append(Int64(bitPattern: varint))
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -229,20 +230,29 @@ extension ProtobufUInt32: ProtobufMapValueType {
         encoder.putVarInt(value: UInt64(value))
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
         value = UInt32(truncatingBitPattern: varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        value.append(UInt32(truncatingBitPattern: varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeUInt32() {
-            value.append(t)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            value.append(UInt32(truncatingBitPattern: varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !decoder.complete {
+                let t = try decoder.decodeVarint()
+                value.append(UInt32(truncatingBitPattern: t))
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -261,20 +271,28 @@ extension ProtobufUInt64: ProtobufMapValueType {
         encoder.putVarInt(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
-        value = varint
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        value = try decoder.decodeVarint()
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        value.append(varint)
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeUInt64() {
-            value.append(t)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            value.append(varint)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !decoder.complete {
+                let t = try decoder.decodeVarint()
+                value.append(t)
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -293,22 +311,32 @@ extension ProtobufSInt32: ProtobufMapValueType {
         encoder.putZigZagVarInt(value: Int64(value))
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
         let t = UInt32(truncatingBitPattern: varint)
         value = ZigZag.decoded(t)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        let t = UInt32(truncatingBitPattern: varint)
-        value.append(ZigZag.decoded(t))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeSInt32() {
-            value.append(t)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            let t = UInt32(truncatingBitPattern: varint)
+            value.append(ZigZag.decoded(t))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !decoder.complete {
+                let varint = try decoder.decodeVarint()
+                let t = UInt32(truncatingBitPattern: varint)
+                value.append(ZigZag.decoded(t))
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -327,20 +355,30 @@ extension ProtobufSInt64: ProtobufMapValueType {
         encoder.putZigZagVarInt(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
         value = ZigZag.decoded(varint)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        value.append(ZigZag.decoded(varint))
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeSInt64() {
-            value.append(t)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            value.append(ZigZag.decoded(varint))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !decoder.complete {
+                let varint = try decoder.decodeVarint()
+                value.append(ZigZag.decoded(varint))
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -358,34 +396,33 @@ extension ProtobufFixed32: ProtobufMapValueType {
         encoder.putFixedUInt32(value: value)
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
-        assert(fixed4.count == 4)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         var i: UInt32 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 4) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed4)
-                dest.initialize(from: src, count: 4)
-            }
-        }
-        value = i
+        try decoder.decodeFourByteNumber(value: &i)
+        value = UInt32(littleEndian: i)
+        return true
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
-        assert(fixed4.count == 4)
-        var i: UInt32 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 4) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed4)
-                dest.initialize(from: src, count: 4)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .fixed32:
+            var i: UInt32 = 0
+            try decoder.decodeFourByteNumber(value: &i)
+            value.append(UInt32(littleEndian: i))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            var i: UInt32 = 0
+            while !decoder.complete {
+                try decoder.decodeFourByteNumber(value: &i)
+                value.append(UInt32(littleEndian: i))
             }
-        }
-        value.append(i)
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeFixed32() {
-            value.append(t)
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -403,35 +440,35 @@ extension ProtobufFixed64: ProtobufMapValueType {
         encoder.putFixedUInt64(value: value.littleEndian)
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
-        assert(fixed8.count == 8)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         var i: UInt64 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 8) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed8)
-                dest.initialize(from: src, count: 8)
-            }
-        }
-        value = i
+        try decoder.decodeEightByteNumber(value: &i)
+        value = UInt64(littleEndian: i)
+        return true
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
-        assert(fixed8.count == 8)
-        var i: UInt64 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 8) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed8)
-                dest.initialize(from: src, count: 8)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .fixed64:
+            var i: UInt64 = 0
+            try decoder.decodeEightByteNumber(value: &i)
+            value.append(UInt64(littleEndian: i))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            var i: UInt64 = 0
+            while !decoder.complete {
+                try decoder.decodeEightByteNumber(value: &i)
+                value.append(UInt64(littleEndian: i))
             }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
-        value.append(i)
-    }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeFixed64() {
-            value.append(t)
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
@@ -448,34 +485,33 @@ extension ProtobufSFixed32: ProtobufMapValueType {
         encoder.putFixedUInt32(value: UInt32(bitPattern: value))
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws {
-        assert(fixed4.count == 4)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         var i: Int32 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 4) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed4)
-                dest.initialize(from: src, count: 4)
-            }
-        }
-        value = i
+        try decoder.decodeFourByteNumber(value: &i)
+        value = Int32(littleEndian: i)
+        return true
     }
 
-    public static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws {
-        assert(fixed4.count == 4)
-        var i: Int32 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 4) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed4)
-                dest.initialize(from: src, count: 4)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .fixed32:
+            var i: Int32 = 0
+            try decoder.decodeFourByteNumber(value: &i)
+            value.append(Int32(littleEndian: i))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            var i: Int32 = 0
+            while !decoder.complete {
+                try decoder.decodeFourByteNumber(value: &i)
+                value.append(Int32(littleEndian: i))
             }
-        }
-        value.append(i)
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeSFixed32() {
-            value.append(t)
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -493,34 +529,33 @@ extension ProtobufSFixed64: ProtobufMapValueType {
         encoder.putFixedUInt64(value: UInt64(bitPattern: value.littleEndian))
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws {
-        assert(fixed8.count == 8)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
         var i: Int64 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 8) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed8)
-                dest.initialize(from: src, count: 8)
-            }
-        }
-        value = i
+        try decoder.decodeEightByteNumber(value: &i)
+        value = Int64(littleEndian: i)
+        return true
     }
 
-    public static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws {
-        assert(fixed8.count == 8)
-        var i: Int64 = 0
-        withUnsafeMutablePointer(to: &i) { ip -> Void in
-            ip.withMemoryRebound(to: UInt8.self, capacity: 8) { dest -> () in
-                let src = UnsafeMutablePointer<UInt8>(mutating: fixed8)
-                dest.initialize(from: src, count: 8)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .fixed64:
+            var i: Int64 = 0
+            try decoder.decodeEightByteNumber(value: &i)
+            value.append(Int64(littleEndian: i))
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            var i: Int64 = 0
+            while !decoder.complete {
+                try decoder.decodeEightByteNumber(value: &i)
+                value.append(Int64(littleEndian: i))
             }
-        }
-        value.append(i)
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeSFixed64() {
-            value.append(t)
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -539,20 +574,30 @@ extension ProtobufBool: ProtobufMapValueType {
         encoder.putBoolValue(value: value)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool {
+
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
         value = (varint != 0)
         return true
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool {
-        value.append(varint != 0)
-        return true
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        while let t = try decoder.decodeBool() {
-            value.append(t)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            value.append(varint != 0)
+            return true
+        case .lengthDelimited:
+            var n: Int = 0
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !decoder.complete {
+                let t = try decoder.decodeVarint()
+                value.append(t != 0)
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -564,18 +609,6 @@ extension ProtobufBool: ProtobufMapValueType {
 ///
 /// String traits
 ///
-private func bufferToString(buffer: UnsafeBufferPointer<UInt8>) -> String? {
-    var s = ""
-    var bytes = buffer.makeIterator()
-    var utf8Decoder = UTF8()
-    while true {
-        switch utf8Decoder.decode(&bytes) {
-        case .scalarValue(let scalar): s.append(String(scalar))
-        case .emptyInput: return s
-        case .error: return nil
-        }
-    }
-}
 
 extension ProtobufString: ProtobufMapValueType {
     public static var protobufWireFormat: WireFormat { return .lengthDelimited }
@@ -583,18 +616,27 @@ extension ProtobufString: ProtobufMapValueType {
         encoder.putStringValue(value: value)
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout String?) throws {
-        if let s = bufferToString(buffer: buffer) {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout String?) throws -> Bool {
+        var n: Int = 0
+        let p = try decoder.getFieldBodyBytes(count: &n)
+        if let s = utf8ToString(bytes: p, count: n) {
             value = s
+            return true
         } else {
             throw DecodingError.invalidUTF8
         }
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [String], unknown: inout Data) throws {
-        if let s = bufferToString(buffer: buffer) {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [String]) throws -> Bool {
+        guard decoder.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
+        }
+        var n: Int = 0
+        let p = try decoder.getFieldBodyBytes(count: &n)
+        if let s = utf8ToString(bytes: p, count: n) {
             value.append(s)
-         } else {
+            return true
+        } else {
             throw DecodingError.invalidUTF8
         }
     }
@@ -616,12 +658,21 @@ extension ProtobufBytes: ProtobufMapValueType {
         encoder.putBytesValue(value: value)
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout Data?) throws {
-        value = Data(bytes: [UInt8](buffer))
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout Data?) throws -> Bool {
+        var n: Int = 0
+        let p = try decoder.getFieldBodyBytes(count: &n)
+        value = Data(bytes: p, count: n)
+        return true
     }
 
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Data], unknown: inout Data) throws {
-        value.append(Data(bytes: [UInt8](buffer)))
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [Data]) throws -> Bool {
+        guard decoder.fieldWireFormat == .lengthDelimited else {
+            throw DecodingError.schemaMismatch
+        }
+        var n: Int = 0
+        let p = try decoder.getFieldBodyBytes(count: &n)
+        value.append(Data(bytes: p, count: n))
+        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Data) -> Int {
@@ -644,7 +695,8 @@ extension Enum where RawValue == Int {
         encoder.putVarInt(value: value.rawValue)
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout Self?) throws -> Bool {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout Self?) throws -> Bool {
+        let varint = try decoder.decodeVarint()
         if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
             value = v
             return true
@@ -653,38 +705,53 @@ extension Enum where RawValue == Int {
         }
     }
 
-    public static func setFromProtobufVarint(varint: UInt64, value: inout [Self]) throws -> Bool {
-        if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
-            value.append(v)
-            return true
-        } else {
-            return false
-        }
-    }
-
-    public static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [Self], unknown: inout Data) throws {
-        var decoder = ProtobufDecoder(protobufPointer: buffer)
-        var extras = [Int32]()
-        while let t = try decoder.decodeInt32() {
-            if let e = Self(rawValue:Int(t)) {
-                value.append(e)
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [Self]) throws -> Bool {
+        switch decoder.fieldWireFormat {
+        case .varint:
+            let varint = try decoder.decodeVarint()
+            if let v = Self(rawValue: Int(Int32(truncatingBitPattern: varint))) {
+                value.append(v)
+                return true
             } else {
-                extras.append(t)
+                return false
             }
-        }
-        if !extras.isEmpty {
-            var dataSize = 0
-            for v in extras {
-                dataSize += Varint.encodedSize(of: Int64(v))
-            }
-            var data = Data(count: dataSize)
-            data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
-                var encoder = ProtobufEncoder(pointer: pointer)
-                for v in extras {
-                    encoder.putVarInt(value: Int64(v))
+        case .lengthDelimited:
+            var n: Int = 0
+            var extras = [Int32]()
+            let p = try decoder.getFieldBodyBytes(count: &n)
+            var subdecoder = ProtobufDecoder(protobufPointer: p, count: n)
+            while !subdecoder.complete {
+                let u64 = try subdecoder.decodeVarint()
+                let i32 = Int32(truncatingBitPattern: u64)
+                if let v = Self(rawValue: Int(i32)) {
+                    value.append(v)
+                } else {
+                    extras.append(i32)
                 }
             }
-            unknown.append(data)
+            if extras.isEmpty {
+                decoder.unknownOverride = nil
+            } else {
+                let fieldTag = FieldTag(fieldNumber: decoder.fieldNumber, wireFormat: .lengthDelimited)
+                var bodySize = 0
+                for v in extras {
+                    bodySize += Varint.encodedSize(of: Int64(v))
+                }
+                let fieldSize = Varint.encodedSize(of: fieldTag.rawValue) + Varint.encodedSize(of: Int64(bodySize)) + bodySize
+                var field = Data(count: fieldSize)
+                field.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
+                    var encoder = ProtobufEncoder(pointer: pointer)
+                    encoder.startField(tag: fieldTag)
+                    encoder.putVarInt(value: Int64(bodySize))
+                    for v in extras {
+                        encoder.putVarInt(value: Int64(v))
+                    }
+                }
+                decoder.unknownOverride = field
+            }
+            return true
+        default:
+            throw DecodingError.schemaMismatch
         }
     }
 
@@ -729,7 +796,7 @@ public extension Message {
         return Varint.encodedSize(of: Int64(messageSize)) + messageSize
     }
 
-    static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout Self?) throws {
+    static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout Self?) throws {
         try decoder.decodeSingularMessageField(fieldType: Self.self, value: &value)
         assert(value != nil)
     }
@@ -738,39 +805,40 @@ public extension Message {
         try self.init(protobuf: protobuf, extensions: nil)
     }
 
-    init(protobufBuffer: UnsafeBufferPointer<UInt8>) throws {
-        try self.init(protobufBuffer: protobufBuffer, extensions: nil)
-    }
-
     init(protobuf: Data, extensions: ExtensionSet?) throws {
         self.init()
         if !protobuf.isEmpty {
             try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
-                let bufferPointer = UnsafeBufferPointer<UInt8>(start: pointer, count: protobuf.count)
-                try decodeIntoSelf(protobuf: bufferPointer, extensions: extensions)
+                try decodeIntoSelf(protobufBytes: pointer, count: protobuf.count, extensions: extensions)
             }
         }
     }
 
-    init(protobufBuffer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws {
+    init(protobufBytes: UnsafePointer<UInt8>, count: Int) throws {
+        try self.init(protobufBytes: protobufBytes, count: count, extensions: nil)
+    }
+
+    init(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         self.init()
-        try decodeIntoSelf(protobuf: protobufBuffer, extensions: extensions)
+        try decodeIntoSelf(protobufBytes: protobufBytes, count: count, extensions: extensions)
     }
 }
 
 /// Proto2 messages preserve unknown fields
 public extension Proto2Message {
-    public mutating func decodeIntoSelf(protobuf bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws {
-        var protobufDecoder = ProtobufDecoder(protobufPointer: bufferPointer, extensions: extensions)
+    public mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+        var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try protobufDecoder.decodeFullObject(message: &self)
-        unknown.append(protobufData: protobufDecoder.unknownData)
+        if let unknownData = protobufDecoder.unknownData {
+            unknown.append(protobufData: unknownData)
+        }
     }
 }
 
 // Proto3 messages ignore unknown fields
 public extension Proto3Message {
-    public mutating func decodeIntoSelf(protobuf bufferPointer: UnsafeBufferPointer<UInt8>, extensions: ExtensionSet?) throws {
-        var protobufDecoder = ProtobufDecoder(protobufPointer: bufferPointer, extensions: extensions)
+    public mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+        var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try protobufDecoder.decodeFullObject(message: &self)
     }
 }

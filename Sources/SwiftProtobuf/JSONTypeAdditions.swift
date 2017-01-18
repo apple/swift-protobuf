@@ -665,8 +665,8 @@ public extension Message {
         while true {
             let key = try decoder.nextKey()
             if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: key) {
-                var fieldDecoder: FieldDecoder = decoder
-                try decodeField(setter: &fieldDecoder, protoFieldNumber: protoFieldNumber)
+                var mutableDecoder = decoder
+                try decodeField(setter: &mutableDecoder, protoFieldNumber: protoFieldNumber)
             } else {
                 _ = try decoder.skip()
             }

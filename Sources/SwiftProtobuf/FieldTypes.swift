@@ -47,24 +47,10 @@ public protocol FieldType {
     /// Write the protobuf-encoded value to the encoder
     static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: BaseType)
 
-    /// Set the variable from a decoded varint value
-    static func setFromProtobufVarint(varint: UInt64, value: inout BaseType?) throws -> Bool
-    /// Update the array from a decoded varint value
-    static func setFromProtobufVarint(varint: UInt64, value: inout [BaseType]) throws -> Bool
-    /// Set the variable from a decoded 4-byte value
-    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout BaseType?) throws
-    /// Update the array from a decoded 4-byte value
-    static func setFromProtobufFixed4(fixed4: [UInt8], value: inout [BaseType]) throws
-    /// Set the variable from a decoded 8-byte value
-    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout BaseType?) throws
-    /// Update the array from a decoded 4-byte value
-    static func setFromProtobufFixed8(fixed8: [UInt8], value: inout [BaseType]) throws
-    /// Set the variable from a block of bytes
-    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout BaseType?) throws
-    // Special variant used when decoding packed enum fields.
-    // The extra `unknown` argument will be updated with a re-encoded
-    // representation of any unknown enum values.
-    static func setFromProtobufBuffer(buffer: UnsafeBufferPointer<UInt8>, value: inout [BaseType], unknown: inout Data) throws
+    /// Set the variable from a protobuf decoder
+    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool
+    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool
+    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool
 
     //
     // Protobuf Text coding for basic types
@@ -94,7 +80,7 @@ public protocol MapKeyType: FieldType {
     //
     // Protobuf does not treat map keys specially
     //
-    
+
     //
     // Protobuf Text does not treat map keys specially
     //
@@ -112,7 +98,7 @@ public protocol MapKeyType: FieldType {
 ///
 public protocol MapValueType: FieldType {
     /// Special interface for decoding a value of this type as a map value.
-    static func decodeProtobufMapValue(decoder: inout FieldDecoder, value: inout BaseType?) throws
+    static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout BaseType?) throws
 }
 
 //

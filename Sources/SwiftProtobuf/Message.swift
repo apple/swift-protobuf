@@ -43,18 +43,19 @@ public protocol Message: CustomDebugStringConvertible {
   var anyTypeURL: String { get }
 
   //
-  // General serialization machinery
+  // General serialization/deserialization machinery
   //
 
   /// Decode a field identified by a field number (as given in the .proto file).
+  /// The Message will call the FieldDecoder method corresponding
+  /// to the declared type of the field.
   ///
   /// This is the core method used by the deserialization machinery.
   ///
   /// Note that this is not specific to protobuf encoding; formats that use
   /// textual identifiers translate those to protoFieldNumbers and then invoke
   /// this to decode the field value.
-  mutating func decodeField(setter: inout FieldDecoder,
-                            protoFieldNumber: Int) throws
+ mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws
 
   /// Support for traversing the object tree.
   ///
@@ -75,10 +76,13 @@ public protocol Message: CustomDebugStringConvertible {
   //
   // Protobuf Binary decoding
   //
-  mutating func decodeIntoSelf(protobuf: UnsafeBufferPointer<UInt8>,
+  mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>,
+                               count: Int,
                                extensions: ExtensionSet?) throws
 
+  //
   // Protobuf Text decoding
+  //
   init(scanner: TextScanner) throws
 
   //
@@ -197,7 +201,7 @@ public protocol _MessageImplementationBase: Message, Hashable, MapValueType, Fie
   // The compiler actually generates the following methods. Default
   // implementations below redirect the standard names. This allows developers
   // to override the standard names to customize the behavior.
-  mutating func _protoc_generated_decodeField(setter: inout FieldDecoder,
+  mutating func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T,
                                               protoFieldNumber: Int) throws
 
   func _protoc_generated_traverse(visitor: Visitor) throws
@@ -215,8 +219,7 @@ public extension _MessageImplementationBase {
     try _protoc_generated_traverse(visitor: visitor)
   }
 
-  mutating func decodeField(setter: inout FieldDecoder,
-                            protoFieldNumber: Int) throws {
+  mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _protoc_generated_decodeField(setter: &setter,
                                       protoFieldNumber: protoFieldNumber)
   }

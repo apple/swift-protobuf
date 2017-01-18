@@ -31,7 +31,8 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
   func isEqual(other: AnyExtensionField) -> Bool
 
   /// General field decoding
-  mutating func decodeField(setter: inout FieldDecoder) throws
+//  mutating func decodeField(setter: inout FieldDecoder) throws
+  mutating func decodeField<T: FieldDecoder>(setter: inout T) throws
 
   /// Fields know their own type, so can dispatch to a visitor
   func traverse(visitor: Visitor) throws
@@ -82,7 +83,7 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     return self == o
   }
 
-  public mutating func decodeField(setter: inout FieldDecoder) throws {
+  public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
     try setter.decodeSingularField(fieldType: T.self, value: &value)
   }
 
@@ -133,7 +134,7 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField(setter: inout FieldDecoder) throws {
+  public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
     try setter.decodeRepeatedField(fieldType: T.self, value: &value)
   }
 
@@ -187,7 +188,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField(setter: inout FieldDecoder) throws {
+  public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
     try setter.decodePackedField(fieldType: T.self, value: &value)
   }
 
@@ -236,7 +237,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
     return self == o
   }
 
-  public mutating func decodeField(setter: inout FieldDecoder) throws {
+  public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
     try setter.decodeSingularMessageField(fieldType: M.self, value: &value)
   }
 
@@ -283,7 +284,7 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField(setter: inout FieldDecoder) throws {
+  public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
     try setter.decodeRepeatedMessageField(fieldType: M.self, value: &value)
   }
 
@@ -326,7 +327,7 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
     return self == o
   }
 
-  public mutating func decodeField(setter: inout FieldDecoder) throws {
+  public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
     try setter.decodeSingularGroupField(fieldType: G.self, value: &value)
   }
 
@@ -373,7 +374,7 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
     return self == o
   }
 
-  public mutating func decodeField(setter: inout FieldDecoder) throws {
+  public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
     try setter.decodeRepeatedGroupField(fieldType: G.self, value: &value)
   }
 
