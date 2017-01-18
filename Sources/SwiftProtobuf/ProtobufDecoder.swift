@@ -55,10 +55,6 @@ public struct ProtobufDecoder: FieldDecoder {
         self.extensions = extensions
     }
 
-    public mutating func reset() {
-        consumed = false
-    }
-
     public mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
         if let override = unknownOverride {
             return override

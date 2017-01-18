@@ -31,9 +31,6 @@ public protocol FieldDecoder {
     // Some decoders require that multiple values for a oneof must fail
     var rejectConflictingOneof: Bool { get }
 
-    // For efficiency, decoders can be reset and used for a new field...
-    mutating func reset()
-
     // Special support for protobuf binary decoder; all other formats should ignore this.
     mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data?
 
@@ -52,8 +49,6 @@ public protocol FieldDecoder {
 
 public extension FieldDecoder {
     var rejectConflictingOneof: Bool {return false}
-    
-    public mutating func reset() {}
 
     public mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
         return nil
