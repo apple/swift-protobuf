@@ -746,20 +746,13 @@ public class TextScanner {
         return nil
     }
 
-    /// Returns next regular key or nil if end-of-input.
+    /// Returns text of next regular key or nil if end-of-input.
     /// This considers an extension key [keyname] to be an
     /// error, so call nextOptionalExtensionKey first if you
     /// want to handle extension keys.
     ///
-    /// Note: This accounts for around half of our total decode time
-    /// for most cases, so improvements here can have a big impact.
-    /// In particular, parseIdentifier spends a lot of time creating a
-    /// new String that is just discarded immediately.
-    ///
-    /// One idea: pass the field name lookup down through this
-    /// function into parseIdentifier(); use a ternary tree or similar
-    /// lookup structure and walk it character-by-character to get the
-    /// field number directly.  This would avoid creating the string.
+    /// This is only used by map parsing; we should be able to
+    /// rework that to use nextFieldNumber instead.
     internal func nextKey() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
@@ -779,6 +772,58 @@ public class TextScanner {
         default:
             throw DecodingError.malformedText
         }
+    }
+
+    /// Parse a field name, look it up, and return the corresponding
+    /// field number.
+    ///
+    /// returns nil at end-of-input
+    ///
+    /// Throws if field name cannot be parsed or if field name is
+    /// unknown.
+    ///
+    /// This function accounts for as much as 2/3 of the total run
+    /// time of the entire parse.
+    internal func nextFieldNumber(names: FieldNameMap) throws -> Int? {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            eof = true
+            return nil
+        }
+        let c = utf8[index]
+        switch c {
+        case 97...122, 65...90: // a...z, A...Z
+            let start = index
+            index = utf8.index(after: index)
+            scanKeyLoop: while index != utf8.endIndex {
+                let c = utf8[index]
+                switch c {
+                case 97...122, 65...90, 48...57, 95: // a...z, A...Z, 0...9, _
+                    index = utf8.index(after: index)
+                default:
+                    break scanKeyLoop
+                }
+            }
+            // The next line can account for more than 1/3 of the total
+            // run time of the entire parse, just to create a String
+            // object that is discarded almost immediately.
+            //
+            // One idea: Have the name map build a ternary tree
+            // instead of a hash table, turn the character scan above
+            // into a walk of that tree.  This would look up the field
+            // number directly from the character scan without
+            // creating this intermediate string.
+            if let key = String(utf8[start..<index]) {
+                if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
+                    return protoFieldNumber
+                } else {
+                    throw DecodingError.unknownField
+                }
+            }
+        default:
+            break
+        }
+        throw DecodingError.malformedText
     }
 
     private func skipRequiredCharacter(_ c: UInt8) throws {

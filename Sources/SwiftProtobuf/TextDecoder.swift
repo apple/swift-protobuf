@@ -52,12 +52,8 @@ public struct TextDecoder: FieldDecoder {
                 } else {
                     throw DecodingError.unknownField
                 }
-            } else if let key = try scanner.nextKey() {
-                if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
-                    try message.decodeField(setter: &self, protoFieldNumber: protoFieldNumber)
-                } else {
-                    throw DecodingError.unknownField
-                }
+            } else if let fieldNumber = try scanner.nextFieldNumber(names: names) {
+                try message.decodeField(setter: &self, protoFieldNumber: fieldNumber)
             } else if terminator == nil {
                 return
             } else {
