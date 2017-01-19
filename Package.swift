@@ -20,10 +20,3 @@ let package = Package(
            dependencies: ["SwiftProtobuf"]),
   ]
 )
-
-// Ensure that the dynamic library is created for the performance test harness.
-products.append(
-  Product(name: "SwiftProtobuf",
-          type: .Library(.Dynamic),
-          modules: "SwiftProtobuf")
-)
