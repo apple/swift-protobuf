@@ -91,7 +91,7 @@
 
   // Computes and returns the median of the given array of values.
   function median(values) {
-    values.sort();
+    values.sort(function(a,b){return a - b});
     var mid = Math.floor(values.length / 2);
     if (values.length % 2) {
       return values[mid];
