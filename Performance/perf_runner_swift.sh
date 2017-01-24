@@ -122,16 +122,16 @@ function run_swift_harness() {
   time ( swiftc -O -target x86_64-apple-macosx10.10 \
       -o "$harness" \
       -I "$script_dir/../.build/release" \
-      -L "$script_dir/../.build/release" \
-      -lSwiftProtobuf \
+      -L "$script_dir/_generated" \
+      -lSwiftProtobufDynamic \
       "$gen_harness_path" \
       "$script_dir/Harness.swift" \
       "$script_dir/_generated/message.pb.swift" \
-      "$script_dir/main.swift" \
+      "$script_dir/main.swift"
   )
   echo
 
-  dylib="$script_dir/../.build/release/libSwiftProtobuf.dylib"
+  dylib="$script_dir/_generated/libSwiftProtobufDynamic.dylib"
   echo "Swift dylib size before stripping: $(stat -f "%z" "$dylib") bytes"
   cp "$dylib" "${dylib}_stripped"
   strip -u -r "${dylib}_stripped"
