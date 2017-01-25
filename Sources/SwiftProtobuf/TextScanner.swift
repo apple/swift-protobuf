@@ -706,7 +706,7 @@ public class TextScanner {
         let infinity = [asciiLowerI, asciiLowerN, asciiLowerF, asciiLowerI,
                         asciiLowerN, asciiLowerI, asciiLowerT, asciiLowerY]
         if (skipOptionalKeyword(bytes: inf)
-            || skipOptionalKeyword(bytes: infinity) {
+            || skipOptionalKeyword(bytes: infinity)) {
             return negated ? -Float.infinity : Float.infinity
         }
         return nil
