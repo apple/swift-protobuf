@@ -405,9 +405,17 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 }
 
-let Swift_Protobuf_Extensions_myExtensionString = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 50, fieldNames: .same(proto: "swift.protobuf.my_extension_string", swift: "Swift_Protobuf_myExtensionString"), defaultValue: "")
+let Swift_Protobuf_Extensions_myExtensionString = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
+  protoFieldNumber: 50,
+  fieldNames: .same(proto: "swift.protobuf.my_extension_string", swift: "Swift_Protobuf_myExtensionString"),
+  defaultValue: ""
+)
 
-let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(protoFieldNumber: 5, fieldNames: .same(proto: "swift.protobuf.my_extension_int", swift: "Swift_Protobuf_myExtensionInt"), defaultValue: 0)
+let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
+  protoFieldNumber: 5,
+  fieldNames: .same(proto: "swift.protobuf.my_extension_int", swift: "Swift_Protobuf_myExtensionInt"),
+  defaultValue: 0
+)
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
