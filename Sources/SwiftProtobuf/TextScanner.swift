@@ -282,7 +282,6 @@ public class TextScanner {
 
     /// Skip whitespace
     private func skipWhitespace() {
-        var lastIndex = index
         while index != utf8.endIndex {
             let u = utf8[index]
             switch u {
@@ -291,8 +290,8 @@ public class TextScanner {
                  asciiNewLine,
                  asciiCarriageReturn: // space, tab, NL, CR
                 index = utf8.index(after: index)
-                lastIndex = index
             case asciiHash: // #
+                index = utf8.index(after: index)
                 while index != utf8.endIndex {
                     // Skip until end of line
                     let c = utf8[index]
@@ -302,7 +301,6 @@ public class TextScanner {
                     }
                 }
             default:
-                index = lastIndex
                 return
             }
         }

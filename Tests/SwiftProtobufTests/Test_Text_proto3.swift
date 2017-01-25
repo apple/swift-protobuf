@@ -19,6 +19,13 @@ import SwiftProtobuf
 class Test_Text_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3TestAllTypes
 
+    func testDecoding_comments() {
+        assertTextDecodeSucceeds("single_int32: 41#single_int32: 42\nsingle_int64: 8") {
+            (o: MessageTestType) in
+            return o.singleInt32 == 41 && o.singleInt64 == 8
+        }
+    }
+
     //
     // Singular types
     //

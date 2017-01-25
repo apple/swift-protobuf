@@ -821,6 +821,7 @@ extension Test_Text_proto2_extensions {
 extension Test_Text_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
+            ("testDecoding_comments", {try run_test(test:($0 as! Test_Text_proto3).testDecoding_comments)}),
             ("testEncoding_singleInt32", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleInt32)}),
             ("testEncoding_singleInt64", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleInt64)}),
             ("testEncoding_singleUint32", {try run_test(test:($0 as! Test_Text_proto3).testEncoding_singleUint32)}),
