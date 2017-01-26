@@ -19,6 +19,13 @@ import SwiftProtobuf
 class Test_Text_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3TestAllTypes
 
+    func testDecoding_comments() {
+        assertTextDecodeSucceeds("single_int32: 41#single_int32: 42\nsingle_int64: 8") {
+            (o: MessageTestType) in
+            return o.singleInt32 == 41 && o.singleInt64 == 8
+        }
+    }
+
     //
     // Singular types
     //
@@ -251,6 +258,22 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         let b = Proto3TestAllTypes.with {$0.singleFloat = Float.nan}
         XCTAssertEqual("single_float: nan\n", try b.serializeText())
 
+        do {
+            let nan1 = try Proto3TestAllTypes(text: "single_float: nan\n")
+            XCTAssert(nan1.singleFloat.isNaN)
+        } catch let e {
+            XCTFail("Decoding nan failed: \(e)")
+        }
+
+        do {
+            let nan2 = try Proto3TestAllTypes(text: "single_float: NaN\n")
+            XCTAssert(nan2.singleFloat.isNaN)
+        } catch let e {
+            XCTFail("Decoding nan failed: \(e)")
+        }
+
+        assertTextDecodeFails("single_float: nansingle_int32: 1\n")
+
         assertTextDecodeSucceeds("single_float: INFINITY\n") {(o: MessageTestType) in
             return o.singleFloat == Float.infinity
         }
@@ -264,6 +287,7 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
             return o.singleFloat == -Float.infinity
         }
         assertTextDecodeFails("single_float: INFINITY_AND_BEYOND\n")
+        assertTextDecodeFails("single_float: infinitysingle_int32: 1\n")
 
         assertTextDecodeFails("single_float: a\n")
         assertTextDecodeFails("single_float: 1,2\n")
@@ -323,9 +347,34 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeSucceeds("single_bool:true\n ") {(o: MessageTestType) in
             return o.singleBool == true
         }
+        assertTextDecodeSucceeds("single_bool:True\n ") {(o: MessageTestType) in
+            return o.singleBool == true
+        }
+        assertTextDecodeSucceeds("single_bool:t\n ") {(o: MessageTestType) in
+            return o.singleBool == true
+        }
+        assertTextDecodeSucceeds("single_bool:1\n ") {(o: MessageTestType) in
+            return o.singleBool == true
+        }
+        assertTextDecodeSucceeds("single_bool:false\n ") {(o: MessageTestType) in
+            return o.singleBool == false
+        }
+        assertTextDecodeSucceeds("single_bool:False\n ") {(o: MessageTestType) in
+            return o.singleBool == false
+        }
+        assertTextDecodeSucceeds("single_bool:f\n ") {(o: MessageTestType) in
+            return o.singleBool == false
+        }
+        assertTextDecodeSucceeds("single_bool:0\n ") {(o: MessageTestType) in
+            return o.singleBool == false
+        }
 
         assertTextDecodeFails("single_bool: 10\n")
         assertTextDecodeFails("single_bool: tRue\n")
+        assertTextDecodeFails("single_bool: tr\n")
+        assertTextDecodeFails("single_bool: tru\n")
+        assertTextDecodeFails("single_bool: truE\n")
+        assertTextDecodeFails("single_bool: TRUE\n")
         assertTextDecodeFails("single_bool: faLse\n")
         assertTextDecodeFails("single_bool: 2\n")
         assertTextDecodeFails("single_bool: -0\n")
@@ -710,6 +759,10 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
     func testEncoding_repeatedUint64() {
         assertTextEncode("repeated_uint64: [7, 8]\n") {(o: inout MessageTestType) in
             o.repeatedUint64 = [7, 8]
+        }
+
+        assertTextDecodeSucceeds("repeated_uint64: 7\nrepeated_uint64: 8\n") {
+            $0.repeatedUint64 == [7, 8]
         }
 
         assertTextDecodeFails("repeated_uint64: 7\nrepeated_uint64: a\n")

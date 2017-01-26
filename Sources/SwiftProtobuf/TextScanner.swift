@@ -15,356 +15,969 @@
 import Foundation
 import Swift
 
+private let asciiBell = UInt8(7)
+private let asciiBackspace = UInt8(8)
+private let asciiTab = UInt8(9)
+private let asciiNewLine = UInt8(10)
+private let asciiVerticalTab = UInt8(11)
+private let asciiFormFeed = UInt8(12)
+private let asciiCarriageReturn = UInt8(13)
+private let asciiZero = UInt8(ascii: "0")
+private let asciiOne = UInt8(ascii: "1")
+private let asciiSeven = UInt8(ascii: "7")
+private let asciiNine = UInt8(ascii: "9")
+private let asciiColon = UInt8(ascii: ":")
+private let asciiPeriod = UInt8(ascii: ".")
+private let asciiPlus = UInt8(ascii: "+")
+private let asciiComma = UInt8(ascii: ",")
+private let asciiSemicolon = UInt8(ascii: ";")
+private let asciiDoubleQuote = UInt8(ascii: "\"")
+private let asciiSingleQuote = UInt8(ascii: "\'")
+private let asciiBackslash = UInt8(ascii: "\\")
+private let asciiForwardSlash = UInt8(ascii: "/")
+private let asciiHash = UInt8(ascii: "#")
+private let asciiUnderscore = UInt8(ascii: "_")
+private let asciiQuestionMark = UInt8(ascii: "?")
+private let asciiSpace = UInt8(ascii: " ")
+private let asciiOpenSquareBracket = UInt8(ascii: "[")
+private let asciiCloseSquareBracket = UInt8(ascii: "]")
+private let asciiOpenCurlyBracket = UInt8(ascii: "{")
+private let asciiCloseCurlyBracket = UInt8(ascii: "}")
+private let asciiOpenAngleBracket = UInt8(ascii: "<")
+private let asciiCloseAngleBracket = UInt8(ascii: ">")
+private let asciiMinus = UInt8(ascii: "-")
+private let asciiLowerA = UInt8(ascii: "a")
+private let asciiUpperA = UInt8(ascii: "A")
+private let asciiLowerB = UInt8(ascii: "b")
+private let asciiLowerE = UInt8(ascii: "e")
+private let asciiUpperE = UInt8(ascii: "E")
+private let asciiLowerF = UInt8(ascii: "f")
+private let asciiUpperF = UInt8(ascii: "F")
+private let asciiLowerI = UInt8(ascii: "i")
+private let asciiLowerN = UInt8(ascii: "n")
+private let asciiLowerR = UInt8(ascii: "r")
+private let asciiLowerT = UInt8(ascii: "t")
+private let asciiLowerU = UInt8(ascii: "u")
+private let asciiLowerV = UInt8(ascii: "v")
+private let asciiLowerX = UInt8(ascii: "x")
+private let asciiLowerY = UInt8(ascii: "y")
+private let asciiLowerZ = UInt8(ascii: "z")
+private let asciiUpperZ = UInt8(ascii: "Z")
+
+private func fromHexDigit(_ c: UInt8) -> UInt8? {
+  if c >= asciiZero && c <= asciiNine {
+    return c - asciiZero
+  }
+  if c >= asciiUpperA && c <= asciiUpperF {
+      return c - asciiUpperA + 10
+  }
+  if c >= asciiLowerA && c <= asciiLowerF {
+      return c - asciiLowerA + 10
+  }
+  return nil
+}
+
+// Protobuf Text format uses C ASCII conventions for
+// encoding byte sequences, including the use of octal
+// and hexadecimal escapes.
+private func decodeBytes(_ s: String) -> Data? {
+  var out = [UInt8]()
+  var bytes = s.utf8.makeIterator()
+  while let byte = bytes.next() {
+    switch byte {
+    case asciiBackslash: //  "\\"
+      if let escaped = bytes.next() {
+        switch escaped {
+        case asciiZero...asciiSeven: // '0'...'7'
+          // C standard allows 1, 2, or 3 octal digits.
+          let savedPosition = bytes
+          let digit1 = escaped
+          let digit1Value = digit1 - asciiZero
+          if let digit2 = bytes.next(),
+             digit2 >= asciiZero, digit2 <= asciiSeven {
+            let digit2Value = digit2 - asciiZero
+            let innerSavedPosition = bytes
+            if let digit3 = bytes.next(),
+               digit3 >= asciiZero, digit3 <= asciiSeven {
+              let digit3Value = digit3 - asciiZero
+              let n = digit1Value * 64 + digit2Value * 8 + digit3Value
+              out.append(UInt8(n))
+            } else {
+              let n = digit1Value * 8 + digit2Value
+              out.append(UInt8(n))
+              bytes = innerSavedPosition
+            }
+          } else {
+            let n = digit1Value
+            out.append(UInt8(n))
+            bytes = savedPosition
+          }
+        case asciiLowerX: // 'x' hexadecimal escape
+          // C standard allows any number of digits after \x
+          // We ignore all but the last two
+          var n: UInt8 = 0
+          var count = 0
+          var savedPosition = bytes
+          while let byte = bytes.next(), let digit = fromHexDigit(byte) {
+            n &= 15
+            n = n * 16
+            n += digit
+            count += 1
+            savedPosition = bytes
+          }
+          bytes = savedPosition
+          if count > 0 {
+            out.append(n)
+          } else {
+            return nil // Hex escape must have at least 1 digit
+          }
+        case asciiLowerA: // \a ("alert")
+          out.append(asciiBell)
+        case asciiLowerB: // \b
+          out.append(asciiBackspace)
+        case asciiLowerF: // \f
+          out.append(asciiFormFeed)
+        case asciiLowerN: // \n
+          out.append(asciiNewLine)
+        case asciiLowerR: // \r
+          out.append(asciiCarriageReturn)
+        case asciiLowerT: // \t
+          out.append(asciiTab)
+        case asciiLowerV: // \v
+          out.append(asciiVerticalTab)
+        case asciiSingleQuote,
+             asciiDoubleQuote,
+             asciiQuestionMark: // \'  \"  \?
+          out.append(escaped)
+        default:
+          return nil // Unrecognized escape
+        }
+      } else {
+        return nil // Input ends with backslash
+      }
+    default:
+      out.append(byte)
+    }
+  }
+  return Data(bytes: out)
+}
+
+// Protobuf Text encoding assumes that you're working directly
+// in UTF-8.  So this implementation converts the string to UTF8,
+// then decodes it into a sequence of bytes, then converts
+// it back into a string.
+private func decodeString(_ s: String) -> String? {
+  var out = [UInt8]()
+  var bytes = s.utf8.makeIterator()
+  while let byte = bytes.next() {
+    switch byte {
+    case asciiBackslash: // backslash
+      if let escaped = bytes.next() {
+        switch escaped {
+        case asciiZero...asciiSeven: // 0...7
+          // C standard allows 1, 2, or 3 octal digits.
+          let savedPosition = bytes
+          let digit1 = escaped
+          let digit1Value = digit1 - asciiZero
+          if let digit2 = bytes.next(),
+            digit2 >= asciiZero && digit2 <= asciiSeven {
+            let digit2Value = digit2 - asciiZero
+            let innerSavedPosition = bytes
+            if let digit3 = bytes.next(),
+              digit3 >= asciiZero && digit3 <= asciiSeven {
+              let digit3Value = digit3 - asciiZero
+              let n = digit1Value * 64 + digit2Value * 8 + digit3Value
+              out.append(n)
+            } else {
+              let n = digit1Value * 8 + digit2Value
+              out.append(n)
+              bytes = innerSavedPosition
+            }
+          } else {
+            let n = digit1Value
+            out.append(n)
+            bytes = savedPosition
+          }
+        case asciiLowerX: // "x"
+          // C standard allows any number of hex digits after \x
+          // We ignore all but the last two
+          var n: UInt8 = 0
+          var count = 0
+          var savedPosition = bytes
+          while let byte = bytes.next(), let digit = fromHexDigit(byte) {
+            n &= 15
+            n = n * 16
+            n += digit
+            count += 1
+            savedPosition = bytes
+          }
+          bytes = savedPosition
+          if count > 0 {
+            out.append(n)
+          } else {
+            return nil // Hex escape must have at least 1 digit
+          }
+        case asciiLowerA: // \a
+          out.append(asciiBell)
+        case asciiLowerB: // \b
+          out.append(asciiBackspace)
+        case asciiLowerF: // \f
+          out.append(asciiFormFeed)
+        case asciiLowerN: // \n
+          out.append(asciiNewLine)
+        case asciiLowerR: // \r
+          out.append(asciiCarriageReturn)
+        case asciiLowerT: // \t
+          out.append(asciiTab)
+        case asciiLowerV: // \v
+          out.append(asciiVerticalTab)
+        case asciiDoubleQuote,
+             asciiSingleQuote,
+             asciiQuestionMark,
+             asciiBackslash: // " ' ? \
+          out.append(escaped)
+        default:
+          return nil // Unrecognized escape
+        }
+      } else {
+        return nil // Input ends with backslash
+      }
+    default:
+      out.append(byte)
+    }
+  }
+  // There has got to be an easier way to convert a [UInt8] into a String.
+  out.append(0)
+  return out.withUnsafeBufferPointer { ptr in
+    if let addr = ptr.baseAddress {
+      return addr.withMemoryRebound(to: CChar.self, capacity: ptr.count) { p in
+        let q = UnsafePointer<CChar>(p)
+        let s = String(validatingUTF8: q)
+        return s
+      }
+    } else {
+      return ""
+    }
+  }
+}
+
 ///
 /// TextScanner has no public members.
 ///
 public class TextScanner {
     internal var extensions: ExtensionSet?
-    private var scalars: String.UnicodeScalarView
-    private var index: String.UnicodeScalarView.Index
-    private var tokenStart: String.UnicodeScalarView.Index
-    private var tokenPushback = [TextToken]()
+    private var utf8: String.UTF8View
+    private var index: String.UTF8View.Index
     private var eof: Bool = false
     internal var complete: Bool {
-        while index != scalars.endIndex {
-            let c = scalars[index]
-            switch c {
-            case " ", "\t", "\r", "\n":
-                index = scalars.index(after: index)
-            default:
-                return false
-            }
-        }
-        return true
+        skipWhitespace()
+        return index == utf8.endIndex
     }
 
     internal init(text: String, extensions: ExtensionSet? = nil) {
-        scalars = text.unicodeScalars
-        index = scalars.startIndex
-        tokenStart = index
+        utf8 = text.utf8
+        index = utf8.startIndex
         self.extensions = extensions
     }
 
-    internal func pushback(token: TextToken) {
-        tokenPushback.append(token)
-    }
-
-    /// Skip whitespace, set token start to first non-whitespace character
+    /// Skip whitespace
     private func skipWhitespace() {
-        var lastIndex = index
-        while index != scalars.endIndex {
-            let scalar = scalars[index]
-            switch scalar {
-            case " ", "\t", "\r", "\n":
-                index = scalars.index(after: index)
-                lastIndex = index
-            case "#":
-                while index != scalars.endIndex {
+        while index != utf8.endIndex {
+            let u = utf8[index]
+            switch u {
+            case asciiSpace,
+                 asciiTab,
+                 asciiNewLine,
+                 asciiCarriageReturn: // space, tab, NL, CR
+                index = utf8.index(after: index)
+            case asciiHash: // #
+                index = utf8.index(after: index)
+                while index != utf8.endIndex {
                     // Skip until end of line
-                    let c = scalars[index]
-                    index = scalars.index(after: index)
-                    if c == "\n" || c == "\r" {
+                    let c = utf8[index]
+                    index = utf8.index(after: index)
+                    if c == asciiNewLine || c == asciiCarriageReturn {
                         break
                     }
                 }
             default:
-                index = lastIndex
                 return
             }
         }
     }
 
     private func parseIdentifier() -> String? {
-        while index != scalars.endIndex {
-            let c = scalars[index]
+        let start = index
+        while index != utf8.endIndex {
+            let c = utf8[index]
             switch c {
-            case "a"..."z", "A"..."Z", "0"..."9", "_":
-                index = scalars.index(after: index)
+            case asciiLowerA...asciiLowerZ,
+                 asciiUpperA...asciiUpperZ,
+                 asciiZero...asciiNine,
+                 asciiUnderscore:
+                index = utf8.index(after: index)
             default:
-                return String(scalars[tokenStart..<index])
+                return String(utf8[start..<index])
             }
         }
-        return String(scalars[tokenStart..<index])
+        return String(utf8[start..<index])
     }
-    
+
     /// Parse the rest of an [extension_field_name] in the input, assuming the
     /// initial "[" character has already been read (and is in the prefix)
-    /// This is also used in Any for the typeURL, so we include "/", "."
-    private func parseExtensionIdentifier() -> String? {
-        if index == scalars.endIndex {
+    /// This is also used for AnyURL, so we include "/", "."
+    private func parseExtensionKey() -> String? {
+        let start = index
+        if index == utf8.endIndex {
             return nil
         }
-        let c = scalars[index]
+        let c = utf8[index]
         switch c {
-        case "a"..."z", "A"..."Z":
-            index = scalars.index(after: index)
+        case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
+            index = utf8.index(after: index)
         default:
             return nil
         }
-        while index != scalars.endIndex {
-            let c = scalars[index]
+        while index != utf8.endIndex {
+            let c = utf8[index]
             switch c {
-            case "a"..."z", "A"..."Z", "0"..."9", "_", ".", "/":
-                index = scalars.index(after: index)
-            case "]":
-                index = scalars.index(after: index)
-                return String(scalars[tokenStart..<index])
+            case asciiLowerA...asciiLowerZ,
+                 asciiUpperA...asciiUpperZ,
+                 asciiZero...asciiNine,
+                 asciiUnderscore,
+                 asciiPeriod,
+                 asciiForwardSlash:
+                index = utf8.index(after: index)
+            case asciiCloseSquareBracket: // ]
+                let s = String(utf8[start..<index])
+                return s
             default:
                 return nil
             }
         }
         return nil
     }
-    
+
     /// Assumes the leading quote has already been consumed
-    private func parseQuotedString(terminator: UnicodeScalar) -> String? {
-        tokenStart = index
-        while index != scalars.endIndex {
-            let c = scalars[index]
+    private func parseQuotedString(terminator: UInt8) -> String? {
+        let start = index
+        while index != utf8.endIndex {
+            let c = utf8[index]
             if c == terminator {
-                let s = String(scalars[tokenStart..<index])
-                index = scalars.index(after: index)
+                let s = String(utf8[start..<index])
+                index = utf8.index(after: index)
                 return s
             }
-            index = scalars.index(after: index)
-            if c == "\\" {
-                if index == scalars.endIndex {
+            index = utf8.index(after: index)
+            if c == asciiBackslash { //  \
+                if index == utf8.endIndex {
                     return nil
                 }
-                index = scalars.index(after: index)
+                index = utf8.index(after: index)
             }
         }
         return nil // Unterminated quoted string
     }
 
-    private func parseHexInteger() -> String {
-        while index != scalars.endIndex {
-            let c = scalars[index]
-            switch c {
-            case "0"..."9", "a"..."f", "A"..."F":
-                index = scalars.index(after: index)
-            default:
-                return String(scalars[tokenStart..<index])
+    /// Assumes the leading quote has already been consumed
+    private func parseStringSegment(terminator: UInt8) -> String? {
+        let start = index
+        var sawBackslash = false
+        while index != utf8.endIndex {
+            let c = utf8[index]
+            if c == terminator {
+                let s = String(utf8[start..<index])
+                index = utf8.index(after: index)
+                if let s = s, sawBackslash {
+                    return decodeString(s)
+                } else {
+                    return s
+                }
+            }
+            index = utf8.index(after: index)
+            if c == asciiBackslash { //  \
+                if index == utf8.endIndex {
+                    return nil
+                }
+                sawBackslash = true
+                index = utf8.index(after: index)
             }
         }
-        return String(scalars[tokenStart..<index])
-    }
-    
-    private func parseOctalInteger() -> String {
-        while index != scalars.endIndex {
-            let c = scalars[index]
-            switch c {
-            case "0"..."7":
-                index = scalars.index(after: index)
-            default:
-                return String(scalars[tokenStart..<index])
-            }
-        }
-        return String(scalars[tokenStart..<index])
+        return nil // Unterminated quoted string
     }
 
-    private func parseUnsignedNumber() -> String {
-        while index != scalars.endIndex {
-            let c = scalars[index]
+    internal func nextUInt() throws -> UInt64 {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            throw DecodingError.malformedTextNumber
+        }
+        let c = utf8[index]
+        index = utf8.index(after: index)
+        if c == asciiZero { // leading '0' precedes octal or hex
+            if utf8[index] == asciiLowerX { // 'x' => hex
+                index = utf8.index(after: index)
+                var n: UInt64 = 0
+                while index != utf8.endIndex {
+                    let digit = utf8[index]
+                    let val: UInt64
+                    switch digit {
+                    case asciiZero...asciiNine: // 0...9
+                        val = UInt64(digit - asciiZero)
+                    case asciiLowerA...asciiLowerF: // a...f
+                        val = UInt64(digit - asciiLowerA + 10)
+                    case asciiUpperA...asciiUpperF:
+                        val = UInt64(digit - asciiUpperA + 10)
+                    case asciiLowerU: // trailing 'u'
+                        index = utf8.index(after: index)
+                        return n
+                    default:
+                        return n
+                    }
+                    if n > UInt64.max / 16 {
+                        throw DecodingError.malformedTextNumber
+                    }
+                    index = utf8.index(after: index)
+                    n = n * 16 + val
+                }
+                return n
+            } else { // octal
+                var n: UInt64 = 0
+                while index != utf8.endIndex {
+                    let digit = utf8[index]
+                    if digit == asciiLowerU { // trailing 'u'
+                        index = utf8.index(after: index)
+                        return n
+                    }
+                    if digit < asciiZero || digit > asciiSeven {
+                        return n // not octal digit
+                    }
+                    let val = UInt64(digit - asciiZero)
+                    if n > UInt64.max / 8 {
+                        throw DecodingError.malformedTextNumber
+                    }
+                    index = utf8.index(after: index)
+                    n = n * 8 + val
+                }
+                return n
+            }
+        } else if c > asciiZero && c <= asciiNine { // 1...9
+            var n = UInt64(c - asciiZero)
+            while index != utf8.endIndex {
+                let digit = utf8[index]
+                if digit == asciiLowerU { // trailing 'u'
+                    index = utf8.index(after: index)
+                    return n
+                }
+                if digit < asciiZero || digit > asciiNine {
+                    return n // not a digit
+                }
+                let val = UInt64(digit - asciiZero)
+                if n >= UInt64.max / 10 {
+                    if n > UInt64.max / 10 || val > UInt64.max % 10 {
+                        throw DecodingError.malformedTextNumber
+                    }
+                }
+                index = utf8.index(after: index)
+                n = n * 10 + val
+            }
+            return n
+        }
+        throw DecodingError.malformedTextNumber
+    }
+
+    internal func nextSInt() throws -> Int64 {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            throw DecodingError.malformedTextNumber
+        }
+        let c = utf8[index]
+        if c == asciiMinus { // -
+            index = utf8.index(after: index)
+            // character after '-' must be digit
+            let digit = utf8[index]
+            if digit < asciiZero || digit > asciiNine {
+                throw DecodingError.malformedTextNumber
+            }
+            let n = try nextUInt()
+            if n >= 0x8000000000000000 { // -Int64.min
+                if n > 0x8000000000000000 {
+                    // Too large negative number
+                    throw DecodingError.malformedTextNumber
+                } else {
+                    return Int64.min // Special case for Int64.min
+                }
+            }
+            return -Int64(bitPattern: n)
+        } else {
+            let n = try nextUInt()
+            if n > UInt64(bitPattern: Int64.max) {
+                throw DecodingError.malformedTextNumber
+            }
+            return Int64(bitPattern: n)
+        }
+    }
+
+    internal func nextStringValue() throws -> String {
+        var result: String
+        skipWhitespace()
+        if index == utf8.endIndex {
+            throw DecodingError.malformedText
+        }
+        let c = utf8[index]
+        if c != asciiSingleQuote && c != asciiDoubleQuote {
+            throw DecodingError.malformedText
+        }
+        index = utf8.index(after: index)
+        if let s = parseStringSegment(terminator: c) {
+            result = s
+        } else {
+            throw DecodingError.malformedText
+        }
+
+        while true {
+            skipWhitespace()
+            if index == utf8.endIndex {
+                return result
+            }
+            let c = utf8[index]
+            if c != asciiSingleQuote && c != asciiDoubleQuote {
+                return result
+            }
+            index = utf8.index(after: index)
+            if let s = parseStringSegment(terminator: c) {
+                result.append(s)
+            } else {
+                throw DecodingError.malformedText
+            }
+        }
+    }
+
+    internal func nextBytesValue() throws -> Data {
+        var result: Data
+        skipWhitespace()
+        if index == utf8.endIndex {
+            throw DecodingError.malformedText
+        }
+        let c = utf8[index]
+        if c != asciiSingleQuote && c != asciiDoubleQuote {
+            throw DecodingError.malformedText
+        }
+        index = utf8.index(after: index)
+        if let s = parseQuotedString(terminator: c), let b = decodeBytes(s) {
+            result = b
+        } else {
+            throw DecodingError.malformedText
+        }
+
+        while true {
+            skipWhitespace()
+            if index == utf8.endIndex {
+                return result
+            }
+            let c = utf8[index]
+            if c != asciiSingleQuote && c != asciiDoubleQuote {
+                return result
+            }
+            index = utf8.index(after: index)
+            if let s = parseQuotedString(terminator: c),
+               let b = decodeBytes(s) {
+                result.append(b)
+            } else {
+                throw DecodingError.malformedText
+            }
+        }
+    }
+
+    // Tries to identify a sequence of UTF8 characters
+    // that represent a numeric floating-point value.
+    private func tryParseFloatString() -> String? {
+        skipWhitespace()
+        guard index != utf8.endIndex else {return nil}
+        let start = index
+        var c = utf8[index]
+        if c == asciiMinus {
+            index = utf8.index(after: index)
+            guard index != utf8.endIndex else {index = start; return nil}
+            c = utf8[index]
+        }
+        switch c {
+        case asciiZero: // '0' as first character only if followed by '.'
+            index = utf8.index(after: index)
+            guard index != utf8.endIndex else {index = start; return nil}
+            c = utf8[index]
+            if c != asciiPeriod {
+                index = start
+                return nil
+            }
+        case asciiPeriod: // '.' as first char only if followed by digit
+            index = utf8.index(after: index)
+            guard index != utf8.endIndex else {index = start; return nil}
+            c = utf8[index]
+            if c < asciiZero || c > asciiNine {
+                index = start
+                return nil
+            }
+        case asciiOne...asciiNine:
+            break
+        default:
+            index = start
+            return nil
+        }
+        while index != utf8.endIndex {
+            let c = utf8[index]
             switch c {
-            case "0"..."9", ".", "+", "-", "e", "E":
-                index = scalars.index(after: index)
-            case "f", "u":
+            case asciiZero...asciiNine,
+                 asciiPeriod,
+                 asciiPlus,
+                 asciiMinus,
+                 asciiLowerE,
+                 asciiUpperE: // 0...9, ., +, -, e, E
+                index = utf8.index(after: index)
+            case asciiLowerF: // f
                 // proto1 allowed floats to be suffixed with 'f'
-                // and unsigned integers to be suffixed with 'u'
-                // Just ignore it:
-                let s = String(scalars[tokenStart..<index])
-                index = scalars.index(after: index)
+                let s = String(utf8[start..<index])!
+                // Just skip the 'f'
+                index = utf8.index(after: index)
                 return s
             default:
-                return String(scalars[tokenStart..<index])
+                return String(utf8[start..<index])!
             }
         }
-        return String(scalars[tokenStart..<index])
+        return String(utf8[start..<index])!
     }
 
-    private func parseFloat() -> String {
-        return parseUnsignedNumber()
-    }
-
-    private func parseNumber() throws -> TextToken {
-        // Restart parse at start of token
-        index = tokenStart
-        var digit = scalars[index]
-        index = scalars.index(after: index)
-        if digit == "-" {
-            if index == scalars.endIndex {
-                throw DecodingError.malformedText
-            } else {
-                digit = scalars[index]
-                index = scalars.index(after: index)
-            }
-        }
-
-        switch digit {
-        case "a"..."z", "A"..."Z":
-            // Treat "-" followed by a letter as a floating-point literal.
-            // This treats "-Infinity" as a single token
-            // Note that "Infinity" and "NaN" are regular identifiers.
-            if let s = parseIdentifier() {
-                return .floatingPointLiteral(s)
-            } else {
-                throw DecodingError.malformedText
-            }
-        case "0":  // Octal or hex integer or floating point (e.g., "0.2")
-            let second = scalars[index]
-            switch second {
-            case "1"..."7":
-                let n = parseOctalInteger()
-                return .octalInteger(n)
-            case "x":
-                index = scalars.index(after: index)
-                let n = parseHexInteger()
-                return .hexadecimalInteger(n)
-            case ".":
-                let n = parseFloat()
-                return .floatingPointLiteral(n)
-            default: // Either "0" or "-0"
-                let n = String(scalars[tokenStart..<index])
-                return .decimalInteger(n)
-            }
-        default:
-            let n = parseUnsignedNumber()
-            return .decimalInteger(n)
-        }
-    }
-
-    internal func next() throws -> TextToken? {
-        if let t = tokenPushback.popLast() {
-            return t
-        }
+    private func skipOptionalKeyword(bytes: [UInt8]) -> Bool {
         skipWhitespace()
-        if index == scalars.endIndex {
-            eof = true
-            return nil
-        }
-        tokenStart = index
-        let c = scalars[index]
-        index = scalars.index(after: index)
-        switch c {
-        case ":":
-            return .colon
-        case ",":
-            return .comma
-        case ";":
-            return .semicolon
-        case "<":
-            return .altBeginObject
-        case "{":
-            return .beginObject
-        case "}":
-            return .endObject
-        case ">":
-            return .altEndObject
-        case "[":
-            return .beginArray
-        case "]":
-            return .endArray
-        case "\'", "\"": // string
-            if let s = parseQuotedString(terminator: c) {
-                return .string(s)
-            }
-            throw DecodingError.malformedText
-        case "-", "0"..."9":
-            return try parseNumber()
-        case "a"..."z", "A"..."Z":
-            if let s = parseIdentifier() {
-                return .identifier(s)
-            } else {
-                throw DecodingError.malformedText
-            }
-        default:
-            throw DecodingError.malformedText
-        }
-    }
-
-    /// Returns end-of-message terminator or next key
-    /// Note:  This treats [abc] as a single identifier token, consistent
-    /// with Text format key handling.
-    internal func nextKey() throws -> TextToken? {
-        if let t = tokenPushback.popLast() {
-            return t
-        }
-        skipWhitespace()
-        if index == scalars.endIndex {
-            eof = true
-            return nil
-        }
-        tokenStart = index
-        let c = scalars[index]
-        index = scalars.index(after: index)
-        switch c {
-        case "}":
-            return .endObject
-        case ">":
-            return .altEndObject
-        case "[":
-            if let s = parseExtensionIdentifier() {
-                return .identifier(s)
-            } else {
-                throw DecodingError.malformedText
-            }
-        case "a"..."z", "A"..."Z":
-            if let s = parseIdentifier() {
-                return .identifier(s)
-            } else {
-                throw DecodingError.malformedText
-            }
-        default:
-            throw DecodingError.malformedText
-        }
-    }
-
-    // Consume the specified token, throw an error if the token isn't there
-    internal func skipRequired(token: TextToken) throws {
-        if let t = try next(), t == token {
-            return
-        } else {
-            throw DecodingError.malformedText
-        }
-    }
-
-    /// Consume the next token if it matches the specified one
-    ///  * return true if it was there, false otherwise
-    ///  * error only if there's a scanning failure
-    internal func skipOptional(token: TextToken) throws -> Bool {
-        if let t = try next() {
-            if t == token {
-                return true
-            } else {
-                pushback(token: t)
+        let start = index
+        for b in bytes {
+            if index == utf8.endIndex {
+                index = start
                 return false
             }
+            var c = utf8[index]
+            if c >= asciiUpperA && c <= asciiUpperZ {
+                // Convert to lower case
+                // (Protobuf text keywords are case insensitive)
+                c += asciiLowerA - asciiUpperA
+            }
+            if c != b {
+                index = start
+                return false
+            }
+            index = utf8.index(after: index)
+        }
+        if index == utf8.endIndex {
+            index = start
+            return true
+        }
+        let c = utf8[index]
+        if ((c >= asciiUpperA && c <= asciiUpperZ)
+            || (c >= asciiLowerA && c <= asciiLowerZ)) {
+            index = start
+            return false
+        }
+        return true
+    }
+
+    // If the next token is the identifier "nan", return true.
+    private func skipOptionalNaN() -> Bool {
+        return skipOptionalKeyword(bytes:
+                                  [asciiLowerN, asciiLowerA, asciiLowerN])
+    }
+
+    // If the next token is a recognized spelling of "infinity",
+    // return Float.infinity or -Float.infinity
+    private func skipOptionalInfinity() -> Float? {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            return nil
+        }
+        let c = utf8[index]
+        let negated: Bool
+        if c == asciiMinus {
+            negated = true
+            index = utf8.index(after: index)
+        } else {
+            negated = false
+        }
+        let inf = [asciiLowerI, asciiLowerN, asciiLowerF]
+        let infinity = [asciiLowerI, asciiLowerN, asciiLowerF, asciiLowerI,
+                        asciiLowerN, asciiLowerI, asciiLowerT, asciiLowerY]
+        if (skipOptionalKeyword(bytes: inf)
+            || skipOptionalKeyword(bytes: infinity)) {
+            return negated ? -Float.infinity : Float.infinity
+        }
+        return nil
+    }
+
+    internal func nextFloat() throws -> Float {
+        if let s = tryParseFloatString() {
+            if let n = Float(s) {
+                return n
+            }
+        }
+        if skipOptionalNaN() {
+            return Float.nan
+        }
+        if let inf = skipOptionalInfinity() {
+            return inf
+        }
+        throw DecodingError.malformedTextNumber
+    }
+
+    internal func nextDouble() throws -> Double {
+        if let s = tryParseFloatString() {
+            if let n = Double(s) {
+                return n
+            }
+        }
+        if skipOptionalNaN() {
+            return Double.nan
+        }
+        if let inf = skipOptionalInfinity() {
+            return Double(inf)
+        }
+        throw DecodingError.malformedTextNumber
+    }
+
+    internal func nextBool() throws -> Bool {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            throw DecodingError.malformedText
+        }
+        let c = utf8[index]
+        switch c {
+        case asciiZero: // 0
+            index = utf8.index(after: index)
+            return false
+        case asciiOne: // 1
+            index = utf8.index(after: index)
+            return true
+        default:
+            if let s = parseIdentifier() {
+                switch s {
+                case "f", "false", "False":
+                    return false
+                case "t", "true", "True":
+                    return true
+                default:
+                    break
+                }
+            }
+        }
+        throw DecodingError.malformedText
+    }
+
+    internal func nextOptionalEnumName() throws -> String? {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            throw DecodingError.malformedText
+        }
+        let c = utf8[index]
+        let start = index
+        switch c {
+        case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
+            if let s = parseIdentifier() {
+                return s
+            }
+        default:
+            break
+        }
+        index = start
+        return nil
+    }
+
+    /// Any URLs are syntactically (almost) identical to extension
+    /// keys, so we share the code for those.
+    internal func nextOptionalAnyURL() throws -> String? {
+        return try nextOptionalExtensionKey()
+    }
+
+    /// Returns next extension key or nil if end-of-input or
+    /// if next token is not an extension key.
+    ///
+    /// Throws an error if the next token starts with '[' but
+    /// cannot be parsed as an extension key.
+    ///
+    /// Note: This accepts / characters to support Any URL parsing.
+    /// Technically, Any URLs can contain / characters and extension
+    /// key names cannot.  But in practice, accepting / chracters for
+    /// extension keys works fine, since the result just gets rejected
+    /// when the key is looked up.
+    internal func nextOptionalExtensionKey() throws -> String? {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            eof = true
+            return nil
+        }
+        if utf8[index] == asciiOpenSquareBracket { // [
+            index = utf8.index(after: index)
+            if let s = parseExtensionKey() {
+                if index == utf8.endIndex || utf8[index] != asciiCloseSquareBracket {
+                    throw DecodingError.malformedText
+                }
+                // Skip ]
+                index = utf8.index(after: index)
+                return s
+            } else {
+                print("Error parsing extension identifier")
+                throw DecodingError.malformedText
+            }
+        }
+        return nil
+    }
+
+    /// Returns text of next regular key or nil if end-of-input.
+    /// This considers an extension key [keyname] to be an
+    /// error, so call nextOptionalExtensionKey first if you
+    /// want to handle extension keys.
+    ///
+    /// This is only used by map parsing; we should be able to
+    /// rework that to use nextFieldNumber instead.
+    internal func nextKey() throws -> String? {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            eof = true
+            return nil
+        }
+        let c = utf8[index]
+        switch c {
+        case asciiOpenSquareBracket: // [
+            throw DecodingError.malformedText
+        case asciiLowerA...asciiLowerZ,
+             asciiUpperA...asciiUpperZ: // a...z, A...Z
+            if let s = parseIdentifier() {
+                return s
+            } else {
+                throw DecodingError.malformedText
+            }
+        default:
+            throw DecodingError.malformedText
+        }
+    }
+
+    /// Parse a field name, look it up, and return the corresponding
+    /// field number.
+    ///
+    /// returns nil at end-of-input
+    ///
+    /// Throws if field name cannot be parsed or if field name is
+    /// unknown.
+    ///
+    /// This function accounts for as much as 2/3 of the total run
+    /// time of the entire parse.
+    internal func nextFieldNumber(names: FieldNameMap) throws -> Int? {
+        skipWhitespace()
+        if index == utf8.endIndex {
+            eof = true
+            return nil
+        }
+        let c = utf8[index]
+        switch c {
+        case asciiLowerA...asciiLowerZ,
+             asciiUpperA...asciiUpperZ: // a...z, A...Z
+            let start = index
+            index = utf8.index(after: index)
+            scanKeyLoop: while index != utf8.endIndex {
+                let c = utf8[index]
+                switch c {
+                case asciiLowerA...asciiLowerZ,
+                     asciiUpperA...asciiUpperZ,
+                     asciiZero...asciiNine,
+                     asciiUnderscore: // a...z, A...Z, 0...9, _
+                    index = utf8.index(after: index)
+                default:
+                    break scanKeyLoop
+                }
+            }
+            // The next line can account for more than 1/3 of the total
+            // run time of the entire parse, just to create a String
+            // object that is discarded almost immediately.
+            //
+            // One idea: Have the name map build a ternary tree
+            // instead of a hash table, turn the character scan above
+            // into a walk of that tree.  This would look up the field
+            // number directly from the character scan without
+            // creating this intermediate string.
+            if let key = String(utf8[start..<index]) {
+                if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
+                    return protoFieldNumber
+                } else {
+                    throw DecodingError.unknownField
+                }
+            }
+        default:
+            break
+        }
+        throw DecodingError.malformedText
+    }
+
+    private func skipRequiredCharacter(_ c: UInt8) throws {
+        skipWhitespace()
+        if index != utf8.endIndex && utf8[index] == c {
+            index = utf8.index(after: index)
         } else {
             throw DecodingError.malformedText
         }
     }
 
-    internal func skipOptionalSeparator() throws {
-        if let t = try next() {
-            if t == .comma || t == .semicolon {
-                return
-            } else {
-                pushback(token: t)
+    internal func skipRequiredComma() throws {
+        try skipRequiredCharacter(asciiComma)
+    }
+
+    internal func skipRequiredColon() throws {
+        try skipRequiredCharacter(asciiColon)
+    }
+
+    private func skipOptionalCharacter(_ c: UInt8) -> Bool {
+        skipWhitespace()
+        if index != utf8.endIndex && utf8[index] == c {
+            index = utf8.index(after: index)
+            return true
+        }
+        return false
+    }
+
+    internal func skipOptionalColon() -> Bool {
+        return skipOptionalCharacter(asciiColon)
+    }
+
+    internal func skipOptionalEndArray() -> Bool {
+        return skipOptionalCharacter(asciiCloseSquareBracket)
+    }
+
+    internal func skipOptionalBeginArray() -> Bool {
+        return skipOptionalCharacter(asciiOpenSquareBracket)
+    }
+
+    internal func skipOptionalObjectEnd(_ c: UInt8) -> Bool {
+        return skipOptionalCharacter(c)
+    }
+
+    internal func skipOptionalSeparator() {
+        skipWhitespace()
+        if index != utf8.endIndex {
+            let c = utf8[index]
+            if c == asciiComma || c == asciiSemicolon { // comma or semicolon
+                index = utf8.index(after: index)
             }
         }
     }
 
-    /// Returns the token that should end this field.
+    /// Returns the character that should end this field.
     /// E.g., if object starts with "{", returns "}"
-    internal func readObjectStart() throws -> TextToken {
-        if let t = try next() {
-            switch t {
-            case .beginObject: // Starts with "{"
-                return .endObject // Should end with "}"
-            case .altBeginObject: // Starts with "<"
-                return .altEndObject // Should end with ">"
-            default: break
+    internal func skipObjectStart() throws -> UInt8 {
+        skipWhitespace()
+        if index != utf8.endIndex {
+            let c = utf8[index]
+            index = utf8.index(after: index)
+            switch c {
+            case asciiOpenCurlyBracket: // {
+                return asciiCloseCurlyBracket // }
+            case asciiOpenAngleBracket: // <
+                return asciiCloseAngleBracket // >
+            default:
+                break
             }
         }
         throw DecodingError.malformedText

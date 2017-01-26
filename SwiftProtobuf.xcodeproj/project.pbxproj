@@ -41,19 +41,16 @@
 		9C5890A91DFF6375001CFC34 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
 		9C5890AA1DFF6375001CFC34 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
 		9C5890AB1DFF6375001CFC34 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
-		9C5890AC1DFF6375001CFC34 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
 		9C5890AD1DFF6375001CFC34 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
 		9C5890AE1DFF6384001CFC34 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E661DB1210E00957D74 /* TextDecoder.swift */; };
 		9C5890AF1DFF6384001CFC34 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
 		9C5890B01DFF6384001CFC34 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
 		9C5890B11DFF6384001CFC34 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
-		9C5890B21DFF6384001CFC34 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
 		9C5890B31DFF6384001CFC34 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
 		9C5890B41DFF6389001CFC34 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E661DB1210E00957D74 /* TextDecoder.swift */; };
 		9C5890B51DFF6389001CFC34 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E671DB1210E00957D74 /* TextEncoder.swift */; };
 		9C5890B61DFF6389001CFC34 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
 		9C5890B71DFF6389001CFC34 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
-		9C5890B81DFF6389001CFC34 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
 		9C5890B91DFF6389001CFC34 /* TextTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */; };
 		9C60CBE81DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */; };
 		9C60CBE91DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */; };
@@ -180,7 +177,6 @@
 		9CCD5F941E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */; };
 		9CCD5F951E008203002D1940 /* Test_Text_WKT_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */; };
 		9CEB0D681DF5E934002D80F0 /* TextEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */; };
-		9CEB0D6A1DF5E99E002D80F0 /* TextToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D691DF5E99E002D80F0 /* TextToken.swift */; };
 		9CEB0D6C1DF5F921002D80F0 /* TextScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */; };
 		AA05BF4A1DAEB7E400619042 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BF491DAEB7E400619042 /* WireFormat.swift */; };
 		AA05BF4B1DAEB7E400619042 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA05BF491DAEB7E400619042 /* WireFormat.swift */; };
@@ -550,7 +546,6 @@
 		9CA424411E286D4E00C0E5B4 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_WKT_proto3.swift; sourceTree = "<group>"; };
 		9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEncodingVisitor.swift; sourceTree = "<group>"; };
-		9CEB0D691DF5E99E002D80F0 /* TextToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToken.swift; sourceTree = "<group>"; };
 		9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextScanner.swift; sourceTree = "<group>"; };
 		AA05BF491DAEB7E400619042 /* WireFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormat.swift; sourceTree = "<group>"; };
 		AA05BF4E1DAEB7E800619042 /* FieldTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldTag.swift; sourceTree = "<group>"; };
@@ -814,7 +809,6 @@
 				BCCA0E671DB1210E00957D74 /* TextEncoder.swift */,
 				9CEB0D671DF5E934002D80F0 /* TextEncodingVisitor.swift */,
 				9CEB0D6B1DF5F921002D80F0 /* TextScanner.swift */,
-				9CEB0D691DF5E99E002D80F0 /* TextToken.swift */,
 				BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */,
 				__PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/type.pb.swift /* type.pb.swift */,
@@ -1253,7 +1247,6 @@
 				9C5890B51DFF6389001CFC34 /* TextEncoder.swift in Sources */,
 				9C5890B61DFF6389001CFC34 /* TextEncodingVisitor.swift in Sources */,
 				9C5890B71DFF6389001CFC34 /* TextScanner.swift in Sources */,
-				9C5890B81DFF6389001CFC34 /* TextToken.swift in Sources */,
 				9C5890B91DFF6389001CFC34 /* TextTypeAdditions.swift in Sources */,
 				9C75F8861DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
 				9C75F8811DDBE0FC005CCFF2 /* Visitor.swift in Sources */,
@@ -1318,7 +1311,6 @@
 				BCCA0E6A1DB1210E00957D74 /* TextEncoder.swift in Sources */,
 				9CEB0D681DF5E934002D80F0 /* TextEncodingVisitor.swift in Sources */,
 				9CEB0D6C1DF5F921002D80F0 /* TextScanner.swift in Sources */,
-				9CEB0D6A1DF5E99E002D80F0 /* TextToken.swift in Sources */,
 				BCCA0E6B1DB1210E00957D74 /* TextTypeAdditions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/type.pb.swift /* type.pb.swift in Sources */,
@@ -1447,7 +1439,6 @@
 				F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */,
 				AAF2EE011DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				F44F93801DAEA76700BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
-				F44F938C1DAEA76700BC5B85 /* JSONDecoder.swift in Sources */,
 				F44F93911DAEA76700BC5B85 /* OneofEnum.swift in Sources */,
 				9CA424441E286D4E00C0E5B4 /* Strings.swift in Sources */,
 				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
@@ -1479,7 +1470,6 @@
 				9C5890AF1DFF6384001CFC34 /* TextEncoder.swift in Sources */,
 				9C5890B01DFF6384001CFC34 /* TextEncodingVisitor.swift in Sources */,
 				9C5890B11DFF6384001CFC34 /* TextScanner.swift in Sources */,
-				9C5890B21DFF6384001CFC34 /* TextToken.swift in Sources */,
 				9C5890B31DFF6384001CFC34 /* TextTypeAdditions.swift in Sources */,
 				F44F93931DAEA76700BC5B85 /* FieldTypes.swift in Sources */,
 				9C75F8871DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
@@ -1643,7 +1633,6 @@
 				9C5890A91DFF6375001CFC34 /* TextEncoder.swift in Sources */,
 				9C5890AA1DFF6375001CFC34 /* TextEncodingVisitor.swift in Sources */,
 				9C5890AB1DFF6375001CFC34 /* TextScanner.swift in Sources */,
-				9C5890AC1DFF6375001CFC34 /* TextToken.swift in Sources */,
 				9C5890AD1DFF6375001CFC34 /* TextTypeAdditions.swift in Sources */,
 				ECBC5C4B1DF6ABC500F658E8 /* timestamp.pb.swift in Sources */,
 				ECBC5C4E1DF6ABC500F658E8 /* type.pb.swift in Sources */,

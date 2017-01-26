@@ -443,28 +443,23 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
 
     public init(scanner: TextScanner) throws {
         self.init()
-        let terminator = try scanner.readObjectStart()
-        if let keyToken = try scanner.nextKey() {
-            if case .identifier(let key) = keyToken, key.hasPrefix("["), key.hasSuffix("]") {
-                var url = key
-                url.remove(at: url.startIndex)
-                url.remove(at: url.index(before: url.endIndex))
-                typeURL = url
-                let messageTypeName = typeName(fromURL: url)
-                if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
-                    _message = try messageType.init(scanner: scanner)
-                    try scanner.skipRequired(token: terminator)
+        let terminator = try scanner.skipObjectStart()
+        // Note: Any field cannot be empty!
+        // So we don't need to look for an object end at this point.
+        if let url = try scanner.nextOptionalAnyURL() {
+            typeURL = url
+            let messageTypeName = typeName(fromURL: url)
+            if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
+                _message = try messageType.init(scanner: scanner)
+                if scanner.skipOptionalObjectEnd(terminator) {
                     return
                 }
-                throw DecodingError.malformedText
-            } else {
-                scanner.pushback(token: keyToken)
-                var subDecoder = TextDecoder(scanner: scanner)
-                try subDecoder.decodeFullObject(message: &self, terminator: terminator)
             }
-        } else {
-            throw DecodingError.truncatedInput
+            throw DecodingError.malformedText
         }
+
+        var subDecoder = TextDecoder(scanner: scanner)
+        try subDecoder.decodeFullObject(message: &self, terminator: terminator)
     }
 
     // Caveat:  This can be very expensive.  We should consider organizing

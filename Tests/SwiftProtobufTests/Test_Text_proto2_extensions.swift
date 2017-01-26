@@ -18,7 +18,7 @@ import SwiftProtobuf
 
 class Test_Text_proto2_extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestAllExtensions
-    
+
     func test_file_level_extension() {
         assertTextEncode("[protobuf_unittest.optional_int32_extension]: 789\n",
                          extensions: ProtobufUnittest_Unittest_Extensions) {
@@ -27,7 +27,7 @@ class Test_Text_proto2_extensions: XCTestCase, PBTestHelpers {
         }
         // Fails if we don't provide the extensions to the decoder:
         assertTextDecodeFails("[protobuf_unittest.optional_int32_extension]: 789\n")
-        
+
         assertTextEncode("[protobuf_unittest.OptionalGroup_extension] {\n  a: 789\n}\n",
                          extensions: ProtobufUnittest_Unittest_Extensions) {
             (o: inout MessageTestType) in
@@ -36,7 +36,7 @@ class Test_Text_proto2_extensions: XCTestCase, PBTestHelpers {
         // Fails if we don't provide the extensions to the decoder:
         assertTextDecodeFails("[protobuf_unittest.OptionalGroup_extension] {\n  a: 789\n}\n")
     }
-    
+
     func test_nested_extension() {
         assertTextEncode("[protobuf_unittest.TestNestedExtension.test]: \"foo\"\n",
                          extensions: ProtobufUnittest_Unittest_Extensions) {

@@ -118,9 +118,15 @@ struct ExtensionGenerator {
         if protoPath.hasPrefix(".") {
             protoPath.remove(at: protoPath.startIndex)
         }
-        let nameCase = ".same(proto: \"[\(protoPath)]\", swift: \"\(swiftFieldName)\")"
+        let nameCase = ".same(proto: \"\(protoPath)\", swift: \"\(swiftFieldName)\")"
 
-        p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(protoFieldNumber: \(descriptor.number), fieldNames: \(nameCase), defaultValue: \(defaultValue))\n")
+        p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
+        p.indent()
+        p.print("protoFieldNumber: \(descriptor.number),\n")
+        p.print("fieldNames: \(nameCase),\n")
+        p.print("defaultValue: \(defaultValue)\n")
+        p.outdent()
+        p.print(")\n")
     }
 
     func generateTopLevel(printer p: inout CodePrinter) {

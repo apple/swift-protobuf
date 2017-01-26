@@ -20,16 +20,16 @@ import Swift
 // Note: The generated code only relies on ExpressibleByArrayLiteral
 public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLiteral {
     public typealias Element = MessageExtensionBase
-    
+
     // Since type objects aren't Hashable, we can't do much better than this...
     private var fields = [Int: Array<(Message.Type, MessageExtensionBase)>]()
-    
+
     public init() {}
-    
+
     public init(arrayLiteral: Element...) {
         insert(contentsOf: arrayLiteral)
     }
-    
+
     public subscript(messageType: Message.Type, protoFieldNumber: Int) -> MessageExtensionBase? {
         get {
             if let l = fields[protoFieldNumber] {
@@ -59,23 +59,11 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         }
     }
 
-    public func fieldNumberForJson(messageType: Message.Type, jsonFieldName: String) -> Int? {
-        // TODO: Make this faster...
-        for (_, list) in fields {
-            for (_, e) in list {
-                if e.fieldNames.jsonName == jsonFieldName {
-                    return e.protoFieldNumber
-                }
-            }
-        }
-        return nil
-    }
-
     public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
-            for (_, e) in list {
-                if e.fieldNames.protoName == protoFieldName {
+            for (t, e) in list {
+                if e.fieldNames.protoName == protoFieldName && t == messageType {
                     return e.protoFieldNumber
                 }
             }

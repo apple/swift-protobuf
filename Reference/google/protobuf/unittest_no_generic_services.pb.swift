@@ -181,7 +181,11 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   }
 }
 
-let Google_Protobuf_NoGenericServicesTest_Extensions_testExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(protoFieldNumber: 1000, fieldNames: .same(proto: "[google.protobuf.no_generic_services_test.test_extension]", swift: "Google_Protobuf_NoGenericServicesTest_testExtension"), defaultValue: 0)
+let Google_Protobuf_NoGenericServicesTest_Extensions_testExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
+  protoFieldNumber: 1000,
+  fieldNames: .same(proto: "google.protobuf.no_generic_services_test.test_extension", swift: "Google_Protobuf_NoGenericServicesTest_testExtension"),
+  defaultValue: 0
+)
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {

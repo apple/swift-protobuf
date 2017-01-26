@@ -16,24 +16,27 @@
 import Foundation
 import Swift
 
+public extension FieldType {
+    public static func setFromText(scanner: TextScanner, value: inout BaseType) throws {
+        var v: BaseType?
+        try setFromText(scanner: scanner, value: &v)
+        if let v = v {
+            value = v
+        }
+    }
+}
+
 ///
 /// Float traits
 ///
 public extension ProtobufFloat {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asFloat {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        value = try scanner.nextFloat()
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asFloat {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        let n = try scanner.nextFloat()
+        value.append(n)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Float) {
@@ -47,19 +50,12 @@ public extension ProtobufFloat {
 public extension ProtobufDouble {
 
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asDouble {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        value = try scanner.nextDouble()
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asDouble {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        let n = try scanner.nextDouble()
+        value.append(n)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Double) {
@@ -72,19 +68,19 @@ public extension ProtobufDouble {
 ///
 public extension ProtobufInt32 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asInt32 {
-            value = n
-        } else {
+        let n = try scanner.nextSInt()
+        if n > Int64(Int32.max) || n < Int64(Int32.min) {
             throw DecodingError.malformedTextNumber
         }
+        value = Int32(truncatingBitPattern: n)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asInt32 {
-            value.append(n)
-        } else {
+        let n = try scanner.nextSInt()
+        if n > Int64(Int32.max) || n < Int64(Int32.min) {
             throw DecodingError.malformedTextNumber
         }
+        value.append(Int32(truncatingBitPattern: n))
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
@@ -97,19 +93,12 @@ public extension ProtobufInt32 {
 ///
 public extension ProtobufInt64 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asInt64 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        value = try scanner.nextSInt()
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        let n = try scanner.nextSInt()
+        value.append(n)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
@@ -122,19 +111,19 @@ public extension ProtobufInt64 {
 ///
 public extension ProtobufUInt32 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asUInt32 {
-            value = n
-        } else {
+        let n = try scanner.nextUInt()
+        if n > UInt64(UInt32.max) {
             throw DecodingError.malformedTextNumber
         }
+        value = UInt32(truncatingBitPattern: n)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asUInt32 {
-            value.append(n)
-        } else {
+        let n = try scanner.nextUInt()
+        if n > UInt64(UInt32.max) {
             throw DecodingError.malformedTextNumber
         }
+        value.append(UInt32(truncatingBitPattern: n))
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
@@ -147,19 +136,12 @@ public extension ProtobufUInt32 {
 ///
 public extension ProtobufUInt64 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asUInt64 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        value = try scanner.nextUInt()
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asUInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        let n = try scanner.nextUInt()
+        value.append(n)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
@@ -172,19 +154,11 @@ public extension ProtobufUInt64 {
 ///
 public extension ProtobufSInt32 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asInt32 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt32.setFromText(scanner: scanner, value: &value)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asInt32 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt32.setFromText(scanner: scanner, value: &value)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
@@ -197,19 +171,11 @@ public extension ProtobufSInt32 {
 ///
 public extension ProtobufSInt64 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asInt64 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt64.setFromText(scanner: scanner, value: &value)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt64.setFromText(scanner: scanner, value: &value)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
@@ -222,19 +188,11 @@ public extension ProtobufSInt64 {
 ///
 public extension ProtobufFixed32 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asUInt32 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufUInt32.setFromText(scanner: scanner, value: &value)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asUInt32 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufUInt32.setFromText(scanner: scanner, value: &value)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
@@ -247,19 +205,11 @@ public extension ProtobufFixed32 {
 ///
 public extension ProtobufFixed64 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asUInt64 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufUInt64.setFromText(scanner: scanner, value: &value)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asUInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufUInt64.setFromText(scanner: scanner, value: &value)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
@@ -272,19 +222,11 @@ public extension ProtobufFixed64 {
 ///
 public extension ProtobufSFixed32 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asInt32 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt32.setFromText(scanner: scanner, value: &value)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asInt32 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt32.setFromText(scanner: scanner, value: &value)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
@@ -297,19 +239,11 @@ public extension ProtobufSFixed32 {
 ///
 public extension ProtobufSFixed64 {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asInt64 {
-            value = n
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt64.setFromText(scanner: scanner, value: &value)
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedTextNumber
-        }
+        try ProtobufInt64.setFromText(scanner: scanner, value: &value)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
@@ -322,19 +256,12 @@ public extension ProtobufSFixed64 {
 ///
 public extension ProtobufBool {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), let n = token.asBoolean {
-            value = n
-        } else {
-            throw DecodingError.malformedText
-        }
+        value = try scanner.nextBool()
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        if let token = try scanner.next(), let n = token.asBoolean {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedText
-        }
+        let n = try scanner.nextBool()
+        value.append(n)
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Bool) {
@@ -347,36 +274,11 @@ public extension ProtobufBool {
 ///
 public extension ProtobufString {
     public static func setFromText(scanner: TextScanner, value: inout BaseType?) throws {
-        if let token = try scanner.next(), case .string(_) = token, let s = token.asString {
-            value = s
-        } else {
-            throw DecodingError.malformedText
-        }
-        while let token = try scanner.next() {
-            if case .string = token, let s = token.asString {
-                value!.append(s)
-            } else {
-                scanner.pushback(token: token)
-                return
-            }
-        }
+        value = try scanner.nextStringValue()
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        var result: String
-        if let token = try scanner.next(), let s = token.asString {
-            result = s
-        } else {
-            throw DecodingError.malformedText
-        }
-        while let token = try scanner.next() {
-            if case .string = token, let s = token.asString {
-                result.append(s)
-            } else {
-                scanner.pushback(token: token)
-                break
-            }
-        }
+        let result = try scanner.nextStringValue()
         value.append(result)
     }
 
@@ -390,36 +292,11 @@ public extension ProtobufString {
 ///
 public extension ProtobufBytes {
     public static func setFromText(scanner: TextScanner, value: inout Data?) throws {
-        if let token = try scanner.next(), let n = token.asBytes {
-            value = n
-        } else {
-            throw DecodingError.malformedText
-        }
-        while let token = try scanner.next() {
-            if let n = token.asBytes {
-                value!.append(n)
-            } else {
-                scanner.pushback(token: token)
-                return
-            }
-        }
+        value = try scanner.nextBytesValue()
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws {
-        var result: Data
-        if let token = try scanner.next(), let n = token.asBytes {
-            result = n
-        } else {
-            throw DecodingError.malformedText
-        }
-        while let token = try scanner.next() {
-            if let n = token.asBytes {
-                result.append(n)
-            } else {
-                scanner.pushback(token: token)
-                break
-            }
-        }
+        let result = try scanner.nextBytesValue()
         value.append(result)
     }
 
@@ -433,55 +310,41 @@ public extension ProtobufBytes {
 //
 extension Enum where RawValue == Int {
     public static func setFromText(scanner: TextScanner, value: inout Self?) throws {
-        if let token = try scanner.next() {
-            switch token {
-            case .identifier(let s):
-                if let b = Self(protoName: s) {
-                    value = b
-                } else {
-                    throw DecodingError.unrecognizedEnumValue
-                }
-            default:
-                if token.isNumber {
-                    if let n = token.asInt32 {
-                        value = Self(rawValue: Int(n))
-                    } else {
-                        throw DecodingError.malformedTextNumber
-                    }
-                } else {
-                    throw DecodingError.malformedText
-                }
+        if let name = try scanner.nextOptionalEnumName() {
+            if let b = Self(protoName: name) {
+                value = b
+                return
+            } else {
+                throw DecodingError.unrecognizedEnumValue
             }
-        } else {
-            throw DecodingError.malformedText
         }
+        let number = try scanner.nextSInt()
+        if number >= Int64(Int32.min) && number <= Int64(Int32.max) {
+            let n = Int32(truncatingBitPattern: number)
+            value = Self(rawValue: Int(n))
+            return
+        }
+        throw DecodingError.malformedText
     }
 
     public static func setFromText(scanner: TextScanner, value: inout [Self]) throws {
-        if let token = try scanner.next() {
-            switch token {
-            case .identifier(let s):
-                if let b = Self(protoName: s) {
-                    value.append(b)
-                } else {
-                    throw DecodingError.unrecognizedEnumValue
-                }
-            default:
-                if token.isNumber {
-                    if let n = token.asInt32 {
-                        let e = Self(rawValue: Int(n))! // Note: Can never fail!
-                        // TODO: Google's C++ implementation of text format rejects unknown enum values
-                        value.append(e)
-                    } else {
-                        throw DecodingError.malformedTextNumber
-                    }
-                } else {
-                    throw DecodingError.malformedText
-                }
+        if let name = try scanner.nextOptionalEnumName() {
+            if let b = Self(protoName: name) {
+                value.append(b)
+                return
+            } else {
+                throw DecodingError.unrecognizedEnumValue
             }
-        } else {
-            throw DecodingError.malformedText
         }
+        let number = try scanner.nextSInt()
+        if number >= Int64(Int32.min) && number <= Int64(Int32.max) {
+            let n = Int32(truncatingBitPattern: number)
+            let e = Self(rawValue: Int(n))!  // Note: Can never fail!
+            // TODO: Google's C++ implementation of text format rejects unknown enum values
+            value.append(e)
+            return
+        }
+        throw DecodingError.malformedText
     }
 
     public static func serializeTextValue(encoder: TextEncoder, value: Self) {
@@ -496,7 +359,7 @@ public extension Message {
 
     init(scanner: TextScanner) throws {
         self.init()
-        let terminator = try scanner.readObjectStart()
+        let terminator = try scanner.skipObjectStart()
         var subDecoder = TextDecoder(scanner: scanner)
         try subDecoder.decodeFullObject(message: &self, terminator: terminator)
     }
