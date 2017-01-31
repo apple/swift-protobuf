@@ -760,7 +760,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     // Known message field followed by unknown field
     func testEncoding_optionalNestedMessage_unknown1() throws {
-        let bytes: [UInt8] = [146, 1, 2, 8, 1, 208, 41, 0]
+        let bytes: [UInt8] = [146, 1, 2, 8, 1, // nested message with bb=1
+                              208, 41, 0] // Unknown field 666 with varint 0
         do {
             let m = try MessageTestType(protobuf: Data(bytes: bytes))
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
@@ -777,12 +778,14 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     // Unknown field followed by known message field
     func testEncoding_optionalNestedMessage_unknown2() throws {
-        let bytes: [UInt8] = [208, 41, 0, 146, 1, 2, 8, 1]
+        let bytes: [UInt8] = [208, 41, 0, // Unknown 666 with varint 0
+                              146, 1, 2, 8, 1] // Nested msg with bb=1
         do {
             let m = try MessageTestType(protobuf: Data(bytes: bytes))
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             do {
                 let recoded = try m.serializeProtobuf()
+                // Unknown field gets reserialized at end
                 let expectedBytes: [UInt8] = [146, 1, 2, 8, 1, 208, 41, 0]
                 XCTAssertEqual(recoded, Data(bytes: expectedBytes))
             } catch let e {
@@ -795,7 +798,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     // Known message field with unknown field followed by unknown field
     func testEncoding_optionalNestedMessage_unknown3() throws {
-        let bytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99, 208, 41, 0]
+        // Inner field has bb=1 (8, 1) and unknown 666 with varint 99
+        // Outer message has unknown 666 with varint 0
+        let bytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99,
+                              208, 41, 0]
         do {
             let m = try MessageTestType(protobuf: Data(bytes: bytes))
             XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
@@ -813,6 +819,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     // Unknown field, then known message field containing unknown field
     func testEncoding_optionalNestedMessage_unknown4() throws {
+        // Same as unknown3 test above, but unknown fields come
+        // first in outer and inner message
         let bytes: [UInt8] = [208, 41, 0, 146, 1, 5, 208, 41, 99, 8, 1]
         do {
             let m = try MessageTestType(protobuf: Data(bytes: bytes))
@@ -820,6 +828,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             XCTAssertEqual(m.optionalNestedMessage.bb, 1)
             do {
                 let recoded = try m.serializeProtobuf()
+                // Reserializing moves unknown fields to end
                 let expectedBytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99, 208, 41, 0]
                 XCTAssertEqual(recoded, Data(bytes: expectedBytes))
             } catch let e {
@@ -1399,7 +1408,20 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedNestedMessage_unknown() {
-        let bytes: [UInt8] = [208, 41, 0, 130, 3, 8, 208, 41, 8, 8, 1, 208, 41, 9, 208, 41, 1, 130, 3, 8, 208, 41, 10, 8, 2, 208, 41, 11, 208, 41, 2]
+        let bytes: [UInt8] = [
+            208, 41, 0, // Unknown 666 with varint 0
+            130, 3, 8,  // Inner message with 8 bytes
+                208, 41, 8, // Unknown 666 with varint 8
+                8, 1, // bb = 1
+                208, 41, 9, // Unknown 666 with varint 9
+            208, 41, 1, // Unknown 666 with varint 1
+            130, 3, 8, // inner message with 8 bytes
+                208, 41, 10, // Unknown 666 with varint 10
+                8, 2, // bb = 2
+                208, 41, 11, // Unknown 666 with varint 11
+            208, 41, 2 // Unknown 666 with varint 2
+        ]
+
         do {
             let m = try MessageTestType(protobuf: Data(bytes: bytes))
             XCTAssertEqual(m.repeatedNestedMessage.count, 2)
@@ -1408,7 +1430,14 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             XCTAssertNotEqual(m.repeatedNestedMessage[1], MessageTestType.NestedMessage.with{$0.bb = 2})
             XCTAssertEqual(m.repeatedNestedMessage[1].bb, 2)
             do {
-                let expectedBytes: [UInt8] = [130, 3, 8, 8, 1, 208, 41, 8, 208, 41, 9, 130, 3, 8, 8, 2, 208, 41, 10, 208, 41, 11, 208, 41, 0, 208, 41, 1, 208, 41, 2]
+                // Same contents, but reordered
+                let expectedBytes: [UInt8] = [
+                    130, 3, 8, 8, 1, 208, 41, 8, 208, 41, 9,
+                    130, 3, 8, 8, 2, 208, 41, 10, 208, 41, 11,
+                    208, 41, 0,
+                    208, 41, 1,
+                    208, 41, 2
+                ]
                 let recoded = try m.serializeProtobuf()
                 XCTAssertEqual(recoded, Data(bytes: expectedBytes))
             } catch let e {
