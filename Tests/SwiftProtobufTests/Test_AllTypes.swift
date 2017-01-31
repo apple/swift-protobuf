@@ -758,6 +758,78 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([146, 1, 1, 128])
     }
 
+    // Known message field followed by unknown field
+    func testEncoding_optionalNestedMessage_unknown1() throws {
+        let bytes: [UInt8] = [146, 1, 2, 8, 1, 208, 41, 0]
+        do {
+            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
+            do {
+                let recoded = try m.serializeProtobuf()
+                XCTAssertEqual(recoded, Data(bytes: bytes))
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
+    // Unknown field followed by known message field
+    func testEncoding_optionalNestedMessage_unknown2() throws {
+        let bytes: [UInt8] = [208, 41, 0, 146, 1, 2, 8, 1]
+        do {
+            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
+            do {
+                let recoded = try m.serializeProtobuf()
+                let expectedBytes: [UInt8] = [146, 1, 2, 8, 1, 208, 41, 0]
+                XCTAssertEqual(recoded, Data(bytes: expectedBytes))
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
+    // Known message field with unknown field followed by unknown field
+    func testEncoding_optionalNestedMessage_unknown3() throws {
+        let bytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99, 208, 41, 0]
+        do {
+            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
+            XCTAssertEqual(m.optionalNestedMessage.bb, 1)
+            do {
+                let recoded = try m.serializeProtobuf()
+                XCTAssertEqual(recoded, Data(bytes: bytes))
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
+    // Unknown field, then known message field containing unknown field
+    func testEncoding_optionalNestedMessage_unknown4() throws {
+        let bytes: [UInt8] = [208, 41, 0, 146, 1, 5, 208, 41, 99, 8, 1]
+        do {
+            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
+            XCTAssertEqual(m.optionalNestedMessage.bb, 1)
+            do {
+                let recoded = try m.serializeProtobuf()
+                let expectedBytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99, 208, 41, 0]
+                XCTAssertEqual(recoded, Data(bytes: expectedBytes))
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
     func testEncoding_optionalForeignMessage() {
         assertEncode([154, 1, 2, 8, 1]) {(o: inout MessageTestType) in
             var foreign = ProtobufUnittest_ForeignMessage()
@@ -1323,6 +1395,27 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             var m2 = MessageTestType.NestedMessage()
             m2.bb = 2
             o.repeatedNestedMessage = [m1, m2]
+        }
+    }
+
+    func testEncoding_repeatedNestedMessage_unknown() {
+        let bytes: [UInt8] = [208, 41, 0, 130, 3, 8, 208, 41, 8, 8, 1, 208, 41, 9, 208, 41, 1, 130, 3, 8, 208, 41, 10, 8, 2, 208, 41, 11, 208, 41, 2]
+        do {
+            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            XCTAssertEqual(m.repeatedNestedMessage.count, 2)
+            XCTAssertNotEqual(m.repeatedNestedMessage[0], MessageTestType.NestedMessage.with{$0.bb = 1})
+            XCTAssertEqual(m.repeatedNestedMessage[0].bb, 1)
+            XCTAssertNotEqual(m.repeatedNestedMessage[1], MessageTestType.NestedMessage.with{$0.bb = 2})
+            XCTAssertEqual(m.repeatedNestedMessage[1].bb, 2)
+            do {
+                let expectedBytes: [UInt8] = [130, 3, 8, 8, 1, 208, 41, 8, 208, 41, 9, 130, 3, 8, 8, 2, 208, 41, 10, 208, 41, 11, 208, 41, 0, 208, 41, 1, 208, 41, 2]
+                let recoded = try m.serializeProtobuf()
+                XCTAssertEqual(recoded, Data(bytes: expectedBytes))
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
         }
     }
 
