@@ -159,16 +159,18 @@
       for (var j = 0; j < languages.length; j++) {
         var language = languages[j];
         var med = timings[j];
-        var formattedMedian = med.toFixed(3) + '&nbsp;ms';
-        var valueCell = $('<td></td>').html(formattedMedian).appendTo(tr);
-        var multiplier = med / bestValue;
-        decorateMultiplierCell(valueCell, multiplier);
-
+        var valueCell = $('<td></td>').appendTo(tr);
         var multiplierCell = $('<td></td>').appendTo(tr);
-        if (j != bestLanguage) {
-            multiplierCell.text('(' + multiplier.toFixed(1) + 'x)');
+        if (med) {
+          var formattedMedian = med.toFixed(3) + '&nbsp;ms';
+          valueCell.html(formattedMedian);
+          var multiplier = med / bestValue;
+          decorateMultiplierCell(valueCell, multiplier);
+          if (j != bestLanguage) {
+              multiplierCell.text('(' + multiplier.toFixed(1) + 'x)');
+          }
+          decorateMultiplierCell(multiplierCell, multiplier);
         }
-        decorateMultiplierCell(multiplierCell, multiplier);
         tr.append($('<td></td>'));
       }
     }
