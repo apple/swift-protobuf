@@ -35,7 +35,6 @@ public protocol FieldDecoder {
     mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws
     mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws
     mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws
-    mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws
     mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws
     mutating func decodeRepeatedMessageField<M: Message>(fieldType: M.Type, value: inout [M]) throws
     mutating func decodeSingularGroupField<G: Message>(fieldType: G.Type, value: inout G?) throws
@@ -59,9 +58,6 @@ public extension FieldDecoder {
         // TODO: else value = S.proto3DefaultValue
     }
     public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        throw DecodingError.schemaMismatch
-    }
-    public mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         throw DecodingError.schemaMismatch
     }
     public mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {

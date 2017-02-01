@@ -101,10 +101,6 @@ public struct TextDecoder: FieldDecoder {
         }
     }
 
-    public mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
     public mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
         _ = scanner.skipOptionalColon()
         try M.setFromText(scanner: scanner, value: &value)

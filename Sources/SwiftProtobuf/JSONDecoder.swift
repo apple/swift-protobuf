@@ -677,10 +677,6 @@ extension JSONDecoder: FieldDecoder {
         }
     }
 
-    public func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
     public func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
         try M.setFromJSON(decoder: self, value: &value)
     }

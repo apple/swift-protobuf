@@ -305,9 +305,7 @@ struct MessageFieldGenerator {
         if isMap {
             return "decodeMapField"
         } else {
-            let modifier = (isPacked ? "Packed"
-                         : isRepeated ? "Repeated"
-                         : "Singular")
+            let modifier = (isRepeated ? "Repeated" : "Singular")
             let special = isGroup ? "Group"
                          : isMessage ? "Message"
                          : ""

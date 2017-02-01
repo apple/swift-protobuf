@@ -87,10 +87,6 @@ public struct ProtobufDecoder: FieldDecoder {
         //unknownOverride = scanner.unknownOverride
     }
 
-    public mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = extensions?[messageType, protoFieldNumber] {
             var fieldValue = values[protoFieldNumber] ?? ext.newField()
