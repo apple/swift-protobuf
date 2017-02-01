@@ -58,8 +58,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
                     let redecoded = try MessageTestType(protobuf: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
-                } catch {
-                    XCTFail("Failed to redecode", file: file, line: line)
+                } catch let e {
+                    XCTFail("Failed to redecode: \(e)", file: file, line: line)
                 }
             } catch let e {
                 XCTFail("Failed to encode: \(e)\n    \(decoded)", file: file, line: line)
