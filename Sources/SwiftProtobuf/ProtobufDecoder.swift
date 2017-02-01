@@ -136,9 +136,9 @@ public struct ProtobufDecoder: FieldDecoder {
             let protoFieldNumber = tag.fieldNumber
             switch protoFieldNumber {
             case 1: // Keys are always basic types, so take a shortcut:
-                try subdecoder.decodeSingularField(fieldType: KeyType.self, value: &k)
+                _ = try KeyType.setFromProtobuf(decoder: &subdecoder, value: &k)
             case 2: // Values can be message or basic types, so use indirection:
-                try ValueType.decodeProtobufMapValue(decoder: &subdecoder, value: &v)
+                _ = try ValueType.setFromProtobuf(decoder: &subdecoder, value: &v)
             default: // Always ignore unknown fields within the map entry object
                 return
             }
