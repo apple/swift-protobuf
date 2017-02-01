@@ -677,10 +677,6 @@ extension JSONDecoder: FieldDecoder {
         }
     }
 
-    public func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
     public func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
         try M.setFromJSON(decoder: self, value: &value)
     }
@@ -730,7 +726,7 @@ extension JSONDecoder: FieldDecoder {
         throw DecodingError.schemaMismatch
     }
 
-    public func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
+    public func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
         if try skipOptionalNull() {
             return
         }

@@ -2054,20 +2054,20 @@ struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobu
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
-    case 90: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &packedInt32)
-    case 91: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &packedInt64)
-    case 92: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &packedUint32)
-    case 93: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &packedUint64)
-    case 94: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &packedSint32)
-    case 95: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &packedSint64)
-    case 96: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &packedFixed32)
-    case 97: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &packedFixed64)
-    case 98: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &packedSfixed32)
-    case 99: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &packedSfixed64)
-    case 100: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &packedFloat)
-    case 101: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &packedDouble)
-    case 102: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &packedBool)
-    case 103: try setter.decodePackedField(fieldType: ProtobufUnittest_ForeignEnumLite.self, value: &packedEnum)
+    case 90: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &packedInt32)
+    case 91: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &packedInt64)
+    case 92: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &packedUint32)
+    case 93: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &packedUint64)
+    case 94: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &packedSint32)
+    case 95: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &packedSint64)
+    case 96: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &packedFixed32)
+    case 97: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &packedFixed64)
+    case 98: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &packedSfixed32)
+    case 99: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &packedSfixed64)
+    case 100: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &packedFloat)
+    case 101: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &packedDouble)
+    case 102: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &packedBool)
+    case 103: try setter.decodeRepeatedField(fieldType: ProtobufUnittest_ForeignEnumLite.self, value: &packedEnum)
     default: break
     }
   }
@@ -3258,7 +3258,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       case 536870000: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_optionalInt32)
       case 536870001: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_fixed32)
       case 536870002: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_repeatedInt32)
-      case 536870003: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_packedInt32)
+      case 536870003: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_packedInt32)
       case 536870004: try setter.decodeSingularField(fieldType: ProtobufUnittest_ForeignEnumLite.self, value: &_optionalEnum)
       case 536870005: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_optionalString)
       case 536870006: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_optionalBytes)

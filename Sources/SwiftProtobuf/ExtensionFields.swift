@@ -189,7 +189,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   }
 
   public mutating func decodeField<D: FieldDecoder>(setter: inout D) throws {
-    try setter.decodePackedField(fieldType: T.self, value: &value)
+    try setter.decodeRepeatedField(fieldType: T.self, value: &value)
   }
 
   public func traverse(visitor: Visitor) throws {

@@ -21,10 +21,6 @@ import Foundation
 /// it treats them as unknown fields, consider changing the following
 /// to 'return false' to match.
 public extension FieldType {
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        throw DecodingError.schemaMismatch
-    }
-
     public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool {
         var v: BaseType?
         let consumed = try setFromProtobuf(decoder: &decoder, value: &v)
@@ -40,13 +36,6 @@ public extension FieldType {
 }
 
 protocol ProtobufMapValueType: MapValueType {
-}
-
-extension ProtobufMapValueType {
-    public static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout BaseType?) throws {
-        try decoder.decodeSingularField(fieldType: Self.self, value: &value)
-        assert(value != nil)
-    }
 }
 
 ///
@@ -796,9 +785,9 @@ public extension Message {
         return Varint.encodedSize(of: Int64(messageSize)) + messageSize
     }
 
-    static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout Self?) throws {
+    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout Self?) throws -> Bool {
         try decoder.decodeSingularMessageField(fieldType: Self.self, value: &value)
-        assert(value != nil)
+        return true
     }
 
     init(protobuf: Data) throws {
