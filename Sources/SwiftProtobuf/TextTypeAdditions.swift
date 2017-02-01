@@ -364,16 +364,6 @@ public extension Message {
         try subDecoder.decodeFullObject(message: &self, terminator: terminator)
     }
 
-    static func setFromText(scanner: TextScanner, value: inout Self?) throws {
-        let message = try Self(scanner: scanner)
-        value = message
-    }
-
-    static func setFromText(scanner: TextScanner, value: inout [Self]) throws {
-        let message = try Self(scanner: scanner)
-        value.append(message)
-    }
-
     public func serializeText() throws -> String {
         let visitor = TextEncodingVisitor(message: self)
         try traverse(visitor: visitor)

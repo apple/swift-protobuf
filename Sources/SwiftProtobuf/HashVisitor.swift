@@ -85,4 +85,38 @@ final class HashVisitor: Visitor {
     }
     mix(mapHash)
   }
+
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    mix(fieldNumber)
+    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
+    // simplify to mix(value.hashValue).
+    var mapHash = 0
+    for (k, v) in value {
+      // Note: This calculation cannot depend on the order of the items.
+      mapHash += k.hashValue ^ v.hashValue
+    }
+    mix(mapHash)
+  }
+
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) where KeyType.BaseType: Hashable {
+    mix(fieldNumber)
+    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
+    // simplify to mix(value.hashValue).
+    var mapHash = 0
+    for (k, v) in value {
+      // Note: This calculation cannot depend on the order of the items.
+      mapHash += k.hashValue ^ v.hashValue
+    }
+    mix(mapHash)
+  }
 }

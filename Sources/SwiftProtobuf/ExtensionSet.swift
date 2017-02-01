@@ -30,9 +30,9 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         insert(contentsOf: arrayLiteral)
     }
 
-    public subscript(messageType: Message.Type, protoFieldNumber: Int) -> MessageExtensionBase? {
+    public subscript(messageType: Message.Type, fieldNumber: Int) -> MessageExtensionBase? {
         get {
-            if let l = fields[protoFieldNumber] {
+            if let l = fields[fieldNumber] {
                 for (t, e) in l {
                     if t == messageType {
                         return e
@@ -42,7 +42,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
             return nil
         }
         set(newValue) {
-            if let l = fields[protoFieldNumber] {
+            if let l = fields[fieldNumber] {
                 var newL = l.flatMap {
                     pair -> (Message.Type, MessageExtensionBase)? in
                     if pair.0 == messageType { return nil }
@@ -50,11 +50,11 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
                 }
                 if let newValue = newValue {
                     newL.append((messageType, newValue))
-                    fields[protoFieldNumber] = newL
+                    fields[fieldNumber] = newL
                 }
-                fields[protoFieldNumber] = newL
+                fields[fieldNumber] = newL
             } else if let newValue = newValue {
-                fields[protoFieldNumber] = [(messageType, newValue)]
+                fields[fieldNumber] = [(messageType, newValue)]
             }
         }
     }
@@ -64,7 +64,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         for (_, list) in fields {
             for (t, e) in list {
                 if e.fieldNames.protoName == protoFieldName && t == messageType {
-                    return e.protoFieldNumber
+                    return e.fieldNumber
                 }
             }
         }
@@ -72,7 +72,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
     }
 
     public mutating func insert(_ e: Element) {
-        self[e.messageType, e.protoFieldNumber] = e
+        self[e.messageType, e.fieldNumber] = e
     }
 
     public mutating func insert(contentsOf: [Element]) {
@@ -85,7 +85,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         var names = [String]()
         for (_, list) in fields {
             for (_, e) in list {
-                names.append("\(e.fieldNames.protoName)(\(e.protoFieldNumber))")
+                names.append("\(e.fieldNames.protoName)(\(e.fieldNumber))")
             }
         }
         let d = names.joined(separator: ",")

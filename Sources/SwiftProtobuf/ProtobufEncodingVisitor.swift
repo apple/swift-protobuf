@@ -124,4 +124,48 @@ final class ProtobufEncodingVisitor: Visitor {
       ValueType.serializeProtobufValue(encoder: &encoder, value: v)
     }
   }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    for (k,v) in value {
+      encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+      let keyTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
+      let valueTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
+      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
+        valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
+      encoder.putVarInt(value: entrySize)
+      encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
+      KeyType.serializeProtobufValue(encoder: &encoder, value: k)
+      encoder.startField(fieldNumber: 2,
+                         wireFormat: ValueType.protobufWireFormat)
+      ValueType.serializeProtobufValue(encoder: &encoder, value: v)
+    }
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    for (k,v) in value {
+      encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+      let keyTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
+      let valueTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
+      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
+        valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
+      encoder.putVarInt(value: entrySize)
+      encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
+      KeyType.serializeProtobufValue(encoder: &encoder, value: k)
+      encoder.startField(fieldNumber: 2,
+                         wireFormat: ValueType.protobufWireFormat)
+      ValueType.serializeProtobufValue(encoder: &encoder, value: v)
+    }
+  }
 }

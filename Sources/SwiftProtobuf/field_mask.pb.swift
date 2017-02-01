@@ -262,9 +262,15 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &paths)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &paths)
     default: break
     }
   }

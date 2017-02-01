@@ -141,6 +141,36 @@ final class JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: ProtobufEnumMap<KeyType, ValueType>.Type, value: ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    var arraySeparator = ""
+    encoder.append(text: "{")
+    for (k,v) in value {
+      encoder.append(text: arraySeparator)
+      KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
+      encoder.append(text: ":")
+      ValueType.serializeJSONValue(encoder: &encoder, value: v)
+      arraySeparator = ","
+    }
+    encoder.append(text: "}")
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    var arraySeparator = ""
+    encoder.append(text: "{")
+    for (k,v) in value {
+      encoder.append(text: arraySeparator)
+      KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
+      encoder.append(text: ":")
+      try ValueType.serializeJSONValue(encoder: &encoder, value: v)
+      arraySeparator = ","
+    }
+    encoder.append(text: "}")
+  }
+
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private func jsonFieldName(for number: Int) throws -> String {

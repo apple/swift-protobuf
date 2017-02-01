@@ -420,26 +420,6 @@ public extension Message {
         encoder.append(text: json)
     }
 
-    static func setFromJSON(decoder: inout JSONDecoder, value: inout Self?) throws {
-        if decoder.scanner.skipOptionalNull() {
-            // Fields of type google.protobuf.Value actually get set from 'null'
-            if self == Google_Protobuf_Value.self {
-                value = Self()
-            } else {
-                // All other message field types treat 'null' as an unset field
-                value = nil
-            }
-            return
-        }
-        let message = try Self(decoder: &decoder)
-        value = message
-    }
-
-    static func setFromJSON(decoder: inout JSONDecoder, value: inout [Self]) throws {
-        let message = try Self(decoder: &decoder)
-        value.append(message)
-    }
-
     public init(json: String) throws {
         var decoder = JSONDecoder(json: json)
         if decoder.scanner.skipOptionalNull() {

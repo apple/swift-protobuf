@@ -232,10 +232,10 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         typeURL = message.anyTypeURL
     }
 
-    mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
-        case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
-        case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
+    mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &typeURL)
+        case 2: try decoder.decodeSingularBytesField(value: &_value)
         default: break
         }
     }
@@ -318,9 +318,9 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 }
                 let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
-                    if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: k) {
+                    if let fieldNumber = fieldNames.fieldNumber(forJSONName: k) {
                         var decoder = JSONDecoder(json: v)
-                        try target.decodeField(setter: &decoder, protoFieldNumber: protoFieldNumber)
+                        try target.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
                         if !decoder.scanner.complete {
                             throw DecodingError.trailingGarbage
                         }

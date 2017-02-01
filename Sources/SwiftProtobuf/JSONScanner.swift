@@ -875,8 +875,8 @@ internal struct JSONScanner {
             }
             let key = try nextQuotedString()
             try skipRequiredCharacter(asciiColon) // :
-            if let protoFieldNumber = names.fieldNumber(forJSONName: key) {
-                return protoFieldNumber
+            if let fieldNumber = names.fieldNumber(forJSONName: key) {
+                return fieldNumber
             } else {
                 try skipValue()
                 if skipOptionalObjectEnd() {

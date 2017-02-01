@@ -122,7 +122,7 @@ struct ExtensionGenerator {
 
         p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
         p.indent()
-        p.print("protoFieldNumber: \(descriptor.number),\n")
+        p.print("fieldNumber: \(descriptor.number),\n")
         p.print("fieldNames: \(nameCase),\n")
         p.print("defaultValue: \(defaultValue)\n")
         p.outdent()

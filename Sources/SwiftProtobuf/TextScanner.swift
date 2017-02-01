@@ -900,8 +900,8 @@ public class TextScanner {
             // number directly from the character scan without
             // creating this intermediate string.
             if let key = String(utf8[start..<index]) {
-                if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
-                    return protoFieldNumber
+                if let fieldNumber = names.fieldNumber(forProtoName: key) {
+                    return fieldNumber
                 } else {
                     throw DecodingError.unknownField
                 }

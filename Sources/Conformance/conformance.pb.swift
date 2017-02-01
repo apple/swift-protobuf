@@ -180,18 +180,18 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       self = .None
     }
 
-    public mutating func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      if self != .None && setter.rejectConflictingOneof {
+    public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
+      if self != .None && decoder.rejectConflictingOneof {
         throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
-      switch protoFieldNumber {
+      switch fieldNumber {
       case 1:
         var value = Data()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)
+        try decoder.decodeSingularBytesField(value: &value)
         self = .protobufPayload(value)
       case 2:
         var value = String()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
+        try decoder.decodeSingularStringField(value: &value)
         self = .jsonPayload(value)
       default:
         self = .None
@@ -245,10 +245,16 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    switch protoFieldNumber {
-    case 1, 2: try payload.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
-    case 3: try setter.decodeSingularField(fieldType: Conformance_WireFormat.self, value: &requestedOutputFormat)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1, 2: try payload.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    case 3: try decoder.decodeSingularEnumField(value: &requestedOutputFormat)
     default: break
     }
   }
@@ -311,34 +317,34 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
       self = .None
     }
 
-    public mutating func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      if self != .None && setter.rejectConflictingOneof {
+    public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
+      if self != .None && decoder.rejectConflictingOneof {
         throw SwiftProtobuf.DecodingError.duplicatedOneOf
       }
-      switch protoFieldNumber {
+      switch fieldNumber {
       case 1:
         var value = String()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
+        try decoder.decodeSingularStringField(value: &value)
         self = .parseError(value)
       case 2:
         var value = String()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
+        try decoder.decodeSingularStringField(value: &value)
         self = .runtimeError(value)
       case 3:
         var value = Data()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)
+        try decoder.decodeSingularBytesField(value: &value)
         self = .protobufPayload(value)
       case 4:
         var value = String()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
+        try decoder.decodeSingularStringField(value: &value)
         self = .jsonPayload(value)
       case 5:
         var value = String()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
+        try decoder.decodeSingularStringField(value: &value)
         self = .skipped(value)
       case 6:
         var value = String()
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
+        try decoder.decodeSingularStringField(value: &value)
         self = .serializeError(value)
       default:
         self = .None
@@ -470,9 +476,15 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    switch protoFieldNumber {
-    case 1, 6, 2, 3, 4, 5: try result.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1, 6, 2, 3, 4, 5: try result.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     default: break
     }
   }

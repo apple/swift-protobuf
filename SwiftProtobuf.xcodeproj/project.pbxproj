@@ -24,7 +24,7 @@
 		9C2F238A1D7780D1008524F2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
 		9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
-		9C2F238D1D7780D1008524F2 /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		9C2F238D1D7780D1008524F2 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift */; };
 		9C2F238F1D7780D1008524F2 /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
 		9C2F23911D7780D1008524F2 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		9C2F23921D7780D1008524F2 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
@@ -251,7 +251,7 @@
 		F44F93871DAEA76700BC5B85 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		F44F93881DAEA76700BC5B85 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
 		F44F93891DAEA76700BC5B85 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
-		F44F938A1DAEA76700BC5B85 /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		F44F938A1DAEA76700BC5B85 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift */; };
 		F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
 		F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
@@ -359,7 +359,7 @@
 		F44F94161DAEB23500BC5B85 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
 		F44F94181DAEB23500BC5B85 /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
-		F44F94191DAEB23500BC5B85 /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		F44F94191DAEB23500BC5B85 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift */; };
 		F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
 		F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		F44F941D1DAEB23500BC5B85 /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
@@ -417,7 +417,7 @@
 		__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */; };
+		__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */; };
@@ -598,7 +598,7 @@
 		__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFields.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufExtensions.swift /* MessageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageExtension.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDecoder.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashVisitor.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufJSONTypes.swift /* JSONTypeAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTypeAdditions.swift; sourceTree = "<group>"; };
@@ -769,6 +769,7 @@
 			isa = PBXGroup;
 			children = (
 				__PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */,
+				__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift */,
 				__PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */,
@@ -778,7 +779,6 @@
 				9C75F8891DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift */,
 				9C75F8841DDD3045005CCFF2 /* ExtensionSet.swift */,
 				__PBXFileRef_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift */,
 				AAF2ED391DEF3FBC007B510F /* FieldNameMap.swift */,
 				AA05BF4E1DAEB7E800619042 /* FieldTag.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */,
@@ -1233,7 +1233,7 @@
 				9C75F88B1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
 				AA86F6FB1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */,
-				9C2F238D1D7780D1008524F2 /* FieldDecoder.swift in Sources */,
+				9C2F238D1D7780D1008524F2 /* Decoder.swift in Sources */,
 				9C2F238F1D7780D1008524F2 /* HashVisitor.swift in Sources */,
 				AAABA40C1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */,
 				AAF2ED401DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
@@ -1281,7 +1281,7 @@
 				__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */,
 				9C75F88A1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
 				9C75F8851DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* FieldDecoder.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/ProtobufFieldDecoder.swift /* Decoder.swift in Sources */,
 				AAF2ED3A1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
 				9CA424421E286D4E00C0E5B4 /* Strings.swift in Sources */,
 				AA05BF4F1DAEB7E800619042 /* FieldTag.swift in Sources */,
@@ -1448,7 +1448,7 @@
 				9CA424441E286D4E00C0E5B4 /* Strings.swift in Sources */,
 				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
 				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
-				F44F938A1DAEA76700BC5B85 /* FieldDecoder.swift in Sources */,
+				F44F938A1DAEA76700BC5B85 /* Decoder.swift in Sources */,
 				F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */,
 				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
 				9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
@@ -1605,7 +1605,7 @@
 				F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */,
 				9C75F88D1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
 				9C75F8881DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
-				F44F94191DAEB23500BC5B85 /* FieldDecoder.swift in Sources */,
+				F44F94191DAEB23500BC5B85 /* Decoder.swift in Sources */,
 				AAF2ED3D1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
 				9CA424451E286D4E00C0E5B4 /* Strings.swift in Sources */,
 				AA05BF521DAEB7E800619042 /* FieldTag.swift in Sources */,

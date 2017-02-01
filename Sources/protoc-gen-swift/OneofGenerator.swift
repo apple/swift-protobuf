@@ -84,26 +84,30 @@ class OneofGenerator {
 
         // Decode one of our members
         p.print("\n")
-        p.print("public mutating func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {\n")
+        p.print("public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {\n")
         p.indent()
-        p.print("if self != .None && setter.rejectConflictingOneof {\n")
+        p.print("if self != .None && decoder.rejectConflictingOneof {\n")
         p.print("  throw SwiftProtobuf.DecodingError.duplicatedOneOf\n")
         p.print("}\n")
-        p.print("switch protoFieldNumber {\n")
+        p.print("switch fieldNumber {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {
+            let modifier = "Singular"
+            let special = f.isGroup ? "Group"
+                        : f.isMessage ? "Message"
+                        : f.isEnum ? "Enum"
+                        : f.protoTypeName
+            let decoderMethod = "decode\(modifier)\(special)Field"
+
             p.print("case \(f.number):\n")
             p.indent()
             if isProto3 && !f.isMessage && !f.isGroup {
-                // Proto3 can use a more streamlined structure here
+                // Proto3 has non-optional fields, so this is simpler
                 p.print("var value = \(f.swiftStorageType)()\n")
-                p.print("try setter.decodeSingularField(fieldType: \(f.traitsType).self, value: &value)\n")
+                p.print("try decoder.\(decoderMethod)(value: &value)\n")
                 p.print("self = .\(f.swiftName)(value)\n")
             } else {
                 p.print("var value: \(f.swiftStorageType)\n")
-                let special = f.isGroup ? "Group" : f.isMessage ? "Message" : "";
-                let modifier = "Singular"
-                let decoderMethod = "decode\(modifier)\(special)Field"
-                p.print("try setter.\(decoderMethod)(fieldType: \(f.traitsType).self, value: &value)\n")
+                p.print("try decoder.\(decoderMethod)(value: &value)\n")
                 p.print("if let value = value {\n")
                 p.print("  self = .\(f.swiftName)(value)\n")
                 p.print("}\n")

@@ -123,4 +123,42 @@ final class ProtobufEncodingSizeVisitor: Visitor {
     }
     serializedSize += value.count * tagSize
   }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .lengthDelimited).encodedSize
+    let keyTagSize = FieldTag(
+      fieldNumber: 1, wireFormat: KeyType.protobufWireFormat).encodedSize
+    let valueTagSize = FieldTag(
+      fieldNumber: 2, wireFormat: ValueType.protobufWireFormat).encodedSize
+    for (k,v) in value {
+      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
+        valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
+      serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
+    }
+    serializedSize += value.count * tagSize
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .lengthDelimited).encodedSize
+    let keyTagSize = FieldTag(
+      fieldNumber: 1, wireFormat: KeyType.protobufWireFormat).encodedSize
+    let valueTagSize = FieldTag(
+      fieldNumber: 2, wireFormat: ValueType.protobufWireFormat).encodedSize
+    for (k,v) in value {
+      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
+        valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
+      serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
+    }
+    serializedSize += value.count * tagSize
+  }
 }

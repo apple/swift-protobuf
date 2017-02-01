@@ -86,6 +86,16 @@ public protocol Visitor: class {
     value: ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int) throws where KeyType.BaseType: Hashable
 
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int) throws where KeyType.BaseType: Hashable
+
   /// Called with the raw bytes that represent any proto2 unknown fields.
   func visitUnknown(bytes: Data)
 }

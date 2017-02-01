@@ -32,21 +32,21 @@ public protocol ExtensibleMessageStorage: class {
 
 public extension ExtensibleMessageStorage {
     public func setExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>, value: F.ValueType) {
-        extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
+        extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
     }
-    
+
     public func clearExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) {
-        extensionFieldValues[ext.protoFieldNumber] = nil
+        extensionFieldValues[ext.fieldNumber] = nil
     }
-    
+
     public func getExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) -> F.ValueType {
-        if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
+        if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
             return fieldValue.value
         }
         return ext.defaultValue
     }
-    
+
     public func hasExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) -> Bool {
-        return extensionFieldValues[ext.protoFieldNumber] is F
+        return extensionFieldValues[ext.fieldNumber] is F
     }
 }

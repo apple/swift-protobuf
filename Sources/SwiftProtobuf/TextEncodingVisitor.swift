@@ -118,6 +118,46 @@ final class TextEncodingVisitor: Visitor {
     }
   }
 
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    for (k,v) in value {
+      encoder.startMessageField(name: protoFieldName)
+      encoder.startObject()
+      encoder.startField(name: "key")
+      try KeyType.serializeTextValue(encoder: encoder, value: k)
+      encoder.endField()
+      encoder.startField(name: "value")
+      ValueType.serializeTextValue(encoder: encoder, value: v)
+      encoder.endField()
+      encoder.endObject()
+      encoder.endField()
+    }
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    for (k,v) in value {
+      encoder.startMessageField(name: protoFieldName)
+      encoder.startObject()
+      encoder.startField(name: "key")
+      try KeyType.serializeTextValue(encoder: encoder, value: k)
+      encoder.endField()
+      encoder.startField(name: "value")
+      try ValueType.serializeTextValue(encoder: encoder, value: v)
+      encoder.endField()
+      encoder.endObject()
+      encoder.endField()
+    }
+  }
+
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private func protoFieldName(for number: Int) throws -> String {
