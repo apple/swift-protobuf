@@ -31,9 +31,6 @@ public protocol FieldDecoder {
     // Some decoders require that multiple values for a oneof must fail
     var rejectConflictingOneof: Bool { get }
 
-    // Special support for protobuf binary decoder; all other formats should ignore this.
-    mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data?
-
     // Generic decode methods; defaults are provided below
     mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws
     mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws
@@ -49,10 +46,6 @@ public protocol FieldDecoder {
 
 public extension FieldDecoder {
     var rejectConflictingOneof: Bool {return false}
-
-    public mutating func asProtobufUnknown(protoFieldNumber: Int) throws -> Data? {
-        return nil
-    }
 
     public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
         throw DecodingError.schemaMismatch
