@@ -79,6 +79,8 @@ public protocol FieldType {
 /// Protocol for types that can be used as map keys
 ///
 public protocol MapKeyType: FieldType {
+    associatedtype BaseType: Hashable = Self
+
     //
     // Protobuf does not treat map keys specially
     //
@@ -95,11 +97,9 @@ public protocol MapKeyType: FieldType {
 }
 
 ///
-/// Protocol for types that can be used as map values.
+/// Marker Protocol for types that can be used as map values.
 ///
 public protocol MapValueType: FieldType {
-    /// Special interface for decoding a value of this type as a map value.
-    static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout BaseType?) throws
 }
 
 //

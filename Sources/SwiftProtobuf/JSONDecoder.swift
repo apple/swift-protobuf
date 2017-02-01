@@ -81,10 +81,6 @@ public struct JSONDecoder: FieldDecoder {
         }
     }
 
-    public mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
     public mutating func decodeSingularMessageField<M: Message>(fieldType: M.Type, value: inout M?) throws {
         try M.setFromJSON(decoder: &self, value: &value)
     }
@@ -114,7 +110,7 @@ public struct JSONDecoder: FieldDecoder {
         throw DecodingError.schemaMismatch
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
         if scanner.skipOptionalNull() {
             return
         }

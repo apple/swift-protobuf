@@ -87,10 +87,6 @@ public struct ProtobufDecoder: FieldDecoder {
         //unknownOverride = scanner.unknownOverride
     }
 
-    public mutating func decodePackedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        try decodeRepeatedField(fieldType: fieldType, value: &value)
-    }
-
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, protoFieldNumber: Int) throws {
         if let ext = extensions?[messageType, protoFieldNumber] {
             var fieldValue = values[protoFieldNumber] ?? ext.newField()
@@ -127,7 +123,7 @@ public struct ProtobufDecoder: FieldDecoder {
         consumed = true
     }
 
-    public mutating func decodeMapField<KeyType: FieldType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType: MapKeyType, KeyType.BaseType: Hashable {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
         var k: KeyType.BaseType?
         var v: ValueType.BaseType?
         var count: Int = 0
@@ -140,9 +136,9 @@ public struct ProtobufDecoder: FieldDecoder {
             let protoFieldNumber = tag.fieldNumber
             switch protoFieldNumber {
             case 1: // Keys are always basic types, so take a shortcut:
-                try subdecoder.decodeSingularField(fieldType: KeyType.self, value: &k)
+                _ = try KeyType.setFromProtobuf(decoder: &subdecoder, value: &k)
             case 2: // Values can be message or basic types, so use indirection:
-                try ValueType.decodeProtobufMapValue(decoder: &subdecoder, value: &v)
+                _ = try ValueType.setFromProtobuf(decoder: &subdecoder, value: &v)
             default: // Always ignore unknown fields within the map entry object
                 return
             }

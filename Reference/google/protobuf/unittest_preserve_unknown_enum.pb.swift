@@ -326,9 +326,9 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &e)
-    case 2: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedE)
-    case 3: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedE)
-    case 4: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
+    case 2: try setter.decodeRepeatedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedE)
+    case 3: try setter.decodeRepeatedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnum.self, value: &repeatedPackedE)
+    case 4: try setter.decodeRepeatedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
     case 5, 6: try o.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
     default: break
     }
@@ -469,9 +469,9 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &e)
-    case 2: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedE)
-    case 3: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedE)
-    case 4: try setter.decodePackedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
+    case 2: try setter.decodeRepeatedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedE)
+    case 3: try setter.decodeRepeatedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedE)
+    case 4: try setter.decodeRepeatedField(fieldType: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.self, value: &repeatedPackedUnexpectedE)
     case 5, 6: try o.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
     default: break
     }

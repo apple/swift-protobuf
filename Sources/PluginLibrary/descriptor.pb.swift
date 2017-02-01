@@ -3877,8 +3877,8 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtob
 
     public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &path)
-      case 2: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &span)
+      case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &path)
+      case 2: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &span)
       case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_leadingComments)
       case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_trailingComments)
       case 6: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &leadingDetachedComments)
@@ -4060,7 +4060,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftPro
 
     public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
-      case 1: try setter.decodePackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &path)
+      case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &path)
       case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_sourceFile)
       case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_begin)
       case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_end)

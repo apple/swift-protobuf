@@ -25,10 +25,3 @@ public protocol Enum: RawRepresentable, Hashable, CustomDebugStringConvertible, 
     var json: String { get }
     var rawValue: Int { get }
 }
-
-public extension Enum {
-    public static func decodeProtobufMapValue(decoder: inout ProtobufDecoder, value: inout BaseType?) throws {
-        try decoder.decodeSingularField(fieldType: Self.self, value: &value)
-        assert(value != nil)
-    }
-}
