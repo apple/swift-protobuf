@@ -158,7 +158,7 @@ public struct TextDecoder: FieldDecoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType.BaseType: Hashable {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true

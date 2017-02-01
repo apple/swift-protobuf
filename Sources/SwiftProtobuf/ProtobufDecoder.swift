@@ -123,7 +123,7 @@ public struct ProtobufDecoder: FieldDecoder {
         consumed = true
     }
 
-    public mutating func decodeMapField<KeyType: FieldType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType: MapKeyType, KeyType.BaseType: Hashable {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
         var k: KeyType.BaseType?
         var v: ValueType.BaseType?
         var count: Int = 0
