@@ -113,6 +113,7 @@ struct Foo {
   var fieldMap: Dictionary<String,Int32> = [:]
   var fieldRepeated: [Int32] = []
 }
+```
 
 **Proto2 required fields:**  TODO
 
