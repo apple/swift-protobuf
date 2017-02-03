@@ -177,6 +177,7 @@ endif
 	clean \
 	conformance-host \
 	default \
+	docs \
 	install \
 	reference \
 	regenerate \
@@ -255,6 +256,15 @@ clean:
 	swift build --clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT}
 	find . -name '*~' | xargs rm
+
+# Build a local copy of the API documentation, using the same process used
+# by cocoadocs.org.
+docs:
+	@if which jazzy >/dev/null; then \
+		jazzy; \
+	else \
+		echo "Jazzy not installed, use 'gem install jazzy' or download from https://github.com/realm/jazzy"; \
+	fi
 
 #
 # Test the runtime and the plugin
