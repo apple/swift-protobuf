@@ -103,11 +103,9 @@ public protocol Message: CustomDebugStringConvertible {
   // JSON encoding/decoding support
   //
 
-  /// Serialize to JSON
   /// Overridden by well-known-types with custom JSON requirements.
   func serializeJSON() throws -> String
-  /// Decode from tokens read from a JSON decoder
-  mutating func setFromJSON(decoder: JSONDecoder) throws
+  init(decoder: inout JSONDecoder) throws
 
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.

@@ -19,7 +19,7 @@ import Swift
 private let DurationMax: Int64 = 315576000000
 private let DurationMin: Int64 = -DurationMax
 
-private func parseDuration(text: String) -> (Int64, Int32)? {
+private func parseDuration(text: String) throws -> (Int64, Int32) {
     var digits = [Character]()
     var digitCount = 0
     var total = 0
@@ -31,7 +31,7 @@ private func parseDuration(text: String) -> (Int64, Int32)? {
         case "-":
             // Only accept '-' as very first character
             if total > 0 {
-                return nil
+                throw DecodingError.malformedJSON
             }
             digits.append(c)
         case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
@@ -39,13 +39,13 @@ private func parseDuration(text: String) -> (Int64, Int32)? {
             digitCount += 1
         case ".":
             if let _ = seconds {
-                return nil
+                throw DecodingError.malformedJSON
             }
             let digitString = String(digits)
             if let s = Int64(digitString), s >= DurationMin && s <= DurationMax {
                 seconds = s
             } else {
-                return nil
+                throw DecodingError.malformedJSON
             }
             digits.removeAll()
             digitCount = 0
@@ -68,7 +68,7 @@ private func parseDuration(text: String) -> (Int64, Int32)? {
                         nanos = rawNanos
                     }
                 } else {
-                    return nil
+                    throw DecodingError.malformedJSON
                 }
             } else {
                 // No fraction, we just have an integral number of seconds
@@ -76,20 +76,20 @@ private func parseDuration(text: String) -> (Int64, Int32)? {
                 if let s = Int64(digitString), s >= DurationMin && s <= DurationMax {
                     seconds = s
                 } else {
-                    return nil
+                    throw DecodingError.malformedJSON
                 }
             }
             // Fail if there are characters after 's'
             if chars.next() != nil {
-                return nil
+                throw DecodingError.malformedJSON
             }
             return (seconds!, nanos)
         default:
-            return nil
+            throw DecodingError.malformedJSON
         }
         total += 1
     }
-    return nil
+    throw DecodingError.malformedJSON
 }
 
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
@@ -127,20 +127,15 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
 }
 
 public extension Google_Protobuf_Duration {
-    
-    mutating func setFromJSON(decoder: JSONDecoder) throws {
-        if let token = try decoder.nextToken() {
-            if case .string(let s) = token,
-                let duration = parseDuration(text: s) {
-                seconds = duration.0
-                nanos = duration.1
-            } else {
-                throw DecodingError.schemaMismatch
-            }
-        } else {
-            throw DecodingError.truncatedInput
-        }
+
+      init(decoder: inout JSONDecoder) throws {
+        self.init()
+        let s = try decoder.scanner.nextQuotedString()
+        let duration = try parseDuration(text: s)
+        seconds = duration.0
+        nanos = duration.1
     }
+
 
     public func serializeJSON() throws -> String {
         let s = seconds

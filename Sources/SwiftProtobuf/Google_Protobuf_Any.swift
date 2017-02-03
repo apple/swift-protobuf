@@ -198,7 +198,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     private var _value: Data?
 
     private var _message: Message?
-    private var _jsonFields: [String:[JSONToken]]?
+    private var _jsonFields: [String:String]?
 
     static private var wellKnownTypes: [String:Message.Type] = [
         "google.protobuf.Any": Google_Protobuf_Any.self,
@@ -241,37 +241,26 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        if try decoder.isObjectEmpty() {
+    public init(decoder: inout JSONDecoder) throws {
+        self.init()
+        try decoder.scanner.skipRequiredObjectStart()
+        if decoder.scanner.skipOptionalObjectEnd() {
             return
         }
         _jsonFields = nil
-        var jsonFields = [String:[JSONToken]]()
+        var jsonFields = [String:String]()
         while true {
-            let key = try decoder.nextKey()
+            let key = try decoder.scanner.nextKey()
             if key == "@type" {
-                if let typeNameToken = try decoder.nextToken(),
-                    case .string(let typeName) = typeNameToken {
-                    typeURL = typeName
-                } else {
-                    throw DecodingError.malformedJSON
-                }
+                typeURL = try decoder.scanner.nextQuotedString()
             } else {
-                jsonFields[key] = try decoder.skip()
+                jsonFields[key] = try decoder.scanner.skip()
             }
-            if let token = try decoder.nextToken() {
-                switch token {
-                case .comma:
-                    break
-                case .endObject:
-                    _jsonFields = jsonFields
-                    return
-                default:
-                    throw DecodingError.malformedJSON
-                }
-            } else {
-                throw DecodingError.malformedJSON
+            if decoder.scanner.skipOptionalObjectEnd() {
+                _jsonFields = jsonFields
+                return
             }
+            try decoder.scanner.skipRequiredComma()
         }
     }
 
@@ -315,17 +304,14 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             let targetType = typeName(fromMessage: target)
             if Google_Protobuf_Any.wellKnownTypes[targetType] != nil {
                 // If it's a well-known type, the JSON coding must have a single 'value' field
-                if jsonFields.count != 1 || jsonFields["value"] == nil {
+                if jsonFields.count != 1 {
                     throw DecodingError.schemaMismatch
                 }
-                let v = jsonFields["value"]!
-                guard v.count > 0 else {
+                if let v = jsonFields["value"], !v.isEmpty {
+                    target = try M(json: v)
+                } else {
                     throw DecodingError.schemaMismatch
                 }
-                let decoder = JSONDecoder(tokens: v)
-                var m: M? = M()
-                try M.setFromJSON(decoder: decoder, value: &m)
-                target = m!
             } else {
                 // Decode JSON from the stored tokens for generated messages
                 guard let nameProviding = (target as? ProtoNameProviding) else {
@@ -334,9 +320,9 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
                     if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: k) {
-                        var decoder = JSONDecoder(tokens: v)
+                        var decoder = JSONDecoder(json: v)
                         try target.decodeField(setter: &decoder, protoFieldNumber: protoFieldNumber)
-                        if !decoder.complete {
+                        if !decoder.scanner.complete {
                             throw DecodingError.trailingGarbage
                         }
                     }
@@ -425,7 +411,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                     // JSON-to-JSON case, just recode the stored tokens
                     for (k,v) in jsonFields {
                         jsonEncoder.startField(name: k)
-                        jsonEncoder.appendTokens(tokens: v)
+                        jsonEncoder.append(text: v)
                     }
                 }
                 jsonEncoder.endObject()

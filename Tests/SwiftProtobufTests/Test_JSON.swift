@@ -161,6 +161,20 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testDecodePerf_FoundationCompare() throws {
+        let m = MessageTestType.with(configureLargeObject)
+        let json = try m.serializeJSON()
+        self.measure {
+            do {
+                for _ in 0..<1000 {
+                    let data = json.data(using: String.Encoding.utf8)!
+                    let _ = try JSONSerialization.jsonObject(with: data)
+                }
+            } catch {
+            }
+        }
+    }
+
     func testSingleInt32() {
         assertJSONEncode("{\"singleInt32\":1}") {(o: inout MessageTestType) in
             o.singleInt32 = 1
@@ -181,6 +195,12 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.singleInt32 == 1}
         assertJSONDecodeSucceeds("{\"singleInt32\":\"1\"}") {(o:MessageTestType) in
             o.singleInt32 == 1}
+        assertJSONDecodeSucceeds("{\"singleInt32\":\"\\u0030\"}") {(o:MessageTestType) in
+            o.singleInt32 == 0}
+        assertJSONDecodeSucceeds("{\"singleInt32\":\"\\u0031\"}") {(o:MessageTestType) in
+            o.singleInt32 == 1}
+        assertJSONDecodeSucceeds("{\"singleInt32\":\"\\u00310\"}") {(o:MessageTestType) in
+            o.singleInt32 == 10}
         assertJSONDecodeSucceeds("{\"singleInt32\":0}") {(o:MessageTestType) in
             o.singleInt32 == 0}
         assertJSONDecodeSucceeds("{\"singleInt32\":\"0\"}") {(o:MessageTestType) in
@@ -193,7 +213,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.singleInt32 == -1}
         assertJSONDecodeSucceeds("{\"singleInt32\":\"-1\"}") {(o:MessageTestType) in
             o.singleInt32 == -1}
-        // Protobuf JSON does not accept leading zeros
+        // JSON RFC does not accept leading zeros
         assertJSONDecodeFails("{\"singleInt32\":00000000000000000000001}")
         assertJSONDecodeFails("{\"singleInt32\":\"01\"}")
         assertJSONDecodeFails("{\"singleInt32\":-01}")
@@ -209,6 +229,8 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.singleInt32 == 1}
         assertJSONDecodeFails("{\"singleInt32\":1e-1}")
         // Reject malformed input
+        assertJSONDecodeFails("{\"singleInt32\":\\u0031}")
+        assertJSONDecodeFails("{\"singleInt32\":\"\\u0030\\u0030\"}")
         assertJSONDecodeFails("{\"singleInt32\":\" 1\"}")
         assertJSONDecodeFails("{\"singleInt32\":\"1 \"}")
         assertJSONDecodeFails("{\"singleInt32\":\"01\"}")
@@ -216,6 +238,19 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleInt32\":0x102}")
         assertJSONDecodeFails("{\"singleInt32\":{}}")
         assertJSONDecodeFails("{\"singleInt32\":[]}")
+        // Try to get the library to access past the end of the string...
+        assertJSONDecodeFails("{\"singleInt32\":0")
+        assertJSONDecodeFails("{\"singleInt32\":-0")
+        assertJSONDecodeFails("{\"singleInt32\":0.1")
+        assertJSONDecodeFails("{\"singleInt32\":0.")
+        assertJSONDecodeFails("{\"singleInt32\":1")
+        assertJSONDecodeFails("{\"singleInt32\":1.")
+        assertJSONDecodeFails("{\"singleInt32\":1e")
+        assertJSONDecodeFails("{\"singleInt32\":1e1")
+        assertJSONDecodeFails("{\"singleInt32\":-1")
+        assertJSONDecodeFails("{\"singleInt32\":123e")
+        assertJSONDecodeFails("{\"singleInt32\":123.")
+        assertJSONDecodeFails("{\"singleInt32\":123")
     }
 
     func testSingleUInt32() {
@@ -294,7 +329,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleInt64\": \"-01\" }")
         assertJSONDecodeSucceeds("{\"singleInt64\": \"-1\" }") {$0.singleInt64 == -1}
         assertJSONDecodeSucceeds("{\"singleInt64\": \"0\" }") {$0.singleInt64 == 0}
-        // Protobuf JSON does accept exponential format
+        // Protobuf JSON does accept exponential format for integer fields
         assertJSONDecodeSucceeds("{\"singleInt64\":1e3}") {$0.singleInt64 == 1000}
         assertJSONDecodeSucceeds("{\"singleInt64\":\"9223372036854775807\"}") {$0.singleInt64 == Int64.max}
         assertJSONDecodeSucceeds("{\"singleInt64\":-9.223372036854775808e18}") {$0.singleInt64 == Int64.min}
@@ -316,18 +351,39 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.singleDouble = -Double.infinity
         }
         assertJSONDecodeSucceeds("{\"singleDouble\":\"Inf\"}") {$0.singleDouble == Double.infinity}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"-Inf\"}") {$0.singleDouble == -Double.infinity}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1\"}") {$0.singleDouble == 1}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.0\"}") {$0.singleDouble == 1.0}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5\"}") {$0.singleDouble == 1.5}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e1\"}") {$0.singleDouble == 15}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"1\\u002e5e1\"}") {$0.singleDouble == 15}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.\\u0035e1\"}") {$0.singleDouble == 15}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5\\u00651\"}") {$0.singleDouble == 15}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e\\u002b1\"}") {$0.singleDouble == 15}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e+\\u0031\"}") {$0.singleDouble == 15}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e+1\"}") {$0.singleDouble == 15}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"15e-1\"}") {$0.singleDouble == 1.5}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.0e0\"}") {$0.singleDouble == 1.0}
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"singleDouble\":Infinity}")
         assertJSONDecodeFails("{\"singleDouble\":-Infinity}") // Must be quoted
+        assertJSONDecodeFails("{\"singleDouble\":\"inf\"}")
+        assertJSONDecodeFails("{\"singleDouble\":\"-inf\"}")
         assertJSONDecodeFails("{\"singleDouble\":NaN}")
+        assertJSONDecodeFails("{\"singleDouble\":\"nan\"}")
         assertJSONDecodeFails("{\"singleDouble\":\"1.0.0\"}")
+        assertJSONDecodeFails("{\"singleDouble\":00.1}")
+        assertJSONDecodeFails("{\"singleDouble\":\"00.1\"}")
+        assertJSONDecodeFails("{\"singleDouble\":.1}")
+        assertJSONDecodeFails("{\"singleDouble\":\".1\"}")
+        assertJSONDecodeFails("{\"singleDouble\":1.}")
+        assertJSONDecodeFails("{\"singleDouble\":\"1.\"}")
+        assertJSONDecodeFails("{\"singleDouble\":1e}")
+        assertJSONDecodeFails("{\"singleDouble\":\"1e\"}")
+        assertJSONDecodeFails("{\"singleDouble\":1e+}")
+        assertJSONDecodeFails("{\"singleDouble\":\"1e+\"}")
+        assertJSONDecodeFails("{\"singleDouble\":1e3.2}")
+        assertJSONDecodeFails("{\"singleDouble\":\"1e3.2\"}")
         assertJSONDecodeFails("{\"singleDouble\":1.0.0}")
     }
 
@@ -342,19 +398,39 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.singleFloat = -Float.infinity
         }
         assertJSONDecodeSucceeds("{\"singleFloat\":\"Inf\"}") {$0.singleFloat == Float.infinity}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"-Inf\"}") {$0.singleFloat == -Float.infinity}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1\"}") {$0.singleFloat == 1}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1.0\"}") {$0.singleFloat == 1.0}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5\"}") {$0.singleFloat == 1.5}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e1\"}") {$0.singleFloat == 15}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"1\\u002e5e1\"}") {$0.singleFloat == 15}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.\\u0035e1\"}") {$0.singleFloat == 15}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5\\u00651\"}") {$0.singleFloat == 15}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e\\u002b1\"}") {$0.singleFloat == 15}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e+\\u0031\"}") {$0.singleFloat == 15}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e+1\"}") {$0.singleFloat == 15}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"15e-1\"}") {$0.singleFloat == 1.5}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1.0e0\"}") {$0.singleFloat == 1.0}
+        assertJSONDecodeSucceeds("{\"singleFloat\":1.0e0}") {$0.singleFloat == 1.0}
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"singleFloat\":Infinity}")
         assertJSONDecodeFails("{\"singleFloat\":-Infinity}") // Must be quoted
         assertJSONDecodeFails("{\"singleFloat\":NaN}")
+        assertJSONDecodeFails("{\"singleFloat\":\"nan\"}")
         assertJSONDecodeFails("{\"singleFloat\":\"1.0.0\"}")
         assertJSONDecodeFails("{\"singleFloat\":1.0.0}")
+        assertJSONDecodeFails("{\"singleFloat\":00.1}")
+        assertJSONDecodeFails("{\"singleFloat\":\"00.1\"}")
+        assertJSONDecodeFails("{\"singleFloat\":.1}")
+        assertJSONDecodeFails("{\"singleFloat\":\".1\"}")
+        assertJSONDecodeFails("{\"singleFloat\":1.}")
+        assertJSONDecodeFails("{\"singleFloat\":\"1.\"}")
+        assertJSONDecodeFails("{\"singleFloat\":1e}")
+        assertJSONDecodeFails("{\"singleFloat\":\"1e\"}")
+        assertJSONDecodeFails("{\"singleFloat\":1e+}")
+        assertJSONDecodeFails("{\"singleFloat\":\"1e+\"}")
+        assertJSONDecodeFails("{\"singleFloat\":1e3.2}")
+        assertJSONDecodeFails("{\"singleFloat\":\"1e3.2\"}")
         // Out-of-range numbers should fail
         assertJSONDecodeFails("{\"singleFloat\":1e39}")
     }
@@ -367,6 +443,20 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         XCTAssertEqual(encoded, "{\"singleDouble\":\"NaN\"}")
         let o2 = try Proto3TestAllTypes(json: encoded)
         XCTAssert(o2.singleDouble.isNaN == .some(true))
+    }
+
+    func testSingleFloat_NaN() throws {
+        // The helper functions don't work with NaN because NaN != NaN
+        var o = Proto3TestAllTypes()
+        o.singleFloat = Float.nan
+        let encoded = try o.serializeJSON()
+        XCTAssertEqual(encoded, "{\"singleFloat\":\"NaN\"}")
+        do {
+            let o2 = try Proto3TestAllTypes(json: encoded)
+            XCTAssert(o2.singleFloat.isNaN == .some(true))
+        } catch let e {
+            XCTFail("Couldn't decode: \(e) -- \(encoded)")
+        }
     }
 
     func testSingleBool() throws {

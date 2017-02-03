@@ -69,19 +69,24 @@ class Test_Struct: XCTestCase, PBTestHelpers {
             // null here decodes to an empty field.
             // See github.com/google/protobuf Issue #1327
             XCTAssertEqual(try c1.serializeJSON(), "{}")
-        } catch {
-            XCTFail("Didn't decode c1")
+        } catch let e {
+            XCTFail("Didn't decode c1: \(e)")
         }
-        // But contrast the behavior when we parse a "null" directly:
-        let c2 = try Google_Protobuf_Struct(json: "null")
-        XCTAssertEqual(c2.fields, [:])
+
+        do {
+            // But contrast the behavior when we parse a "null" directly:
+            let c2 = try Google_Protobuf_Struct(json: "null")
+            XCTAssertEqual(c2.fields, [:])
+        } catch let e {
+            XCTFail("Didn't decode null: \(e)")
+        }
 
         do {
             let c2 = try Conformance_TestAllTypes(json:"{\"optionalStruct\":{}}")
             XCTAssertNotNil(c2.optionalStruct)
             XCTAssertEqual(c2.optionalStruct.fields, [:])
-        } catch {
-            XCTFail("Didn't decode c2")
+        } catch let e {
+            XCTFail("Didn't decode c2: \(e)")
         }
     }
 

@@ -474,12 +474,14 @@ extension Test_JSON {
             ("testMultipleFields", {try run_test(test:($0 as! Test_JSON).testMultipleFields)}),
             ("testEncodePerf", {try run_test(test:($0 as! Test_JSON).testEncodePerf)}),
             ("testDecodePerf", {try run_test(test:($0 as! Test_JSON).testDecodePerf)}),
+            ("testDecodePerf_FoundationCompare", {try run_test(test:($0 as! Test_JSON).testDecodePerf_FoundationCompare)}),
             ("testSingleInt32", {try run_test(test:($0 as! Test_JSON).testSingleInt32)}),
             ("testSingleUInt32", {try run_test(test:($0 as! Test_JSON).testSingleUInt32)}),
             ("testSingleInt64", {try run_test(test:($0 as! Test_JSON).testSingleInt64)}),
             ("testSingleDouble", {try run_test(test:($0 as! Test_JSON).testSingleDouble)}),
             ("testSingleFloat", {try run_test(test:($0 as! Test_JSON).testSingleFloat)}),
             ("testSingleDouble_NaN", {try run_test(test:($0 as! Test_JSON).testSingleDouble_NaN)}),
+            ("testSingleFloat_NaN", {try run_test(test:($0 as! Test_JSON).testSingleFloat_NaN)}),
             ("testSingleBool", {try run_test(test:($0 as! Test_JSON).testSingleBool)}),
             ("testSingleString", {try run_test(test:($0 as! Test_JSON).testSingleString)}),
             ("testSingleBytes", {try run_test(test:($0 as! Test_JSON).testSingleBytes)}),
@@ -516,17 +518,6 @@ extension Test_JSON_Conformance {
             ("testNullSupport_RepeatedValue", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_RepeatedValue)}),
             ("testNullConformance", {try run_test(test:($0 as! Test_JSON_Conformance).testNullConformance)}),
             ("testValueList", {try run_test(test:($0 as! Test_JSON_Conformance).testValueList)})        ]
-    }
-}
-
-extension Test_JSON_Decoder {
-    static var allTests: [(String, (XCTestCase) throws -> ())] {
-        return [
-            ("testWellFormed", {try run_test(test:($0 as! Test_JSON_Decoder).testWellFormed)}),
-            ("testString", {try run_test(test:($0 as! Test_JSON_Decoder).testString)}),
-            ("testBrokenString", {try run_test(test:($0 as! Test_JSON_Decoder).testBrokenString)}),
-            ("testSingleTokens", {try run_test(test:($0 as! Test_JSON_Decoder).testSingleTokens)}),
-            ("testInvalidTokens", {try run_test(test:($0 as! Test_JSON_Decoder).testInvalidTokens)})        ]
     }
 }
 
@@ -958,7 +949,6 @@ XCTMain(
         (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
         (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),
         (testCaseClass: Test_JSON_Conformance.self, allTests: Test_JSON_Conformance.allTests),
-        (testCaseClass: Test_JSON_Decoder.self, allTests: Test_JSON_Decoder.allTests),
         (testCaseClass: Test_JSON_Group.self, allTests: Test_JSON_Group.allTests),
         (testCaseClass: Test_Map.self, allTests: Test_Map.allTests),
         (testCaseClass: Test_MapFields_Access_Proto2.self, allTests: Test_MapFields_Access_Proto2.allTests),

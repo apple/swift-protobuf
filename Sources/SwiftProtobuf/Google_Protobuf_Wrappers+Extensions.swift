@@ -78,10 +78,11 @@ extension Google_Protobuf_DoubleValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func setFromJSON(decoder: JSONDecoder) throws {
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: decoder, value: &v)
-    value = v ?? 0
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
   }
 }
 
@@ -104,10 +105,11 @@ extension Google_Protobuf_FloatValue:
     return try serializeWrapperJSON()
   }
 
-  public mutating func setFromJSON(decoder: JSONDecoder) throws {
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: decoder, value: &v)
-    value = v ?? 0
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
   }
 }
 
@@ -130,11 +132,12 @@ extension Google_Protobuf_Int64Value:
     return try serializeWrapperJSON()
   }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        var v: WrappedType.BaseType?
-        try WrappedType.setFromJSON(decoder: decoder, value: &v)
-        value = v ?? 0
-    }
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
 }
 
 extension Google_Protobuf_UInt64Value:
@@ -156,11 +159,12 @@ extension Google_Protobuf_UInt64Value:
     return try serializeWrapperJSON()
   }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        var v: WrappedType.BaseType?
-        try WrappedType.setFromJSON(decoder: decoder, value: &v)
-        value = v ?? 0
-    }
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
 }
 
 extension Google_Protobuf_Int32Value:
@@ -182,11 +186,12 @@ extension Google_Protobuf_Int32Value:
     return try serializeWrapperJSON()
   }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        var v: WrappedType.BaseType?
-        try WrappedType.setFromJSON(decoder: decoder, value: &v)
-        value = v ?? 0
-    }
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
 }
 
 extension Google_Protobuf_UInt32Value:
@@ -208,11 +213,12 @@ extension Google_Protobuf_UInt32Value:
     return try serializeWrapperJSON()
   }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        var v: WrappedType.BaseType?
-        try WrappedType.setFromJSON(decoder: decoder, value: &v)
-        value = v ?? 0
-    }
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
 }
 
 extension Google_Protobuf_BoolValue:
@@ -234,11 +240,12 @@ extension Google_Protobuf_BoolValue:
     return try serializeWrapperJSON()
   }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        var v: WrappedType.BaseType?
-        try WrappedType.setFromJSON(decoder: decoder, value: &v)
-        value = v ?? false
-    }
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
 }
 
 extension Google_Protobuf_StringValue:
@@ -270,11 +277,12 @@ extension Google_Protobuf_StringValue:
     return try serializeWrapperJSON()
   }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        var v: WrappedType.BaseType?
-        try WrappedType.setFromJSON(decoder: decoder, value: &v)
-        value = v ?? ""
-    }
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
 }
 
 extension Google_Protobuf_BytesValue: ProtobufWrapper {
@@ -290,9 +298,10 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
     return try serializeWrapperJSON()
   }
 
-    public mutating func setFromJSON(decoder: JSONDecoder) throws {
-        var v: WrappedType.BaseType?
-        try WrappedType.setFromJSON(decoder: decoder, value: &v)
-        value = v ?? Data()
-    }
+  public init(decoder: inout JSONDecoder) throws {
+    self.init()
+    var v: WrappedType.BaseType?
+    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
 }

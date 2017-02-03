@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/JSONTypeAdditions.swift - JSON primitive types
+// Sources/SwiftProtobuf/JSONTypeAdditions.swift - JSON format primitive types
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -9,37 +9,34 @@
 // -----------------------------------------------------------------------------
 ///
 /// Extend the type definitions from ProtobufTypes.swift with details
-/// of JSON handling.
+/// of protobuf JSON format handling.
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 import Swift
 
+public extension FieldType {
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType) throws {
+        var v: BaseType?
+        try setFromJSON(decoder: &decoder, value: &v)
+        if let v = v {
+            value = v
+        }
+    }
+}
+
 ///
 /// Float traits
 ///
 public extension ProtobufFloat {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asFloat {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        value = try decoder.scanner.nextFloat()
     }
 
-
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asFloat {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let n = try decoder.scanner.nextFloat()
+        value.append(n)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Float) {
@@ -52,25 +49,13 @@ public extension ProtobufFloat {
 ///
 public extension ProtobufDouble {
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asDouble {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        value = try decoder.scanner.nextDouble()
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asDouble {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let n = try decoder.scanner.nextDouble()
+        value.append(n)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Double) {
@@ -82,25 +67,20 @@ public extension ProtobufDouble {
 /// Int32 traits
 ///
 public extension ProtobufInt32 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asInt32 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
-    }
-
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asInt32 {
-            value.append(n)
-        } else {
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        let n = try decoder.scanner.nextSInt()
+        if n > Int64(Int32.max) || n < Int64(Int32.min) {
             throw DecodingError.malformedJSONNumber
         }
+        value = Int32(truncatingBitPattern: n)
+    }
+
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let n = try decoder.scanner.nextSInt()
+        if n > Int64(Int32.max) || n < Int64(Int32.min) {
+            throw DecodingError.malformedJSONNumber
+        }
+        value.append(Int32(truncatingBitPattern: n))
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
@@ -110,35 +90,19 @@ public extension ProtobufInt32 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> Int32? {
-        return token.asInt32
-    }
 }
 
 ///
 /// Int64 traits
 ///
 public extension ProtobufInt64 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asInt64 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        value = try decoder.scanner.nextSInt()
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let n = try decoder.scanner.nextSInt()
+        value.append(n)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
@@ -148,43 +112,30 @@ public extension ProtobufInt64 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> Int64? {
-        return token.asInt64
-    }
 }
 
 ///
 /// UInt32 traits
 ///
 public extension ProtobufUInt32 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asUInt32 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
-    }
-
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asUInt32 {
-            value.append(n)
-        } else {
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        let n = try decoder.scanner.nextUInt()
+        if n > UInt64(UInt32.max) {
             throw DecodingError.malformedJSONNumber
         }
+        value = UInt32(truncatingBitPattern: n)
+    }
+
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let n = try decoder.scanner.nextUInt()
+        if n > UInt64(UInt32.max) {
+            throw DecodingError.malformedJSONNumber
+        }
+        value.append(UInt32(truncatingBitPattern: n))
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: false)
-    }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> UInt32? {
-        return token.asUInt32
     }
 
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt32) {
@@ -196,25 +147,13 @@ public extension ProtobufUInt32 {
 /// UInt64 traits
 ///
 public extension ProtobufUInt64 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asUInt64 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        value = try decoder.scanner.nextUInt()
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asUInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let n = try decoder.scanner.nextUInt()
+        value.append(n)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt64) {
@@ -224,43 +163,22 @@ public extension ProtobufUInt64 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt64) {
         encoder.putUInt64(value: value, quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> UInt64? {
-        return token.asUInt64
-    }
 }
 
 ///
 /// SInt32 traits
 ///
 public extension ProtobufSInt32 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asInt32 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asInt32 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: false)
-    }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> Int32? {
-        return token.asInt32
     }
 
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int32) {
@@ -272,25 +190,12 @@ public extension ProtobufSInt32 {
 /// SInt64 traits
 ///
 public extension ProtobufSInt64 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asInt64 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
@@ -300,35 +205,18 @@ public extension ProtobufSInt64 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> Int64? {
-        return token.asInt64
-    }
 }
 
 ///
 /// Fixed32 traits
 ///
 public extension ProtobufFixed32 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asUInt32 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        try ProtobufUInt32.setFromJSON(decoder: &decoder, value: &value)
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asUInt32 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        try ProtobufUInt32.setFromJSON(decoder: &decoder, value: &value)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt32) {
@@ -338,35 +226,18 @@ public extension ProtobufFixed32 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> UInt32? {
-        return token.asUInt32
-    }
 }
 
 ///
 /// Fixed64 traits
 ///
 public extension ProtobufFixed64 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asUInt64 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        try ProtobufUInt64.setFromJSON(decoder: &decoder, value: &value)
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asUInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        try ProtobufUInt64.setFromJSON(decoder: &decoder, value: &value)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt64) {
@@ -376,35 +247,18 @@ public extension ProtobufFixed64 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt64) {
         encoder.putUInt64(value: value.littleEndian, quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> UInt64? {
-        return token.asUInt64
-    }
 }
 
 ///
 /// SFixed32 traits
 ///
 public extension ProtobufSFixed32 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asInt32 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asInt32 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
@@ -414,35 +268,18 @@ public extension ProtobufSFixed32 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> Int32? {
-        return token.asInt32
-    }
 }
 
 ///
 /// SFixed64 traits
 ///
 public extension ProtobufSFixed64 {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asInt64 {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSONNumber
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asInt64 {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSONNumber
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
@@ -452,35 +289,19 @@ public extension ProtobufSFixed64 {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> Int64? {
-        return token.asInt64
-    }
 }
 
 ///
 /// Bool traits
 ///
 public extension ProtobufBool {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asBoolean {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSON
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        value = try decoder.scanner.nextBool()
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asBoolean {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSON
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let n = try decoder.scanner.nextBool()
+        value.append(n)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Bool) {
@@ -490,38 +311,23 @@ public extension ProtobufBool {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Bool) {
         encoder.putBoolValue(value: value, quote: true)
     }
-
-    public static func decodeJSONMapKey(token: JSONToken) -> Bool? {
-        return token.asBooleanMapKey
-    }
 }
 
 ///
 /// String traits
 ///
 public extension ProtobufString {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            switch token {
-            case .string(let s):
-                value = s
-                return
-            case .null:
-                value = nil
-                return
-            default:
-                break
-            }
-        }
-        throw DecodingError.malformedJSON
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
+        value = try decoder.scanner.nextQuotedString()
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), case .string(let s) = token {
-            value.append(s)
-        } else {
-            throw DecodingError.malformedJSON
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType) throws {
+        value = try decoder.scanner.nextQuotedString()
+    }
+
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let result = try decoder.scanner.nextQuotedString()
+        value.append(result)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: String) {
@@ -531,37 +337,19 @@ public extension ProtobufString {
     public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: String) {
         encoder.putStringValue(value: value)
     }
-    public static func decodeJSONMapKey(token: JSONToken) -> String? {
-        if case .string(let s) = token {
-            return s
-        }
-        return nil
-    }
 }
 
 ///
 /// Bytes traits
 ///
 public extension ProtobufBytes {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout BaseType?) throws {
-        if let token = try decoder.nextToken() {
-            if let n = token.asBytes {
-                value = n
-                return
-            } else if token == .null {
-                value = nil
-                return
-            }
-        }
-        throw DecodingError.malformedJSON
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout Data?) throws {
+        value = try decoder.scanner.nextBytesValue()
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [BaseType]) throws {
-        if let token = try decoder.nextToken(), let n = token.asBytes {
-            value.append(n)
-        } else {
-            throw DecodingError.malformedJSON
-        }
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
+        let result = try decoder.scanner.nextBytesValue()
+        value.append(result)
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Data) {
@@ -573,49 +361,41 @@ public extension ProtobufBytes {
 // Enum traits
 //
 extension Enum where RawValue == Int {
-    public static func setFromJSON(decoder: JSONDecoder, value: inout Self?) throws {
-        if let token = try decoder.nextToken() {
-            switch token {
-            case .null:
-                value = Self(rawValue: 0)! // Note: Can never fail!
-            case .string(let s):
-                if let b = Self(jsonName: s) {
-                    value = b
-                } else {
-                    throw DecodingError.unrecognizedEnumValue
-                }
-            case .number(_):
-                if let n = token.asInt32 {
-                    value = Self(rawValue: Int(n))
-                } else {
-                    throw DecodingError.malformedJSONNumber
-                }
-            default:
-                throw DecodingError.malformedJSON
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout Self?) throws {
+        if decoder.scanner.skipOptionalNull() {
+            value = Self(rawValue: 0)
+            return
+        }
+        if let name = try decoder.scanner.nextOptionalQuotedString() {
+            if let b = Self(jsonName: name) {
+                value = b
+                return
+            }
+        } else {
+            let n = try decoder.scanner.nextSInt()
+            if let i = Int(exactly: n) {
+                value = Self(rawValue: i)
+                return
             }
         }
+        throw DecodingError.unrecognizedEnumValue
     }
 
-    public static func setFromJSON(decoder: JSONDecoder, value: inout [Self]) throws {
-        if let token = try decoder.nextToken() {
-            switch token {
-            case .string(let s):
-                if let b = Self(jsonName: s) {
-                    value.append(b)
-                } else {
-                    throw DecodingError.unrecognizedEnumValue
-                }
-            case .number(_):
-                if let n = token.asInt32 {
-                    let e = Self(rawValue: Int(n))! // Note: Can never fail!
-                    value.append(e)
-                } else {
-                    throw DecodingError.malformedJSONNumber
-                }
-            default:
-                throw DecodingError.malformedJSON
+    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [Self]) throws {
+        if let name = try decoder.scanner.nextOptionalQuotedString() {
+            if let b = Self(protoName: name) {
+                value.append(b)
+                return
+            }
+        } else {
+            let n = try decoder.scanner.nextSInt()
+            if let i = Int(exactly: n) {
+                let e = Self(rawValue: i)!
+                value.append(e)
+                return
             }
         }
+        throw DecodingError.unrecognizedEnumValue
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Self) {
@@ -640,77 +420,41 @@ public extension Message {
         encoder.append(text: json)
     }
 
-    /// Decode an instance of this message type from the provided JSON string.
-    /// JSON "null" decodes to an empty object.
+    static func setFromJSON(decoder: inout JSONDecoder, value: inout Self?) throws {
+        if decoder.scanner.skipOptionalNull() {
+            // Fields of type google.protobuf.Value actually get set from 'null'
+            if self == Google_Protobuf_Value.self {
+                value = Self()
+            } else {
+                // All other message field types treat 'null' as an unset field
+                value = nil
+            }
+            return
+        }
+        let message = try Self(decoder: &decoder)
+        value = message
+    }
+
+    static func setFromJSON(decoder: inout JSONDecoder, value: inout [Self]) throws {
+        let message = try Self(decoder: &decoder)
+        value.append(message)
+    }
+
     public init(json: String) throws {
-        self.init()
-        let decoder = JSONDecoder(json: json)
-        try setFromJSON(decoder: decoder)
-        if !decoder.complete {
+        var decoder = JSONDecoder(json: json)
+        if decoder.scanner.skipOptionalNull() {
+            self.init()
+        } else {
+            try self.init(decoder: &decoder)
+        }
+        if !decoder.scanner.complete {
             throw DecodingError.trailingGarbage
         }
     }
 
-    mutating func setFromJSON(decoder: JSONDecoder) throws {
-        guard let nameProviding = (self as? ProtoNameProviding) else {
-            throw DecodingError.missingFieldNames
-        }
-        let fieldNames = type(of: nameProviding)._protobuf_fieldNames
-        if try decoder.skipOptionalNull() {
-            return
-        }
-        if try decoder.isObjectEmpty() {
-            return
-        }
-        while true {
-            let key = try decoder.nextKey()
-            if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: key) {
-                var mutableDecoder = decoder
-                try decodeField(setter: &mutableDecoder, protoFieldNumber: protoFieldNumber)
-            } else {
-                _ = try decoder.skip()
-            }
-            if let token = try decoder.nextToken() {
-                switch token {
-                case .endObject:
-                    return
-                case .comma:
-                    break
-                default:
-                    throw DecodingError.malformedJSON
-                }
-            } else {
-                throw DecodingError.truncatedInput
-            }
-        }
-    }
-
-    static func setFromJSON(decoder: JSONDecoder, value: inout Self?) throws {
-        if try decoder.skipOptionalNull() {
-            if Self.self == Google_Protobuf_Value.self {
-                value = Self()
-                return
-            } else {
-                value = nil
-                return
-            }
-        }
-        var m = Self()
-        try m.setFromJSON(decoder: decoder)
-        value = m
-    }
-
-    static func setFromJSON(decoder: JSONDecoder, value: inout [Self]) throws {
-        if try decoder.skipOptionalNull() {
-            if Self.self == Google_Protobuf_Value.self {
-                value.append(Self())
-                return
-            } else {
-                throw DecodingError.malformedJSON
-            }
-        }
-        var m = Self()
-        try m.setFromJSON(decoder: decoder)
-        value.append(m)
+    init(decoder: inout JSONDecoder) throws {
+        self.init()
+        try decoder.decodeFullObject(message: &self)
     }
 }
+

@@ -32,10 +32,10 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
                 let json = try empty.serializeJSON()
                 XCTAssertEqual("{}", json, file: file, line: line)
             } catch {
-                XCTFail("Recoding empty message threw an error")
+                XCTFail("Recoding empty message threw an error", file: file, line: line)
             }
         } catch {
-            XCTFail("empty message threw an error")
+            XCTFail("empty message threw an error", file: file, line: line)
         }
     }
 
