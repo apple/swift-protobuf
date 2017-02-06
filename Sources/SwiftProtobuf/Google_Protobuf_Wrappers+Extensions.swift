@@ -81,7 +81,7 @@ extension Google_Protobuf_DoubleValue:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -108,7 +108,7 @@ extension Google_Protobuf_FloatValue:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -135,7 +135,7 @@ extension Google_Protobuf_Int64Value:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -162,7 +162,7 @@ extension Google_Protobuf_UInt64Value:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -189,7 +189,7 @@ extension Google_Protobuf_Int32Value:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -216,7 +216,7 @@ extension Google_Protobuf_UInt32Value:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -243,7 +243,7 @@ extension Google_Protobuf_BoolValue:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -280,7 +280,7 @@ extension Google_Protobuf_StringValue:
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
@@ -301,7 +301,7 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
   public init(decoder: inout JSONDecoder) throws {
     self.init()
     var v: WrappedType.BaseType?
-    try WrappedType.setFromJSON(decoder: &decoder, value: &v)
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }

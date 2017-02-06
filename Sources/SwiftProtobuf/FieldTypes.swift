@@ -39,8 +39,8 @@ public protocol FieldType {
     // JSON decodes a "null" value for a field.
     static var proto3DefaultValue: BaseType { get }
 
-    // These generic hooks are used to look up the correct
-    // decoding for extension fields, map keys, and map values.
+    // Generic reflector methods for looking up the correct decoding
+    // for extension fields, map keys, and map values.
     static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws
     static func decodeRepeated<D: Decoder>(value: inout [BaseType], from decoder: inout D) throws
 
@@ -62,12 +62,6 @@ public protocol FieldType {
 
     /// Serialize the value to a JSON encoder
     static func serializeJSONValue(encoder: inout JSONEncoder, value: BaseType) throws
-
-    /// XXX TODO: These will disappear with an upcoming rework of the JSON decoder
-    /// Update the field from the JSON scanner
-    static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws
-    static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType) throws
-    static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws
 }
 
 ///

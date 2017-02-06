@@ -16,29 +16,10 @@
 import Foundation
 import Swift
 
-public extension FieldType {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType) throws {
-        var v: BaseType?
-        try setFromJSON(decoder: &decoder, value: &v)
-        if let v = v {
-            value = v
-        }
-    }
-}
-
 ///
 /// Float traits
 ///
 public extension ProtobufFloat {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        value = try decoder.scanner.nextFloat()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let n = try decoder.scanner.nextFloat()
-        value.append(n)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Float) {
         encoder.putFloatValue(value: value, quote: false)
     }
@@ -48,16 +29,6 @@ public extension ProtobufFloat {
 /// Double traits
 ///
 public extension ProtobufDouble {
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        value = try decoder.scanner.nextDouble()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let n = try decoder.scanner.nextDouble()
-        value.append(n)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Double) {
         encoder.putDoubleValue(value: value, quote: false)
     }
@@ -67,22 +38,6 @@ public extension ProtobufDouble {
 /// Int32 traits
 ///
 public extension ProtobufInt32 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        let n = try decoder.scanner.nextSInt()
-        if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw DecodingError.malformedJSONNumber
-        }
-        value = Int32(truncatingBitPattern: n)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let n = try decoder.scanner.nextSInt()
-        if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw DecodingError.malformedJSONNumber
-        }
-        value.append(Int32(truncatingBitPattern: n))
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: false)
     }
@@ -96,15 +51,6 @@ public extension ProtobufInt32 {
 /// Int64 traits
 ///
 public extension ProtobufInt64 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        value = try decoder.scanner.nextSInt()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let n = try decoder.scanner.nextSInt()
-        value.append(n)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
@@ -118,22 +64,6 @@ public extension ProtobufInt64 {
 /// UInt32 traits
 ///
 public extension ProtobufUInt32 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        let n = try decoder.scanner.nextUInt()
-        if n > UInt64(UInt32.max) {
-            throw DecodingError.malformedJSONNumber
-        }
-        value = UInt32(truncatingBitPattern: n)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let n = try decoder.scanner.nextUInt()
-        if n > UInt64(UInt32.max) {
-            throw DecodingError.malformedJSONNumber
-        }
-        value.append(UInt32(truncatingBitPattern: n))
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: false)
     }
@@ -147,15 +77,6 @@ public extension ProtobufUInt32 {
 /// UInt64 traits
 ///
 public extension ProtobufUInt64 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        value = try decoder.scanner.nextUInt()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let n = try decoder.scanner.nextUInt()
-        value.append(n)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt64) {
         encoder.putUInt64(value: value, quote: true)
     }
@@ -169,14 +90,6 @@ public extension ProtobufUInt64 {
 /// SInt32 traits
 ///
 public extension ProtobufSInt32 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: false)
     }
@@ -190,14 +103,6 @@ public extension ProtobufSInt32 {
 /// SInt64 traits
 ///
 public extension ProtobufSInt64 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
@@ -211,14 +116,6 @@ public extension ProtobufSInt64 {
 /// Fixed32 traits
 ///
 public extension ProtobufFixed32 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        try ProtobufUInt32.setFromJSON(decoder: &decoder, value: &value)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        try ProtobufUInt32.setFromJSON(decoder: &decoder, value: &value)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value), quote: false)
     }
@@ -232,14 +129,6 @@ public extension ProtobufFixed32 {
 /// Fixed64 traits
 ///
 public extension ProtobufFixed64 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        try ProtobufUInt64.setFromJSON(decoder: &decoder, value: &value)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        try ProtobufUInt64.setFromJSON(decoder: &decoder, value: &value)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt64) {
         encoder.putUInt64(value: value, quote: true)
     }
@@ -253,14 +142,6 @@ public extension ProtobufFixed64 {
 /// SFixed32 traits
 ///
 public extension ProtobufSFixed32 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        try ProtobufInt32.setFromJSON(decoder: &decoder, value: &value)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value), quote: false)
     }
@@ -274,14 +155,6 @@ public extension ProtobufSFixed32 {
 /// SFixed64 traits
 ///
 public extension ProtobufSFixed64 {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        try ProtobufInt64.setFromJSON(decoder: &decoder, value: &value)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
         encoder.putInt64(value: value, quote: true)
     }
@@ -295,15 +168,6 @@ public extension ProtobufSFixed64 {
 /// Bool traits
 ///
 public extension ProtobufBool {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        value = try decoder.scanner.nextBool()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let n = try decoder.scanner.nextBool()
-        value.append(n)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Bool) {
         encoder.putBoolValue(value: value, quote: false)
     }
@@ -317,19 +181,6 @@ public extension ProtobufBool {
 /// String traits
 ///
 public extension ProtobufString {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws {
-        value = try decoder.scanner.nextQuotedString()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType) throws {
-        value = try decoder.scanner.nextQuotedString()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let result = try decoder.scanner.nextQuotedString()
-        value.append(result)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: String) {
         encoder.putStringValue(value: value)
     }
@@ -343,15 +194,6 @@ public extension ProtobufString {
 /// Bytes traits
 ///
 public extension ProtobufBytes {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout Data?) throws {
-        value = try decoder.scanner.nextBytesValue()
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [BaseType]) throws {
-        let result = try decoder.scanner.nextBytesValue()
-        value.append(result)
-    }
-
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Data) {
         encoder.putBytesValue(value: value)
     }
