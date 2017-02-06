@@ -23,20 +23,58 @@ import Swift
 ///
 public struct TextDecoder: Decoder {
     private var scanner: TextScanner
+    private var fieldCount = 0
+    private var terminator: UInt8?
+    private var fieldNameMap: FieldNameMap?
+    private var messageType: Message.Type?
     public var complete: Bool {return scanner.complete}
     public var rejectConflictingOneof: Bool {return true}
 
-    internal init(text: String, extensions: ExtensionSet? = nil) {
+    internal init<M: Message>(messageType: M.Type, text: String, extensions: ExtensionSet?) throws {
         scanner = TextScanner(text: text, extensions: extensions)
+        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+            throw DecodingError.missingFieldNames
+        }
+        fieldNameMap = nameProviding._protobuf_fieldNames
+        self.messageType = messageType
     }
 
-    internal init(scanner: TextScanner) {
+    internal init<M: Message>(messageType: M.Type, scanner: TextScanner, terminator: UInt8?) throws {
         self.scanner = scanner
+        self.terminator = terminator
+        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+            throw DecodingError.missingFieldNames
+        }
+        fieldNameMap = nameProviding._protobuf_fieldNames
+        self.messageType = messageType
     }
 
-    // TODO: Implement this, move Text onto the new decodeMessage API
     public mutating func nextFieldNumber() throws -> Int? {
-        throw DecodingError.failure
+        if let terminator = terminator {
+            if scanner.skipOptionalObjectEnd(terminator) {
+                return nil
+            }
+        }
+        if fieldCount > 0 {
+            scanner.skipOptionalSeparator()
+        }
+        if let key = try scanner.nextOptionalExtensionKey() {
+            // Extension key; look up in the extension registry
+            if let fieldNumber = scanner.extensions?.fieldNumberForProto(messageType: messageType!, protoFieldName: key) {
+                fieldCount += 1
+                return fieldNumber
+            } else {
+                throw DecodingError.unknownField
+            }
+        } else if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
+            fieldCount += 1
+            return fieldNumber
+        } else if terminator == nil {
+            return nil
+        } else {
+            throw DecodingError.truncatedInput
+        }
+
     }
 
     public mutating func decodeSingularFloatField(value: inout Float) throws {
@@ -438,34 +476,6 @@ public struct TextDecoder: Decoder {
         }
     }
 
-    internal mutating func decodeFullObject<M: Message>(message: inout M, terminator: UInt8?) throws {
-        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
-            throw DecodingError.missingFieldNames
-        }
-        let names = nameProviding._protobuf_fieldNames
-        while true {
-            if let terminator = terminator {
-                if scanner.skipOptionalObjectEnd(terminator) {
-                    return
-                }
-            }
-            if let key = try scanner.nextOptionalExtensionKey() {
-                // Extension key; look up in the extension registry
-                if let fieldNumber = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
-                    try message.decodeField(decoder: &self, fieldNumber: fieldNumber)
-                } else {
-                    throw DecodingError.unknownField
-                }
-            } else if let fieldNumber = try scanner.nextFieldNumber(names: names) {
-                try message.decodeField(decoder: &self, fieldNumber: fieldNumber)
-            } else if terminator == nil {
-                return
-            } else {
-                throw DecodingError.truncatedInput
-            }
-            scanner.skipOptionalSeparator()
-        }
-    }
 
     public mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {
         _ = scanner.skipOptionalColon()

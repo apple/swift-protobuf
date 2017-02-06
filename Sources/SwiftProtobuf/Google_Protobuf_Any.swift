@@ -433,8 +433,8 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             throw DecodingError.malformedText
         }
 
-        var subDecoder = TextDecoder(scanner: scanner)
-        try subDecoder.decodeFullObject(message: &self, terminator: terminator)
+        var subDecoder = try TextDecoder(messageType: Google_Protobuf_Any.self, scanner: scanner, terminator: terminator)
+        try decodeMessage(decoder: &subDecoder)
     }
 
     // Caveat:  This can be very expensive.  We should consider organizing

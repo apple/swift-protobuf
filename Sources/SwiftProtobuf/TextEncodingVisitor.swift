@@ -116,7 +116,10 @@ final class TextEncodingVisitor: Visitor {
                                              fieldNumber: Int) throws {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     encoder.startMessageField(name: protoFieldName)
-    try M.serializeTextValue(encoder: encoder, value: value)
+    encoder.startObject()
+    let visitor = TextEncodingVisitor(message: value, encoder: encoder)
+    try value.traverse(visitor: visitor)
+    encoder.endObject()
     encoder.endField()
   }
 
@@ -125,7 +128,10 @@ final class TextEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     for v in value {
       encoder.startMessageField(name: protoFieldName)
-      try M.serializeTextValue(encoder: encoder, value: v)
+      encoder.startObject()
+      let visitor = TextEncodingVisitor(message: v, encoder: encoder)
+      try v.traverse(visitor: visitor)
+      encoder.endObject()
       encoder.endField()
     }
   }
@@ -183,7 +189,10 @@ final class TextEncodingVisitor: Visitor {
       try KeyType.serializeTextValue(encoder: encoder, value: k)
       encoder.endField()
       encoder.startField(name: "value")
-      try ValueType.serializeTextValue(encoder: encoder, value: v)
+      encoder.startObject()
+      let visitor = TextEncodingVisitor(message: v, encoder: encoder)
+      try v.traverse(visitor: visitor)
+      encoder.endObject()
       encoder.endField()
       encoder.endObject()
       encoder.endField()
