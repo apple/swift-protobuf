@@ -201,7 +201,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
     func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_fileToGenerate)
+      case 1: try decoder.decodeRepeatedStringField(value: &_fileToGenerate)
       case 2: try decoder.decodeSingularStringField(value: &_parameter)
       case 15: try decoder.decodeRepeatedMessageField(value: &_protoFile)
       case 3: try decoder.decodeSingularMessageField(value: &_compilerVersion)

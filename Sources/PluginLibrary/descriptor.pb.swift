@@ -146,9 +146,9 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftP
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &_name)
       case 2: try decoder.decodeSingularStringField(value: &_package)
-      case 3: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_dependency)
-      case 10: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_publicDependency)
-      case 11: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_weakDependency)
+      case 3: try decoder.decodeRepeatedStringField(value: &_dependency)
+      case 10: try decoder.decodeRepeatedInt32Field(value: &_publicDependency)
+      case 11: try decoder.decodeRepeatedInt32Field(value: &_weakDependency)
       case 4: try decoder.decodeRepeatedMessageField(value: &_messageType)
       case 5: try decoder.decodeRepeatedMessageField(value: &_enumType)
       case 6: try decoder.decodeRepeatedMessageField(value: &_service)
@@ -422,7 +422,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
       case 8: try decoder.decodeRepeatedMessageField(value: &_oneofDecl)
       case 7: try decoder.decodeSingularMessageField(value: &_options)
       case 9: try decoder.decodeRepeatedMessageField(value: &_reservedRange)
-      case 10: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_reservedName)
+      case 10: try decoder.decodeRepeatedStringField(value: &_reservedName)
       default: break
       }
     }
@@ -3961,11 +3961,11 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtob
 
     public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &path)
-      case 2: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &span)
+      case 1: try decoder.decodeRepeatedInt32Field(value: &path)
+      case 2: try decoder.decodeRepeatedInt32Field(value: &span)
       case 3: try decoder.decodeSingularStringField(value: &_leadingComments)
       case 4: try decoder.decodeSingularStringField(value: &_trailingComments)
-      case 6: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &leadingDetachedComments)
+      case 6: try decoder.decodeRepeatedStringField(value: &leadingDetachedComments)
       default: break
       }
     }
@@ -4154,7 +4154,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftPro
 
     public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &path)
+      case 1: try decoder.decodeRepeatedInt32Field(value: &path)
       case 2: try decoder.decodeSingularStringField(value: &_sourceFile)
       case 3: try decoder.decodeSingularInt32Field(value: &_begin)
       case 4: try decoder.decodeSingularInt32Field(value: &_end)

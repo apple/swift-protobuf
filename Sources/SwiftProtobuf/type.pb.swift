@@ -155,7 +155,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &_name)
       case 2: try decoder.decodeRepeatedMessageField(value: &_fields)
-      case 3: try decoder.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_oneofs)
+      case 3: try decoder.decodeRepeatedStringField(value: &_oneofs)
       case 4: try decoder.decodeRepeatedMessageField(value: &_options)
       case 5: try decoder.decodeSingularMessageField(value: &_sourceContext)
       case 6: try decoder.decodeSingularEnumField(value: &_syntax)

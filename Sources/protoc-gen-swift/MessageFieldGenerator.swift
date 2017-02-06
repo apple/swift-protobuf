@@ -481,15 +481,11 @@ struct MessageFieldGenerator {
             decoderMethod = "decode\(modifier)\(special)Field"
             traitsArg = ""
             valueArg = "value: &\(prefix)\(swiftName)"
-        } else if isRepeated || isPacked {
-            // Repeated primitive fields
-            decoderMethod = "decodeRepeatedField"
-            traitsArg = "fieldType: \(traitsType).self"
-            valueArg = "value: &\(prefix)\(swiftName)"
         } else {
-            // Singular primitive fields
+            // Primitive fields
+            let modifier = (isRepeated ? "Repeated" : "Singular")
             let protoType = descriptor.getProtoTypeName(context: context)
-            decoderMethod = "decodeSingular\(protoType)Field"
+            decoderMethod = "decode\(modifier)\(protoType)Field"
             traitsArg = ""
             valueArg = "value: &\(prefix)\(swiftName)"
         }

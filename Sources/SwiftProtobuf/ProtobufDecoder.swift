@@ -19,6 +19,9 @@ import Swift
 import Foundation
 
 public struct ProtobufDecoder: Decoder {
+    // Protobuf binary format allows subsequent oneof to overwrite
+    public var rejectConflictingOneof: Bool {return false}
+
     // Used only by packed repeated enums; see below
     internal var unknownOverride: Data?
 
@@ -70,6 +73,10 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
+        consumed = try ProtobufFloat.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularDoubleField(value: inout Double) throws {
         guard fieldWireFormat == WireFormat.fixed64.rawValue else {
             throw DecodingError.schemaMismatch
@@ -86,6 +93,10 @@ public struct ProtobufDecoder: Decoder {
         try decodeEightByteNumber(value: &i)
         value = i
         consumed = true
+    }
+
+    public mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
+        consumed = try ProtobufDouble.setFromProtobuf(decoder: &self, value: &value)
     }
 
     public mutating func decodeSingularInt32Field(value: inout Int32) throws {
@@ -106,6 +117,10 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
+        consumed = try ProtobufInt32.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularInt64Field(value: inout Int64) throws {
         guard fieldWireFormat == WireFormat.varint.rawValue else {
             throw DecodingError.schemaMismatch
@@ -122,6 +137,10 @@ public struct ProtobufDecoder: Decoder {
         let varint = try decodeVarint()
         value = Int64(bitPattern: varint)
         consumed = true
+    }
+
+    public mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
+        consumed = try ProtobufInt64.setFromProtobuf(decoder: &self, value: &value)
     }
 
     public mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
@@ -142,6 +161,10 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
+        consumed = try ProtobufUInt32.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
         guard fieldWireFormat == WireFormat.varint.rawValue else {
             throw DecodingError.schemaMismatch
@@ -156,6 +179,10 @@ public struct ProtobufDecoder: Decoder {
         }
         value = try decodeVarint()
         consumed = true
+    }
+
+    public mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
+        consumed = try ProtobufUInt64.setFromProtobuf(decoder: &self, value: &value)
     }
 
     public mutating func decodeSingularSInt32Field(value: inout Int32) throws {
@@ -178,6 +205,10 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
+        consumed = try ProtobufSInt32.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularSInt64Field(value: inout Int64) throws {
         guard fieldWireFormat == WireFormat.varint.rawValue else {
             throw DecodingError.schemaMismatch
@@ -194,6 +225,10 @@ public struct ProtobufDecoder: Decoder {
         let varint = try decodeVarint()
         value = ZigZag.decoded(varint)
         consumed = true
+    }
+
+    public mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
+        consumed = try ProtobufSInt64.setFromProtobuf(decoder: &self, value: &value)
     }
 
     public mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
@@ -216,6 +251,10 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
+        consumed = try ProtobufFixed32.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
         guard fieldWireFormat == WireFormat.fixed64.rawValue else {
             throw DecodingError.schemaMismatch
@@ -234,6 +273,10 @@ public struct ProtobufDecoder: Decoder {
         try decodeEightByteNumber(value: &i)
         value = UInt64(littleEndian: i)
         consumed = true
+    }
+
+    public mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
+        consumed = try ProtobufFixed64.setFromProtobuf(decoder: &self, value: &value)
     }
 
     public mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
@@ -256,6 +299,10 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
+        consumed = try ProtobufSFixed32.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
         guard fieldWireFormat == WireFormat.fixed64.rawValue else {
             throw DecodingError.schemaMismatch
@@ -276,6 +323,10 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
+        consumed = try ProtobufSFixed64.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularBoolField(value: inout Bool) throws {
         guard fieldWireFormat == WireFormat.varint.rawValue else {
             throw DecodingError.schemaMismatch
@@ -290,6 +341,10 @@ public struct ProtobufDecoder: Decoder {
         }
         value = try decodeVarint() != 0
         consumed = true
+    }
+
+    public mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
+        consumed = try ProtobufBool.setFromProtobuf(decoder: &self, value: &value)
     }
 
     public mutating func decodeSingularStringField(value: inout String) throws {
@@ -320,6 +375,10 @@ public struct ProtobufDecoder: Decoder {
         }
     }
 
+    public mutating func decodeRepeatedStringField(value: inout [String]) throws {
+        consumed = try ProtobufString.setFromProtobuf(decoder: &self, value: &value)
+    }
+
     public mutating func decodeSingularBytesField(value: inout Data) throws {
         guard fieldWireFormat == WireFormat.lengthDelimited.rawValue else {
             throw DecodingError.schemaMismatch
@@ -340,12 +399,8 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
-    public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
-        consumed = try S.setFromProtobuf(decoder: &self, value: &value)
-        // If `S` is Enum and the data was packed on the wire (regardless of
-        // whether the schema prefers packed format), then the Enum may
-        // have synthesized a new field to carry the unknown values.
-        //unknownOverride = scanner.unknownOverride
+    public mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+        consumed = try ProtobufBytes.setFromProtobuf(decoder: &self, value: &value)
     }
 
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
@@ -467,9 +522,9 @@ public struct ProtobufDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1:
-                _ = try KeyType.decodeFrom(decoder: &subdecoder, value: &k)
+                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2:
-                _ = try ValueType.decodeFrom(decoder: &subdecoder, value: &v)
+                _ = try ValueType.decodeSingular(value: &v, from: &subdecoder)
             default: // Always ignore unknown fields within the map entry object
                 return
             }
@@ -498,7 +553,7 @@ public struct ProtobufDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1: // Keys are basic types
-                _ = try KeyType.decodeFrom(decoder: &subdecoder, value: &k)
+                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2: // Value is a message type
                 _ = try subdecoder.decodeSingularEnumField(value: &v)
             default: // Always ignore unknown fields within the map entry object
@@ -529,7 +584,7 @@ public struct ProtobufDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1: // Keys are basic types
-                _ = try KeyType.decodeFrom(decoder: &subdecoder, value: &k)
+                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2: // Value is a message type
                 _ = try subdecoder.decodeSingularMessageField(value: &v)
             default: // Always ignore unknown fields within the map entry object

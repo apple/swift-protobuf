@@ -83,7 +83,7 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
   }
 
   public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
-      try T.decodeFrom(decoder: &decoder, value: &value)
+      try T.decodeSingular(value: &value, from: &decoder)
   }
 
   public func traverse(visitor: Visitor) throws {
@@ -134,7 +134,7 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   }
 
   public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
-    try decoder.decodeRepeatedField(fieldType: T.self, value: &value)
+      try T.decodeRepeated(value: &value, from: &decoder)
   }
 
   public func traverse(visitor: Visitor) throws {
@@ -188,7 +188,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   }
 
   public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
-    try decoder.decodeRepeatedField(fieldType: T.self, value: &value)
+    try T.decodeRepeated(value: &value, from: &decoder)
   }
 
   public func traverse(visitor: Visitor) throws {

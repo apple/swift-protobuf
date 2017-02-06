@@ -44,11 +44,19 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-        public mutating func decodeSingularFloatField(value: inout Float) throws {
+    // TODO: Implement this, move JSON onto the new decodeMessage API
+    public mutating func nextFieldNumber() throws -> Int? {
+        throw DecodingError.failure
+    }
+
+    public mutating func decodeSingularFloatField(value: inout Float) throws {
         try decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
     }
     public mutating func decodeSingularFloatField(value: inout Float?) throws {
         try decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
+    }
+    public mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
+        try decodeRepeatedField(fieldType: ProtobufFloat.self, value: &value)
     }
     public mutating func decodeSingularDoubleField(value: inout Double) throws {
         try decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
@@ -56,11 +64,17 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularDoubleField(value: inout Double?) throws {
         try decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
     }
+    public mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
+        try decodeRepeatedField(fieldType: ProtobufDouble.self, value: &value)
+    }
     public mutating func decodeSingularInt32Field(value: inout Int32) throws {
         try decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
     }
     public mutating func decodeSingularInt32Field(value: inout Int32?) throws {
         try decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
+    }
+    public mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufInt32.self, value: &value)
     }
     public mutating func decodeSingularInt64Field(value: inout Int64) throws {
         try decodeSingularField(fieldType: ProtobufInt64.self, value: &value)
@@ -68,11 +82,17 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularInt64Field(value: inout Int64?) throws {
         try decodeSingularField(fieldType: ProtobufInt64.self, value: &value)
     }
+    public mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufInt64.self, value: &value)
+    }
     public mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
         try decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
     }
     public mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
         try decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
+    }
+    public mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufUInt32.self, value: &value)
     }
     public mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
         try decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
@@ -80,11 +100,17 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
         try decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
     }
+    public mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufUInt64.self, value: &value)
+    }
     public mutating func decodeSingularSInt32Field(value: inout Int32) throws {
         try decodeSingularField(fieldType: ProtobufSInt32.self, value: &value)
     }
     public mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
         try decodeSingularField(fieldType: ProtobufSInt32.self, value: &value)
+    }
+    public mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSInt32.self, value: &value)
     }
     public mutating func decodeSingularSInt64Field(value: inout Int64) throws {
         try decodeSingularField(fieldType: ProtobufSInt64.self, value: &value)
@@ -92,11 +118,17 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
         try decodeSingularField(fieldType: ProtobufSInt64.self, value: &value)
     }
+    public mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSInt64.self, value: &value)
+    }
     public mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
         try decodeSingularField(fieldType: ProtobufFixed32.self, value: &value)
     }
     public mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
         try decodeSingularField(fieldType: ProtobufFixed32.self, value: &value)
+    }
+    public mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufFixed32.self, value: &value)
     }
     public mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
         try decodeSingularField(fieldType: ProtobufFixed64.self, value: &value)
@@ -104,11 +136,17 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
         try decodeSingularField(fieldType: ProtobufFixed64.self, value: &value)
     }
+    public mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufFixed64.self, value: &value)
+    }
     public mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
         try decodeSingularField(fieldType: ProtobufSFixed32.self, value: &value)
     }
     public mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
         try decodeSingularField(fieldType: ProtobufSFixed32.self, value: &value)
+    }
+    public mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSFixed32.self, value: &value)
     }
     public mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
         try decodeSingularField(fieldType: ProtobufSFixed64.self, value: &value)
@@ -116,11 +154,17 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
         try decodeSingularField(fieldType: ProtobufSFixed64.self, value: &value)
     }
+    public mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSFixed64.self, value: &value)
+    }
     public mutating func decodeSingularBoolField(value: inout Bool) throws {
         try decodeSingularField(fieldType: ProtobufBool.self, value: &value)
     }
     public mutating func decodeSingularBoolField(value: inout Bool?) throws {
         try decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+    }
+    public mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
+        try decodeRepeatedField(fieldType: ProtobufBool.self, value: &value)
     }
     public mutating func decodeSingularStringField(value: inout String) throws {
         try decodeSingularField(fieldType: ProtobufString.self, value: &value)
@@ -128,15 +172,20 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularStringField(value: inout String?) throws {
         try decodeSingularField(fieldType: ProtobufString.self, value: &value)
     }
+    public mutating func decodeRepeatedStringField(value: inout [String]) throws {
+        try decodeRepeatedField(fieldType: ProtobufString.self, value: &value)
+    }
     public mutating func decodeSingularBytesField(value: inout Data) throws {
         try decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
     }
     public mutating func decodeSingularBytesField(value: inout Data?) throws {
         try decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
     }
+    public mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+        try decodeRepeatedField(fieldType: ProtobufBytes.self, value: &value)
+    }
 
-
-    public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
+    private mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -144,7 +193,7 @@ public struct JSONDecoder: Decoder {
         try S.setFromJSON(decoder: &self, value: &value)
     }
 
-    public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
+    private mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
         if scanner.skipOptionalNull() {
             value = S.proto3DefaultValue
             return
@@ -152,7 +201,7 @@ public struct JSONDecoder: Decoder {
         try S.setFromJSON(decoder: &self, value: &value)
     }
 
-    public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    private mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         if scanner.skipOptionalNull() {
             return
         }

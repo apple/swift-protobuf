@@ -34,11 +34,19 @@ public struct TextDecoder: Decoder {
         self.scanner = scanner
     }
 
+    // TODO: Implement this, move Text onto the new decodeMessage API
+    public mutating func nextFieldNumber() throws -> Int? {
+        throw DecodingError.failure
+    }
+
     public mutating func decodeSingularFloatField(value: inout Float) throws {
         try decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
     }
     public mutating func decodeSingularFloatField(value: inout Float?) throws {
         try decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
+    }
+    public mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
+        try decodeRepeatedField(fieldType: ProtobufFloat.self, value: &value)
     }
     public mutating func decodeSingularDoubleField(value: inout Double) throws {
         try decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
@@ -46,11 +54,17 @@ public struct TextDecoder: Decoder {
     public mutating func decodeSingularDoubleField(value: inout Double?) throws {
         try decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
     }
+    public mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
+        try decodeRepeatedField(fieldType: ProtobufDouble.self, value: &value)
+    }
     public mutating func decodeSingularInt32Field(value: inout Int32) throws {
         try decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
     }
     public mutating func decodeSingularInt32Field(value: inout Int32?) throws {
         try decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
+    }
+    public mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufInt32.self, value: &value)
     }
     public mutating func decodeSingularInt64Field(value: inout Int64) throws {
         try decodeSingularField(fieldType: ProtobufInt64.self, value: &value)
@@ -58,11 +72,17 @@ public struct TextDecoder: Decoder {
     public mutating func decodeSingularInt64Field(value: inout Int64?) throws {
         try decodeSingularField(fieldType: ProtobufInt64.self, value: &value)
     }
+    public mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufInt64.self, value: &value)
+    }
     public mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
         try decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
     }
     public mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
         try decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
+    }
+    public mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufUInt32.self, value: &value)
     }
     public mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
         try decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
@@ -70,11 +90,17 @@ public struct TextDecoder: Decoder {
     public mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
         try decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
     }
+    public mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufUInt64.self, value: &value)
+    }
     public mutating func decodeSingularSInt32Field(value: inout Int32) throws {
         try decodeSingularField(fieldType: ProtobufSInt32.self, value: &value)
     }
     public mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
         try decodeSingularField(fieldType: ProtobufSInt32.self, value: &value)
+    }
+    public mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSInt32.self, value: &value)
     }
     public mutating func decodeSingularSInt64Field(value: inout Int64) throws {
         try decodeSingularField(fieldType: ProtobufSInt64.self, value: &value)
@@ -82,11 +108,17 @@ public struct TextDecoder: Decoder {
     public mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
         try decodeSingularField(fieldType: ProtobufSInt64.self, value: &value)
     }
+    public mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSInt64.self, value: &value)
+    }
     public mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
         try decodeSingularField(fieldType: ProtobufFixed32.self, value: &value)
     }
     public mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
         try decodeSingularField(fieldType: ProtobufFixed32.self, value: &value)
+    }
+    public mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufFixed32.self, value: &value)
     }
     public mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
         try decodeSingularField(fieldType: ProtobufFixed64.self, value: &value)
@@ -94,11 +126,17 @@ public struct TextDecoder: Decoder {
     public mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
         try decodeSingularField(fieldType: ProtobufFixed64.self, value: &value)
     }
+    public mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufFixed64.self, value: &value)
+    }
     public mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
         try decodeSingularField(fieldType: ProtobufSFixed32.self, value: &value)
     }
     public mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
         try decodeSingularField(fieldType: ProtobufSFixed32.self, value: &value)
+    }
+    public mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSFixed32.self, value: &value)
     }
     public mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
         try decodeSingularField(fieldType: ProtobufSFixed64.self, value: &value)
@@ -106,11 +144,17 @@ public struct TextDecoder: Decoder {
     public mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
         try decodeSingularField(fieldType: ProtobufSFixed64.self, value: &value)
     }
+    public mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
+        try decodeRepeatedField(fieldType: ProtobufSFixed64.self, value: &value)
+    }
     public mutating func decodeSingularBoolField(value: inout Bool) throws {
         try decodeSingularField(fieldType: ProtobufBool.self, value: &value)
     }
     public mutating func decodeSingularBoolField(value: inout Bool?) throws {
         try decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+    }
+    public mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
+        try decodeRepeatedField(fieldType: ProtobufBool.self, value: &value)
     }
     public mutating func decodeSingularStringField(value: inout String) throws {
         try decodeSingularField(fieldType: ProtobufString.self, value: &value)
@@ -118,61 +162,30 @@ public struct TextDecoder: Decoder {
     public mutating func decodeSingularStringField(value: inout String?) throws {
         try decodeSingularField(fieldType: ProtobufString.self, value: &value)
     }
+    public mutating func decodeRepeatedStringField(value: inout [String]) throws {
+        try decodeRepeatedField(fieldType: ProtobufString.self, value: &value)
+    }
     public mutating func decodeSingularBytesField(value: inout Data) throws {
         try decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
     }
     public mutating func decodeSingularBytesField(value: inout Data?) throws {
         try decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
     }
-
-    internal mutating func decodeFullObject<M: Message>(message: inout M, terminator: UInt8?) throws {
-        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
-            throw DecodingError.missingFieldNames
-        }
-        let names = nameProviding._protobuf_fieldNames
-        while true {
-            if let terminator = terminator {
-                if scanner.skipOptionalObjectEnd(terminator) {
-                    return
-                }
-            }
-            if let key = try scanner.nextOptionalExtensionKey() {
-                // Extension key; look up in the extension registry
-                if let fieldNumber = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
-                    try message.decodeField(decoder: &self, fieldNumber: fieldNumber)
-                } else {
-                    throw DecodingError.unknownField
-                }
-            } else if let fieldNumber = try scanner.nextFieldNumber(names: names) {
-                try message.decodeField(decoder: &self, fieldNumber: fieldNumber)
-            } else if terminator == nil {
-                return
-            } else {
-                throw DecodingError.truncatedInput
-            }
-            scanner.skipOptionalSeparator()
-        }
+    public mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+        try decodeRepeatedField(fieldType: ProtobufBytes.self, value: &value)
     }
 
-    public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
-        if let ext = scanner.extensions?[messageType, fieldNumber] {
-            var fieldValue = values[fieldNumber] ?? ext.newField()
-            try fieldValue.decodeField(decoder: &self)
-            values[fieldNumber] = fieldValue
-        }
-    }
-
-    public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
+    private mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
         try scanner.skipRequiredColon()
         try S.setFromText(scanner: scanner, value: &value)
     }
 
-    public mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
+    private mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
         try scanner.skipRequiredColon()
         try S.setFromText(scanner: scanner, value: &value)
     }
 
-    public mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
+    private mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -244,6 +257,35 @@ public struct TextDecoder: Decoder {
         } else {
             let e: E = try decodeEnum(from: scanner)
             value.append(e)
+        }
+    }
+
+    internal mutating func decodeFullObject<M: Message>(message: inout M, terminator: UInt8?) throws {
+        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+            throw DecodingError.missingFieldNames
+        }
+        let names = nameProviding._protobuf_fieldNames
+        while true {
+            if let terminator = terminator {
+                if scanner.skipOptionalObjectEnd(terminator) {
+                    return
+                }
+            }
+            if let key = try scanner.nextOptionalExtensionKey() {
+                // Extension key; look up in the extension registry
+                if let fieldNumber = scanner.extensions?.fieldNumberForProto(messageType: M.self, protoFieldName: key) {
+                    try message.decodeField(decoder: &self, fieldNumber: fieldNumber)
+                } else {
+                    throw DecodingError.unknownField
+                }
+            } else if let fieldNumber = try scanner.nextFieldNumber(names: names) {
+                try message.decodeField(decoder: &self, fieldNumber: fieldNumber)
+            } else if terminator == nil {
+                return
+            } else {
+                throw DecodingError.truncatedInput
+            }
+            scanner.skipOptionalSeparator()
         }
     }
 
@@ -423,4 +465,11 @@ public struct TextDecoder: Decoder {
         }
     }
 
+    public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
+        if let ext = scanner.extensions?[messageType, fieldNumber] {
+            var fieldValue = values[fieldNumber] ?? ext.newField()
+            try fieldValue.decodeField(decoder: &self)
+            values[fieldNumber] = fieldValue
+        }
+    }
 }
