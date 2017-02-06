@@ -973,13 +973,19 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto
   private var _storage = _StorageClass()
 
 
-  ///   The option's name. For example, `"java_package"`.
+  ///   The option's name. For protobuf built-in options (options defined in
+  ///   descriptor.proto), this is the short name. For example, `"map_entry"`.
+  ///   For custom options, it should be the fully-qualified name. For example,
+  ///   `"google.api.http"`.
   public var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  ///   The option's value. For example, `"com.google.protobuf"`.
+  ///   The option's value packed in an Any message. If the value is a primitive,
+  ///   the corresponding wrapper type defined in google/protobuf/wrappers.proto
+  ///   should be used. If the value is an enum, it should be stored as an int32
+  ///   value using the google.protobuf.Int32Value type.
   public var value: Google_Protobuf_Any {
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}

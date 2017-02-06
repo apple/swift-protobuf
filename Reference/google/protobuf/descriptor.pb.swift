@@ -834,6 +834,9 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     case string // = 9
 
     ///   Tag-delimited aggregate.
+    ///   Group type is deprecated and not supported in proto3. However, Proto3
+    ///   implementations should still be able to parse the group wire format and
+    ///   treat group fields as unknown fields.
     case group // = 10
 
     ///   Length-delimited aggregate.
