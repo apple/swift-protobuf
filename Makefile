@@ -238,12 +238,14 @@ build:
 # in a check during the library build to ensure that the protoc on the local
 # system is one we expect. This was inspired by the findings that lead to
 #   https://github.com/apple/swift-protobuf/issues/111
-# This likely will need follow up to eventually do a pattern match to ensure it
-# is 3.1 or higher.
+# We want 3.1 or later.
 ${PROTOC_GEN_SWIFT}: build
-	@if [ "$(shell ${PROTOC} --version)" != "libprotoc 3.1.0" ]; then \
+	@if [[ ! "$(shell ${PROTOC} --version)" =~ libprotoc\ 3\.[1-9]\.[[:digit:]]+ ]]; then \
+	  echo "===================================================================================="; \
 	  echo "WARNING: Unexpected version of protoc: $(shell ${PROTOC} --version)"; \
 	  echo "WARNING: The JSON support in generated files may not be correct."; \
+	  echo "WARNING: Use a protoc that is 3.1.x or higher."; \
+	  echo "===================================================================================="; \
 	fi
 
 # Does it really make sense to install a debug build, or should this be forcing
@@ -291,7 +293,7 @@ test-runtime: build
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-test-plugin: build
+test-plugin: build ${PROTOC_GEN_SWIFT}
 	@rm -rf _test && mkdir _test
 	for p in `find Protos -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=_test $$p; \
@@ -308,7 +310,7 @@ test-plugin: build
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-reference: build
+reference: build ${PROTOC_GEN_SWIFT}
 	@rm -rf Reference && mkdir Reference
 	for p in `find Protos -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=Reference $$p; \
@@ -326,24 +328,24 @@ reference: build
 regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-protos regenerate-conformance-protos
 
 # Rebuild just the protos included in the runtime library
-regenerate-library-protos: build
+regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/SwiftProtobuf ${LIBRARY_PROTOS}
 
 # Rebuild just the protos used by the plugin
-regenerate-plugin-protos: build
+regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/PluginLibrary ${PLUGIN_PROTOS}
 
 # Rebuild just the protos used by the runtime test suite
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-regenerate-test-protos: build
+regenerate-test-protos: build ${PROTOC_GEN_SWIFT}
 	for t in ${TEST_PROTOS}; do \
 		${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Tests/SwiftProtobufTests $$t; \
 	done
 
 # Rebuild just the protos used by the conformance test runner.
-regenerate-conformance-protos: build
+regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/Conformance ${CONFORMANCE_PROTOS}
 
 # Helper to check if there is a protobuf checkout as expected.
