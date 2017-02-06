@@ -60,18 +60,18 @@ func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
         return response
     }
 
-    let parsed: Conformance_TestAllTypes?
+    let parsed: ProtobufTestMessages_Proto3_TestAllTypes?
     switch request.payload {
     case .protobufPayload(let data):
         do {
-            parsed = try Conformance_TestAllTypes(protobuf: data)
+            parsed = try ProtobufTestMessages_Proto3_TestAllTypes(protobuf: data)
         } catch let e {
             response.parseError = "Protobuf failed to parse: \(e)"
             return response
         }
     case .jsonPayload(let json):
         do {
-            parsed = try Conformance_TestAllTypes(json: json)
+            parsed = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
         } catch let e {
             response.parseError = "JSON failed to parse: \(e)"
             return response
@@ -81,7 +81,7 @@ func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
 	return response
     }
 
-    let testMessage: Conformance_TestAllTypes
+    let testMessage: ProtobufTestMessages_Proto3_TestAllTypes
     if let parsed = parsed {
         testMessage = parsed
     } else {
@@ -119,7 +119,6 @@ func singleTest() throws -> Bool {
    }
 }
 
-Google_Protobuf_Any.register(messageType: Conformance_TestAllTypes.self)
 Google_Protobuf_Any.register(messageType: ProtobufTestMessages_Proto3_TestAllTypes.self)
 
 while try singleTest() {

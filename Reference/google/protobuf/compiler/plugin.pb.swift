@@ -56,6 +56,108 @@ import Foundation
 import SwiftProtobuf
 
 
+///   The version number of protocol compiler.
+struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  public var swiftClassName: String {return "Google_Protobuf_Compiler_Version"}
+  public var protoMessageName: String {return "Version"}
+  public var protoPackageName: String {return "google.protobuf.compiler"}
+  public static let _protobuf_fieldNames: FieldNameMap = [
+    1: .same(proto: "major", swift: "major"),
+    2: .same(proto: "minor", swift: "minor"),
+    3: .same(proto: "patch", swift: "patch"),
+    4: .same(proto: "suffix", swift: "suffix"),
+  ]
+
+  public var unknown = SwiftProtobuf.UnknownStorage()
+
+  private var _major: Int32? = nil
+  var major: Int32 {
+    get {return _major ?? 0}
+    set {_major = newValue}
+  }
+  public var hasMajor: Bool {
+    return _major != nil
+  }
+  public mutating func clearMajor() {
+    return _major = nil
+  }
+
+  private var _minor: Int32? = nil
+  var minor: Int32 {
+    get {return _minor ?? 0}
+    set {_minor = newValue}
+  }
+  public var hasMinor: Bool {
+    return _minor != nil
+  }
+  public mutating func clearMinor() {
+    return _minor = nil
+  }
+
+  private var _patch: Int32? = nil
+  var patch: Int32 {
+    get {return _patch ?? 0}
+    set {_patch = newValue}
+  }
+  public var hasPatch: Bool {
+    return _patch != nil
+  }
+  public mutating func clearPatch() {
+    return _patch = nil
+  }
+
+  ///   A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
+  ///   be empty for mainline stable releases.
+  private var _suffix: String? = nil
+  var suffix: String {
+    get {return _suffix ?? ""}
+    set {_suffix = newValue}
+  }
+  public var hasSuffix: Bool {
+    return _suffix != nil
+  }
+  public mutating func clearSuffix() {
+    return _suffix = nil
+  }
+
+  init() {}
+
+  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
+    switch protoFieldNumber {
+    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_major)
+    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_minor)
+    case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_patch)
+    case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_suffix)
+    default: break
+    }
+  }
+
+  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    if let v = _major {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
+    if let v = _minor {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+    }
+    if let v = _patch {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+    }
+    if let v = _suffix {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 4)
+    }
+    unknown.traverse(visitor: visitor)
+  }
+
+  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
+    if _major != other._major {return false}
+    if _minor != other._minor {return false}
+    if _patch != other._patch {return false}
+    if _suffix != other._suffix {return false}
+    if unknown != other.unknown {return false}
+    return true
+  }
+}
+
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
 struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorRequest"}
@@ -65,26 +167,90 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
     1: .unique(proto: "file_to_generate", json: "fileToGenerate", swift: "fileToGenerate"),
     2: .same(proto: "parameter", swift: "parameter"),
     15: .unique(proto: "proto_file", json: "protoFile", swift: "protoFile"),
+    3: .unique(proto: "compiler_version", json: "compilerVersion", swift: "compilerVersion"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  private class _StorageClass {
+    typealias ExtendedMessage = Google_Protobuf_Compiler_CodeGeneratorRequest
+    var unknown = SwiftProtobuf.UnknownStorage()
+    var _fileToGenerate: [String] = []
+    var _parameter: String? = nil
+    var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
+    var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
+
+    init() {}
+
+    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
+      switch protoFieldNumber {
+      case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_fileToGenerate)
+      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_parameter)
+      case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &_protoFile)
+      case 3: try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Compiler_Version.self, value: &_compilerVersion)
+      default: break
+      }
+    }
+
+    func traverse(visitor: SwiftProtobuf.Visitor) throws {
+      if !_fileToGenerate.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _fileToGenerate, fieldNumber: 1)
+      }
+      if let v = _parameter {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+      }
+      if let v = _compilerVersion {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      if !_protoFile.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _protoFile, fieldNumber: 15)
+      }
+      unknown.traverse(visitor: visitor)
+    }
+
+    func isEqualTo(other: _StorageClass) -> Bool {
+      if _fileToGenerate != other._fileToGenerate {return false}
+      if _parameter != other._parameter {return false}
+      if _protoFile != other._protoFile {return false}
+      if _compilerVersion != other._compilerVersion {return false}
+      if unknown != other.unknown {return false}
+      return true
+    }
+
+    func copy() -> _StorageClass {
+      let clone = _StorageClass()
+      clone.unknown = unknown
+      clone._fileToGenerate = _fileToGenerate
+      clone._parameter = _parameter
+      clone._protoFile = _protoFile
+      clone._compilerVersion = _compilerVersion
+      return clone
+    }
+  }
+
+  private var _storage = _StorageClass()
+
+  public var unknown: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknown}
+    set {_storage.unknown = newValue}
+  }
 
   ///   The .proto files that were explicitly listed on the command-line.  The
   ///   code generator should generate code only for these files.  Each file's
   ///   descriptor will be included in proto_file, below.
-  var fileToGenerate: [String] = []
+  var fileToGenerate: [String] {
+    get {return _storage._fileToGenerate}
+    set {_uniqueStorage()._fileToGenerate = newValue}
+  }
 
   ///   The generator parameter passed on the command-line.
-  private var _parameter: String? = nil
   var parameter: String {
-    get {return _parameter ?? ""}
-    set {_parameter = newValue}
+    get {return _storage._parameter ?? ""}
+    set {_uniqueStorage()._parameter = newValue}
   }
   public var hasParameter: Bool {
-    return _parameter != nil
+    return _storage._parameter != nil
   }
   public mutating func clearParameter() {
-    return _parameter = nil
+    return _storage._parameter = nil
   }
 
   ///   FileDescriptorProtos for all files in files_to_generate and everything
@@ -98,38 +264,42 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
   ///   the entire set into memory at once.  However, as of this writing, this
   ///   is not similarly optimized on protoc's end -- it will store all fields in
   ///   memory at once before sending them to the plugin.
-  var protoFile: [Google_Protobuf_FileDescriptorProto] = []
+  var protoFile: [Google_Protobuf_FileDescriptorProto] {
+    get {return _storage._protoFile}
+    set {_uniqueStorage()._protoFile = newValue}
+  }
+
+  ///   The version number of protocol compiler.
+  var compilerVersion: Google_Protobuf_Compiler_Version {
+    get {return _storage._compilerVersion ?? Google_Protobuf_Compiler_Version()}
+    set {_uniqueStorage()._compilerVersion = newValue}
+  }
+  public var hasCompilerVersion: Bool {
+    return _storage._compilerVersion != nil
+  }
+  public mutating func clearCompilerVersion() {
+    return _storage._compilerVersion = nil
+  }
 
   init() {}
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    switch protoFieldNumber {
-    case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &fileToGenerate)
-    case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_parameter)
-    case 15: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &protoFile)
-    default: break
-    }
+    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    if !fileToGenerate.isEmpty {
-      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: fileToGenerate, fieldNumber: 1)
-    }
-    if let v = _parameter {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
-    }
-    if !protoFile.isEmpty {
-      try visitor.visitRepeatedMessageField(value: protoFile, fieldNumber: 15)
-    }
-    unknown.traverse(visitor: visitor)
+    try _storage.traverse(visitor: visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
-    if fileToGenerate != other.fileToGenerate {return false}
-    if _parameter != other._parameter {return false}
-    if protoFile != other.protoFile {return false}
-    if unknown != other.unknown {return false}
-    return true
+    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
+  }
+
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 }
 
