@@ -55,6 +55,24 @@ public protocol Visitor: class {
                                       value: [S.BaseType],
                                       fieldNumber: Int) throws
 
+  /// Called for each non-repeated enum field
+  func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws
+
+  /// Called for each repeated, unpacked enum field.
+  /// The method is called once with the complete array of values for
+  /// the field.
+  func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
+
+  /// Called for each repeated, packed enum field.
+  /// The method is called once with the complete array of values for
+  /// the field.
+  ///
+  /// A default implementation is provided that simply forwards to
+  /// `visitRepeatedField`. Implementors who need to handle packed fields
+  /// differently than unpacked fields can override this and provide distinct
+  /// implementations.
+  func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
+
   /// Called for each non-repeated nested message field.
   func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws
 
@@ -109,6 +127,12 @@ extension Visitor {
     try visitRepeatedField(fieldType: fieldType,
                            value: value,
                            fieldNumber: fieldNumber)
+  }
+
+  public func visitPackedEnumField<E: Enum>(value: [E],
+                                            fieldNumber: Int) throws {
+    try visitRepeatedEnumField(value: value,
+                               fieldNumber: fieldNumber)
   }
 
   public func visitSingularGroupField<G: Message>(value: G,

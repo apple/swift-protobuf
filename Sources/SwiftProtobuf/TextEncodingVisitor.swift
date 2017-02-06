@@ -80,6 +80,38 @@ final class TextEncodingVisitor: Visitor {
     encoder.endField()
   }
 
+  func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    encoder.startField(name: protoFieldName)
+    encoder.putEnumValue(value: value)
+    encoder.endField()
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+      let protoFieldName = try self.protoFieldName(for: fieldNumber)
+      for v in value {
+          encoder.startField(name: protoFieldName)
+          encoder.putEnumValue(value: v)
+          encoder.endField()
+      }
+  }
+
+  func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    encoder.startField(name: protoFieldName)
+    var firstItem = true
+    encoder.startArray()
+    for v in value {
+      if !firstItem {
+        encoder.arraySeparator()
+      }
+      encoder.putEnumValue(value: v)
+      firstItem = false
+    }
+    encoder.endArray()
+    encoder.endField()
+  }
+
   func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
@@ -131,7 +163,7 @@ final class TextEncodingVisitor: Visitor {
       try KeyType.serializeTextValue(encoder: encoder, value: k)
       encoder.endField()
       encoder.startField(name: "value")
-      ValueType.serializeTextValue(encoder: encoder, value: v)
+      encoder.putEnumValue(value: v)
       encoder.endField()
       encoder.endObject()
       encoder.endField()

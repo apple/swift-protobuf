@@ -192,19 +192,37 @@ public struct TextDecoder: Decoder {
         }
     }
 
+    private func decodeEnum<E: Enum>(from scanner: TextScanner) throws -> E where E.RawValue == Int {
+        if let name = try scanner.nextOptionalEnumName() {
+            if let b = E(protoName: name) {
+                return b
+            } else {
+                throw DecodingError.unrecognizedEnumValue
+            }
+        }
+        let number = try scanner.nextSInt()
+        if number >= Int64(Int32.min) && number <= Int64(Int32.max) {
+            let n = Int32(truncatingBitPattern: number)
+            if let e = E(rawValue: Int(n)) {
+                return e
+            } else {
+                throw DecodingError.unrecognizedEnumValue
+            }
+        }
+        throw DecodingError.malformedText
+
+    }
+
     public mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int {
         try scanner.skipRequiredColon()
-        try E.setFromText(scanner: scanner, value: &value)
+        let e: E = try decodeEnum(from: scanner)
+        value = e
     }
 
     public mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
-        var v: E?
-        try decodeSingularEnumField(value: &v)
-        if let v = v {
-            value = v
-        } else {
-            value = E()
-        }
+        try scanner.skipRequiredColon()
+        let e: E = try decodeEnum(from: scanner)
+        value = e
     }
 
     public mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int {
@@ -220,10 +238,12 @@ public struct TextDecoder: Decoder {
                 } else {
                     try scanner.skipRequiredComma()
                 }
-                try E.setFromText(scanner: scanner, value: &value)
+                let e: E = try decodeEnum(from: scanner)
+                value.append(e)
             }
         } else {
-            try E.setFromText(scanner: scanner, value: &value)
+            let e: E = try decodeEnum(from: scanner)
+            value.append(e)
         }
     }
 

@@ -554,10 +554,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
       if _optionalNestedEnum != ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo {
-        try visitor.visitSingularField(fieldType: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.self, value: _optionalNestedEnum, fieldNumber: 21)
+        try visitor.visitSingularEnumField(value: _optionalNestedEnum, fieldNumber: 21)
       }
       if _optionalForeignEnum != ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo {
-        try visitor.visitSingularField(fieldType: ProtobufTestMessages_Proto3_ForeignEnum.self, value: _optionalForeignEnum, fieldNumber: 22)
+        try visitor.visitSingularEnumField(value: _optionalForeignEnum, fieldNumber: 22)
       }
       if _optionalStringPiece != "" {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _optionalStringPiece, fieldNumber: 24)
@@ -620,10 +620,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         try visitor.visitRepeatedMessageField(value: _repeatedForeignMessage, fieldNumber: 49)
       }
       if !_repeatedNestedEnum.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.self, value: _repeatedNestedEnum, fieldNumber: 51)
+        try visitor.visitPackedEnumField(value: _repeatedNestedEnum, fieldNumber: 51)
       }
       if !_repeatedForeignEnum.isEmpty {
-        try visitor.visitPackedField(fieldType: ProtobufTestMessages_Proto3_ForeignEnum.self, value: _repeatedForeignEnum, fieldNumber: 52)
+        try visitor.visitPackedEnumField(value: _repeatedForeignEnum, fieldNumber: 52)
       }
       if !_repeatedStringPiece.isEmpty {
         try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedStringPiece, fieldNumber: 54)
@@ -1190,7 +1190,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         }
       case .oneofEnum(let v):
         if start <= 119 && 119 < end {
-          try visitor.visitSingularField(fieldType: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.self, value: v, fieldNumber: 119)
+          try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
         }
       case .None:
         break

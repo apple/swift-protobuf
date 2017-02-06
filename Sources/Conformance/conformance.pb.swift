@@ -262,7 +262,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     try payload.traverse(visitor: visitor, start: 1, end: 3)
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
-      try visitor.visitSingularField(fieldType: Conformance_WireFormat.self, value: requestedOutputFormat, fieldNumber: 3)
+      try visitor.visitSingularEnumField(value: requestedOutputFormat, fieldNumber: 3)
     }
   }
 

@@ -110,6 +110,12 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 
+    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+    }
+
     public mutating func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
         switch fieldNumber {
         case 1: try decoder.decodeMapField(fieldType: ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
@@ -229,6 +235,12 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             self.init(stringValue: s)
         default:
             self.init()
+        }
+    }
+
+    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
         }
     }
 
@@ -476,7 +488,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {
-                    try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, fieldNumber: 1)
+                    try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
                 }
             case .numberValue(let v):
                 if start <= 2 && 2 < end {
@@ -592,6 +604,12 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
 
     public init(any: Google_Protobuf_Any) throws {
         try any.unpackTo(target: &self)
+    }
+
+    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
     }
 
     mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {

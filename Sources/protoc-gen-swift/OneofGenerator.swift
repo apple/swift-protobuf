@@ -132,9 +132,9 @@ class OneofGenerator {
             p.indent()
             p.print("if start <= \(f.number) && \(f.number) < end {\n")
             p.indent()
-            let special = f.isGroup ? "Group" : f.isMessage ? "Message" : "";
+            let special = f.isGroup ? "Group" : f.isMessage ? "Message" : f.isEnum ? "Enum" : "";
             let visitorMethod = "visitSingular\(special)Field"
-            let fieldClause = (f.isGroup || f.isMessage) ? "" : "fieldType: \(f.traitsType).self, "
+            let fieldClause = (f.isGroup || f.isMessage || f.isEnum) ? "" : "fieldType: \(f.traitsType).self, "
             p.print("try visitor.\(visitorMethod)(\(fieldClause)value: v, fieldNumber: \(f.number))\n")
             p.outdent()
             p.print("}\n")

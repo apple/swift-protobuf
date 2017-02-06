@@ -276,13 +276,3 @@ public struct ProtobufBytes: FieldType, MapValueType {
         try decoder.decodeSingularBytesField(value: &value)
     }
 }
-
-///
-/// Enum
-///
-public extension Enum {
-    static public var proto3DefaultValue: Self {return Self()}
-    public static func decodeFrom<D: Decoder>(decoder: inout D, value: inout BaseType?) throws {
-        assert(false)
-    }
-}

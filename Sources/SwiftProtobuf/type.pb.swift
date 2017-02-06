@@ -180,7 +180,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
       if _syntax != Google_Protobuf_Syntax.proto2 {
-        try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: _syntax, fieldNumber: 6)
+        try visitor.visitSingularEnumField(value: _syntax, fieldNumber: 6)
       }
     }
 
@@ -670,10 +670,10 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if kind != Google_Protobuf_Field.Kind.typeUnknown {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_Field.Kind.self, value: kind, fieldNumber: 1)
+      try visitor.visitSingularEnumField(value: kind, fieldNumber: 1)
     }
     if cardinality != Google_Protobuf_Field.Cardinality.unknown {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_Field.Cardinality.self, value: cardinality, fieldNumber: 2)
+      try visitor.visitSingularEnumField(value: cardinality, fieldNumber: 2)
     }
     if number != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: number, fieldNumber: 3)
@@ -769,7 +769,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
         try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
       }
       if _syntax != Google_Protobuf_Syntax.proto2 {
-        try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: _syntax, fieldNumber: 5)
+        try visitor.visitSingularEnumField(value: _syntax, fieldNumber: 5)
       }
     }
 

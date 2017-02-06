@@ -113,7 +113,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
         try visitor.visitRepeatedMessageField(value: _mixins, fieldNumber: 6)
       }
       if _syntax != Google_Protobuf_Syntax.proto2 {
-        try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: _syntax, fieldNumber: 7)
+        try visitor.visitSingularEnumField(value: _syntax, fieldNumber: 7)
       }
     }
 
@@ -316,7 +316,7 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto
       try visitor.visitRepeatedMessageField(value: options, fieldNumber: 6)
     }
     if syntax != Google_Protobuf_Syntax.proto2 {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_Syntax.self, value: syntax, fieldNumber: 7)
+      try visitor.visitSingularEnumField(value: syntax, fieldNumber: 7)
     }
   }
 

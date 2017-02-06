@@ -58,6 +58,20 @@ final class HashVisitor: Visitor {
     }
   }
 
+  func visitSingularEnumField<E: Enum>(value: E,
+                                   fieldNumber: Int) {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E],
+                                       fieldNumber: Int) {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
   func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
     mix(fieldNumber)
     mix(value.hashValue)

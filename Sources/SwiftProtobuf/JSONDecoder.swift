@@ -172,21 +172,43 @@ public struct JSONDecoder: Decoder {
     public mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int {
         if scanner.skipOptionalNull() {
             value = nil
+            return
+        } else if let name = try scanner.nextOptionalQuotedString() {
+            if let b = E(jsonName: name) {
+                value = b
+                return
+            }
         } else {
-            try E.setFromJSON(decoder: &self, value: &value)
-        }
-    }
-    public mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
-        if !scanner.skipOptionalNull() {
-            var v: E?
-            try E.setFromJSON(decoder: &self, value: &v)
-            if let v = v {
-                value = v
-            } else {
-                value = E()
+            let n = try scanner.nextSInt()
+            if let i = Int(exactly: n) {
+                value = E(rawValue: i)
+                return
             }
         }
+        throw DecodingError.unrecognizedEnumValue
     }
+
+    public mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
+        if scanner.skipOptionalNull() {
+            value = E()
+            return
+        } else if let name = try scanner.nextOptionalQuotedString() {
+            if let b = E(jsonName: name) {
+                value = b
+                return
+            }
+        } else {
+            let n = try scanner.nextSInt()
+            if let i = Int(exactly: n) {
+                if let v = E(rawValue: i) {
+                    value = v
+                    return
+                }
+            }
+        }
+        throw DecodingError.unrecognizedEnumValue
+    }
+
     public mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int {
         if scanner.skipOptionalNull() {
             return
@@ -196,7 +218,24 @@ public struct JSONDecoder: Decoder {
             return
         }
         while true {
-            try E.setFromJSON(decoder: &self, value: &value)
+            if let name = try scanner.nextOptionalQuotedString() {
+                if let b = E(jsonName: name) {
+                    value.append(b)
+                } else {
+                    throw DecodingError.unrecognizedEnumValue
+                }
+            } else {
+                let n = try scanner.nextSInt()
+                if let i = Int(exactly: n) {
+                    if let v = E(rawValue: i) {
+                        value.append(v)
+                    } else {
+                        throw DecodingError.unrecognizedEnumValue
+                    }
+                } else {
+                    throw DecodingError.malformedJSON
+                }
+            }
             if scanner.skipOptionalArrayEnd() {
                 return
             }

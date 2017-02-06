@@ -797,10 +797,10 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
       }
       if let v = _label {
-        try visitor.visitSingularField(fieldType: Google_Protobuf_FieldDescriptorProto.Label.self, value: v, fieldNumber: 4)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
       }
       if let v = _type {
-        try visitor.visitSingularField(fieldType: Google_Protobuf_FieldDescriptorProto.TypeEnum.self, value: v, fieldNumber: 5)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
       }
       if let v = _typeName {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 6)
@@ -2378,7 +2378,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 8)
     }
     if let v = _optimizeFor {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_FileOptions.OptimizeMode.self, value: v, fieldNumber: 9)
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
     }
     if let v = _javaMultipleFiles {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 10)
@@ -2973,7 +2973,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _ctype {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_FieldOptions.CType.self, value: v, fieldNumber: 1)
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     }
     if let v = _packed {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 2)
@@ -2985,7 +2985,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 5)
     }
     if let v = _jstype {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_FieldOptions.JSType.self, value: v, fieldNumber: 6)
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     }
     if let v = _weak {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 10)
@@ -3551,7 +3551,7 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 33)
     }
     if let v = _idempotencyLevel {
-      try visitor.visitSingularField(fieldType: Google_Protobuf_MethodOptions.IdempotencyLevel.self, value: v, fieldNumber: 34)
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 34)
     }
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)

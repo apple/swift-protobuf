@@ -72,6 +72,25 @@ final class JSONEncodingVisitor: Visitor {
     encoder.append(text: "]")
   }
 
+  func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    encoder.append(text: value.json)
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    var arraySeparator = ""
+    encoder.append(text: "[")
+    for v in value {
+      encoder.append(text: arraySeparator)
+      encoder.append(text: v.json)
+      arraySeparator = ","
+    }
+    encoder.append(text: "]")
+  }
+
   func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], fieldNumber: Int) throws {
     try visitRepeatedField(fieldType: fieldType, value: value, fieldNumber: fieldNumber)
   }
@@ -150,7 +169,7 @@ final class JSONEncodingVisitor: Visitor {
       encoder.append(text: arraySeparator)
       KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
       encoder.append(text: ":")
-      ValueType.serializeJSONValue(encoder: &encoder, value: v)
+      encoder.append(text: v.json)
       arraySeparator = ","
     }
     encoder.append(text: "}")

@@ -357,52 +357,6 @@ public extension ProtobufBytes {
     }
 }
 
-//
-// Enum traits
-//
-extension Enum where RawValue == Int {
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout Self?) throws {
-        if decoder.scanner.skipOptionalNull() {
-            value = Self(rawValue: 0)
-            return
-        }
-        if let name = try decoder.scanner.nextOptionalQuotedString() {
-            if let b = Self(jsonName: name) {
-                value = b
-                return
-            }
-        } else {
-            let n = try decoder.scanner.nextSInt()
-            if let i = Int(exactly: n) {
-                value = Self(rawValue: i)
-                return
-            }
-        }
-        throw DecodingError.unrecognizedEnumValue
-    }
-
-    public static func setFromJSON(decoder: inout JSONDecoder, value: inout [Self]) throws {
-        if let name = try decoder.scanner.nextOptionalQuotedString() {
-            if let b = Self(protoName: name) {
-                value.append(b)
-                return
-            }
-        } else {
-            let n = try decoder.scanner.nextSInt()
-            if let i = Int(exactly: n) {
-                let e = Self(rawValue: i)!
-                value.append(e)
-                return
-            }
-        }
-        throw DecodingError.unrecognizedEnumValue
-    }
-
-    public static func serializeJSONValue(encoder: inout JSONEncoder, value: Self) {
-        encoder.append(text: value.json)
-    }
-}
-
 ///
 /// Messages
 ///

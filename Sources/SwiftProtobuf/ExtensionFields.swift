@@ -201,6 +201,158 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   }
 }
 
+///
+/// Enum extensions
+///
+public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawValue == Int {
+  public typealias BaseType = E
+  public typealias ValueType = E?
+  public var value: ValueType
+  public var protobufExtension: MessageExtensionBase
+
+  public static func ==(lhs: OptionalEnumExtensionField,
+                        rhs: OptionalEnumExtensionField) -> Bool {
+    return lhs.value == rhs.value
+  }
+
+  public init(protobufExtension: MessageExtensionBase) {
+    self.protobufExtension = protobufExtension
+  }
+
+  public var debugDescription: String {
+    get {
+      if let value = value {
+        return String(reflecting: value)
+      }
+      return ""
+    }
+  }
+
+  public var hashValue: Int {
+    get { return value?.hashValue ?? 0 }
+  }
+
+  public func isEqual(other: AnyExtensionField) -> Bool {
+    let o = other as! OptionalEnumExtensionField<E>
+    return self == o
+  }
+
+  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+      try decoder.decodeSingularEnumField(value: &value)
+  }
+
+  public func traverse(visitor: Visitor) throws {
+    if let v = value {
+      try visitor.visitSingularEnumField(
+        value: v,
+        fieldNumber: protobufExtension.fieldNumber)
+    }
+  }
+}
+
+///
+/// Repeated Enum fields
+///
+public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue == Int {
+  public typealias BaseType = E
+  public typealias ValueType = [E]
+  public var value = ValueType()
+  public var protobufExtension: MessageExtensionBase
+
+  public static func ==(lhs: RepeatedEnumExtensionField,
+                        rhs: RepeatedEnumExtensionField) -> Bool {
+    return lhs.value == rhs.value
+  }
+
+  public init(protobufExtension: MessageExtensionBase) {
+    self.protobufExtension = protobufExtension
+  }
+
+  public var hashValue: Int {
+    get {
+      var hash = i_2166136261
+      for e in value {
+        hash = (hash &* i_16777619) ^ e.hashValue
+      }
+      return hash
+    }
+  }
+
+  public func isEqual(other: AnyExtensionField) -> Bool {
+    let o = other as! RepeatedEnumExtensionField<E>
+    return self == o
+  }
+
+  public var debugDescription: String {
+    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+  }
+
+  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+    try decoder.decodeRepeatedEnumField(value: &value)
+  }
+
+  public func traverse(visitor: Visitor) throws {
+    if value.count > 0 {
+      try visitor.visitRepeatedEnumField(
+        value: value,
+        fieldNumber: protobufExtension.fieldNumber)
+    }
+  }
+}
+
+///
+/// Packed Repeated Enum fields
+///
+/// TODO: This is almost (but not quite) identical to RepeatedEnumFields;
+/// find a way to collapse the implementations.
+///
+public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue == Int {
+  public typealias BaseType = E
+  public typealias ValueType = [E]
+  public var value = ValueType()
+  public var protobufExtension: MessageExtensionBase
+
+  public static func ==(lhs: PackedEnumExtensionField,
+                        rhs: PackedEnumExtensionField) -> Bool {
+    return lhs.value == rhs.value
+  }
+
+  public init(protobufExtension: MessageExtensionBase) {
+    self.protobufExtension = protobufExtension
+  }
+
+  public var hashValue: Int {
+    get {
+      var hash = i_2166136261
+      for e in value {
+        hash = (hash &* i_16777619) ^ e.hashValue
+      }
+      return hash
+    }
+  }
+
+  public func isEqual(other: AnyExtensionField) -> Bool {
+    let o = other as! PackedEnumExtensionField<E>
+    return self == o
+  }
+
+  public var debugDescription: String {
+    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+  }
+
+  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+    try decoder.decodeRepeatedEnumField(value: &value)
+  }
+
+  public func traverse(visitor: Visitor) throws {
+    if value.count > 0 {
+      try visitor.visitPackedEnumField(
+        value: value,
+        fieldNumber: protobufExtension.fieldNumber)
+    }
+  }
+}
+
 //
 // ========== Message ==========
 //

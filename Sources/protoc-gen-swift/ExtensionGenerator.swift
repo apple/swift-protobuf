@@ -52,6 +52,7 @@ struct ExtensionGenerator {
         switch descriptor.type {
         case .group: modifier = "Group"
         case .message: modifier = "Message"
+        case .enum: modifier = "Enum"
         default: modifier = ""
         }
         return "\(label)\(modifier)ExtensionField"

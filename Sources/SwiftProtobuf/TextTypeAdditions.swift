@@ -305,53 +305,6 @@ public extension ProtobufBytes {
     }
 }
 
-//
-// Enum traits
-//
-extension Enum where RawValue == Int {
-    public static func setFromText(scanner: TextScanner, value: inout Self?) throws {
-        if let name = try scanner.nextOptionalEnumName() {
-            if let b = Self(protoName: name) {
-                value = b
-                return
-            } else {
-                throw DecodingError.unrecognizedEnumValue
-            }
-        }
-        let number = try scanner.nextSInt()
-        if number >= Int64(Int32.min) && number <= Int64(Int32.max) {
-            let n = Int32(truncatingBitPattern: number)
-            value = Self(rawValue: Int(n))
-            return
-        }
-        throw DecodingError.malformedText
-    }
-
-    public static func setFromText(scanner: TextScanner, value: inout [Self]) throws {
-        if let name = try scanner.nextOptionalEnumName() {
-            if let b = Self(protoName: name) {
-                value.append(b)
-                return
-            } else {
-                throw DecodingError.unrecognizedEnumValue
-            }
-        }
-        let number = try scanner.nextSInt()
-        if number >= Int64(Int32.min) && number <= Int64(Int32.max) {
-            let n = Int32(truncatingBitPattern: number)
-            let e = Self(rawValue: Int(n))!  // Note: Can never fail!
-            // TODO: Google's C++ implementation of text format rejects unknown enum values
-            value.append(e)
-            return
-        }
-        throw DecodingError.malformedText
-    }
-
-    public static func serializeTextValue(encoder: TextEncoder, value: Self) {
-        encoder.putEnumValue(value: value)
-    }
-}
-
 ///
 /// Messages
 ///
@@ -370,7 +323,7 @@ public extension Message {
         return visitor.result
     }
 
-    static func serializeTextValue(encoder: TextEncoder, value: Self) throws {
+    internal static func serializeTextValue(encoder: TextEncoder, value: Self) throws {
         encoder.startObject()
         let visitor = TextEncodingVisitor(message: value, encoder: encoder)
         try value.traverse(visitor: visitor)

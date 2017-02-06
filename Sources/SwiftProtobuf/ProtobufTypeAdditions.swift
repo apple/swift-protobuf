@@ -644,26 +644,6 @@ extension ProtobufBytes: ProtobufMapValueType {
     }
 }
 
-//
-// Enum traits
-//
-extension Enum where RawValue == Int {
-    public static var protobufWireFormat: WireFormat { return .varint }
-
-    public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Self) {
-        encoder.putVarInt(value: value.rawValue)
-    }
-
-    // XXXXX DELETE ME XXXXX
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout Self?) throws -> Bool {
-        return false
-    }
-
-    public static func encodedSizeWithoutTag(of value: Self) -> Int {
-        return Varint.encodedSize(of: Int32(truncatingBitPattern: value.rawValue))
-    }
-}
-
 ///
 /// Messages
 ///
@@ -681,13 +661,11 @@ public extension Message {
         try traverse(visitor: visitor)
     }
 
-    func serializedProtobufSize() throws -> Int {
+    internal func serializedProtobufSize() throws -> Int {
         let visitor = ProtobufEncodingSizeVisitor()
         try traverse(visitor: visitor)
         return visitor.serializedSize
     }
-
-    static var protobufWireFormat: WireFormat { return .lengthDelimited }
 
     static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Self) {
         // We already verified the size, so this must succeed!

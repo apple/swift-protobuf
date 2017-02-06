@@ -512,12 +512,13 @@ struct MessageFieldGenerator {
                          : "Singular")
             let special = isGroup ? "Group"
                          : isMessage ? "Message"
+                         : isEnum ? "Enum"
                          : ""
             visitMethod = "visit\(modifier)\(special)Field"
         }
 
         let fieldTypeArg: String
-        if isMap || (!isGroup && !isMessage) {
+        if isMap || (!isGroup && !isMessage && !isEnum) {
             fieldTypeArg = "fieldType: \(traitsType).self, "
         } else {
             fieldTypeArg = ""

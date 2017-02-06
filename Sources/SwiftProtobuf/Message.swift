@@ -241,11 +241,4 @@ public extension _MessageImplementationBase {
   mutating func decodeMessage<T: Decoder>(decoder: inout T) throws {
       try _protoc_generated_decodeMessage(decoder: &decoder)
   }
-
-  // DELETEME: Temporary filler to let things compile without new code generation
-  mutating func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
 }
