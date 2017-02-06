@@ -68,17 +68,19 @@ but there are a few things that can be configured to specific needs.
 `protoc` supports passing generator options to the plugins, and the Swift plugin
 uses these to communicate changes from the default behaviors.
 
-The options are given as part of the `--swift-out` argument like this:
+The options are given with a `--swift_opt` argument like this:
 
 ```
-$ protoc --swift_out=[NAME]=[VALUE]:. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=[NAME]=[VALUE] --swift_out:. foo/bar/*.proto mumble/*.proto
 ```
 
-And more than one _NAME/VALUE_ pair can be passed by using a comma to seperate
-them:
+And more than one _NAME/VALUE_ pair can be passed by using the argument multiple times:
 
 ```
-$ protoc --swift_out=[NAME1]=[VALUE1],[NAME2]=[VALUE2]:. foo/bar/*.proto mumble/*.proto
+$ protoc \
+    --swift_opt=[NAME1]=[VALUE1] \
+    --swift_opt=[NAME2]=[VALUE2] \
+    --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 ##### Generation Option: `FileNaming` - Naming of Generated Sources
@@ -86,10 +88,10 @@ $ protoc --swift_out=[NAME1]=[VALUE1],[NAME2]=[VALUE2]:. foo/bar/*.proto mumble/
 By default, the paths to the proto files are maintained on the generated files.
 So if you pass `foo/bar/my.proto`, you will get `foo/bar/my.pb.swift` in the
 output directory. The Swift plugin supports an option to control the generated
-file names, the option is given as part of the `--swift-out` argument like this:
+file names, the option is given as part of the `--swift_out` argument like this:
 
 ```
-$ protoc --swift_out=FileNaming=[value]:. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=FileNaming=[value]: --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `FileNaming` are:
@@ -109,7 +111,7 @@ because no visibility is set on them.  If you want the types to be made public
 the option can be given as:
 
 ```
-$ protoc --swift_out=Visibility=[value]:. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `Visibility` are:

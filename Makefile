@@ -329,11 +329,19 @@ regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-p
 
 # Rebuild just the protos included in the runtime library
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/SwiftProtobuf ${LIBRARY_PROTOS}
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_out=Sources/SwiftProtobuf \
+		${LIBRARY_PROTOS}
 
 # Rebuild just the protos used by the plugin
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath,Visibility=Public:Sources/PluginLibrary ${PLUGIN_PROTOS}
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_out=Sources/PluginLibrary \
+		${PLUGIN_PROTOS}
 
 # Rebuild just the protos used by the runtime test suite
 # Note: Some of these protos define the same package.(message|enum)s, so they
@@ -341,12 +349,18 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 # one at a time instead.
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT}
 	for t in ${TEST_PROTOS}; do \
-		${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Tests/SwiftProtobufTests $$t; \
+		${GENERATE_SRCS} \
+			--tfiws_opt=FileNaming=DropPath \
+			--tfiws_out=Tests/SwiftProtobufTests \
+			$$t; \
 	done
 
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
-	${GENERATE_SRCS} --tfiws_out=FileNaming=DropPath:Sources/Conformance ${CONFORMANCE_PROTOS}
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_out=Sources/Conformance \
+		${CONFORMANCE_PROTOS}
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:
