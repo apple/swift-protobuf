@@ -22,60 +22,13 @@ import Foundation
 // field, and Go treats a mismatched wire type as a decode error.  Personally,
 // I prefer the latter.
 
-
-public extension FieldType {
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool {
-        var v: BaseType?
-        let consumed = try setFromProtobuf(decoder: &decoder, value: &v)
-        if let v = v {
-            value = v
-        }
-        return consumed
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        throw DecodingError.schemaMismatch
-    }
-}
-
-protocol ProtobufMapValueType: MapValueType {
-}
-
 ///
 /// Float traits
 ///
-extension ProtobufFloat: ProtobufMapValueType {
+extension ProtobufFloat {
     public static var protobufWireFormat: WireFormat { return .fixed32 }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Float) {
         encoder.putFloatValue(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularFloatField(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.fixed32.rawValue:
-            var i: Float = 0
-            try decoder.decodeFourByteNumber(value: &i)
-            value.append(i)
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            var i: Float = 0
-            while !decoder.complete {
-                try decoder.decodeFourByteNumber(value: &i)
-                value.append(i)
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Float) -> Int {
@@ -87,38 +40,10 @@ extension ProtobufFloat: ProtobufMapValueType {
 ///
 /// Double traits
 ///
-extension ProtobufDouble: ProtobufMapValueType {
+extension ProtobufDouble {
     public static var protobufWireFormat: WireFormat { return .fixed64 }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Double) {
         encoder.putDoubleValue(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularDoubleField(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.fixed64.rawValue:
-            var i: Double = 0
-            try decoder.decodeEightByteNumber(value: &i)
-            value.append(i)
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            var i: Double = 0
-            while !decoder.complete {
-                try decoder.decodeEightByteNumber(value: &i)
-                value.append(i)
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Double) -> Int {
@@ -129,36 +54,11 @@ extension ProtobufDouble: ProtobufMapValueType {
 ///
 /// Int32 traits
 ///
-extension ProtobufInt32: ProtobufMapValueType {
+extension ProtobufInt32 {
     public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Int32) {
         encoder.putVarInt(value: Int64(value))
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularInt32Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.varint.rawValue:
-            let varint = try decoder.decodeVarint()
-            value.append(Int32(truncatingBitPattern: varint))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            while !decoder.complete {
-                let varint = try decoder.decodeVarint()
-                value.append(Int32(truncatingBitPattern: varint))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Int32) -> Int {
@@ -169,36 +69,11 @@ extension ProtobufInt32: ProtobufMapValueType {
 ///
 /// Int64 traits
 ///
-extension ProtobufInt64: ProtobufMapValueType {
+extension ProtobufInt64 {
     public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Int64) {
         encoder.putVarInt(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularInt64Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.varint.rawValue:
-            let varint = try decoder.decodeVarint()
-            value.append(Int64(bitPattern: varint))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            while !decoder.complete {
-                let varint = try decoder.decodeVarint()
-                value.append(Int64(bitPattern: varint))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Int64) -> Int {
@@ -209,36 +84,11 @@ extension ProtobufInt64: ProtobufMapValueType {
 ///
 /// UInt32 traits
 ///
-extension ProtobufUInt32: ProtobufMapValueType {
+extension ProtobufUInt32 {
     public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: UInt32) {
         encoder.putVarInt(value: UInt64(value))
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularUInt32Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.varint.rawValue:
-            let varint = try decoder.decodeVarint()
-            value.append(UInt32(truncatingBitPattern: varint))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            while !decoder.complete {
-                let t = try decoder.decodeVarint()
-                value.append(UInt32(truncatingBitPattern: t))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: UInt32) -> Int {
@@ -249,36 +99,11 @@ extension ProtobufUInt32: ProtobufMapValueType {
 ///
 /// UInt64 traits
 ///
-extension ProtobufUInt64: ProtobufMapValueType {
+extension ProtobufUInt64 {
     public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: UInt64) {
         encoder.putVarInt(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularUInt64Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.varint.rawValue:
-            let varint = try decoder.decodeVarint()
-            value.append(varint)
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            while !decoder.complete {
-                let t = try decoder.decodeVarint()
-                value.append(t)
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
@@ -289,38 +114,11 @@ extension ProtobufUInt64: ProtobufMapValueType {
 ///
 /// SInt32 traits
 ///
-extension ProtobufSInt32: ProtobufMapValueType {
+extension ProtobufSInt32 {
     public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Int32) {
         encoder.putZigZagVarInt(value: Int64(value))
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularSInt32Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.varint.rawValue:
-            let varint = try decoder.decodeVarint()
-            let t = UInt32(truncatingBitPattern: varint)
-            value.append(ZigZag.decoded(t))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            while !decoder.complete {
-                let varint = try decoder.decodeVarint()
-                let t = UInt32(truncatingBitPattern: varint)
-                value.append(ZigZag.decoded(t))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Int32) -> Int {
@@ -331,36 +129,11 @@ extension ProtobufSInt32: ProtobufMapValueType {
 ///
 /// SInt64 traits
 ///
-extension ProtobufSInt64: ProtobufMapValueType {
+extension ProtobufSInt64 {
     public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Int64) {
         encoder.putZigZagVarInt(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularSInt64Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.varint.rawValue:
-            let varint = try decoder.decodeVarint()
-            value.append(ZigZag.decoded(varint))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            while !decoder.complete {
-                let varint = try decoder.decodeVarint()
-                value.append(ZigZag.decoded(varint))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Int64) -> Int {
@@ -371,38 +144,10 @@ extension ProtobufSInt64: ProtobufMapValueType {
 ///
 /// Fixed32 traits
 ///
-extension ProtobufFixed32: ProtobufMapValueType {
+extension ProtobufFixed32 {
     public static var protobufWireFormat: WireFormat { return .fixed32 }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: UInt32) {
         encoder.putFixedUInt32(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularFixed32Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.fixed32.rawValue:
-            var i: UInt32 = 0
-            try decoder.decodeFourByteNumber(value: &i)
-            value.append(UInt32(littleEndian: i))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            var i: UInt32 = 0
-            while !decoder.complete {
-                try decoder.decodeFourByteNumber(value: &i)
-                value.append(UInt32(littleEndian: i))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: UInt32) -> Int {
@@ -413,39 +158,10 @@ extension ProtobufFixed32: ProtobufMapValueType {
 ///
 /// Fixed64 traits
 ///
-extension ProtobufFixed64: ProtobufMapValueType {
+extension ProtobufFixed64 {
     public static var protobufWireFormat: WireFormat { return .fixed64 }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: UInt64) {
         encoder.putFixedUInt64(value: value.littleEndian)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularFixed64Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.fixed64.rawValue:
-            var i: UInt64 = 0
-            try decoder.decodeEightByteNumber(value: &i)
-            value.append(UInt64(littleEndian: i))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            var i: UInt64 = 0
-            while !decoder.complete {
-                try decoder.decodeEightByteNumber(value: &i)
-                value.append(UInt64(littleEndian: i))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
-
     }
 
     public static func encodedSizeWithoutTag(of value: UInt64) -> Int {
@@ -456,38 +172,10 @@ extension ProtobufFixed64: ProtobufMapValueType {
 ///
 /// SFixed32 traits
 ///
-extension ProtobufSFixed32: ProtobufMapValueType {
+extension ProtobufSFixed32 {
     public static var protobufWireFormat: WireFormat { return .fixed32 }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Int32) {
         encoder.putFixedUInt32(value: UInt32(bitPattern: value))
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularSFixed32Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.fixed32.rawValue:
-            var i: Int32 = 0
-            try decoder.decodeFourByteNumber(value: &i)
-            value.append(Int32(littleEndian: i))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            var i: Int32 = 0
-            while !decoder.complete {
-                try decoder.decodeFourByteNumber(value: &i)
-                value.append(Int32(littleEndian: i))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Int32) -> Int {
@@ -498,38 +186,10 @@ extension ProtobufSFixed32: ProtobufMapValueType {
 ///
 /// SFixed64 traits
 ///
-extension ProtobufSFixed64: ProtobufMapValueType {
+extension ProtobufSFixed64 {
     public static var protobufWireFormat: WireFormat { return .fixed64 }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Int64) {
         encoder.putFixedUInt64(value: UInt64(bitPattern: value.littleEndian))
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularSFixed64Field(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.fixed64.rawValue:
-            var i: Int64 = 0
-            try decoder.decodeEightByteNumber(value: &i)
-            value.append(Int64(littleEndian: i))
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<BaseType>.size)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            var i: Int64 = 0
-            while !decoder.complete {
-                try decoder.decodeEightByteNumber(value: &i)
-                value.append(Int64(littleEndian: i))
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Int64) -> Int {
@@ -540,36 +200,11 @@ extension ProtobufSFixed64: ProtobufMapValueType {
 ///
 /// Bool traits
 ///
-extension ProtobufBool: ProtobufMapValueType {
+extension ProtobufBool {
     public static var protobufWireFormat: WireFormat { return .varint }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Bool) {
         encoder.putBoolValue(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularBoolField(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool {
-        switch decoder.fieldWireFormat {
-        case WireFormat.varint.rawValue:
-            let varint = try decoder.decodeVarint()
-            value.append(varint != 0)
-            return true
-        case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try decoder.getFieldBodyBytes(count: &n)
-            var decoder = ProtobufDecoder(protobufPointer: p, count: n)
-            while !decoder.complete {
-                let t = try decoder.decodeVarint()
-                value.append(t != 0)
-            }
-            return true
-        default:
-            throw DecodingError.schemaMismatch
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: Bool) -> Int {
@@ -581,29 +216,10 @@ extension ProtobufBool: ProtobufMapValueType {
 /// String traits
 ///
 
-extension ProtobufString: ProtobufMapValueType {
+extension ProtobufString {
     public static var protobufWireFormat: WireFormat { return .lengthDelimited }
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: String) {
         encoder.putStringValue(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularStringField(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [String]) throws -> Bool {
-        guard decoder.fieldWireFormat == WireFormat.lengthDelimited.rawValue else {
-            throw DecodingError.schemaMismatch
-        }
-        var n: Int = 0
-        let p = try decoder.getFieldBodyBytes(count: &n)
-        if let s = utf8ToString(bytes: p, count: n) {
-            value.append(s)
-            return true
-        } else {
-            throw DecodingError.invalidUTF8
-        }
     }
 
     public static func encodedSizeWithoutTag(of value: String) -> Int {
@@ -616,26 +232,11 @@ extension ProtobufString: ProtobufMapValueType {
 ///
 /// Bytes traits
 ///
-extension ProtobufBytes: ProtobufMapValueType {
+extension ProtobufBytes {
     public static var protobufWireFormat: WireFormat { return .lengthDelimited }
 
     public static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Data) {
         encoder.putBytesValue(value: value)
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool {
-        try decoder.decodeSingularBytesField(value: &value)
-        return true
-    }
-
-    public static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [Data]) throws -> Bool {
-        guard decoder.fieldWireFormat == WireFormat.lengthDelimited.rawValue else {
-            throw DecodingError.schemaMismatch
-        }
-        var n: Int = 0
-        let p = try decoder.getFieldBodyBytes(count: &n)
-        value.append(Data(bytes: p, count: n))
-        return true
     }
 
     public static func encodedSizeWithoutTag(of value: Data) -> Int {
@@ -725,15 +326,3 @@ public extension Proto3Message {
         }
     }
 }
-
-///
-/// Groups
-///
-
-// Nothing.  Groups are implemented as messages.
-
-///
-/// Maps
-///
-
-// No special support here.

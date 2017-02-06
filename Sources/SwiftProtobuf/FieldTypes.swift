@@ -29,18 +29,22 @@ import Swift
 // Note: The protobuf- and JSON-specific methods here are defined
 // in ProtobufTypeAdditions.swift and JSONTypeAdditions.swift
 public protocol FieldType {
-    // Default here is appropriate for enums and messages
-    // Other types will override this
-    associatedtype BaseType: Hashable = Self
+    // The Swift type used to store data for this field.
+    // For example, proto "sint32" fields use Swift "Int32"
+    // type.
+    associatedtype BaseType: Hashable
 
+    // The default value for this field type before it
+    // has been set.  This is also used, for example, when
+    // JSON decodes a "null" value for a field.
     static var proto3DefaultValue: BaseType { get }
 
+    // These generic hooks are used to look up the correct
+    // decoding for extension fields, map keys, and map values.
     static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws
     static func decodeRepeated<D: Decoder>(value: inout [BaseType], from decoder: inout D) throws
 
-    //
-    // Protobuf coding for basic types
-    //
+    // The protobuf wire format used for this type.
     static var protobufWireFormat: WireFormat { get }
 
     /// Returns the number of bytes required to serialize `value` on the wire.
@@ -52,26 +56,14 @@ public protocol FieldType {
 
     /// Write the protobuf-encoded value to the encoder
     static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: BaseType)
-    /// Update a field from a protobuf decoder
-    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType?) throws -> Bool
-    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout BaseType) throws -> Bool
-    static func setFromProtobuf(decoder: inout ProtobufDecoder, value: inout [BaseType]) throws -> Bool
 
-    //
-    // Protobuf Text coding for basic types
-    //
     /// Serialize the value to a Text encoder
     static func serializeTextValue(encoder: TextEncoder, value: BaseType) throws
-    /// Update the field from the Text scanner
-    static func setFromText(scanner: TextScanner, value: inout BaseType?) throws
-    static func setFromText(scanner: TextScanner, value: inout BaseType) throws
-    static func setFromText(scanner: TextScanner, value: inout [BaseType]) throws
 
-    //
-    // JSON coding for basic types
-    //
     /// Serialize the value to a JSON encoder
     static func serializeJSONValue(encoder: inout JSONEncoder, value: BaseType) throws
+
+    /// XXX TODO: These will disappear with an upcoming rework of the JSON decoder
     /// Update the field from the JSON scanner
     static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType?) throws
     static func setFromJSON(decoder: inout JSONDecoder, value: inout BaseType) throws
@@ -85,7 +77,7 @@ public protocol MapKeyType: FieldType {
     associatedtype BaseType: Hashable = Self
 
     //
-    // Protobuf does not treat map keys specially
+    // Protobuf binary does not treat map keys specially
     //
 
     //

@@ -46,11 +46,13 @@ import Foundation
 /// necessary generic methods to support this.
 
 public protocol Decoder {
-
-    mutating func nextFieldNumber() throws -> Int?
-
     // Some decoders require that multiple values for a oneof must fail
     var rejectConflictingOneof: Bool { get }
+
+    // Get the next field number.  For JSON and Text, the decoder
+    // translates name to number at this point, based on information
+    // it obtained from the message when it was initialized.
+    mutating func nextFieldNumber() throws -> Int?
 
     // Primitive field decoders
     mutating func decodeSingularFloatField(value: inout Float) throws
@@ -99,19 +101,27 @@ public protocol Decoder {
     mutating func decodeSingularBytesField(value: inout Data?) throws
     mutating func decodeRepeatedBytesField(value: inout [Data]) throws
 
+    // Decode Enum fields
     mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int
     mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int
     mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int
 
+    // Decode Message fields
     mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws
     mutating func decodeRepeatedMessageField<M: Message>(value: inout [M]) throws
 
+    // Decode Group fields
     mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws
     mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws
 
+    // Decode Map fields.
+    // This is broken into separate methods depending on whether the value
+    // type is primitive (ProtobufMap), enum (ProtobufEnumMap), or message
+    // (ProtobufMessageMap)
     mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws
     mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: ProtobufEnumMap<KeyType, ValueType>.Type, value: inout ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int
     mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws
 
+    // Decode extension fields
     mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws
 }

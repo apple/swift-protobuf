@@ -40,152 +40,14 @@ public struct TextDecoder: Decoder {
     }
 
     public mutating func decodeSingularFloatField(value: inout Float) throws {
-        try decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
+        try scanner.skipRequiredColon()
+        value = try scanner.nextFloat()
     }
     public mutating func decodeSingularFloatField(value: inout Float?) throws {
-        try decodeSingularField(fieldType: ProtobufFloat.self, value: &value)
+        try scanner.skipRequiredColon()
+        value = try scanner.nextFloat()
     }
     public mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
-        try decodeRepeatedField(fieldType: ProtobufFloat.self, value: &value)
-    }
-    public mutating func decodeSingularDoubleField(value: inout Double) throws {
-        try decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
-    }
-    public mutating func decodeSingularDoubleField(value: inout Double?) throws {
-        try decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
-    }
-    public mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
-        try decodeRepeatedField(fieldType: ProtobufDouble.self, value: &value)
-    }
-    public mutating func decodeSingularInt32Field(value: inout Int32) throws {
-        try decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
-    }
-    public mutating func decodeSingularInt32Field(value: inout Int32?) throws {
-        try decodeSingularField(fieldType: ProtobufInt32.self, value: &value)
-    }
-    public mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
-        try decodeRepeatedField(fieldType: ProtobufInt32.self, value: &value)
-    }
-    public mutating func decodeSingularInt64Field(value: inout Int64) throws {
-        try decodeSingularField(fieldType: ProtobufInt64.self, value: &value)
-    }
-    public mutating func decodeSingularInt64Field(value: inout Int64?) throws {
-        try decodeSingularField(fieldType: ProtobufInt64.self, value: &value)
-    }
-    public mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
-        try decodeRepeatedField(fieldType: ProtobufInt64.self, value: &value)
-    }
-    public mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
-        try decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
-    }
-    public mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
-        try decodeSingularField(fieldType: ProtobufUInt32.self, value: &value)
-    }
-    public mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
-        try decodeRepeatedField(fieldType: ProtobufUInt32.self, value: &value)
-    }
-    public mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
-        try decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
-    }
-    public mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
-        try decodeSingularField(fieldType: ProtobufUInt64.self, value: &value)
-    }
-    public mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
-        try decodeRepeatedField(fieldType: ProtobufUInt64.self, value: &value)
-    }
-    public mutating func decodeSingularSInt32Field(value: inout Int32) throws {
-        try decodeSingularField(fieldType: ProtobufSInt32.self, value: &value)
-    }
-    public mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
-        try decodeSingularField(fieldType: ProtobufSInt32.self, value: &value)
-    }
-    public mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
-        try decodeRepeatedField(fieldType: ProtobufSInt32.self, value: &value)
-    }
-    public mutating func decodeSingularSInt64Field(value: inout Int64) throws {
-        try decodeSingularField(fieldType: ProtobufSInt64.self, value: &value)
-    }
-    public mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
-        try decodeSingularField(fieldType: ProtobufSInt64.self, value: &value)
-    }
-    public mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
-        try decodeRepeatedField(fieldType: ProtobufSInt64.self, value: &value)
-    }
-    public mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
-        try decodeSingularField(fieldType: ProtobufFixed32.self, value: &value)
-    }
-    public mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
-        try decodeSingularField(fieldType: ProtobufFixed32.self, value: &value)
-    }
-    public mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
-        try decodeRepeatedField(fieldType: ProtobufFixed32.self, value: &value)
-    }
-    public mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
-        try decodeSingularField(fieldType: ProtobufFixed64.self, value: &value)
-    }
-    public mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
-        try decodeSingularField(fieldType: ProtobufFixed64.self, value: &value)
-    }
-    public mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
-        try decodeRepeatedField(fieldType: ProtobufFixed64.self, value: &value)
-    }
-    public mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
-        try decodeSingularField(fieldType: ProtobufSFixed32.self, value: &value)
-    }
-    public mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
-        try decodeSingularField(fieldType: ProtobufSFixed32.self, value: &value)
-    }
-    public mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
-        try decodeRepeatedField(fieldType: ProtobufSFixed32.self, value: &value)
-    }
-    public mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
-        try decodeSingularField(fieldType: ProtobufSFixed64.self, value: &value)
-    }
-    public mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
-        try decodeSingularField(fieldType: ProtobufSFixed64.self, value: &value)
-    }
-    public mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
-        try decodeRepeatedField(fieldType: ProtobufSFixed64.self, value: &value)
-    }
-    public mutating func decodeSingularBoolField(value: inout Bool) throws {
-        try decodeSingularField(fieldType: ProtobufBool.self, value: &value)
-    }
-    public mutating func decodeSingularBoolField(value: inout Bool?) throws {
-        try decodeSingularField(fieldType: ProtobufBool.self, value: &value)
-    }
-    public mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
-        try decodeRepeatedField(fieldType: ProtobufBool.self, value: &value)
-    }
-    public mutating func decodeSingularStringField(value: inout String) throws {
-        try decodeSingularField(fieldType: ProtobufString.self, value: &value)
-    }
-    public mutating func decodeSingularStringField(value: inout String?) throws {
-        try decodeSingularField(fieldType: ProtobufString.self, value: &value)
-    }
-    public mutating func decodeRepeatedStringField(value: inout [String]) throws {
-        try decodeRepeatedField(fieldType: ProtobufString.self, value: &value)
-    }
-    public mutating func decodeSingularBytesField(value: inout Data) throws {
-        try decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
-    }
-    public mutating func decodeSingularBytesField(value: inout Data?) throws {
-        try decodeSingularField(fieldType: ProtobufBytes.self, value: &value)
-    }
-    public mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
-        try decodeRepeatedField(fieldType: ProtobufBytes.self, value: &value)
-    }
-
-    private mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType?) throws {
-        try scanner.skipRequiredColon()
-        try S.setFromText(scanner: scanner, value: &value)
-    }
-
-    private mutating func decodeSingularField<S: FieldType>(fieldType: S.Type, value: inout S.BaseType) throws {
-        try scanner.skipRequiredColon()
-        try S.setFromText(scanner: scanner, value: &value)
-    }
-
-    private mutating func decodeRepeatedField<S: FieldType>(fieldType: S.Type, value: inout [S.BaseType]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -198,10 +60,326 @@ public struct TextDecoder: Decoder {
                 } else {
                     try scanner.skipRequiredComma()
                 }
-                try S.setFromText(scanner: scanner, value: &value)
+                let n = try scanner.nextFloat()
+                value.append(n)
             }
         } else {
-            try S.setFromText(scanner: scanner, value: &value)
+            let n = try scanner.nextFloat()
+            value.append(n)
+        }
+    }
+    public mutating func decodeSingularDoubleField(value: inout Double) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextDouble()
+    }
+    public mutating func decodeSingularDoubleField(value: inout Double?) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextDouble()
+    }
+    public mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextDouble()
+                value.append(n)
+            }
+        } else {
+            let n = try scanner.nextDouble()
+            value.append(n)
+        }
+    }
+    public mutating func decodeSingularInt32Field(value: inout Int32) throws {
+        try scanner.skipRequiredColon()
+        let n = try scanner.nextSInt()
+        if n > Int64(Int32.max) || n < Int64(Int32.min) {
+            throw DecodingError.malformedTextNumber
+        }
+        value = Int32(truncatingBitPattern: n)
+    }
+    public mutating func decodeSingularInt32Field(value: inout Int32?) throws {
+        try scanner.skipRequiredColon()
+        let n = try scanner.nextSInt()
+        if n > Int64(Int32.max) || n < Int64(Int32.min) {
+            throw DecodingError.malformedTextNumber
+        }
+        value = Int32(truncatingBitPattern: n)
+    }
+    public mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextSInt()
+                if n > Int64(Int32.max) || n < Int64(Int32.min) {
+                    throw DecodingError.malformedTextNumber
+                }
+                value.append(Int32(truncatingBitPattern: n))
+            }
+        } else {
+            let n = try scanner.nextSInt()
+            if n > Int64(Int32.max) || n < Int64(Int32.min) {
+                throw DecodingError.malformedTextNumber
+            }
+            value.append(Int32(truncatingBitPattern: n))
+        }
+    }
+    public mutating func decodeSingularInt64Field(value: inout Int64) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextSInt()
+    }
+    public mutating func decodeSingularInt64Field(value: inout Int64?) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextSInt()
+    }
+    public mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextSInt()
+                value.append(n)
+            }
+        } else {
+            let n = try scanner.nextSInt()
+            value.append(n)
+        }
+    }
+    public mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
+        try scanner.skipRequiredColon()
+        let n = try scanner.nextUInt()
+        if n > UInt64(UInt32.max) {
+            throw DecodingError.malformedTextNumber
+        }
+        value = UInt32(truncatingBitPattern: n)
+    }
+    public mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
+        try scanner.skipRequiredColon()
+        let n = try scanner.nextUInt()
+        if n > UInt64(UInt32.max) {
+            throw DecodingError.malformedTextNumber
+        }
+        value = UInt32(truncatingBitPattern: n)
+    }
+    public mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextUInt()
+                if n > UInt64(UInt32.max) {
+                    throw DecodingError.malformedTextNumber
+                }
+                value.append(UInt32(truncatingBitPattern: n))
+            }
+        } else {
+            let n = try scanner.nextUInt()
+            if n > UInt64(UInt32.max) {
+                throw DecodingError.malformedTextNumber
+            }
+            value.append(UInt32(truncatingBitPattern: n))
+        }
+    }
+    public mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextUInt()
+    }
+    public mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextUInt()
+    }
+    public mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextUInt()
+                value.append(n)
+            }
+        } else {
+            let n = try scanner.nextUInt()
+            value.append(n)
+        }
+    }
+    public mutating func decodeSingularSInt32Field(value: inout Int32) throws {
+        try decodeSingularInt32Field(value: &value)
+    }
+    public mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
+        try decodeSingularInt32Field(value: &value)
+    }
+    public mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
+        try decodeRepeatedInt32Field(value: &value)
+    }
+    public mutating func decodeSingularSInt64Field(value: inout Int64) throws {
+        try decodeSingularInt64Field(value: &value)
+    }
+    public mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
+        try decodeSingularInt64Field(value: &value)
+    }
+    public mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
+        try decodeRepeatedInt64Field(value: &value)
+    }
+    public mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
+        try decodeSingularUInt32Field(value: &value)
+    }
+    public mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
+        try decodeSingularUInt32Field(value: &value)
+    }
+    public mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
+        try decodeRepeatedUInt32Field(value: &value)
+    }
+    public mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
+        try decodeSingularUInt64Field(value: &value)
+    }
+    public mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
+        try decodeSingularUInt64Field(value: &value)
+    }
+    public mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
+        try decodeRepeatedUInt64Field(value: &value)
+    }
+    public mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
+        try decodeSingularInt32Field(value: &value)
+    }
+    public mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
+        try decodeSingularInt32Field(value: &value)
+    }
+    public mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
+        try decodeRepeatedInt32Field(value: &value)
+    }
+    public mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
+        try decodeSingularInt64Field(value: &value)
+    }
+    public mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
+        try decodeSingularInt64Field(value: &value)
+    }
+    public mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
+        try decodeRepeatedInt64Field(value: &value)
+    }
+    public mutating func decodeSingularBoolField(value: inout Bool) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextBool()
+    }
+    public mutating func decodeSingularBoolField(value: inout Bool?) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextBool()
+    }
+    public mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextBool()
+                value.append(n)
+            }
+        } else {
+            let n = try scanner.nextBool()
+            value.append(n)
+        }
+    }
+    public mutating func decodeSingularStringField(value: inout String) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextStringValue()
+    }
+    public mutating func decodeSingularStringField(value: inout String?) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextStringValue()
+    }
+    public mutating func decodeRepeatedStringField(value: inout [String]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextStringValue()
+                value.append(n)
+            }
+        } else {
+            let n = try scanner.nextStringValue()
+            value.append(n)
+        }
+    }
+    public mutating func decodeSingularBytesField(value: inout Data) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextBytesValue()
+    }
+    public mutating func decodeSingularBytesField(value: inout Data?) throws {
+        try scanner.skipRequiredColon()
+        value = try scanner.nextBytesValue()
+    }
+    public mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+        try scanner.skipRequiredColon()
+        if scanner.skipOptionalBeginArray() {
+            var firstItem = true
+            while true {
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                if firstItem {
+                    firstItem = false
+                } else {
+                    try scanner.skipRequiredComma()
+                }
+                let n = try scanner.nextBytesValue()
+                value.append(n)
+            }
+        } else {
+            let n = try scanner.nextBytesValue()
+            value.append(n)
         }
     }
 
@@ -340,9 +518,9 @@ public struct TextDecoder: Decoder {
             if let key = try scanner.nextKey() {
                 switch key {
                 case "key":
-                    try decodeSingularField(fieldType: KeyType.self, value: &keyField)
+                    try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value":
-                    try decodeSingularField(fieldType: ValueType.self, value: &valueField)
+                    try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
                     throw DecodingError.unknownField
                 }
@@ -387,7 +565,7 @@ public struct TextDecoder: Decoder {
             if let key = try scanner.nextKey() {
                 switch key {
                 case "key":
-                    try decodeSingularField(fieldType: KeyType.self, value: &keyField)
+                    try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value":
                     try decodeSingularEnumField(value: &valueField)
                 default:
@@ -434,7 +612,7 @@ public struct TextDecoder: Decoder {
             if let key = try scanner.nextKey() {
                 switch key {
                 case "key":
-                    try decodeSingularField(fieldType: KeyType.self, value: &keyField)
+                    try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value":
                     try decodeSingularMessageField(value: &valueField)
                 default:
