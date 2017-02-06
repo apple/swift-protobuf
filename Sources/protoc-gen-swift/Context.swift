@@ -70,6 +70,15 @@ extension CodeGeneratorRequest {
   }
 }
 
+extension Google_Protobuf_Compiler_Version {
+  fileprivate var versionString: String {
+    if !suffix.isEmpty {
+      return "\(major).\(minor).\(patch).\(suffix)"
+    }
+    return "\(major).\(minor).\(patch)"
+  }
+}
+
 extension CodeGeneratorResponse {
   init(error: String) {
     self.init()
@@ -188,6 +197,21 @@ class Context {
   init(request: CodeGeneratorRequest) throws {
     self.request = request
     self.options = try GeneratorOptions(parameter: request.parameter)
+
+    if request.hasCompilerVersion {
+      let compilerVersion = request.compilerVersion;
+      // Expect 3.1.x or 3.2.x - Yes we have to rev this with new release, but
+      // that seems like the best thing at the moment.
+      let isExpectedVersion = (compilerVersion.major == 3) &&
+        (compilerVersion.minor >= 1) &&
+        (compilerVersion.minor <= 2)
+      if !isExpectedVersion {
+        Stderr.print("WARNING: untested version of protoc (\(compilerVersion.versionString)).")
+      }
+    } else {
+      Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
+    }
+
     for fileProto in request.protoFile {
       populateFrom(fileProto: fileProto)
     }
