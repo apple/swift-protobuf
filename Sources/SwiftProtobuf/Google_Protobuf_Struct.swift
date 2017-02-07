@@ -78,14 +78,16 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         set(newValue) {fields[index] = newValue}
     }
 
-    public init(decoder: inout JSONDecoder) throws {
+    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return
         }
         while true {
-            let key = try decoder.scanner.nextKey()
-            let value = try Google_Protobuf_Value(decoder: &decoder)
+            let key = try decoder.scanner.nextQuotedString()
+            try decoder.scanner.skipRequiredColon()
+            var value = Google_Protobuf_Value()
+            try value.decodeIntoSelf(decoder: &decoder)
             fields[key] = value
             if decoder.scanner.skipOptionalObjectEnd() {
                 return
@@ -267,30 +269,31 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         try kind.serializeJSONField(encoder: &jsonEncoder)
     }
 
-    public init(decoder: inout JSONDecoder) throws {
+    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
         let c = try decoder.scanner.peekOneCharacter()
         switch c {
         case "n":
             if decoder.scanner.skipOptionalNull() {
-                self.init()
             } else {
                 throw DecodingError.malformedJSON
             }
         case "[":
-            let l = try Google_Protobuf_ListValue(decoder: &decoder)
-            self.init(listValue: l)
+            var l = Google_Protobuf_ListValue()
+            try l.decodeIntoSelf(decoder: &decoder)
+            kind = .listValue(l)
         case "{":
-            let s = try Google_Protobuf_Struct(decoder: &decoder)
-            self.init(structValue: s)
+            var s = Google_Protobuf_Struct()
+            try s.decodeIntoSelf(decoder: &decoder)
+            kind = .structValue(s)
         case "t", "f":
             let b = try decoder.scanner.nextBool()
-            self.init(boolValue: b)
+            kind = .boolValue(b)
         case "\"":
             let s = try decoder.scanner.nextQuotedString()
-            self.init(stringValue: s)
+            kind = .stringValue(s)
         default:
             let d = try decoder.scanner.nextDouble()
-            self.init(numberValue: d)
+            kind = .numberValue(d)
         }
     }
 
@@ -578,8 +581,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         return jsonEncoder.result
     }
 
-    public init(decoder: inout JSONDecoder) throws {
-        self.init()
+    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
         if decoder.scanner.skipOptionalNull() {
             return
         }
@@ -588,7 +590,8 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
             return
         }
         while true {
-            let v = try Google_Protobuf_Value(decoder: &decoder)
+            var v = Google_Protobuf_Value()
+            try v.decodeIntoSelf(decoder: &decoder)
             values.append(v)
             if decoder.scanner.skipOptionalArrayEnd() {
                 return

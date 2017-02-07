@@ -247,14 +247,9 @@ private func decodeString(_ s: String) -> String? {
     }
   }
   // There has got to be an easier way to convert a [UInt8] into a String.
-  out.append(0)
   return out.withUnsafeBufferPointer { ptr in
     if let addr = ptr.baseAddress {
-      return addr.withMemoryRebound(to: CChar.self, capacity: ptr.count) { p in
-        let q = UnsafePointer<CChar>(p)
-        let s = String(validatingUTF8: q)
-        return s
-      }
+        return utf8ToString(bytes: addr, count: ptr.count)
     } else {
       return ""
     }

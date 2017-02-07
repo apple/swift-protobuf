@@ -107,7 +107,7 @@ public protocol Message: CustomDebugStringConvertible {
 
   /// Overridden by well-known-types with custom JSON requirements.
   func serializeJSON() throws -> String
-  init(decoder: inout JSONDecoder) throws
+  mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws
 
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.

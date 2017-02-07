@@ -246,8 +246,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public init(decoder: inout JSONDecoder) throws {
-        self.init()
+    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return
@@ -255,7 +254,8 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         _jsonFields = nil
         var jsonFields = [String:String]()
         while true {
-            let key = try decoder.scanner.nextKey()
+            let key = try decoder.scanner.nextQuotedString()
+            try decoder.scanner.skipRequiredColon()
             if key == "@type" {
                 typeURL = try decoder.scanner.nextQuotedString()
             } else {
@@ -325,10 +325,13 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
                     if let fieldNumber = fieldNames.fieldNumber(forJSONName: k) {
-                        var decoder = JSONDecoder(json: v)
-                        try target.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-                        if !decoder.scanner.complete {
-                            throw DecodingError.trailingGarbage
+                        let raw = v.data(using: String.Encoding.utf8)!
+                        try raw.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+                            var decoder = JSONDecoder(utf8Pointer: bytes, count: raw.count)
+                            try target.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+                            if !decoder.scanner.complete {
+                                throw DecodingError.trailingGarbage
+                            }
                         }
                     }
                 }

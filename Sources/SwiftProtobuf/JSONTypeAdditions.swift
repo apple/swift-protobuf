@@ -217,19 +217,20 @@ public extension Message {
     }
 
     public init(json: String) throws {
-        var decoder = JSONDecoder(json: json)
-        if decoder.scanner.skipOptionalNull() {
-            self.init()
-        } else {
-            try self.init(decoder: &decoder)
-        }
-        if !decoder.scanner.complete {
-            throw DecodingError.trailingGarbage
+        self.init()
+        let data = json.data(using: String.Encoding.utf8)!
+        try data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+            var decoder = JSONDecoder(utf8Pointer: bytes, count: data.count)
+            if !decoder.scanner.skipOptionalNull() {
+                try self.decodeIntoSelf(decoder: &decoder)
+            }
+            if !decoder.scanner.complete {
+                throw DecodingError.trailingGarbage
+            }
         }
     }
 
-    init(decoder: inout JSONDecoder) throws {
-        self.init()
+    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
         try decoder.decodeFullObject(message: &self)
     }
 }

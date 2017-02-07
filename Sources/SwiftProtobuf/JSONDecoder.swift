@@ -17,36 +17,43 @@ import Swift
 
 public struct JSONDecoder: Decoder {
     internal var scanner: JSONScanner
+    private var fieldCount = 0
+    private var fieldNameMap: FieldNameMap?
     public var rejectConflictingOneof: Bool {return true}
 
-    internal init(json: String) {
-        scanner = JSONScanner(json: json)
+    internal init(utf8Pointer: UnsafePointer<UInt8>, count: Int) {
+        self.scanner = JSONScanner(utf8Pointer: utf8Pointer, count: count)
+    }
+
+    private init(scanner: JSONScanner) {
+        self.scanner = scanner
     }
 
     internal mutating func decodeFullObject<M: Message>(message: inout M) throws {
         guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
             throw DecodingError.missingFieldNames
         }
-        let names = nameProviding._protobuf_fieldNames
+        fieldNameMap = nameProviding._protobuf_fieldNames
         try scanner.skipRequiredObjectStart()
         if scanner.skipOptionalObjectEnd() {
             return
         }
-        // Get number of next known field
-        // (Unknown fields are skipped at a low level; nextFieldNumber()
-        // returns nil if this skipping reaches the end of the object)
-        while let fieldNumber = try scanner.nextFieldNumber(names: names) {
-            try message.decodeField(decoder: &self, fieldNumber: fieldNumber)
-            if scanner.skipOptionalObjectEnd() {
-                return
-            }
-            try scanner.skipRequiredComma()
-        }
+        try message.decodeMessage(decoder: &self)
     }
 
     // TODO: Implement this, move JSON onto the new decodeMessage API
     public mutating func nextFieldNumber() throws -> Int? {
-        throw DecodingError.failure
+        if scanner.skipOptionalObjectEnd() {
+            return nil
+        }
+        if fieldCount > 0 {
+            try scanner.skipRequiredComma()
+        }
+        if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
+            fieldCount += 1
+            return fieldNumber
+        }
+        return nil
     }
 
     public mutating func decodeSingularFloatField(value: inout Float) throws {
@@ -59,7 +66,7 @@ public struct JSONDecoder: Decoder {
 
     public mutating func decodeSingularFloatField(value: inout Float?) throws {
         if scanner.skipOptionalNull() {
-            value = 0
+            value = nil
             return
         }
         value = try scanner.nextFloat()
@@ -93,7 +100,7 @@ public struct JSONDecoder: Decoder {
 
     public mutating func decodeSingularDoubleField(value: inout Double?) throws {
         if scanner.skipOptionalNull() {
-            value = 0
+            value = nil
             return
         }
         value = try scanner.nextDouble()
@@ -535,8 +542,12 @@ public struct JSONDecoder: Decoder {
             }
             return
         }
-        let message = try M(decoder: &self)
-        value = message
+        if value == nil {
+            value = M()
+        }
+        var subDecoder = JSONDecoder(scanner: scanner)
+        try value!.decodeIntoSelf(decoder: &subDecoder)
+        scanner = subDecoder.scanner
     }
 
     public mutating func decodeRepeatedMessageField<M: Message>(value: inout [M]) throws {
@@ -555,7 +566,10 @@ public struct JSONDecoder: Decoder {
                     throw DecodingError.malformedJSON
                 }
             } else {
-                let message = try M(decoder: &self)
+                var message = M()
+                var subDecoder = JSONDecoder(scanner: scanner)
+                try message.decodeIntoSelf(decoder: &subDecoder)
+                scanner = subDecoder.scanner
                 value.append(message)
             }
             if scanner.skipOptionalArrayEnd() {
