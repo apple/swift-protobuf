@@ -84,6 +84,7 @@ TEST_PROTOS= \
 	Protos/google/protobuf/descriptor.proto \
 	Protos/google/protobuf/map_unittest.proto \
 	Protos/google/protobuf/map_unittest_proto3.proto \
+	Protos/google/protobuf/test_messages_proto3.proto \
 	Protos/google/protobuf/unittest.proto \
 	Protos/google/protobuf/unittest_arena.proto \
 	Protos/google/protobuf/unittest_custom_options.proto \

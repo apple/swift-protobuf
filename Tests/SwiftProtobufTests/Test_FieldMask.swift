@@ -74,13 +74,13 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
     // Make sure field mask works correctly when stored in a field
     func testJSON_field() throws {
         do {
-            let valid = try Conformance_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,barBaz\"}")
+            let valid = try ProtobufTestMessages_Proto3_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,barBaz\"}")
             XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
         } catch {
             XCTFail("Should have decoded correctly")
         }
 
-        XCTAssertThrowsError(try Conformance_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
     }
 
     func testSerializationFailure() {

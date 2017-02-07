@@ -65,7 +65,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
         // "null" as a field value indicates the field is missing
         // (Except for Value, where "null" indicates NullValue)
         do {
-            let c1 = try Conformance_TestAllTypes(json:"{\"optionalStruct\":null}")
+            let c1 = try ProtobufTestMessages_Proto3_TestAllTypes(json:"{\"optionalStruct\":null}")
             // null here decodes to an empty field.
             // See github.com/google/protobuf Issue #1327
             XCTAssertEqual(try c1.serializeJSON(), "{}")
@@ -82,7 +82,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
         }
 
         do {
-            let c2 = try Conformance_TestAllTypes(json:"{\"optionalStruct\":{}}")
+            let c2 = try ProtobufTestMessages_Proto3_TestAllTypes(json:"{\"optionalStruct\":{}}")
             XCTAssertNotNil(c2.optionalStruct)
             XCTAssertEqual(c2.optionalStruct.fields, [:])
         } catch let e {
@@ -192,7 +192,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("numb")
 
         do {
-            let m1 = try Conformance_TestAllTypes(json: "{\"optionalValue\": null}")
+            let m1 = try ProtobufTestMessages_Proto3_TestAllTypes(json: "{\"optionalValue\": null}")
             XCTAssertEqual(try m1.serializeJSON(), "{\"optionalValue\":null}")
             XCTAssertEqual(try m1.serializeProtobufBytes(), [146, 19, 2, 8, 0])
         } catch {
@@ -334,9 +334,9 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             + "    }\n"
             + "  }\n"
             + "}\n")
-        let m: Conformance_TestAllTypes
+        let m: ProtobufTestMessages_Proto3_TestAllTypes
         do {
-            m = try Conformance_TestAllTypes(json: json)
+            m = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
         } catch {
             XCTFail("Decoding failed: \(json)")
             return
@@ -388,7 +388,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             + "  \"optionalStruct\": null\n"
             + "}\n")
         do {
-            let decoded = try Conformance_TestAllTypes(json: json)
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{}")
         } catch {
