@@ -124,7 +124,8 @@ public extension Message {
   }
 
   var debugDescription: String {
-    return DebugDescriptionVisitor(message: self).description
+    if let result = try? serializeText() { return result }
+    return "<internal error>"
   }
 
   // TODO: Add an option to the generator to override this in particular
