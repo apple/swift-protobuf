@@ -124,7 +124,18 @@ public extension Message {
   }
 
   var debugDescription: String {
-    return DebugDescriptionVisitor(message: self).description
+    // TODO Ideally there would be something like serializeText() that can
+    // take a prefix so we could do something like:
+    //   [class name](
+    //      [text format]
+    //   )
+    var result = "\(swiftClassName):\n"
+    if let textFormat = try? serializeText() {
+      result += textFormat
+    } else {
+      result += "<internal error>"
+    }
+    return result
   }
 
   // TODO: Add an option to the generator to override this in particular
