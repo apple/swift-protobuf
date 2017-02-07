@@ -18,7 +18,7 @@ import XCTest
 import SwiftProtobuf
 
 class Test_Conformance: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Conformance_TestAllTypes
+    typealias MessageTestType = ProtobufTestMessages_Proto3_TestAllTypes
 
     func testFieldNaming() throws {
         let json = "{\n  \"fieldname1\": 1,\n  \"fieldName2\": 2,\n   \"FieldName3\": 3\n  }"
@@ -26,7 +26,7 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             return (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
         }
         do {
-            let decoded = try Conformance_TestAllTypes(json: json)
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
         } catch let e {
@@ -41,7 +41,7 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             return (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
         }
         do {
-            let decoded = try Conformance_TestAllTypes(json: json)
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
         } catch let e {
@@ -58,7 +58,7 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
     func testInt32_min_roundtrip() throws {
         let json = "{\"optionalInt32\": -2147483648}"
         do {
-            let decoded = try Conformance_TestAllTypes(json: json)
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
             let recoded = try decoded.serializeJSON()
             XCTAssertEqual(recoded, "{\"optionalInt32\":-2147483648}")
         } catch {
@@ -72,7 +72,7 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
 
     func testRepeatedBoolWrapper() {
         assertJSONDecodeSucceeds("{\"repeatedBoolWrapper\": [true, false]}") {
-            (o: Conformance_TestAllTypes) -> Bool in
+            (o: ProtobufTestMessages_Proto3_TestAllTypes) -> Bool in
             return o.repeatedBoolWrapper == [Google_Protobuf_BoolValue(true), Google_Protobuf_BoolValue(false)]
         }
     }
