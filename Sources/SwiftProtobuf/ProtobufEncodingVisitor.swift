@@ -146,10 +146,6 @@ final class ProtobufEncodingVisitor: Visitor {
       KeyType.serializeProtobufValue(encoder: &encoder, value: k)
       encoder.startField(fieldNumber: 2,
                          wireFormat: ValueType.protobufWireFormat)
-      // Note: ValueType could be a message, so messages need
-      // static func serializeProtobufValue(...)
-      // TODO: Could we traverse the valuetype instead?
-      // TODO: Propagate failure out of here...
       ValueType.serializeProtobufValue(encoder: &encoder, value: v)
     }
   }
@@ -184,15 +180,18 @@ final class ProtobufEncodingVisitor: Visitor {
       encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
       let keyTagSize =
         Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
+      let keyValueSize = try KeyType.encodedSizeWithoutTag(of: k)
       let valueTagSize =
         Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
-      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
-        valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
+      let messageSize = try v.serializedProtobufSize()
+      let valueValueSize = Varint.encodedSize(of: Int64(messageSize)) + messageSize
+      let entrySize = keyTagSize + keyValueSize + valueTagSize + valueValueSize
       encoder.putVarInt(value: entrySize)
       encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
       KeyType.serializeProtobufValue(encoder: &encoder, value: k)
       encoder.startField(fieldNumber: 2, wireFormat: .lengthDelimited)
-      ValueType.serializeProtobufValue(encoder: &encoder, value: v)
+      let messageBytes = try! v.serializeProtobuf()
+      encoder.putBytesValue(value: messageBytes)
     }
   }
 }

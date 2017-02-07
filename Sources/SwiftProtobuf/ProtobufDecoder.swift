@@ -55,6 +55,93 @@ public struct ProtobufDecoder: Decoder {
         self.extensions = extensions
     }
 
+    // Since this is called for every field, I've taken some
+    // pains to optimize it, including unrolling a tweaked version
+    // of the varint parser.
+    public mutating func nextFieldNumber() throws -> Int? {
+        if fieldNumber > 0 {
+            if let override = unknownOverride {
+                if unknownData == nil {
+                    unknownData = override
+                } else {
+                    unknownData!.append(override)
+                }
+            } else if !consumed {
+                let u = try getRawField()
+                if unknownData == nil {
+                    unknownData = u
+                } else {
+                    unknownData!.append(u)
+                }
+            }
+        }
+
+        // Quit if end of input
+        if available == 0 {
+            return nil
+        }
+
+        // Get the next field number
+        fieldStartP = p
+        fieldEndP = nil
+        let start = p
+        let c0 = start[0]
+        fieldWireFormat = c0 & 7
+        if (c0 & 0x80) == 0 {
+            p += 1
+            available -= 1
+            fieldNumber = Int(c0) >> 3
+        } else {
+            fieldNumber = Int(c0 & 0x7f) >> 3
+            if available < 2 {
+                throw DecodingError.malformedProtobuf
+            }
+            let c1 = start[1]
+            if (c1 & 0x80) == 0 {
+                p += 2
+                available -= 2
+                fieldNumber |= Int(c1) << 4
+            } else {
+                fieldNumber |= Int(c1 & 0x7f) << 4
+                if available < 3 {
+                    throw DecodingError.malformedProtobuf
+                }
+                let c2 = start[2]
+                fieldNumber |= Int(c2 & 0x7f) << 11
+                if (c2 & 0x80) == 0 {
+                    p += 3
+                    available -= 3
+                } else {
+                    if available < 4 {
+                        throw DecodingError.malformedProtobuf
+                    }
+                    let c3 = start[3]
+                    fieldNumber |= Int(c3 & 0x7f) << 18
+                    if (c3 & 0x80) == 0 {
+                        p += 4
+                        available -= 4
+                    } else {
+                        if available < 5 {
+                            throw DecodingError.malformedProtobuf
+                        }
+                        let c4 = start[4]
+                        if c4 > 15 {
+                            throw DecodingError.malformedProtobuf
+                        }
+                        fieldNumber |= Int(c4 & 0x7f) << 25
+                        p += 5
+                        available -= 5
+                    }
+                }
+            }
+        }
+        if fieldNumber != 0 {
+            consumed = false
+            return fieldNumber
+        }
+        throw DecodingError.malformedProtobuf
+    }
+
     public mutating func decodeSingularFloatField(value: inout Float) throws {
         guard fieldWireFormat == WireFormat.fixed32.rawValue else {
             throw DecodingError.schemaMismatch
@@ -749,6 +836,37 @@ public struct ProtobufDecoder: Decoder {
         consumed = true
     }
 
+    public mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws {
+        var group = value ?? G()
+        try decodeFullGroup(group: &group, fieldNumber: fieldNumber)
+        value = group
+        consumed = true
+    }
+
+    public mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws {
+        var group = G()
+        try decodeFullGroup(group: &group, fieldNumber: fieldNumber)
+        value.append(group)
+        consumed = true
+    }
+
+    private mutating func decodeFullGroup<G: Message>(group: inout G, fieldNumber: Int) throws {
+        guard fieldWireFormat == WireFormat.startGroup.rawValue else {
+            throw DecodingError.malformedProtobuf
+        }
+        while let tag = try getTag() {
+            if tag.wireFormat == .endGroup {
+                if tag.fieldNumber == fieldNumber {
+                    return
+                }
+                throw DecodingError.malformedProtobuf
+            }
+            try group.decodeField(decoder: &self, fieldNumber: tag.fieldNumber)
+            try skip()
+        }
+        throw DecodingError.truncatedInput
+    }
+
     public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
         var k: KeyType.BaseType?
         var v: ValueType.BaseType?
@@ -842,127 +960,12 @@ public struct ProtobufDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws {
-        var group = value ?? G()
-        try decodeFullGroup(group: &group, fieldNumber: fieldNumber)
-        value = group
-        consumed = true
-    }
-
-    public mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws {
-        var group = G()
-        try decodeFullGroup(group: &group, fieldNumber: fieldNumber)
-        value.append(group)
-        consumed = true
-    }
-
-    public mutating func nextFieldNumber() throws -> Int? {
-        if fieldNumber > 0 {
-            if let override = unknownOverride {
-                if unknownData == nil {
-                    unknownData = override
-                } else {
-                    unknownData!.append(override)
-                }
-            } else if !consumed {
-                let u = try getRawField()
-                if unknownData == nil {
-                    unknownData = u
-                } else {
-                    unknownData!.append(u)
-                }
-            }
-        }
-
-        // Quit if end of input
-        if available == 0 {
-            return nil
-        }
-
-        // Get the next field number
-        fieldStartP = p
-        fieldEndP = nil
-        let start = p
-        let c0 = start[0]
-        fieldWireFormat = c0 & 7
-        if (c0 & 0x80) == 0 {
-            p += 1
-            available -= 1
-            fieldNumber = Int(c0) >> 3
-        } else {
-            fieldNumber = Int(c0 & 0x7f) >> 3
-            if available < 2 {
-                throw DecodingError.malformedProtobuf
-            }
-            let c1 = start[1]
-            if (c1 & 0x80) == 0 {
-                p += 2
-                available -= 2
-                fieldNumber |= Int(c1) << 4
-            } else {
-                fieldNumber |= Int(c1 & 0x7f) << 4
-                if available < 3 {
-                    throw DecodingError.malformedProtobuf
-                }
-                let c2 = start[2]
-                fieldNumber |= Int(c2 & 0x7f) << 11
-                if (c2 & 0x80) == 0 {
-                    p += 3
-                    available -= 3
-                } else {
-                    if available < 4 {
-                        throw DecodingError.malformedProtobuf
-                    }
-                    let c3 = start[3]
-                    fieldNumber |= Int(c3 & 0x7f) << 18
-                    if (c3 & 0x80) == 0 {
-                        p += 4
-                        available -= 4
-                    } else {
-                        if available < 5 {
-                            throw DecodingError.malformedProtobuf
-                        }
-                        let c4 = start[4]
-                        if c4 > 15 {
-                            throw DecodingError.malformedProtobuf
-                        }
-                        fieldNumber |= Int(c4 & 0x7f) << 25
-                        p += 5
-                        available -= 5
-                    }
-                }
-            }
-        }
-        if fieldNumber != 0 {
-            consumed = false
-            return fieldNumber
-        }
-        throw DecodingError.malformedProtobuf
-    }
-
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = extensions?[messageType, fieldNumber] {
             var fieldValue = values[fieldNumber] ?? ext.newField()
             try fieldValue.decodeField(decoder: &self)
             values[fieldNumber] = fieldValue
         }
-    }
-
-    private mutating func decodeFullGroup<G: Message>(group: inout G, fieldNumber: Int) throws {
-        guard fieldWireFormat == WireFormat.startGroup.rawValue else {
-            throw DecodingError.malformedProtobuf
-        }
-        while let tag = try getTag() {
-            if tag.wireFormat == .endGroup {
-                if tag.fieldNumber == fieldNumber {
-                    return
-                }
-                throw DecodingError.malformedProtobuf
-            }
-            try group.decodeField(decoder: &self, fieldNumber: tag.fieldNumber)
-            try skip()
-        }
-        throw DecodingError.truncatedInput
     }
 
     private mutating func consume(length: Int) {

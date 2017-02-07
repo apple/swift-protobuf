@@ -257,6 +257,7 @@ public extension Message {
         }
         return data
     }
+
     private func serializeProtobuf(into pointer: UnsafeMutablePointer<UInt8>) throws {
         let visitor = ProtobufEncodingVisitor(forWritingInto: pointer)
         try traverse(visitor: visitor)
@@ -266,17 +267,6 @@ public extension Message {
         let visitor = ProtobufEncodingSizeVisitor()
         try traverse(visitor: visitor)
         return visitor.serializedSize
-    }
-
-    static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: Self) {
-        // We already verified the size, so this must succeed!
-        let t = try! value.serializeProtobuf()
-        encoder.putBytesValue(value: t)
-    }
-
-    static func encodedSizeWithoutTag(of value: Self) throws -> Int {
-        let messageSize = try value.serializedProtobufSize()
-        return Varint.encodedSize(of: Int64(messageSize)) + messageSize
     }
 
     init(protobuf: Data) throws {
