@@ -49,7 +49,7 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
     func testDebugDescription() {
         var m = Google_Protobuf_FieldMask()
         m.paths = ["foo", "bar"]
-        XCTAssertEqual(m.debugDescription, "Google_Protobuf_FieldMask(paths:[\"foo\",\"bar\"])")
+        XCTAssertEqual(m.debugDescription, "Google_Protobuf_FieldMask:\npaths: \"foo\"\npaths: \"bar\"\n")
     }
 
     func testConvenienceInits() {

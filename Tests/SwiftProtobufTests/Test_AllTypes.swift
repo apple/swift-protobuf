@@ -62,12 +62,12 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([8, 255, 255, 255, 255, 7]) {(o: inout MessageTestType) in o.optionalInt32 = Int32.max}
         assertEncode([8, 128, 128, 128, 128, 248, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalInt32 = Int32.min}
         assertDecodeSucceeds([8, 1]) {$0.optionalInt32 == 1}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalInt32:1)") {(o: inout MessageTestType) in o.optionalInt32 = 1}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalInt32:-2147483648,optionalUint32:4294967295)") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_int32: 1\n") {(o: inout MessageTestType) in o.optionalInt32 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_int32: -2147483648\noptional_uint32: 4294967295\n") {(o: inout MessageTestType) in
             o.optionalInt32 = Int32.min
             o.optionalUint32 = UInt32.max
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes()") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\n") {(o: inout MessageTestType) in
             o.optionalInt32 = 1
             o.clearOptionalInt32()
         }
@@ -115,7 +115,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([16, 255, 255, 255, 255, 255, 255, 255, 255, 127]) {(o: inout MessageTestType) in o.optionalInt64 = Int64.max}
         assertEncode([16, 128, 128, 128, 128, 128, 128, 128, 128, 128, 1]) {(o: inout MessageTestType) in o.optionalInt64 = Int64.min}
         assertDecodeSucceeds([16, 184, 156, 195, 145, 203, 1]) {$0.optionalInt64 == 54529150520}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalInt64:1)") {(o: inout MessageTestType) in o.optionalInt64 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_int64: 1\n") {(o: inout MessageTestType) in o.optionalInt64 = 1}
         assertDecodeFails([16])
         assertDecodeFails([16, 184, 156, 195, 145, 203])
         assertDecodeFails([17, 81])
@@ -143,7 +143,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([24, 255, 255, 255, 255, 15]) {(o: inout MessageTestType) in o.optionalUint32 = UInt32.max}
         assertEncode([24, 0]) {(o: inout MessageTestType) in o.optionalUint32 = UInt32.min}
         assertDecodeSucceeds([24, 149, 88]) {$0.optionalUint32 == 11285}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalUint32:1)") {(o: inout MessageTestType) in o.optionalUint32 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_uint32: 1\n") {(o: inout MessageTestType) in o.optionalUint32 = 1}
         assertDecodeFails([24])
         assertDecodeFails([24, 149])
         assertDecodeFails([25, 105])
@@ -171,7 +171,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([32, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalUint64 = UInt64.max}
         assertEncode([32, 0]) {(o: inout MessageTestType) in o.optionalUint64 = UInt64.min}
         assertDecodeSucceeds([32, 149, 7]) {$0.optionalUint64 == 917}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalUint64:1)") {(o: inout MessageTestType) in o.optionalUint64 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_uint64: 1\n") {(o: inout MessageTestType) in o.optionalUint64 = 1}
         assertDecodeFails([32])
         assertDecodeFails([32, 149])
         assertDecodeFails([32, 149, 190, 193, 230, 186, 233, 166, 219])
@@ -215,7 +215,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([40, 255, 255, 255, 255, 15]) {(o: inout MessageTestType) in o.optionalSint32 = Int32.min}
         assertDecodeSucceeds([40, 0x81, 0x82, 0x80, 0x00]) {$0.optionalSint32 == -129}
         assertDecodeSucceeds([40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00]) {$0.optionalSint32 == 0}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSint32:1)") {(o: inout MessageTestType) in o.optionalSint32 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_sint32: 1\n") {(o: inout MessageTestType) in o.optionalSint32 = 1}
 
         // Truncate on overflow
         assertDecodeSucceeds([40, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f]) {$0.optionalSint32 == -2147483648}
@@ -255,7 +255,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([48, 254, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalSint64 = Int64.max}
         assertEncode([48, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.optionalSint64 = Int64.min}
         assertDecodeSucceeds([48, 139, 94]) {$0.optionalSint64 == -6022}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSint64:1)") {(o: inout MessageTestType) in o.optionalSint64 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_sint64: 1\n") {(o: inout MessageTestType) in o.optionalSint64 = 1}
         assertDecodeFails([48])
         assertDecodeFails([48, 139])
         assertDecodeFails([49])
@@ -290,7 +290,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([61, 255, 255, 255, 255]) {(o: inout MessageTestType) in o.optionalFixed32 = UInt32.max}
         assertEncode([61, 0, 0, 0, 0]) {(o: inout MessageTestType) in o.optionalFixed32 = UInt32.min}
         assertDecodeSucceeds([61, 8, 12, 108, 1]) {$0.optionalFixed32 == 23858184}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalFixed32:1)") {(o: inout MessageTestType) in o.optionalFixed32 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_fixed32: 1\n") {(o: inout MessageTestType) in o.optionalFixed32 = 1}
         assertDecodeFails([61])
         assertDecodeFails([61, 255])
         assertDecodeFails([61, 255, 255])
@@ -334,7 +334,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([65, 255, 255, 255, 255, 255, 255, 255, 255]) {(o: inout MessageTestType) in o.optionalFixed64 = UInt64.max}
         assertEncode([65, 0, 0, 0, 0, 0, 0, 0, 0]) {(o: inout MessageTestType) in o.optionalFixed64 = UInt64.min}
         assertDecodeSucceeds([65, 255, 255, 255, 255, 255, 255, 255, 255]) {$0.optionalFixed64 == 18446744073709551615}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalFixed64:1)") {(o: inout MessageTestType) in o.optionalFixed64 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_fixed64: 1\n") {(o: inout MessageTestType) in o.optionalFixed64 = 1}
         assertDecodeFails([65])
         assertDecodeFails([65, 255])
         assertDecodeFails([65, 255, 255])
@@ -383,7 +383,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([77, 0, 0, 0, 128]) {(o: inout MessageTestType) in o.optionalSfixed32 = Int32.min}
         assertDecodeSucceeds([77, 0, 0, 0, 0]) {$0.optionalSfixed32 == 0}
         assertDecodeSucceeds([77, 255, 255, 255, 255]) {$0.optionalSfixed32 == -1}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSfixed32:1)") {(o: inout MessageTestType) in o.optionalSfixed32 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_sfixed32: 1\n") {(o: inout MessageTestType) in o.optionalSfixed32 = 1}
         assertDecodeFails([77])
         assertDecodeFails([77])
         assertDecodeFails([77, 0])
@@ -428,7 +428,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([81, 255, 255, 255, 255, 255, 255, 255, 127]) {(o: inout MessageTestType) in o.optionalSfixed64 = Int64.max}
         assertEncode([81, 0, 0, 0, 0, 0, 0, 0, 128]) {(o: inout MessageTestType) in o.optionalSfixed64 = Int64.min}
         assertDecodeSucceeds([81, 0, 0, 0, 0, 0, 0, 0, 128]) {$0.optionalSfixed64 == -9223372036854775808}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalSfixed64:1)") {(o: inout MessageTestType) in o.optionalSfixed64 = 1}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_sfixed64: 1\n") {(o: inout MessageTestType) in o.optionalSfixed64 = 1}
         assertDecodeFails([81])
         assertDecodeFails([81, 0])
         assertDecodeFails([81, 0, 0])
@@ -482,7 +482,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
                 return false
             }
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalFloat:1.0)") {(o: inout MessageTestType) in o.optionalFloat = 1.0}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_float: 1\n") {(o: inout MessageTestType) in o.optionalFloat = 1.0}
         assertDecodeFails([93, 0, 0, 0])
         assertDecodeFails([93, 0, 0])
         assertDecodeFails([93, 0])
@@ -520,7 +520,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([97, 0, 0, 0, 0, 0, 0, 224, 63]) {(o: inout MessageTestType) in o.optionalDouble = 0.5}
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 64]) {(o: inout MessageTestType) in o.optionalDouble = 2.0}
         assertDecodeSucceeds([97, 0, 0, 0, 0, 0, 0, 224, 63]) {$0.optionalDouble == 0.5}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalDouble:1.0)") {(o: inout MessageTestType) in o.optionalDouble = 1.0}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_double: 1\n") {(o: inout MessageTestType) in o.optionalDouble = 1.0}
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
         assertDecodeFails([97])
         assertDecodeFails([96])
@@ -569,8 +569,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
                 return false
             }
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalBool:true)") {(o: inout MessageTestType) in o.optionalBool = true}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalBool:false)") {(o: inout MessageTestType) in o.optionalBool = false}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_bool: true\n") {(o: inout MessageTestType) in o.optionalBool = true}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_bool: false\n") {(o: inout MessageTestType) in o.optionalBool = false}
         assertDecodeFails([104])
         assertDecodeFails([104, 255])
         assertDecodeFails([105])
@@ -624,8 +624,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([114, 16, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]) {
             return $0.optionalString == "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalString:\"abc\")") {(o: inout MessageTestType) in o.optionalString = "abc"}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalString:\"\\u{08}\\t\")") {(o: inout MessageTestType) in o.optionalString = "\u{08}\u{09}"}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_string: \"abc\"\n") {(o: inout MessageTestType) in o.optionalString = "abc"}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_string: \"\\b\\t\"\n") {(o: inout MessageTestType) in o.optionalString = "\u{08}\u{09}"}
         assertDecodeFails([114])
         assertDecodeFails([114, 1])
         assertDecodeFails([114, 2, 65])
@@ -672,7 +672,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             $0.optionalGroup.a == 99999
         }
         assertDebugDescription(
-            "ProtobufUnittest_TestAllTypes(optionalGroup:ProtobufUnittest_TestAllTypes.OptionalGroup(a:1))") {(o: inout MessageTestType) in
+          "ProtobufUnittest_TestAllTypes:\nOptionalGroup {\n  a: 1\n}\n") {(o: inout MessageTestType) in
             var g = MessageTestType.OptionalGroup()
             g.a = 1
             o.optionalGroup = g
@@ -707,7 +707,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
                 return false
             }
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalBytes:3 bytes)") {(o: inout MessageTestType) in o.optionalBytes = Data(bytes: [1, 2, 3])}
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_bytes: \"\\001\\002\\003\"\n") {(o: inout MessageTestType) in o.optionalBytes = Data(bytes: [1, 2, 3])}
         assertDecodeFails([122])
         assertDecodeFails([122, 1])
         assertDecodeFails([122, 2, 0])
@@ -748,7 +748,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDecodeSucceeds([146, 1, 4, 8, 1, 8, 3]) {$0.optionalNestedMessage.bb == 3}
         assertDecodeSucceeds([146, 1, 2, 8, 1, 146, 1, 2, 8, 4]) {$0.optionalNestedMessage.bb == 4}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalNestedMessage:ProtobufUnittest_TestAllTypes.NestedMessage(bb:1))") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_nested_message {\n  bb: 1\n}\n") {(o: inout MessageTestType) in
             var nested = MessageTestType.NestedMessage()
             nested.bb = 1
             o.optionalNestedMessage = nested
@@ -847,7 +847,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDecodeSucceeds([154, 1, 4, 8, 1, 8, 3]) {$0.optionalForeignMessage.c == 3}
         assertDecodeSucceeds([154, 1, 2, 8, 1, 154, 1, 2, 8, 4]) {$0.optionalForeignMessage.c == 4}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalForeignMessage:ProtobufUnittest_ForeignMessage(c:1))") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_foreign_message {\n  c: 1\n}\n") {(o: inout MessageTestType) in
             var foreign = ProtobufUnittest_ForeignMessage()
             foreign.c = 1
             o.optionalForeignMessage = foreign
@@ -897,7 +897,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([168, 1])
         assertDecodeSucceeds([168, 1, 128, 1]) { !$0.hasOptionalNestedEnum }
         assertDecodeSucceeds([168, 1, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) {$0.optionalNestedEnum == .neg}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalNestedEnum:.bar)") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_nested_enum: BAR\n") {(o: inout MessageTestType) in
             o.optionalNestedEnum = .bar
         }
 
@@ -912,7 +912,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([176, 1, 5]) {(o: inout MessageTestType) in
             o.optionalForeignEnum = .foreignBar
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalForeignEnum:.foreignBar)") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_foreign_enum: FOREIGN_BAR\n") {(o: inout MessageTestType) in
             o.optionalForeignEnum = .foreignBar
         }
     }
@@ -921,7 +921,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([184, 1, 8]) {(o: inout MessageTestType) in
             o.optionalImportEnum = .importBar
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalImportEnum:.importBar)") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_import_enum: IMPORT_BAR\n") {(o: inout MessageTestType) in
             o.optionalImportEnum = .importBar
         }
     }
@@ -944,7 +944,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             sub.e = 12
             o.optionalPublicImportMessage = sub
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalPublicImportMessage:ProtobufUnittestImport_PublicImportMessage(e:9999))") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_public_import_message {\n  e: 9999\n}\n") {(o: inout MessageTestType) in
             var sub = ProtobufUnittestImport_PublicImportMessage()
             sub.e = 9999
             o.optionalPublicImportMessage = sub
@@ -976,13 +976,13 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([253, 1, 77])
         assertDecodeFails([254, 1, 78])
         assertDecodeFails([255, 1, 79])
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(repeatedInt32:[1])") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\nrepeated_int32: 1\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1]
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes()") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = []
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(repeatedInt32:[1,2])") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\nrepeated_int32: 1\nrepeated_int32: 2\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1, 2]
         }
     }
@@ -1371,14 +1371,14 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.repeatedGroup = [g1, g2]
         }
          */
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(repeatedGroup:[ProtobufUnittest_TestAllTypes.RepeatedGroup(a:1),ProtobufUnittest_TestAllTypes.RepeatedGroup(a:2)])") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n") {(o: inout MessageTestType) in
             var g1 = MessageTestType.RepeatedGroup()
             g1.a = 1
             var g2 = MessageTestType.RepeatedGroup()
             g2.a = 2
             o.repeatedGroup = [g1, g2]
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(repeatedInt32:[1,2,3],repeatedGroup:[ProtobufUnittest_TestAllTypes.RepeatedGroup(a:1),ProtobufUnittest_TestAllTypes.RepeatedGroup(a:2)])") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\nrepeated_int32: 1\nrepeated_int32: 2\nrepeated_int32: 3\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1, 2, 3]
             var g1 = MessageTestType.RepeatedGroup()
             g1.a = 1
@@ -1398,7 +1398,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDecodeFails([128, 3])
         assertDecodeFails([128, 3, 0])
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(repeatedNestedMessage:[ProtobufUnittest_TestAllTypes.NestedMessage(bb:1),ProtobufUnittest_TestAllTypes.NestedMessage(bb:2)])") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\nrepeated_nested_message {\n  bb: 1\n}\nrepeated_nested_message {\n  bb: 2\n}\n") {(o: inout MessageTestType) in
             var m1 = MessageTestType.NestedMessage()
             m1.bb = 1
             var m2 = MessageTestType.NestedMessage()
@@ -1452,7 +1452,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([152, 3, 2, 152, 3, 3]) {(o: inout MessageTestType) in
             o.repeatedNestedEnum = [.bar, .baz]
         }
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(repeatedNestedEnum:[.bar,.baz])") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\nrepeated_nested_enum: BAR\nrepeated_nested_enum: BAZ\n") {(o: inout MessageTestType) in
             o.repeatedNestedEnum = [.bar, .baz]
         }
         assertDecodeSucceeds([152, 3, 2, 152, 3, 128, 1]) {
@@ -1497,7 +1497,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultInt32, 41)
         // Setting explicitly does serialize (even if default)
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(defaultInt32:41)") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\ndefault_int32: 41\n") {(o: inout MessageTestType) in
             o.defaultInt32 = 41
         }
 
@@ -1519,7 +1519,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         t.defaultInt32 = 4
         t.clearDefaultInt32()
         XCTAssertEqual(t.defaultInt32, 41)
-        XCTAssertEqual(t.debugDescription, "ProtobufUnittest_TestAllTypes()")
+        XCTAssertEqual(t.debugDescription, "ProtobufUnittest_TestAllTypes:\n")
 
         // The default is still not serialized
         let s = try t.serializeProtobufBytes()
@@ -1527,7 +1527,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         assertDecodeSucceeds([]) {$0.defaultInt32 == 41}
         assertDecodeSucceeds([232, 3, 4]) {$0.defaultInt32 == 4}
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(defaultInt32:4)") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\ndefault_int32: 4\n") {(o: inout MessageTestType) in
             o.defaultInt32 = 4
         }
     }
@@ -1958,7 +1958,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofUint32 = 77
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes(oneofUint32:77)");
+        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes:\noneof_uint32: 77\n");
         var m2 = MessageTestType()
         m2.oneofUint32 = 78
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2007,7 +2007,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         nested1.bb = 1
         var m = MessageTestType()
         m.oneofNestedMessage = nested1
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes(oneofNestedMessage:ProtobufUnittest_TestAllTypes.NestedMessage(bb:1))");
+        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes:\noneof_nested_message {\n  bb: 1\n}\n");
         var nested2 = MessageTestType.NestedMessage()
         nested2.bb = 2
         var m2 = MessageTestType()
@@ -2059,7 +2059,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofString = "abc"
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes(oneofString:\"abc\")");
+        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes:\noneof_string: \"abc\"\n");
         var m2 = MessageTestType()
         m2.oneofString = "def"
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2127,7 +2127,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var m = MessageTestType()
         m.oneofBytes = Data(bytes: [1, 2, 3])
 
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes(oneofBytes:3 bytes)");
+        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllTypes:\noneof_bytes: \"\\001\\002\\003\"\n");
         var m2 = MessageTestType()
         m2.oneofBytes = Data(bytes: [4, 5, 6])
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2136,38 +2136,38 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testDebugDescription() {
         var m = MessageTestType()
         let d = m.debugDescription
-        XCTAssertEqual("ProtobufUnittest_TestAllTypes()", d)
+        XCTAssertEqual("ProtobufUnittest_TestAllTypes:\n", d)
         m.optionalInt32 = 7
-        XCTAssertEqual("ProtobufUnittest_TestAllTypes(optionalInt32:7)", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_TestAllTypes:\noptional_int32: 7\n", m.debugDescription)
         m.repeatedString = ["a", "b"]
-        XCTAssertEqual("ProtobufUnittest_TestAllTypes(optionalInt32:7,repeatedString:[\"a\",\"b\"])", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_TestAllTypes:\noptional_int32: 7\nrepeated_string: \"a\"\nrepeated_string: \"b\"\n", m.debugDescription)
     }
 
     func testDebugDescription2() {
         // Message with only one field
         var m = ProtobufUnittest_ForeignMessage()
-        XCTAssertEqual("ProtobufUnittest_ForeignMessage()", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_ForeignMessage:\n", m.debugDescription)
         m.c = 3
-        XCTAssertEqual("ProtobufUnittest_ForeignMessage(c:3)", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_ForeignMessage:\nc: 3\n", m.debugDescription)
     }
 
     func testDebugDescription3() {
         // Message with only a single oneof
         var m = ProtobufUnittest_TestOneof()
-        XCTAssertEqual("ProtobufUnittest_TestOneof()", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_TestOneof:\n", m.debugDescription)
         m.fooInt = 1
-        XCTAssertEqual("ProtobufUnittest_TestOneof(fooInt:1)", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_TestOneof:\nfoo_int: 1\n", m.debugDescription)
         m.fooString = "a"
-        XCTAssertEqual("ProtobufUnittest_TestOneof(fooString:\"a\")", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_TestOneof:\nfoo_string: \"a\"\n", m.debugDescription)
         var g = ProtobufUnittest_TestOneof.FooGroup()
         g.a = 7
         g.b = "b"
         m.fooGroup = g
-        XCTAssertEqual("ProtobufUnittest_TestOneof(fooGroup:ProtobufUnittest_TestOneof.FooGroup(a:7,b:\"b\"))", m.debugDescription)
+        XCTAssertEqual("ProtobufUnittest_TestOneof:\nFooGroup {\n  a: 7\n  b: \"b\"\n}\n", m.debugDescription)
     }
 
     func testDebugDescription4() {
-        assertDebugDescription("ProtobufUnittest_TestAllTypes(optionalInt32:88,repeatedInt32:[1,2,3],repeatedGroup:[ProtobufUnittest_TestAllTypes.RepeatedGroup(a:1),ProtobufUnittest_TestAllTypes.RepeatedGroup(a:2)])") {(o: inout MessageTestType) in
+        assertDebugDescription("ProtobufUnittest_TestAllTypes:\noptional_int32: 88\nrepeated_int32: 1\nrepeated_int32: 2\nrepeated_int32: 3\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n") {(o: inout MessageTestType) in
             o.optionalInt32 = 88
             o.repeatedInt32 = [1, 2, 3]
             var g1 = MessageTestType.RepeatedGroup()

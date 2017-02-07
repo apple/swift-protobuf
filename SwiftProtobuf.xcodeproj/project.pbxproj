@@ -20,7 +20,6 @@
 		9C2F23851D7780D1008524F2 /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */; };
 		9C2F23861D7780D1008524F2 /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
 		9C2F23871D7780D1008524F2 /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
-		9C2F23881D7780D1008524F2 /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
 		9C2F23891D7780D1008524F2 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
 		9C2F238A1D7780D1008524F2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
@@ -248,7 +247,6 @@
 		F44F93821DAEA76700BC5B85 /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
 		F44F93831DAEA76700BC5B85 /* ProtobufEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */; };
 		F44F93841DAEA76700BC5B85 /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
-		F44F93851DAEA76700BC5B85 /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
 		F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
 		F44F93871DAEA76700BC5B85 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		F44F93881DAEA76700BC5B85 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
@@ -357,7 +355,6 @@
 		F44F94111DAEB23500BC5B85 /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
 		F44F94121DAEB23500BC5B85 /* ProtobufEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* ProtobufEncodingSizeVisitor.swift */; };
 		F44F94131DAEB23500BC5B85 /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
-		F44F94141DAEB23500BC5B85 /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
 		F44F94151DAEB23500BC5B85 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
 		F44F94161DAEB23500BC5B85 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
@@ -409,7 +406,6 @@
 		__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */; };
-		__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufError.swift /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */; };
@@ -591,7 +587,6 @@
 		__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* ProtobufDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufDecoder.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* ProtobufEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufEncoder.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufBinaryTypes.swift /* ProtobufTypeAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufTypeAdditions.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugDescriptionVisitor.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufError.swift /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFields.swift; sourceTree = "<group>"; };
@@ -767,7 +762,6 @@
 			isa = PBXGroup;
 			children = (
 				__PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */,
-				__PBXFileRef_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift */,
 				__PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/empty.pb.swift /* empty.pb.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift */,
@@ -1224,7 +1218,6 @@
 				9C2F23851D7780D1008524F2 /* ProtobufDecoder.swift in Sources */,
 				9C2F23861D7780D1008524F2 /* ProtobufEncoder.swift in Sources */,
 				9C2F23871D7780D1008524F2 /* ProtobufTypeAdditions.swift in Sources */,
-				9C2F23881D7780D1008524F2 /* DebugDescriptionVisitor.swift in Sources */,
 				9C2F23891D7780D1008524F2 /* Enum.swift in Sources */,
 				9C2F238A1D7780D1008524F2 /* Errors.swift in Sources */,
 				9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */,
@@ -1270,7 +1263,6 @@
 			buildActionMask = 0;
 			files = (
 				__src_cc_ref_Sources/Protobuf/api.pb.swift /* api.pb.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/ProtobufDebugDescription.swift /* DebugDescriptionVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/duration.pb.swift /* duration.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/empty.pb.swift /* empty.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift in Sources */,
@@ -1447,7 +1439,6 @@
 				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
 				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
 				F44F938A1DAEA76700BC5B85 /* FieldDecoder.swift in Sources */,
-				F44F93851DAEA76700BC5B85 /* DebugDescriptionVisitor.swift in Sources */,
 				F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */,
 				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
 				9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
@@ -1593,7 +1584,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44F94061DAEB23500BC5B85 /* api.pb.swift in Sources */,
-				F44F94141DAEB23500BC5B85 /* DebugDescriptionVisitor.swift in Sources */,
 				F44F94071DAEB23500BC5B85 /* duration.pb.swift in Sources */,
 				F44F94081DAEB23500BC5B85 /* empty.pb.swift in Sources */,
 				F44F94151DAEB23500BC5B85 /* Enum.swift in Sources */,
