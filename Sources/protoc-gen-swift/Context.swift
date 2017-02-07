@@ -71,7 +71,7 @@ extension CodeGeneratorRequest {
 }
 
 extension Google_Protobuf_Compiler_Version {
-  fileprivate var versionString: String {
+  var versionString: String {
     if !suffix.isEmpty {
       return "\(major).\(minor).\(patch).\(suffix)"
     }
