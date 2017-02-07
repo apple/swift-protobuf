@@ -384,6 +384,9 @@
 		F44F944D1DBFF8DB00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
 		F44F944E1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
 		F44F944F1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
+		F4A07B2C1E4A3E620035678A /* test_messages_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */; };
+		F4A07B2D1E4A3E630035678A /* test_messages_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */; };
+		F4A07B2E1E4A3E640035678A /* test_messages_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */; };
 		F4D315471DEC8117005D4A80 /* unittest_swift_extension2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D315431DEC8110005D4A80 /* unittest_swift_extension2.pb.swift */; };
 		F4D315481DEC8117005D4A80 /* unittest_swift_extension3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D315441DEC8110005D4A80 /* unittest_swift_extension3.pb.swift */; };
 		F4D315491DEC811B005D4A80 /* unittest_swift_extension2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D315431DEC8110005D4A80 /* unittest_swift_extension2.pb.swift */; };
@@ -568,6 +571,7 @@
 		F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_OneofFields_Access_Proto3.swift; sourceTree = "<group>"; };
 		F44F94461DBFF17B00BC5B85 /* Test_MapFields_Access_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_MapFields_Access_Proto2.swift; sourceTree = "<group>"; };
 		F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_MapFields_Access_Proto3.swift; sourceTree = "<group>"; };
+		F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test_messages_proto3.pb.swift; sourceTree = "<group>"; };
 		F4D315431DEC8110005D4A80 /* unittest_swift_extension2.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_extension2.pb.swift; sourceTree = "<group>"; };
 		F4D315441DEC8110005D4A80 /* unittest_swift_extension3.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_extension3.pb.swift; sourceTree = "<group>"; };
 		F4D315521DECA0E5005D4A80 /* unittest_swift_extension4.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_extension4.pb.swift; sourceTree = "<group>"; };
@@ -848,6 +852,7 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_Map.swift /* Test_Map.swift */,
 				F44F94461DBFF17B00BC5B85 /* Test_MapFields_Access_Proto2.swift */,
 				F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */,
+				F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */,
 				F44F943D1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift */,
 				F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift */,
@@ -859,8 +864,8 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_Reserved.swift /* Test_Reserved.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Struct.swift /* Test_Struct.swift */,
 				9C60CBE71DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift */,
-				9C60CBEB1DF9DEEA00F7B14E /* Test_Text_proto2.swift */,
 				9C5890A51DFF5EC8001CFC34 /* Test_Text_proto2_extensions.swift */,
+				9C60CBEB1DF9DEEA00F7B14E /* Test_Text_proto2.swift */,
 				BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */,
 				9CCD5F921E008203002D1940 /* Test_Text_WKT_proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Timestamp.swift /* Test_Timestamp.swift */,
@@ -1163,6 +1168,7 @@
 				9C8CDA511D7A28F600E207CA /* unittest_mset.pb.swift in Sources */,
 				F4D3154A1DEC811B005D4A80 /* unittest_swift_extension3.pb.swift in Sources */,
 				9C8CDA641D7A28F600E207CA /* unittest_swift_naming.pb.swift in Sources */,
+				F4A07B2D1E4A3E630035678A /* test_messages_proto3.pb.swift in Sources */,
 				9C8CDA521D7A28F600E207CA /* unittest_mset_wire_format.pb.swift in Sources */,
 				9C8CDA531D7A28F600E207CA /* unittest_no_arena.pb.swift in Sources */,
 				9C8CDA541D7A28F600E207CA /* unittest_no_arena_import.pb.swift in Sources */,
@@ -1372,6 +1378,7 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift in Sources */,
+				F4A07B2C1E4A3E620035678A /* test_messages_proto3.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_proto3.pb.swift /* unittest_import_proto3.pb.swift in Sources */,
@@ -1542,6 +1549,7 @@
 				F44F93D01DAEA8C900BC5B85 /* Test_Wrappers.swift in Sources */,
 				F4D315561DECA0EB005D4A80 /* unittest_swift_extension4.pb.swift in Sources */,
 				F44F93DA1DAEA8C900BC5B85 /* unittest_import_public.pb.swift in Sources */,
+				F4A07B2E1E4A3E640035678A /* test_messages_proto3.pb.swift in Sources */,
 				AA6CF6F71DB6D229007DF26B /* Test_Enum_Proto2.swift in Sources */,
 				F44F94371DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				F44F93C71DAEA8C900BC5B85 /* Test_ReallyLargeTagNumber.swift in Sources */,
