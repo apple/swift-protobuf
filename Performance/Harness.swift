@@ -14,6 +14,14 @@
 
 import Foundation
 
+private func padded(_ input: String, to width: Int) -> String {
+    var s = input
+    while s.characters.count < width {
+        s += " "
+    }
+    return s
+}
+
 /// Harness used for performance tests.
 ///
 /// The generator script will generate an extension to this class that adds a
@@ -24,10 +32,14 @@ class Harness {
   var measurementCount = 10
 
   /// The number of times to loop the body of the run() method.
+  /// Increase this to get better precision...
   var runCount = 100
 
   /// The number of times to call append() for repeated fields.
   let repeatedCount: Int32 = 10
+
+  /// Ordered list of task names
+  var taskNames = [String]()
 
   /// The times taken by subtasks during each measured attempt.
   var subtaskTimings = [String: [TimeInterval]]()
@@ -49,32 +61,53 @@ class Harness {
   func measure(block: () throws -> Void) {
     var timings = [TimeInterval]()
     subtaskTimings.removeAll()
+    print("Running each check \(runCount) times, times in µs")
+
+    var headingsDisplayed = false
 
     do {
-      // Do each measurement 5 times and collect the means and standard
+      // Do each measurement multiple times and collect the means and standard
       // deviation to account for noise.
       for attempt in 1...measurementCount {
-        print("Attempt \(attempt), \(runCount) runs:")
         currentSubtasks.removeAll()
-
+        taskNames.removeAll()
         let start = Date()
-        try block()
+        for _ in 0..<runCount {
+          taskNames.removeAll()
+          try block()
+        }
         let end = Date()
         let diff = end.timeIntervalSince(start) * 1000
         timings.append(diff)
 
-        for (name, time) in currentSubtasks {
-          print(String(format: "\"%@\" took %.3f ms", name, time))
-
-          if var timings = subtaskTimings[name] {
-            timings.append(time)
-            subtaskTimings[name] = timings
-          } else {
-            subtaskTimings[name] = [time]
-          }
+        if !headingsDisplayed {
+            let names = taskNames
+            print("   ", terminator: "")
+            for (i, name) in names.enumerated() {
+                if i % 2 == 0 {
+                    print(padded(name, to: 18), terminator: "")
+                }
+            }
+            print()
+            print("   ", terminator: "")
+            print(padded("", to: 9), terminator: "")
+            for (i, name) in names.enumerated() {
+                if i % 2 == 1 {
+                    print(padded(name, to: 18), terminator: "")
+                }
+            }
+            print()
+            headingsDisplayed = true
         }
-        print(String(format: "Total execution time: %.3f ms\n", diff))
-        print("----")
+
+        print(String(format: "%3d", attempt), terminator: "")
+
+        for name in taskNames {
+          let time = currentSubtasks[name] ?? 0
+          print(String(format: "%9.3f", name, time), terminator: "")
+          subtaskTimings[name] = (subtaskTimings[name] ?? []) + [time]
+        }
+        print()
       }
     } catch let e {
       fatalError("Generated harness threw an error: \(e)")
@@ -86,7 +119,7 @@ class Harness {
 
     let (mean, stddev) = statistics(timings)
     let stats =
-        String(format: "mean = %.3f ms, stddev = %.3f ms\n", mean, stddev)
+        String(format: "Relative stddev = %.1f%%\n", (stddev / mean) * 100.0)
     print(stats)
   }
 
@@ -96,10 +129,11 @@ class Harness {
     _ name: String,
     block: () throws -> Result
   ) rethrows -> Result {
+    taskNames.append(name)
     let start = Date()
     let result = try block()
     let end = Date()
-    let diff = end.timeIntervalSince(start) * 1000
+    let diff = end.timeIntervalSince(start) / Double(runCount) * Double(1000000.0)
     currentSubtasks[name] = (currentSubtasks[name] ?? 0) + diff
     return result
   }

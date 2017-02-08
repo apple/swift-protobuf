@@ -39,26 +39,26 @@ Harness::Harness(std::ostream* results_stream) :
     repeated_count(10) {}
 
 void Harness::write_to_log(const string& name,
-                           const vector<milliseconds_d>& timings) const {
+                           const vector<microseconds_d>& timings) const {
   if (results_stream == nullptr) {
     return;
   }
 
   (*results_stream) << "\"" << name << "\": [";
   for (const auto& duration : timings) {
-    auto millis = duration_cast<milliseconds_d>(duration);
-    (*results_stream) << millis.count() << ", ";
+    auto micros = duration_cast<microseconds_d>(duration);
+    (*results_stream) << micros.count() / run_count << ", ";
   }
   (*results_stream) << "]," << endl;
 }
 
 Harness::Statistics Harness::compute_statistics(
     const vector<steady_clock::duration>& timings) const {
-  milliseconds_d::rep sum = 0;
-  milliseconds_d::rep sqsum = 0;
+  microseconds_d::rep sum = 0;
+  microseconds_d::rep sqsum = 0;
 
   for (const auto& duration : timings) {
-    auto millis = duration_cast<milliseconds_d>(duration);
+    auto millis = duration_cast<microseconds_d>(duration);
     auto count = millis.count();
     sum += count;
     sqsum += count * count;

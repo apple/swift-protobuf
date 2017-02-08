@@ -58,41 +58,39 @@ extension Harness {
   func run() {
     measure {
       // Loop enough times to get meaningfully large measurements.
-      for _ in 0..<runCount {
-        var message = PerfMessage()
-        measureSubtask("Populate fields") {
-          populateFields(of: &message)
-        }
+      var message = PerfMessage()
+      measureSubtask("Populate fields") {
+        populateFields(of: &message)
+      }
 
-        // Exercise binary serialization.
-        let data = try measureSubtask("Encode binary") {
-          return try message.serializeProtobuf()
-        }
-        message = try measureSubtask("Decode binary") {
-          return try PerfMessage(protobuf: data)
-        }
+      // Exercise binary serialization.
+      let data = try measureSubtask("Encode binary") {
+        return try message.serializeProtobuf()
+      }
+      message = try measureSubtask("Decode binary") {
+        return try PerfMessage(protobuf: data)
+      }
 
-        // Exercise JSON serialization.
-        let json = try measureSubtask("Encode JSON") {
-          return try message.serializeJSON()
-        }
-        let jsonDecodedMessage = try measureSubtask("Decode JSON") {
-          return try PerfMessage(json: json)
-        }
+      // Exercise JSON serialization.
+      let json = try measureSubtask("Encode JSON") {
+        return try message.serializeJSON()
+      }
+      let jsonDecodedMessage = try measureSubtask("Decode JSON") {
+        return try PerfMessage(json: json)
+      }
 
-        // Exercise text serialization.
-        let text = try measureSubtask("Encode text") {
-          return try message.serializeText()
-        }
-        _ = try measureSubtask("Decode text") {
-          return try PerfMessage(text: text)
-        }
+      // Exercise text serialization.
+      let text = try measureSubtask("Encode text") {
+        return try message.serializeText()
+      }
+      _ = try measureSubtask("Decode text") {
+        return try PerfMessage(text: text)
+      }
 
-        // Exercise equality.
-        measureSubtask("Test equality") {
-          guard message == jsonDecodedMessage else {
-            fatalError("Binary- and JSON-decoded messages were not equal!")
-          }
+      // Exercise equality.
+      measureSubtask("Equality") {
+        guard message == jsonDecodedMessage else {
+          fatalError("Binary- and JSON-decoded messages were not equal!")
         }
       }
     }
@@ -139,4 +137,5 @@ function run_swift_harness() {
   echo
 
   run_harness_and_concatenate_results "Swift" "$harness_swift" "$partial_results"
+  profile_harness "Swift" "$harness_swift"
 }

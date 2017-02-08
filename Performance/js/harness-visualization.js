@@ -6,7 +6,7 @@
     'Encode binary', 'Decode binary',
     'Encode JSON', 'Decode JSON',
     'Encode text', 'Decode text',
-    'Test equality',
+    'Equality',
   ];
 
   // The languages we have harnesses for. The results for each language will
@@ -27,7 +27,7 @@
       ticks: 'outside',
     },
     yaxis: {
-      title: 'Runtime (ms)',
+      title: 'Runtime (&micro;s)',
       autorange: true,
     },
     margin: {
@@ -162,7 +162,7 @@
         var valueCell = $('<td></td>').appendTo(tr);
         var multiplierCell = $('<td></td>').appendTo(tr);
         if (med) {
-          var formattedMedian = med.toFixed(3) + '&nbsp;ms';
+          var formattedMedian = med.toFixed(3) + '&nbsp;&micro;s';
           valueCell.html(formattedMedian);
           var multiplier = med / bestValue;
           decorateMultiplierCell(valueCell, multiplier);
