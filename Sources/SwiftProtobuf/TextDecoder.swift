@@ -27,7 +27,9 @@ public struct TextDecoder: Decoder {
     private var terminator: UInt8?
     private var fieldNameMap: FieldNameMap?
     private var messageType: Message.Type?
+
     public var complete: Bool {return scanner.complete}
+
     public var rejectConflictingOneof: Bool {return true}
 
     internal init<M: Message>(messageType: M.Type, text: String, extensions: ExtensionSet?) throws {

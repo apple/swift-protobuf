@@ -263,7 +263,7 @@ public class TextScanner {
     internal var extensions: ExtensionSet?
     private var utf8: String.UTF8View
     private var index: String.UTF8View.Index
-    private var eof: Bool = false
+
     internal var complete: Bool {
         skipWhitespace()
         return index == utf8.endIndex
@@ -802,7 +802,6 @@ public class TextScanner {
     internal func nextOptionalExtensionKey() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
-            eof = true
             return nil
         }
         if utf8[index] == asciiOpenSquareBracket { // [
@@ -832,7 +831,6 @@ public class TextScanner {
     internal func nextKey() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
-            eof = true
             return nil
         }
         let c = utf8[index]
@@ -864,7 +862,6 @@ public class TextScanner {
     internal func nextFieldNumber(names: FieldNameMap) throws -> Int? {
         skipWhitespace()
         if index == utf8.endIndex {
-            eof = true
             return nil
         }
         let c = utf8[index]
