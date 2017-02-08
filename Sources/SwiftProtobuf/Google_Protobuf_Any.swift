@@ -41,6 +41,13 @@ fileprivate func typeName(fromMessage message: Message) -> String {
 }
 
 public extension Message {
+
+  /// Assumes that the data provided when creating the `Google_Protobuf_Any`
+  /// instance is encoded in the default manner, whether's in in binary
+  /// protobuf or JSON formats.
+  ///
+  /// Can be overridden to change how the data should be interpreted. See
+  /// `Google_Protobuf_Any` for more details.
   public init(any: Google_Protobuf_Any) throws {
     self.init()
     try any.unpackTo(target: &self)
