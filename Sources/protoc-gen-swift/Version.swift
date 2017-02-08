@@ -17,6 +17,19 @@ struct Version {
     static let minor = 9
     static let revision = 28
     static let versionString = "\(major).\(minor).\(revision)"
+
+    // The "compatibility version" of the runtime library, which must be
+    // incremented every time a breaking change (either behavioral or
+    // API-changing) is introduced.
+    //
+    // We guarantee that generated protos that contain this version token will
+    // be compatible with the runtime library containing the matching token.
+    // Therefore, this number (and the corresponding one in the runtime
+    // library) should not be updated for *every* version of Swift Protobuf,
+    // but only for those that introduce breaking changes (either behavioral
+    // or API-changing).
+    static let compatibilityVersion = 1
+
     static let name = "protoc-gen-swift"
     static let versionedName = "protoc-gen-swift \(versionString)"
     static let copyright = "Copyright (C) 2014-2016 Apple Inc. and the Swift project authors"
