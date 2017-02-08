@@ -6,6 +6,8 @@ xcuserdata
 xcbaselines
 /_test
 protoc-gen-swift
+/docs
+/build
 
 # Intermediate conformance test outputs
 failing_tests.txt
