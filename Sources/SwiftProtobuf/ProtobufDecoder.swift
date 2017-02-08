@@ -55,10 +55,11 @@ public struct ProtobufDecoder: Decoder {
         self.extensions = extensions
     }
 
-    // Since this is called for every field, I've taken some
-    // pains to optimize it, including unrolling a tweaked version
-    // of the varint parser.
+    /// Return the next field number or nil if there are no more fields.
     public mutating func nextFieldNumber() throws -> Int? {
+        // Since this is called for every field, I've taken some pains
+        // to optimize it, including unrolling a tweaked version of
+        // the varint parser.
         if fieldNumber > 0 {
             if let override = unknownOverride {
                 if unknownData == nil {
@@ -266,7 +267,7 @@ public struct ProtobufDecoder: Decoder {
         guard fieldWireFormat == WireFormat.varint.rawValue else {
             throw DecodingError.schemaMismatch
         }
-        let v = try getRawVarint()
+        let v = try decodeVarint()
         value = Int64(bitPattern: v)
         consumed = true
     }
@@ -968,13 +969,21 @@ public struct ProtobufDecoder: Decoder {
         }
     }
 
+    //
+    // Private building blocks for the parsing above.
+    //
+    // Having these be private gives the compiler maximum latitude for
+    // inlining.
+    //
+
+    /// Private:  Advance the current position.
     private mutating func consume(length: Int) {
         available -= length
         p += length
     }
 
-    // Returns tagType for the field being skipped
-    // Recursively processes groups; returns the start group marker
+    /// Private: Skip the body for the given tag.  If the given tag is
+    /// a group, it parses up through the corresponding group end.
     private mutating func skipOver(tag: FieldTag) throws {
         switch tag.wireFormat {
         case .varint:
@@ -999,7 +1008,7 @@ public struct ProtobufDecoder: Decoder {
             p += 8
             available -= 8
         case .lengthDelimited:
-            let n = try getRawVarint()
+            let n = try decodeVarint()
             if n <= UInt64(available) {
                 p += Int(n)
                 available -= Int(n)
@@ -1031,16 +1040,18 @@ public struct ProtobufDecoder: Decoder {
         }
     }
 
-    // Jump to end of current field.
-    //
-    // This uses the bookmarked position saved by the last call to getTagType().
-    // On exit, fieldStartP points to the first byte of the tag, fieldEndP points
-    // to the first byte after the field contents.
-    //
+    /// Private: Skip to the end of the current field.
+    ///
+    /// Assumes that fieldStartP was bookmarked by a previous
+    /// call to getTagType().
+    ///
+    /// On exit, fieldStartP points to the first byte of the tag, fieldEndP points
+    /// to the first byte after the field contents, and p == fieldEndP.
     private mutating func skip() throws {
         if let end = fieldEndP {
             p = end
         } else {
+            // Rewind to start of current field.
             available += p - fieldStartP
             p = fieldStartP
             guard let tag = try getTagWithoutUpdatingFieldStart() else {
@@ -1051,8 +1062,8 @@ public struct ProtobufDecoder: Decoder {
         }
     }
 
-    // Throws at end-of-input or if broken varint
-    private mutating func getRawVarint() throws -> UInt64 {
+    /// Private: Parse the next raw varint from the input.
+    private mutating func decodeVarint() throws -> UInt64 {
         if available < 1 {
             throw DecodingError.truncatedInput
         }
@@ -1085,21 +1096,22 @@ public struct ProtobufDecoder: Decoder {
         }
     }
 
-    // Parse index/type marker that starts each field.
-    // This also bookmarks the start of field for a possible skip().
+    /// Private: Get the tag that starts a new field.
+    /// This also bookmarks the start of field for a possible skip().
     private mutating func getTag() throws -> FieldTag? {
         fieldStartP = p
         fieldEndP = nil
         return try getTagWithoutUpdatingFieldStart()
     }
 
-    // Parse index/type marker that starts each field.
-    // Used during skipping to avoid updating the field start offset.
+    /// Private: Parse and validate the next tag without
+    /// bookmarking the start of the field.  This is used within
+    /// skip() to skip over fields within a group.
     private mutating func getTagWithoutUpdatingFieldStart() throws -> FieldTag? {
         if available < 1 {
             return nil
         }
-        let t = try getRawVarint()
+        let t = try decodeVarint()
         if t < UInt64(UInt32.max) {
             guard let tag = FieldTag(rawValue: UInt32(truncatingBitPattern: t)) else {
                 throw DecodingError.malformedProtobuf
@@ -1112,15 +1124,15 @@ public struct ProtobufDecoder: Decoder {
         }
     }
 
+    /// Private: Return a Data containing the entirety of
+    /// the current field, including tag.
     private mutating func getRawField() throws -> Data {
         try skip()
         return Data(bytes: fieldStartP, count: fieldEndP! - fieldStartP)
     }
 
-    private mutating func decodeVarint() throws -> UInt64 {
-        return try getRawVarint()
-    }
-
+    /// Private: decode a fixed-length four-byte number.  This generic
+    /// helper handles all four-byte number types.
     private mutating func decodeFourByteNumber<T>(value: inout T) throws {
         guard available >= 4 else {throw DecodingError.truncatedInput}
         withUnsafeMutablePointer(to: &value) { ip -> Void in
@@ -1131,6 +1143,8 @@ public struct ProtobufDecoder: Decoder {
         consume(length: 4)
     }
 
+    /// Private: decode a fixed-length eight-byte number.  This generic
+    /// helper handles all eight-byte number types.
     private mutating func decodeEightByteNumber<T>(value: inout T) throws {
         guard available >= 8 else {throw DecodingError.truncatedInput}
         withUnsafeMutablePointer(to: &value) { ip -> Void in
@@ -1141,8 +1155,10 @@ public struct ProtobufDecoder: Decoder {
         consume(length: 8)
     }
 
+    /// Private: Get the start and length for the body of
+    // a length-delimited field.
     private mutating func getFieldBodyBytes(count: inout Int) throws -> UnsafePointer<UInt8> {
-        let length = try getRawVarint()
+        let length = try decodeVarint()
         if length <= UInt64(available) {
             count = Int(length)
             let body = p
