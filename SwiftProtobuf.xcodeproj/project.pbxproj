@@ -385,6 +385,13 @@
 		F44F944D1DBFF8DB00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
 		F44F944E1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
 		F44F944F1DBFF8DC00BC5B85 /* Test_MapFields_Access_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */; };
+		F48FDD241E4D17ED0061D5C1 /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9CF361E32C9F8004FBED6 /* JSONScanner.swift */; };
+		F48FDD251E4D17EE0061D5C1 /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9CF361E32C9F8004FBED6 /* JSONScanner.swift */; };
+		F48FDD261E4D17EF0061D5C1 /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9CF361E32C9F8004FBED6 /* JSONScanner.swift */; };
+		F48FDD271E4D18060061D5C1 /* Test_Text_proto2_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5890A51DFF5EC8001CFC34 /* Test_Text_proto2_extensions.swift */; };
+		F48FDD281E4D18060061D5C1 /* Test_Text_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */; };
+		F48FDD291E4D18080061D5C1 /* Test_Text_proto2_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5890A51DFF5EC8001CFC34 /* Test_Text_proto2_extensions.swift */; };
+		F48FDD2A1E4D18080061D5C1 /* Test_Text_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */; };
 		F4A07B2C1E4A3E620035678A /* test_messages_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */; };
 		F4A07B2D1E4A3E630035678A /* test_messages_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */; };
 		F4A07B2E1E4A3E640035678A /* test_messages_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */; };
@@ -564,7 +571,7 @@
 		BCCA0E681DB1210E00957D74 /* TextTypeAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTypeAdditions.swift; sourceTree = "<group>"; };
 		BCCA0E751DB123F800957D74 /* Test_Text_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Text_proto3.swift; sourceTree = "<group>"; };
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTestSuite_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F94341DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_BasicFields_Access_Proto2.swift; sourceTree = "<group>"; };
 		F44F94381DBFBB6800BC5B85 /* Test_BasicFields_Access_Proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_BasicFields_Access_Proto3.swift; sourceTree = "<group>"; };
@@ -682,8 +689,8 @@
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_runtime_proto3.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_startup.pb.swift /* unittest_swift_startup.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_startup.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_well_known_types.pb.swift /* unittest_well_known_types.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_well_known_types.pb.swift; sourceTree = "<group>"; };
-		"_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTestSuite_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTestSuite_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		"_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTestSuite_macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftProtobufTestSuite_macOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftProtobufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -731,11 +738,11 @@
 			isa = PBXGroup;
 			children = (
 				"_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */,
-				"_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTestSuite_macOS.xctest */,
+				"_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTests.xctest */,
 				"_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */,
-				"_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTestSuite_iOS.xctest */,
+				"_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTests.xctest */,
 				F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */,
-				F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */,
+				F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTests.xctest */,
 				F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */,
 			);
 			name = Products;
@@ -947,7 +954,7 @@
 			);
 			name = SwiftProtobufTestSuite_iOS;
 			productName = ProtobufTestSuite_iOS;
-			productReference = "_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTestSuite_iOS.xctest */;
+			productReference = "_____Product_ProtobufTestSuite_iOS" /* SwiftProtobufTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		BD12FD351D767BA0001815C7 /* SwiftProtobuf_iOS */ = {
@@ -994,7 +1001,7 @@
 			);
 			name = SwiftProtobufTestSuite_tvOS;
 			productName = SwiftProtobufTestSuite_tvOS;
-			productReference = F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTestSuite_tvOS.xctest */;
+			productReference = F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		F44F93FD1DAEB13F00BC5B85 /* SwiftProtobuf_watchOS */ = {
@@ -1041,7 +1048,7 @@
 			);
 			name = SwiftProtobufTestSuite_macOS;
 			productName = ProtobufTestSuite;
-			productReference = "_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTestSuite_macOS.xctest */;
+			productReference = "_____Product_ProtobufTestSuite_macOS" /* SwiftProtobufTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1148,11 +1155,13 @@
 				9C8CDA3D1D7A28F600E207CA /* Test_Struct.swift in Sources */,
 				9C8CDA3E1D7A28F600E207CA /* Test_Timestamp.swift in Sources */,
 				9C8CDA3F1D7A28F600E207CA /* Test_Type.swift in Sources */,
+				F48FDD281E4D18060061D5C1 /* Test_Text_proto3.swift in Sources */,
 				9C8CDA401D7A28F600E207CA /* Test_Unknown_proto2.swift in Sources */,
 				9C8CDA411D7A28F600E207CA /* Test_Unknown_proto3.swift in Sources */,
 				9C8CDA421D7A28F600E207CA /* Test_Wrappers.swift in Sources */,
 				9C8CDA431D7A28F600E207CA /* unittest.pb.swift in Sources */,
 				9C8CDA441D7A28F600E207CA /* unittest_arena.pb.swift in Sources */,
+				F48FDD271E4D18060061D5C1 /* Test_Text_proto2_extensions.swift in Sources */,
 				9C8CDA451D7A28F600E207CA /* unittest_custom_options.pb.swift in Sources */,
 				9C8CDA461D7A28F600E207CA /* unittest_drop_unknown_fields.pb.swift in Sources */,
 				9C8CDA471D7A28F600E207CA /* unittest_embed_optimize_for.pb.swift in Sources */,
@@ -1244,6 +1253,7 @@
 				9C5890B61DFF6389001CFC34 /* TextEncodingVisitor.swift in Sources */,
 				9C5890B71DFF6389001CFC34 /* TextScanner.swift in Sources */,
 				9C5890B91DFF6389001CFC34 /* TextTypeAdditions.swift in Sources */,
+				F48FDD241E4D17ED0061D5C1 /* JSONScanner.swift in Sources */,
 				9C75F8861DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
 				9C75F8811DDBE0FC005CCFF2 /* Visitor.swift in Sources */,
 				AAF2ED451DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
@@ -1466,6 +1476,7 @@
 				9C5890B01DFF6384001CFC34 /* TextEncodingVisitor.swift in Sources */,
 				9C5890B11DFF6384001CFC34 /* TextScanner.swift in Sources */,
 				9C5890B31DFF6384001CFC34 /* TextTypeAdditions.swift in Sources */,
+				F48FDD251E4D17EE0061D5C1 /* JSONScanner.swift in Sources */,
 				F44F93931DAEA76700BC5B85 /* FieldTypes.swift in Sources */,
 				9C75F8871DDD3045005CCFF2 /* ExtensionSet.swift in Sources */,
 				F44F93871DAEA76700BC5B85 /* Errors.swift in Sources */,
@@ -1529,11 +1540,13 @@
 				F44F93E41DAEA8C900BC5B85 /* unittest_no_generic_services.pb.swift in Sources */,
 				F44F944A1DBFF18100BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */,
 				F44F93CF1DAEA8C900BC5B85 /* Test_Unknown_proto3.swift in Sources */,
+				F48FDD2A1E4D18080061D5C1 /* Test_Text_proto3.swift in Sources */,
 				F44F93AC1DAEA8C900BC5B85 /* descriptor.pb.swift in Sources */,
 				F44F93C61DAEA8C900BC5B85 /* Test_Performance.swift in Sources */,
 				F44F93D61DAEA8C900BC5B85 /* unittest_import_lite.pb.swift in Sources */,
 				F44F93BE1DAEA8C900BC5B85 /* Test_JSON_Conformance.swift in Sources */,
 				F44F93E11DAEA8C900BC5B85 /* unittest_no_arena_lite.pb.swift in Sources */,
+				F48FDD291E4D18080061D5C1 /* Test_Text_proto2_extensions.swift in Sources */,
 				F44F93CA1DAEA8C900BC5B85 /* Test_Reserved.swift in Sources */,
 				F44F93BF1DAEA8C900BC5B85 /* Test_JSON_Group.swift in Sources */,
 				F44F93E61DAEA8C900BC5B85 /* unittest_preserve_unknown_enum.pb.swift in Sources */,
@@ -1625,6 +1638,7 @@
 				ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */,
 				9C5890A81DFF6375001CFC34 /* TextDecoder.swift in Sources */,
 				9C5890A91DFF6375001CFC34 /* TextEncoder.swift in Sources */,
+				F48FDD261E4D17EF0061D5C1 /* JSONScanner.swift in Sources */,
 				9C5890AA1DFF6375001CFC34 /* TextEncodingVisitor.swift in Sources */,
 				9C5890AB1DFF6375001CFC34 /* TextScanner.swift in Sources */,
 				9C5890AD1DFF6375001CFC34 /* TextTypeAdditions.swift in Sources */,
@@ -1667,7 +1681,8 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SwiftProtobufTests;
+				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1681,7 +1696,8 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SwiftProtobufTests;
+				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1763,7 +1779,8 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SwiftProtobufTests;
+				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 3.0.1;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1777,7 +1794,8 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SwiftProtobufTests;
+				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 3.0.1;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1837,6 +1855,8 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_MODULE_NAME = SwiftProtobufTests;
+				PRODUCT_NAME = SwiftProtobufTests;
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
@@ -1860,6 +1880,8 @@
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_MODULE_NAME = SwiftProtobufTests;
+				PRODUCT_NAME = SwiftProtobufTests;
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
