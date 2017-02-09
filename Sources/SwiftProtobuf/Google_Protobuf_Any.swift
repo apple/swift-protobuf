@@ -349,22 +349,6 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public var debugDescription: String {
-        get {
-            if let message = _message {
-                return "Google_Protobuf_Any{" + String(reflecting: message) + "}"
-            } else if let typeURL = typeURL {
-                if let value = _value {
-                    return "Google_Protobuf_Any{\(typeURL), \(value)}"
-                } else {
-                    return "Google_Protobuf_Any{\(typeURL), <JSON>}"
-                }
-            } else {
-                return "Google_Protobuf_Any{}"
-            }
-        }
-    }
-
     public init(any: Google_Protobuf_Any) throws {
         try any.unpackTo(target: &self)
     }
