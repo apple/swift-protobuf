@@ -1107,8 +1107,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     }
 
     public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None && decoder.rejectConflictingOneof {
-        throw SwiftProtobuf.DecodingError.duplicatedOneOf
+      if self != .None {
+        try decoder.handleConflictingOneOf()
       }
       switch fieldNumber {
       case 111:

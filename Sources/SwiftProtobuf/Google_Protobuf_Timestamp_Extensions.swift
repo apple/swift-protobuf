@@ -37,7 +37,7 @@ private func fromAscii2(_ digit0: Int, _ digit1: Int) throws -> Int {
     let nine = Int(57)
 
     if digit0 < zero || digit0 > nine || digit1 < zero || digit1 > nine {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
     return digit0 * 10 + digit1 - 528
 }
@@ -50,7 +50,7 @@ private func fromAscii4(_ digit0: Int, _ digit1: Int, _ digit2: Int, _ digit3: I
         || digit1 < zero || digit1 > nine
         || digit2 < zero || digit2 > nine
         || digit3 < zero || digit3 > nine) {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
     return digit0 * 1000 + digit1 * 100 + digit2 * 10 + digit3 - 53328
 }
@@ -60,7 +60,7 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     // Convert to an array of integer character values
     let value = s.utf8.map{Int($0)}
     if value.count < 20 {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
     // Since the format is fixed-layout, we can just decode
     // directly as follows.
@@ -76,37 +76,37 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     // Year: 4 digits followed by '-'
     let year = try fromAscii4(value[0], value[1], value[2], value[3])
     if value[4] != dash || year < Int(1) || year > Int(9999) {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
 
     // Month: 2 digits followed by '-'
     let month = try fromAscii2(value[5], value[6])
     if value[7] != dash || month < Int(1) || month > Int(12) {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
 
     // Day: 2 digits followed by 'T'
     let mday = try fromAscii2(value[8], value[9])
     if value[10] != letterT || mday < Int(1) || mday > Int(31) {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
 
     // Hour: 2 digits followed by ':'
     let hour = try fromAscii2(value[11], value[12])
     if value[13] != colon || hour > Int(23) {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
 
     // Minute: 2 digits followed by ':'
     let minute = try fromAscii2(value[14], value[15])
     if value[16] != colon || minute > Int(59) {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
 
     // Second: 2 digits (following char is checked below)
     let second = try fromAscii2(value[17], value[18])
     if second > Int(61) {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
 
     // timegm() is almost entirely useless.  It's nonexistent on
@@ -158,12 +158,12 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     var seconds: Int64 = 0
     if value[pos] == plus || value[pos] == dash { // "+" or "-" starts Timezone offset
         if pos + 6 > value.count {
-            throw DecodingError.malformedJSONTimestamp
+            throw JSONDecodingError.malformedTimestamp
         }
         let hourOffset = try fromAscii2(value[pos + 1], value[pos + 2])
         let minuteOffset = try fromAscii2(value[pos + 4], value[pos + 5])
         if hourOffset > Int(13) || minuteOffset > Int(59) || value[pos + 3] != colon {
-            throw DecodingError.malformedJSONTimestamp
+            throw JSONDecodingError.malformedTimestamp
         }
         var adjusted: Int64 = t
         if value[pos] == plus {
@@ -174,7 +174,7 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
             adjusted += Int64(minuteOffset) * Int64(60)
         }
         if adjusted < -62135596800 || adjusted > 253402300799 {
-            throw DecodingError.malformedJSONTimestamp
+            throw JSONDecodingError.malformedTimestamp
         }
         seconds = adjusted
         pos += 6
@@ -182,10 +182,10 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
         seconds = t
         pos += 1
     } else {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
     if pos != value.count {
-        throw DecodingError.malformedJSONTimestamp
+        throw JSONDecodingError.malformedTimestamp
     }
     return (seconds, nanos)
 }

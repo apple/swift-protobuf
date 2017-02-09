@@ -404,7 +404,7 @@ public class TextScanner {
     internal func nextUInt() throws -> UInt64 {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedTextNumber
+            throw TextDecodingError.malformedNumber
         }
         let c = utf8[index]
         index = utf8.index(after: index)
@@ -429,7 +429,7 @@ public class TextScanner {
                         return n
                     }
                     if n > UInt64.max / 16 {
-                        throw DecodingError.malformedTextNumber
+                        throw TextDecodingError.malformedNumber
                     }
                     index = utf8.index(after: index)
                     n = n * 16 + val
@@ -448,7 +448,7 @@ public class TextScanner {
                     }
                     let val = UInt64(digit - asciiZero)
                     if n > UInt64.max / 8 {
-                        throw DecodingError.malformedTextNumber
+                        throw TextDecodingError.malformedNumber
                     }
                     index = utf8.index(after: index)
                     n = n * 8 + val
@@ -469,7 +469,7 @@ public class TextScanner {
                 let val = UInt64(digit - asciiZero)
                 if n >= UInt64.max / 10 {
                     if n > UInt64.max / 10 || val > UInt64.max % 10 {
-                        throw DecodingError.malformedTextNumber
+                        throw TextDecodingError.malformedNumber
                     }
                 }
                 index = utf8.index(after: index)
@@ -477,13 +477,13 @@ public class TextScanner {
             }
             return n
         }
-        throw DecodingError.malformedTextNumber
+        throw TextDecodingError.malformedNumber
     }
 
     internal func nextSInt() throws -> Int64 {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedTextNumber
+            throw TextDecodingError.malformedNumber
         }
         let c = utf8[index]
         if c == asciiMinus { // -
@@ -491,13 +491,13 @@ public class TextScanner {
             // character after '-' must be digit
             let digit = utf8[index]
             if digit < asciiZero || digit > asciiNine {
-                throw DecodingError.malformedTextNumber
+                throw TextDecodingError.malformedNumber
             }
             let n = try nextUInt()
             if n >= 0x8000000000000000 { // -Int64.min
                 if n > 0x8000000000000000 {
                     // Too large negative number
-                    throw DecodingError.malformedTextNumber
+                    throw TextDecodingError.malformedNumber
                 } else {
                     return Int64.min // Special case for Int64.min
                 }
@@ -506,7 +506,7 @@ public class TextScanner {
         } else {
             let n = try nextUInt()
             if n > UInt64(bitPattern: Int64.max) {
-                throw DecodingError.malformedTextNumber
+                throw TextDecodingError.malformedNumber
             }
             return Int64(bitPattern: n)
         }
@@ -516,17 +516,17 @@ public class TextScanner {
         var result: String
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         index = utf8.index(after: index)
         if let s = parseStringSegment(terminator: c) {
             result = s
         } else {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
 
         while true {
@@ -542,7 +542,7 @@ public class TextScanner {
             if let s = parseStringSegment(terminator: c) {
                 result.append(s)
             } else {
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         }
     }
@@ -551,17 +551,17 @@ public class TextScanner {
         var result: Data
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         index = utf8.index(after: index)
         if let s = parseQuotedString(terminator: c), let b = decodeBytes(s) {
             result = b
         } else {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
 
         while true {
@@ -578,7 +578,7 @@ public class TextScanner {
                let b = decodeBytes(s) {
                 result.append(b)
             } else {
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         }
     }
@@ -717,7 +717,7 @@ public class TextScanner {
         if let inf = skipOptionalInfinity() {
             return inf
         }
-        throw DecodingError.malformedTextNumber
+        throw TextDecodingError.malformedNumber
     }
 
     internal func nextDouble() throws -> Double {
@@ -732,13 +732,13 @@ public class TextScanner {
         if let inf = skipOptionalInfinity() {
             return Double(inf)
         }
-        throw DecodingError.malformedTextNumber
+        throw TextDecodingError.malformedNumber
     }
 
     internal func nextBool() throws -> Bool {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         switch c {
@@ -760,13 +760,13 @@ public class TextScanner {
                 }
             }
         }
-        throw DecodingError.malformedText
+        throw TextDecodingError.malformedText
     }
 
     internal func nextOptionalEnumName() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         let start = index
@@ -808,14 +808,14 @@ public class TextScanner {
             index = utf8.index(after: index)
             if let s = parseExtensionKey() {
                 if index == utf8.endIndex || utf8[index] != asciiCloseSquareBracket {
-                    throw DecodingError.malformedText
+                    throw TextDecodingError.malformedText
                 }
                 // Skip ]
                 index = utf8.index(after: index)
                 return s
             } else {
                 print("Error parsing extension identifier")
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         }
         return nil
@@ -836,16 +836,16 @@ public class TextScanner {
         let c = utf8[index]
         switch c {
         case asciiOpenSquareBracket: // [
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         case asciiLowerA...asciiLowerZ,
              asciiUpperA...asciiUpperZ: // a...z, A...Z
             if let s = parseIdentifier() {
                 return s
             } else {
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         default:
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
     }
 
@@ -895,13 +895,13 @@ public class TextScanner {
                 if let fieldNumber = names.fieldNumber(forProtoName: key) {
                     return fieldNumber
                 } else {
-                    throw DecodingError.unknownField
+                    throw TextDecodingError.unknownField
                 }
             }
         default:
             break
         }
-        throw DecodingError.malformedText
+        throw TextDecodingError.malformedText
     }
 
     private func skipRequiredCharacter(_ c: UInt8) throws {
@@ -909,7 +909,7 @@ public class TextScanner {
         if index != utf8.endIndex && utf8[index] == c {
             index = utf8.index(after: index)
         } else {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
     }
 
@@ -972,6 +972,6 @@ public class TextScanner {
                 break
             }
         }
-        throw DecodingError.malformedText
+        throw TextDecodingError.malformedText
     }
 }

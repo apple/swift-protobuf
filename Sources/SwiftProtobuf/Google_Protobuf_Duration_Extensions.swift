@@ -31,7 +31,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
         case "-":
             // Only accept '-' as very first character
             if total > 0 {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.malformedDuration
             }
             digits.append(c)
         case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
@@ -39,13 +39,13 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
             digitCount += 1
         case ".":
             if let _ = seconds {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.malformedDuration
             }
             let digitString = String(digits)
             if let s = Int64(digitString), s >= DurationMin && s <= DurationMax {
                 seconds = s
             } else {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.malformedDuration
             }
             digits.removeAll()
             digitCount = 0
@@ -68,7 +68,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
                         nanos = rawNanos
                     }
                 } else {
-                    throw DecodingError.malformedJSON
+                    throw JSONDecodingError.malformedDuration
                 }
             } else {
                 // No fraction, we just have an integral number of seconds
@@ -76,20 +76,20 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
                 if let s = Int64(digitString), s >= DurationMin && s <= DurationMax {
                     seconds = s
                 } else {
-                    throw DecodingError.malformedJSON
+                    throw JSONDecodingError.malformedDuration
                 }
             }
             // Fail if there are characters after 's'
             if chars.next() != nil {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.malformedDuration
             }
             return (seconds!, nanos)
         default:
-            throw DecodingError.malformedJSON
+            throw JSONDecodingError.malformedDuration
         }
         total += 1
     }
-    throw DecodingError.malformedJSON
+    throw JSONDecodingError.malformedDuration
 }
 
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {

@@ -18,6 +18,33 @@
 import Foundation
 import Swift
 
+/// Any objects can be parsed from Protobuf Binary, Protobuf Text, or JSON.
+/// The contents are not parsed immediately; the raw data is held in the Any
+/// object until you `unpack()` it into a message.  At this time, any
+/// error can occur that might have occurred from a regular decoding
+/// operation.  In addition, there are a number of other errors that are
+/// possible, involving the structure of the Any object itself.
+public enum AnyUnpackError: Error {
+    /// The `urlType` field in the Any object did not match the message type
+    /// provided to the `unpack()` method.
+    case typeMismatch
+    /// Well-known types being decoded from JSON must have only two
+    /// fields:  the `@type` field and a `value` field containing
+    /// the specialized JSON coding of the well-known type.
+    case malformedWellKnownTypeJSON
+    /// The `typeURL` field could not be parsed.
+    case malformedTypeURL
+    /// There was something else wrong...
+    case malformedAnyField
+    /// The Any field is empty.  You can only `unpack()` an Any
+    /// field if it contains an object (either from an initializer
+    /// or from having been decoded).
+    case emptyAnyField
+    /// Decoding JSON or Text format requires the message type
+    /// to have been compiled with textual field names.
+    case missingFieldNames
+}
+
 fileprivate func typeName(fromURL s: String) -> String {
     var typeStart = s.startIndex
     var i = typeStart
@@ -276,15 +303,15 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     ///
     public func unpackTo<M: Message>(target: inout M) throws {
         if typeURL == nil {
-            throw DecodingError.malformedAnyField
+            throw AnyUnpackError.emptyAnyField
         }
         let encodedType = typeName(fromURL: typeURL!)
         if encodedType == "" {
-            throw DecodingError.malformedAnyField
+            throw AnyUnpackError.malformedTypeURL
         }
         let messageType = typeName(fromMessage: target)
         if encodedType != messageType {
-            throw DecodingError.malformedAnyField
+            throw AnyUnpackError.typeMismatch
         }
         var protobuf: Data?
         if let message = _message as? M {
@@ -310,17 +337,17 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             if Google_Protobuf_Any.wellKnownTypes[targetType] != nil {
                 // If it's a well-known type, the JSON coding must have a single 'value' field
                 if jsonFields.count != 1 {
-                    throw DecodingError.schemaMismatch
+                    throw AnyUnpackError.malformedWellKnownTypeJSON
                 }
                 if let v = jsonFields["value"], !v.isEmpty {
                     target = try M(json: v)
                 } else {
-                    throw DecodingError.schemaMismatch
+                    throw AnyUnpackError.malformedWellKnownTypeJSON
                 }
             } else {
                 // Decode JSON from the stored tokens for generated messages
                 guard let nameProviding = (target as? ProtoNameProviding) else {
-                    throw DecodingError.missingFieldNames
+                    throw JSONDecodingError.missingFieldNames
                 }
                 let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
@@ -330,15 +357,16 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                             var decoder = JSONDecoder(utf8Pointer: bytes, count: raw.count)
                             try target.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
                             if !decoder.scanner.complete {
-                                throw DecodingError.trailingGarbage
+                                throw JSONDecodingError.trailingGarbage
                             }
                         }
                     }
+                    // Ignore unrecognized field names (as per usual with JSON decoding)
                 }
             }
             return
         }
-        throw DecodingError.malformedAnyField
+        throw AnyUnpackError.malformedAnyField
     }
 
     public var hashValue: Int {
@@ -433,7 +461,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                     return
                 }
             }
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
 
         var subDecoder = try TextDecoder(messageType: Google_Protobuf_Any.self, scanner: scanner, terminator: terminator)

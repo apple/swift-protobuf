@@ -126,7 +126,7 @@ public extension Google_Protobuf_FieldMask {
         if let names = parseJSONFieldNames(names: s) {
             paths = names
         } else {
-            throw DecodingError.fieldMaskConversion
+            throw JSONDecodingError.malformedFieldMask
         }
     }
 

@@ -86,8 +86,8 @@ class OneofGenerator {
         p.print("\n")
         p.print("public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {\n")
         p.indent()
-        p.print("if self != .None && decoder.rejectConflictingOneof {\n")
-        p.print("  throw SwiftProtobuf.DecodingError.duplicatedOneOf\n")
+        p.print("if self != .None {\n")
+        p.print("  try decoder.handleConflictingOneOf()\n")
         p.print("}\n")
         p.print("switch fieldNumber {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {

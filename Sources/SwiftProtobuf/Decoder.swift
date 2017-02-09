@@ -46,8 +46,13 @@ import Foundation
 /// necessary generic methods to support this.
 
 public protocol Decoder {
-    // Some decoders require that multiple values for a oneof must fail
-    var rejectConflictingOneof: Bool { get }
+    // Called by a Oneof when it already has a value and is being
+    // asked to accept a new value.  Some decoders specify that oneof
+    // decoding must fail in this case.  Those decoders throw a
+    // suitable error from this function; other decoders make it a
+    // no-op.  No existing decoder actually needs this to be mutating,
+    // but someone might want to track OneOf conflicts in the future.
+    mutating func handleConflictingOneOf() throws
 
     // Get the next field number.  For JSON and Text, the decoder
     // translates name to number at this point, based on information

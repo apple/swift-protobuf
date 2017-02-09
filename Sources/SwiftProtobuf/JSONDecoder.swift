@@ -19,9 +19,12 @@ public struct JSONDecoder: Decoder {
     internal var scanner: JSONScanner
     private var fieldCount = 0
     private var fieldNameMap: FieldNameMap?
-    public var rejectConflictingOneof: Bool {return true}
 
-    internal init(utf8Pointer: UnsafePointer<UInt8>, count: Int) {
+    public mutating func handleConflictingOneOf() throws {
+        throw JSONDecodingError.conflictingOneOf
+    }
+
+    public init(utf8Pointer: UnsafePointer<UInt8>, count: Int) {
         self.scanner = JSONScanner(utf8Pointer: utf8Pointer, count: count)
     }
 
@@ -31,7 +34,7 @@ public struct JSONDecoder: Decoder {
 
     internal mutating func decodeFullObject<M: Message>(message: inout M) throws {
         guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
-            throw DecodingError.missingFieldNames
+            throw JSONDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames
         try scanner.skipRequiredObjectStart()
@@ -131,7 +134,7 @@ public struct JSONDecoder: Decoder {
         }
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw DecodingError.malformedJSONNumber
+            throw JSONDecodingError.numberRange
         }
         value = Int32(truncatingBitPattern: n)
     }
@@ -143,7 +146,7 @@ public struct JSONDecoder: Decoder {
         }
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw DecodingError.malformedJSONNumber
+            throw JSONDecodingError.numberRange
         }
         value = Int32(truncatingBitPattern: n)
     }
@@ -159,7 +162,7 @@ public struct JSONDecoder: Decoder {
         while true {
             let n = try scanner.nextSInt()
             if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                throw DecodingError.malformedJSONNumber
+                throw JSONDecodingError.numberRange
             }
             value.append(Int32(truncatingBitPattern: n))
             if scanner.skipOptionalArrayEnd() {
@@ -210,7 +213,7 @@ public struct JSONDecoder: Decoder {
         }
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
-            throw DecodingError.malformedJSONNumber
+            throw JSONDecodingError.numberRange
         }
         value = UInt32(truncatingBitPattern: n)
     }
@@ -222,7 +225,7 @@ public struct JSONDecoder: Decoder {
         }
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
-            throw DecodingError.malformedJSONNumber
+            throw JSONDecodingError.numberRange
         }
         value = UInt32(truncatingBitPattern: n)
     }
@@ -238,7 +241,7 @@ public struct JSONDecoder: Decoder {
         while true {
             let n = try scanner.nextUInt()
             if n > UInt64(UInt32.max) {
-                throw DecodingError.malformedJSONNumber
+                throw JSONDecodingError.numberRange
             }
             value.append(UInt32(truncatingBitPattern: n))
             if scanner.skipOptionalArrayEnd() {
@@ -473,7 +476,7 @@ public struct JSONDecoder: Decoder {
                 return
             }
         }
-        throw DecodingError.unrecognizedEnumValue
+        throw JSONDecodingError.unrecognizedEnumValue
     }
 
     public mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
@@ -494,7 +497,7 @@ public struct JSONDecoder: Decoder {
                 }
             }
         }
-        throw DecodingError.unrecognizedEnumValue
+        throw JSONDecodingError.unrecognizedEnumValue
     }
 
     public mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int {
@@ -510,7 +513,7 @@ public struct JSONDecoder: Decoder {
                 if let b = E(jsonName: name) {
                     value.append(b)
                 } else {
-                    throw DecodingError.unrecognizedEnumValue
+                    throw JSONDecodingError.unrecognizedEnumValue
                 }
             } else {
                 let n = try scanner.nextSInt()
@@ -518,10 +521,10 @@ public struct JSONDecoder: Decoder {
                     if let v = E(rawValue: i) {
                         value.append(v)
                     } else {
-                        throw DecodingError.unrecognizedEnumValue
+                        throw JSONDecodingError.unrecognizedEnumValue
                     }
                 } else {
-                    throw DecodingError.malformedJSON
+                    throw JSONDecodingError.numberRange
                 }
             }
             if scanner.skipOptionalArrayEnd() {
@@ -563,7 +566,7 @@ public struct JSONDecoder: Decoder {
                 if M.self == Google_Protobuf_Value.self {
                     value.append(M())
                 } else {
-                    throw DecodingError.malformedJSON
+                    throw JSONDecodingError.illegalNull
                 }
             } else {
                 var message = M()
@@ -580,11 +583,11 @@ public struct JSONDecoder: Decoder {
     }
 
     public mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws {
-        throw DecodingError.schemaMismatch
+        throw JSONDecodingError.schemaMismatch
     }
 
     public mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws {
-        throw DecodingError.schemaMismatch
+        throw JSONDecodingError.schemaMismatch
     }
 
     public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
@@ -600,7 +603,7 @@ public struct JSONDecoder: Decoder {
             // map keys must always be quoted strings.
             let c = try scanner.peekOneCharacter()
             if c != "\"" {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.unquotedMapKey
             }
             var keyField: KeyType.BaseType?
             try KeyType.decodeSingular(value: &keyField, from: &self)
@@ -610,7 +613,7 @@ public struct JSONDecoder: Decoder {
             if let keyField = keyField, let valueField = valueField {
                 value[keyField] = valueField
             } else {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.malformedMap
             }
             if scanner.skipOptionalObjectEnd() {
                 return
@@ -632,7 +635,7 @@ public struct JSONDecoder: Decoder {
             // map keys must always be quoted strings.
             let c = try scanner.peekOneCharacter()
             if c != "\"" {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.unquotedMapKey
             }
             var keyField: KeyType.BaseType?
             try KeyType.decodeSingular(value: &keyField, from: &self)
@@ -642,7 +645,7 @@ public struct JSONDecoder: Decoder {
             if let keyField = keyField, let valueField = valueField {
                 value[keyField] = valueField
             } else {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.malformedMap
             }
             if scanner.skipOptionalObjectEnd() {
                 return
@@ -664,7 +667,7 @@ public struct JSONDecoder: Decoder {
             // map keys must always be quoted strings.
             let c = try scanner.peekOneCharacter()
             if c != "\"" {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.unquotedMapKey
             }
             var keyField: KeyType.BaseType?
             try KeyType.decodeSingular(value: &keyField, from: &self)
@@ -674,7 +677,7 @@ public struct JSONDecoder: Decoder {
             if let keyField = keyField, let valueField = valueField {
                 value[keyField] = valueField
             } else {
-                throw DecodingError.malformedJSON
+                throw JSONDecodingError.malformedMap
             }
             if scanner.skipOptionalObjectEnd() {
                 return
@@ -684,6 +687,6 @@ public struct JSONDecoder: Decoder {
     }
 
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
-        throw DecodingError.schemaMismatch
+        throw JSONDecodingError.schemaMismatch
     }
 }

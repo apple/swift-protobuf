@@ -273,9 +273,8 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         let c = try decoder.scanner.peekOneCharacter()
         switch c {
         case "n":
-            if decoder.scanner.skipOptionalNull() {
-            } else {
-                throw DecodingError.malformedJSON
+            if !decoder.scanner.skipOptionalNull() {
+                throw JSONDecodingError.failure
             }
         case "[":
             var l = Google_Protobuf_ListValue()
@@ -470,7 +469,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
                     self = .listValue(value)
                 }
             default:
-                throw DecodingError.schemaMismatch
+                break
             }
         }
 

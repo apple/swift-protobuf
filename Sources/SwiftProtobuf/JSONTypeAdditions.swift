@@ -229,7 +229,7 @@ public extension Message {
                 try self.decodeJSON(from: &decoder)
             }
             if !decoder.scanner.complete {
-                throw DecodingError.trailingGarbage
+                throw JSONDecodingError.trailingGarbage
             }
         }
     }

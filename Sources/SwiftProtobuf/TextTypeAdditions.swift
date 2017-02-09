@@ -174,7 +174,7 @@ public extension Message {
         var textDecoder = try TextDecoder(messageType: Self.self, text: text, extensions: extensions)
         try decodeMessage(decoder: &textDecoder)
         if !textDecoder.complete {
-            throw DecodingError.trailingGarbage
+            throw TextDecodingError.trailingGarbage
         }
     }
 }

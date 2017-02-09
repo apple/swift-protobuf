@@ -298,7 +298,7 @@ public extension Proto2Message {
         var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &protobufDecoder)
         if !protobufDecoder.complete {
-            throw DecodingError.trailingGarbage
+            throw ProtobufDecodingError.trailingGarbage
         }
         if let unknownData = protobufDecoder.unknownData {
             unknown.append(protobufData: unknownData)
@@ -312,7 +312,7 @@ public extension Proto3Message {
         var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &protobufDecoder)
         if !protobufDecoder.complete {
-            throw DecodingError.trailingGarbage
+            throw ProtobufDecodingError.trailingGarbage
         }
     }
 }
