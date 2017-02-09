@@ -68,15 +68,6 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "proto2MapEnumFooLite": self = .proto2MapEnumFooLite
-    case "proto2MapEnumBarLite": self = .proto2MapEnumBarLite
-    case "proto2MapEnumBazLite": self = .proto2MapEnumBazLite
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "PROTO2_MAP_ENUM_FOO_LITE": self = .proto2MapEnumFooLite
@@ -146,16 +137,6 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
     case 1: self = .eProto2MapEnumBarLite
     case 2: self = .eProto2MapEnumBazLite
     case 3: self = .eProto2MapEnumExtraLite
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "eProto2MapEnumFooLite": self = .eProto2MapEnumFooLite
-    case "eProto2MapEnumBarLite": self = .eProto2MapEnumBarLite
-    case "eProto2MapEnumBazLite": self = .eProto2MapEnumBazLite
-    case "eProto2MapEnumExtraLite": self = .eProto2MapEnumExtraLite
     default: return nil
     }
   }
@@ -232,15 +213,6 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
     case 0: self = .mapEnumFooLite
     case 1: self = .mapEnumBarLite
     case 2: self = .mapEnumBazLite
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "mapEnumFooLite": self = .mapEnumFooLite
-    case "mapEnumBarLite": self = .mapEnumBarLite
-    case "mapEnumBazLite": self = .mapEnumBazLite
     default: return nil
     }
   }

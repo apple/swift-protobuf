@@ -202,19 +202,6 @@ class EnumGenerator {
         printer.outdent()
         printer.print("}\n")
 
-        // Swift name init
-        printer.print("\n")
-        printer.print("\(generatorOptions.visibilitySourceSnippet)init?(name: String) {\n")
-        printer.indent()
-        printer.print("switch name {\n")
-        for c in enumCases {
-            printer.print("case \"\(c.swiftDisplayName)\": self = .\(c.swiftName)\n")
-        }
-        printer.print("default: return nil\n")
-        printer.print("}\n")
-        printer.outdent()
-        printer.print("}\n")
-
         // JSON name init
         printer.print("\n")
         printer.print("\(generatorOptions.visibilitySourceSnippet)init?(jsonName: String) {\n")

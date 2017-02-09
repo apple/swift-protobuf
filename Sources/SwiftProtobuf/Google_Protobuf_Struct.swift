@@ -28,7 +28,6 @@ public enum Google_Protobuf_NullValue: Enum {
     case nullValue
 
     public init?(rawValue: Int) {self = .nullValue}
-    public init?(name: String) {self = .nullValue}
     public init?(jsonName: String) {self = .nullValue}
     public init?(protoName: String) {self = .nullValue}
     public init() {self = .nullValue}

@@ -66,13 +66,6 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foo": self = .foo
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo

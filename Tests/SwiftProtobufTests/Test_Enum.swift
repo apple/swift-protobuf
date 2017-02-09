@@ -23,7 +23,6 @@ class Test_Enum: XCTestCase, PBTestHelpers {
     func testEqual() {
         XCTAssertEqual(Proto3TestEnumWithDupValue.foo1, Proto3TestEnumWithDupValue.foo2)
         XCTAssertNotEqual(Proto3TestEnumWithDupValue.foo1, Proto3TestEnumWithDupValue.bar1)
-        XCTAssertEqual(Proto3TestEnumWithDupValue(name:"foo1"), Proto3TestEnumWithDupValue.foo2)
     }
 
     func testJSONsingular() {

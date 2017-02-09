@@ -68,15 +68,6 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foo": self = .foo
-    case "bar": self = .bar
-    case "baz": self = .baz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo

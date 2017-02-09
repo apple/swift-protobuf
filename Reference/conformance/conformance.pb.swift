@@ -88,15 +88,6 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "unspecified": self = .unspecified
-    case "protobuf": self = .protobuf
-    case "json_": self = .json_
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "UNSPECIFIED": self = .unspecified

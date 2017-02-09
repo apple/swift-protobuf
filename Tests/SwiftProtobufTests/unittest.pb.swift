@@ -74,15 +74,6 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignFoo": self = .foreignFoo
-    case "foreignBar": self = .foreignBar
-    case "foreignBaz": self = .foreignBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_FOO": self = .foreignFoo
@@ -153,17 +144,6 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
     case 1: self = .foo1
     case 2: self = .bar1
     case 3: self = .baz
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "foo1": self = .foo1
-    case "bar1": self = .bar1
-    case "baz": self = .baz
-    case "foo2": self = .foo2
-    case "bar2": self = .bar2
     default: return nil
     }
   }
@@ -254,19 +234,6 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
     case -53452: self = .sparseE
     case 0: self = .sparseF
     case 2: self = .sparseG
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "sparseA": self = .sparseA
-    case "sparseB": self = .sparseB
-    case "sparseC": self = .sparseC
-    case "sparseD": self = .sparseD
-    case "sparseE": self = .sparseE
-    case "sparseF": self = .sparseF
-    case "sparseG": self = .sparseG
     default: return nil
     }
   }
@@ -1066,16 +1033,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       case 2: self = .bar
       case 3: self = .baz
       case -1: self = .neg
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "neg": self = .neg
       default: return nil
       }
     }
@@ -6621,15 +6578,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
@@ -7759,15 +7707,6 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
       case 2200: self = .dynamicFoo
       case 2201: self = .dynamicBar
       case 2202: self = .dynamicBaz
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "dynamicFoo": self = .dynamicFoo
-      case "dynamicBar": self = .dynamicBar
-      case "dynamicBaz": self = .dynamicBaz
       default: return nil
       }
     }

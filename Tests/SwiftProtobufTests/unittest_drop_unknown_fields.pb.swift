@@ -78,15 +78,6 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
@@ -201,16 +192,6 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
       case 2: self = .baz
       case 3: self = .qux
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "qux": self = .qux
-      default: return nil
       }
     }
 

@@ -77,16 +77,6 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "importEnumUnspecified": self = .importEnumUnspecified
-    case "importFoo": self = .importFoo
-    case "importBar": self = .importBar
-    case "importBaz": self = .importBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_ENUM_UNSPECIFIED": self = .importEnumUnspecified

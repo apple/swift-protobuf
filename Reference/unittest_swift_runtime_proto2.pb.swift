@@ -825,16 +825,6 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "extra2": self = .extra2
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo

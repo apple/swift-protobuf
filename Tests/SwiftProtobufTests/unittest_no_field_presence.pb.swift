@@ -71,15 +71,6 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignFoo": self = .foreignFoo
-    case "foreignBar": self = .foreignBar
-    case "foreignBaz": self = .foreignBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_FOO": self = .foreignFoo
@@ -642,15 +633,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
       case 1: self = .bar
       case 2: self = .baz
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      default: return nil
       }
     }
 

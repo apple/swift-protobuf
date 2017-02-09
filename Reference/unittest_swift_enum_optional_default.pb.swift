@@ -114,13 +114,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      init?(name: String) {
-        switch name {
-        case "foo": self = .foo
-        default: return nil
-        }
-      }
-
       init?(jsonName: String) {
         switch jsonName {
         case "FOO": self = .foo
@@ -229,13 +222,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       init?(rawValue: Int) {
         switch rawValue {
         case 0: self = .foo
-        default: return nil
-        }
-      }
-
-      init?(name: String) {
-        switch name {
-        case "foo": self = .foo
         default: return nil
         }
       }

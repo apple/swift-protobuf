@@ -886,30 +886,6 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
       }
     }
 
-    public init?(name: String) {
-      switch name {
-      case "double": self = .double
-      case "float": self = .float
-      case "int64": self = .int64
-      case "uint64": self = .uint64
-      case "int32": self = .int32
-      case "fixed64": self = .fixed64
-      case "fixed32": self = .fixed32
-      case "bool": self = .bool
-      case "string": self = .string
-      case "group": self = .group
-      case "message": self = .message
-      case "bytes": self = .bytes
-      case "uint32": self = .uint32
-      case "enum": self = .`enum`
-      case "sfixed32": self = .sfixed32
-      case "sfixed64": self = .sfixed64
-      case "sint32": self = .sint32
-      case "sint64": self = .sint64
-      default: return nil
-      }
-    }
-
     public init?(jsonName: String) {
       switch jsonName {
       case "TYPE_DOUBLE": self = .double
@@ -1054,15 +1030,6 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
       case 1: self = .`optional`
       case 2: self = .`required`
       case 3: self = .repeated
-      default: return nil
-      }
-    }
-
-    public init?(name: String) {
-      switch name {
-      case "optional": self = .`optional`
-      case "required": self = .`required`
-      case "repeated": self = .repeated
       default: return nil
       }
     }
@@ -1988,15 +1955,6 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    public init?(name: String) {
-      switch name {
-      case "speed": self = .speed
-      case "codeSize": self = .codeSize
-      case "liteRuntime": self = .liteRuntime
-      default: return nil
-      }
-    }
-
     public init?(jsonName: String) {
       switch jsonName {
       case "SPEED": self = .speed
@@ -2625,15 +2583,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    public init?(name: String) {
-      switch name {
-      case "string": self = .string
-      case "cord": self = .cord
-      case "stringPiece": self = .stringPiece
-      default: return nil
-      }
-    }
-
     public init?(jsonName: String) {
       switch jsonName {
       case "STRING": self = .string
@@ -2707,15 +2656,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       case 0: self = .jsNormal
       case 1: self = .jsString
       case 2: self = .jsNumber
-      default: return nil
-      }
-    }
-
-    public init?(name: String) {
-      switch name {
-      case "jsNormal": self = .jsNormal
-      case "jsString": self = .jsString
-      case "jsNumber": self = .jsNumber
       default: return nil
       }
     }
@@ -3355,15 +3295,6 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
       case 0: self = .idempotencyUnknown
       case 1: self = .noSideEffects
       case 2: self = .idempotent
-      default: return nil
-      }
-    }
-
-    public init?(name: String) {
-      switch name {
-      case "idempotencyUnknown": self = .idempotencyUnknown
-      case "noSideEffects": self = .noSideEffects
-      case "idempotent": self = .idempotent
       default: return nil
       }
     }

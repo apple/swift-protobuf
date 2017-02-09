@@ -69,15 +69,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foo": self = .foo
-    case "bar": self = .bar
-    case "baz": self = .baz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo
@@ -152,16 +143,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
     case 2: self = .eBaz
     case 3: self = .eExtra
     default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "eFoo": self = .eFoo
-    case "eBar": self = .eBar
-    case "eBaz": self = .eBaz
-    case "eExtra": self = .eExtra
-    default: return nil
     }
   }
 

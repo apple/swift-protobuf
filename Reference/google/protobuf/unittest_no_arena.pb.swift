@@ -76,15 +76,6 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignFoo": self = .foreignFoo
-    case "foreignBar": self = .foreignBar
-    case "foreignBaz": self = .foreignBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_FOO": self = .foreignFoo
@@ -873,16 +864,6 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       case 2: self = .bar
       case 3: self = .baz
       case -1: self = .neg
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "neg": self = .neg
       default: return nil
       }
     }
