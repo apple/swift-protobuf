@@ -155,14 +155,6 @@ public extension ProtobufBytes {
 /// Messages
 ///
 public extension Message {
-    /// Private: Recursively decode a subobject.
-    init(scanner: TextScanner) throws {
-        self.init()
-        let terminator = try scanner.skipObjectStart()
-        var subDecoder = try TextDecoder(messageType: Self.self, scanner: scanner, terminator: terminator)
-        try decodeMessage(decoder: &subDecoder)
-    }
-
     public func serializeText() throws -> String {
         let visitor = TextEncodingVisitor(message: self)
         try traverse(visitor: visitor)
@@ -172,9 +164,13 @@ public extension Message {
     public init(text: String, extensions: ExtensionSet? = nil) throws {
         self.init()
         var textDecoder = try TextDecoder(messageType: Self.self, text: text, extensions: extensions)
-        try decodeMessage(decoder: &textDecoder)
+        try decodeText(from: &textDecoder)
         if !textDecoder.complete {
             throw TextDecodingError.trailingGarbage
         }
+    }
+
+    public mutating func decodeText(from decoder: inout TextDecoder) throws {
+        try decodeMessage(decoder: &decoder)
     }
 }

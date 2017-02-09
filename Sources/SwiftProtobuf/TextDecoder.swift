@@ -22,27 +22,31 @@ import Swift
 /// structures.
 ///
 public struct TextDecoder: Decoder {
-    private var scanner: TextScanner
+    internal var scanner: TextScanner
     private var fieldCount = 0
     private var terminator: UInt8?
     private var fieldNameMap: FieldNameMap?
     private var messageType: Message.Type?
 
-    internal var complete: Bool {return scanner.complete}
+    internal var complete: Bool {
+        mutating get {
+            return scanner.complete
+        }
+    }
 
-    internal init<M: Message>(messageType: M.Type, text: String, extensions: ExtensionSet?) throws {
+    internal init(messageType: Message.Type, text: String, extensions: ExtensionSet?) throws {
         scanner = TextScanner(text: text, extensions: extensions)
-        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+        guard let nameProviding = (messageType as? ProtoNameProviding.Type) else {
             throw TextDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames
         self.messageType = messageType
     }
 
-    internal init<M: Message>(messageType: M.Type, scanner: TextScanner, terminator: UInt8?) throws {
+    internal init(messageType: Message.Type, scanner: TextScanner, terminator: UInt8?) throws {
         self.scanner = scanner
         self.terminator = terminator
-        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+        guard let nameProviding = (messageType as? ProtoNameProviding.Type) else {
             throw TextDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames
@@ -426,7 +430,7 @@ public struct TextDecoder: Decoder {
         }
     }
 
-    private func decodeEnum<E: Enum>(from scanner: TextScanner) throws -> E where E.RawValue == Int {
+    private mutating func decodeEnum<E: Enum>() throws -> E where E.RawValue == Int {
         if let name = try scanner.nextOptionalEnumName() {
             if let b = E(protoName: name) {
                 return b
@@ -449,13 +453,13 @@ public struct TextDecoder: Decoder {
 
     public mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int {
         try scanner.skipRequiredColon()
-        let e: E = try decodeEnum(from: scanner)
+        let e: E = try decodeEnum()
         value = e
     }
 
     public mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
         try scanner.skipRequiredColon()
-        let e: E = try decodeEnum(from: scanner)
+        let e: E = try decodeEnum()
         value = e
     }
 
@@ -472,11 +476,11 @@ public struct TextDecoder: Decoder {
                 } else {
                     try scanner.skipRequiredComma()
                 }
-                let e: E = try decodeEnum(from: scanner)
+                let e: E = try decodeEnum()
                 value.append(e)
             }
         } else {
-            let e: E = try decodeEnum(from: scanner)
+            let e: E = try decodeEnum()
             value.append(e)
         }
     }
@@ -484,7 +488,13 @@ public struct TextDecoder: Decoder {
 
     public mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {
         _ = scanner.skipOptionalColon()
-        value = try M(scanner: scanner)
+        if value == nil {
+            value = M()
+        }
+        let terminator = try scanner.skipObjectStart()
+        var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+        try value!.decodeText(from: &subDecoder)
+        scanner = subDecoder.scanner
     }
 
     public mutating func decodeRepeatedMessageField<M: Message>(value: inout [M]) throws {
@@ -500,12 +510,20 @@ public struct TextDecoder: Decoder {
                 } else {
                     try scanner.skipRequiredComma()
                 }
-                let m = try M(scanner: scanner)
-                value.append(m)
+                var message = M()
+                let terminator = try scanner.skipObjectStart()
+                var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+                try message.decodeText(from: &subDecoder)
+                scanner = subDecoder.scanner
+                value.append(message)
             }
         } else {
-            let m = try M(scanner: scanner)
-            value.append(m)
+            var message = M()
+            let terminator = try scanner.skipObjectStart()
+            var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+            try message.decodeText(from: &subDecoder)
+            scanner = subDecoder.scanner
+            value.append(message)
         }
     }
 
@@ -661,7 +679,7 @@ public struct TextDecoder: Decoder {
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, fieldNumber] {
             var fieldValue = values[fieldNumber] ?? ext.newField()
-            try fieldValue.decodeField(decoder: &self)
+            try fieldValue.decodeExtensionField(decoder: &self)
             values[fieldNumber] = fieldValue
         }
     }

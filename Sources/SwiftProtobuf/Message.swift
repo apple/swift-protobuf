@@ -85,7 +85,7 @@ public protocol Message: CustomDebugStringConvertible {
   //
   // Protobuf Text decoding
   //
-  init(scanner: TextScanner) throws
+  mutating func decodeText(from: inout TextDecoder) throws
 
   //
   // google.protobuf.Any support
@@ -107,6 +107,7 @@ public protocol Message: CustomDebugStringConvertible {
 
   /// Overridden by well-known-types with custom JSON requirements.
   func serializeJSON() throws -> String
+
   mutating func decodeJSON(from: inout JSONDecoder) throws
 
   // Standard utility properties and methods.

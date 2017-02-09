@@ -273,6 +273,44 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
+    public mutating func decodeText(from decoder: inout TextDecoder) throws {
+        // First, check if this uses the "verbose" Any encoding.
+        // If it does, and we have the type available, we can
+        // eagerly decode the contained Message object.
+        if let url = try decoder.scanner.nextOptionalAnyURL() {
+            // Decoding the verbose form requires knowing the type:
+            typeURL = url
+            let messageTypeName = typeName(fromURL: url)
+            // Is it a well-known type? Or a user-registered type?
+            if let messageType = (Google_Protobuf_Any.wellKnownTypes[messageTypeName]
+                ?? Google_Protobuf_Any.knownTypes[messageTypeName]) {
+                _message = messageType.init()
+                let terminator = try decoder.scanner.skipObjectStart()
+                var subDecoder = try TextDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+                try _message!.decodeText(from: &subDecoder)
+                decoder.scanner = subDecoder.scanner
+                if let _ = try decoder.nextFieldNumber() {
+                    // Verbose any can never have additional keys
+                    throw TextDecodingError.malformedText
+                }
+                return
+            }
+            // TODO: If we don't know the type, we should consider deferring the
+            // decode as we do for JSON and Protobuf binary.
+            throw TextDecodingError.malformedText
+        }
+
+        // This is not using the specialized encoding, so we can use the
+        // standard path to decode the binary value.
+        try decodeMessage(decoder: &decoder)
+    }
+
+    // TODO: If the type is well-known or has already been registered,
+    // we should consider decoding eagerly.  Eager decoding would
+    // catch certain errors earlier (good) but would probably be
+    // a performance hit if the Any contents were never accessed (bad).
+    // Of course, we can't always decode eagerly (we don't always have the
+    // message type available), so the deferred logic here is still needed.
     public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
@@ -445,27 +483,6 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     public func serializeAnyJSON() throws -> String {
         let value = try serializeJSON()
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
-    }
-
-    public init(scanner: TextScanner) throws {
-        self.init()
-        let terminator = try scanner.skipObjectStart()
-        // Note: Any field cannot be empty!
-        // So we don't need to look for an object end at this point.
-        if let url = try scanner.nextOptionalAnyURL() {
-            typeURL = url
-            let messageTypeName = typeName(fromURL: url)
-            if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
-                _message = try messageType.init(scanner: scanner)
-                if scanner.skipOptionalObjectEnd(terminator) {
-                    return
-                }
-            }
-            throw TextDecodingError.malformedText
-        }
-
-        var subDecoder = try TextDecoder(messageType: Google_Protobuf_Any.self, scanner: scanner, terminator: terminator)
-        try decodeMessage(decoder: &subDecoder)
     }
 
     // Caveat:  This can be very expensive.  We should consider organizing

@@ -965,7 +965,7 @@ public struct ProtobufDecoder: Decoder {
     public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = extensions?[messageType, fieldNumber] {
             var fieldValue = values[fieldNumber] ?? ext.newField()
-            try fieldValue.decodeField(decoder: &self)
+            try fieldValue.decodeExtensionField(decoder: &self)
             values[fieldNumber] = fieldValue
         }
     }

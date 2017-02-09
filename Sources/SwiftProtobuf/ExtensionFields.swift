@@ -31,7 +31,7 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
   func isEqual(other: AnyExtensionField) -> Bool
 
   /// General field decoding
-  mutating func decodeField<T: Decoder>(decoder: inout T) throws
+  mutating func decodeExtensionField<T: Decoder>(decoder: inout T) throws
 
   /// Fields know their own type, so can dispatch to a visitor
   func traverse(visitor: Visitor) throws
@@ -82,7 +82,7 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     return self == o
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
       try T.decodeSingular(value: &value, from: &decoder)
   }
 
@@ -133,7 +133,7 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
       try T.decodeRepeated(value: &value, from: &decoder)
   }
 
@@ -187,7 +187,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try T.decodeRepeated(value: &value, from: &decoder)
   }
 
@@ -237,7 +237,7 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
     return self == o
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
       try decoder.decodeSingularEnumField(value: &value)
   }
 
@@ -287,7 +287,7 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedEnumField(value: &value)
   }
 
@@ -340,7 +340,7 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedEnumField(value: &value)
   }
 
@@ -388,7 +388,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
     return self == o
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeSingularMessageField(value: &value)
   }
 
@@ -435,7 +435,7 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedMessageField(value: &value)
   }
 
@@ -478,7 +478,7 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
     return self == o
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeSingularGroupField(value: &value)
   }
 
@@ -525,7 +525,7 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
     return self == o
   }
 
-  public mutating func decodeField<D: Decoder>(decoder: inout D) throws {
+  public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedGroupField(value: &value)
   }
 
