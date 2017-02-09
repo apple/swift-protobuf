@@ -277,7 +277,7 @@ public extension Message {
         self.init()
         if !protobuf.isEmpty {
             try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
-                try decodeIntoSelf(protobufBytes: pointer, count: protobuf.count, extensions: extensions)
+                try decodeProtobuf(from: pointer, count: protobuf.count, extensions: extensions)
             }
         }
     }
@@ -288,13 +288,13 @@ public extension Message {
 
     init(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         self.init()
-        try decodeIntoSelf(protobufBytes: protobufBytes, count: count, extensions: extensions)
+        try decodeProtobuf(from: protobufBytes, count: count, extensions: extensions)
     }
 }
 
 /// Proto2 messages preserve unknown fields
 public extension Proto2Message {
-    public mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    public mutating func decodeProtobuf(from protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &protobufDecoder)
         if !protobufDecoder.complete {
@@ -308,7 +308,7 @@ public extension Proto2Message {
 
 // Proto3 messages ignore unknown fields
 public extension Proto3Message {
-    public mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    public mutating func decodeProtobuf(from protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &protobufDecoder)
         if !protobufDecoder.complete {

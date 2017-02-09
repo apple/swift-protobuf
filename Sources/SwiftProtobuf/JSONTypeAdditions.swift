@@ -217,12 +217,16 @@ public extension Message {
     }
 
     public init(json: String) throws {
-        self.init()
         let data = json.data(using: String.Encoding.utf8)!
-        try data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-            var decoder = JSONDecoder(utf8Pointer: bytes, count: data.count)
+        try self.init(jsonUTF8: data)
+    }
+
+    public init(jsonUTF8: Data) throws {
+        self.init()
+        try jsonUTF8.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+            var decoder = JSONDecoder(utf8Pointer: bytes, count: jsonUTF8.count)
             if !decoder.scanner.skipOptionalNull() {
-                try self.decodeIntoSelf(decoder: &decoder)
+                try self.decodeJSON(from: &decoder)
             }
             if !decoder.scanner.complete {
                 throw DecodingError.trailingGarbage
@@ -230,7 +234,7 @@ public extension Message {
         }
     }
 
-    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.decodeFullObject(message: &self)
     }
 }

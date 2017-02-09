@@ -78,7 +78,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         set(newValue) {fields[index] = newValue}
     }
 
-    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return
@@ -87,7 +87,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
             let key = try decoder.scanner.nextQuotedString()
             try decoder.scanner.skipRequiredColon()
             var value = Google_Protobuf_Value()
-            try value.decodeIntoSelf(decoder: &decoder)
+            try value.decodeJSON(from: &decoder)
             fields[key] = value
             if decoder.scanner.skipOptionalObjectEnd() {
                 return
@@ -269,7 +269,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         try kind.serializeJSONField(encoder: &jsonEncoder)
     }
 
-    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let c = try decoder.scanner.peekOneCharacter()
         switch c {
         case "n":
@@ -279,11 +279,11 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             }
         case "[":
             var l = Google_Protobuf_ListValue()
-            try l.decodeIntoSelf(decoder: &decoder)
+            try l.decodeJSON(from: &decoder)
             kind = .listValue(l)
         case "{":
             var s = Google_Protobuf_Struct()
-            try s.decodeIntoSelf(decoder: &decoder)
+            try s.decodeJSON(from: &decoder)
             kind = .structValue(s)
         case "t", "f":
             let b = try decoder.scanner.nextBool()
@@ -581,7 +581,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         return jsonEncoder.result
     }
 
-    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         if decoder.scanner.skipOptionalNull() {
             return
         }
@@ -591,7 +591,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         }
         while true {
             var v = Google_Protobuf_Value()
-            try v.decodeIntoSelf(decoder: &decoder)
+            try v.decodeJSON(from: &decoder)
             values.append(v)
             if decoder.scanner.skipOptionalArrayEnd() {
                 return

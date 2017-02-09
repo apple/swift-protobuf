@@ -546,7 +546,7 @@ public struct JSONDecoder: Decoder {
             value = M()
         }
         var subDecoder = JSONDecoder(scanner: scanner)
-        try value!.decodeIntoSelf(decoder: &subDecoder)
+        try value!.decodeJSON(from: &subDecoder)
         scanner = subDecoder.scanner
     }
 
@@ -568,7 +568,7 @@ public struct JSONDecoder: Decoder {
             } else {
                 var message = M()
                 var subDecoder = JSONDecoder(scanner: scanner)
-                try message.decodeIntoSelf(decoder: &subDecoder)
+                try message.decodeJSON(from: &subDecoder)
                 scanner = subDecoder.scanner
                 value.append(message)
             }

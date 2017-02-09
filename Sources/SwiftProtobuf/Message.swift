@@ -78,7 +78,7 @@ public protocol Message: CustomDebugStringConvertible {
   //
   // Protobuf Binary decoding
   //
-  mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>,
+  mutating func decodeProtobuf(from: UnsafePointer<UInt8>,
                                count: Int,
                                extensions: ExtensionSet?) throws
 
@@ -107,7 +107,7 @@ public protocol Message: CustomDebugStringConvertible {
 
   /// Overridden by well-known-types with custom JSON requirements.
   func serializeJSON() throws -> String
-  mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws
+  mutating func decodeJSON(from: inout JSONDecoder) throws
 
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.

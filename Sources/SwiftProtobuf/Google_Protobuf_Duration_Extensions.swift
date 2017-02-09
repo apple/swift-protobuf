@@ -128,7 +128,7 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
 
 public extension Google_Protobuf_Duration {
 
-    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let s = try decoder.scanner.nextQuotedString()
         let duration = try parseDuration(text: s)
         seconds = duration.0

@@ -820,7 +820,7 @@ public struct ProtobufDecoder: Decoder {
         } else {
             // If there's already a message object, overwrite fields with
             // new data and preserve old fields.
-            try value!.decodeIntoSelf(protobufBytes: p, count: count, extensions: extensions)
+            try value!.decodeProtobuf(from: p, count: count, extensions: extensions)
         }
         consumed = true
     }
@@ -832,7 +832,7 @@ public struct ProtobufDecoder: Decoder {
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
         var newValue = M()
-        try newValue.decodeIntoSelf(protobufBytes: p, count: count, extensions: extensions)
+        try newValue.decodeProtobuf(from: p, count: count, extensions: extensions)
         value.append(newValue)
         consumed = true
     }

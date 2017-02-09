@@ -246,7 +246,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public mutating func decodeIntoSelf(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return
@@ -301,7 +301,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             // Decode protobuf from the stored bytes
             if protobuf.count > 0 {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                    try target.decodeIntoSelf(protobufBytes: p, count: protobuf.count, extensions: nil)
+                    try target.decodeProtobuf(from: p, count: protobuf.count, extensions: nil)
                 }
             }
             return
