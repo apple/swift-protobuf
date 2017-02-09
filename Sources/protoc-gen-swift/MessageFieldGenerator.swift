@@ -274,9 +274,9 @@ struct MessageFieldGenerator {
         }
         jsonName = self.jsonName ?? protoName
         if jsonName != protoName {
-            return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\", swift: \"\(swiftName)\")"
+            return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\")"
         } else {
-            return ".same(proto: \"\(protoName)\", swift: \"\(swiftName)\")"
+            return ".same(proto: \"\(protoName)\")"
         }
     }
 

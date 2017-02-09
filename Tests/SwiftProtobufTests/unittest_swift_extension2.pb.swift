@@ -50,7 +50,7 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
     public var protoMessageName: String {return "C"}
     public var protoPackageName: String {return "protobuf_unittest.extend2"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1210: .same(proto: "c", swift: "c"),
+      1210: .same(proto: "c"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -94,13 +94,13 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
 
     static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       protoFieldNumber: 210,
-      fieldNames: .same(proto: "protobuf_unittest.extend2.MyMessage.b", swift: "ProtobufUnittest_Extend2_MyMessage_b"),
+      fieldNames: .same(proto: "protobuf_unittest.extend2.MyMessage.b"),
       defaultValue: ""
     )
 
     static let c = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       protoFieldNumber: 211,
-      fieldNames: .same(proto: "protobuf_unittest.extend2.MyMessage.C", swift: "ProtobufUnittest_Extend2_MyMessage_c"),
+      fieldNames: .same(proto: "protobuf_unittest.extend2.MyMessage.C"),
       defaultValue: ProtobufUnittest_Extend2_MyMessage.C()
     )
   }
@@ -125,7 +125,7 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   public var protoMessageName: String {return "C"}
   public var protoPackageName: String {return "protobuf_unittest.extend2"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1220: .same(proto: "c", swift: "c"),
+    1220: .same(proto: "c"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -167,13 +167,13 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
 let ProtobufUnittest_Extend2_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   protoFieldNumber: 220,
-  fieldNames: .same(proto: "protobuf_unittest.extend2.b", swift: "ProtobufUnittest_Extend2_b"),
+  fieldNames: .same(proto: "protobuf_unittest.extend2.b"),
   defaultValue: ""
 )
 
 let ProtobufUnittest_Extend2_Extensions_c = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   protoFieldNumber: 221,
-  fieldNames: .same(proto: "protobuf_unittest.extend2.C", swift: "ProtobufUnittest_Extend2_c"),
+  fieldNames: .same(proto: "protobuf_unittest.extend2.C"),
   defaultValue: ProtobufUnittest_Extend2_C()
 )
 

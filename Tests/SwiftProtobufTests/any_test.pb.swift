@@ -54,9 +54,9 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   public var protoMessageName: String {return "TestAny"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
-    2: .unique(proto: "any_value", json: "anyValue", swift: "anyValue"),
-    3: .unique(proto: "repeated_any_value", json: "repeatedAnyValue", swift: "repeatedAnyValue"),
+    1: .unique(proto: "int32_value", json: "int32Value"),
+    2: .unique(proto: "any_value", json: "anyValue"),
+    3: .unique(proto: "repeated_any_value", json: "repeatedAnyValue"),
   ]
 
   private class _StorageClass {

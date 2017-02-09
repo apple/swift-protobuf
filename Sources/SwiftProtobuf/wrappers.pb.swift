@@ -61,7 +61,7 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.
   public var protoMessageName: String {return "DoubleValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -97,7 +97,7 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoMessageName: String {return "FloatValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -133,7 +133,7 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoMessageName: String {return "Int64Value"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -169,7 +169,7 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.
   public var protoMessageName: String {return "UInt64Value"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -205,7 +205,7 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoMessageName: String {return "Int32Value"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -241,7 +241,7 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.
   public var protoMessageName: String {return "UInt32Value"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -277,7 +277,7 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
   public var protoMessageName: String {return "BoolValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -313,7 +313,7 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.
   public var protoMessageName: String {return "StringValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 
@@ -349,7 +349,7 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoMessageName: String {return "BytesValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "value", swift: "value"),
+    1: .same(proto: "value"),
   ]
 
 

@@ -113,7 +113,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
   public var protoMessageName: String {return "TestMessageSetWireFormatContainer"}
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "message_set", json: "messageSet", swift: "messageSet"),
+    1: .unique(proto: "message_set", json: "messageSet"),
   ]
 
   private class _StorageClass {

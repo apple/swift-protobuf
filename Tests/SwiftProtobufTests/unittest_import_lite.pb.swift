@@ -138,7 +138,7 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftPro
   public var protoMessageName: String {return "ImportMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "d", swift: "d"),
+    1: .same(proto: "d"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()

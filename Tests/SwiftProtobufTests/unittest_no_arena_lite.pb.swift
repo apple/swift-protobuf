@@ -54,7 +54,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftP
   public var protoMessageName: String {return "ForeignMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_no_arena"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "c", swift: "c"),
+    1: .same(proto: "c"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()

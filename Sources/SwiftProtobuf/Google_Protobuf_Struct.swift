@@ -54,7 +54,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
     public var protoMessageName: String {return "Struct"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .same(proto: "fields", swift: "fields"),
+        1: .same(proto: "fields"),
     ]
     public typealias Key = String
     public typealias Value = Google_Protobuf_Value
@@ -143,12 +143,12 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     public var protoMessageName: String {return "Value"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .unique(proto: "null_value", json: "nullValue", swift: "nullValue"),
-        2: .unique(proto: "number_value", json: "numberValue", swift: "numberValue"),
-        3: .unique(proto: "string_value", json: "stringValue", swift: "stringValue"),
-        4: .unique(proto: "bool_value", json: "boolValue", swift: "boolValue"),
-        5: .unique(proto: "struct_value", json: "structValue", swift: "structValue"),
-        6: .unique(proto: "list_value", json: "listValue", swift: "listValue"),
+        1: .unique(proto: "null_value", json: "nullValue"),
+        2: .unique(proto: "number_value", json: "numberValue"),
+        3: .unique(proto: "string_value", json: "stringValue"),
+        4: .unique(proto: "bool_value", json: "boolValue"),
+        5: .unique(proto: "struct_value", json: "structValue"),
+        6: .unique(proto: "list_value", json: "listValue"),
     ]
 
     // TODO: Would it make sense to collapse the implementation here and
@@ -528,7 +528,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
     public var protoMessageName: String {return "ListValue"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .same(proto: "values", swift: "values"),
+        1: .same(proto: "values"),
     ]
 
     // TODO: Give this a direct array interface by proxying the interesting
