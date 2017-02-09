@@ -274,7 +274,7 @@ docs:
 #
 # This must pass before any commit.
 #
-check test: build test-runtime test-plugin
+check test: build test-runtime test-plugin test-conformance
 
 # Test everything (runtime, plugin, xcode project)
 test-all test-everything: test test-xcode
