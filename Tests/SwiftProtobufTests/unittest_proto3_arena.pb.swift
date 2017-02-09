@@ -71,16 +71,6 @@ enum Proto3ArenaUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignZero": self = .foreignZero
-    case "foreignFoo": self = .foreignFoo
-    case "foreignBar": self = .foreignBar
-    case "foreignBaz": self = .foreignBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_ZERO": self = .foreignZero
@@ -662,17 +652,6 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pr
       case 3: self = .baz
       case -1: self = .neg
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "zero": self = .zero
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "neg": self = .neg
-      default: return nil
       }
     }
 

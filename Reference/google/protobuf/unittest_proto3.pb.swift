@@ -77,16 +77,6 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignUnspecified": self = .foreignUnspecified
-    case "foreignFoo": self = .foreignFoo
-    case "foreignBar": self = .foreignBar
-    case "foreignBaz": self = .foreignBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_UNSPECIFIED": self = .foreignUnspecified
@@ -169,18 +159,6 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
     case 2: self = .bar1
     case 3: self = .baz
     default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "testEnumWithDupValueUnspecified": self = .testEnumWithDupValueUnspecified
-    case "foo1": self = .foo1
-    case "bar1": self = .bar1
-    case "baz": self = .baz
-    case "foo2": self = .foo2
-    case "bar2": self = .bar2
-    default: return nil
     }
   }
 
@@ -283,19 +261,6 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
     case -53452: self = .sparseE
     case 2: self = .sparseG
     default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "testSparseEnumUnspecified": self = .testSparseEnumUnspecified
-    case "sparseA": self = .sparseA
-    case "sparseB": self = .sparseB
-    case "sparseC": self = .sparseC
-    case "sparseD": self = .sparseD
-    case "sparseE": self = .sparseE
-    case "sparseG": self = .sparseG
-    default: return nil
     }
   }
 
@@ -871,17 +836,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
       case 3: self = .baz
       case -1: self = .neg
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "nestedEnumUnspecified": self = .nestedEnumUnspecified
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "neg": self = .neg
-      default: return nil
       }
     }
 

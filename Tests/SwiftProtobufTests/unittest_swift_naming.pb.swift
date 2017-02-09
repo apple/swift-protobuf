@@ -465,220 +465,6 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "a": self = .a
-    case "string": self = .string
-    case "int": self = .int
-    case "double": self = .double
-    case "float": self = .float
-    case "uint": self = .uint
-    case "hashValue_": self = .hashValue_
-    case "description": self = .description
-    case "debugDescription_": self = .debugDescription_
-    case "swift": self = .swift
-    case "unrecognized": self = .unrecognized
-    case "class": self = .`class`
-    case "deinit": self = .`deinit`
-    case "enum": self = .`enum`
-    case "extension": self = .`extension`
-    case "func": self = .`func`
-    case "import": self = .`import`
-    case "init_": self = .init_
-    case "inout": self = .`inout`
-    case "internal": self = .`internal`
-    case "let": self = .`let`
-    case "operator": self = .`operator`
-    case "private": self = .`private`
-    case "protocol": self = .`protocol`
-    case "public": self = .`public`
-    case "static": self = .`static`
-    case "struct": self = .`struct`
-    case "subscript": self = .`subscript`
-    case "typealias": self = .`typealias`
-    case "var": self = .`var`
-    case "break": self = .`break`
-    case "case": self = .`case`
-    case "continue": self = .`continue`
-    case "default": self = .`default`
-    case "defer": self = .`defer`
-    case "do": self = .`do`
-    case "else": self = .`else`
-    case "fallthrough": self = .`fallthrough`
-    case "for": self = .`for`
-    case "guard": self = .`guard`
-    case "if": self = .`if`
-    case "in": self = .`in`
-    case "repeat": self = .`repeat`
-    case "return": self = .`return`
-    case "switch": self = .`switch`
-    case "where": self = .`where`
-    case "while": self = .`while`
-    case "as": self = .`as`
-    case "catch": self = .`catch`
-    case "dynamicType": self = .`dynamicType`
-    case "false": self = .`false`
-    case "is": self = .`is`
-    case "nil": self = .`nil`
-    case "rethrows": self = .`rethrows`
-    case "super": self = .`super`
-    case "self_": self = .self_
-    case "throw": self = .`throw`
-    case "throws": self = .`throws`
-    case "true": self = .`true`
-    case "try": self = .`try`
-    case "_Column__": self = ._Column__
-    case "_File__": self = ._File__
-    case "_Function__": self = ._Function__
-    case "_Line__": self = ._Line__
-    case "___": self = .___
-    case "associativity": self = .`associativity`
-    case "convenience": self = .convenience
-    case "dynamic": self = .dynamic
-    case "didSet": self = .didSet
-    case "final": self = .final
-    case "get": self = .get
-    case "infix": self = .infix
-    case "indirect": self = .indirect
-    case "lazy": self = .lazy
-    case "left": self = .left
-    case "mutating": self = .mutating
-    case "none": self = .none
-    case "nonmutating": self = .nonmutating
-    case "optional": self = .`optional`
-    case "override": self = .override
-    case "postfix": self = .postfix
-    case "precedence": self = .precedence
-    case "prefix": self = .prefix
-    case "required": self = .`required`
-    case "right": self = .right
-    case "set": self = .set
-    case "type": self = .type
-    case "unowned": self = .unowned
-    case "weak": self = .weak
-    case "willSet": self = .willSet
-    case "id": self = .id
-    case "cmd": self = .cmd
-    case "out": self = .out
-    case "bycopy": self = .bycopy
-    case "byref": self = .byref
-    case "oneway": self = .oneway
-    case "and": self = .and
-    case "andEq": self = .andEq
-    case "alignas": self = .alignas
-    case "alignof": self = .alignof
-    case "asm": self = .asm
-    case "auto": self = .auto
-    case "bitand": self = .bitand
-    case "bitor": self = .bitor
-    case "bool": self = .bool
-    case "char": self = .char
-    case "char16T": self = .char16T
-    case "char32T": self = .char32T
-    case "compl": self = .compl
-    case "const": self = .const
-    case "constexpr": self = .constexpr
-    case "constCast": self = .constCast
-    case "decltype": self = .decltype
-    case "delete": self = .delete
-    case "dynamicCast": self = .dynamicCast
-    case "explicit": self = .explicit
-    case "export": self = .export
-    case "extern": self = .extern
-    case "friend": self = .friend
-    case "goto": self = .goto
-    case "inline": self = .inline
-    case "long": self = .long
-    case "mutable": self = .mutable
-    case "namespace": self = .namespace
-    case "new": self = .new
-    case "noexcept": self = .noexcept
-    case "not": self = .not
-    case "notEq": self = .notEq
-    case "nullptr": self = .nullptr
-    case "or": self = .or
-    case "orEq": self = .orEq
-    case "protected": self = .protected
-    case "register": self = .register
-    case "reinterpretCast": self = .reinterpretCast
-    case "short": self = .short
-    case "signed": self = .signed
-    case "sizeof": self = .sizeof
-    case "staticAssert": self = .staticAssert
-    case "staticCast": self = .staticCast
-    case "template": self = .template
-    case "this": self = .this
-    case "threadLocal": self = .threadLocal
-    case "typedef": self = .typedef
-    case "typeid": self = .typeid
-    case "typename": self = .typename
-    case "union": self = .union
-    case "unsigned": self = .unsigned
-    case "using": self = .using
-    case "virtual": self = .virtual
-    case "void": self = .void
-    case "volatile": self = .volatile
-    case "wcharT": self = .wcharT
-    case "xor": self = .xor
-    case "xorEq": self = .xorEq
-    case "restrict": self = .restrict
-    case "category": self = .category
-    case "ivar": self = .ivar
-    case "method": self = .method
-    case "finalize": self = .finalize
-    case "hash": self = .hash
-    case "dealloc": self = .dealloc
-    case "superclass": self = .superclass
-    case "retain": self = .retain
-    case "release": self = .release
-    case "autorelease": self = .autorelease
-    case "retainCount": self = .retainCount
-    case "zone": self = .zone
-    case "isProxy": self = .isProxy
-    case "copy": self = .copy
-    case "mutableCopy": self = .mutableCopy
-    case "classForCoder": self = .classForCoder
-    case "clear": self = .clear
-    case "data": self = .data
-    case "delimitedData": self = .delimitedData
-    case "descriptor": self = .descriptor
-    case "extensionRegistry": self = .extensionRegistry
-    case "extensionsCurrentlySet": self = .extensionsCurrentlySet
-    case "isInitialized": self = .isInitialized
-    case "serializedSize": self = .serializedSize
-    case "sortedExtensionsInUse": self = .sortedExtensionsInUse
-    case "unknownFields": self = .unknownFields
-    case "fixed": self = .fixed
-    case "fract": self = .fract
-    case "size": self = .size
-    case "logicalAddress": self = .logicalAddress
-    case "physicalAddress": self = .physicalAddress
-    case "byteCount": self = .byteCount
-    case "byteOffset": self = .byteOffset
-    case "duration": self = .duration
-    case "absoluteTime": self = .absoluteTime
-    case "optionBits": self = .optionBits
-    case "itemCount": self = .itemCount
-    case "pbversion": self = .pbversion
-    case "scriptCode": self = .scriptCode
-    case "langCode": self = .langCode
-    case "regionCode": self = .regionCode
-    case "ostype": self = .ostype
-    case "processSerialNumber": self = .processSerialNumber
-    case "point": self = .point
-    case "rect": self = .rect
-    case "fixedPoint": self = .fixedPoint
-    case "fixedRect": self = .fixedRect
-    case "style": self = .style
-    case "styleParameter": self = .styleParameter
-    case "styleField": self = .styleField
-    case "timeScale": self = .timeScale
-    case "timeBase": self = .timeBase
-    case "timeRecord": self = .timeRecord
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "A": self = .a
@@ -1782,14 +1568,6 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
     case 0: self = .aa
     case 1065: self = .____
     default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "aa": self = .aa
-    case "____": self = .____
-    default: return nil
     }
   }
 
@@ -11125,13 +10903,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aString": self = .aString
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aString": self = .aString
@@ -11190,13 +10961,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aProtocol
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aProtocol": self = .aProtocol
-      default: return nil
       }
     }
 
@@ -11261,13 +11025,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aInt": self = .aInt
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aInt": self = .aInt
@@ -11326,13 +11083,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aDouble
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aDouble": self = .aDouble
-      default: return nil
       }
     }
 
@@ -11397,13 +11147,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aFloat": self = .aFloat
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aFloat": self = .aFloat
@@ -11462,13 +11205,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aUint
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aUint": self = .aUint
-      default: return nil
       }
     }
 
@@ -11533,13 +11269,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "ahashValue": self = .ahashValue
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "ahashValue": self = .ahashValue
@@ -11598,13 +11327,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adescription
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adescription": self = .adescription
-      default: return nil
       }
     }
 
@@ -11669,13 +11391,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "adebugDescription": self = .adebugDescription
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "adebugDescription": self = .adebugDescription
@@ -11734,13 +11449,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aSwift
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aSwift": self = .aSwift
-      default: return nil
       }
     }
 
@@ -11805,13 +11513,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aUnrecognized": self = .aUnrecognized
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aUNRECOGNIZED": self = .aUnrecognized
@@ -11870,13 +11571,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aclass
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aclass": self = .aclass
-      default: return nil
       }
     }
 
@@ -11941,13 +11635,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "adeinit": self = .adeinit
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "adeinit": self = .adeinit
@@ -12006,13 +11693,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aenum
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aenum": self = .aenum
-      default: return nil
       }
     }
 
@@ -12077,13 +11757,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aextension": self = .aextension
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aextension": self = .aextension
@@ -12142,13 +11815,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afunc
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afunc": self = .afunc
-      default: return nil
       }
     }
 
@@ -12213,13 +11879,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aimport": self = .aimport
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aimport": self = .aimport
@@ -12278,13 +11937,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainit
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainit": self = .ainit
-      default: return nil
       }
     }
 
@@ -12349,13 +12001,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "ainout": self = .ainout
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "ainout": self = .ainout
@@ -12414,13 +12059,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainternal
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainternal": self = .ainternal
-      default: return nil
       }
     }
 
@@ -12485,13 +12123,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "alet": self = .alet
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "alet": self = .alet
@@ -12550,13 +12181,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aoperator
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aoperator": self = .aoperator
-      default: return nil
       }
     }
 
@@ -12621,13 +12245,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aprivate": self = .aprivate
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aprivate": self = .aprivate
@@ -12686,13 +12303,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aprotocol
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aprotocol": self = .aprotocol
-      default: return nil
       }
     }
 
@@ -12757,13 +12367,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "apublic": self = .apublic
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "apublic": self = .apublic
@@ -12822,13 +12425,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .astatic
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "astatic": self = .astatic
-      default: return nil
       }
     }
 
@@ -12893,13 +12489,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "astruct": self = .astruct
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "astruct": self = .astruct
@@ -12958,13 +12547,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asubscript
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asubscript": self = .asubscript
-      default: return nil
       }
     }
 
@@ -13029,13 +12611,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "atypealias": self = .atypealias
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "atypealias": self = .atypealias
@@ -13094,13 +12669,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .avar
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "avar": self = .avar
-      default: return nil
       }
     }
 
@@ -13165,13 +12733,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "abreak": self = .abreak
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "abreak": self = .abreak
@@ -13230,13 +12791,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acase
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acase": self = .acase
-      default: return nil
       }
     }
 
@@ -13301,13 +12855,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "acontinue": self = .acontinue
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "acontinue": self = .acontinue
@@ -13366,13 +12913,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adefault
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adefault": self = .adefault
-      default: return nil
       }
     }
 
@@ -13437,13 +12977,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "adefer": self = .adefer
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "adefer": self = .adefer
@@ -13502,13 +13035,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ado
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ado": self = .ado
-      default: return nil
       }
     }
 
@@ -13573,13 +13099,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aelse": self = .aelse
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aelse": self = .aelse
@@ -13638,13 +13157,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afallthrough
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afallthrough": self = .afallthrough
-      default: return nil
       }
     }
 
@@ -13709,13 +13221,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "afor": self = .afor
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "afor": self = .afor
@@ -13774,13 +13279,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aguard
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aguard": self = .aguard
-      default: return nil
       }
     }
 
@@ -13845,13 +13343,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aif": self = .aif
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aif": self = .aif
@@ -13910,13 +13401,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ain
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ain": self = .ain
-      default: return nil
       }
     }
 
@@ -13981,13 +13465,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "arepeat": self = .arepeat
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "arepeat": self = .arepeat
@@ -14046,13 +13523,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .areturn
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "areturn": self = .areturn
-      default: return nil
       }
     }
 
@@ -14117,13 +13587,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aswitch": self = .aswitch
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aswitch": self = .aswitch
@@ -14182,13 +13645,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .awhere
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "awhere": self = .awhere
-      default: return nil
       }
     }
 
@@ -14253,13 +13709,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "awhile": self = .awhile
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "awhile": self = .awhile
@@ -14318,13 +13767,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aas
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aas": self = .aas
-      default: return nil
       }
     }
 
@@ -14389,13 +13831,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "acatch": self = .acatch
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "acatch": self = .acatch
@@ -14454,13 +13889,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adynamicType
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adynamicType": self = .adynamicType
-      default: return nil
       }
     }
 
@@ -14525,13 +13953,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "afalse": self = .afalse
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "afalse": self = .afalse
@@ -14590,13 +14011,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ais
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ais": self = .ais
-      default: return nil
       }
     }
 
@@ -14661,13 +14075,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "anil": self = .anil
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "anil": self = .anil
@@ -14726,13 +14133,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .arethrows
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "arethrows": self = .arethrows
-      default: return nil
       }
     }
 
@@ -14797,13 +14197,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "asuper": self = .asuper
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "asuper": self = .asuper
@@ -14862,13 +14255,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aself
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aself": self = .aself
-      default: return nil
       }
     }
 
@@ -14933,13 +14319,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "athrow": self = .athrow
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "athrow": self = .athrow
@@ -14998,13 +14377,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .athrows
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "athrows": self = .athrows
-      default: return nil
       }
     }
 
@@ -15069,13 +14441,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "atrue": self = .atrue
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "atrue": self = .atrue
@@ -15134,13 +14499,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atry
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atry": self = .atry
-      default: return nil
       }
     }
 
@@ -15205,13 +14563,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "a_Column__": self = .a_Column__
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "a__COLUMN__": self = .a_Column__
@@ -15270,13 +14621,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a_File__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a_File__": self = .a_File__
-      default: return nil
       }
     }
 
@@ -15341,13 +14685,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "a_Function__": self = .a_Function__
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "a__FUNCTION__": self = .a_Function__
@@ -15406,13 +14743,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a_Line__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a_Line__": self = .a_Line__
-      default: return nil
       }
     }
 
@@ -15477,13 +14807,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "a_": self = .a_
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "a_": self = .a_
@@ -15542,13 +14865,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a__": self = .a__
-      default: return nil
       }
     }
 
@@ -15613,13 +14929,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aassociativity": self = .aassociativity
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aassociativity": self = .aassociativity
@@ -15678,13 +14987,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aconvenience
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aconvenience": self = .aconvenience
-      default: return nil
       }
     }
 
@@ -15749,13 +15051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "adynamic": self = .adynamic
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "adynamic": self = .adynamic
@@ -15814,13 +15109,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adidSet
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adidSet": self = .adidSet
-      default: return nil
       }
     }
 
@@ -15885,13 +15173,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "afinal": self = .afinal
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "afinal": self = .afinal
@@ -15950,13 +15231,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aget
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aget": self = .aget
-      default: return nil
       }
     }
 
@@ -16021,13 +15295,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "ainfix": self = .ainfix
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "ainfix": self = .ainfix
@@ -16086,13 +15353,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aindirect
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aindirect": self = .aindirect
-      default: return nil
       }
     }
 
@@ -16157,13 +15417,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "alazy": self = .alazy
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "alazy": self = .alazy
@@ -16222,13 +15475,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aleft
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aleft": self = .aleft
-      default: return nil
       }
     }
 
@@ -16293,13 +15539,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "amutating": self = .amutating
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "amutating": self = .amutating
@@ -16358,13 +15597,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anone
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anone": self = .anone
-      default: return nil
       }
     }
 
@@ -16429,13 +15661,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "anonmutating": self = .anonmutating
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "anonmutating": self = .anonmutating
@@ -16494,13 +15719,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aoptional
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aoptional": self = .aoptional
-      default: return nil
       }
     }
 
@@ -16565,13 +15783,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aoverride": self = .aoverride
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aoverride": self = .aoverride
@@ -16630,13 +15841,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .apostfix
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "apostfix": self = .apostfix
-      default: return nil
       }
     }
 
@@ -16701,13 +15905,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aprecedence": self = .aprecedence
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aprecedence": self = .aprecedence
@@ -16766,13 +15963,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aprefix
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aprefix": self = .aprefix
-      default: return nil
       }
     }
 
@@ -16837,13 +16027,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "arequired": self = .arequired
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "arequired": self = .arequired
@@ -16902,13 +16085,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aright
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aright": self = .aright
-      default: return nil
       }
     }
 
@@ -16973,13 +16149,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aset": self = .aset
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aset": self = .aset
@@ -17038,13 +16207,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aType
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aType": self = .aType
-      default: return nil
       }
     }
 
@@ -17109,13 +16271,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aunowned": self = .aunowned
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aunowned": self = .aunowned
@@ -17174,13 +16329,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aweak
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aweak": self = .aweak
-      default: return nil
       }
     }
 
@@ -17245,13 +16393,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "awillSet": self = .awillSet
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "awillSet": self = .awillSet
@@ -17310,13 +16451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aid
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aid": self = .aid
-      default: return nil
       }
     }
 
@@ -17381,13 +16515,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aCmd": self = .aCmd
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "a_cmd": self = .aCmd
@@ -17446,13 +16573,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aout
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aout": self = .aout
-      default: return nil
       }
     }
 
@@ -17517,13 +16637,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "abycopy": self = .abycopy
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "abycopy": self = .abycopy
@@ -17582,13 +16695,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abyref
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abyref": self = .abyref
-      default: return nil
       }
     }
 
@@ -17653,13 +16759,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aoneway": self = .aoneway
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aoneway": self = .aoneway
@@ -17718,13 +16817,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aand
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aand": self = .aand
-      default: return nil
       }
     }
 
@@ -17789,13 +16881,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aandEq": self = .aandEq
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aand_eq": self = .aandEq
@@ -17854,13 +16939,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aalignas
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aalignas": self = .aalignas
-      default: return nil
       }
     }
 
@@ -17925,13 +17003,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aalignof": self = .aalignof
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aalignof": self = .aalignof
@@ -17990,13 +17061,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aasm
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aasm": self = .aasm
-      default: return nil
       }
     }
 
@@ -18061,13 +17125,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aauto": self = .aauto
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aauto": self = .aauto
@@ -18126,13 +17183,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abitand
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abitand": self = .abitand
-      default: return nil
       }
     }
 
@@ -18197,13 +17247,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "abitor": self = .abitor
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "abitor": self = .abitor
@@ -18262,13 +17305,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abool
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abool": self = .abool
-      default: return nil
       }
     }
 
@@ -18333,13 +17369,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "achar": self = .achar
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "achar": self = .achar
@@ -18398,13 +17427,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .achar16T
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "achar16T": self = .achar16T
-      default: return nil
       }
     }
 
@@ -18469,13 +17491,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "achar32T": self = .achar32T
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "achar32_t": self = .achar32T
@@ -18534,13 +17549,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acompl
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acompl": self = .acompl
-      default: return nil
       }
     }
 
@@ -18605,13 +17613,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aconst": self = .aconst
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aconst": self = .aconst
@@ -18670,13 +17671,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aconstexpr
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aconstexpr": self = .aconstexpr
-      default: return nil
       }
     }
 
@@ -18741,13 +17735,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aconstCast": self = .aconstCast
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aconst_cast": self = .aconstCast
@@ -18806,13 +17793,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adecltype
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adecltype": self = .adecltype
-      default: return nil
       }
     }
 
@@ -18877,13 +17857,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "adelete": self = .adelete
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "adelete": self = .adelete
@@ -18942,13 +17915,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adynamicCast
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adynamicCast": self = .adynamicCast
-      default: return nil
       }
     }
 
@@ -19013,13 +17979,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aexplicit": self = .aexplicit
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aexplicit": self = .aexplicit
@@ -19078,13 +18037,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aexport
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aexport": self = .aexport
-      default: return nil
       }
     }
 
@@ -19149,13 +18101,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aextern": self = .aextern
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aextern": self = .aextern
@@ -19214,13 +18159,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afriend
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afriend": self = .afriend
-      default: return nil
       }
     }
 
@@ -19285,13 +18223,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "agoto": self = .agoto
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "agoto": self = .agoto
@@ -19350,13 +18281,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainline
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainline": self = .ainline
-      default: return nil
       }
     }
 
@@ -19421,13 +18345,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "along": self = .along
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "along": self = .along
@@ -19486,13 +18403,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .amutable
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "amutable": self = .amutable
-      default: return nil
       }
     }
 
@@ -19557,13 +18467,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "anamespace": self = .anamespace
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "anamespace": self = .anamespace
@@ -19622,13 +18525,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anew
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anew": self = .anew
-      default: return nil
       }
     }
 
@@ -19693,13 +18589,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "anoexcept": self = .anoexcept
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "anoexcept": self = .anoexcept
@@ -19758,13 +18647,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anot
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anot": self = .anot
-      default: return nil
       }
     }
 
@@ -19829,13 +18711,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "anotEq": self = .anotEq
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "anot_eq": self = .anotEq
@@ -19894,13 +18769,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anullptr
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anullptr": self = .anullptr
-      default: return nil
       }
     }
 
@@ -19965,13 +18833,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aor": self = .aor
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aor": self = .aor
@@ -20030,13 +18891,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aorEq
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aorEq": self = .aorEq
-      default: return nil
       }
     }
 
@@ -20101,13 +18955,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aprotected": self = .aprotected
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aprotected": self = .aprotected
@@ -20166,13 +19013,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aregister
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aregister": self = .aregister
-      default: return nil
       }
     }
 
@@ -20237,13 +19077,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "areinterpretCast": self = .areinterpretCast
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "areinterpret_cast": self = .areinterpretCast
@@ -20302,13 +19135,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ashort
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ashort": self = .ashort
-      default: return nil
       }
     }
 
@@ -20373,13 +19199,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "asigned": self = .asigned
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "asigned": self = .asigned
@@ -20438,13 +19257,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asizeof
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asizeof": self = .asizeof
-      default: return nil
       }
     }
 
@@ -20509,13 +19321,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "astaticAssert": self = .astaticAssert
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "astatic_assert": self = .astaticAssert
@@ -20574,13 +19379,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .astaticCast
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "astaticCast": self = .astaticCast
-      default: return nil
       }
     }
 
@@ -20645,13 +19443,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "atemplate": self = .atemplate
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "atemplate": self = .atemplate
@@ -20710,13 +19501,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .athis
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "athis": self = .athis
-      default: return nil
       }
     }
 
@@ -20781,13 +19565,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "athreadLocal": self = .athreadLocal
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "athread_local": self = .athreadLocal
@@ -20846,13 +19623,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atypedef
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atypedef": self = .atypedef
-      default: return nil
       }
     }
 
@@ -20917,13 +19687,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "atypeid": self = .atypeid
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "atypeid": self = .atypeid
@@ -20982,13 +19745,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atypename
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atypename": self = .atypename
-      default: return nil
       }
     }
 
@@ -21053,13 +19809,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aunion": self = .aunion
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aunion": self = .aunion
@@ -21118,13 +19867,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aunsigned
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aunsigned": self = .aunsigned
-      default: return nil
       }
     }
 
@@ -21189,13 +19931,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "ausing": self = .ausing
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "ausing": self = .ausing
@@ -21254,13 +19989,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .avirtual
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "avirtual": self = .avirtual
-      default: return nil
       }
     }
 
@@ -21325,13 +20053,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "avoid": self = .avoid
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "avoid": self = .avoid
@@ -21390,13 +20111,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .avolatile
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "avolatile": self = .avolatile
-      default: return nil
       }
     }
 
@@ -21461,13 +20175,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "awcharT": self = .awcharT
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "awchar_t": self = .awcharT
@@ -21526,13 +20233,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .axor
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "axor": self = .axor
-      default: return nil
       }
     }
 
@@ -21597,13 +20297,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "axorEq": self = .axorEq
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "axor_eq": self = .axorEq
@@ -21662,13 +20355,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .arestrict
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "arestrict": self = .arestrict
-      default: return nil
       }
     }
 
@@ -21733,13 +20419,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aCategory": self = .aCategory
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aCategory": self = .aCategory
@@ -21798,13 +20477,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aIvar
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aIvar": self = .aIvar
-      default: return nil
       }
     }
 
@@ -21869,13 +20541,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aMethod": self = .aMethod
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aMethod": self = .aMethod
@@ -21934,13 +20599,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afinalize
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afinalize": self = .afinalize
-      default: return nil
       }
     }
 
@@ -22005,13 +20663,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "ahash": self = .ahash
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "ahash": self = .ahash
@@ -22070,13 +20721,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adealloc
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adealloc": self = .adealloc
-      default: return nil
       }
     }
 
@@ -22141,13 +20785,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "asuperclass": self = .asuperclass
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "asuperclass": self = .asuperclass
@@ -22206,13 +20843,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aretain
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aretain": self = .aretain
-      default: return nil
       }
     }
 
@@ -22277,13 +20907,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "arelease": self = .arelease
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "arelease": self = .arelease
@@ -22342,13 +20965,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aautorelease
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aautorelease": self = .aautorelease
-      default: return nil
       }
     }
 
@@ -22413,13 +21029,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aretainCount": self = .aretainCount
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aretainCount": self = .aretainCount
@@ -22478,13 +21087,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .azone
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "azone": self = .azone
-      default: return nil
       }
     }
 
@@ -22549,13 +21151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aisProxy": self = .aisProxy
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aisProxy": self = .aisProxy
@@ -22614,13 +21209,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acopy
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acopy": self = .acopy
-      default: return nil
       }
     }
 
@@ -22685,13 +21273,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "amutableCopy": self = .amutableCopy
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "amutableCopy": self = .amutableCopy
@@ -22750,13 +21331,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aclassForCoder
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aclassForCoder": self = .aclassForCoder
-      default: return nil
       }
     }
 
@@ -22821,13 +21395,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aclear": self = .aclear
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aclear": self = .aclear
@@ -22886,13 +21453,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adata
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adata": self = .adata
-      default: return nil
       }
     }
 
@@ -22957,13 +21517,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "adelimitedData": self = .adelimitedData
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "adelimitedData": self = .adelimitedData
@@ -23022,13 +21575,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adescriptor
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adescriptor": self = .adescriptor
-      default: return nil
       }
     }
 
@@ -23093,13 +21639,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aextensionRegistry": self = .aextensionRegistry
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aextensionRegistry": self = .aextensionRegistry
@@ -23158,13 +21697,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aextensionsCurrentlySet
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aextensionsCurrentlySet": self = .aextensionsCurrentlySet
-      default: return nil
       }
     }
 
@@ -23229,13 +21761,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aisInitialized": self = .aisInitialized
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aisInitialized": self = .aisInitialized
@@ -23294,13 +21819,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aserializedSize
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aserializedSize": self = .aserializedSize
-      default: return nil
       }
     }
 
@@ -23365,13 +21883,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "asortedExtensionsInUse": self = .asortedExtensionsInUse
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "asortedExtensionsInUse": self = .asortedExtensionsInUse
@@ -23430,13 +21941,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aunknownFields
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aunknownFields": self = .aunknownFields
-      default: return nil
       }
     }
 
@@ -23501,13 +22005,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aFixed": self = .aFixed
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aFixed": self = .aFixed
@@ -23566,13 +22063,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aFract
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aFract": self = .aFract
-      default: return nil
       }
     }
 
@@ -23637,13 +22127,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aSize": self = .aSize
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aSize": self = .aSize
@@ -23702,13 +22185,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aLogicalAddress
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aLogicalAddress": self = .aLogicalAddress
-      default: return nil
       }
     }
 
@@ -23773,13 +22249,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aPhysicalAddress": self = .aPhysicalAddress
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aPhysicalAddress": self = .aPhysicalAddress
@@ -23838,13 +22307,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aByteCount
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aByteCount": self = .aByteCount
-      default: return nil
       }
     }
 
@@ -23909,13 +22371,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aByteOffset": self = .aByteOffset
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aByteOffset": self = .aByteOffset
@@ -23974,13 +22429,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aDuration
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aDuration": self = .aDuration
-      default: return nil
       }
     }
 
@@ -24045,13 +22493,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aAbsoluteTime": self = .aAbsoluteTime
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aAbsoluteTime": self = .aAbsoluteTime
@@ -24110,13 +22551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aOptionBits
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aOptionBits": self = .aOptionBits
-      default: return nil
       }
     }
 
@@ -24181,13 +22615,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aItemCount": self = .aItemCount
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aItemCount": self = .aItemCount
@@ -24246,13 +22673,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aPbversion
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aPbversion": self = .aPbversion
-      default: return nil
       }
     }
 
@@ -24317,13 +22737,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aScriptCode": self = .aScriptCode
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aScriptCode": self = .aScriptCode
@@ -24382,13 +22795,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aLangCode
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aLangCode": self = .aLangCode
-      default: return nil
       }
     }
 
@@ -24453,13 +22859,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aRegionCode": self = .aRegionCode
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aRegionCode": self = .aRegionCode
@@ -24518,13 +22917,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aOstype
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aOstype": self = .aOstype
-      default: return nil
       }
     }
 
@@ -24589,13 +22981,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aProcessSerialNumber": self = .aProcessSerialNumber
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aProcessSerialNumber": self = .aProcessSerialNumber
@@ -24654,13 +23039,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aPoint
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aPoint": self = .aPoint
-      default: return nil
       }
     }
 
@@ -24725,13 +23103,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aRect": self = .aRect
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aRect": self = .aRect
@@ -24790,13 +23161,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aFixedPoint
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aFixedPoint": self = .aFixedPoint
-      default: return nil
       }
     }
 
@@ -24861,13 +23225,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aFixedRect": self = .aFixedRect
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aFixedRect": self = .aFixedRect
@@ -24926,13 +23283,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aStyle
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aStyle": self = .aStyle
-      default: return nil
       }
     }
 
@@ -24997,13 +23347,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aStyleParameter": self = .aStyleParameter
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aStyleParameter": self = .aStyleParameter
@@ -25062,13 +23405,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aStyleField
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aStyleField": self = .aStyleField
-      default: return nil
       }
     }
 
@@ -25133,13 +23469,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aTimeScale": self = .aTimeScale
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aTimeScale": self = .aTimeScale
@@ -25201,13 +23530,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "aTimeBase": self = .aTimeBase
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "aTimeBase": self = .aTimeBase
@@ -25266,13 +23588,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aTimeRecord
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aTimeRecord": self = .aTimeRecord
-      default: return nil
       }
     }
 

@@ -72,14 +72,6 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "val1": self = .val1
-    case "val2": self = .val2
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "METHODOPT1_VAL1": self = .val1
@@ -138,13 +130,6 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
   init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .value
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "value": self = .value
     default: return nil
     }
   }
@@ -264,14 +249,6 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
       switch rawValue {
       case 1: self = .val1
       case 2: self = .val2
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "val1": self = .val1
-      case "val2": self = .val2
       default: return nil
       }
     }
@@ -487,14 +464,6 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
       switch rawValue {
       case 22: self = .testOptionEnumType1
       case -23: self = .testOptionEnumType2
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "testOptionEnumType1": self = .testOptionEnumType1
-      case "testOptionEnumType2": self = .testOptionEnumType2
       default: return nil
       }
     }
@@ -1581,13 +1550,6 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "value": self = .value
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "NESTED_ENUM_VALUE": self = .value
@@ -1724,13 +1686,6 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "oldValue": self = .oldValue
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "OLD_VALUE": self = .oldValue
@@ -1829,14 +1784,6 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
       switch rawValue {
       case 0: self = .oldValue
       case 1: self = .newValue
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "oldValue": self = .oldValue
-      case "newValue": self = .newValue
       default: return nil
       }
     }

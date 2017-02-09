@@ -74,15 +74,6 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "importFoo": self = .importFoo
-    case "importBar": self = .importBar
-    case "importBaz": self = .importBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_FOO": self = .importFoo
@@ -151,15 +142,6 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
     case 0: self = .unknown
     case 1: self = .foo
     case 2: self = .bar
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "unknown": self = .unknown
-    case "foo": self = .foo
-    case "bar": self = .bar
     default: return nil
     }
   }

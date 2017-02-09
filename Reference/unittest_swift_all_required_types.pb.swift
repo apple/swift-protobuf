@@ -496,16 +496,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "neg": self = .neg
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
@@ -1261,13 +1251,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .foo
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
       default: return nil
       }
     }

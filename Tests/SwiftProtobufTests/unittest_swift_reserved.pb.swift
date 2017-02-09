@@ -67,18 +67,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "double": self = .double
-      case "json_": self = .json_
-      case "class": self = .`class`
-      case "___": self = .___
-      case "self_": self = .self_
-      case "type": self = .type
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "DOUBLE": self = .double
@@ -157,13 +145,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .a
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a": self = .a
       default: return nil
       }
     }

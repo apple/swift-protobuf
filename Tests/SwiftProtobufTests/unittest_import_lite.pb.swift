@@ -72,15 +72,6 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "importLiteFoo": self = .importLiteFoo
-    case "importLiteBar": self = .importLiteBar
-    case "importLiteBaz": self = .importLiteBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_LITE_FOO": self = .importLiteFoo

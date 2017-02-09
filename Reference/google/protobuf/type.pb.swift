@@ -71,14 +71,6 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "proto2": self = .proto2
-    case "proto3": self = .proto3
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "SYNTAX_PROTO2": self = .proto2
@@ -384,31 +376,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "typeUnknown": self = .typeUnknown
-      case "typeDouble": self = .typeDouble
-      case "typeFloat": self = .typeFloat
-      case "typeInt64": self = .typeInt64
-      case "typeUint64": self = .typeUint64
-      case "typeInt32": self = .typeInt32
-      case "typeFixed64": self = .typeFixed64
-      case "typeFixed32": self = .typeFixed32
-      case "typeBool": self = .typeBool
-      case "typeString": self = .typeString
-      case "typeGroup": self = .typeGroup
-      case "typeMessage": self = .typeMessage
-      case "typeBytes": self = .typeBytes
-      case "typeUint32": self = .typeUint32
-      case "typeEnum": self = .typeEnum
-      case "typeSfixed32": self = .typeSfixed32
-      case "typeSfixed64": self = .typeSfixed64
-      case "typeSint32": self = .typeSint32
-      case "typeSint64": self = .typeSint64
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "TYPE_UNKNOWN": self = .typeUnknown
@@ -572,16 +539,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       case 2: self = .`required`
       case 3: self = .repeated
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "unknown": self = .unknown
-      case "optional": self = .`optional`
-      case "required": self = .`required`
-      case "repeated": self = .repeated
-      default: return nil
       }
     }
 

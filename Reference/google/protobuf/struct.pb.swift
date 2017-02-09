@@ -70,13 +70,6 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "nullValue": self = .nullValue
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "NULL_VALUE": self = .nullValue

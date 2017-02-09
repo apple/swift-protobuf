@@ -72,15 +72,6 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignLiteFoo": self = .foreignLiteFoo
-    case "foreignLiteBar": self = .foreignLiteBar
-    case "foreignLiteBaz": self = .foreignLiteBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_LITE_FOO": self = .foreignLiteFoo
@@ -148,13 +139,6 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "v1First": self = .v1First
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "V1_FIRST": self = .v1First
@@ -210,14 +194,6 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
     switch rawValue {
     case 1: self = .v2First
     case 2: self = .v2Second
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "v2First": self = .v2First
-    case "v2Second": self = .v2Second
     default: return nil
     }
   }
@@ -1008,15 +984,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       case 1: self = .foo
       case 2: self = .bar
       case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
       default: return nil
       }
     }

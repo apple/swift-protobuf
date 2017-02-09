@@ -23,7 +23,6 @@ class Test_Enum_Proto2: XCTestCase, PBTestHelpers {
     func testEqual() {
         XCTAssertEqual(ProtobufUnittest_TestEnumWithDupValue.foo1, ProtobufUnittest_TestEnumWithDupValue.foo2)
         XCTAssertNotEqual(ProtobufUnittest_TestEnumWithDupValue.foo1, ProtobufUnittest_TestEnumWithDupValue.bar1)
-        XCTAssertEqual(ProtobufUnittest_TestEnumWithDupValue(name:"foo1"), ProtobufUnittest_TestEnumWithDupValue.foo2)
     }
 
     func testUnknownIgnored() {

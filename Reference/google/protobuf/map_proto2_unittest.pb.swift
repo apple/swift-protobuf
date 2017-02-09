@@ -68,15 +68,6 @@ enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foo": self = .foo
-    case "bar": self = .bar
-    case "baz": self = .baz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "PROTO2_MAP_ENUM_FOO": self = .foo
@@ -146,16 +137,6 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
     case 1: self = .eProto2MapEnumBar
     case 2: self = .eProto2MapEnumBaz
     case 3: self = .eProto2MapEnumExtra
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "eProto2MapEnumFoo": self = .eProto2MapEnumFoo
-    case "eProto2MapEnumBar": self = .eProto2MapEnumBar
-    case "eProto2MapEnumBaz": self = .eProto2MapEnumBaz
-    case "eProto2MapEnumExtra": self = .eProto2MapEnumExtra
     default: return nil
     }
   }
