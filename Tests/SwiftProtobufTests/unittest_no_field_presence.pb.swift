@@ -138,7 +138,6 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -711,7 +710,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1081,7 +1079,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
 }
 
 struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_TestProto2Required"}
   public var protoMessageName: String {return "TestProto2Required"}
   public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1158,7 +1155,6 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto2NofieldpresenceUnittest_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [

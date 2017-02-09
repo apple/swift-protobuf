@@ -57,7 +57,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetContainer"}
   public var protoMessageName: String {return "TestMessageSetContainer"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -140,7 +139,6 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
 }
 
 struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension1"}
   public var protoMessageName: String {return "TestMessageSetExtension1"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -194,7 +192,6 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
 }
 
 struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension2"}
   public var protoMessageName: String {return "TestMessageSetExtension2"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -260,7 +257,6 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
 
 ///   MessageSet wire format is equivalent to this.
 struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet"}
   public var protoMessageName: String {return "RawMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -270,7 +266,6 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Item: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet.Item"}
     public var protoMessageName: String {return "Item"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [

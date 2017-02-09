@@ -36,7 +36,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault"}
   public var protoMessageName: String {return "EnumOptionalDefault"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -44,7 +43,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -212,7 +210,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   }
 
   struct NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2"}
     public var protoMessageName: String {return "NestedMessage2"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
     public static let _protobuf_fieldNames: FieldNameMap = [

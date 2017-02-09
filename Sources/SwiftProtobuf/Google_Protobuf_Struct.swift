@@ -50,7 +50,6 @@ public enum Google_Protobuf_NullValue: Enum {
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
 public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Struct"}
     public var protoMessageName: String {return "Struct"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -139,7 +138,6 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 ///
 ///   The JSON representation for `Value` is JSON value.
 public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Value"}
     public var protoMessageName: String {return "Value"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -524,7 +522,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 ///
 ///   The JSON representation for `ListValue` is JSON array.
 public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImplementationBase, ExpressibleByArrayLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_ListValue"}
     public var protoMessageName: String {return "ListValue"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [

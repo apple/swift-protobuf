@@ -51,7 +51,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   Same field number appears inside and outside of the group.
 struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "SwiftTestGroupExtensions"}
   public var protoMessageName: String {return "SwiftTestGroupExtensions"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -124,7 +123,6 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
 }
 
 struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ExtensionGroup"}
   public var protoMessageName: String {return "ExtensionGroup"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -169,7 +167,6 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, Swift
 }
 
 struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "RepeatedExtensionGroup"}
   public var protoMessageName: String {return "RepeatedExtensionGroup"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -214,7 +211,6 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Messag
 }
 
 struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "SwiftTestGroupUnextended"}
   public var protoMessageName: String {return "SwiftTestGroupUnextended"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [

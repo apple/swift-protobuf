@@ -43,7 +43,6 @@ of the generated code that are intended purely for internal use by the library:
 public struct Example: ProtobufMessage {
   // The generated struct carries constant properties reflecting
   // basic information about the message:
-  public var swiftClassName: String {return "Example"}
   public var protoMessageName: String {return "Example"}
   public var protoPackageName: String {return ""}
   public var jsonFieldNames: [String: Int] {return ["field": 1]}

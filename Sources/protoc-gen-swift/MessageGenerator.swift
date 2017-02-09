@@ -417,7 +417,6 @@ class MessageGenerator {
 
         p.print("\(generatorOptions.visibilitySourceSnippet)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
         p.indent()
-        p.print("public var swiftClassName: String {return \"\(swiftFullName)\"}\n")
         p.print("public var protoMessageName: String {return \"\(protoMessageName)\"}\n")
         p.print("public var protoPackageName: String {return \"\(protoPackageName)\"}\n")
 

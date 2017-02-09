@@ -117,7 +117,6 @@ public extension Message {
 /// limitation of Google's spec for google.protobuf.Any.
 ///
 public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Any"}
     public var protoPackageName: String {return "google.protobuf"}
     public var protoMessageName: String {return "Any"}
     public static let _protobuf_fieldNames: FieldNameMap = [

@@ -36,7 +36,6 @@ public protocol Message: CustomDebugStringConvertible {
   // Metadata
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
-  var swiftClassName: String { get }
   var protoMessageName: String { get }
   var protoPackageName: String { get }
   var anyTypePrefix: String { get }

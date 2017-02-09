@@ -226,7 +226,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -370,7 +369,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra"}
   public var protoMessageName: String {return "MyMessagePlusExtra"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
