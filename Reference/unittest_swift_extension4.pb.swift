@@ -38,7 +38,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Ext4MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "protobuf_unittest.extend4"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -46,11 +45,10 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "Ext4MyMessage.C"}
     public var protoMessageName: String {return "C"}
     public var protoPackageName: String {return "protobuf_unittest.extend4"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1410: .same(proto: "c", swift: "c"),
+      1410: .same(proto: "c"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -94,13 +92,13 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
 
     static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       protoFieldNumber: 410,
-      fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.b", swift: "Ext4MyMessage_b"),
+      fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.b"),
       defaultValue: ""
     )
 
     static let c = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       protoFieldNumber: 411,
-      fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.C", swift: "Ext4MyMessage_c"),
+      fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.C"),
       defaultValue: Ext4MyMessage.C()
     )
   }
@@ -121,11 +119,10 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
 }
 
 struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Ext4C"}
   public var protoMessageName: String {return "C"}
   public var protoPackageName: String {return "protobuf_unittest.extend4"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1420: .same(proto: "c", swift: "c"),
+    1420: .same(proto: "c"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -167,13 +164,13 @@ struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.
 
 let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   protoFieldNumber: 420,
-  fieldNames: .same(proto: "protobuf_unittest.extend4.b", swift: "Ext4b"),
+  fieldNames: .same(proto: "protobuf_unittest.extend4.b"),
   defaultValue: ""
 )
 
 let Ext4Extensions_c = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   protoFieldNumber: 421,
-  fieldNames: .same(proto: "protobuf_unittest.extend4.C", swift: "Ext4c"),
+  fieldNames: .same(proto: "protobuf_unittest.extend4.C"),
   defaultValue: Ext4C()
 )
 

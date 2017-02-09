@@ -226,16 +226,15 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "e", swift: "e"),
-    2: .unique(proto: "repeated_e", json: "repeatedE", swift: "repeatedE"),
-    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE", swift: "repeatedPackedE"),
-    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE", swift: "repeatedPackedUnexpectedE"),
-    5: .unique(proto: "oneof_e_1", json: "oneofE1", swift: "oneofE1"),
-    6: .unique(proto: "oneof_e_2", json: "oneofE2", swift: "oneofE2"),
+    1: .same(proto: "e"),
+    2: .unique(proto: "repeated_e", json: "repeatedE"),
+    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),
+    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE"),
+    5: .unique(proto: "oneof_e_1", json: "oneofE1"),
+    6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
 
@@ -370,16 +369,15 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra"}
   public var protoMessageName: String {return "MyMessagePlusExtra"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "e", swift: "e"),
-    2: .unique(proto: "repeated_e", json: "repeatedE", swift: "repeatedE"),
-    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE", swift: "repeatedPackedE"),
-    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE", swift: "repeatedPackedUnexpectedE"),
-    5: .unique(proto: "oneof_e_1", json: "oneofE1", swift: "oneofE1"),
-    6: .unique(proto: "oneof_e_2", json: "oneofE2", swift: "oneofE2"),
+    1: .same(proto: "e"),
+    2: .unique(proto: "repeated_e", json: "repeatedE"),
+    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),
+    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE"),
+    5: .unique(proto: "oneof_e_1", json: "oneofE1"),
+    6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
 

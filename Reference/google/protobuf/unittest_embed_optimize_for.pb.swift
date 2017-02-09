@@ -56,12 +56,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestEmbedOptimizedForSize"}
   public var protoMessageName: String {return "TestEmbedOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "optional_message", json: "optionalMessage", swift: "optionalMessage"),
-    2: .unique(proto: "repeated_message", json: "repeatedMessage", swift: "repeatedMessage"),
+    1: .unique(proto: "optional_message", json: "optionalMessage"),
+    2: .unique(proto: "repeated_message", json: "repeatedMessage"),
   ]
 
   private class _StorageClass {

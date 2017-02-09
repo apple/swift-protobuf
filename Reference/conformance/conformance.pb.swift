@@ -158,13 +158,12 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Conformance_ConformanceRequest"}
   public var protoMessageName: String {return "ConformanceRequest"}
   public var protoPackageName: String {return "conformance"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "protobuf_payload", json: "protobufPayload", swift: "protobufPayload"),
-    2: .unique(proto: "json_payload", json: "jsonPayload", swift: "jsonPayload"),
-    3: .unique(proto: "requested_output_format", json: "requestedOutputFormat", swift: "requestedOutputFormat"),
+    1: .unique(proto: "protobuf_payload", json: "protobufPayload"),
+    2: .unique(proto: "json_payload", json: "jsonPayload"),
+    3: .unique(proto: "requested_output_format", json: "requestedOutputFormat"),
   ]
 
 
@@ -279,16 +278,15 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
 ///   Represents a single test case's output.
 struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Conformance_ConformanceResponse"}
   public var protoMessageName: String {return "ConformanceResponse"}
   public var protoPackageName: String {return "conformance"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "parse_error", json: "parseError", swift: "parseError"),
-    6: .unique(proto: "serialize_error", json: "serializeError", swift: "serializeError"),
-    2: .unique(proto: "runtime_error", json: "runtimeError", swift: "runtimeError"),
-    3: .unique(proto: "protobuf_payload", json: "protobufPayload", swift: "protobufPayload"),
-    4: .unique(proto: "json_payload", json: "jsonPayload", swift: "jsonPayload"),
-    5: .same(proto: "skipped", swift: "skipped"),
+    1: .unique(proto: "parse_error", json: "parseError"),
+    6: .unique(proto: "serialize_error", json: "serializeError"),
+    2: .unique(proto: "runtime_error", json: "runtimeError"),
+    3: .unique(proto: "protobuf_payload", json: "protobufPayload"),
+    4: .unique(proto: "json_payload", json: "jsonPayload"),
+    5: .same(proto: "skipped"),
   ]
 
 

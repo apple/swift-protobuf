@@ -20,13 +20,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest"}
   public var protoMessageName: String {return "NamesTest"}
   public var protoPackageName: String {return "swift.protobuf.test"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "http_request", json: "httpRequest", swift: "httpRequest"),
-    3: .same(proto: "url", swift: "url"),
-    6: .unique(proto: "a_b_c", json: "aBC", swift: "aBC"),
+    1: .unique(proto: "http_request", json: "httpRequest"),
+    3: .same(proto: "url"),
+    6: .unique(proto: "a_b_c", json: "aBC"),
   ]
 
 
@@ -68,12 +67,11 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
 }
 
 struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest2"}
   public var protoMessageName: String {return "NamesTest2"}
   public var protoPackageName: String {return "swift.protobuf.test"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    2: .same(proto: "HTTPRequest", swift: "httprequest"),
-    4: .same(proto: "URL", swift: "url"),
+    2: .same(proto: "HTTPRequest"),
+    4: .same(proto: "URL"),
   ]
 
 
@@ -108,11 +106,10 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct Swift_Protobuf_Test_NamesTest3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Swift_Protobuf_Test_NamesTest3"}
   public var protoMessageName: String {return "NamesTest3"}
   public var protoPackageName: String {return "swift.protobuf.test"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    5: .same(proto: "Url", swift: "url"),
+    5: .same(proto: "Url"),
   ]
 
 

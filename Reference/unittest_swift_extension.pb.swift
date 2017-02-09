@@ -36,7 +36,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -44,7 +43,6 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Bar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo.Bar"}
     public var protoMessageName: String {return "Bar"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
     public static let _protobuf_fieldNames = FieldNameMap()
@@ -52,11 +50,10 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     public var unknown = SwiftProtobuf.UnknownStorage()
 
     struct Baz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-      public var swiftClassName: String {return "ProtobufUnittest_Extend_Foo.Bar.Baz"}
       public var protoMessageName: String {return "Baz"}
       public var protoPackageName: String {return "protobuf_unittest.extend"}
       public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .same(proto: "a", swift: "a"),
+        1: .same(proto: "a"),
       ]
 
       public var unknown = SwiftProtobuf.UnknownStorage()
@@ -155,11 +152,10 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 }
 
 struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_Extend_C"}
   public var protoMessageName: String {return "C"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    999: .same(proto: "c", swift: "c"),
+    999: .same(proto: "c"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -202,13 +198,13 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
 let ProtobufUnittest_Extend_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   protoFieldNumber: 100,
-  fieldNames: .same(proto: "protobuf_unittest.extend.b", swift: "ProtobufUnittest_Extend_b"),
+  fieldNames: .same(proto: "protobuf_unittest.extend.b"),
   defaultValue: ""
 )
 
 let ProtobufUnittest_Extend_Extensions_c = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   protoFieldNumber: 101,
-  fieldNames: .same(proto: "protobuf_unittest.extend.C", swift: "ProtobufUnittest_Extend_c"),
+  fieldNames: .same(proto: "protobuf_unittest.extend.C"),
   defaultValue: ProtobufUnittest_Extend_C()
 )
 
