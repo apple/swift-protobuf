@@ -134,11 +134,10 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 }
 
 struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessageLite"}
   public var protoMessageName: String {return "ImportMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "d", swift: "d"),
+    1: .same(proto: "d"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()

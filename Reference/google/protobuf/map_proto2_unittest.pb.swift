@@ -218,12 +218,11 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
 }
 
 struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestEnumMap"}
   public var protoMessageName: String {return "TestEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    101: .unique(proto: "known_map_field", json: "knownMapField", swift: "knownMapField"),
-    102: .unique(proto: "unknown_map_field", json: "unknownMapField", swift: "unknownMapField"),
+    101: .unique(proto: "known_map_field", json: "knownMapField"),
+    102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -261,12 +260,11 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 }
 
 struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestEnumMapPlusExtra"}
   public var protoMessageName: String {return "TestEnumMapPlusExtra"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    101: .unique(proto: "known_map_field", json: "knownMapField", swift: "knownMapField"),
-    102: .unique(proto: "unknown_map_field", json: "unknownMapField", swift: "unknownMapField"),
+    101: .unique(proto: "known_map_field", json: "knownMapField"),
+    102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -304,11 +302,10 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtob
 }
 
 struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestImportEnumMap"}
   public var protoMessageName: String {return "TestImportEnumMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "import_enum_amp", json: "importEnumAmp", swift: "importEnumAmp"),
+    1: .unique(proto: "import_enum_amp", json: "importEnumAmp"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -339,11 +336,10 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestIntIntMap"}
   public var protoMessageName: String {return "TestIntIntMap"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "m", swift: "m"),
+    1: .same(proto: "m"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -375,22 +371,21 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
 ///   Test all key types: string, plus the non-floating-point scalars.
 struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestMaps"}
   public var protoMessageName: String {return "TestMaps"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "m_int32", json: "mInt32", swift: "mInt32"),
-    2: .unique(proto: "m_int64", json: "mInt64", swift: "mInt64"),
-    3: .unique(proto: "m_uint32", json: "mUint32", swift: "mUint32"),
-    4: .unique(proto: "m_uint64", json: "mUint64", swift: "mUint64"),
-    5: .unique(proto: "m_sint32", json: "mSint32", swift: "mSint32"),
-    6: .unique(proto: "m_sint64", json: "mSint64", swift: "mSint64"),
-    7: .unique(proto: "m_fixed32", json: "mFixed32", swift: "mFixed32"),
-    8: .unique(proto: "m_fixed64", json: "mFixed64", swift: "mFixed64"),
-    9: .unique(proto: "m_sfixed32", json: "mSfixed32", swift: "mSfixed32"),
-    10: .unique(proto: "m_sfixed64", json: "mSfixed64", swift: "mSfixed64"),
-    11: .unique(proto: "m_bool", json: "mBool", swift: "mBool"),
-    12: .unique(proto: "m_string", json: "mString", swift: "mString"),
+    1: .unique(proto: "m_int32", json: "mInt32"),
+    2: .unique(proto: "m_int64", json: "mInt64"),
+    3: .unique(proto: "m_uint32", json: "mUint32"),
+    4: .unique(proto: "m_uint64", json: "mUint64"),
+    5: .unique(proto: "m_sint32", json: "mSint32"),
+    6: .unique(proto: "m_sint64", json: "mSint64"),
+    7: .unique(proto: "m_fixed32", json: "mFixed32"),
+    8: .unique(proto: "m_fixed64", json: "mFixed64"),
+    9: .unique(proto: "m_sfixed32", json: "mSfixed32"),
+    10: .unique(proto: "m_sfixed64", json: "mSfixed64"),
+    11: .unique(proto: "m_bool", json: "mBool"),
+    12: .unique(proto: "m_string", json: "mString"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()

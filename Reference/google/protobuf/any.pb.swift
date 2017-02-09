@@ -118,12 +118,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///         "value": "1.212s"
 ///       }
 struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Any"}
   public var protoMessageName: String {return "Any"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "type_url", json: "typeUrl", swift: "typeURL"),
-    2: .same(proto: "value", swift: "value"),
+    1: .unique(proto: "type_url", json: "typeUrl"),
+    2: .same(proto: "value"),
   ]
 
 

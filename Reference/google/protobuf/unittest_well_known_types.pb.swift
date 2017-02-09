@@ -23,29 +23,28 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
 struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestWellKnownTypes"}
   public var protoMessageName: String {return "TestWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
-    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
-    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
-    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
-    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
-    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
-    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
-    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
-    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
-    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
-    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
-    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
-    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
-    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
-    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
-    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
-    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
-    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
-    19: .unique(proto: "value_field", json: "valueField", swift: "valueField"),
+    1: .unique(proto: "any_field", json: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField"),
+    19: .unique(proto: "value_field", json: "valueField"),
   ]
 
   private class _StorageClass {
@@ -442,28 +441,27 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
 
 ///   A repeated field for each well-known type.
 struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_RepeatedWellKnownTypes"}
   public var protoMessageName: String {return "RepeatedWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
-    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
-    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
-    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
-    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
-    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
-    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
-    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
-    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
-    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
-    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
-    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
-    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
-    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
-    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
-    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
-    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
-    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
+    1: .unique(proto: "any_field", json: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField"),
   ]
 
   private class _StorageClass {
@@ -733,28 +731,27 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 }
 
 struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_OneofWellKnownTypes"}
   public var protoMessageName: String {return "OneofWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
-    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
-    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
-    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
-    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
-    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
-    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
-    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
-    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
-    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
-    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
-    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
-    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
-    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
-    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
-    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
-    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
-    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
+    1: .unique(proto: "any_field", json: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField"),
   ]
 
   private class _StorageClass {
@@ -1290,28 +1287,27 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
 struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_MapWellKnownTypes"}
   public var protoMessageName: String {return "MapWellKnownTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "any_field", json: "anyField", swift: "anyField"),
-    2: .unique(proto: "api_field", json: "apiField", swift: "apiField"),
-    3: .unique(proto: "duration_field", json: "durationField", swift: "durationField"),
-    4: .unique(proto: "empty_field", json: "emptyField", swift: "emptyField"),
-    5: .unique(proto: "field_mask_field", json: "fieldMaskField", swift: "fieldMaskField"),
-    6: .unique(proto: "source_context_field", json: "sourceContextField", swift: "sourceContextField"),
-    7: .unique(proto: "struct_field", json: "structField", swift: "structField"),
-    8: .unique(proto: "timestamp_field", json: "timestampField", swift: "timestampField"),
-    9: .unique(proto: "type_field", json: "typeField", swift: "typeField"),
-    10: .unique(proto: "double_field", json: "doubleField", swift: "doubleField"),
-    11: .unique(proto: "float_field", json: "floatField", swift: "floatField"),
-    12: .unique(proto: "int64_field", json: "int64Field", swift: "int64Field"),
-    13: .unique(proto: "uint64_field", json: "uint64Field", swift: "uint64Field"),
-    14: .unique(proto: "int32_field", json: "int32Field", swift: "int32Field"),
-    15: .unique(proto: "uint32_field", json: "uint32Field", swift: "uint32Field"),
-    16: .unique(proto: "bool_field", json: "boolField", swift: "boolField"),
-    17: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
-    18: .unique(proto: "bytes_field", json: "bytesField", swift: "bytesField"),
+    1: .unique(proto: "any_field", json: "anyField"),
+    2: .unique(proto: "api_field", json: "apiField"),
+    3: .unique(proto: "duration_field", json: "durationField"),
+    4: .unique(proto: "empty_field", json: "emptyField"),
+    5: .unique(proto: "field_mask_field", json: "fieldMaskField"),
+    6: .unique(proto: "source_context_field", json: "sourceContextField"),
+    7: .unique(proto: "struct_field", json: "structField"),
+    8: .unique(proto: "timestamp_field", json: "timestampField"),
+    9: .unique(proto: "type_field", json: "typeField"),
+    10: .unique(proto: "double_field", json: "doubleField"),
+    11: .unique(proto: "float_field", json: "floatField"),
+    12: .unique(proto: "int64_field", json: "int64Field"),
+    13: .unique(proto: "uint64_field", json: "uint64Field"),
+    14: .unique(proto: "int32_field", json: "int32Field"),
+    15: .unique(proto: "uint32_field", json: "uint32Field"),
+    16: .unique(proto: "bool_field", json: "boolField"),
+    17: .unique(proto: "string_field", json: "stringField"),
+    18: .unique(proto: "bytes_field", json: "bytesField"),
   ]
 
   private class _StorageClass {
