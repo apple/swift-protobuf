@@ -123,18 +123,6 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignUnspecified: return ".foreignUnspecified"
-      case .foreignFoo: return ".foreignFoo"
-      case .foreignBar: return ".foreignBar"
-      case .foreignBaz: return ".foreignBaz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 ///   Test an enum that has multiple values with the same number.
@@ -215,20 +203,6 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .testEnumWithDupValueUnspecified: return ".testEnumWithDupValueUnspecified"
-      case .foo1: return ".foo1"
-      case .bar1: return ".bar1"
-      case .baz: return ".baz"
-      case .foo2: return ".foo2"
-      case .bar2: return ".bar2"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -321,21 +295,6 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .testSparseEnumUnspecified: return ".testSparseEnumUnspecified"
-      case .sparseA: return ".sparseA"
-      case .sparseB: return ".sparseB"
-      case .sparseC: return ".sparseC"
-      case .sparseD: return ".sparseD"
-      case .sparseE: return ".sparseE"
-      case .sparseG: return ".sparseG"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -888,19 +847,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .nestedEnumUnspecified: return ".nestedEnumUnspecified"
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        case .neg: return ".neg"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 

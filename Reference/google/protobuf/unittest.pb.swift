@@ -114,16 +114,6 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignFoo: return ".foreignFoo"
-      case .foreignBar: return ".foreignBar"
-      case .foreignBaz: return ".foreignBaz"
-      }
-    }
-  }
-
 }
 
 ///   Test an enum that has multiple values with the same number.
@@ -195,18 +185,6 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo1: return ".foo1"
-      case .bar1: return ".bar1"
-      case .baz: return ".baz"
-      case .foo2: return ".foo2"
-      case .bar2: return ".bar2"
-      }
-    }
-  }
 
 }
 
@@ -293,20 +271,6 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .sparseA: return ".sparseA"
-      case .sparseB: return ".sparseB"
-      case .sparseC: return ".sparseC"
-      case .sparseD: return ".sparseD"
-      case .sparseE: return ".sparseE"
-      case .sparseF: return ".sparseF"
-      case .sparseG: return ".sparseG"
-      }
-    }
-  }
 
 }
 
@@ -1080,17 +1044,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        case .neg: return ".neg"
-        }
-      }
-    }
 
   }
 
@@ -6618,16 +6571,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        }
-      }
-    }
-
   }
 
   struct FooGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -7750,16 +7693,6 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .dynamicFoo: return ".dynamicFoo"
-        case .dynamicBar: return ".dynamicBar"
-        case .dynamicBaz: return ".dynamicBaz"
-        }
-      }
-    }
 
   }
 

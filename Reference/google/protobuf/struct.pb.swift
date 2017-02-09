@@ -104,15 +104,6 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .nullValue: return ".nullValue"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 ///   `Struct` represents a structured data value, consisting of fields

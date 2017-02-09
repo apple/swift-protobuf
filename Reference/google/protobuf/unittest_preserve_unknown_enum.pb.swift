@@ -111,17 +111,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      case .baz: return ".baz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
@@ -191,18 +180,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .eFoo: return ".eFoo"
-      case .eBar: return ".eBar"
-      case .eBaz: return ".eBaz"
-      case .eExtra: return ".eExtra"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 

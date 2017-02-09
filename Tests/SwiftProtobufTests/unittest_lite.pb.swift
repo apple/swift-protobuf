@@ -112,16 +112,6 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignLiteFoo: return ".foreignLiteFoo"
-      case .foreignLiteBar: return ".foreignLiteBar"
-      case .foreignLiteBaz: return ".foreignLiteBaz"
-      }
-    }
-  }
-
 }
 
 enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
@@ -170,14 +160,6 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .v1First: return ".v1First"
-      }
-    }
-  }
 
 }
 
@@ -233,15 +215,6 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .v2First: return ".v2First"
-      case .v2Second: return ".v2Second"
-      }
-    }
-  }
 
 }
 
@@ -1027,16 +1000,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        }
-      }
-    }
 
   }
 

@@ -109,16 +109,6 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .proto2: return ".proto2"
-      case .proto3: return ".proto3"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 ///   A protocol buffer message type.
@@ -482,33 +472,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .typeUnknown: return ".typeUnknown"
-        case .typeDouble: return ".typeDouble"
-        case .typeFloat: return ".typeFloat"
-        case .typeInt64: return ".typeInt64"
-        case .typeUint64: return ".typeUint64"
-        case .typeInt32: return ".typeInt32"
-        case .typeFixed64: return ".typeFixed64"
-        case .typeFixed32: return ".typeFixed32"
-        case .typeBool: return ".typeBool"
-        case .typeString: return ".typeString"
-        case .typeGroup: return ".typeGroup"
-        case .typeMessage: return ".typeMessage"
-        case .typeBytes: return ".typeBytes"
-        case .typeUint32: return ".typeUint32"
-        case .typeEnum: return ".typeEnum"
-        case .typeSfixed32: return ".typeSfixed32"
-        case .typeSfixed64: return ".typeSfixed64"
-        case .typeSint32: return ".typeSint32"
-        case .typeSint64: return ".typeSint64"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
-
   }
 
   ///   Whether a field is optional, required, or repeated.
@@ -587,18 +550,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .unknown: return ".unknown"
-        case .`optional`: return ".optional"
-        case .`required`: return ".required"
-        case .repeated: return ".repeated"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 

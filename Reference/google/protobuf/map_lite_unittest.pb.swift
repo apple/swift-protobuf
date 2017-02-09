@@ -108,16 +108,6 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .proto2MapEnumFooLite: return ".proto2MapEnumFooLite"
-      case .proto2MapEnumBarLite: return ".proto2MapEnumBarLite"
-      case .proto2MapEnumBazLite: return ".proto2MapEnumBazLite"
-      }
-    }
-  }
-
 }
 
 enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
@@ -185,17 +175,6 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .eProto2MapEnumFooLite: return ".eProto2MapEnumFooLite"
-      case .eProto2MapEnumBarLite: return ".eProto2MapEnumBarLite"
-      case .eProto2MapEnumBazLite: return ".eProto2MapEnumBazLite"
-      case .eProto2MapEnumExtraLite: return ".eProto2MapEnumExtraLite"
-      }
-    }
-  }
-
 }
 
 enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
@@ -256,16 +235,6 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .mapEnumFooLite: return ".mapEnumFooLite"
-      case .mapEnumBarLite: return ".mapEnumBarLite"
-      case .mapEnumBazLite: return ".mapEnumBazLite"
-      }
-    }
-  }
 
 }
 

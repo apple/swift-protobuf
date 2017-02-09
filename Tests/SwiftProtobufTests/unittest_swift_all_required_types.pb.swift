@@ -540,17 +540,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        case .neg: return ".neg"
-        }
-      }
-    }
-
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -1286,14 +1275,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        }
-      }
-    }
 
   }
 

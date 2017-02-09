@@ -986,31 +986,6 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .double: return ".double"
-        case .float: return ".float"
-        case .int64: return ".int64"
-        case .uint64: return ".uint64"
-        case .int32: return ".int32"
-        case .fixed64: return ".fixed64"
-        case .fixed32: return ".fixed32"
-        case .bool: return ".bool"
-        case .string: return ".string"
-        case .group: return ".group"
-        case .message: return ".message"
-        case .bytes: return ".bytes"
-        case .uint32: return ".uint32"
-        case .`enum`: return ".enum"
-        case .sfixed32: return ".sfixed32"
-        case .sfixed64: return ".sfixed64"
-        case .sint32: return ".sint32"
-        case .sint64: return ".sint64"
-        }
-      }
-    }
-
   }
 
   enum Label: SwiftProtobuf.Enum {
@@ -1073,16 +1048,6 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .`optional`: return ".optional"
-        case .`required`: return ".required"
-        case .repeated: return ".repeated"
-        }
-      }
-    }
 
   }
 
@@ -1995,16 +1960,6 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .speed: return ".speed"
-        case .codeSize: return ".codeSize"
-        case .liteRuntime: return ".liteRuntime"
-        }
-      }
-    }
-
   }
 
   ///   Sets the Java package where classes generated from this .proto will be
@@ -2623,16 +2578,6 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .string: return ".string"
-        case .cord: return ".cord"
-        case .stringPiece: return ".stringPiece"
-        }
-      }
-    }
-
   }
 
   enum JSType: SwiftProtobuf.Enum {
@@ -2699,16 +2644,6 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .jsNormal: return ".jsNormal"
-        case .jsString: return ".jsString"
-        case .jsNumber: return ".jsNumber"
-        }
-      }
-    }
 
   }
 
@@ -3338,16 +3273,6 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .idempotencyUnknown: return ".idempotencyUnknown"
-        case .noSideEffects: return ".noSideEffects"
-        case .idempotent: return ".idempotent"
-        }
-      }
-    }
 
   }
 

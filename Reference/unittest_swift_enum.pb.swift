@@ -109,15 +109,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .firstValue: return ".firstValue"
-        case .secondValue: return ".secondValue"
-        }
-      }
-    }
-
   }
 
   enum EnumTest2: SwiftProtobuf.Enum {
@@ -172,15 +163,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .enumTest2FirstValue: return ".enumTest2FirstValue"
-        case .secondValue: return ".secondValue"
-        }
-      }
-    }
 
   }
 
@@ -237,15 +219,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .enumTestNoStem1: return ".enumTestNoStem1"
-        case .enumTestNoStem2: return ".enumTestNoStem2"
-        }
-      }
-    }
-
   }
 
   enum EnumTestReservedWord: SwiftProtobuf.Enum {
@@ -300,15 +273,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .`var`: return ".var"
-        case .notReserved: return ".notReserved"
-        }
-      }
-    }
 
   }
 

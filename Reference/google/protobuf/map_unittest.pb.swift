@@ -111,17 +111,6 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      case .baz: return ".baz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 ///   Tests maps.
@@ -939,15 +928,6 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, 
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
