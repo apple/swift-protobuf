@@ -98,11 +98,11 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .firstValue: return "\"ENUM_TEST_1_FIRST_VALUE\""
-        case .secondValue: return "\"ENUM_TEST_1_SECOND_VALUE\""
+        case .firstValue: return "ENUM_TEST_1_FIRST_VALUE"
+        case .secondValue: return "ENUM_TEST_1_SECOND_VALUE"
         }
       }
     }
@@ -153,11 +153,11 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .enumTest2FirstValue: return "\"ENUM_TEST_2_FIRST_VALUE\""
-        case .secondValue: return "\"SECOND_VALUE\""
+        case .enumTest2FirstValue: return "ENUM_TEST_2_FIRST_VALUE"
+        case .secondValue: return "SECOND_VALUE"
         }
       }
     }
@@ -208,11 +208,11 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .enumTestNoStem1: return "\"ENUM_TEST_NO_STEM_1\""
-        case .enumTestNoStem2: return "\"ENUM_TEST_NO_STEM_2\""
+        case .enumTestNoStem1: return "ENUM_TEST_NO_STEM_1"
+        case .enumTestNoStem2: return "ENUM_TEST_NO_STEM_2"
         }
       }
     }
@@ -263,11 +263,11 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .`var`: return "\"ENUM_TEST_RESERVED_WORD_VAR\""
-        case .notReserved: return "\"ENUM_TEST_RESERVED_WORD_NOT_RESERVED\""
+        case .`var`: return "ENUM_TEST_RESERVED_WORD_VAR"
+        case .notReserved: return "ENUM_TEST_RESERVED_WORD_NOT_RESERVED"
         }
       }
     }

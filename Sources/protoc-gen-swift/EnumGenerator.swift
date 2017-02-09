@@ -243,16 +243,16 @@ class EnumGenerator {
 
         // json property
         printer.print("\n")
-        printer.print("\(generatorOptions.visibilitySourceSnippet)var json: String {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)var _protobuf_jsonName: String? {\n")
         printer.indent()
         printer.print("get {\n")
         printer.indent()
         printer.print("switch self {\n")
         for c in enumCases {
-            printer.print("case .\(c.swiftName): return \"\\\"\(c.jsonName)\\\"\"\n")
+            printer.print("case .\(c.swiftName): return \"\(c.jsonName)\"\n")
         }
         if isProto3 {
-            printer.print("case .UNRECOGNIZED(let i): return String(i)\n")
+            printer.print("case .UNRECOGNIZED: return nil\n")
         }
         printer.print("}\n")
         printer.outdent()

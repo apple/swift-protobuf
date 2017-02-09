@@ -102,12 +102,12 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignFoo: return "\"FOREIGN_FOO\""
-      case .foreignBar: return "\"FOREIGN_BAR\""
-      case .foreignBaz: return "\"FOREIGN_BAZ\""
+      case .foreignFoo: return "FOREIGN_FOO"
+      case .foreignBar: return "FOREIGN_BAR"
+      case .foreignBaz: return "FOREIGN_BAZ"
       }
     }
   }
@@ -172,14 +172,14 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo1: return "\"FOO1\""
-      case .bar1: return "\"BAR1\""
-      case .baz: return "\"BAZ\""
-      case .foo2: return "\"FOO2\""
-      case .bar2: return "\"BAR2\""
+      case .foo1: return "FOO1"
+      case .bar1: return "BAR1"
+      case .baz: return "BAZ"
+      case .foo2: return "FOO2"
+      case .bar2: return "BAR2"
       }
     }
   }
@@ -256,16 +256,16 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .sparseA: return "\"SPARSE_A\""
-      case .sparseB: return "\"SPARSE_B\""
-      case .sparseC: return "\"SPARSE_C\""
-      case .sparseD: return "\"SPARSE_D\""
-      case .sparseE: return "\"SPARSE_E\""
-      case .sparseF: return "\"SPARSE_F\""
-      case .sparseG: return "\"SPARSE_G\""
+      case .sparseA: return "SPARSE_A"
+      case .sparseB: return "SPARSE_B"
+      case .sparseC: return "SPARSE_C"
+      case .sparseD: return "SPARSE_D"
+      case .sparseE: return "SPARSE_E"
+      case .sparseF: return "SPARSE_F"
+      case .sparseG: return "SPARSE_G"
       }
     }
   }
@@ -1032,13 +1032,13 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .neg: return "\"NEG\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
         }
       }
     }
@@ -6559,12 +6559,12 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
         }
       }
     }
@@ -7682,12 +7682,12 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .dynamicFoo: return "\"DYNAMIC_FOO\""
-        case .dynamicBar: return "\"DYNAMIC_BAR\""
-        case .dynamicBaz: return "\"DYNAMIC_BAZ\""
+        case .dynamicFoo: return "DYNAMIC_FOO"
+        case .dynamicBar: return "DYNAMIC_BAR"
+        case .dynamicBaz: return "DYNAMIC_BAZ"
         }
       }
     }

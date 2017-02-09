@@ -104,12 +104,12 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignFoo: return "\"FOREIGN_FOO\""
-      case .foreignBar: return "\"FOREIGN_BAR\""
-      case .foreignBaz: return "\"FOREIGN_BAZ\""
+      case .foreignFoo: return "FOREIGN_FOO"
+      case .foreignBar: return "FOREIGN_BAR"
+      case .foreignBaz: return "FOREIGN_BAZ"
       }
     }
   }
@@ -889,13 +889,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .neg: return "\"NEG\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
         }
       }
     }

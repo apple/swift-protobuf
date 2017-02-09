@@ -96,12 +96,12 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo: return "\"FOO\""
-      case .bar: return "\"BAR\""
-      case .baz: return "\"BAZ\""
+      case .foo: return "FOO"
+      case .bar: return "BAR"
+      case .baz: return "BAZ"
       }
     }
   }

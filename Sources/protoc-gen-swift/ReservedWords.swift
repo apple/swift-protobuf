@@ -273,7 +273,6 @@ private let reservedEnumCases: Set<String> = [
             "debugDescription",
             "hashValue",
             "init",
-            "json",
             "rawValue",
             "self",
         ]

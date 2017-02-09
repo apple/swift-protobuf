@@ -399,7 +399,11 @@ extension Enum where RawValue == Int {
     }
 
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Self) {
-        encoder.append(text: value.json)
+        if let json = value._protobuf_jsonName {
+            encoder.append(text: "\"\(json)\"")
+        } else {
+            encoder.append(text: "\(String(value.rawValue))")
+        }
     }
 }
 

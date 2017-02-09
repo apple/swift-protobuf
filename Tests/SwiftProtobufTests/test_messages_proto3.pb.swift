@@ -104,13 +104,13 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignFoo: return "\"FOREIGN_FOO\""
-      case .foreignBar: return "\"FOREIGN_BAR\""
-      case .foreignBaz: return "\"FOREIGN_BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .foreignFoo: return "FOREIGN_FOO"
+      case .foreignBar: return "FOREIGN_BAR"
+      case .foreignBaz: return "FOREIGN_BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
@@ -1237,14 +1237,14 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .neg: return "\"NEG\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
+        case .UNRECOGNIZED: return nil
         }
       }
     }

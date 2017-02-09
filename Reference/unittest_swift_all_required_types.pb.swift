@@ -527,13 +527,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .neg: return "\"NEG\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
         }
       }
     }
@@ -1266,10 +1266,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
+        case .foo: return "FOO"
         }
       }
     }

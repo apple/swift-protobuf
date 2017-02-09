@@ -856,13 +856,13 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .extra2: return "\"EXTRA_2\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .extra2: return "EXTRA_2"
         }
       }
     }

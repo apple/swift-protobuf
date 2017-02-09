@@ -136,10 +136,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      var json: String {
+      var _protobuf_jsonName: String? {
         get {
           switch self {
-          case .foo: return "\"FOO\""
+          case .foo: return "FOO"
           }
         }
       }
@@ -240,10 +240,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      var json: String {
+      var _protobuf_jsonName: String? {
         get {
           switch self {
-          case .foo: return "\"FOO\""
+          case .foo: return "FOO"
           }
         }
       }

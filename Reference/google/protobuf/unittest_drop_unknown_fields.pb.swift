@@ -107,13 +107,13 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
@@ -216,14 +216,14 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .qux: return "\"QUX\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .qux: return "QUX"
+        case .UNRECOGNIZED: return nil
         }
       }
     }

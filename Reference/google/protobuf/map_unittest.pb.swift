@@ -98,13 +98,13 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo: return "\"MAP_ENUM_FOO\""
-      case .bar: return "\"MAP_ENUM_BAR\""
-      case .baz: return "\"MAP_ENUM_BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .foo: return "MAP_ENUM_FOO"
+      case .bar: return "MAP_ENUM_BAR"
+      case .baz: return "MAP_ENUM_BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
@@ -918,11 +918,11 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, 
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"TYPE_FOO\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .foo: return "TYPE_FOO"
+        case .UNRECOGNIZED: return nil
         }
       }
     }

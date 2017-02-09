@@ -77,8 +77,12 @@ public class TextEncoder {
 
     func putEnumValue<E: Enum>(value: E) {
         // The JSON enum text is the same as the Text value, so we can
-        // reuse the JSON serialization (after stripping quotes).
-        text.append(value.json.trimmingCharacters(in:["\""]))
+        // reuse the JSON serialization.
+        if let json = value._protobuf_jsonName {
+            text.append(json)
+        } else {
+            text.append(String(value.rawValue))
+        }
     }
 
     func putDoubleValue(value: Double) {

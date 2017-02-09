@@ -100,12 +100,12 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignLiteFoo: return "\"FOREIGN_LITE_FOO\""
-      case .foreignLiteBar: return "\"FOREIGN_LITE_BAR\""
-      case .foreignLiteBaz: return "\"FOREIGN_LITE_BAZ\""
+      case .foreignLiteFoo: return "FOREIGN_LITE_FOO"
+      case .foreignLiteBar: return "FOREIGN_LITE_BAR"
+      case .foreignLiteBaz: return "FOREIGN_LITE_BAZ"
       }
     }
   }
@@ -151,10 +151,10 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .v1First: return "\"V1_FIRST\""
+      case .v1First: return "V1_FIRST"
       }
     }
   }
@@ -205,11 +205,11 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .v2First: return "\"V2_FIRST\""
-      case .v2Second: return "\"V2_SECOND\""
+      case .v2First: return "V2_FIRST"
+      case .v2Second: return "V2_SECOND"
       }
     }
   }
@@ -989,12 +989,12 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
         }
       }
     }

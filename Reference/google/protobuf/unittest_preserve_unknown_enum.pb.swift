@@ -98,13 +98,13 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo: return "\"FOO\""
-      case .bar: return "\"BAR\""
-      case .baz: return "\"BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .foo: return "FOO"
+      case .bar: return "BAR"
+      case .baz: return "BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
@@ -167,14 +167,14 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .eFoo: return "\"E_FOO\""
-      case .eBar: return "\"E_BAR\""
-      case .eBaz: return "\"E_BAZ\""
-      case .eExtra: return "\"E_EXTRA\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .eFoo: return "E_FOO"
+      case .eBar: return "E_BAR"
+      case .eBaz: return "E_BAZ"
+      case .eExtra: return "E_EXTRA"
+      case .UNRECOGNIZED: return nil
       }
     }
   }

@@ -93,11 +93,11 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .nullValue: return "\"NULL_VALUE\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .nullValue: return "NULL_VALUE"
+      case .UNRECOGNIZED: return nil
       }
     }
   }

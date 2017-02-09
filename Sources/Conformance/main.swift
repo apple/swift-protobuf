@@ -96,7 +96,7 @@ func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
         } catch let e {
             response.serializeError = "Failed to serialize: \(e)"
         }
-    case .json_:
+    case .json:
         do {
             response.jsonPayload = try testMessage.serializeJSON()
         } catch let e {
