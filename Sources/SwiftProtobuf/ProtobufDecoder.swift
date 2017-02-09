@@ -20,7 +20,7 @@ import Foundation
 
 public struct ProtobufDecoder: Decoder {
     // Used only by packed repeated enums; see below
-    internal var unknownOverride: Data?
+    private var unknownOverride: Data?
 
     // Current position
     private var p : UnsafePointer<UInt8>
@@ -31,17 +31,17 @@ public struct ProtobufDecoder: Decoder {
     // Position of end of field currently being parsed, nil if we don't know.
     private var fieldEndP : UnsafePointer<UInt8>?
     // Whether or not the field value  has actually been parsed
-    internal var consumed = true
+    private var consumed = true
     // Wire format for last-examined field
-    private(set) var fieldWireFormat: UInt8 = WireFormat.varint.rawValue
+    private var fieldWireFormat: UInt8 = WireFormat.varint.rawValue
     // Field number for last-parsed field tag
-    private(set) var fieldNumber: Int = 0
+    private var fieldNumber: Int = 0
     // Collection of extension fields for this decode
     private var extensions: ExtensionSet?
 
     var unknownData: Data?
 
-    public var complete: Bool {return available == 0}
+    internal var complete: Bool {return available == 0}
 
 
     internal init(protobufPointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet? = nil) {

@@ -24,7 +24,7 @@ public struct JSONDecoder: Decoder {
         throw JSONDecodingError.conflictingOneOf
     }
 
-    public init(utf8Pointer: UnsafePointer<UInt8>, count: Int) {
+    internal init(utf8Pointer: UnsafePointer<UInt8>, count: Int) {
         self.scanner = JSONScanner(utf8Pointer: utf8Pointer, count: count)
     }
 
@@ -32,19 +32,6 @@ public struct JSONDecoder: Decoder {
         self.scanner = scanner
     }
 
-    internal mutating func decodeFullObject<M: Message>(message: inout M) throws {
-        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
-            throw JSONDecodingError.missingFieldNames
-        }
-        fieldNameMap = nameProviding._protobuf_fieldNames
-        try scanner.skipRequiredObjectStart()
-        if scanner.skipOptionalObjectEnd() {
-            return
-        }
-        try message.decodeMessage(decoder: &self)
-    }
-
-    // TODO: Implement this, move JSON onto the new decodeMessage API
     public mutating func nextFieldNumber() throws -> Int? {
         if scanner.skipOptionalObjectEnd() {
             return nil
@@ -532,6 +519,18 @@ public struct JSONDecoder: Decoder {
             }
             try scanner.skipRequiredComma()
         }
+    }
+
+    internal mutating func decodeFullObject<M: Message>(message: inout M) throws {
+        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+            throw JSONDecodingError.missingFieldNames
+        }
+        fieldNameMap = nameProviding._protobuf_fieldNames
+        try scanner.skipRequiredObjectStart()
+        if scanner.skipOptionalObjectEnd() {
+            return
+        }
+        try message.decodeMessage(decoder: &self)
     }
 
     public mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {

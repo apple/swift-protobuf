@@ -28,7 +28,7 @@ public struct TextDecoder: Decoder {
     private var fieldNameMap: FieldNameMap?
     private var messageType: Message.Type?
 
-    public var complete: Bool {return scanner.complete}
+    internal var complete: Bool {return scanner.complete}
 
     internal init<M: Message>(messageType: M.Type, text: String, extensions: ExtensionSet?) throws {
         scanner = TextScanner(text: text, extensions: extensions)
