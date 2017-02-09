@@ -115,7 +115,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         m2.ProtobufUnittest_optionalInt32Extension = 18
         XCTAssertNotEqual(m1, m2)
 
-        XCTAssertEqual(m2.debugDescription, "ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.optional_int32_extension]: 18\n")
+        XCTAssertEqual(m2.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.optional_int32_extension]: 18\n")
         XCTAssertNotEqual(m1.hashValue, m2.hashValue)
     }
 
@@ -143,7 +143,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
         var m1 = ProtobufUnittest_TestAllExtensions()
         m1.ProtobufUnittest_optionalStringExtension = "ab"
-        XCTAssertEqual(m1.debugDescription, "ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.optional_string_extension]: \"ab\"\n")
+        XCTAssertEqual(m1.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.optional_string_extension]: \"ab\"\n")
     }
 
     func test_repeatedInt32Extension() throws {
@@ -164,23 +164,23 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 8])
         XCTAssertEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 9])
 
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.repeated_int32_extension]: 7\n[protobuf_unittest.repeated_int32_extension]: 9\n")
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.repeated_int32_extension]: 7\n[protobuf_unittest.repeated_int32_extension]: 9\n")
     }
 
     func test_defaultInt32Extension() throws {
         var m = ProtobufUnittest_TestAllExtensions()
         XCTAssertEqual(m.ProtobufUnittest_defaultInt32Extension, 41)
         XCTAssertEqual(try m.serializeProtobufBytes(), [])
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions:\n")
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n")
         m.ProtobufUnittest_defaultInt32Extension = 100
         XCTAssertEqual(try m.serializeProtobufBytes(), [232, 3, 100])
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.default_int32_extension]: 100\n")
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.default_int32_extension]: 100\n")
         m.clearProtobufUnittest_defaultInt32Extension()
         XCTAssertEqual(try m.serializeProtobufBytes(), [])
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions:\n")
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n")
         m.ProtobufUnittest_defaultInt32Extension = 41 // Default value
         XCTAssertEqual(try m.serializeProtobufBytes(), [232, 3, 41])
-        XCTAssertEqual(m.debugDescription, "ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.default_int32_extension]: 41\n")
+        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.default_int32_extension]: 41\n")
 
         assertEncode([232, 3, 17]) { (o: inout MessageTestType) in
             o.ProtobufUnittest_defaultInt32Extension = 17

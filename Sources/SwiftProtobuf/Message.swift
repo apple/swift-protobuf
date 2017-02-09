@@ -129,7 +129,8 @@ public extension Message {
     //   [class name](
     //      [text format]
     //   )
-    var result = "\(swiftClassName):\n"
+    let className = String(reflecting: type(of: self))
+    var result = "\(className):\n"
     if let textFormat = try? serializeText() {
       result += textFormat
     } else {
