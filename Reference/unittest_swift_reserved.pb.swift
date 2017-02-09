@@ -119,19 +119,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .double: return ".double"
-        case .json_: return ".json_"
-        case .`class`: return ".class"
-        case .___: return ".___"
-        case .self_: return ".self_"
-        case .type: return ".type"
-        }
-      }
-    }
-
   }
 
   enum ProtocolEnum: SwiftProtobuf.Enum {
@@ -180,14 +167,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a: return ".a"
-        }
-      }
-    }
 
   }
 

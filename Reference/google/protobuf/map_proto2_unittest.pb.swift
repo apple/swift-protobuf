@@ -108,16 +108,6 @@ enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      case .baz: return ".baz"
-      }
-    }
-  }
-
 }
 
 enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
@@ -184,17 +174,6 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .eProto2MapEnumFoo: return ".eProto2MapEnumFoo"
-      case .eProto2MapEnumBar: return ".eProto2MapEnumBar"
-      case .eProto2MapEnumBaz: return ".eProto2MapEnumBaz"
-      case .eProto2MapEnumExtra: return ".eProto2MapEnumExtra"
-      }
-    }
-  }
 
 }
 

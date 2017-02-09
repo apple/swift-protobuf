@@ -146,14 +146,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
 
       var hashValue: Int { return rawValue }
 
-      var debugDescription: String {
-        get {
-          switch self {
-          case .foo: return ".foo"
-          }
-        }
-      }
-
     }
 
     ///   The circular reference here forces the generator to
@@ -257,14 +249,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       }
 
       var hashValue: Int { return rawValue }
-
-      var debugDescription: String {
-        get {
-          switch self {
-          case .foo: return ".foo"
-          }
-        }
-      }
 
     }
 

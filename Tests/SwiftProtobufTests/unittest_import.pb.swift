@@ -114,16 +114,6 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .importFoo: return ".importFoo"
-      case .importBar: return ".importBar"
-      case .importBaz: return ".importBaz"
-      }
-    }
-  }
-
 }
 
 ///   To use an enum in a map, it must has the first value as 0.
@@ -185,16 +175,6 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .unknown: return ".unknown"
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      }
-    }
-  }
 
 }
 

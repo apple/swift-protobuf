@@ -108,15 +108,6 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .val1: return ".val1"
-      case .val2: return ".val2"
-      }
-    }
-  }
-
 }
 
 enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
@@ -165,14 +156,6 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .value: return ".value"
-      }
-    }
-  }
 
 }
 
@@ -288,15 +271,6 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .val1: return ".val1"
-        case .val2: return ".val2"
-        }
-      }
-    }
 
   }
 
@@ -503,15 +477,6 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .testOptionEnumType1: return ".testOptionEnumType1"
-        case .testOptionEnumType2: return ".testOptionEnumType2"
-        }
-      }
-    }
 
   }
 
@@ -1582,14 +1547,6 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .value: return ".value"
-        }
-      }
-    }
-
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -1718,14 +1675,6 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .oldValue: return ".oldValue"
-        }
-      }
-    }
-
   }
 
   private var _value: ProtobufUnittest_OldOptionType.TestEnum? = nil
@@ -1823,15 +1772,6 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .oldValue: return ".oldValue"
-        case .newValue: return ".newValue"
-        }
-      }
-    }
 
   }
 
