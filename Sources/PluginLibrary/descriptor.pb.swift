@@ -959,27 +959,27 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .double: return "\"TYPE_DOUBLE\""
-        case .float: return "\"TYPE_FLOAT\""
-        case .int64: return "\"TYPE_INT64\""
-        case .uint64: return "\"TYPE_UINT64\""
-        case .int32: return "\"TYPE_INT32\""
-        case .fixed64: return "\"TYPE_FIXED64\""
-        case .fixed32: return "\"TYPE_FIXED32\""
-        case .bool: return "\"TYPE_BOOL\""
-        case .string: return "\"TYPE_STRING\""
-        case .group: return "\"TYPE_GROUP\""
-        case .message: return "\"TYPE_MESSAGE\""
-        case .bytes: return "\"TYPE_BYTES\""
-        case .uint32: return "\"TYPE_UINT32\""
-        case .`enum`: return "\"TYPE_ENUM\""
-        case .sfixed32: return "\"TYPE_SFIXED32\""
-        case .sfixed64: return "\"TYPE_SFIXED64\""
-        case .sint32: return "\"TYPE_SINT32\""
-        case .sint64: return "\"TYPE_SINT64\""
+        case .double: return "TYPE_DOUBLE"
+        case .float: return "TYPE_FLOAT"
+        case .int64: return "TYPE_INT64"
+        case .uint64: return "TYPE_UINT64"
+        case .int32: return "TYPE_INT32"
+        case .fixed64: return "TYPE_FIXED64"
+        case .fixed32: return "TYPE_FIXED32"
+        case .bool: return "TYPE_BOOL"
+        case .string: return "TYPE_STRING"
+        case .group: return "TYPE_GROUP"
+        case .message: return "TYPE_MESSAGE"
+        case .bytes: return "TYPE_BYTES"
+        case .uint32: return "TYPE_UINT32"
+        case .`enum`: return "TYPE_ENUM"
+        case .sfixed32: return "TYPE_SFIXED32"
+        case .sfixed64: return "TYPE_SFIXED64"
+        case .sint32: return "TYPE_SINT32"
+        case .sint64: return "TYPE_SINT64"
         }
       }
     }
@@ -1037,12 +1037,12 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .`optional`: return "\"LABEL_OPTIONAL\""
-        case .`required`: return "\"LABEL_REQUIRED\""
-        case .repeated: return "\"LABEL_REPEATED\""
+        case .`optional`: return "LABEL_OPTIONAL"
+        case .`required`: return "LABEL_REQUIRED"
+        case .repeated: return "LABEL_REPEATED"
         }
       }
     }
@@ -1948,12 +1948,12 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .speed: return "\"SPEED\""
-        case .codeSize: return "\"CODE_SIZE\""
-        case .liteRuntime: return "\"LITE_RUNTIME\""
+        case .speed: return "SPEED"
+        case .codeSize: return "CODE_SIZE"
+        case .liteRuntime: return "LITE_RUNTIME"
         }
       }
     }
@@ -2566,12 +2566,12 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .string: return "\"STRING\""
-        case .cord: return "\"CORD\""
-        case .stringPiece: return "\"STRING_PIECE\""
+        case .string: return "STRING"
+        case .cord: return "CORD"
+        case .stringPiece: return "STRING_PIECE"
         }
       }
     }
@@ -2633,12 +2633,12 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .jsNormal: return "\"JS_NORMAL\""
-        case .jsString: return "\"JS_STRING\""
-        case .jsNumber: return "\"JS_NUMBER\""
+        case .jsNormal: return "JS_NORMAL"
+        case .jsString: return "JS_STRING"
+        case .jsNumber: return "JS_NUMBER"
         }
       }
     }
@@ -3262,12 +3262,12 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .idempotencyUnknown: return "\"IDEMPOTENCY_UNKNOWN\""
-        case .noSideEffects: return "\"NO_SIDE_EFFECTS\""
-        case .idempotent: return "\"IDEMPOTENT\""
+        case .idempotencyUnknown: return "IDEMPOTENCY_UNKNOWN"
+        case .noSideEffects: return "NO_SIDE_EFFECTS"
+        case .idempotent: return "IDEMPOTENT"
         }
       }
     }

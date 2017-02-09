@@ -97,11 +97,11 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .val1: return "\"METHODOPT1_VAL1\""
-      case .val2: return "\"METHODOPT1_VAL2\""
+      case .val1: return "METHODOPT1_VAL1"
+      case .val2: return "METHODOPT1_VAL2"
       }
     }
   }
@@ -147,10 +147,10 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .value: return "\"VALUE\""
+      case .value: return "VALUE"
       }
     }
   }
@@ -261,11 +261,11 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .val1: return "\"ANENUM_VAL1\""
-        case .val2: return "\"ANENUM_VAL2\""
+        case .val1: return "ANENUM_VAL1"
+        case .val2: return "ANENUM_VAL2"
         }
       }
     }
@@ -467,11 +467,11 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .testOptionEnumType1: return "\"TEST_OPTION_ENUM_TYPE1\""
-        case .testOptionEnumType2: return "\"TEST_OPTION_ENUM_TYPE2\""
+        case .testOptionEnumType1: return "TEST_OPTION_ENUM_TYPE1"
+        case .testOptionEnumType2: return "TEST_OPTION_ENUM_TYPE2"
         }
       }
     }
@@ -1537,10 +1537,10 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .value: return "\"NESTED_ENUM_VALUE\""
+        case .value: return "NESTED_ENUM_VALUE"
         }
       }
     }
@@ -1665,10 +1665,10 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .oldValue: return "\"OLD_VALUE\""
+        case .oldValue: return "OLD_VALUE"
         }
       }
     }
@@ -1762,11 +1762,11 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .oldValue: return "\"OLD_VALUE\""
-        case .newValue: return "\"NEW_VALUE\""
+        case .oldValue: return "OLD_VALUE"
+        case .newValue: return "NEW_VALUE"
         }
       }
     }

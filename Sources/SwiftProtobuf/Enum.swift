@@ -21,6 +21,10 @@ public protocol Enum: RawRepresentable, Hashable, FieldType, MapValueType {
     init()
     init?(jsonName: String)
     init?(protoName: String)
-    var json: String { get }
     var rawValue: Int { get }
+
+    /// Returns the JSON name for the enum.
+    /// This is meanted to be internal to the SwiftProtobuf library and shouldn't
+    /// be used by consumers of the library.
+    var _protobuf_jsonName: String? { get }
 }

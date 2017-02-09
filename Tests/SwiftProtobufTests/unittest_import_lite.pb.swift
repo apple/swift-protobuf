@@ -100,12 +100,12 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .importLiteFoo: return "\"IMPORT_LITE_FOO\""
-      case .importLiteBar: return "\"IMPORT_LITE_BAR\""
-      case .importLiteBaz: return "\"IMPORT_LITE_BAZ\""
+      case .importLiteFoo: return "IMPORT_LITE_FOO"
+      case .importLiteBar: return "IMPORT_LITE_BAR"
+      case .importLiteBaz: return "IMPORT_LITE_BAZ"
       }
     }
   }

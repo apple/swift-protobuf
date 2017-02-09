@@ -96,12 +96,12 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .proto2MapEnumFooLite: return "\"PROTO2_MAP_ENUM_FOO_LITE\""
-      case .proto2MapEnumBarLite: return "\"PROTO2_MAP_ENUM_BAR_LITE\""
-      case .proto2MapEnumBazLite: return "\"PROTO2_MAP_ENUM_BAZ_LITE\""
+      case .proto2MapEnumFooLite: return "PROTO2_MAP_ENUM_FOO_LITE"
+      case .proto2MapEnumBarLite: return "PROTO2_MAP_ENUM_BAR_LITE"
+      case .proto2MapEnumBazLite: return "PROTO2_MAP_ENUM_BAZ_LITE"
       }
     }
   }
@@ -162,13 +162,13 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .eProto2MapEnumFooLite: return "\"E_PROTO2_MAP_ENUM_FOO_LITE\""
-      case .eProto2MapEnumBarLite: return "\"E_PROTO2_MAP_ENUM_BAR_LITE\""
-      case .eProto2MapEnumBazLite: return "\"E_PROTO2_MAP_ENUM_BAZ_LITE\""
-      case .eProto2MapEnumExtraLite: return "\"E_PROTO2_MAP_ENUM_EXTRA_LITE\""
+      case .eProto2MapEnumFooLite: return "E_PROTO2_MAP_ENUM_FOO_LITE"
+      case .eProto2MapEnumBarLite: return "E_PROTO2_MAP_ENUM_BAR_LITE"
+      case .eProto2MapEnumBazLite: return "E_PROTO2_MAP_ENUM_BAZ_LITE"
+      case .eProto2MapEnumExtraLite: return "E_PROTO2_MAP_ENUM_EXTRA_LITE"
       }
     }
   }
@@ -224,12 +224,12 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .mapEnumFooLite: return "\"MAP_ENUM_FOO_LITE\""
-      case .mapEnumBarLite: return "\"MAP_ENUM_BAR_LITE\""
-      case .mapEnumBazLite: return "\"MAP_ENUM_BAZ_LITE\""
+      case .mapEnumFooLite: return "MAP_ENUM_FOO_LITE"
+      case .mapEnumBarLite: return "MAP_ENUM_BAR_LITE"
+      case .mapEnumBazLite: return "MAP_ENUM_BAZ_LITE"
       }
     }
   }
