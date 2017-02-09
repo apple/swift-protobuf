@@ -46,8 +46,8 @@ public:
   void run();
 
 private:
-  /** Include fractional parts in milliseconds. */
-  typedef std::chrono::duration<double, std::milli> milliseconds_d;
+  /** Microseconds unit for representing times. */
+  typedef std::chrono::duration<double, std::micro> microseconds_d;
 
   /**
    * Statistics representing the mean and standard deviation of all measured
@@ -61,7 +61,10 @@ private:
   /** The output stream to which visualization results will be written. */
   std::ostream* results_stream;
 
-  /** The number of times to loop the body of the run() method. */
+  /**
+   * The number of times to loop the body of the run() method.
+   * Increase this for better precision.
+   */
   int run_count;
 
   /** The number of times to measure the function passed to measure(). */
@@ -70,8 +73,11 @@ private:
   /** The number of times to add values to repeated fields. */
   int repeated_count;
 
+  /** Ordered list of task names */
+  std::vector<std::string> subtask_names;
+
   /** The times taken by subtasks during each measured attempt. */
-  std::map<std::string, std::vector<milliseconds_d>> subtask_timings;
+  std::map<std::string, std::vector<microseconds_d>> subtask_timings;
 
   /** Times for the subtasks in the current attempt. */
   std::map<std::string, std::chrono::steady_clock::duration> current_subtasks;
@@ -95,7 +101,7 @@ private:
    * Writes the given subtask's name and timings to the visualization log.
    */
   void write_to_log(const std::string& name,
-                    const std::vector<milliseconds_d>& timings) const;
+                    const std::vector<microseconds_d>& timings) const;
 
   /**
    * Compute the mean and standard deviation of the given time points.
@@ -112,29 +118,48 @@ void Harness::measure(const Function& func) {
 
   vector<steady_clock::duration> timings;
   subtask_timings.clear();
+  bool displayed_titles = false;
+
+  printf("Running each check %d times, times in µs\n", run_count);
 
   // Do each measurement multiple times and collect the means and standard
   // deviation to account for noise.
   for (int attempt = 1; attempt <= measurement_count; attempt++) {
-    printf("Attempt %d, %d runs\n", attempt, run_count);
     current_subtasks.clear();
 
     auto start = steady_clock::now();
-    func();
+    for (auto i = 0; i < run_count; i++) {
+        subtask_names.clear();
+        func();
+    }
     auto end = steady_clock::now();
     auto duration = end - start;
     timings.push_back(duration);
 
-    for (const auto& entry : current_subtasks) {
-      auto millis = duration_cast<milliseconds_d>(entry.second);
-      printf("\"%s\" took %.3f ms\n",
-             entry.first.c_str(), millis.count());
-      subtask_timings[entry.first].push_back(millis);
+    if (!displayed_titles) {
+        auto names = std::vector<std::string>(subtask_names);
+        printf("%3s", "");
+        for (int i = 0; i < names.size(); i += 2) {
+            printf("%-18s", names[i].c_str());
+        }
+        printf("\n");
+        printf("%3s", "");
+        printf("%9s", "");
+        for (int i = 1; i < names.size(); i += 2) {
+            printf("%-18s", names[i].c_str());
+        }
+        printf("\n");
+        displayed_titles = true;
     }
 
-    auto millis = duration_cast<milliseconds_d>(duration);
-    printf("Total execution time: %.3f ms\n", millis.count());
-    printf("----\n");
+    printf("%3d", attempt);
+    for (const auto& name : subtask_names) {
+      const auto& total_interval = current_subtasks[name];
+      auto micros = duration_cast<microseconds_d>(total_interval);
+      printf("%9.3f", micros.count() / run_count);
+      subtask_timings[name].push_back(micros);
+    }
+    printf("\n");
   }
 
   for (const auto& entry : subtask_timings) {
@@ -142,12 +167,13 @@ void Harness::measure(const Function& func) {
   }
 
   auto stats = compute_statistics(timings);
-  printf("mean = %.3f sec, stddev = %.3f sec\n", stats.mean, stats.stddev);
+  printf("Relative stddev = %.1f%%\n", stats.stddev / stats.mean * 100.0);
 }
 
 template <typename Function>
 typename std::result_of<Function()>::type Harness::measure_subtask(
-    const std::string& name, Function&& func) {
+  const std::string& name, Function&& func) {
+  subtask_names.push_back(name);
   using std::chrono::steady_clock;
 
   auto start = steady_clock::now();
