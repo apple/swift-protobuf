@@ -15,11 +15,7 @@
 import Foundation
 
 private func padded(_ input: String, to width: Int) -> String {
-    var s = input
-    while s.characters.count < width {
-        s += " "
-    }
-    return s
+  return input + String(repeating: " ", count: max(0, width - input.characters.count))
 }
 
 /// Harness used for performance tests.
@@ -133,7 +129,7 @@ class Harness {
     let start = Date()
     let result = try block()
     let end = Date()
-    let diff = end.timeIntervalSince(start) / Double(runCount) * Double(1000000.0)
+    let diff = end.timeIntervalSince(start) / Double(runCount) * 1000000.0
     currentSubtasks[name] = (currentSubtasks[name] ?? 0) + diff
     return result
   }

@@ -58,8 +58,8 @@ Harness::Statistics Harness::compute_statistics(
   microseconds_d::rep sqsum = 0;
 
   for (const auto& duration : timings) {
-    auto millis = duration_cast<microseconds_d>(duration);
-    auto count = millis.count();
+    auto micros = duration_cast<microseconds_d>(duration);
+    auto count = micros.count();
     sum += count;
     sqsum += count * count;
   }

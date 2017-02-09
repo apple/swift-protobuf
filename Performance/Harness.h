@@ -48,8 +48,6 @@ public:
 private:
   /** Microseconds unit for representing times. */
   typedef std::chrono::duration<double, std::micro> microseconds_d;
-  /** Milliseconds unit for representing times. */
-  typedef std::chrono::duration<double, std::milli> milliseconds_d;
 
   /**
    * Statistics representing the mean and standard deviation of all measured
@@ -63,8 +61,10 @@ private:
   /** The output stream to which visualization results will be written. */
   std::ostream* results_stream;
 
-  /** The number of times to loop the body of the run() method. */
-  /* Increase this to get better precision. */
+  /**
+   * The number of times to loop the body of the run() method.
+   * Increase this for better precision.
+   */
   int run_count;
 
   /** The number of times to measure the function passed to measure(). */
