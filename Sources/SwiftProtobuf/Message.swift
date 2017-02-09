@@ -22,29 +22,49 @@
 /// `Message` is the protocol type you should use whenever
 /// you need an argument or variable which holds "some message".
 ///
-/// You should use this type whenver you need an argument or variable which
-/// holds "some message". In particular, this has no associated types or self
-/// references and so can be used as a variable or argument type.
+/// Generated messages also implement `Hashable`, and thus `Equatable`.
+/// However, the protocol conformance is declared on a different protocol.
+/// This allows you to use `Message` as a type directly:
 ///
-/// See ProtobufBinaryTypes and ProtobufJSONTypes for extensions
-/// to these protocols for supporting binary and JSON coding.
+///     func consume(message: Message) { ... }
+///
+/// Instead of needing to use it as a type constraint on a generic declaration:
+///
+///     func consume<M: Message>(message: M) { ... }
+///
+/// If you need to convince the compiler that your message is `Hashable` so
+/// you can insert it into a `Set` or use it as a `Dictionary` key, use
+/// a generic declaration with a type constraint:
+///
+///     func insertIntoSet<M: Message & Hashable>(message: M) {
+///         mySet.insert(message)
+///     }
+///
+/// The actual functionality is implemented either in the generated code or in
+/// default implementations of the below methods and properties. Some of them,
+/// including `hashValue` and `debugDescription`, are designed to let you
+/// override the functionality in custom extensions to the generated code.
 public protocol Message: CustomDebugStringConvertible {
-  /// Builds an instance of the Message with all fields initialized to
+  /// Builds an instance of the message with all fields initialized to
   /// their default values.
   init()
 
   // Metadata
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
-  /// Name of this message's concrete Swift struct
+  /// Name of this message's concrete Swift type
   var swiftClassName: String { get }
 
   /// Name of the message from the original .proto file
   var protoMessageName: String { get }
 
-  /// Name of the protobuf packing from the original .proto file
+  /// Name of the protobuf package from the original .proto file
   var protoPackageName: String { get }
+
+  /// Prefix used for this message's type when encoded as an `Any`
   var anyTypePrefix: String { get }
+
+  /// Fully qualifed name used for this message's type when encoed as an `Any`
   var anyTypeURL: String { get }
 
   //
@@ -52,7 +72,7 @@ public protocol Message: CustomDebugStringConvertible {
   //
 
   /// Decode a field identified by a field number (as given in the .proto file).
-  /// The Message will call the FieldDecoder method corresponding
+  /// The `Message` will call the `FieldDecoder` method corresponding
   /// to the declared type of the field.
   ///
   /// This is the core method used by the deserialization machinery.
@@ -60,17 +80,23 @@ public protocol Message: CustomDebugStringConvertible {
   /// Note that this is not specific to protobuf encoding; formats that use
   /// textual identifiers translate those to protoFieldNumbers and then invoke
   /// this to decode the field value.
- mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws
-
-  /// Support for traversing the object tree.
   ///
-  /// This is used by:
+  /// - Parameters:
+  ///   - setter: A `FieldDecoder` whose type matches the field
+  ///   - protoFieldNumber: number of the field to decode
+  /// - Throws: An instance of `DecoderError` on failure or type mismatch
+  mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws
+
+  /// Traverses the fields of the message, calling the appropriate methods
+  /// of the passed `Visitor` object.
+  ///
+  /// This is used internally by:
   ///
   /// * Protobuf binary serialization
   /// * JSON serialization (with some twists to account for specialty JSON
   ///   encodings)
   /// * Protouf Text serialization
-  /// U hashValue computation
+  /// * hashValue computation
   ///
   /// Conceptually, serializers create visitor objects that are
   /// then passed recursively to every message and field via generated
@@ -99,22 +125,28 @@ public protocol Message: CustomDebugStringConvertible {
   // google.protobuf.Any support
   //
 
-  /// [google.protobuf.Any]: https://developers.google.com/protocol-buffers/docs/proto3#any
-  /// Decode from an instance of [`Any`][google.protobuf.Any] (which might itself have
+  /// Decode from an instance of `Any` (which might itself have
   /// been decoded from JSON, protobuf, or another `Any`).
+  ///
+  /// - Parameter any: item to decode
+  /// - Throws: an instance of `DecodingError` if the message cannot be parsed
   init(any: Google_Protobuf_Any) throws
 
-  /// Serialize as an [`Any`][google.protobuf.Any] object in JSON format.
+  /// Serialize as an `Any` object in JSON format.
   ///
   /// For generated message types, this generates the same JSON object as
   /// `serializeJSON()` except it adds an additional `@type` field.
+  ///
+  /// - Throws: an instance of `EncodingError` on failure
   func serializeAnyJSON() throws -> String
 
   //
   // JSON encoding/decoding support
   //
 
-  /// Overridden by well-known-types with custom JSON requirements.
+  /// Serialize using the standard protobuf JSON representation.
+  ///
+  /// - Throws: an instance of `EncodingError` on failure
   func serializeJSON() throws -> String
   init(decoder: inout JSONDecoder) throws
 
@@ -128,7 +160,6 @@ public protocol Message: CustomDebugStringConvertible {
   /// the `Hashable` protocol
   var hashValue: Int { get }
 
-
   /// Textual representation of this message's contents suitable for debugging,
   /// for conformance with the `CustomDebutStringConvertible` protocol.
   var debugDescription: String { get }
@@ -137,10 +168,12 @@ public protocol Message: CustomDebugStringConvertible {
 public extension Message {
 
   /// Generates a hash based on the message's full contents. Can be overridden
-  /// to improve performance and/or remove some values from being used for the hash.
-  /// If you override this, make sure you maintain the property that values which
-  /// are `==` to eachother have identical `hashValues`, providing a specific implementation
-  /// of `==` if necessary.
+  /// to improve performance and/or remove some values from being used for the
+  /// hash.
+  ///
+  /// If you override this, make sure you maintain the property that values
+  /// which are `==` to each other have identical `hashValues`, providing a
+  /// custom implementation of `==` if necessary.
   var hashValue: Int {
     let visitor = HashVisitor()
     try? traverse(visitor: visitor)
@@ -157,12 +190,12 @@ public extension Message {
   // messages.
   // TODO: It would be nice if this could default to "" instead; that would save
   // ~20 bytes on every serialized Any.
-  /// Default prefix identifying this type for use in an
-  /// [`Any`][google.protobuf.Any] field
+  /// Returns the literal `type.googleapis.com`; may be overridden if your 
+  /// message's type should be encoded differently
   var anyTypePrefix: String { return "type.googleapis.com" }
 
-  /// Default URL identifying this type for use in an
-  /// [`Any`][google.protobuf.Any] field
+  /// Returns `anyTypePrefix/protoPackageName.protoMessageName`; may
+  /// be overridden if your message's type should be encoded differently
   var anyTypeURL: String {
     var url = anyTypePrefix
     if anyTypePrefix == "" || anyTypePrefix.characters.last! != "/" {
@@ -221,7 +254,7 @@ public protocol Proto3Message: Message {
 /// used for any other purpose.
 ///
 /// Generally, you should use `SwiftProtobuf.Message` instead
-/// when you need a variable or argument that holds a message,
+/// when you need a variable or argument that holds a message.
 /// or occasionally `SwiftProtobuf.Message & Equatable` or even
 /// `SwiftProtobuf.Message & Hashable` if you need to use equality
 /// tests or put it in a `Set<>`.

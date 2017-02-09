@@ -48,6 +48,9 @@ public extension Message {
   ///
   /// Can be overridden to change how the data should be interpreted. See
   /// `Google_Protobuf_Any` for more details.
+  ///
+  /// - Parameter any: message to decode
+  /// - Throws: an instance of `DecodingError` on failure
   public init(any: Google_Protobuf_Any) throws {
     self.init()
     try any.unpackTo(target: &self)
