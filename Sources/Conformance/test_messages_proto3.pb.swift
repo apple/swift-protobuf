@@ -147,7 +147,6 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
 ///   could trigger bugs that occur in any message type in this file.  We verify
 ///   this stays true in a unit test.
 struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufTestMessages_Proto3_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "protobuf_test_messages.proto3"}
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1297,7 +1296,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_test_messages.proto3"}
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -2186,7 +2184,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 }
 
 struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufTestMessages_Proto3_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "protobuf_test_messages.proto3"}
   public static let _protobuf_fieldNames: FieldNameMap = [

@@ -52,7 +52,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittestImport_PublicImportMessageLite"}
   public var protoMessageName: String {return "PublicImportMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
   public static let _protobuf_fieldNames: FieldNameMap = [

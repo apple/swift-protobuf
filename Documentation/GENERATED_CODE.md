@@ -193,7 +193,6 @@ Here is the actual first part of the generated code for `message Foo` above:
 
 ```swift
 public struct Foo: ProtobufGeneratedMessage {
-  public var swiftClassName: String {return "Foo"}
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return ""}
   public var jsonFieldNames: [String: Int] {return [
@@ -204,8 +203,7 @@ public struct Foo: ProtobufGeneratedMessage {
   ]}
 ```
 
-The `swiftClassName` is used by the `CustomMirror` implementation to populate
-the Swift classname. The `protoMessageName` and `protoPackageName` provide
+The `protoMessageName` and `protoPackageName` provide
 information from the `.proto` file for use by various serialization mechanisms.
 The `jsonFieldNames` and `protoFieldNames` variables map the respective field
 names into the field numbers from the proto file. These are used by various
