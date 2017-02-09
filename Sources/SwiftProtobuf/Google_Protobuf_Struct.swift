@@ -293,25 +293,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         try any.unpackTo(target: &self)
     }
 
-    public var debugDescription: String {
-        get {
-            do {
-                let json = try serializeJSON()
-                switch kind {
-                case .nullValue(_): return "\(swiftClassName)(null)"
-                case .numberValue(_): return "\(swiftClassName)(numberValue:\(json))"
-                case .stringValue(_): return"\(swiftClassName)(stringValue:\(json))"
-                case .boolValue(_): return"\(swiftClassName)(boolValue:\(json))"
-                case .structValue(_): return"\(swiftClassName)(structValue:\(json))"
-                case .listValue(_): return"\(swiftClassName)(listValue:\(json))"
-                case .None: return "\(swiftClassName)()"
-                }
-            } catch let e {
-                return "\(swiftClassName)(FAILURE: \(e))"
-            }
-        }
-    }
-
     public func _protoc_generated_traverse(visitor: Visitor) throws {
         try kind.traverse(visitor: visitor, start:1, end: 7)
     }
@@ -615,17 +596,6 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
 
     public init(any: Google_Protobuf_Any) throws {
         try any.unpackTo(target: &self)
-    }
-
-    public var debugDescription: String {
-        get {
-            do {
-                let json = try serializeJSON()
-                return "\(swiftClassName)(\(json))"
-            } catch let e {
-                return "\(swiftClassName)(FAILURE: \(e))"
-            }
-        }
     }
 
     mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
