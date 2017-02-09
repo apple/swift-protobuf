@@ -104,8 +104,8 @@ public struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Pr
   public var protoMessageName: String {return "Timestamp"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "seconds", swift: "seconds"),
-    2: .same(proto: "nanos", swift: "nanos"),
+    1: .same(proto: "seconds"),
+    2: .same(proto: "nanos"),
   ]
 
 

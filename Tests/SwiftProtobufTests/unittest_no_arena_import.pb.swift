@@ -54,7 +54,7 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, Sw
   public var protoMessageName: String {return "ImportNoArenaNestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "d", swift: "d"),
+    1: .same(proto: "d"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()

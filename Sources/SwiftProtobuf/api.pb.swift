@@ -54,13 +54,13 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   public var protoMessageName: String {return "Api"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "methods", swift: "methods"),
-    3: .same(proto: "options", swift: "options"),
-    4: .same(proto: "version", swift: "version"),
-    5: .unique(proto: "source_context", json: "sourceContext", swift: "sourceContext"),
-    6: .same(proto: "mixins", swift: "mixins"),
-    7: .same(proto: "syntax", swift: "syntax"),
+    1: .same(proto: "name"),
+    2: .same(proto: "methods"),
+    3: .same(proto: "options"),
+    4: .same(proto: "version"),
+    5: .unique(proto: "source_context", json: "sourceContext"),
+    6: .same(proto: "mixins"),
+    7: .same(proto: "syntax"),
   ]
 
   private class _StorageClass {
@@ -236,13 +236,13 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto
   public var protoMessageName: String {return "Method"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .unique(proto: "request_type_url", json: "requestTypeUrl", swift: "requestTypeURL"),
-    3: .unique(proto: "request_streaming", json: "requestStreaming", swift: "requestStreaming"),
-    4: .unique(proto: "response_type_url", json: "responseTypeUrl", swift: "responseTypeURL"),
-    5: .unique(proto: "response_streaming", json: "responseStreaming", swift: "responseStreaming"),
-    6: .same(proto: "options", swift: "options"),
-    7: .same(proto: "syntax", swift: "syntax"),
+    1: .same(proto: "name"),
+    2: .unique(proto: "request_type_url", json: "requestTypeUrl"),
+    3: .unique(proto: "request_streaming", json: "requestStreaming"),
+    4: .unique(proto: "response_type_url", json: "responseTypeUrl"),
+    5: .unique(proto: "response_streaming", json: "responseStreaming"),
+    6: .same(proto: "options"),
+    7: .same(proto: "syntax"),
   ]
 
 
@@ -400,8 +400,8 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3
   public var protoMessageName: String {return "Mixin"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "root", swift: "root"),
+    1: .same(proto: "name"),
+    2: .same(proto: "root"),
   ]
 
 

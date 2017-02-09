@@ -254,7 +254,7 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Pr
   public var protoMessageName: String {return "FieldMask"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "paths", swift: "paths"),
+    1: .same(proto: "paths"),
   ]
 
 

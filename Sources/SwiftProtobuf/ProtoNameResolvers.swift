@@ -51,22 +51,4 @@ public enum ProtoNameResolvers {
       return { _ in nil }
     }
   }
-
-  /// Returns a function that resolves the Swift property name for fields
-  /// defined on the given message or in any set extensions.
-  ///
-  /// If the name cannot be resolved (because the field number is not defined
-  /// on the message or any of its extensions, or names were not compiled into
-  /// the binary), then the resolver returns nil.
-  public static func swiftFieldNameResolver(
-    for message: Message
-  ) -> (Int) -> String? {
-    if let nameProviding = message as? ProtoNameProviding {
-      return { number in
-        nameProviding._protobuf_fieldNames(for: number)?.swiftName
-      }
-    } else {
-      return { _ in nil }
-    }
-  }
 }

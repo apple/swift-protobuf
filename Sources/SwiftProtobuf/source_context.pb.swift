@@ -55,7 +55,7 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobu
   public var protoMessageName: String {return "SourceContext"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "file_name", json: "fileName", swift: "fileName"),
+    1: .unique(proto: "file_name", json: "fileName"),
   ]
 
 

@@ -71,10 +71,10 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProt
   public var protoMessageName: String {return "Version"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "major", swift: "major"),
-    2: .same(proto: "minor", swift: "minor"),
-    3: .same(proto: "patch", swift: "patch"),
-    4: .same(proto: "suffix", swift: "suffix"),
+    1: .same(proto: "major"),
+    2: .same(proto: "minor"),
+    3: .same(proto: "patch"),
+    4: .same(proto: "suffix"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -173,10 +173,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
   public var protoMessageName: String {return "CodeGeneratorRequest"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "file_to_generate", json: "fileToGenerate", swift: "fileToGenerate"),
-    2: .same(proto: "parameter", swift: "parameter"),
-    15: .unique(proto: "proto_file", json: "protoFile", swift: "protoFile"),
-    3: .unique(proto: "compiler_version", json: "compilerVersion", swift: "compilerVersion"),
+    1: .unique(proto: "file_to_generate", json: "fileToGenerate"),
+    2: .same(proto: "parameter"),
+    15: .unique(proto: "proto_file", json: "protoFile"),
+    3: .unique(proto: "compiler_version", json: "compilerVersion"),
   ]
 
   private class _StorageClass {
@@ -318,8 +318,8 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   public var protoMessageName: String {return "CodeGeneratorResponse"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "error", swift: "error"),
-    15: .same(proto: "file", swift: "file"),
+    1: .same(proto: "error"),
+    15: .same(proto: "file"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -330,9 +330,9 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     public var protoMessageName: String {return "File"}
     public var protoPackageName: String {return "google.protobuf.compiler"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "name", swift: "name"),
-      2: .unique(proto: "insertion_point", json: "insertionPoint", swift: "insertionPoint"),
-      15: .same(proto: "content", swift: "content"),
+      1: .same(proto: "name"),
+      2: .unique(proto: "insertion_point", json: "insertionPoint"),
+      15: .same(proto: "content"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()

@@ -121,8 +121,8 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     public var protoPackageName: String {return "google.protobuf"}
     public var protoMessageName: String {return "Any"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .unique(proto: "type_url", json: "@type", swift: "typeURL"),
-        2: .same(proto: "value", swift: "value"),
+        1: .unique(proto: "type_url", json: "@type"),
+        2: .same(proto: "value"),
     ]
 
     ///   A URL/resource name whose content describes the type of the

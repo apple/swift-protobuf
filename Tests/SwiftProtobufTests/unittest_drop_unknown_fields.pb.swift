@@ -54,8 +54,8 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
   public var protoMessageName: String {return "Foo"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
-    2: .unique(proto: "enum_value", json: "enumValue", swift: "enumValue"),
+    1: .unique(proto: "int32_value", json: "int32Value"),
+    2: .unique(proto: "enum_value", json: "enumValue"),
   ]
 
 
@@ -178,9 +178,9 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
   public var protoMessageName: String {return "FooWithExtraFields"}
   public var protoPackageName: String {return "unittest_drop_unknown_fields"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "int32_value", json: "int32Value", swift: "int32Value"),
-    2: .unique(proto: "enum_value", json: "enumValue", swift: "enumValue"),
-    3: .unique(proto: "extra_int32_value", json: "extraInt32Value", swift: "extraInt32Value"),
+    1: .unique(proto: "int32_value", json: "int32Value"),
+    2: .unique(proto: "enum_value", json: "enumValue"),
+    3: .unique(proto: "extra_int32_value", json: "extraInt32Value"),
   ]
 
 

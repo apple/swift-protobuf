@@ -58,7 +58,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
   public var protoMessageName: String {return "TestLiteImportsNonlite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "message", swift: "message"),
+    1: .same(proto: "message"),
   ]
 
   private class _StorageClass {

@@ -1851,214 +1851,214 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
   public var protoMessageName: String {return "FieldNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "String", swift: "string"),
-    2: .same(proto: "Int", swift: "int"),
-    3: .same(proto: "Double", swift: "double"),
-    4: .same(proto: "Float", swift: "float"),
-    5: .same(proto: "UInt", swift: "uint"),
-    6: .same(proto: "hashValue", swift: "hashValue_p"),
-    7: .same(proto: "description", swift: "description_p"),
-    8: .same(proto: "debugDescription", swift: "debugDescription_p"),
-    9: .same(proto: "Swift", swift: "swift"),
-    10: .same(proto: "UNRECOGNIZED", swift: "unrecognized"),
-    11: .same(proto: "class", swift: "class_p"),
-    12: .same(proto: "deinit", swift: "deinit_p"),
-    13: .same(proto: "enum", swift: "enum_p"),
-    14: .same(proto: "extension", swift: "extension_p"),
-    15: .same(proto: "func", swift: "func_p"),
-    16: .same(proto: "import", swift: "import_p"),
-    17: .same(proto: "init", swift: "init_p"),
-    18: .same(proto: "inout", swift: "inout_p"),
-    19: .same(proto: "internal", swift: "internal_p"),
-    20: .same(proto: "let", swift: "let_p"),
-    21: .same(proto: "operator", swift: "operator_p"),
-    22: .same(proto: "private", swift: "private_p"),
-    23: .same(proto: "protocol", swift: "protocol_p"),
-    24: .same(proto: "public", swift: "public_p"),
-    25: .same(proto: "static", swift: "static_p"),
-    26: .same(proto: "struct", swift: "struct_p"),
-    27: .same(proto: "subscript", swift: "subscript_p"),
-    28: .same(proto: "typealias", swift: "typealias_p"),
-    29: .same(proto: "var", swift: "var_p"),
-    30: .same(proto: "break", swift: "break_p"),
-    31: .same(proto: "case", swift: "case_p"),
-    32: .same(proto: "continue", swift: "continue_p"),
-    33: .same(proto: "default", swift: "default_p"),
-    34: .same(proto: "defer", swift: "defer_p"),
-    35: .same(proto: "do", swift: "do_p"),
-    36: .same(proto: "else", swift: "else_p"),
-    37: .same(proto: "fallthrough", swift: "fallthrough_p"),
-    38: .same(proto: "for", swift: "for_p"),
-    39: .same(proto: "guard", swift: "guard_p"),
-    40: .same(proto: "if", swift: "if_p"),
-    41: .same(proto: "in", swift: "in_p"),
-    42: .same(proto: "repeat", swift: "repeat_p"),
-    43: .same(proto: "return", swift: "return_p"),
-    44: .same(proto: "switch", swift: "switch_p"),
-    45: .same(proto: "where", swift: "where_p"),
-    46: .same(proto: "while", swift: "while_p"),
-    47: .same(proto: "as", swift: "as_p"),
-    48: .same(proto: "catch", swift: "catch_p"),
-    49: .same(proto: "dynamicType", swift: "dynamicType_p"),
-    50: .same(proto: "false", swift: "false_p"),
-    51: .same(proto: "is", swift: "is_p"),
-    52: .same(proto: "nil", swift: "nil_p"),
-    53: .same(proto: "rethrows", swift: "rethrows_p"),
-    54: .same(proto: "super", swift: "super_p"),
-    55: .same(proto: "self", swift: "self_p"),
-    57: .same(proto: "throw", swift: "throw_p"),
-    58: .same(proto: "throws", swift: "throws_p"),
-    59: .same(proto: "true", swift: "true_p"),
-    60: .same(proto: "try", swift: "try_p"),
-    61: .unique(proto: "__COLUMN__", json: "COLUMN", swift: "_Column__"),
-    62: .unique(proto: "__FILE__", json: "FILE", swift: "_File__"),
-    63: .unique(proto: "__FUNCTION__", json: "FUNCTION", swift: "_Function__"),
-    64: .unique(proto: "__LINE__", json: "LINE", swift: "_Line__"),
-    65: .unique(proto: "_", json: "", swift: "___"),
-    66: .same(proto: "associativity", swift: "associativity"),
-    67: .same(proto: "convenience", swift: "convenience"),
-    68: .same(proto: "dynamic", swift: "dynamic"),
-    69: .same(proto: "didSet", swift: "didSet"),
-    70: .same(proto: "final", swift: "final"),
-    71: .same(proto: "get", swift: "get"),
-    72: .same(proto: "infix", swift: "infix"),
-    73: .same(proto: "indirect", swift: "indirect"),
-    74: .same(proto: "lazy", swift: "lazy"),
-    75: .same(proto: "left", swift: "left"),
-    76: .same(proto: "mutating", swift: "mutating"),
-    77: .same(proto: "none", swift: "none"),
-    78: .same(proto: "nonmutating", swift: "nonmutating"),
-    79: .same(proto: "optional", swift: "optional"),
-    80: .same(proto: "override", swift: "override"),
-    81: .same(proto: "postfix", swift: "postfix"),
-    82: .same(proto: "precedence", swift: "precedence"),
-    83: .same(proto: "prefix", swift: "prefix"),
-    85: .same(proto: "required", swift: "required"),
-    86: .same(proto: "right", swift: "right"),
-    87: .same(proto: "set", swift: "set"),
-    88: .same(proto: "Type", swift: "type"),
-    89: .same(proto: "unowned", swift: "unowned"),
-    90: .same(proto: "weak", swift: "weak"),
-    91: .same(proto: "willSet", swift: "willSet"),
-    92: .same(proto: "id", swift: "id"),
-    93: .unique(proto: "_cmd", json: "Cmd", swift: "cmd"),
-    96: .same(proto: "out", swift: "out"),
-    98: .same(proto: "bycopy", swift: "bycopy"),
-    99: .same(proto: "byref", swift: "byref"),
-    100: .same(proto: "oneway", swift: "oneway"),
-    102: .same(proto: "and", swift: "and"),
-    103: .unique(proto: "and_eq", json: "andEq", swift: "andEq"),
-    104: .same(proto: "alignas", swift: "alignas"),
-    105: .same(proto: "alignof", swift: "alignof"),
-    106: .same(proto: "asm", swift: "asm"),
-    107: .same(proto: "auto", swift: "auto"),
-    108: .same(proto: "bitand", swift: "bitand"),
-    109: .same(proto: "bitor", swift: "bitor"),
-    110: .same(proto: "bool", swift: "bool"),
-    114: .same(proto: "char", swift: "char"),
-    115: .unique(proto: "char16_t", json: "char16T", swift: "char16T"),
-    116: .unique(proto: "char32_t", json: "char32T", swift: "char32T"),
-    118: .same(proto: "compl", swift: "compl"),
-    119: .same(proto: "const", swift: "const"),
-    120: .same(proto: "constexpr", swift: "constexpr"),
-    121: .unique(proto: "const_cast", json: "constCast", swift: "constCast"),
-    123: .same(proto: "decltype", swift: "decltype"),
-    125: .same(proto: "delete", swift: "delete"),
-    127: .unique(proto: "dynamic_cast", json: "dynamicCast", swift: "dynamicCast"),
-    130: .same(proto: "explicit", swift: "explicit"),
-    131: .same(proto: "export", swift: "export"),
-    132: .same(proto: "extern", swift: "extern"),
-    136: .same(proto: "friend", swift: "friend"),
-    137: .same(proto: "goto", swift: "goto"),
-    139: .same(proto: "inline", swift: "inline"),
-    141: .same(proto: "long", swift: "long"),
-    142: .same(proto: "mutable", swift: "mutable"),
-    143: .same(proto: "namespace", swift: "namespace"),
-    144: .same(proto: "new", swift: "new"),
-    145: .same(proto: "noexcept", swift: "noexcept"),
-    146: .same(proto: "not", swift: "not"),
-    147: .unique(proto: "not_eq", json: "notEq", swift: "notEq"),
-    148: .same(proto: "nullptr", swift: "nullptr"),
-    150: .same(proto: "or", swift: "or"),
-    151: .unique(proto: "or_eq", json: "orEq", swift: "orEq"),
-    153: .same(proto: "protected", swift: "protected"),
-    155: .same(proto: "register", swift: "register"),
-    156: .unique(proto: "reinterpret_cast", json: "reinterpretCast", swift: "reinterpretCast"),
-    158: .same(proto: "short", swift: "short"),
-    159: .same(proto: "signed", swift: "signed"),
-    160: .same(proto: "sizeof", swift: "sizeof"),
-    162: .unique(proto: "static_assert", json: "staticAssert", swift: "staticAssert"),
-    163: .unique(proto: "static_cast", json: "staticCast", swift: "staticCast"),
-    166: .same(proto: "template", swift: "template"),
-    167: .same(proto: "this", swift: "this"),
-    168: .unique(proto: "thread_local", json: "threadLocal", swift: "threadLocal"),
-    172: .same(proto: "typedef", swift: "typedef"),
-    173: .same(proto: "typeid", swift: "typeid"),
-    174: .same(proto: "typename", swift: "typename"),
-    175: .same(proto: "union", swift: "union"),
-    176: .same(proto: "unsigned", swift: "unsigned"),
-    177: .same(proto: "using", swift: "using"),
-    178: .same(proto: "virtual", swift: "virtual"),
-    179: .same(proto: "void", swift: "void"),
-    180: .same(proto: "volatile", swift: "volatile"),
-    181: .unique(proto: "wchar_t", json: "wcharT", swift: "wcharT"),
-    183: .same(proto: "xor", swift: "xor"),
-    184: .unique(proto: "xor_eq", json: "xorEq", swift: "xorEq"),
-    185: .same(proto: "restrict", swift: "restrict"),
-    186: .same(proto: "Category", swift: "category"),
-    187: .same(proto: "Ivar", swift: "ivar"),
-    188: .same(proto: "Method", swift: "method"),
-    192: .same(proto: "finalize", swift: "finalize"),
-    193: .same(proto: "hash", swift: "hash"),
-    194: .same(proto: "dealloc", swift: "dealloc"),
-    197: .same(proto: "superclass", swift: "superclass"),
-    198: .same(proto: "retain", swift: "retain"),
-    199: .same(proto: "release", swift: "release"),
-    200: .same(proto: "autorelease", swift: "autorelease"),
-    201: .same(proto: "retainCount", swift: "retainCount"),
-    202: .same(proto: "zone", swift: "zone"),
-    203: .same(proto: "isProxy", swift: "isProxy"),
-    204: .same(proto: "copy", swift: "copy"),
-    205: .same(proto: "mutableCopy", swift: "mutableCopy"),
-    206: .same(proto: "classForCoder", swift: "classForCoder"),
-    207: .same(proto: "clear", swift: "clear"),
-    208: .same(proto: "data", swift: "data"),
-    209: .same(proto: "delimitedData", swift: "delimitedData"),
-    210: .same(proto: "descriptor", swift: "descriptor"),
-    211: .same(proto: "extensionRegistry", swift: "extensionRegistry"),
-    212: .same(proto: "extensionsCurrentlySet", swift: "extensionsCurrentlySet"),
-    213: .same(proto: "isInitialized", swift: "isInitialized"),
-    214: .same(proto: "serializedSize", swift: "serializedSize"),
-    215: .same(proto: "sortedExtensionsInUse", swift: "sortedExtensionsInUse"),
-    216: .same(proto: "unknownFields", swift: "unknownFields"),
-    217: .same(proto: "Fixed", swift: "fixed"),
-    218: .same(proto: "Fract", swift: "fract"),
-    219: .same(proto: "Size", swift: "size"),
-    220: .same(proto: "LogicalAddress", swift: "logicalAddress"),
-    221: .same(proto: "PhysicalAddress", swift: "physicalAddress"),
-    222: .same(proto: "ByteCount", swift: "byteCount"),
-    223: .same(proto: "ByteOffset", swift: "byteOffset"),
-    224: .same(proto: "Duration", swift: "duration"),
-    225: .same(proto: "AbsoluteTime", swift: "absoluteTime"),
-    226: .same(proto: "OptionBits", swift: "optionBits"),
-    227: .same(proto: "ItemCount", swift: "itemCount"),
-    228: .same(proto: "PBVersion", swift: "pbversion"),
-    229: .same(proto: "ScriptCode", swift: "scriptCode"),
-    230: .same(proto: "LangCode", swift: "langCode"),
-    231: .same(proto: "RegionCode", swift: "regionCode"),
-    232: .same(proto: "OSType", swift: "ostype"),
-    233: .same(proto: "ProcessSerialNumber", swift: "processSerialNumber"),
-    234: .same(proto: "Point", swift: "point"),
-    235: .same(proto: "Rect", swift: "rect"),
-    236: .same(proto: "FixedPoint", swift: "fixedPoint"),
-    237: .same(proto: "FixedRect", swift: "fixedRect"),
-    238: .same(proto: "Style", swift: "style"),
-    239: .same(proto: "StyleParameter", swift: "styleParameter"),
-    240: .same(proto: "StyleField", swift: "styleField"),
-    241: .same(proto: "TimeScale", swift: "timeScale"),
-    242: .same(proto: "TimeBase", swift: "timeBase"),
-    243: .same(proto: "TimeRecord", swift: "timeRecord"),
-    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden", swift: "jsonShouldBeOverriden"),
+    1: .same(proto: "String"),
+    2: .same(proto: "Int"),
+    3: .same(proto: "Double"),
+    4: .same(proto: "Float"),
+    5: .same(proto: "UInt"),
+    6: .same(proto: "hashValue"),
+    7: .same(proto: "description"),
+    8: .same(proto: "debugDescription"),
+    9: .same(proto: "Swift"),
+    10: .same(proto: "UNRECOGNIZED"),
+    11: .same(proto: "class"),
+    12: .same(proto: "deinit"),
+    13: .same(proto: "enum"),
+    14: .same(proto: "extension"),
+    15: .same(proto: "func"),
+    16: .same(proto: "import"),
+    17: .same(proto: "init"),
+    18: .same(proto: "inout"),
+    19: .same(proto: "internal"),
+    20: .same(proto: "let"),
+    21: .same(proto: "operator"),
+    22: .same(proto: "private"),
+    23: .same(proto: "protocol"),
+    24: .same(proto: "public"),
+    25: .same(proto: "static"),
+    26: .same(proto: "struct"),
+    27: .same(proto: "subscript"),
+    28: .same(proto: "typealias"),
+    29: .same(proto: "var"),
+    30: .same(proto: "break"),
+    31: .same(proto: "case"),
+    32: .same(proto: "continue"),
+    33: .same(proto: "default"),
+    34: .same(proto: "defer"),
+    35: .same(proto: "do"),
+    36: .same(proto: "else"),
+    37: .same(proto: "fallthrough"),
+    38: .same(proto: "for"),
+    39: .same(proto: "guard"),
+    40: .same(proto: "if"),
+    41: .same(proto: "in"),
+    42: .same(proto: "repeat"),
+    43: .same(proto: "return"),
+    44: .same(proto: "switch"),
+    45: .same(proto: "where"),
+    46: .same(proto: "while"),
+    47: .same(proto: "as"),
+    48: .same(proto: "catch"),
+    49: .same(proto: "dynamicType"),
+    50: .same(proto: "false"),
+    51: .same(proto: "is"),
+    52: .same(proto: "nil"),
+    53: .same(proto: "rethrows"),
+    54: .same(proto: "super"),
+    55: .same(proto: "self"),
+    57: .same(proto: "throw"),
+    58: .same(proto: "throws"),
+    59: .same(proto: "true"),
+    60: .same(proto: "try"),
+    61: .unique(proto: "__COLUMN__", json: "COLUMN"),
+    62: .unique(proto: "__FILE__", json: "FILE"),
+    63: .unique(proto: "__FUNCTION__", json: "FUNCTION"),
+    64: .unique(proto: "__LINE__", json: "LINE"),
+    65: .unique(proto: "_", json: ""),
+    66: .same(proto: "associativity"),
+    67: .same(proto: "convenience"),
+    68: .same(proto: "dynamic"),
+    69: .same(proto: "didSet"),
+    70: .same(proto: "final"),
+    71: .same(proto: "get"),
+    72: .same(proto: "infix"),
+    73: .same(proto: "indirect"),
+    74: .same(proto: "lazy"),
+    75: .same(proto: "left"),
+    76: .same(proto: "mutating"),
+    77: .same(proto: "none"),
+    78: .same(proto: "nonmutating"),
+    79: .same(proto: "optional"),
+    80: .same(proto: "override"),
+    81: .same(proto: "postfix"),
+    82: .same(proto: "precedence"),
+    83: .same(proto: "prefix"),
+    85: .same(proto: "required"),
+    86: .same(proto: "right"),
+    87: .same(proto: "set"),
+    88: .same(proto: "Type"),
+    89: .same(proto: "unowned"),
+    90: .same(proto: "weak"),
+    91: .same(proto: "willSet"),
+    92: .same(proto: "id"),
+    93: .unique(proto: "_cmd", json: "Cmd"),
+    96: .same(proto: "out"),
+    98: .same(proto: "bycopy"),
+    99: .same(proto: "byref"),
+    100: .same(proto: "oneway"),
+    102: .same(proto: "and"),
+    103: .unique(proto: "and_eq", json: "andEq"),
+    104: .same(proto: "alignas"),
+    105: .same(proto: "alignof"),
+    106: .same(proto: "asm"),
+    107: .same(proto: "auto"),
+    108: .same(proto: "bitand"),
+    109: .same(proto: "bitor"),
+    110: .same(proto: "bool"),
+    114: .same(proto: "char"),
+    115: .unique(proto: "char16_t", json: "char16T"),
+    116: .unique(proto: "char32_t", json: "char32T"),
+    118: .same(proto: "compl"),
+    119: .same(proto: "const"),
+    120: .same(proto: "constexpr"),
+    121: .unique(proto: "const_cast", json: "constCast"),
+    123: .same(proto: "decltype"),
+    125: .same(proto: "delete"),
+    127: .unique(proto: "dynamic_cast", json: "dynamicCast"),
+    130: .same(proto: "explicit"),
+    131: .same(proto: "export"),
+    132: .same(proto: "extern"),
+    136: .same(proto: "friend"),
+    137: .same(proto: "goto"),
+    139: .same(proto: "inline"),
+    141: .same(proto: "long"),
+    142: .same(proto: "mutable"),
+    143: .same(proto: "namespace"),
+    144: .same(proto: "new"),
+    145: .same(proto: "noexcept"),
+    146: .same(proto: "not"),
+    147: .unique(proto: "not_eq", json: "notEq"),
+    148: .same(proto: "nullptr"),
+    150: .same(proto: "or"),
+    151: .unique(proto: "or_eq", json: "orEq"),
+    153: .same(proto: "protected"),
+    155: .same(proto: "register"),
+    156: .unique(proto: "reinterpret_cast", json: "reinterpretCast"),
+    158: .same(proto: "short"),
+    159: .same(proto: "signed"),
+    160: .same(proto: "sizeof"),
+    162: .unique(proto: "static_assert", json: "staticAssert"),
+    163: .unique(proto: "static_cast", json: "staticCast"),
+    166: .same(proto: "template"),
+    167: .same(proto: "this"),
+    168: .unique(proto: "thread_local", json: "threadLocal"),
+    172: .same(proto: "typedef"),
+    173: .same(proto: "typeid"),
+    174: .same(proto: "typename"),
+    175: .same(proto: "union"),
+    176: .same(proto: "unsigned"),
+    177: .same(proto: "using"),
+    178: .same(proto: "virtual"),
+    179: .same(proto: "void"),
+    180: .same(proto: "volatile"),
+    181: .unique(proto: "wchar_t", json: "wcharT"),
+    183: .same(proto: "xor"),
+    184: .unique(proto: "xor_eq", json: "xorEq"),
+    185: .same(proto: "restrict"),
+    186: .same(proto: "Category"),
+    187: .same(proto: "Ivar"),
+    188: .same(proto: "Method"),
+    192: .same(proto: "finalize"),
+    193: .same(proto: "hash"),
+    194: .same(proto: "dealloc"),
+    197: .same(proto: "superclass"),
+    198: .same(proto: "retain"),
+    199: .same(proto: "release"),
+    200: .same(proto: "autorelease"),
+    201: .same(proto: "retainCount"),
+    202: .same(proto: "zone"),
+    203: .same(proto: "isProxy"),
+    204: .same(proto: "copy"),
+    205: .same(proto: "mutableCopy"),
+    206: .same(proto: "classForCoder"),
+    207: .same(proto: "clear"),
+    208: .same(proto: "data"),
+    209: .same(proto: "delimitedData"),
+    210: .same(proto: "descriptor"),
+    211: .same(proto: "extensionRegistry"),
+    212: .same(proto: "extensionsCurrentlySet"),
+    213: .same(proto: "isInitialized"),
+    214: .same(proto: "serializedSize"),
+    215: .same(proto: "sortedExtensionsInUse"),
+    216: .same(proto: "unknownFields"),
+    217: .same(proto: "Fixed"),
+    218: .same(proto: "Fract"),
+    219: .same(proto: "Size"),
+    220: .same(proto: "LogicalAddress"),
+    221: .same(proto: "PhysicalAddress"),
+    222: .same(proto: "ByteCount"),
+    223: .same(proto: "ByteOffset"),
+    224: .same(proto: "Duration"),
+    225: .same(proto: "AbsoluteTime"),
+    226: .same(proto: "OptionBits"),
+    227: .same(proto: "ItemCount"),
+    228: .same(proto: "PBVersion"),
+    229: .same(proto: "ScriptCode"),
+    230: .same(proto: "LangCode"),
+    231: .same(proto: "RegionCode"),
+    232: .same(proto: "OSType"),
+    233: .same(proto: "ProcessSerialNumber"),
+    234: .same(proto: "Point"),
+    235: .same(proto: "Rect"),
+    236: .same(proto: "FixedPoint"),
+    237: .same(proto: "FixedRect"),
+    238: .same(proto: "Style"),
+    239: .same(proto: "StyleParameter"),
+    240: .same(proto: "StyleField"),
+    241: .same(proto: "TimeScale"),
+    242: .same(proto: "TimeBase"),
+    243: .same(proto: "TimeRecord"),
+    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden"),
   ]
 
   private class _StorageClass {
@@ -4618,7 +4618,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "String"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4650,7 +4650,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4682,7 +4682,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Int"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4714,7 +4714,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Double"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4746,7 +4746,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Float"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4778,7 +4778,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "UInt"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4810,7 +4810,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "hashValue"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4842,7 +4842,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "description"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4874,7 +4874,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "debugDescription"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4906,7 +4906,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Swift"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4938,7 +4938,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "UNRECOGNIZED"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4970,7 +4970,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5002,7 +5002,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "deinit"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5034,7 +5034,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "enum"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5066,7 +5066,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "extension"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5098,7 +5098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "func"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5130,7 +5130,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "import"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5162,7 +5162,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "init"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5194,7 +5194,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "inout"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5226,7 +5226,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "internal"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5258,7 +5258,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "let"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5290,7 +5290,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "operator"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5322,7 +5322,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "private"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5354,7 +5354,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5386,7 +5386,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "public"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5418,7 +5418,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "static"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5450,7 +5450,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "struct"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5482,7 +5482,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "subscript"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5514,7 +5514,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "typealias"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5546,7 +5546,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "var"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5578,7 +5578,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "break"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5610,7 +5610,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "case"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5642,7 +5642,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "continue"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5674,7 +5674,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "default"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5706,7 +5706,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "defer"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5738,7 +5738,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "do"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5770,7 +5770,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "else"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5802,7 +5802,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "fallthrough"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5834,7 +5834,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "for"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5866,7 +5866,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "guard"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5898,7 +5898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "if"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5930,7 +5930,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "in"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5962,7 +5962,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "repeat"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5994,7 +5994,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "return"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6026,7 +6026,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "switch"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6058,7 +6058,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "where"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6090,7 +6090,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "while"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6122,7 +6122,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "as"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6154,7 +6154,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "catch"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6186,7 +6186,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "dynamicType"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6218,7 +6218,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "false"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6250,7 +6250,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "is"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6282,7 +6282,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "nil"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6314,7 +6314,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "rethrows"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6346,7 +6346,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "super"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6378,7 +6378,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "self"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6410,7 +6410,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "throw"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6442,7 +6442,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "throws"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6474,7 +6474,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "true"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6506,7 +6506,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "try"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6538,7 +6538,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "__COLUMN__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6570,7 +6570,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "__FILE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6602,7 +6602,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "__FUNCTION__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6634,7 +6634,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "__LINE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6666,7 +6666,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "_"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6698,7 +6698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6730,7 +6730,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "associativity"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6762,7 +6762,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "convenience"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6794,7 +6794,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "dynamic"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6826,7 +6826,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "didSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6858,7 +6858,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "final"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6890,7 +6890,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "get"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6922,7 +6922,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "infix"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6954,7 +6954,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "indirect"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6986,7 +6986,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "lazy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7018,7 +7018,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "left"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7050,7 +7050,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "mutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7082,7 +7082,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "none"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7114,7 +7114,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "nonmutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7146,7 +7146,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "optional"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7178,7 +7178,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "override"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7210,7 +7210,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "postfix"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7242,7 +7242,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "precedence"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7274,7 +7274,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "prefix"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7306,7 +7306,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "required"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7338,7 +7338,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "right"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7370,7 +7370,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "set"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7402,7 +7402,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7434,7 +7434,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "unowned"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7466,7 +7466,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "weak"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7498,7 +7498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "willSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7530,7 +7530,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "id"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7562,7 +7562,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "_cmd"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7594,7 +7594,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "out"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7626,7 +7626,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "bycopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7658,7 +7658,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "byref"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7690,7 +7690,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "oneway"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7722,7 +7722,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "and"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7754,7 +7754,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "and_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7786,7 +7786,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "alignas"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7818,7 +7818,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "alignof"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7850,7 +7850,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "asm"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7882,7 +7882,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "auto"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7914,7 +7914,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "bitand"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7946,7 +7946,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "bitor"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7978,7 +7978,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "bool"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8010,7 +8010,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "char"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8042,7 +8042,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "char16_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8074,7 +8074,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "char32_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8106,7 +8106,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "compl"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8138,7 +8138,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "const"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8170,7 +8170,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "constexpr"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8202,7 +8202,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "const_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8234,7 +8234,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "decltype"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8266,7 +8266,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "delete"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8298,7 +8298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "dynamic_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8330,7 +8330,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "explicit"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8362,7 +8362,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "export"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8394,7 +8394,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "extern"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8426,7 +8426,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "friend"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8458,7 +8458,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "goto"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8490,7 +8490,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "inline"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8522,7 +8522,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "long"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8554,7 +8554,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "mutable"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8586,7 +8586,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "namespace"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8618,7 +8618,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "new"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8650,7 +8650,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "noexcept"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8682,7 +8682,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "not"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8714,7 +8714,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "not_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8746,7 +8746,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "nullptr"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8778,7 +8778,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "or"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8810,7 +8810,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "or_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8842,7 +8842,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "protected"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8874,7 +8874,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "register"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8906,7 +8906,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "reinterpret_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8938,7 +8938,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "short"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8970,7 +8970,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "signed"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9002,7 +9002,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "sizeof"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9034,7 +9034,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "static_assert"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9066,7 +9066,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "static_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9098,7 +9098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "template"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9130,7 +9130,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "this"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9162,7 +9162,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "thread_local"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9194,7 +9194,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "typedef"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9226,7 +9226,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "typeid"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9258,7 +9258,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "typename"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9290,7 +9290,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "union"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9322,7 +9322,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "unsigned"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9354,7 +9354,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "using"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9386,7 +9386,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "virtual"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9418,7 +9418,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "void"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9450,7 +9450,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "volatile"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9482,7 +9482,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "wchar_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9514,7 +9514,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "xor"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9546,7 +9546,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "xor_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9578,7 +9578,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "restrict"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9610,7 +9610,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Category"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9642,7 +9642,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Ivar"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9674,7 +9674,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Method"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9706,7 +9706,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "finalize"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9738,7 +9738,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "hash"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9770,7 +9770,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "dealloc"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9802,7 +9802,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "superclass"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9834,7 +9834,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "retain"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9866,7 +9866,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "release"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9898,7 +9898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "autorelease"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9930,7 +9930,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "retainCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9962,7 +9962,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "zone"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9994,7 +9994,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "isProxy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10026,7 +10026,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "copy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10058,7 +10058,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "mutableCopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10090,7 +10090,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "classForCoder"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10122,7 +10122,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "clear"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10154,7 +10154,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "data"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10186,7 +10186,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "delimitedData"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10218,7 +10218,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "descriptor"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10250,7 +10250,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "extensionRegistry"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10282,7 +10282,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "extensionsCurrentlySet"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10314,7 +10314,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "isInitialized"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10346,7 +10346,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "serializedSize"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10378,7 +10378,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "sortedExtensionsInUse"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10410,7 +10410,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "unknownFields"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10442,7 +10442,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Fixed"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10474,7 +10474,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Fract"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10506,7 +10506,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Size"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10538,7 +10538,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "LogicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10570,7 +10570,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "PhysicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10602,7 +10602,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "ByteCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10634,7 +10634,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "ByteOffset"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10666,7 +10666,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Duration"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10698,7 +10698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "AbsoluteTime"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10730,7 +10730,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "OptionBits"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10762,7 +10762,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "ItemCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10794,7 +10794,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "PBVersion"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10826,7 +10826,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "ScriptCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10858,7 +10858,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "LangCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10890,7 +10890,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "RegionCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10922,7 +10922,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "OSType"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10954,7 +10954,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "ProcessSerialNumber"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10986,7 +10986,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Point"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11018,7 +11018,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Rect"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11050,7 +11050,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "FixedPoint"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11082,7 +11082,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "FixedRect"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11114,7 +11114,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "Style"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11146,7 +11146,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "StyleParameter"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11178,7 +11178,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "StyleField"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11210,7 +11210,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "TimeScale"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11242,7 +11242,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "TimeBase"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11274,7 +11274,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     public var protoMessageName: String {return "TimeRecord"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 

@@ -15,16 +15,13 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
   /// A "bundle" of names for a particular field. We use different "packed"
   /// representations to minimize the amount of string data that we store in the
   /// binary.
-  ///
-  /// TODO: Remove the Swift field name since it's only used for debugging
-  /// purposes and use the proto name instead at those usage sites.
   public enum Names {
 
     /// The proto name and the JSON name are the same string
-    case same(proto: String, swift: String)
+    case same(proto: String)
 
     /// The JSON and text names are different and not derivable from each other.
-    case unique(proto: String, json: String, swift: String)
+    case unique(proto: String, json: String)
 
     // TODO: Add a case for JSON names that are computable from the proto name
     // using the same algorithm implemented by protoc; for example,
@@ -34,24 +31,16 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
     /// Returns the proto (and text format) name in the bundle.
     public var protoName: String {
       switch self {
-      case .same(proto: let name, swift: _): return name
-      case .unique(proto: let name, json: _, swift: _): return name
+      case .same(proto: let name): return name
+      case .unique(proto: let name, json: _): return name
       }
     }
 
     /// Returns the JSON name in the bundle.
     public var jsonName: String {
       switch self {
-      case .same(proto: let name, swift: _): return name
-      case .unique(proto: _, json: let name, swift: _): return name
-      }
-    }
-
-    /// Returns the Swift property name in the bundle.
-    public var swiftName: String {
-      switch self {
-      case .same(proto: _, swift: let name): return name
-      case .unique(proto: _, json: _, swift: let name): return name
+      case .same(proto: let name): return name
+      case .unique(proto: _, json: let name): return name
       }
     }
   }

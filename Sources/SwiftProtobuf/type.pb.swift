@@ -135,12 +135,12 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
   public var protoMessageName: String {return "Type"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "fields", swift: "fields"),
-    3: .same(proto: "oneofs", swift: "oneofs"),
-    4: .same(proto: "options", swift: "options"),
-    5: .unique(proto: "source_context", json: "sourceContext", swift: "sourceContext"),
-    6: .same(proto: "syntax", swift: "syntax"),
+    1: .same(proto: "name"),
+    2: .same(proto: "fields"),
+    3: .same(proto: "oneofs"),
+    4: .same(proto: "options"),
+    5: .unique(proto: "source_context", json: "sourceContext"),
+    6: .same(proto: "syntax"),
   ]
 
   private class _StorageClass {
@@ -282,16 +282,16 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3
   public var protoMessageName: String {return "Field"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "kind", swift: "kind"),
-    2: .same(proto: "cardinality", swift: "cardinality"),
-    3: .same(proto: "number", swift: "number"),
-    4: .same(proto: "name", swift: "name"),
-    6: .unique(proto: "type_url", json: "typeUrl", swift: "typeURL"),
-    7: .unique(proto: "oneof_index", json: "oneofIndex", swift: "oneofIndex"),
-    8: .same(proto: "packed", swift: "packed"),
-    9: .same(proto: "options", swift: "options"),
-    10: .unique(proto: "json_name", json: "jsonName", swift: "jsonName"),
-    11: .unique(proto: "default_value", json: "defaultValue", swift: "defaultValue"),
+    1: .same(proto: "kind"),
+    2: .same(proto: "cardinality"),
+    3: .same(proto: "number"),
+    4: .same(proto: "name"),
+    6: .unique(proto: "type_url", json: "typeUrl"),
+    7: .unique(proto: "oneof_index", json: "oneofIndex"),
+    8: .same(proto: "packed"),
+    9: .same(proto: "options"),
+    10: .unique(proto: "json_name", json: "jsonName"),
+    11: .unique(proto: "default_value", json: "defaultValue"),
   ]
 
 
@@ -751,11 +751,11 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
   public var protoMessageName: String {return "Enum"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "enumvalue", swift: "enumvalue"),
-    3: .same(proto: "options", swift: "options"),
-    4: .unique(proto: "source_context", json: "sourceContext", swift: "sourceContext"),
-    5: .same(proto: "syntax", swift: "syntax"),
+    1: .same(proto: "name"),
+    2: .same(proto: "enumvalue"),
+    3: .same(proto: "options"),
+    4: .unique(proto: "source_context", json: "sourceContext"),
+    5: .same(proto: "syntax"),
   ]
 
   private class _StorageClass {
@@ -884,9 +884,9 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
   public var protoMessageName: String {return "EnumValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "number", swift: "number"),
-    3: .same(proto: "options", swift: "options"),
+    1: .same(proto: "name"),
+    2: .same(proto: "number"),
+    3: .same(proto: "options"),
   ]
 
 
@@ -937,8 +937,8 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto
   public var protoMessageName: String {return "Option"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "value", swift: "value"),
+    1: .same(proto: "name"),
+    2: .same(proto: "value"),
   ]
 
   private class _StorageClass {

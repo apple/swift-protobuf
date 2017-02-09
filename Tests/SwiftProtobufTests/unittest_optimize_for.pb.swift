@@ -60,10 +60,10 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   public var protoMessageName: String {return "TestOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "i", swift: "i"),
-    19: .same(proto: "msg", swift: "msg"),
-    2: .unique(proto: "integer_field", json: "integerField", swift: "integerField"),
-    3: .unique(proto: "string_field", json: "stringField", swift: "stringField"),
+    1: .same(proto: "i"),
+    19: .same(proto: "msg"),
+    2: .unique(proto: "integer_field", json: "integerField"),
+    3: .unique(proto: "string_field", json: "stringField"),
   ]
 
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
@@ -190,13 +190,13 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
     static let testExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
       protoFieldNumber: 1234,
-      fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension", swift: "ProtobufUnittest_TestOptimizedForSize_testExtension"),
+      fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension"),
       defaultValue: 0
     )
 
     static let testExtension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
       protoFieldNumber: 1235,
-      fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension2", swift: "ProtobufUnittest_TestOptimizedForSize_testExtension2"),
+      fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension2"),
       defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize()
     )
   }
@@ -300,7 +300,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
   public var protoMessageName: String {return "TestRequiredOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "x", swift: "x"),
+    1: .same(proto: "x"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -343,7 +343,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
   public var protoMessageName: String {return "TestOptionalOptimizedForSize"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "o", swift: "o"),
+    1: .same(proto: "o"),
   ]
 
   private class _StorageClass {

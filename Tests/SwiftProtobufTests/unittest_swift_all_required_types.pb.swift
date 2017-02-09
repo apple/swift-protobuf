@@ -56,56 +56,56 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
   public var protoMessageName: String {return "TestAllRequiredTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "required_int32", json: "requiredInt32", swift: "requiredInt32"),
-    2: .unique(proto: "required_int64", json: "requiredInt64", swift: "requiredInt64"),
-    3: .unique(proto: "required_uint32", json: "requiredUint32", swift: "requiredUint32"),
-    4: .unique(proto: "required_uint64", json: "requiredUint64", swift: "requiredUint64"),
-    5: .unique(proto: "required_sint32", json: "requiredSint32", swift: "requiredSint32"),
-    6: .unique(proto: "required_sint64", json: "requiredSint64", swift: "requiredSint64"),
-    7: .unique(proto: "required_fixed32", json: "requiredFixed32", swift: "requiredFixed32"),
-    8: .unique(proto: "required_fixed64", json: "requiredFixed64", swift: "requiredFixed64"),
-    9: .unique(proto: "required_sfixed32", json: "requiredSfixed32", swift: "requiredSfixed32"),
-    10: .unique(proto: "required_sfixed64", json: "requiredSfixed64", swift: "requiredSfixed64"),
-    11: .unique(proto: "required_float", json: "requiredFloat", swift: "requiredFloat"),
-    12: .unique(proto: "required_double", json: "requiredDouble", swift: "requiredDouble"),
-    13: .unique(proto: "required_bool", json: "requiredBool", swift: "requiredBool"),
-    14: .unique(proto: "required_string", json: "requiredString", swift: "requiredString"),
-    15: .unique(proto: "required_bytes", json: "requiredBytes", swift: "requiredBytes"),
-    16: .unique(proto: "RequiredGroup", json: "requiredgroup", swift: "requiredGroup"),
-    18: .unique(proto: "required_nested_message", json: "requiredNestedMessage", swift: "requiredNestedMessage"),
-    19: .unique(proto: "required_foreign_message", json: "requiredForeignMessage", swift: "requiredForeignMessage"),
-    20: .unique(proto: "required_import_message", json: "requiredImportMessage", swift: "requiredImportMessage"),
-    21: .unique(proto: "required_nested_enum", json: "requiredNestedEnum", swift: "requiredNestedEnum"),
-    22: .unique(proto: "required_foreign_enum", json: "requiredForeignEnum", swift: "requiredForeignEnum"),
-    23: .unique(proto: "required_import_enum", json: "requiredImportEnum", swift: "requiredImportEnum"),
-    24: .unique(proto: "required_string_piece", json: "requiredStringPiece", swift: "requiredStringPiece"),
-    25: .unique(proto: "required_cord", json: "requiredCord", swift: "requiredCord"),
-    26: .unique(proto: "required_public_import_message", json: "requiredPublicImportMessage", swift: "requiredPublicImportMessage"),
-    27: .unique(proto: "required_lazy_message", json: "requiredLazyMessage", swift: "requiredLazyMessage"),
-    61: .unique(proto: "default_int32", json: "defaultInt32", swift: "defaultInt32"),
-    62: .unique(proto: "default_int64", json: "defaultInt64", swift: "defaultInt64"),
-    63: .unique(proto: "default_uint32", json: "defaultUint32", swift: "defaultUint32"),
-    64: .unique(proto: "default_uint64", json: "defaultUint64", swift: "defaultUint64"),
-    65: .unique(proto: "default_sint32", json: "defaultSint32", swift: "defaultSint32"),
-    66: .unique(proto: "default_sint64", json: "defaultSint64", swift: "defaultSint64"),
-    67: .unique(proto: "default_fixed32", json: "defaultFixed32", swift: "defaultFixed32"),
-    68: .unique(proto: "default_fixed64", json: "defaultFixed64", swift: "defaultFixed64"),
-    69: .unique(proto: "default_sfixed32", json: "defaultSfixed32", swift: "defaultSfixed32"),
-    70: .unique(proto: "default_sfixed64", json: "defaultSfixed64", swift: "defaultSfixed64"),
-    71: .unique(proto: "default_float", json: "defaultFloat", swift: "defaultFloat"),
-    72: .unique(proto: "default_double", json: "defaultDouble", swift: "defaultDouble"),
-    73: .unique(proto: "default_bool", json: "defaultBool", swift: "defaultBool"),
-    74: .unique(proto: "default_string", json: "defaultString", swift: "defaultString"),
-    75: .unique(proto: "default_bytes", json: "defaultBytes", swift: "defaultBytes"),
-    81: .unique(proto: "default_nested_enum", json: "defaultNestedEnum", swift: "defaultNestedEnum"),
-    82: .unique(proto: "default_foreign_enum", json: "defaultForeignEnum", swift: "defaultForeignEnum"),
-    83: .unique(proto: "default_import_enum", json: "defaultImportEnum", swift: "defaultImportEnum"),
-    84: .unique(proto: "default_string_piece", json: "defaultStringPiece", swift: "defaultStringPiece"),
-    85: .unique(proto: "default_cord", json: "defaultCord", swift: "defaultCord"),
-    111: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
-    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage", swift: "oneofNestedMessage"),
-    113: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
-    114: .unique(proto: "oneof_bytes", json: "oneofBytes", swift: "oneofBytes"),
+    1: .unique(proto: "required_int32", json: "requiredInt32"),
+    2: .unique(proto: "required_int64", json: "requiredInt64"),
+    3: .unique(proto: "required_uint32", json: "requiredUint32"),
+    4: .unique(proto: "required_uint64", json: "requiredUint64"),
+    5: .unique(proto: "required_sint32", json: "requiredSint32"),
+    6: .unique(proto: "required_sint64", json: "requiredSint64"),
+    7: .unique(proto: "required_fixed32", json: "requiredFixed32"),
+    8: .unique(proto: "required_fixed64", json: "requiredFixed64"),
+    9: .unique(proto: "required_sfixed32", json: "requiredSfixed32"),
+    10: .unique(proto: "required_sfixed64", json: "requiredSfixed64"),
+    11: .unique(proto: "required_float", json: "requiredFloat"),
+    12: .unique(proto: "required_double", json: "requiredDouble"),
+    13: .unique(proto: "required_bool", json: "requiredBool"),
+    14: .unique(proto: "required_string", json: "requiredString"),
+    15: .unique(proto: "required_bytes", json: "requiredBytes"),
+    16: .unique(proto: "RequiredGroup", json: "requiredgroup"),
+    18: .unique(proto: "required_nested_message", json: "requiredNestedMessage"),
+    19: .unique(proto: "required_foreign_message", json: "requiredForeignMessage"),
+    20: .unique(proto: "required_import_message", json: "requiredImportMessage"),
+    21: .unique(proto: "required_nested_enum", json: "requiredNestedEnum"),
+    22: .unique(proto: "required_foreign_enum", json: "requiredForeignEnum"),
+    23: .unique(proto: "required_import_enum", json: "requiredImportEnum"),
+    24: .unique(proto: "required_string_piece", json: "requiredStringPiece"),
+    25: .unique(proto: "required_cord", json: "requiredCord"),
+    26: .unique(proto: "required_public_import_message", json: "requiredPublicImportMessage"),
+    27: .unique(proto: "required_lazy_message", json: "requiredLazyMessage"),
+    61: .unique(proto: "default_int32", json: "defaultInt32"),
+    62: .unique(proto: "default_int64", json: "defaultInt64"),
+    63: .unique(proto: "default_uint32", json: "defaultUint32"),
+    64: .unique(proto: "default_uint64", json: "defaultUint64"),
+    65: .unique(proto: "default_sint32", json: "defaultSint32"),
+    66: .unique(proto: "default_sint64", json: "defaultSint64"),
+    67: .unique(proto: "default_fixed32", json: "defaultFixed32"),
+    68: .unique(proto: "default_fixed64", json: "defaultFixed64"),
+    69: .unique(proto: "default_sfixed32", json: "defaultSfixed32"),
+    70: .unique(proto: "default_sfixed64", json: "defaultSfixed64"),
+    71: .unique(proto: "default_float", json: "defaultFloat"),
+    72: .unique(proto: "default_double", json: "defaultDouble"),
+    73: .unique(proto: "default_bool", json: "defaultBool"),
+    74: .unique(proto: "default_string", json: "defaultString"),
+    75: .unique(proto: "default_bytes", json: "defaultBytes"),
+    81: .unique(proto: "default_nested_enum", json: "defaultNestedEnum"),
+    82: .unique(proto: "default_foreign_enum", json: "defaultForeignEnum"),
+    83: .unique(proto: "default_import_enum", json: "defaultImportEnum"),
+    84: .unique(proto: "default_string_piece", json: "defaultStringPiece"),
+    85: .unique(proto: "default_cord", json: "defaultCord"),
+    111: .unique(proto: "oneof_uint32", json: "oneofUint32"),
+    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage"),
+    113: .unique(proto: "oneof_string", json: "oneofString"),
+    114: .unique(proto: "oneof_bytes", json: "oneofBytes"),
   ]
 
   private class _StorageClass {
@@ -569,7 +569,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "bb", swift: "bb"),
+      1: .same(proto: "bb"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -615,7 +615,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     public var protoMessageName: String {return "RequiredGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      17: .same(proto: "a", swift: "a"),
+      17: .same(proto: "a"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -1244,12 +1244,12 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
   public var protoMessageName: String {return "TestSomeRequiredTypes"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "required_int32", json: "requiredInt32", swift: "requiredInt32"),
-    2: .unique(proto: "required_float", json: "requiredFloat", swift: "requiredFloat"),
-    3: .unique(proto: "required_bool", json: "requiredBool", swift: "requiredBool"),
-    4: .unique(proto: "required_string", json: "requiredString", swift: "requiredString"),
-    5: .unique(proto: "required_bytes", json: "requiredBytes", swift: "requiredBytes"),
-    6: .unique(proto: "required_nested_enum", json: "requiredNestedEnum", swift: "requiredNestedEnum"),
+    1: .unique(proto: "required_int32", json: "requiredInt32"),
+    2: .unique(proto: "required_float", json: "requiredFloat"),
+    3: .unique(proto: "required_bool", json: "requiredBool"),
+    4: .unique(proto: "required_string", json: "requiredString"),
+    5: .unique(proto: "required_bytes", json: "requiredBytes"),
+    6: .unique(proto: "required_nested_enum", json: "requiredNestedEnum"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()

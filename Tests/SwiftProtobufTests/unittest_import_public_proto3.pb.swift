@@ -56,7 +56,7 @@ struct Proto3PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   public var protoMessageName: String {return "PublicImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "e", swift: "e"),
+    1: .same(proto: "e"),
   ]
 
 

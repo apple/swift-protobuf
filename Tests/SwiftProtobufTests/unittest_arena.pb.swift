@@ -54,7 +54,7 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoMessageName: String {return "NestedMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "d", swift: "d"),
+    1: .same(proto: "d"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -99,8 +99,8 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf.Pr
   public var protoMessageName: String {return "ArenaMessage"}
   public var protoPackageName: String {return "proto2_arena_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
-    2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage", swift: "repeatedImportNoArenaMessage"),
+    1: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
+    2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
