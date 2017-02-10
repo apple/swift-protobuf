@@ -817,12 +817,9 @@ public struct ProtobufDecoder: Decoder {
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
         if value == nil {
-            value = try M(protobufBytes: p, count: count, extensions: extensions)
-        } else {
-            // If there's already a message object, overwrite fields with
-            // new data and preserve old fields.
-            try value!.decodeProtobuf(from: p, count: count, extensions: extensions)
+            value = M()
         }
+        try value!.decodeProtobuf(from: p, count: count, extensions: extensions)
         consumed = true
     }
 

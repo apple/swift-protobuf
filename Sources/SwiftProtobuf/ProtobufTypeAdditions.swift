@@ -281,15 +281,6 @@ public extension Message {
             }
         }
     }
-
-    init(protobufBytes: UnsafePointer<UInt8>, count: Int) throws {
-        try self.init(protobufBytes: protobufBytes, count: count, extensions: nil)
-    }
-
-    init(protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
-        self.init()
-        try decodeProtobuf(from: protobufBytes, count: count, extensions: extensions)
-    }
 }
 
 /// Proto2 messages preserve unknown fields
