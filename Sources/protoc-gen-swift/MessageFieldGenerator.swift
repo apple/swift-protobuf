@@ -472,42 +472,24 @@ struct MessageFieldGenerator {
             fieldTypeArg = ""
         }
 
-        let isOptional = !isProto3 && descriptor.label == .optional
         let varName: String
-        let conditional: Bool
+        let conditional: String
         if isRepeated {
-            p.print("if !\(prefix)\(swiftName).isEmpty {\n")
             varName = prefix + swiftName
-            conditional = true
-        } else if isGroup || isMessage || !isProto3 && isOptional {
-            p.print("if let v = \(prefix)\(swiftName) {\n")
+            conditional = "!\(varName).isEmpty"
+        } else if isGroup || isMessage || !isProto3 {
             varName = "v"
-            conditional = true
-        } else if isProto3 {
-            let def = swiftDefaultValue
-            p.print("if \(prefix)\(swiftName) != \(def) {\n")
-            varName = prefix + swiftName
-            conditional = true
+            conditional = "let v = \(prefix)\(swiftName)"
         } else {
-            var value = prefix + swiftName
-            conditional = false
-            if !isProto3 && !isOptional {
-                // Special handling for required fields to keep the tests
-                // passing (that is, keep the existing behavior) since their
-                // storage type has changed. This will be fixed in the future.
-                let def = swiftDefaultValue
-                value += " ?? " + def
-            }
-            varName = value
+            assert(isProto3)
+            varName = prefix + swiftName
+            conditional = ("\(varName) != \(swiftDefaultValue)")
         }
 
-        if conditional {
-            p.indent()
-        }
+        p.print("if \(conditional) {\n")
+        p.indent()
         p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), fieldNumber: \(number))\n")
-        if conditional {
-            p.outdent()
-            p.print("}\n")
-        }
+        p.outdent()
+        p.print("}\n")
     }
 }

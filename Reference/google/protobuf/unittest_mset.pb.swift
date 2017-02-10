@@ -310,8 +310,12 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
 
     public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _typeId ?? 0, fieldNumber: 2)
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _message ?? Data(), fieldNumber: 3)
+      if let v = _typeId {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+      }
+      if let v = _message {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 3)
+      }
       unknown.traverse(visitor: visitor)
     }
 

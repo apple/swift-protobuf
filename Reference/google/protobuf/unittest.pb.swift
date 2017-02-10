@@ -2442,11 +2442,15 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _a ?? 0, fieldNumber: 1)
+      if let v = _a {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      }
       if let v = _dummy2 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
       }
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _b ?? 0, fieldNumber: 3)
+      if let v = _b {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+      }
       if let v = _dummy4 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 4)
       }
@@ -2534,7 +2538,9 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
       if let v = _dummy32 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 32)
       }
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _c ?? 0, fieldNumber: 33)
+      if let v = _c {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 33)
+      }
       unknown.traverse(visitor: visitor)
     }
 
@@ -7077,7 +7083,9 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
     }
 
     public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _requiredDouble ?? 0, fieldNumber: 1)
+      if let v = _requiredDouble {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 1)
+      }
       unknown.traverse(visitor: visitor)
     }
 
