@@ -133,4 +133,9 @@ final class HashVisitor: Visitor {
     }
     mix(mapHash)
   }
+
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: self, start: start, end: end)
+  }
 }

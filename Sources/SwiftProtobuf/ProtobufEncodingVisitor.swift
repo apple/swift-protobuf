@@ -194,4 +194,9 @@ final class ProtobufEncodingVisitor: Visitor {
       encoder.putBytesValue(value: messageBytes)
     }
   }
+
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: self, start: start, end: end)
+  }
 }

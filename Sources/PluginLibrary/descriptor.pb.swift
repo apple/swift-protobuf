@@ -2419,7 +2419,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -2617,7 +2617,7 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -2993,7 +2993,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -3068,7 +3068,7 @@ public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -3177,7 +3177,7 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -3269,7 +3269,7 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProt
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -3365,7 +3365,7 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtob
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -3556,7 +3556,7 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 

@@ -210,7 +210,7 @@ class StorageClassGenerator {
         var nextRange = ranges.next()
         for f in (fields.sorted {$0.number < $1.number}) {
             while nextRange != nil && Int(nextRange!.start) < f.number {
-                p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if let c = currentOneof, let n = f.oneof, n.name == c.name {
@@ -233,7 +233,7 @@ class StorageClassGenerator {
             p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
         }
         while nextRange != nil {
-            p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+            p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
             nextRange = ranges.next()
         }
         if !isProto3 {
@@ -606,7 +606,7 @@ class MessageGenerator {
             var oneofEnd = 0
             for f in (fields.sorted {$0.number < $1.number}) {
                 while nextRange != nil && Int(nextRange!.start) < f.number {
-                    p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                    p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                     nextRange = ranges.next()
                 }
                 if let c = currentOneof, let n = f.oneof, n.name == c.name {
@@ -629,7 +629,7 @@ class MessageGenerator {
                 p.print("try \(oneof.swiftFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
             }
             while nextRange != nil {
-                p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if !file.isProto3 {

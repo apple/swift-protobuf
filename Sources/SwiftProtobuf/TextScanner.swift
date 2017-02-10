@@ -884,17 +884,9 @@ public struct TextScanner {
                     break scanKeyLoop
                 }
             }
-            // The next line can account for more than 1/3 of the total
-            // run time of the entire parse, just to create a String
-            // object that is discarded almost immediately.
-            //
-            // One idea: Have the name map build a ternary tree
-            // instead of a hash table, turn the character scan above
-            // into a walk of that tree.  This would look up the field
-            // number directly from the character scan without
-            // creating this intermediate string.
-            if let key = String(utf8[start..<index]) {
-                if let fieldNumber = names.fieldNumber(forProtoName: key) {
+            let key = Array(utf8[start..<index])
+            return try key.withUnsafeBufferPointer { buff in
+                if let fieldNumber = names.fieldNumber(forProtoName: buff) {
                     return fieldNumber
                 } else {
                     throw TextDecodingError.unknownField

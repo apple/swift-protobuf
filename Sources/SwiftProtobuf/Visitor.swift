@@ -114,6 +114,9 @@ public protocol Visitor: class {
     value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int) throws where KeyType.BaseType: Hashable
 
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws
+
   /// Called with the raw bytes that represent any proto2 unknown fields.
   func visitUnknown(bytes: Data)
 }

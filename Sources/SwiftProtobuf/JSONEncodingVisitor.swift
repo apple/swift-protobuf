@@ -190,6 +190,11 @@ final class JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    // JSON does not store extensions
+  }
+
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private func jsonFieldName(for number: Int) throws -> String {

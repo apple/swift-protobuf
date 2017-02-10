@@ -18,6 +18,7 @@ import Foundation
 final class TextEncodingVisitor: Visitor {
 
   private var encoder: TextEncoder
+  private var inExtension = false
   private var nameResolver: (Int) -> String?
 
   /// The protobuf text produced by the visitor.
@@ -199,11 +200,22 @@ final class TextEncodingVisitor: Visitor {
     }
   }
 
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    inExtension = true
+    try fields.traverse(visitor: self, start: start, end: end)
+    inExtension = false
+  }
+
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private func protoFieldName(for number: Int) throws -> String {
     if let protoName = nameResolver(number) {
-      return protoName
+      if inExtension {
+        return "[\(protoName)]"
+      } else {
+        return protoName
+      }
     }
     throw EncodingError.missingFieldNames
   }
