@@ -1044,9 +1044,15 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _a ?? 0, fieldNumber: 1)
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _b ?? 0, fieldNumber: 2)
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _c ?? 0, fieldNumber: 3)
+    if let v = _a {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
+    if let v = _b {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+    }
+    if let v = _c {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+    }
     unknown.traverse(visitor: visitor)
   }
 

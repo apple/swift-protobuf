@@ -3056,7 +3056,9 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _intField ?? 0, fieldNumber: 1)
+    if let v = _intField {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
     if let v = _enumField {
       try visitor.visitSingularField(fieldType: ProtobufUnittest_V1EnumLite.self, value: v, fieldNumber: 2)
     }
@@ -3116,7 +3118,9 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _intField ?? 0, fieldNumber: 1)
+    if let v = _intField {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
     if let v = _enumField {
       try visitor.visitSingularField(fieldType: ProtobufUnittest_V2EnumLite.self, value: v, fieldNumber: 2)
     }

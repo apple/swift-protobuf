@@ -1699,7 +1699,9 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufUnittest_OldOptionType.TestEnum.self, value: _value ?? ProtobufUnittest_OldOptionType.TestEnum.oldValue, fieldNumber: 1)
+    if let v = _value {
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_OldOptionType.TestEnum.self, value: v, fieldNumber: 1)
+    }
     unknown.traverse(visitor: visitor)
   }
 
@@ -1797,7 +1799,9 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufUnittest_NewOptionType.TestEnum.self, value: _value ?? ProtobufUnittest_NewOptionType.TestEnum.oldValue, fieldNumber: 1)
+    if let v = _value {
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_NewOptionType.TestEnum.self, value: v, fieldNumber: 1)
+    }
     unknown.traverse(visitor: visitor)
   }
 

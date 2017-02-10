@@ -325,7 +325,9 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _x ?? 0, fieldNumber: 1)
+    if let v = _x {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
     unknown.traverse(visitor: visitor)
   }
 

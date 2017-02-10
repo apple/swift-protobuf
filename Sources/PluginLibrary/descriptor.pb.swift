@@ -3444,8 +3444,12 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftP
     }
 
     public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _namePart ?? "", fieldNumber: 1)
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _isExtension ?? false, fieldNumber: 2)
+      if let v = _namePart {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if let v = _isExtension {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 2)
+      }
       unknown.traverse(visitor: visitor)
     }
 
