@@ -517,7 +517,8 @@ extension Test_JSON_Conformance {
             ("testNullSupport_Repeated", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_Repeated)}),
             ("testNullSupport_RepeatedValue", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_RepeatedValue)}),
             ("testNullConformance", {try run_test(test:($0 as! Test_JSON_Conformance).testNullConformance)}),
-            ("testValueList", {try run_test(test:($0 as! Test_JSON_Conformance).testValueList)})        ]
+            ("testValueList", {try run_test(test:($0 as! Test_JSON_Conformance).testValueList)}),
+            ("testNestedAny", {try run_test(test:($0 as! Test_JSON_Conformance).testNestedAny)})        ]
     }
 }
 

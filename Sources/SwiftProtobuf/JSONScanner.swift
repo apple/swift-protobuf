@@ -1092,6 +1092,7 @@ internal struct JSONScanner {
             return
         }
         while true {
+            skipWhitespace()
             try skipString()
             try skipRequiredColon()
             try skipValue()
