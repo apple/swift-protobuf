@@ -24,10 +24,6 @@ extension Google_Protobuf_EnumValueDescriptorProto {
         return sanitizeEnumCase(getSwiftBareName(stripLength: stripLength))
     }
 
-    func getSwiftDisplayName(stripLength: Int) -> String {
-        return sanitizeDisplayEnumCase(getSwiftBareName(stripLength: stripLength))
-    }
-
     func getSwiftBareName(stripLength: Int) -> String {
         let baseName = toLowerCamelCase(name)
         let swiftName: String
@@ -94,7 +90,6 @@ extension Google_Protobuf_EnumDescriptorProto {
 ///
 class EnumCaseGenerator {
     fileprivate let descriptor: Google_Protobuf_EnumValueDescriptorProto
-    fileprivate var swiftDisplayName: String
     fileprivate var swiftName: String
     fileprivate var jsonName: String
     fileprivate var protoName: String {return descriptor.name}
@@ -105,7 +100,6 @@ class EnumCaseGenerator {
     init(descriptor: Google_Protobuf_EnumValueDescriptorProto, path: [Int32], file: FileGenerator, stripLength: Int) {
        self.descriptor = descriptor
        self.swiftName = descriptor.getSwiftName(stripLength: stripLength)
-       self.swiftDisplayName = descriptor.getSwiftDisplayName(stripLength: stripLength)
        self.jsonName = descriptor.name
        self.path = path
        self.comments = file.commentsFor(path: path)
@@ -249,16 +243,16 @@ class EnumGenerator {
 
         // json property
         printer.print("\n")
-        printer.print("\(generatorOptions.visibilitySourceSnippet)var json: String {\n")
+        printer.print("\(generatorOptions.visibilitySourceSnippet)var _protobuf_jsonName: String? {\n")
         printer.indent()
         printer.print("get {\n")
         printer.indent()
         printer.print("switch self {\n")
         for c in enumCases {
-            printer.print("case .\(c.swiftName): return \"\\\"\(c.jsonName)\\\"\"\n")
+            printer.print("case .\(c.swiftName): return \"\(c.jsonName)\"\n")
         }
         if isProto3 {
-            printer.print("case .UNRECOGNIZED(let i): return String(i)\n")
+            printer.print("case .UNRECOGNIZED: return nil\n")
         }
         printer.print("}\n")
         printer.outdent()
@@ -269,25 +263,6 @@ class EnumGenerator {
         // hashValue property
         printer.print("\n")
         printer.print("\(generatorOptions.visibilitySourceSnippet)var hashValue: Int { return rawValue }\n")
-
-        // debugDescription property
-        printer.print("\n")
-        printer.print("\(generatorOptions.visibilitySourceSnippet)var debugDescription: String {\n")
-        printer.indent()
-        printer.print("get {\n")
-        printer.indent()
-        printer.print("switch self {\n")
-        for c in enumCases {
-            printer.print("case .\(c.swiftName): return \".\(c.swiftDisplayName)\"\n")
-        }
-        if isProto3 {
-            printer.print("case .UNRECOGNIZED(let v): return \".UNRECOGNIZED(\\(v))\"\n")
-        }
-        printer.print("}\n")
-        printer.outdent()
-        printer.print("}\n")
-        printer.outdent()
-        printer.print("}\n")
 
 
         printer.outdent()

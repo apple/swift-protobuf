@@ -72,7 +72,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
-  case json_ // = 2
+  case json // = 2
   case UNRECOGNIZED(Int)
 
   init() {
@@ -83,7 +83,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .protobuf
-    case 2: self = .json_
+    case 2: self = .json
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -92,7 +92,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     switch jsonName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
-    case "JSON": self = .json_
+    case "JSON": self = .json
     default: return nil
     }
   }
@@ -101,7 +101,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     switch protoName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
-    case "JSON": self = .json_
+    case "JSON": self = .json
     default: return nil
     }
   }
@@ -111,35 +111,24 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
       switch self {
       case .unspecified: return 0
       case .protobuf: return 1
-      case .json_: return 2
+      case .json: return 2
       case .UNRECOGNIZED(let i): return i
       }
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .unspecified: return "\"UNSPECIFIED\""
-      case .protobuf: return "\"PROTOBUF\""
-      case .json_: return "\"JSON\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .unspecified: return "UNSPECIFIED"
+      case .protobuf: return "PROTOBUF"
+      case .json: return "JSON"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .unspecified: return ".unspecified"
-      case .protobuf: return ".protobuf"
-      case .json_: return ".json_"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 

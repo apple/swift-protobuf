@@ -32,9 +32,8 @@ public enum Google_Protobuf_NullValue: Enum {
     public init?(protoName: String) {self = .nullValue}
     public init() {self = .nullValue}
     public var rawValue: Int {return 0}
-    public var json: String {return "null"}
+    public var _protobuf_jsonName: String? {return "NULL_VALUE"}
     public var hashValue: Int {return 0}
-    public var debugDescription: String {return "NullValue"}
 }
 
 ///   `Struct` represents a structured data value, consisting of fields

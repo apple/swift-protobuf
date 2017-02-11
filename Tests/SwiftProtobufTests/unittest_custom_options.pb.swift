@@ -97,25 +97,16 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .val1: return "\"METHODOPT1_VAL1\""
-      case .val2: return "\"METHODOPT1_VAL2\""
+      case .val1: return "METHODOPT1_VAL1"
+      case .val2: return "METHODOPT1_VAL2"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .val1: return ".val1"
-      case .val2: return ".val2"
-      }
-    }
-  }
 
 }
 
@@ -156,23 +147,15 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .value: return "\"VALUE\""
+      case .value: return "VALUE"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .value: return ".value"
-      }
-    }
-  }
 
 }
 
@@ -278,25 +261,16 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .val1: return "\"ANENUM_VAL1\""
-        case .val2: return "\"ANENUM_VAL2\""
+        case .val1: return "ANENUM_VAL1"
+        case .val2: return "ANENUM_VAL2"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .val1: return ".val1"
-        case .val2: return ".val2"
-        }
-      }
-    }
 
   }
 
@@ -493,25 +467,16 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .testOptionEnumType1: return "\"TEST_OPTION_ENUM_TYPE1\""
-        case .testOptionEnumType2: return "\"TEST_OPTION_ENUM_TYPE2\""
+        case .testOptionEnumType1: return "TEST_OPTION_ENUM_TYPE1"
+        case .testOptionEnumType2: return "TEST_OPTION_ENUM_TYPE2"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .testOptionEnumType1: return ".testOptionEnumType1"
-        case .testOptionEnumType2: return ".testOptionEnumType2"
-        }
-      }
-    }
 
   }
 
@@ -1572,23 +1537,15 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .value: return "\"NESTED_ENUM_VALUE\""
+        case .value: return "NESTED_ENUM_VALUE"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .value: return ".value"
-        }
-      }
-    }
 
   }
 
@@ -1708,23 +1665,15 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .oldValue: return "\"OLD_VALUE\""
+        case .oldValue: return "OLD_VALUE"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .oldValue: return ".oldValue"
-        }
-      }
-    }
 
   }
 
@@ -1750,7 +1699,9 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufUnittest_OldOptionType.TestEnum.self, value: _value ?? ProtobufUnittest_OldOptionType.TestEnum.oldValue, fieldNumber: 1)
+    if let v = _value {
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_OldOptionType.TestEnum.self, value: v, fieldNumber: 1)
+    }
     unknown.traverse(visitor: visitor)
   }
 
@@ -1813,25 +1764,16 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .oldValue: return "\"OLD_VALUE\""
-        case .newValue: return "\"NEW_VALUE\""
+        case .oldValue: return "OLD_VALUE"
+        case .newValue: return "NEW_VALUE"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .oldValue: return ".oldValue"
-        case .newValue: return ".newValue"
-        }
-      }
-    }
 
   }
 
@@ -1857,7 +1799,9 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: ProtobufUnittest_NewOptionType.TestEnum.self, value: _value ?? ProtobufUnittest_NewOptionType.TestEnum.oldValue, fieldNumber: 1)
+    if let v = _value {
+      try visitor.visitSingularField(fieldType: ProtobufUnittest_NewOptionType.TestEnum.self, value: v, fieldNumber: 1)
+    }
     unknown.traverse(visitor: visitor)
   }
 

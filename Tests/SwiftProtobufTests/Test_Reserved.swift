@@ -24,7 +24,7 @@ class Test_Reserved: XCTestCase {
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.`double`.rawValue, 1)
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.`class`.rawValue, 3)
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.self_.rawValue, 5)
-        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.json_.rawValue, 2)
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.Enum.json.rawValue, 2)
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.classMessage().debugDescription, "SwiftProtobufTests.ProtobufUnittest_SwiftReservedTest.classMessage:\n")
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.isEqualMessage().debugDescription, "SwiftProtobufTests.ProtobufUnittest_SwiftReservedTest.isEqualMessage:\n")
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.TypeMessage().debugDescription, "SwiftProtobufTests.ProtobufUnittest_SwiftReservedTest.TypeMessage:\n")

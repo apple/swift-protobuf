@@ -98,29 +98,18 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo: return "\"MAP_ENUM_FOO\""
-      case .bar: return "\"MAP_ENUM_BAR\""
-      case .baz: return "\"MAP_ENUM_BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .foo: return "MAP_ENUM_FOO"
+      case .bar: return "MAP_ENUM_BAR"
+      case .baz: return "MAP_ENUM_BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      case .baz: return ".baz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -929,25 +918,16 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, 
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"TYPE_FOO\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .foo: return "TYPE_FOO"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 

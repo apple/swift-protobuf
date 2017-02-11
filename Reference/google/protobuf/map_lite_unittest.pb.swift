@@ -96,27 +96,17 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .proto2MapEnumFooLite: return "\"PROTO2_MAP_ENUM_FOO_LITE\""
-      case .proto2MapEnumBarLite: return "\"PROTO2_MAP_ENUM_BAR_LITE\""
-      case .proto2MapEnumBazLite: return "\"PROTO2_MAP_ENUM_BAZ_LITE\""
+      case .proto2MapEnumFooLite: return "PROTO2_MAP_ENUM_FOO_LITE"
+      case .proto2MapEnumBarLite: return "PROTO2_MAP_ENUM_BAR_LITE"
+      case .proto2MapEnumBazLite: return "PROTO2_MAP_ENUM_BAZ_LITE"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .proto2MapEnumFooLite: return ".proto2MapEnumFooLite"
-      case .proto2MapEnumBarLite: return ".proto2MapEnumBarLite"
-      case .proto2MapEnumBazLite: return ".proto2MapEnumBazLite"
-      }
-    }
-  }
 
 }
 
@@ -172,29 +162,18 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .eProto2MapEnumFooLite: return "\"E_PROTO2_MAP_ENUM_FOO_LITE\""
-      case .eProto2MapEnumBarLite: return "\"E_PROTO2_MAP_ENUM_BAR_LITE\""
-      case .eProto2MapEnumBazLite: return "\"E_PROTO2_MAP_ENUM_BAZ_LITE\""
-      case .eProto2MapEnumExtraLite: return "\"E_PROTO2_MAP_ENUM_EXTRA_LITE\""
+      case .eProto2MapEnumFooLite: return "E_PROTO2_MAP_ENUM_FOO_LITE"
+      case .eProto2MapEnumBarLite: return "E_PROTO2_MAP_ENUM_BAR_LITE"
+      case .eProto2MapEnumBazLite: return "E_PROTO2_MAP_ENUM_BAZ_LITE"
+      case .eProto2MapEnumExtraLite: return "E_PROTO2_MAP_ENUM_EXTRA_LITE"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .eProto2MapEnumFooLite: return ".eProto2MapEnumFooLite"
-      case .eProto2MapEnumBarLite: return ".eProto2MapEnumBarLite"
-      case .eProto2MapEnumBazLite: return ".eProto2MapEnumBazLite"
-      case .eProto2MapEnumExtraLite: return ".eProto2MapEnumExtraLite"
-      }
-    }
-  }
 
 }
 
@@ -245,27 +224,17 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .mapEnumFooLite: return "\"MAP_ENUM_FOO_LITE\""
-      case .mapEnumBarLite: return "\"MAP_ENUM_BAR_LITE\""
-      case .mapEnumBazLite: return "\"MAP_ENUM_BAZ_LITE\""
+      case .mapEnumFooLite: return "MAP_ENUM_FOO_LITE"
+      case .mapEnumBarLite: return "MAP_ENUM_BAR_LITE"
+      case .mapEnumBazLite: return "MAP_ENUM_BAZ_LITE"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .mapEnumFooLite: return ".mapEnumFooLite"
-      case .mapEnumBarLite: return ".mapEnumBarLite"
-      case .mapEnumBazLite: return ".mapEnumBazLite"
-      }
-    }
-  }
 
 }
 
@@ -1075,9 +1044,15 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _a ?? 0, fieldNumber: 1)
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _b ?? 0, fieldNumber: 2)
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _c ?? 0, fieldNumber: 3)
+    if let v = _a {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
+    if let v = _b {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+    }
+    if let v = _c {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+    }
     unknown.traverse(visitor: visitor)
   }
 

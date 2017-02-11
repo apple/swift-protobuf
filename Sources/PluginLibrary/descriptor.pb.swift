@@ -1003,57 +1003,32 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .double: return "\"TYPE_DOUBLE\""
-        case .float: return "\"TYPE_FLOAT\""
-        case .int64: return "\"TYPE_INT64\""
-        case .uint64: return "\"TYPE_UINT64\""
-        case .int32: return "\"TYPE_INT32\""
-        case .fixed64: return "\"TYPE_FIXED64\""
-        case .fixed32: return "\"TYPE_FIXED32\""
-        case .bool: return "\"TYPE_BOOL\""
-        case .string: return "\"TYPE_STRING\""
-        case .group: return "\"TYPE_GROUP\""
-        case .message: return "\"TYPE_MESSAGE\""
-        case .bytes: return "\"TYPE_BYTES\""
-        case .uint32: return "\"TYPE_UINT32\""
-        case .`enum`: return "\"TYPE_ENUM\""
-        case .sfixed32: return "\"TYPE_SFIXED32\""
-        case .sfixed64: return "\"TYPE_SFIXED64\""
-        case .sint32: return "\"TYPE_SINT32\""
-        case .sint64: return "\"TYPE_SINT64\""
+        case .double: return "TYPE_DOUBLE"
+        case .float: return "TYPE_FLOAT"
+        case .int64: return "TYPE_INT64"
+        case .uint64: return "TYPE_UINT64"
+        case .int32: return "TYPE_INT32"
+        case .fixed64: return "TYPE_FIXED64"
+        case .fixed32: return "TYPE_FIXED32"
+        case .bool: return "TYPE_BOOL"
+        case .string: return "TYPE_STRING"
+        case .group: return "TYPE_GROUP"
+        case .message: return "TYPE_MESSAGE"
+        case .bytes: return "TYPE_BYTES"
+        case .uint32: return "TYPE_UINT32"
+        case .`enum`: return "TYPE_ENUM"
+        case .sfixed32: return "TYPE_SFIXED32"
+        case .sfixed64: return "TYPE_SFIXED64"
+        case .sint32: return "TYPE_SINT32"
+        case .sint64: return "TYPE_SINT64"
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .double: return ".double"
-        case .float: return ".float"
-        case .int64: return ".int64"
-        case .uint64: return ".uint64"
-        case .int32: return ".int32"
-        case .fixed64: return ".fixed64"
-        case .fixed32: return ".fixed32"
-        case .bool: return ".bool"
-        case .string: return ".string"
-        case .group: return ".group"
-        case .message: return ".message"
-        case .bytes: return ".bytes"
-        case .uint32: return ".uint32"
-        case .`enum`: return ".enum"
-        case .sfixed32: return ".sfixed32"
-        case .sfixed64: return ".sfixed64"
-        case .sint32: return ".sint32"
-        case .sint64: return ".sint64"
-        }
-      }
-    }
 
   }
 
@@ -1106,27 +1081,17 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .`optional`: return "\"LABEL_OPTIONAL\""
-        case .`required`: return "\"LABEL_REQUIRED\""
-        case .repeated: return "\"LABEL_REPEATED\""
+        case .`optional`: return "LABEL_OPTIONAL"
+        case .`required`: return "LABEL_REQUIRED"
+        case .repeated: return "LABEL_REPEATED"
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .`optional`: return ".optional"
-        case .`required`: return ".required"
-        case .repeated: return ".repeated"
-        }
-      }
-    }
 
   }
 
@@ -2081,27 +2046,17 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .speed: return "\"SPEED\""
-        case .codeSize: return "\"CODE_SIZE\""
-        case .liteRuntime: return "\"LITE_RUNTIME\""
+        case .speed: return "SPEED"
+        case .codeSize: return "CODE_SIZE"
+        case .liteRuntime: return "LITE_RUNTIME"
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .speed: return ".speed"
-        case .codeSize: return ".codeSize"
-        case .liteRuntime: return ".liteRuntime"
-        }
-      }
-    }
 
   }
 
@@ -2721,27 +2676,17 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .string: return "\"STRING\""
-        case .cord: return "\"CORD\""
-        case .stringPiece: return "\"STRING_PIECE\""
+        case .string: return "STRING"
+        case .cord: return "CORD"
+        case .stringPiece: return "STRING_PIECE"
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .string: return ".string"
-        case .cord: return ".cord"
-        case .stringPiece: return ".stringPiece"
-        }
-      }
-    }
 
   }
 
@@ -2798,27 +2743,17 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .jsNormal: return "\"JS_NORMAL\""
-        case .jsString: return "\"JS_STRING\""
-        case .jsNumber: return "\"JS_NUMBER\""
+        case .jsNormal: return "JS_NORMAL"
+        case .jsString: return "JS_STRING"
+        case .jsNumber: return "JS_NUMBER"
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .jsNormal: return ".jsNormal"
-        case .jsString: return ".jsString"
-        case .jsNumber: return ".jsNumber"
-        }
-      }
-    }
 
   }
 
@@ -3467,27 +3402,17 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .idempotencyUnknown: return "\"IDEMPOTENCY_UNKNOWN\""
-        case .noSideEffects: return "\"NO_SIDE_EFFECTS\""
-        case .idempotent: return "\"IDEMPOTENT\""
+        case .idempotencyUnknown: return "IDEMPOTENCY_UNKNOWN"
+        case .noSideEffects: return "NO_SIDE_EFFECTS"
+        case .idempotent: return "IDEMPOTENT"
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .idempotencyUnknown: return ".idempotencyUnknown"
-        case .noSideEffects: return ".noSideEffects"
-        case .idempotent: return ".idempotent"
-        }
-      }
-    }
 
   }
 
@@ -3671,8 +3596,12 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftP
     }
 
     public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _namePart ?? "", fieldNumber: 1)
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _isExtension ?? false, fieldNumber: 2)
+      if let v = _namePart {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if let v = _isExtension {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 2)
+      }
       unknown.traverse(visitor: visitor)
     }
 

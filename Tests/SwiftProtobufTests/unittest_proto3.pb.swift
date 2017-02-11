@@ -109,31 +109,19 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignUnspecified: return "\"FOREIGN_UNSPECIFIED\""
-      case .foreignFoo: return "\"FOREIGN_FOO\""
-      case .foreignBar: return "\"FOREIGN_BAR\""
-      case .foreignBaz: return "\"FOREIGN_BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .foreignUnspecified: return "FOREIGN_UNSPECIFIED"
+      case .foreignFoo: return "FOREIGN_FOO"
+      case .foreignBar: return "FOREIGN_BAR"
+      case .foreignBaz: return "FOREIGN_BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignUnspecified: return ".foreignUnspecified"
-      case .foreignFoo: return ".foreignFoo"
-      case .foreignBar: return ".foreignBar"
-      case .foreignBaz: return ".foreignBaz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -200,35 +188,21 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .testEnumWithDupValueUnspecified: return "\"TEST_ENUM_WITH_DUP_VALUE_UNSPECIFIED\""
-      case .foo1: return "\"FOO1\""
-      case .bar1: return "\"BAR1\""
-      case .baz: return "\"BAZ\""
-      case .foo2: return "\"FOO2\""
-      case .bar2: return "\"BAR2\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .testEnumWithDupValueUnspecified: return "TEST_ENUM_WITH_DUP_VALUE_UNSPECIFIED"
+      case .foo1: return "FOO1"
+      case .bar1: return "BAR1"
+      case .baz: return "BAZ"
+      case .foo2: return "FOO2"
+      case .bar2: return "BAR2"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .testEnumWithDupValueUnspecified: return ".testEnumWithDupValueUnspecified"
-      case .foo1: return ".foo1"
-      case .bar1: return ".bar1"
-      case .baz: return ".baz"
-      case .foo2: return ".foo2"
-      case .bar2: return ".bar2"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -305,37 +279,22 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .testSparseEnumUnspecified: return "\"TEST_SPARSE_ENUM_UNSPECIFIED\""
-      case .sparseA: return "\"SPARSE_A\""
-      case .sparseB: return "\"SPARSE_B\""
-      case .sparseC: return "\"SPARSE_C\""
-      case .sparseD: return "\"SPARSE_D\""
-      case .sparseE: return "\"SPARSE_E\""
-      case .sparseG: return "\"SPARSE_G\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .testSparseEnumUnspecified: return "TEST_SPARSE_ENUM_UNSPECIFIED"
+      case .sparseA: return "SPARSE_A"
+      case .sparseB: return "SPARSE_B"
+      case .sparseC: return "SPARSE_C"
+      case .sparseD: return "SPARSE_D"
+      case .sparseE: return "SPARSE_E"
+      case .sparseG: return "SPARSE_G"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .testSparseEnumUnspecified: return ".testSparseEnumUnspecified"
-      case .sparseA: return ".sparseA"
-      case .sparseB: return ".sparseB"
-      case .sparseC: return ".sparseC"
-      case .sparseD: return ".sparseD"
-      case .sparseE: return ".sparseE"
-      case .sparseG: return ".sparseG"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -874,33 +833,20 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .nestedEnumUnspecified: return "\"NESTED_ENUM_UNSPECIFIED\""
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .neg: return "\"NEG\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .nestedEnumUnspecified: return "NESTED_ENUM_UNSPECIFIED"
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .nestedEnumUnspecified: return ".nestedEnumUnspecified"
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        case .neg: return ".neg"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 

@@ -136,23 +136,15 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      var json: String {
+      var _protobuf_jsonName: String? {
         get {
           switch self {
-          case .foo: return "\"FOO\""
+          case .foo: return "FOO"
           }
         }
       }
 
       var hashValue: Int { return rawValue }
-
-      var debugDescription: String {
-        get {
-          switch self {
-          case .foo: return ".foo"
-          }
-        }
-      }
 
     }
 
@@ -248,23 +240,15 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      var json: String {
+      var _protobuf_jsonName: String? {
         get {
           switch self {
-          case .foo: return "\"FOO\""
+          case .foo: return "FOO"
           }
         }
       }
 
       var hashValue: Int { return rawValue }
-
-      var debugDescription: String {
-        get {
-          switch self {
-          case .foo: return ".foo"
-          }
-        }
-      }
 
     }
 

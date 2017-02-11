@@ -97,27 +97,17 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
     }
   }
 
-  public var json: String {
+  public var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .proto2: return "\"SYNTAX_PROTO2\""
-      case .proto3: return "\"SYNTAX_PROTO3\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .proto2: return "SYNTAX_PROTO2"
+      case .proto3: return "SYNTAX_PROTO3"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   public var hashValue: Int { return rawValue }
-
-  public var debugDescription: String {
-    get {
-      switch self {
-      case .proto2: return ".proto2"
-      case .proto3: return ".proto3"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -463,61 +453,34 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .typeUnknown: return "\"TYPE_UNKNOWN\""
-        case .typeDouble: return "\"TYPE_DOUBLE\""
-        case .typeFloat: return "\"TYPE_FLOAT\""
-        case .typeInt64: return "\"TYPE_INT64\""
-        case .typeUint64: return "\"TYPE_UINT64\""
-        case .typeInt32: return "\"TYPE_INT32\""
-        case .typeFixed64: return "\"TYPE_FIXED64\""
-        case .typeFixed32: return "\"TYPE_FIXED32\""
-        case .typeBool: return "\"TYPE_BOOL\""
-        case .typeString: return "\"TYPE_STRING\""
-        case .typeGroup: return "\"TYPE_GROUP\""
-        case .typeMessage: return "\"TYPE_MESSAGE\""
-        case .typeBytes: return "\"TYPE_BYTES\""
-        case .typeUint32: return "\"TYPE_UINT32\""
-        case .typeEnum: return "\"TYPE_ENUM\""
-        case .typeSfixed32: return "\"TYPE_SFIXED32\""
-        case .typeSfixed64: return "\"TYPE_SFIXED64\""
-        case .typeSint32: return "\"TYPE_SINT32\""
-        case .typeSint64: return "\"TYPE_SINT64\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .typeUnknown: return "TYPE_UNKNOWN"
+        case .typeDouble: return "TYPE_DOUBLE"
+        case .typeFloat: return "TYPE_FLOAT"
+        case .typeInt64: return "TYPE_INT64"
+        case .typeUint64: return "TYPE_UINT64"
+        case .typeInt32: return "TYPE_INT32"
+        case .typeFixed64: return "TYPE_FIXED64"
+        case .typeFixed32: return "TYPE_FIXED32"
+        case .typeBool: return "TYPE_BOOL"
+        case .typeString: return "TYPE_STRING"
+        case .typeGroup: return "TYPE_GROUP"
+        case .typeMessage: return "TYPE_MESSAGE"
+        case .typeBytes: return "TYPE_BYTES"
+        case .typeUint32: return "TYPE_UINT32"
+        case .typeEnum: return "TYPE_ENUM"
+        case .typeSfixed32: return "TYPE_SFIXED32"
+        case .typeSfixed64: return "TYPE_SFIXED64"
+        case .typeSint32: return "TYPE_SINT32"
+        case .typeSint64: return "TYPE_SINT64"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .typeUnknown: return ".typeUnknown"
-        case .typeDouble: return ".typeDouble"
-        case .typeFloat: return ".typeFloat"
-        case .typeInt64: return ".typeInt64"
-        case .typeUint64: return ".typeUint64"
-        case .typeInt32: return ".typeInt32"
-        case .typeFixed64: return ".typeFixed64"
-        case .typeFixed32: return ".typeFixed32"
-        case .typeBool: return ".typeBool"
-        case .typeString: return ".typeString"
-        case .typeGroup: return ".typeGroup"
-        case .typeMessage: return ".typeMessage"
-        case .typeBytes: return ".typeBytes"
-        case .typeUint32: return ".typeUint32"
-        case .typeEnum: return ".typeEnum"
-        case .typeSfixed32: return ".typeSfixed32"
-        case .typeSfixed64: return ".typeSfixed64"
-        case .typeSint32: return ".typeSint32"
-        case .typeSint64: return ".typeSint64"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -584,31 +547,19 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3
       }
     }
 
-    public var json: String {
+    public var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .unknown: return "\"CARDINALITY_UNKNOWN\""
-        case .`optional`: return "\"CARDINALITY_OPTIONAL\""
-        case .`required`: return "\"CARDINALITY_REQUIRED\""
-        case .repeated: return "\"CARDINALITY_REPEATED\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .unknown: return "CARDINALITY_UNKNOWN"
+        case .`optional`: return "CARDINALITY_OPTIONAL"
+        case .`required`: return "CARDINALITY_REQUIRED"
+        case .repeated: return "CARDINALITY_REPEATED"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     public var hashValue: Int { return rawValue }
-
-    public var debugDescription: String {
-      get {
-        switch self {
-        case .unknown: return ".unknown"
-        case .`optional`: return ".optional"
-        case .`required`: return ".required"
-        case .repeated: return ".repeated"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 

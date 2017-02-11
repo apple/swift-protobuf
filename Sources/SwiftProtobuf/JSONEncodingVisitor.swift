@@ -75,7 +75,11 @@ final class JSONEncodingVisitor: Visitor {
   func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
     let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
     encoder.startField(name: jsonFieldName)
-    encoder.append(text: value.json)
+    if let n = value._protobuf_jsonName {
+      encoder.putStringValue(value: n)
+    } else {
+      encoder.putInt64(value: Int64(value.rawValue), quote: false)
+    }
   }
 
   func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
@@ -85,7 +89,11 @@ final class JSONEncodingVisitor: Visitor {
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
-      encoder.append(text: v.json)
+      if let n = v._protobuf_jsonName {
+        encoder.putStringValue(value: n)
+      } else {
+        encoder.putInt64(value: Int64(v.rawValue), quote: false)
+      }
       arraySeparator = ","
     }
     encoder.append(text: "]")
@@ -169,7 +177,11 @@ final class JSONEncodingVisitor: Visitor {
       encoder.append(text: arraySeparator)
       KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
       encoder.append(text: ":")
-      encoder.append(text: v.json)
+      if let n = v._protobuf_jsonName {
+        encoder.putStringValue(value: n)
+      } else {
+        encoder.putInt64(value: Int64(v.rawValue), quote: false)
+      }
       arraySeparator = ","
     }
     encoder.append(text: "}")

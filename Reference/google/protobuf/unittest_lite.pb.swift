@@ -100,27 +100,17 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignLiteFoo: return "\"FOREIGN_LITE_FOO\""
-      case .foreignLiteBar: return "\"FOREIGN_LITE_BAR\""
-      case .foreignLiteBaz: return "\"FOREIGN_LITE_BAZ\""
+      case .foreignLiteFoo: return "FOREIGN_LITE_FOO"
+      case .foreignLiteBar: return "FOREIGN_LITE_BAR"
+      case .foreignLiteBaz: return "FOREIGN_LITE_BAZ"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignLiteFoo: return ".foreignLiteFoo"
-      case .foreignLiteBar: return ".foreignLiteBar"
-      case .foreignLiteBaz: return ".foreignLiteBaz"
-      }
-    }
-  }
 
 }
 
@@ -161,23 +151,15 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .v1First: return "\"V1_FIRST\""
+      case .v1First: return "V1_FIRST"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .v1First: return ".v1First"
-      }
-    }
-  }
 
 }
 
@@ -223,25 +205,16 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .v2First: return "\"V2_FIRST\""
-      case .v2Second: return "\"V2_SECOND\""
+      case .v2First: return "V2_FIRST"
+      case .v2Second: return "V2_SECOND"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .v2First: return ".v2First"
-      case .v2Second: return ".v2Second"
-      }
-    }
-  }
 
 }
 
@@ -1016,27 +989,17 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        }
-      }
-    }
 
   }
 
@@ -3093,7 +3056,9 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _intField ?? 0, fieldNumber: 1)
+    if let v = _intField {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
     if let v = _enumField {
       try visitor.visitSingularField(fieldType: ProtobufUnittest_V1EnumLite.self, value: v, fieldNumber: 2)
     }
@@ -3153,7 +3118,9 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _intField ?? 0, fieldNumber: 1)
+    if let v = _intField {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
     if let v = _enumField {
       try visitor.visitSingularField(fieldType: ProtobufUnittest_V2EnumLite.self, value: v, fieldNumber: 2)
     }

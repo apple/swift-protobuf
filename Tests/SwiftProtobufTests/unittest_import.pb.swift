@@ -102,27 +102,17 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .importFoo: return "\"IMPORT_FOO\""
-      case .importBar: return "\"IMPORT_BAR\""
-      case .importBaz: return "\"IMPORT_BAZ\""
+      case .importFoo: return "IMPORT_FOO"
+      case .importBar: return "IMPORT_BAR"
+      case .importBaz: return "IMPORT_BAZ"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .importFoo: return ".importFoo"
-      case .importBar: return ".importBar"
-      case .importBaz: return ".importBaz"
-      }
-    }
-  }
 
 }
 
@@ -174,27 +164,17 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .unknown: return "\"UNKNOWN\""
-      case .foo: return "\"FOO\""
-      case .bar: return "\"BAR\""
+      case .unknown: return "UNKNOWN"
+      case .foo: return "FOO"
+      case .bar: return "BAR"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .unknown: return ".unknown"
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      }
-    }
-  }
 
 }
 

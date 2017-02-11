@@ -102,27 +102,17 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignFoo: return "\"FOREIGN_FOO\""
-      case .foreignBar: return "\"FOREIGN_BAR\""
-      case .foreignBaz: return "\"FOREIGN_BAZ\""
+      case .foreignFoo: return "FOREIGN_FOO"
+      case .foreignBar: return "FOREIGN_BAR"
+      case .foreignBaz: return "FOREIGN_BAZ"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignFoo: return ".foreignFoo"
-      case .foreignBar: return ".foreignBar"
-      case .foreignBaz: return ".foreignBaz"
-      }
-    }
-  }
 
 }
 
@@ -182,31 +172,19 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo1: return "\"FOO1\""
-      case .bar1: return "\"BAR1\""
-      case .baz: return "\"BAZ\""
-      case .foo2: return "\"FOO2\""
-      case .bar2: return "\"BAR2\""
+      case .foo1: return "FOO1"
+      case .bar1: return "BAR1"
+      case .baz: return "BAZ"
+      case .foo2: return "FOO2"
+      case .bar2: return "BAR2"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo1: return ".foo1"
-      case .bar1: return ".bar1"
-      case .baz: return ".baz"
-      case .foo2: return ".foo2"
-      case .bar2: return ".bar2"
-      }
-    }
-  }
 
 }
 
@@ -278,35 +256,21 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .sparseA: return "\"SPARSE_A\""
-      case .sparseB: return "\"SPARSE_B\""
-      case .sparseC: return "\"SPARSE_C\""
-      case .sparseD: return "\"SPARSE_D\""
-      case .sparseE: return "\"SPARSE_E\""
-      case .sparseF: return "\"SPARSE_F\""
-      case .sparseG: return "\"SPARSE_G\""
+      case .sparseA: return "SPARSE_A"
+      case .sparseB: return "SPARSE_B"
+      case .sparseC: return "SPARSE_C"
+      case .sparseD: return "SPARSE_D"
+      case .sparseE: return "SPARSE_E"
+      case .sparseF: return "SPARSE_F"
+      case .sparseG: return "SPARSE_G"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .sparseA: return ".sparseA"
-      case .sparseB: return ".sparseB"
-      case .sparseC: return ".sparseC"
-      case .sparseD: return ".sparseD"
-      case .sparseE: return ".sparseE"
-      case .sparseF: return ".sparseF"
-      case .sparseG: return ".sparseG"
-      }
-    }
-  }
 
 }
 
@@ -1068,29 +1032,18 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .neg: return "\"NEG\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        case .neg: return ".neg"
-        }
-      }
-    }
 
   }
 
@@ -2489,11 +2442,15 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _a ?? 0, fieldNumber: 1)
+      if let v = _a {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      }
       if let v = _dummy2 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
       }
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _b ?? 0, fieldNumber: 3)
+      if let v = _b {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+      }
       if let v = _dummy4 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 4)
       }
@@ -2581,7 +2538,9 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
       if let v = _dummy32 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 32)
       }
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _c ?? 0, fieldNumber: 33)
+      if let v = _c {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 33)
+      }
       unknown.traverse(visitor: visitor)
     }
 
@@ -6606,27 +6565,17 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        }
-      }
-    }
 
   }
 
@@ -7134,7 +7083,9 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
     }
 
     public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _requiredDouble ?? 0, fieldNumber: 1)
+      if let v = _requiredDouble {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 1)
+      }
       unknown.traverse(visitor: visitor)
     }
 
@@ -7739,27 +7690,17 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .dynamicFoo: return "\"DYNAMIC_FOO\""
-        case .dynamicBar: return "\"DYNAMIC_BAR\""
-        case .dynamicBaz: return "\"DYNAMIC_BAZ\""
+        case .dynamicFoo: return "DYNAMIC_FOO"
+        case .dynamicBar: return "DYNAMIC_BAR"
+        case .dynamicBaz: return "DYNAMIC_BAZ"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .dynamicFoo: return ".dynamicFoo"
-        case .dynamicBar: return ".dynamicBar"
-        case .dynamicBaz: return ".dynamicBaz"
-        }
-      }
-    }
 
   }
 

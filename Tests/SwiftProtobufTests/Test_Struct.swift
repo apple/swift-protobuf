@@ -199,7 +199,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             XCTFail()
         }
 
-        XCTAssertEqual(null.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nnull_value: null\n")
+        XCTAssertEqual(null.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nnull_value: NULL_VALUE\n")
     }
 
     func testValue_number() throws {

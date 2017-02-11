@@ -109,31 +109,19 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .importEnumUnspecified: return "\"IMPORT_ENUM_UNSPECIFIED\""
-      case .importFoo: return "\"IMPORT_FOO\""
-      case .importBar: return "\"IMPORT_BAR\""
-      case .importBaz: return "\"IMPORT_BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .importEnumUnspecified: return "IMPORT_ENUM_UNSPECIFIED"
+      case .importFoo: return "IMPORT_FOO"
+      case .importBar: return "IMPORT_BAR"
+      case .importBaz: return "IMPORT_BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .importEnumUnspecified: return ".importEnumUnspecified"
-      case .importFoo: return ".importFoo"
-      case .importBar: return ".importBar"
-      case .importBaz: return ".importBaz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
