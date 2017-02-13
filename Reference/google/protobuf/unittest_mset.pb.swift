@@ -70,6 +70,11 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
 
     init() {}
 
+    var isInitialized: Bool {
+      if let v = _messageSet, !v.isInitialized {return false}
+      return true
+    }
+
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
@@ -117,6 +122,10 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -301,6 +310,12 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
     init() {}
 
+    public var isInitialized: Bool {
+      if _typeId == nil {return false}
+      if _message == nil {return false}
+      return true
+    }
+
     public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_typeId)
@@ -330,6 +345,11 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
   var item: [ProtobufUnittest_RawMessageSet.Item] = []
 
   init() {}
+
+  public var isInitialized: Bool {
+    if !SwiftProtobuf.Internal.areAllInitialized(item) {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

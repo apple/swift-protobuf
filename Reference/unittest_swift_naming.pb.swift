@@ -1790,7 +1790,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
     var _descriptor: Int32 = 0
     var _extensionRegistry: Int32 = 0
     var _extensionsCurrentlySet: Int32 = 0
-    var _isInitialized: Int32 = 0
+    var _isInitialized_p: Int32 = 0
     var _serializedSize: Int32 = 0
     var _sortedExtensionsInUse: Int32 = 0
     var _unknownFields: Int32 = 0
@@ -2003,7 +2003,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       case 210: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_descriptor)
       case 211: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_extensionRegistry)
       case 212: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_extensionsCurrentlySet)
-      case 213: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_isInitialized)
+      case 213: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_isInitialized_p)
       case 214: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_serializedSize)
       case 215: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_sortedExtensionsInUse)
       case 216: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_unknownFields)
@@ -2568,8 +2568,8 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       if _extensionsCurrentlySet != 0 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _extensionsCurrentlySet, fieldNumber: 212)
       }
-      if _isInitialized != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _isInitialized, fieldNumber: 213)
+      if _isInitialized_p != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _isInitialized_p, fieldNumber: 213)
       }
       if _serializedSize != 0 {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _serializedSize, fieldNumber: 214)
@@ -2843,7 +2843,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       if _descriptor != other._descriptor {return false}
       if _extensionRegistry != other._extensionRegistry {return false}
       if _extensionsCurrentlySet != other._extensionsCurrentlySet {return false}
-      if _isInitialized != other._isInitialized {return false}
+      if _isInitialized_p != other._isInitialized_p {return false}
       if _serializedSize != other._serializedSize {return false}
       if _sortedExtensionsInUse != other._sortedExtensionsInUse {return false}
       if _unknownFields != other._unknownFields {return false}
@@ -3056,7 +3056,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       clone._descriptor = _descriptor
       clone._extensionRegistry = _extensionRegistry
       clone._extensionsCurrentlySet = _extensionsCurrentlySet
-      clone._isInitialized = _isInitialized
+      clone._isInitialized_p = _isInitialized_p
       clone._serializedSize = _serializedSize
       clone._sortedExtensionsInUse = _sortedExtensionsInUse
       clone._unknownFields = _unknownFields
@@ -3975,9 +3975,9 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
     set {_uniqueStorage()._extensionsCurrentlySet = newValue}
   }
 
-  var isInitialized: Int32 {
-    get {return _storage._isInitialized}
-    set {_uniqueStorage()._isInitialized = newValue}
+  var isInitialized_p: Int32 {
+    get {return _storage._isInitialized_p}
+    set {_uniqueStorage()._isInitialized_p = newValue}
   }
 
   var serializedSize: Int32 {
