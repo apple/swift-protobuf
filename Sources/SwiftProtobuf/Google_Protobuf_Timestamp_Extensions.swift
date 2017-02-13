@@ -15,6 +15,10 @@
 
 import Swift
 
+let minTimestampSeconds: Int64 = -62135596800  // 0001-01-01T00:00:00Z
+let maxTimestampSeconds: Int64 = 253402300799  // 9999-12-31T23:59:59Z
+let nanosPerSecond: Int32 = 1000000000
+
 // TODO: Add convenience methods to interoperate with standard
 // date/time classes:  an initializer that accepts Unix timestamp as
 // Int or Double, an easy way to convert to/from Foundation's
@@ -173,7 +177,7 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
             adjusted += Int64(hourOffset) * Int64(3600)
             adjusted += Int64(minuteOffset) * Int64(60)
         }
-        if adjusted < -62135596800 || adjusted > 253402300799 {
+        if adjusted < minTimestampSeconds || adjusted > maxTimestampSeconds {
             throw JSONDecodingError.malformedTimestamp
         }
         seconds = adjusted
@@ -191,13 +195,11 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
 }
 
 private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
-    if ((seconds < 0 && nanos > 0)
-        || (seconds > 0 && nanos < 0)
-        || (seconds < -62135596800)
-        || (seconds == -62135596800 && nanos < 0)
-        || (seconds >= 253402300800)) {
-            return nil
+    guard isWithinValidTimestampRange(seconds: seconds, nanos: nanos) else {
+        return nil
     }
+
+    let (seconds, nanos) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
 
     // Can't just use gmtime() here because time_t is sometimes 32 bits. Ugh.
     let secondsSinceStartOfDay = (Int32(seconds % 86400) + 86400) % 86400
@@ -269,49 +271,58 @@ public extension Google_Protobuf_Timestamp {
 
     public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let s = try decoder.scanner.nextQuotedString()
-        let timestamp = try parseTimestamp(s: s)
-        seconds = timestamp.0
-        nanos = timestamp.1
+        (seconds, nanos) = try parseTimestamp(s: s)
     }
 
     public func serializeJSON() throws -> String {
-        let s = seconds
-        let n = nanos
-        if let formatted = formatTimestamp(seconds: s, nanos: n) {
+        if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
         } else {
             throw EncodingError.timestampJSONRange
         }
     }
 
-    func serializeAnyJSON() throws -> String {
+    public func serializeAnyJSON() throws -> String {
         let value = try serializeJSON()
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 }
 
-private func normalizedTimestamp(seconds: Int64, nanos: Int32) -> Google_Protobuf_Timestamp {
-    var s = seconds
-    var n = nanos
-    if n >= 1000000000 || n <= -1000000000 {
-        s += Int64(n) / 1000000000
-        n = n % 1000000000
+private func normalizeForTimestamp(seconds: Int64, nanos: Int32) -> (seconds: Int64, nanos: Int32) {
+    // The Timestamp spec says that nanos must be in the range [0, 999999999), as in actual
+    // modular arithmetic. Integer % and / do not reflect this, so mod() and div() are defined
+    // for this purpose. Factored out, they make normalization very straightforward.
+    func mod<T : SignedInteger>(_ a: T, _ b: T) -> T {
+        let b = abs(b)
+        return a % b >= 0 ? a % b : a % b + b
     }
-    if s > 0 && n < 0 {
-        n += 1000000000
-        s -= 1
-    } else if s < 0 && n > 0 {
-        n -= 1000000000
-        s += 1
+    func div<T : SignedInteger>(_ a: T, _ b: T) -> T {
+        let b = abs(b)
+        return a >= 0 ? a / b : (a + 1) / b - 1
     }
+
+    let s = seconds + Int64(div(nanos, nanosPerSecond))
+    let n = mod(nanos, nanosPerSecond)
+    return (seconds: s, nanos: n)
+}
+
+private func isWithinValidTimestampRange(seconds: Int64, nanos: Int32) -> Bool {
+    let (s, _) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
+    return s >= minTimestampSeconds && s <= maxTimestampSeconds
+}
+
+public func+(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp {
+    let (s, n) = normalizeForTimestamp(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
+    return Google_Protobuf_Timestamp(seconds: s, nanos: n)
+}
+
+public func+(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Timestamp) -> Google_Protobuf_Timestamp {
+    let (s, n) = normalizeForTimestamp(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
     return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
 public func -(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp {
-    return normalizedTimestamp(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
-}
-
-public func+(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp {
-    return normalizedTimestamp(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
+    let (s, n) = normalizeForTimestamp(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
+    return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 

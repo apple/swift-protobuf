@@ -291,7 +291,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
     }
 
     func testBasicArithmetic() throws {
-        let tn1_n1 = Google_Protobuf_Timestamp(seconds: -1, nanos: -1)
+        let tn1_n1 = Google_Protobuf_Timestamp(seconds: -2, nanos: 999999999)
         let t0 = Google_Protobuf_Timestamp()
         let t1_1 = Google_Protobuf_Timestamp(seconds: 1, nanos: 1)
         let t2_2 = Google_Protobuf_Timestamp(seconds: 2, nanos: 2)
@@ -327,8 +327,8 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
         // Subtraction normalizes the result
         let r2: Google_Protobuf_Timestamp = Google_Protobuf_Timestamp() - Google_Protobuf_Duration(seconds: 0, nanos: 2000000001)
-        XCTAssertEqual(r2.seconds, -2)
-        XCTAssertEqual(r2.nanos, -1)
+        XCTAssertEqual(r2.seconds, -3)
+        XCTAssertEqual(r2.nanos, 999999999)
 
         // Subtraction normalizes the result
         let r3: Google_Protobuf_Duration = Google_Protobuf_Timestamp() - Google_Protobuf_Timestamp(seconds: 0, nanos: 2000000001)
@@ -353,10 +353,8 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
     }
 
 
-    // TODO: Should setter correct for mismatched nanos sign, out-of-range
+    // TODO: Should setter correct for out-of-range
     // nanos and other minor inconsistencies?
-
-    // TODO: Test that seconds and nanos must be same sign (e.g., 4.2 seconds *before* the epoch is seconds:-4, nanos:-200000000)
 
     // TODO: Consider implementing convenience
     // setters/getters/initializers that convert to
