@@ -93,11 +93,10 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
 }
 
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
-    guard isWithinValidDurationRange(seconds: seconds, nanos: nanos) else {
+    let (seconds, nanos) = normalizeForDuration(seconds: seconds, nanos: nanos)
+    guard seconds >= minDurationSeconds && seconds <= maxDurationSeconds else {
         return nil
     }
-
-    let (seconds, nanos) = normalizeForDuration(seconds: seconds, nanos: nanos)
 
     if nanos == 0 {
         return "\(seconds)s"
@@ -187,12 +186,6 @@ private func normalizeForDuration(seconds: Int64, nanos: Int32) -> (seconds: Int
 
     return (seconds: s, nanos: n)
 }
-
-private func isWithinValidDurationRange(seconds: Int64, nanos: Int32) -> Bool {
-    let (s, _) = normalizeForDuration(seconds: seconds, nanos: nanos)
-    return s >= minDurationSeconds && s <= maxDurationSeconds
-}
-
 
 public prefix func -(operand: Google_Protobuf_Duration) -> Google_Protobuf_Duration {
     let (s, n) = normalizeForDuration(seconds: -operand.seconds, nanos: -operand.nanos)

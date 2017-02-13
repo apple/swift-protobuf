@@ -195,11 +195,10 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
 }
 
 private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
-    guard isWithinValidTimestampRange(seconds: seconds, nanos: nanos) else {
+    let (seconds, nanos) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
+    guard seconds >= minTimestampSeconds && seconds <= maxTimestampSeconds else {
         return nil
     }
-
-    let (seconds, nanos) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
 
     // Can't just use gmtime() here because time_t is sometimes 32 bits. Ugh.
     let secondsSinceStartOfDay = (Int32(seconds % 86400) + 86400) % 86400
@@ -304,11 +303,6 @@ private func normalizeForTimestamp(seconds: Int64, nanos: Int32) -> (seconds: In
     let s = seconds + Int64(div(nanos, nanosPerSecond))
     let n = mod(nanos, nanosPerSecond)
     return (seconds: s, nanos: n)
-}
-
-private func isWithinValidTimestampRange(seconds: Int64, nanos: Int32) -> Bool {
-    let (s, _) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
-    return s >= minTimestampSeconds && s <= maxTimestampSeconds
 }
 
 public func+(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp {
