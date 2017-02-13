@@ -45,7 +45,7 @@ INSTALL=install
 # checkout. Invoke make with GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT] to
 # override this value, i.e. -
 #   make [TARGET] GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT]
-GOOGLE_PROTOBUF_CHECKOUT=../protobuf
+GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
 
 # Helpers for the common parts of source generation.
 #
