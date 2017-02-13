@@ -35,7 +35,7 @@ More information is available in the associated documentation:
  * [STYLE_GUIDELINES.md](Documentation/STYLE_GUIDELINES.md) documents the style
    guidelines we have adopted in our codebase if you are interested in
    contributing
- * [cocoapods.org](http://cocoadocs.org/docsets/SwiftProtobuf/) has the latest
+ * [cocoadocs.org](http://cocoadocs.org/docsets/SwiftProtobuf/) has the latest
    full API documentation
 
 ## Getting Started
