@@ -35,11 +35,3 @@ extension ProtoNameProviding {
     return Self._protobuf_fieldNames.fieldNames(for: number)
   }
 }
-
-
-extension ProtoNameProviding where Self: ExtensibleMessage {
-
-//  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-//    return Self._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
-//  }
-}
