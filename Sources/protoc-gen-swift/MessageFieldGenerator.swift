@@ -287,6 +287,30 @@ struct MessageFieldGenerator {
         (descriptor.options.hasPacked ? descriptor.options.packed : isProto3)}
     var isRepeated: Bool {return descriptor.isRepeated}
 
+    // True/False if the field will be hold a Message. If the field is a map,
+    // the value type for the map is checked.
+    var fieldHoldsMessage: Bool {
+        switch descriptor.label {
+        case .required, .optional:
+            let type = descriptor.type
+            return type == .message || type == .group
+        case .repeated:
+            let type = descriptor.type
+            if type == .group { return true }
+            if type == .message {
+                let m = context.getMessageForPath(path: descriptor.typeName)!
+                if m.options.mapEntry {
+                    let valueField = m.field[1]
+                    return valueField.type == .message
+                } else {
+                    return true
+                }
+            } else {
+                return false
+            }
+        }
+    }
+
     var name: String {return descriptor.name}
 
     var swiftBaseType: String {return descriptor.getSwiftBaseType(context: context)}
