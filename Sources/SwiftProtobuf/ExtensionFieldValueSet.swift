@@ -75,7 +75,7 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
 
   public func fieldProtoName(for number: Int) -> String? {
     if let n = values[number]?.protobufExtension.fieldNames {
-      return "[\(n.protoName)]"
+      return "[\(n.protoStaticStringName.description)]"
     }
     return nil
   }

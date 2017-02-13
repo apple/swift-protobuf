@@ -24,7 +24,7 @@
 private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
 
-private struct AsciiFieldName: Hashable {
+private struct AsciiName: Hashable {
     private let value: UnsafeBufferPointer<UInt8>
 
     init(buffer: UnsafeBufferPointer<UInt8>) {
@@ -43,7 +43,7 @@ private struct AsciiFieldName: Hashable {
         return h
     }
 
-    static func ==(lhs: AsciiFieldName, rhs: AsciiFieldName) -> Bool {
+    static func ==(lhs: AsciiName, rhs: AsciiName) -> Bool {
       if lhs.value.count != rhs.value.count {
           return false
       }
@@ -73,28 +73,19 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
     // in the payload once.
 
     /// Returns the proto (and text format) name in the bundle.
-    public var protoStaticStringName: StaticString {
+    internal var protoStaticStringName: StaticString {
       switch self {
       case .same(proto: let name): return name
       case .unique(proto: let name, json: _): return name
       }
     }
 
-    /// Returns the proto (and text format) name in the bundle.
-    public var protoName: String {
-      return protoStaticStringName.description
-    }
-
     /// Returns the JSON name in the bundle.
-    public var jsonStaticStringName: StaticString {
+    internal var jsonStaticStringName: StaticString {
       switch self {
       case .same(proto: let name): return name
       case .unique(proto: _, json: let name): return name
       }
-    }
-
-    public var jsonName: String {
-      return jsonStaticStringName.description
     }
   }
 
@@ -102,10 +93,10 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
   private var numberToNameMap: [Int: Names] = [:]
 
   /// The mapping from proto/text names to field numbers.
-  private var protoToNumberMap: [AsciiFieldName: Int] = [:]
+  private var protoToNumberMap: [AsciiName: Int] = [:]
 
   /// The mapping from JSON names to field numbers.
-  private var jsonToNumberMap: [AsciiFieldName: Int] = [:]
+  private var jsonToNumberMap: [AsciiName: Int] = [:]
 
   /// Creates a new empty field name/number mapping.
   public init() {}
@@ -116,14 +107,14 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
     for (number, name) in elements {
       numberToNameMap[number] = name
       let s = name.protoStaticStringName
-      let p = AsciiFieldName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
+      let p = AsciiName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
       protoToNumberMap[p] = number
     }
     // JSON map includes proto names as well.
     jsonToNumberMap = protoToNumberMap
     for (number, name) in elements {
       let s = name.jsonStaticStringName
-      let j = AsciiFieldName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
+      let j = AsciiName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
       jsonToNumberMap[j] = number
     }
   }
@@ -134,18 +125,8 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
     return numberToNameMap[number]
   }
 
-  /// Returns the field number that has the given proto/text name, or `nil` if
-  /// there is no match.
-  public func fieldNumber(forProtoName name: String) -> Int? {
-    let utf8 = Array(name.utf8)
-    return utf8.withUnsafeBufferPointer { (buffer: UnsafeBufferPointer<UInt8>) in
-      let n = AsciiFieldName(buffer: buffer)
-      return protoToNumberMap[n]
-    }
-  }
-
-  public func fieldNumber(forProtoName raw: UnsafeBufferPointer<UInt8>) -> Int? {
-    let n = AsciiFieldName(buffer: raw)
+  internal func fieldNumber(forProtoName raw: UnsafeBufferPointer<UInt8>) -> Int? {
+    let n = AsciiName(buffer: raw)
     return protoToNumberMap[n]
   }
 
@@ -156,10 +137,10 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
   /// the descriptor *as well as* its original proto/text name. Because of this,
   /// this function checks both mappings -- first the JSON mapping, then the
   /// proto mapping.
-  public func fieldNumber(forJSONName name: String) -> Int? {
+  internal func fieldNumber(forJSONName name: String) -> Int? {
     let utf8 = Array(name.utf8)
     return utf8.withUnsafeBufferPointer { (buffer: UnsafeBufferPointer<UInt8>) in
-      let n = AsciiFieldName(buffer: buffer)
+      let n = AsciiName(buffer: buffer)
       return jsonToNumberMap[n]
     }
   }
@@ -169,7 +150,7 @@ public struct FieldNameMap: ExpressibleByDictionaryLiteral {
   /// used by the JSON decoder to avoid the overhead of creating a new
   /// String object for every field name.
   internal func fieldNumber(forJSONName raw: UnsafeBufferPointer<UInt8>) -> Int? {
-    let n = AsciiFieldName(buffer: raw)
+    let n = AsciiName(buffer: raw)
     return jsonToNumberMap[n]
   }
 
