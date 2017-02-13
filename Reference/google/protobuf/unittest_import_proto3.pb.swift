@@ -77,16 +77,6 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "importEnumUnspecified": self = .importEnumUnspecified
-    case "importFoo": self = .importFoo
-    case "importBar": self = .importBar
-    case "importBaz": self = .importBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_ENUM_UNSPECIFIED": self = .importEnumUnspecified
@@ -119,40 +109,27 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .importEnumUnspecified: return "\"IMPORT_ENUM_UNSPECIFIED\""
-      case .importFoo: return "\"IMPORT_FOO\""
-      case .importBar: return "\"IMPORT_BAR\""
-      case .importBaz: return "\"IMPORT_BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .importEnumUnspecified: return "IMPORT_ENUM_UNSPECIFIED"
+      case .importFoo: return "IMPORT_FOO"
+      case .importBar: return "IMPORT_BAR"
+      case .importBaz: return "IMPORT_BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .importEnumUnspecified: return ".importEnumUnspecified"
-      case .importFoo: return ".importFoo"
-      case .importBar: return ".importBar"
-      case .importBaz: return ".importBaz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "d", swift: "d"),
+    1: .same(proto: "d"),
   ]
 
 

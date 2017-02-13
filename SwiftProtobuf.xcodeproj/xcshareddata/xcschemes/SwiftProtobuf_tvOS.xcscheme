@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F44F939E1DAEA7C500BC5B85"
-               BuildableName = "SwiftProtobufTestSuite_tvOS.xctest"
+               BuildableName = "SwiftProtobufTests.xctest"
                BlueprintName = "SwiftProtobufTestSuite_tvOS"
                ReferencedContainer = "container:SwiftProtobuf.xcodeproj">
             </BuildableReference>

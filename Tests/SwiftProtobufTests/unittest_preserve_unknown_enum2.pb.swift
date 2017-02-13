@@ -68,15 +68,6 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foo": self = .foo
-    case "bar": self = .bar
-    case "baz": self = .baz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo
@@ -105,41 +96,30 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo: return "\"FOO\""
-      case .bar: return "\"BAR\""
-      case .baz: return "\"BAZ\""
+      case .foo: return "FOO"
+      case .bar: return "BAR"
+      case .baz: return "BAZ"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      case .baz: return ".baz"
-      }
-    }
-  }
-
 }
 
 struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto2PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto2_preserve_unknown_enum_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "e", swift: "e"),
-    2: .unique(proto: "repeated_e", json: "repeatedE", swift: "repeatedE"),
-    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE", swift: "repeatedPackedE"),
-    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE", swift: "repeatedPackedUnexpectedE"),
-    5: .unique(proto: "oneof_e_1", json: "oneofE1", swift: "oneofE1"),
-    6: .unique(proto: "oneof_e_2", json: "oneofE2", swift: "oneofE2"),
+    1: .same(proto: "e"),
+    2: .unique(proto: "repeated_e", json: "repeatedE"),
+    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),
+    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE"),
+    5: .unique(proto: "oneof_e_1", json: "oneofE1"),
+    6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()

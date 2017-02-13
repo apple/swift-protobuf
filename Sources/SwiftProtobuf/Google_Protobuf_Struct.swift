@@ -28,14 +28,12 @@ public enum Google_Protobuf_NullValue: Enum {
     case nullValue
 
     public init?(rawValue: Int) {self = .nullValue}
-    public init?(name: String) {self = .nullValue}
     public init?(jsonName: String) {self = .nullValue}
     public init?(protoName: String) {self = .nullValue}
     public init() {self = .nullValue}
     public var rawValue: Int {return 0}
-    public var json: String {return "null"}
+    public var _protobuf_jsonName: String? {return "NULL_VALUE"}
     public var hashValue: Int {return 0}
-    public var debugDescription: String {return "NullValue"}
 }
 
 ///   `Struct` represents a structured data value, consisting of fields
@@ -50,11 +48,10 @@ public enum Google_Protobuf_NullValue: Enum {
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
 public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Struct"}
     public var protoMessageName: String {return "Struct"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .same(proto: "fields", swift: "fields"),
+        1: .same(proto: "fields"),
     ]
     public typealias Key = String
     public typealias Value = Google_Protobuf_Value
@@ -139,16 +136,15 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 ///
 ///   The JSON representation for `Value` is JSON value.
 public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Value"}
     public var protoMessageName: String {return "Value"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .unique(proto: "null_value", json: "nullValue", swift: "nullValue"),
-        2: .unique(proto: "number_value", json: "numberValue", swift: "numberValue"),
-        3: .unique(proto: "string_value", json: "stringValue", swift: "stringValue"),
-        4: .unique(proto: "bool_value", json: "boolValue", swift: "boolValue"),
-        5: .unique(proto: "struct_value", json: "structValue", swift: "structValue"),
-        6: .unique(proto: "list_value", json: "listValue", swift: "listValue"),
+        1: .unique(proto: "null_value", json: "nullValue"),
+        2: .unique(proto: "number_value", json: "numberValue"),
+        3: .unique(proto: "string_value", json: "stringValue"),
+        4: .unique(proto: "bool_value", json: "boolValue"),
+        5: .unique(proto: "struct_value", json: "structValue"),
+        6: .unique(proto: "list_value", json: "listValue"),
     ]
 
     // TODO: Would it make sense to collapse the implementation here and
@@ -291,25 +287,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 
     public init(any: Google_Protobuf_Any) throws {
         try any.unpackTo(target: &self)
-    }
-
-    public var debugDescription: String {
-        get {
-            do {
-                let json = try serializeJSON()
-                switch kind {
-                case .nullValue(_): return "\(swiftClassName)(null)"
-                case .numberValue(_): return "\(swiftClassName)(numberValue:\(json))"
-                case .stringValue(_): return"\(swiftClassName)(stringValue:\(json))"
-                case .boolValue(_): return"\(swiftClassName)(boolValue:\(json))"
-                case .structValue(_): return"\(swiftClassName)(structValue:\(json))"
-                case .listValue(_): return"\(swiftClassName)(listValue:\(json))"
-                case .None: return "\(swiftClassName)()"
-                }
-            } catch let e {
-                return "\(swiftClassName)(FAILURE: \(e))"
-            }
-        }
     }
 
     public func _protoc_generated_traverse(visitor: Visitor) throws {
@@ -543,11 +520,10 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 ///
 ///   The JSON representation for `ListValue` is JSON array.
 public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImplementationBase, ExpressibleByArrayLiteral, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_ListValue"}
     public var protoMessageName: String {return "ListValue"}
     public var protoPackageName: String {return "google.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .same(proto: "values", swift: "values"),
+        1: .same(proto: "values"),
     ]
 
     // TODO: Give this a direct array interface by proxying the interesting
@@ -615,17 +591,6 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
 
     public init(any: Google_Protobuf_Any) throws {
         try any.unpackTo(target: &self)
-    }
-
-    public var debugDescription: String {
-        get {
-            do {
-                let json = try serializeJSON()
-                return "\(swiftClassName)(\(json))"
-            } catch let e {
-                return "\(swiftClassName)(FAILURE: \(e))"
-            }
-        }
     }
 
     mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {

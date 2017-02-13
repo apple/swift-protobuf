@@ -71,14 +71,6 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "proto2": self = .proto2
-    case "proto3": self = .proto3
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "SYNTAX_PROTO2": self = .proto2
@@ -105,42 +97,31 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .proto2: return "\"SYNTAX_PROTO2\""
-      case .proto3: return "\"SYNTAX_PROTO3\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .proto2: return "SYNTAX_PROTO2"
+      case .proto3: return "SYNTAX_PROTO3"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .proto2: return ".proto2"
-      case .proto3: return ".proto3"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 ///   A protocol buffer message type.
 struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Type"}
   public var protoMessageName: String {return "Type"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "fields", swift: "fields"),
-    3: .same(proto: "oneofs", swift: "oneofs"),
-    4: .same(proto: "options", swift: "options"),
-    5: .unique(proto: "source_context", json: "sourceContext", swift: "sourceContext"),
-    6: .same(proto: "syntax", swift: "syntax"),
+    1: .same(proto: "name"),
+    2: .same(proto: "fields"),
+    3: .same(proto: "oneofs"),
+    4: .same(proto: "options"),
+    5: .unique(proto: "source_context", json: "sourceContext"),
+    6: .same(proto: "syntax"),
   ]
 
   private class _StorageClass {
@@ -278,20 +259,19 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 
 ///   A single field of a message type.
 struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Field"}
   public var protoMessageName: String {return "Field"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "kind", swift: "kind"),
-    2: .same(proto: "cardinality", swift: "cardinality"),
-    3: .same(proto: "number", swift: "number"),
-    4: .same(proto: "name", swift: "name"),
-    6: .unique(proto: "type_url", json: "typeUrl", swift: "typeURL"),
-    7: .unique(proto: "oneof_index", json: "oneofIndex", swift: "oneofIndex"),
-    8: .same(proto: "packed", swift: "packed"),
-    9: .same(proto: "options", swift: "options"),
-    10: .unique(proto: "json_name", json: "jsonName", swift: "jsonName"),
-    11: .unique(proto: "default_value", json: "defaultValue", swift: "defaultValue"),
+    1: .same(proto: "kind"),
+    2: .same(proto: "cardinality"),
+    3: .same(proto: "number"),
+    4: .same(proto: "name"),
+    6: .unique(proto: "type_url", json: "typeUrl"),
+    7: .unique(proto: "oneof_index", json: "oneofIndex"),
+    8: .same(proto: "packed"),
+    9: .same(proto: "options"),
+    10: .unique(proto: "json_name", json: "jsonName"),
+    11: .unique(proto: "default_value", json: "defaultValue"),
   ]
 
 
@@ -386,31 +366,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "typeUnknown": self = .typeUnknown
-      case "typeDouble": self = .typeDouble
-      case "typeFloat": self = .typeFloat
-      case "typeInt64": self = .typeInt64
-      case "typeUint64": self = .typeUint64
-      case "typeInt32": self = .typeInt32
-      case "typeFixed64": self = .typeFixed64
-      case "typeFixed32": self = .typeFixed32
-      case "typeBool": self = .typeBool
-      case "typeString": self = .typeString
-      case "typeGroup": self = .typeGroup
-      case "typeMessage": self = .typeMessage
-      case "typeBytes": self = .typeBytes
-      case "typeUint32": self = .typeUint32
-      case "typeEnum": self = .typeEnum
-      case "typeSfixed32": self = .typeSfixed32
-      case "typeSfixed64": self = .typeSfixed64
-      case "typeSint32": self = .typeSint32
-      case "typeSint64": self = .typeSint64
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "TYPE_UNKNOWN": self = .typeUnknown
@@ -488,61 +443,34 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .typeUnknown: return "\"TYPE_UNKNOWN\""
-        case .typeDouble: return "\"TYPE_DOUBLE\""
-        case .typeFloat: return "\"TYPE_FLOAT\""
-        case .typeInt64: return "\"TYPE_INT64\""
-        case .typeUint64: return "\"TYPE_UINT64\""
-        case .typeInt32: return "\"TYPE_INT32\""
-        case .typeFixed64: return "\"TYPE_FIXED64\""
-        case .typeFixed32: return "\"TYPE_FIXED32\""
-        case .typeBool: return "\"TYPE_BOOL\""
-        case .typeString: return "\"TYPE_STRING\""
-        case .typeGroup: return "\"TYPE_GROUP\""
-        case .typeMessage: return "\"TYPE_MESSAGE\""
-        case .typeBytes: return "\"TYPE_BYTES\""
-        case .typeUint32: return "\"TYPE_UINT32\""
-        case .typeEnum: return "\"TYPE_ENUM\""
-        case .typeSfixed32: return "\"TYPE_SFIXED32\""
-        case .typeSfixed64: return "\"TYPE_SFIXED64\""
-        case .typeSint32: return "\"TYPE_SINT32\""
-        case .typeSint64: return "\"TYPE_SINT64\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .typeUnknown: return "TYPE_UNKNOWN"
+        case .typeDouble: return "TYPE_DOUBLE"
+        case .typeFloat: return "TYPE_FLOAT"
+        case .typeInt64: return "TYPE_INT64"
+        case .typeUint64: return "TYPE_UINT64"
+        case .typeInt32: return "TYPE_INT32"
+        case .typeFixed64: return "TYPE_FIXED64"
+        case .typeFixed32: return "TYPE_FIXED32"
+        case .typeBool: return "TYPE_BOOL"
+        case .typeString: return "TYPE_STRING"
+        case .typeGroup: return "TYPE_GROUP"
+        case .typeMessage: return "TYPE_MESSAGE"
+        case .typeBytes: return "TYPE_BYTES"
+        case .typeUint32: return "TYPE_UINT32"
+        case .typeEnum: return "TYPE_ENUM"
+        case .typeSfixed32: return "TYPE_SFIXED32"
+        case .typeSfixed64: return "TYPE_SFIXED64"
+        case .typeSint32: return "TYPE_SINT32"
+        case .typeSint64: return "TYPE_SINT64"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .typeUnknown: return ".typeUnknown"
-        case .typeDouble: return ".typeDouble"
-        case .typeFloat: return ".typeFloat"
-        case .typeInt64: return ".typeInt64"
-        case .typeUint64: return ".typeUint64"
-        case .typeInt32: return ".typeInt32"
-        case .typeFixed64: return ".typeFixed64"
-        case .typeFixed32: return ".typeFixed32"
-        case .typeBool: return ".typeBool"
-        case .typeString: return ".typeString"
-        case .typeGroup: return ".typeGroup"
-        case .typeMessage: return ".typeMessage"
-        case .typeBytes: return ".typeBytes"
-        case .typeUint32: return ".typeUint32"
-        case .typeEnum: return ".typeEnum"
-        case .typeSfixed32: return ".typeSfixed32"
-        case .typeSfixed64: return ".typeSfixed64"
-        case .typeSint32: return ".typeSint32"
-        case .typeSint64: return ".typeSint64"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -574,16 +502,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       case 2: self = .`required`
       case 3: self = .repeated
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "unknown": self = .unknown
-      case "optional": self = .`optional`
-      case "required": self = .`required`
-      case "repeated": self = .repeated
-      default: return nil
       }
     }
 
@@ -619,31 +537,19 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .unknown: return "\"CARDINALITY_UNKNOWN\""
-        case .`optional`: return "\"CARDINALITY_OPTIONAL\""
-        case .`required`: return "\"CARDINALITY_REQUIRED\""
-        case .repeated: return "\"CARDINALITY_REPEATED\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .unknown: return "CARDINALITY_UNKNOWN"
+        case .`optional`: return "CARDINALITY_OPTIONAL"
+        case .`required`: return "CARDINALITY_REQUIRED"
+        case .repeated: return "CARDINALITY_REPEATED"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .unknown: return ".unknown"
-        case .`optional`: return ".optional"
-        case .`required`: return ".required"
-        case .repeated: return ".repeated"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -747,15 +653,14 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 
 ///   Enum type definition.
 struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Enum"}
   public var protoMessageName: String {return "Enum"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "enumvalue", swift: "enumvalue"),
-    3: .same(proto: "options", swift: "options"),
-    4: .unique(proto: "source_context", json: "sourceContext", swift: "sourceContext"),
-    5: .same(proto: "syntax", swift: "syntax"),
+    1: .same(proto: "name"),
+    2: .same(proto: "enumvalue"),
+    3: .same(proto: "options"),
+    4: .unique(proto: "source_context", json: "sourceContext"),
+    5: .same(proto: "syntax"),
   ]
 
   private class _StorageClass {
@@ -880,13 +785,12 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 
 ///   Enum value definition.
 struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_EnumValue"}
   public var protoMessageName: String {return "EnumValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "number", swift: "number"),
-    3: .same(proto: "options", swift: "options"),
+    1: .same(proto: "name"),
+    2: .same(proto: "number"),
+    3: .same(proto: "options"),
   ]
 
 
@@ -933,12 +837,11 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 ///   A protocol buffer option, which can be attached to a message, field,
 ///   enumeration, etc.
 struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Option"}
   public var protoMessageName: String {return "Option"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "name", swift: "name"),
-    2: .same(proto: "value", swift: "value"),
+    1: .same(proto: "name"),
+    2: .same(proto: "value"),
   ]
 
   private class _StorageClass {

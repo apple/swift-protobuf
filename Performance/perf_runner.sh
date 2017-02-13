@@ -114,10 +114,6 @@ EOF
   DYLD_LIBRARY_PATH="$script_dir/_generated" "$harness" "$partial_results"
   sleep 3
 
-  echo "Running $language test harness in Instruments..."
-  instruments -t "$script_dir/Protobuf" -D "$results_trace" \
-      "$harness" -e DYLD_LIBRARY_PATH "$script_dir/_generated"
-
   cp "$harness" "${harness}_stripped"
   strip -u -r "${harness}_stripped"
   unstripped_size=$(stat -f "%z" "$harness")
@@ -134,6 +130,15 @@ EOF
       },
     },
 EOF
+}
+
+function profile_harness() {
+  language="$1"
+  harness="$2"
+
+  echo "Running $language test harness in Instruments..."
+  instruments -t "$script_dir/Protobuf" -D "$results_trace" \
+      "$harness" -e DYLD_LIBRARY_PATH "$script_dir/_generated"
 }
 
 # Inserts the partial visualization results from all the languages tested into
@@ -237,14 +242,14 @@ for field_type in "${requested_field_types[@]}"; do
     uncommitted_changes: $([[ -z $(git status -s) ]] && echo false || echo true),
 EOF
 
+  harness_cpp="$script_dir/_generated/harness_cpp"
+  results_trace="$script_dir/_results/$field_count fields of $field_type (cpp)"
+  run_cpp_harness "$harness_cpp"
+
   harness_swift="$script_dir/_generated/harness_swift"
   results_trace="$script_dir/_results/$field_count fields of $field_type (swift)"
   display_results_trace="$results_trace"
   run_swift_harness "$harness_swift"
-
-  harness_cpp="$script_dir/_generated/harness_cpp"
-  results_trace="$script_dir/_results/$field_count fields of $field_type (cpp)"
-  run_cpp_harness "$harness_cpp"
 
   # Close out the session.
   cat >> "$partial_results" <<EOF

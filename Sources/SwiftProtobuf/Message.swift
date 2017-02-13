@@ -52,7 +52,6 @@ public protocol Message: CustomDebugStringConvertible {
   // Metadata
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
-  /// Name of this message's concrete Swift type
   var swiftClassName: String { get }
 
   /// Name of the message from the original .proto file
@@ -183,7 +182,19 @@ public extension Message {
   /// Uses a `Visitor` to recursively generate a description. May be overridden
   /// to improve readability and/or performance.
   var debugDescription: String {
-    return DebugDescriptionVisitor(message: self).description
+    // TODO Ideally there would be something like serializeText() that can
+    // take a prefix so we could do something like:
+    //   [class name](
+    //      [text format]
+    //   )
+    let className = String(reflecting: type(of: self))
+    var result = "\(className):\n"
+    if let textFormat = try? serializeText() {
+      result += textFormat
+    } else {
+      result += "<internal error>"
+    }
+    return result
   }
 
   // TODO: Add an option to the generator to override this in particular

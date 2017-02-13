@@ -69,15 +69,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foo": self = .foo
-    case "bar": self = .bar
-    case "baz": self = .baz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOO": self = .foo
@@ -107,29 +98,18 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foo: return "\"FOO\""
-      case .bar: return "\"BAR\""
-      case .baz: return "\"BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .foo: return "FOO"
+      case .bar: return "BAR"
+      case .baz: return "BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      case .baz: return ".baz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -152,16 +132,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
     case 2: self = .eBaz
     case 3: self = .eExtra
     default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "eFoo": self = .eFoo
-    case "eBar": self = .eBar
-    case "eBaz": self = .eBaz
-    case "eExtra": self = .eExtra
-    default: return nil
     }
   }
 
@@ -197,45 +167,32 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .eFoo: return "\"E_FOO\""
-      case .eBar: return "\"E_BAR\""
-      case .eBaz: return "\"E_BAZ\""
-      case .eExtra: return "\"E_EXTRA\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .eFoo: return "E_FOO"
+      case .eBar: return "E_BAR"
+      case .eBaz: return "E_BAZ"
+      case .eExtra: return "E_EXTRA"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .eFoo: return ".eFoo"
-      case .eBar: return ".eBar"
-      case .eBaz: return ".eBaz"
-      case .eExtra: return ".eExtra"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessage"}
   public var protoMessageName: String {return "MyMessage"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "e", swift: "e"),
-    2: .unique(proto: "repeated_e", json: "repeatedE", swift: "repeatedE"),
-    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE", swift: "repeatedPackedE"),
-    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE", swift: "repeatedPackedUnexpectedE"),
-    5: .unique(proto: "oneof_e_1", json: "oneofE1", swift: "oneofE1"),
-    6: .unique(proto: "oneof_e_2", json: "oneofE2", swift: "oneofE2"),
+    1: .same(proto: "e"),
+    2: .unique(proto: "repeated_e", json: "repeatedE"),
+    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),
+    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE"),
+    5: .unique(proto: "oneof_e_1", json: "oneofE1"),
+    6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
 
@@ -370,16 +327,15 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra"}
   public var protoMessageName: String {return "MyMessagePlusExtra"}
   public var protoPackageName: String {return "proto3_preserve_unknown_enum_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "e", swift: "e"),
-    2: .unique(proto: "repeated_e", json: "repeatedE", swift: "repeatedE"),
-    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE", swift: "repeatedPackedE"),
-    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE", swift: "repeatedPackedUnexpectedE"),
-    5: .unique(proto: "oneof_e_1", json: "oneofE1", swift: "oneofE1"),
-    6: .unique(proto: "oneof_e_2", json: "oneofE2", swift: "oneofE2"),
+    1: .same(proto: "e"),
+    2: .unique(proto: "repeated_e", json: "repeatedE"),
+    3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),
+    4: .unique(proto: "repeated_packed_unexpected_e", json: "repeatedPackedUnexpectedE"),
+    5: .unique(proto: "oneof_e_1", json: "oneofE1"),
+    6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
 

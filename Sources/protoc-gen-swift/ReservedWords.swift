@@ -79,7 +79,6 @@ private let reservedTypeNames: Set<String> = [
             "struct",
             "subscript",
             "super",
-            "swiftClassName",
             "switch",
             "throw",
             "throws",
@@ -182,7 +181,6 @@ private let reservedFieldNames: Set<String> = [
             "struct",
             "subscript",
             "super",
-            "swiftClassName",
             "switch",
             "throw",
             "throws",
@@ -275,7 +273,6 @@ private let reservedEnumCases: Set<String> = [
             "debugDescription",
             "hashValue",
             "init",
-            "json",
             "rawValue",
             "self",
         ]

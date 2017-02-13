@@ -72,15 +72,6 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignLiteFoo": self = .foreignLiteFoo
-    case "foreignLiteBar": self = .foreignLiteBar
-    case "foreignLiteBaz": self = .foreignLiteBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_LITE_FOO": self = .foreignLiteFoo
@@ -109,27 +100,17 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignLiteFoo: return "\"FOREIGN_LITE_FOO\""
-      case .foreignLiteBar: return "\"FOREIGN_LITE_BAR\""
-      case .foreignLiteBaz: return "\"FOREIGN_LITE_BAZ\""
+      case .foreignLiteFoo: return "FOREIGN_LITE_FOO"
+      case .foreignLiteBar: return "FOREIGN_LITE_BAR"
+      case .foreignLiteBaz: return "FOREIGN_LITE_BAZ"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignLiteFoo: return ".foreignLiteFoo"
-      case .foreignLiteBar: return ".foreignLiteBar"
-      case .foreignLiteBaz: return ".foreignLiteBaz"
-      }
-    }
-  }
 
 }
 
@@ -144,13 +125,6 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
   init?(rawValue: Int) {
     switch rawValue {
     case 1: self = .v1First
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "v1First": self = .v1First
     default: return nil
     }
   }
@@ -177,23 +151,15 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .v1First: return "\"V1_FIRST\""
+      case .v1First: return "V1_FIRST"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .v1First: return ".v1First"
-      }
-    }
-  }
 
 }
 
@@ -210,14 +176,6 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
     switch rawValue {
     case 1: self = .v2First
     case 2: self = .v2Second
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "v2First": self = .v2First
-    case "v2Second": self = .v2Second
     default: return nil
     }
   }
@@ -247,111 +205,101 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .v2First: return "\"V2_FIRST\""
-      case .v2Second: return "\"V2_SECOND\""
+      case .v2First: return "V2_FIRST"
+      case .v2Second: return "V2_SECOND"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .v2First: return ".v2First"
-      case .v2Second: return ".v2Second"
-      }
-    }
-  }
-
 }
 
 ///   Same as TestAllTypes but with the lite runtime.
 struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestAllTypesLite"}
   public var protoMessageName: String {return "TestAllTypesLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "optional_int32", json: "optionalInt32", swift: "optionalInt32"),
-    2: .unique(proto: "optional_int64", json: "optionalInt64", swift: "optionalInt64"),
-    3: .unique(proto: "optional_uint32", json: "optionalUint32", swift: "optionalUint32"),
-    4: .unique(proto: "optional_uint64", json: "optionalUint64", swift: "optionalUint64"),
-    5: .unique(proto: "optional_sint32", json: "optionalSint32", swift: "optionalSint32"),
-    6: .unique(proto: "optional_sint64", json: "optionalSint64", swift: "optionalSint64"),
-    7: .unique(proto: "optional_fixed32", json: "optionalFixed32", swift: "optionalFixed32"),
-    8: .unique(proto: "optional_fixed64", json: "optionalFixed64", swift: "optionalFixed64"),
-    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32", swift: "optionalSfixed32"),
-    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64", swift: "optionalSfixed64"),
-    11: .unique(proto: "optional_float", json: "optionalFloat", swift: "optionalFloat"),
-    12: .unique(proto: "optional_double", json: "optionalDouble", swift: "optionalDouble"),
-    13: .unique(proto: "optional_bool", json: "optionalBool", swift: "optionalBool"),
-    14: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
-    15: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
-    16: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
-    18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage", swift: "optionalNestedMessage"),
-    19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage", swift: "optionalForeignMessage"),
-    20: .unique(proto: "optional_import_message", json: "optionalImportMessage", swift: "optionalImportMessage"),
-    21: .unique(proto: "optional_nested_enum", json: "optionalNestedEnum", swift: "optionalNestedEnum"),
-    22: .unique(proto: "optional_foreign_enum", json: "optionalForeignEnum", swift: "optionalForeignEnum"),
-    23: .unique(proto: "optional_import_enum", json: "optionalImportEnum", swift: "optionalImportEnum"),
-    24: .unique(proto: "optional_string_piece", json: "optionalStringPiece", swift: "optionalStringPiece"),
-    25: .unique(proto: "optional_cord", json: "optionalCord", swift: "optionalCord"),
-    26: .unique(proto: "optional_public_import_message", json: "optionalPublicImportMessage", swift: "optionalPublicImportMessage"),
-    27: .unique(proto: "optional_lazy_message", json: "optionalLazyMessage", swift: "optionalLazyMessage"),
-    31: .unique(proto: "repeated_int32", json: "repeatedInt32", swift: "repeatedInt32"),
-    32: .unique(proto: "repeated_int64", json: "repeatedInt64", swift: "repeatedInt64"),
-    33: .unique(proto: "repeated_uint32", json: "repeatedUint32", swift: "repeatedUint32"),
-    34: .unique(proto: "repeated_uint64", json: "repeatedUint64", swift: "repeatedUint64"),
-    35: .unique(proto: "repeated_sint32", json: "repeatedSint32", swift: "repeatedSint32"),
-    36: .unique(proto: "repeated_sint64", json: "repeatedSint64", swift: "repeatedSint64"),
-    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32", swift: "repeatedFixed32"),
-    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64", swift: "repeatedFixed64"),
-    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32", swift: "repeatedSfixed32"),
-    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64", swift: "repeatedSfixed64"),
-    41: .unique(proto: "repeated_float", json: "repeatedFloat", swift: "repeatedFloat"),
-    42: .unique(proto: "repeated_double", json: "repeatedDouble", swift: "repeatedDouble"),
-    43: .unique(proto: "repeated_bool", json: "repeatedBool", swift: "repeatedBool"),
-    44: .unique(proto: "repeated_string", json: "repeatedString", swift: "repeatedString"),
-    45: .unique(proto: "repeated_bytes", json: "repeatedBytes", swift: "repeatedBytes"),
-    46: .unique(proto: "RepeatedGroup", json: "repeatedgroup", swift: "repeatedGroup"),
-    48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
-    49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage", swift: "repeatedForeignMessage"),
-    50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage", swift: "repeatedImportMessage"),
-    51: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum", swift: "repeatedNestedEnum"),
-    52: .unique(proto: "repeated_foreign_enum", json: "repeatedForeignEnum", swift: "repeatedForeignEnum"),
-    53: .unique(proto: "repeated_import_enum", json: "repeatedImportEnum", swift: "repeatedImportEnum"),
-    54: .unique(proto: "repeated_string_piece", json: "repeatedStringPiece", swift: "repeatedStringPiece"),
-    55: .unique(proto: "repeated_cord", json: "repeatedCord", swift: "repeatedCord"),
-    57: .unique(proto: "repeated_lazy_message", json: "repeatedLazyMessage", swift: "repeatedLazyMessage"),
-    61: .unique(proto: "default_int32", json: "defaultInt32", swift: "defaultInt32"),
-    62: .unique(proto: "default_int64", json: "defaultInt64", swift: "defaultInt64"),
-    63: .unique(proto: "default_uint32", json: "defaultUint32", swift: "defaultUint32"),
-    64: .unique(proto: "default_uint64", json: "defaultUint64", swift: "defaultUint64"),
-    65: .unique(proto: "default_sint32", json: "defaultSint32", swift: "defaultSint32"),
-    66: .unique(proto: "default_sint64", json: "defaultSint64", swift: "defaultSint64"),
-    67: .unique(proto: "default_fixed32", json: "defaultFixed32", swift: "defaultFixed32"),
-    68: .unique(proto: "default_fixed64", json: "defaultFixed64", swift: "defaultFixed64"),
-    69: .unique(proto: "default_sfixed32", json: "defaultSfixed32", swift: "defaultSfixed32"),
-    70: .unique(proto: "default_sfixed64", json: "defaultSfixed64", swift: "defaultSfixed64"),
-    71: .unique(proto: "default_float", json: "defaultFloat", swift: "defaultFloat"),
-    72: .unique(proto: "default_double", json: "defaultDouble", swift: "defaultDouble"),
-    73: .unique(proto: "default_bool", json: "defaultBool", swift: "defaultBool"),
-    74: .unique(proto: "default_string", json: "defaultString", swift: "defaultString"),
-    75: .unique(proto: "default_bytes", json: "defaultBytes", swift: "defaultBytes"),
-    81: .unique(proto: "default_nested_enum", json: "defaultNestedEnum", swift: "defaultNestedEnum"),
-    82: .unique(proto: "default_foreign_enum", json: "defaultForeignEnum", swift: "defaultForeignEnum"),
-    83: .unique(proto: "default_import_enum", json: "defaultImportEnum", swift: "defaultImportEnum"),
-    84: .unique(proto: "default_string_piece", json: "defaultStringPiece", swift: "defaultStringPiece"),
-    85: .unique(proto: "default_cord", json: "defaultCord", swift: "defaultCord"),
-    111: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
-    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage", swift: "oneofNestedMessage"),
-    113: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
-    114: .unique(proto: "oneof_bytes", json: "oneofBytes", swift: "oneofBytes"),
-    115: .unique(proto: "oneof_lazy_nested_message", json: "oneofLazyNestedMessage", swift: "oneofLazyNestedMessage"),
-    116: .unique(proto: "deceptively_named_list", json: "deceptivelyNamedList", swift: "deceptivelyNamedList"),
+    1: .unique(proto: "optional_int32", json: "optionalInt32"),
+    2: .unique(proto: "optional_int64", json: "optionalInt64"),
+    3: .unique(proto: "optional_uint32", json: "optionalUint32"),
+    4: .unique(proto: "optional_uint64", json: "optionalUint64"),
+    5: .unique(proto: "optional_sint32", json: "optionalSint32"),
+    6: .unique(proto: "optional_sint64", json: "optionalSint64"),
+    7: .unique(proto: "optional_fixed32", json: "optionalFixed32"),
+    8: .unique(proto: "optional_fixed64", json: "optionalFixed64"),
+    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32"),
+    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64"),
+    11: .unique(proto: "optional_float", json: "optionalFloat"),
+    12: .unique(proto: "optional_double", json: "optionalDouble"),
+    13: .unique(proto: "optional_bool", json: "optionalBool"),
+    14: .unique(proto: "optional_string", json: "optionalString"),
+    15: .unique(proto: "optional_bytes", json: "optionalBytes"),
+    16: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+    18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage"),
+    19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage"),
+    20: .unique(proto: "optional_import_message", json: "optionalImportMessage"),
+    21: .unique(proto: "optional_nested_enum", json: "optionalNestedEnum"),
+    22: .unique(proto: "optional_foreign_enum", json: "optionalForeignEnum"),
+    23: .unique(proto: "optional_import_enum", json: "optionalImportEnum"),
+    24: .unique(proto: "optional_string_piece", json: "optionalStringPiece"),
+    25: .unique(proto: "optional_cord", json: "optionalCord"),
+    26: .unique(proto: "optional_public_import_message", json: "optionalPublicImportMessage"),
+    27: .unique(proto: "optional_lazy_message", json: "optionalLazyMessage"),
+    31: .unique(proto: "repeated_int32", json: "repeatedInt32"),
+    32: .unique(proto: "repeated_int64", json: "repeatedInt64"),
+    33: .unique(proto: "repeated_uint32", json: "repeatedUint32"),
+    34: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
+    35: .unique(proto: "repeated_sint32", json: "repeatedSint32"),
+    36: .unique(proto: "repeated_sint64", json: "repeatedSint64"),
+    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
+    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64"),
+    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32"),
+    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64"),
+    41: .unique(proto: "repeated_float", json: "repeatedFloat"),
+    42: .unique(proto: "repeated_double", json: "repeatedDouble"),
+    43: .unique(proto: "repeated_bool", json: "repeatedBool"),
+    44: .unique(proto: "repeated_string", json: "repeatedString"),
+    45: .unique(proto: "repeated_bytes", json: "repeatedBytes"),
+    46: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
+    48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
+    49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage"),
+    50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage"),
+    51: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum"),
+    52: .unique(proto: "repeated_foreign_enum", json: "repeatedForeignEnum"),
+    53: .unique(proto: "repeated_import_enum", json: "repeatedImportEnum"),
+    54: .unique(proto: "repeated_string_piece", json: "repeatedStringPiece"),
+    55: .unique(proto: "repeated_cord", json: "repeatedCord"),
+    57: .unique(proto: "repeated_lazy_message", json: "repeatedLazyMessage"),
+    61: .unique(proto: "default_int32", json: "defaultInt32"),
+    62: .unique(proto: "default_int64", json: "defaultInt64"),
+    63: .unique(proto: "default_uint32", json: "defaultUint32"),
+    64: .unique(proto: "default_uint64", json: "defaultUint64"),
+    65: .unique(proto: "default_sint32", json: "defaultSint32"),
+    66: .unique(proto: "default_sint64", json: "defaultSint64"),
+    67: .unique(proto: "default_fixed32", json: "defaultFixed32"),
+    68: .unique(proto: "default_fixed64", json: "defaultFixed64"),
+    69: .unique(proto: "default_sfixed32", json: "defaultSfixed32"),
+    70: .unique(proto: "default_sfixed64", json: "defaultSfixed64"),
+    71: .unique(proto: "default_float", json: "defaultFloat"),
+    72: .unique(proto: "default_double", json: "defaultDouble"),
+    73: .unique(proto: "default_bool", json: "defaultBool"),
+    74: .unique(proto: "default_string", json: "defaultString"),
+    75: .unique(proto: "default_bytes", json: "defaultBytes"),
+    81: .unique(proto: "default_nested_enum", json: "defaultNestedEnum"),
+    82: .unique(proto: "default_foreign_enum", json: "defaultForeignEnum"),
+    83: .unique(proto: "default_import_enum", json: "defaultImportEnum"),
+    84: .unique(proto: "default_string_piece", json: "defaultStringPiece"),
+    85: .unique(proto: "default_cord", json: "defaultCord"),
+    111: .unique(proto: "oneof_uint32", json: "oneofUint32"),
+    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage"),
+    113: .unique(proto: "oneof_string", json: "oneofString"),
+    114: .unique(proto: "oneof_bytes", json: "oneofBytes"),
+    115: .unique(proto: "oneof_lazy_nested_message", json: "oneofLazyNestedMessage"),
+    116: .unique(proto: "deceptively_named_list", json: "deceptivelyNamedList"),
   ]
 
   private class _StorageClass {
@@ -1013,15 +961,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
@@ -1050,37 +989,26 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        }
-      }
-    }
-
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_TestAllTypesLite.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "bb", swift: "bb"),
-      2: .same(proto: "cc", swift: "cc"),
+      1: .same(proto: "bb"),
+      2: .same(proto: "cc"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -1138,11 +1066,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_TestAllTypesLite.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      17: .same(proto: "a", swift: "a"),
+      17: .same(proto: "a"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -1183,11 +1110,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_TestAllTypesLite.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      47: .same(proto: "a", swift: "a"),
+      47: .same(proto: "a"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -1964,11 +1890,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
 }
 
 struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_ForeignMessageLite"}
   public var protoMessageName: String {return "ForeignMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "c", swift: "c"),
+    1: .same(proto: "c"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -2009,24 +1934,23 @@ struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestPackedTypesLite"}
   public var protoMessageName: String {return "TestPackedTypesLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    90: .unique(proto: "packed_int32", json: "packedInt32", swift: "packedInt32"),
-    91: .unique(proto: "packed_int64", json: "packedInt64", swift: "packedInt64"),
-    92: .unique(proto: "packed_uint32", json: "packedUint32", swift: "packedUint32"),
-    93: .unique(proto: "packed_uint64", json: "packedUint64", swift: "packedUint64"),
-    94: .unique(proto: "packed_sint32", json: "packedSint32", swift: "packedSint32"),
-    95: .unique(proto: "packed_sint64", json: "packedSint64", swift: "packedSint64"),
-    96: .unique(proto: "packed_fixed32", json: "packedFixed32", swift: "packedFixed32"),
-    97: .unique(proto: "packed_fixed64", json: "packedFixed64", swift: "packedFixed64"),
-    98: .unique(proto: "packed_sfixed32", json: "packedSfixed32", swift: "packedSfixed32"),
-    99: .unique(proto: "packed_sfixed64", json: "packedSfixed64", swift: "packedSfixed64"),
-    100: .unique(proto: "packed_float", json: "packedFloat", swift: "packedFloat"),
-    101: .unique(proto: "packed_double", json: "packedDouble", swift: "packedDouble"),
-    102: .unique(proto: "packed_bool", json: "packedBool", swift: "packedBool"),
-    103: .unique(proto: "packed_enum", json: "packedEnum", swift: "packedEnum"),
+    90: .unique(proto: "packed_int32", json: "packedInt32"),
+    91: .unique(proto: "packed_int64", json: "packedInt64"),
+    92: .unique(proto: "packed_uint32", json: "packedUint32"),
+    93: .unique(proto: "packed_uint64", json: "packedUint64"),
+    94: .unique(proto: "packed_sint32", json: "packedSint32"),
+    95: .unique(proto: "packed_sint64", json: "packedSint64"),
+    96: .unique(proto: "packed_fixed32", json: "packedFixed32"),
+    97: .unique(proto: "packed_fixed64", json: "packedFixed64"),
+    98: .unique(proto: "packed_sfixed32", json: "packedSfixed32"),
+    99: .unique(proto: "packed_sfixed64", json: "packedSfixed64"),
+    100: .unique(proto: "packed_float", json: "packedFloat"),
+    101: .unique(proto: "packed_double", json: "packedDouble"),
+    102: .unique(proto: "packed_bool", json: "packedBool"),
+    103: .unique(proto: "packed_enum", json: "packedEnum"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -2148,7 +2072,6 @@ struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobu
 }
 
 struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestAllExtensionsLite"}
   public var protoMessageName: String {return "TestAllExtensionsLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -2200,11 +2123,10 @@ struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProto
 }
 
 struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_OptionalGroup_extension_lite"}
   public var protoMessageName: String {return "OptionalGroup_extension_lite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    17: .same(proto: "a", swift: "a"),
+    17: .same(proto: "a"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -2245,11 +2167,10 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, Swi
 }
 
 struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_RepeatedGroup_extension_lite"}
   public var protoMessageName: String {return "RepeatedGroup_extension_lite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    47: .same(proto: "a", swift: "a"),
+    47: .same(proto: "a"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -2290,7 +2211,6 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, Swi
 }
 
 struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestPackedExtensionsLite"}
   public var protoMessageName: String {return "TestPackedExtensionsLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -2342,7 +2262,6 @@ struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftPr
 }
 
 struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestNestedExtensionLite"}
   public var protoMessageName: String {return "TestNestedExtensionLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -2353,7 +2272,7 @@ struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftPro
 
     static let nestedExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
       protoFieldNumber: 12345,
-      fieldNames: .same(proto: "protobuf_unittest.TestNestedExtensionLite.nested_extension", swift: "ProtobufUnittest_TestNestedExtensionLite_nestedExtension"),
+      fieldNames: .same(proto: "protobuf_unittest.TestNestedExtensionLite.nested_extension"),
       defaultValue: 0
     )
   }
@@ -2376,11 +2295,10 @@ struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftPro
 ///   Test that deprecated fields work.  We only verify that they compile (at one
 ///   point this failed).
 struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestDeprecatedLite"}
   public var protoMessageName: String {return "TestDeprecatedLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "deprecated_field", json: "deprecatedField", swift: "deprecatedField"),
+    1: .unique(proto: "deprecated_field", json: "deprecatedField"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -2422,15 +2340,14 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf
 
 ///   See the comments of the same type in unittest.proto.
 struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite"}
   public var protoMessageName: String {return "TestParsingMergeLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "required_all_types", json: "requiredAllTypes", swift: "requiredAllTypes"),
-    2: .unique(proto: "optional_all_types", json: "optionalAllTypes", swift: "optionalAllTypes"),
-    3: .unique(proto: "repeated_all_types", json: "repeatedAllTypes", swift: "repeatedAllTypes"),
-    10: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
-    20: .unique(proto: "RepeatedGroup", json: "repeatedgroup", swift: "repeatedGroup"),
+    1: .unique(proto: "required_all_types", json: "requiredAllTypes"),
+    2: .unique(proto: "optional_all_types", json: "optionalAllTypes"),
+    3: .unique(proto: "repeated_all_types", json: "repeatedAllTypes"),
+    10: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+    20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
   ]
 
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
@@ -2510,27 +2427,25 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   struct RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator"}
     public var protoMessageName: String {return "RepeatedFieldsGenerator"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "field1", swift: "field1"),
-      2: .same(proto: "field2", swift: "field2"),
-      3: .same(proto: "field3", swift: "field3"),
-      10: .unique(proto: "Group1", json: "group1", swift: "group1"),
-      20: .unique(proto: "Group2", json: "group2", swift: "group2"),
-      1000: .same(proto: "ext1", swift: "ext1"),
-      1001: .same(proto: "ext2", swift: "ext2"),
+      1: .same(proto: "field1"),
+      2: .same(proto: "field2"),
+      3: .same(proto: "field3"),
+      10: .unique(proto: "Group1", json: "group1"),
+      20: .unique(proto: "Group2", json: "group2"),
+      1000: .same(proto: "ext1"),
+      1001: .same(proto: "ext2"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
 
     struct Group1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-      public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1"}
       public var protoMessageName: String {return "Group1"}
       public var protoPackageName: String {return "protobuf_unittest"}
       public static let _protobuf_fieldNames: FieldNameMap = [
-        11: .same(proto: "field1", swift: "field1"),
+        11: .same(proto: "field1"),
       ]
 
       private class _StorageClass {
@@ -2609,11 +2524,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     }
 
     struct Group2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-      public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2"}
       public var protoMessageName: String {return "Group2"}
       public var protoPackageName: String {return "protobuf_unittest"}
       public static let _protobuf_fieldNames: FieldNameMap = [
-        21: .same(proto: "field1", swift: "field1"),
+        21: .same(proto: "field1"),
       ]
 
       private class _StorageClass {
@@ -2759,11 +2673,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      11: .unique(proto: "optional_group_all_types", json: "optionalGroupAllTypes", swift: "optionalGroupAllTypes"),
+      11: .unique(proto: "optional_group_all_types", json: "optionalGroupAllTypes"),
     ]
 
     private class _StorageClass {
@@ -2842,11 +2755,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_TestParsingMergeLite.RepeatedGroup"}
     public var protoMessageName: String {return "RepeatedGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      21: .unique(proto: "repeated_group_all_types", json: "repeatedGroupAllTypes", swift: "repeatedGroupAllTypes"),
+      21: .unique(proto: "repeated_group_all_types", json: "repeatedGroupAllTypes"),
     ]
 
     private class _StorageClass {
@@ -2928,13 +2840,13 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
     static let optionalExt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestParsingMergeLite>(
       protoFieldNumber: 1000,
-      fieldNames: .same(proto: "protobuf_unittest.TestParsingMergeLite.optional_ext", swift: "ProtobufUnittest_TestParsingMergeLite_optionalExt"),
+      fieldNames: .same(proto: "protobuf_unittest.TestParsingMergeLite.optional_ext"),
       defaultValue: ProtobufUnittest_TestAllTypesLite()
     )
 
     static let repeatedExt = SwiftProtobuf.MessageExtension<RepeatedMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestParsingMergeLite>(
       protoFieldNumber: 1001,
-      fieldNames: .same(proto: "protobuf_unittest.TestParsingMergeLite.repeated_ext", swift: "ProtobufUnittest_TestParsingMergeLite_repeatedExt"),
+      fieldNames: .same(proto: "protobuf_unittest.TestParsingMergeLite.repeated_ext"),
       defaultValue: []
     )
   }
@@ -3025,7 +2937,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
 ///   TestEmptyMessageLite is used to test unknown fields support in lite mode.
 struct ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestEmptyMessageLite"}
   public var protoMessageName: String {return "TestEmptyMessageLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -3050,7 +2961,6 @@ struct ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtob
 ///   Like above, but declare all field numbers as potential extensions.  No
 ///   actual extensions should ever be defined for this type.
 struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestEmptyMessageWithExtensionsLite"}
   public var protoMessageName: String {return "TestEmptyMessageWithExtensionsLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -3102,12 +3012,11 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Messag
 }
 
 struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_V1MessageLite"}
   public var protoMessageName: String {return "V1MessageLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "int_field", json: "intField", swift: "intField"),
-    2: .unique(proto: "enum_field", json: "enumField", swift: "enumField"),
+    1: .unique(proto: "int_field", json: "intField"),
+    2: .unique(proto: "enum_field", json: "enumField"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -3147,7 +3056,9 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _intField ?? 0, fieldNumber: 1)
+    if let v = _intField {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
     if let v = _enumField {
       try visitor.visitSingularField(fieldType: ProtobufUnittest_V1EnumLite.self, value: v, fieldNumber: 2)
     }
@@ -3163,12 +3074,11 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_V2MessageLite"}
   public var protoMessageName: String {return "V2MessageLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "int_field", json: "intField", swift: "intField"),
-    2: .unique(proto: "enum_field", json: "enumField", swift: "enumField"),
+    1: .unique(proto: "int_field", json: "intField"),
+    2: .unique(proto: "enum_field", json: "enumField"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -3208,7 +3118,9 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _intField ?? 0, fieldNumber: 1)
+    if let v = _intField {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+    }
     if let v = _enumField {
       try visitor.visitSingularField(fieldType: ProtobufUnittest_V2EnumLite.self, value: v, fieldNumber: 2)
     }
@@ -3224,24 +3136,23 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestHugeFieldNumbersLite"}
   public var protoMessageName: String {return "TestHugeFieldNumbersLite"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    536870000: .unique(proto: "optional_int32", json: "optionalInt32", swift: "optionalInt32"),
-    536870001: .unique(proto: "fixed_32", json: "fixed32", swift: "fixed32"),
-    536870002: .unique(proto: "repeated_int32", json: "repeatedInt32", swift: "repeatedInt32"),
-    536870003: .unique(proto: "packed_int32", json: "packedInt32", swift: "packedInt32"),
-    536870004: .unique(proto: "optional_enum", json: "optionalEnum", swift: "optionalEnum"),
-    536870005: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
-    536870006: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
-    536870007: .unique(proto: "optional_message", json: "optionalMessage", swift: "optionalMessage"),
-    536870008: .unique(proto: "OptionalGroup", json: "optionalgroup", swift: "optionalGroup"),
-    536870010: .unique(proto: "string_string_map", json: "stringStringMap", swift: "stringStringMap"),
-    536870011: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
-    536870012: .unique(proto: "oneof_test_all_types", json: "oneofTestAllTypes", swift: "oneofTestAllTypes"),
-    536870013: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
-    536870014: .unique(proto: "oneof_bytes", json: "oneofBytes", swift: "oneofBytes"),
+    536870000: .unique(proto: "optional_int32", json: "optionalInt32"),
+    536870001: .unique(proto: "fixed_32", json: "fixed32"),
+    536870002: .unique(proto: "repeated_int32", json: "repeatedInt32"),
+    536870003: .unique(proto: "packed_int32", json: "packedInt32"),
+    536870004: .unique(proto: "optional_enum", json: "optionalEnum"),
+    536870005: .unique(proto: "optional_string", json: "optionalString"),
+    536870006: .unique(proto: "optional_bytes", json: "optionalBytes"),
+    536870007: .unique(proto: "optional_message", json: "optionalMessage"),
+    536870008: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+    536870010: .unique(proto: "string_string_map", json: "stringStringMap"),
+    536870011: .unique(proto: "oneof_uint32", json: "oneofUint32"),
+    536870012: .unique(proto: "oneof_test_all_types", json: "oneofTestAllTypes"),
+    536870013: .unique(proto: "oneof_string", json: "oneofString"),
+    536870014: .unique(proto: "oneof_bytes", json: "oneofBytes"),
   ]
 
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
@@ -3445,11 +3356,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup"}
     public var protoMessageName: String {return "OptionalGroup"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      536870009: .unique(proto: "group_a", json: "groupA", swift: "groupA"),
+      536870009: .unique(proto: "group_a", json: "groupA"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -3680,544 +3590,544 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
 ///   Singular
 let ProtobufUnittest_Extensions_optionalInt32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 1,
-  fieldNames: .same(proto: "protobuf_unittest.optional_int32_extension_lite", swift: "ProtobufUnittest_optionalInt32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_int32_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalInt64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 2,
-  fieldNames: .same(proto: "protobuf_unittest.optional_int64_extension_lite", swift: "ProtobufUnittest_optionalInt64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_int64_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalUint32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 3,
-  fieldNames: .same(proto: "protobuf_unittest.optional_uint32_extension_lite", swift: "ProtobufUnittest_optionalUint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_uint32_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalUint64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 4,
-  fieldNames: .same(proto: "protobuf_unittest.optional_uint64_extension_lite", swift: "ProtobufUnittest_optionalUint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_uint64_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalSint32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 5,
-  fieldNames: .same(proto: "protobuf_unittest.optional_sint32_extension_lite", swift: "ProtobufUnittest_optionalSint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_sint32_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalSint64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 6,
-  fieldNames: .same(proto: "protobuf_unittest.optional_sint64_extension_lite", swift: "ProtobufUnittest_optionalSint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_sint64_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalFixed32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 7,
-  fieldNames: .same(proto: "protobuf_unittest.optional_fixed32_extension_lite", swift: "ProtobufUnittest_optionalFixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_fixed32_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalFixed64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 8,
-  fieldNames: .same(proto: "protobuf_unittest.optional_fixed64_extension_lite", swift: "ProtobufUnittest_optionalFixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_fixed64_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalSfixed32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 9,
-  fieldNames: .same(proto: "protobuf_unittest.optional_sfixed32_extension_lite", swift: "ProtobufUnittest_optionalSfixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_sfixed32_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalSfixed64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 10,
-  fieldNames: .same(proto: "protobuf_unittest.optional_sfixed64_extension_lite", swift: "ProtobufUnittest_optionalSfixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_sfixed64_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalFloatExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 11,
-  fieldNames: .same(proto: "protobuf_unittest.optional_float_extension_lite", swift: "ProtobufUnittest_optionalFloatExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_float_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalDoubleExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 12,
-  fieldNames: .same(proto: "protobuf_unittest.optional_double_extension_lite", swift: "ProtobufUnittest_optionalDoubleExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_double_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_optionalBoolExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 13,
-  fieldNames: .same(proto: "protobuf_unittest.optional_bool_extension_lite", swift: "ProtobufUnittest_optionalBoolExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_bool_extension_lite"),
   defaultValue: false
 )
 
 let ProtobufUnittest_Extensions_optionalStringExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 14,
-  fieldNames: .same(proto: "protobuf_unittest.optional_string_extension_lite", swift: "ProtobufUnittest_optionalStringExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_string_extension_lite"),
   defaultValue: ""
 )
 
 let ProtobufUnittest_Extensions_optionalBytesExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 15,
-  fieldNames: .same(proto: "protobuf_unittest.optional_bytes_extension_lite", swift: "ProtobufUnittest_optionalBytesExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_bytes_extension_lite"),
   defaultValue: Data()
 )
 
 let ProtobufUnittest_Extensions_optionalGroupExtensionLite = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_OptionalGroup_extension_lite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 16,
-  fieldNames: .same(proto: "protobuf_unittest.OptionalGroup_extension_lite", swift: "ProtobufUnittest_optionalGroupExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.OptionalGroup_extension_lite"),
   defaultValue: ProtobufUnittest_OptionalGroup_extension_lite()
 )
 
 let ProtobufUnittest_Extensions_optionalNestedMessageExtensionLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 18,
-  fieldNames: .same(proto: "protobuf_unittest.optional_nested_message_extension_lite", swift: "ProtobufUnittest_optionalNestedMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_nested_message_extension_lite"),
   defaultValue: ProtobufUnittest_TestAllTypesLite.NestedMessage()
 )
 
 let ProtobufUnittest_Extensions_optionalForeignMessageExtensionLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ForeignMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 19,
-  fieldNames: .same(proto: "protobuf_unittest.optional_foreign_message_extension_lite", swift: "ProtobufUnittest_optionalForeignMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_foreign_message_extension_lite"),
   defaultValue: ProtobufUnittest_ForeignMessageLite()
 )
 
 let ProtobufUnittest_Extensions_optionalImportMessageExtensionLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittestImport_ImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 20,
-  fieldNames: .same(proto: "protobuf_unittest.optional_import_message_extension_lite", swift: "ProtobufUnittest_optionalImportMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_import_message_extension_lite"),
   defaultValue: ProtobufUnittestImport_ImportMessageLite()
 )
 
 let ProtobufUnittest_Extensions_optionalNestedEnumExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufUnittest_TestAllTypesLite.NestedEnum>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 21,
-  fieldNames: .same(proto: "protobuf_unittest.optional_nested_enum_extension_lite", swift: "ProtobufUnittest_optionalNestedEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_nested_enum_extension_lite"),
   defaultValue: ProtobufUnittest_TestAllTypesLite.NestedEnum.foo
 )
 
 let ProtobufUnittest_Extensions_optionalForeignEnumExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 22,
-  fieldNames: .same(proto: "protobuf_unittest.optional_foreign_enum_extension_lite", swift: "ProtobufUnittest_optionalForeignEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_foreign_enum_extension_lite"),
   defaultValue: ProtobufUnittest_ForeignEnumLite.foreignLiteFoo
 )
 
 let ProtobufUnittest_Extensions_optionalImportEnumExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufUnittestImport_ImportEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 23,
-  fieldNames: .same(proto: "protobuf_unittest.optional_import_enum_extension_lite", swift: "ProtobufUnittest_optionalImportEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_import_enum_extension_lite"),
   defaultValue: ProtobufUnittestImport_ImportEnumLite.importLiteFoo
 )
 
 let ProtobufUnittest_Extensions_optionalStringPieceExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 24,
-  fieldNames: .same(proto: "protobuf_unittest.optional_string_piece_extension_lite", swift: "ProtobufUnittest_optionalStringPieceExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_string_piece_extension_lite"),
   defaultValue: ""
 )
 
 let ProtobufUnittest_Extensions_optionalCordExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 25,
-  fieldNames: .same(proto: "protobuf_unittest.optional_cord_extension_lite", swift: "ProtobufUnittest_optionalCordExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_cord_extension_lite"),
   defaultValue: ""
 )
 
 let ProtobufUnittest_Extensions_optionalPublicImportMessageExtensionLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittestImport_PublicImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 26,
-  fieldNames: .same(proto: "protobuf_unittest.optional_public_import_message_extension_lite", swift: "ProtobufUnittest_optionalPublicImportMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_public_import_message_extension_lite"),
   defaultValue: ProtobufUnittestImport_PublicImportMessageLite()
 )
 
 let ProtobufUnittest_Extensions_optionalLazyMessageExtensionLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 27,
-  fieldNames: .same(proto: "protobuf_unittest.optional_lazy_message_extension_lite", swift: "ProtobufUnittest_optionalLazyMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.optional_lazy_message_extension_lite"),
   defaultValue: ProtobufUnittest_TestAllTypesLite.NestedMessage()
 )
 
 ///   Repeated
 let ProtobufUnittest_Extensions_repeatedInt32ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 31,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_int32_extension_lite", swift: "ProtobufUnittest_repeatedInt32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_int32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedInt64ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 32,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_int64_extension_lite", swift: "ProtobufUnittest_repeatedInt64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_int64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedUint32ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 33,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_uint32_extension_lite", swift: "ProtobufUnittest_repeatedUint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_uint32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedUint64ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 34,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_uint64_extension_lite", swift: "ProtobufUnittest_repeatedUint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_uint64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedSint32ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 35,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_sint32_extension_lite", swift: "ProtobufUnittest_repeatedSint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_sint32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedSint64ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 36,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_sint64_extension_lite", swift: "ProtobufUnittest_repeatedSint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_sint64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedFixed32ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 37,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_fixed32_extension_lite", swift: "ProtobufUnittest_repeatedFixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_fixed32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedFixed64ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 38,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_fixed64_extension_lite", swift: "ProtobufUnittest_repeatedFixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_fixed64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedSfixed32ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 39,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_sfixed32_extension_lite", swift: "ProtobufUnittest_repeatedSfixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_sfixed32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedSfixed64ExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 40,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_sfixed64_extension_lite", swift: "ProtobufUnittest_repeatedSfixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_sfixed64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedFloatExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 41,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_float_extension_lite", swift: "ProtobufUnittest_repeatedFloatExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_float_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedDoubleExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 42,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_double_extension_lite", swift: "ProtobufUnittest_repeatedDoubleExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_double_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedBoolExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 43,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_bool_extension_lite", swift: "ProtobufUnittest_repeatedBoolExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_bool_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedStringExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 44,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_string_extension_lite", swift: "ProtobufUnittest_repeatedStringExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_string_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedBytesExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 45,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_bytes_extension_lite", swift: "ProtobufUnittest_repeatedBytesExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_bytes_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedGroupExtensionLite = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<ProtobufUnittest_RepeatedGroup_extension_lite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 46,
-  fieldNames: .same(proto: "protobuf_unittest.RepeatedGroup_extension_lite", swift: "ProtobufUnittest_repeatedGroupExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.RepeatedGroup_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedNestedMessageExtensionLite = SwiftProtobuf.MessageExtension<RepeatedMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 48,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_nested_message_extension_lite", swift: "ProtobufUnittest_repeatedNestedMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_nested_message_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedForeignMessageExtensionLite = SwiftProtobuf.MessageExtension<RepeatedMessageExtensionField<ProtobufUnittest_ForeignMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 49,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_foreign_message_extension_lite", swift: "ProtobufUnittest_repeatedForeignMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_foreign_message_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedImportMessageExtensionLite = SwiftProtobuf.MessageExtension<RepeatedMessageExtensionField<ProtobufUnittestImport_ImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 50,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_import_message_extension_lite", swift: "ProtobufUnittest_repeatedImportMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_import_message_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedNestedEnumExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<ProtobufUnittest_TestAllTypesLite.NestedEnum>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 51,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_nested_enum_extension_lite", swift: "ProtobufUnittest_repeatedNestedEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_nested_enum_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedForeignEnumExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 52,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_foreign_enum_extension_lite", swift: "ProtobufUnittest_repeatedForeignEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_foreign_enum_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedImportEnumExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<ProtobufUnittestImport_ImportEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 53,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_import_enum_extension_lite", swift: "ProtobufUnittest_repeatedImportEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_import_enum_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedStringPieceExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 54,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_string_piece_extension_lite", swift: "ProtobufUnittest_repeatedStringPieceExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_string_piece_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedCordExtensionLite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 55,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_cord_extension_lite", swift: "ProtobufUnittest_repeatedCordExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_cord_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_repeatedLazyMessageExtensionLite = SwiftProtobuf.MessageExtension<RepeatedMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 57,
-  fieldNames: .same(proto: "protobuf_unittest.repeated_lazy_message_extension_lite", swift: "ProtobufUnittest_repeatedLazyMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.repeated_lazy_message_extension_lite"),
   defaultValue: []
 )
 
 ///   Singular with defaults
 let ProtobufUnittest_Extensions_defaultInt32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 61,
-  fieldNames: .same(proto: "protobuf_unittest.default_int32_extension_lite", swift: "ProtobufUnittest_defaultInt32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_int32_extension_lite"),
   defaultValue: 41
 )
 
 let ProtobufUnittest_Extensions_defaultInt64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 62,
-  fieldNames: .same(proto: "protobuf_unittest.default_int64_extension_lite", swift: "ProtobufUnittest_defaultInt64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_int64_extension_lite"),
   defaultValue: 42
 )
 
 let ProtobufUnittest_Extensions_defaultUint32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 63,
-  fieldNames: .same(proto: "protobuf_unittest.default_uint32_extension_lite", swift: "ProtobufUnittest_defaultUint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_uint32_extension_lite"),
   defaultValue: 43
 )
 
 let ProtobufUnittest_Extensions_defaultUint64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 64,
-  fieldNames: .same(proto: "protobuf_unittest.default_uint64_extension_lite", swift: "ProtobufUnittest_defaultUint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_uint64_extension_lite"),
   defaultValue: 44
 )
 
 let ProtobufUnittest_Extensions_defaultSint32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 65,
-  fieldNames: .same(proto: "protobuf_unittest.default_sint32_extension_lite", swift: "ProtobufUnittest_defaultSint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_sint32_extension_lite"),
   defaultValue: -45
 )
 
 let ProtobufUnittest_Extensions_defaultSint64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 66,
-  fieldNames: .same(proto: "protobuf_unittest.default_sint64_extension_lite", swift: "ProtobufUnittest_defaultSint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_sint64_extension_lite"),
   defaultValue: 46
 )
 
 let ProtobufUnittest_Extensions_defaultFixed32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 67,
-  fieldNames: .same(proto: "protobuf_unittest.default_fixed32_extension_lite", swift: "ProtobufUnittest_defaultFixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_fixed32_extension_lite"),
   defaultValue: 47
 )
 
 let ProtobufUnittest_Extensions_defaultFixed64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 68,
-  fieldNames: .same(proto: "protobuf_unittest.default_fixed64_extension_lite", swift: "ProtobufUnittest_defaultFixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_fixed64_extension_lite"),
   defaultValue: 48
 )
 
 let ProtobufUnittest_Extensions_defaultSfixed32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 69,
-  fieldNames: .same(proto: "protobuf_unittest.default_sfixed32_extension_lite", swift: "ProtobufUnittest_defaultSfixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_sfixed32_extension_lite"),
   defaultValue: 49
 )
 
 let ProtobufUnittest_Extensions_defaultSfixed64ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 70,
-  fieldNames: .same(proto: "protobuf_unittest.default_sfixed64_extension_lite", swift: "ProtobufUnittest_defaultSfixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_sfixed64_extension_lite"),
   defaultValue: -50
 )
 
 let ProtobufUnittest_Extensions_defaultFloatExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 71,
-  fieldNames: .same(proto: "protobuf_unittest.default_float_extension_lite", swift: "ProtobufUnittest_defaultFloatExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_float_extension_lite"),
   defaultValue: 51.5
 )
 
 let ProtobufUnittest_Extensions_defaultDoubleExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 72,
-  fieldNames: .same(proto: "protobuf_unittest.default_double_extension_lite", swift: "ProtobufUnittest_defaultDoubleExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_double_extension_lite"),
   defaultValue: 52000
 )
 
 let ProtobufUnittest_Extensions_defaultBoolExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 73,
-  fieldNames: .same(proto: "protobuf_unittest.default_bool_extension_lite", swift: "ProtobufUnittest_defaultBoolExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_bool_extension_lite"),
   defaultValue: true
 )
 
 let ProtobufUnittest_Extensions_defaultStringExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 74,
-  fieldNames: .same(proto: "protobuf_unittest.default_string_extension_lite", swift: "ProtobufUnittest_defaultStringExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_string_extension_lite"),
   defaultValue: "hello"
 )
 
 let ProtobufUnittest_Extensions_defaultBytesExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 75,
-  fieldNames: .same(proto: "protobuf_unittest.default_bytes_extension_lite", swift: "ProtobufUnittest_defaultBytesExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_bytes_extension_lite"),
   defaultValue: Data(bytes: [119, 111, 114, 108, 100])
 )
 
 let ProtobufUnittest_Extensions_defaultNestedEnumExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufUnittest_TestAllTypesLite.NestedEnum>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 81,
-  fieldNames: .same(proto: "protobuf_unittest.default_nested_enum_extension_lite", swift: "ProtobufUnittest_defaultNestedEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_nested_enum_extension_lite"),
   defaultValue: ProtobufUnittest_TestAllTypesLite.NestedEnum.bar
 )
 
 let ProtobufUnittest_Extensions_defaultForeignEnumExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 82,
-  fieldNames: .same(proto: "protobuf_unittest.default_foreign_enum_extension_lite", swift: "ProtobufUnittest_defaultForeignEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_foreign_enum_extension_lite"),
   defaultValue: ProtobufUnittest_ForeignEnumLite.foreignLiteBar
 )
 
 let ProtobufUnittest_Extensions_defaultImportEnumExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<ProtobufUnittestImport_ImportEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 83,
-  fieldNames: .same(proto: "protobuf_unittest.default_import_enum_extension_lite", swift: "ProtobufUnittest_defaultImportEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_import_enum_extension_lite"),
   defaultValue: ProtobufUnittestImport_ImportEnumLite.importLiteBar
 )
 
 let ProtobufUnittest_Extensions_defaultStringPieceExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 84,
-  fieldNames: .same(proto: "protobuf_unittest.default_string_piece_extension_lite", swift: "ProtobufUnittest_defaultStringPieceExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_string_piece_extension_lite"),
   defaultValue: "abc"
 )
 
 let ProtobufUnittest_Extensions_defaultCordExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 85,
-  fieldNames: .same(proto: "protobuf_unittest.default_cord_extension_lite", swift: "ProtobufUnittest_defaultCordExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.default_cord_extension_lite"),
   defaultValue: "123"
 )
 
 ///   For oneof test
 let ProtobufUnittest_Extensions_oneofUint32ExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 111,
-  fieldNames: .same(proto: "protobuf_unittest.oneof_uint32_extension_lite", swift: "ProtobufUnittest_oneofUint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.oneof_uint32_extension_lite"),
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_oneofNestedMessageExtensionLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 112,
-  fieldNames: .same(proto: "protobuf_unittest.oneof_nested_message_extension_lite", swift: "ProtobufUnittest_oneofNestedMessageExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.oneof_nested_message_extension_lite"),
   defaultValue: ProtobufUnittest_TestAllTypesLite.NestedMessage()
 )
 
 let ProtobufUnittest_Extensions_oneofStringExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 113,
-  fieldNames: .same(proto: "protobuf_unittest.oneof_string_extension_lite", swift: "ProtobufUnittest_oneofStringExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.oneof_string_extension_lite"),
   defaultValue: ""
 )
 
 let ProtobufUnittest_Extensions_oneofBytesExtensionLite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
   protoFieldNumber: 114,
-  fieldNames: .same(proto: "protobuf_unittest.oneof_bytes_extension_lite", swift: "ProtobufUnittest_oneofBytesExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.oneof_bytes_extension_lite"),
   defaultValue: Data()
 )
 
 let ProtobufUnittest_Extensions_packedInt32ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 90,
-  fieldNames: .same(proto: "protobuf_unittest.packed_int32_extension_lite", swift: "ProtobufUnittest_packedInt32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_int32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedInt64ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 91,
-  fieldNames: .same(proto: "protobuf_unittest.packed_int64_extension_lite", swift: "ProtobufUnittest_packedInt64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_int64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedUint32ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 92,
-  fieldNames: .same(proto: "protobuf_unittest.packed_uint32_extension_lite", swift: "ProtobufUnittest_packedUint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_uint32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedUint64ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 93,
-  fieldNames: .same(proto: "protobuf_unittest.packed_uint64_extension_lite", swift: "ProtobufUnittest_packedUint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_uint64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedSint32ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 94,
-  fieldNames: .same(proto: "protobuf_unittest.packed_sint32_extension_lite", swift: "ProtobufUnittest_packedSint32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_sint32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedSint64ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 95,
-  fieldNames: .same(proto: "protobuf_unittest.packed_sint64_extension_lite", swift: "ProtobufUnittest_packedSint64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_sint64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedFixed32ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 96,
-  fieldNames: .same(proto: "protobuf_unittest.packed_fixed32_extension_lite", swift: "ProtobufUnittest_packedFixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_fixed32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedFixed64ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 97,
-  fieldNames: .same(proto: "protobuf_unittest.packed_fixed64_extension_lite", swift: "ProtobufUnittest_packedFixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_fixed64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedSfixed32ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 98,
-  fieldNames: .same(proto: "protobuf_unittest.packed_sfixed32_extension_lite", swift: "ProtobufUnittest_packedSfixed32ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_sfixed32_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedSfixed64ExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 99,
-  fieldNames: .same(proto: "protobuf_unittest.packed_sfixed64_extension_lite", swift: "ProtobufUnittest_packedSfixed64ExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_sfixed64_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedFloatExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 100,
-  fieldNames: .same(proto: "protobuf_unittest.packed_float_extension_lite", swift: "ProtobufUnittest_packedFloatExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_float_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedDoubleExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 101,
-  fieldNames: .same(proto: "protobuf_unittest.packed_double_extension_lite", swift: "ProtobufUnittest_packedDoubleExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_double_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedBoolExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 102,
-  fieldNames: .same(proto: "protobuf_unittest.packed_bool_extension_lite", swift: "ProtobufUnittest_packedBoolExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_bool_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_packedEnumExtensionLite = SwiftProtobuf.MessageExtension<PackedExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestPackedExtensionsLite>(
   protoFieldNumber: 103,
-  fieldNames: .same(proto: "protobuf_unittest.packed_enum_extension_lite", swift: "ProtobufUnittest_packedEnumExtensionLite"),
+  fieldNames: .same(proto: "protobuf_unittest.packed_enum_extension_lite"),
   defaultValue: []
 )
 
 let ProtobufUnittest_Extensions_testAllTypesLite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestHugeFieldNumbersLite>(
   protoFieldNumber: 536860000,
-  fieldNames: .same(proto: "protobuf_unittest.test_all_types_lite", swift: "ProtobufUnittest_testAllTypesLite"),
+  fieldNames: .same(proto: "protobuf_unittest.test_all_types_lite"),
   defaultValue: ProtobufUnittest_TestAllTypesLite()
 )
 

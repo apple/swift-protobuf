@@ -93,8 +93,6 @@ void Harness::run() {
   type_url = new string(GetTypeUrl(PerfMessage::descriptor()));
 
   measure([&]() {
-    // Loop enough times to get meaningfully large measurements.
-    for (auto i = 0; i < run_count; i++) {
       auto message = PerfMessage();
 
       measure_subtask("Populate fields", [&]() {
@@ -138,10 +136,9 @@ void Harness::run() {
       });
 
       // Exercise equality.
-      measure_subtask("Test equality", [&]() {
+      measure_subtask("Equality", [&]() {
         return MessageDifferencer::Equals(message, decoded_message);
       });
-    }
   });
 
   google::protobuf::ShutdownProtobufLibrary();

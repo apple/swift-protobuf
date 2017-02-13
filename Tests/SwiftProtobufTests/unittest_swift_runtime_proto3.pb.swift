@@ -49,80 +49,79 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_Message3"}
   public var protoMessageName: String {return "Message3"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "optional_int32", json: "optionalInt32", swift: "optionalInt32"),
-    2: .unique(proto: "optional_int64", json: "optionalInt64", swift: "optionalInt64"),
-    3: .unique(proto: "optional_uint32", json: "optionalUint32", swift: "optionalUint32"),
-    4: .unique(proto: "optional_uint64", json: "optionalUint64", swift: "optionalUint64"),
-    5: .unique(proto: "optional_sint32", json: "optionalSint32", swift: "optionalSint32"),
-    6: .unique(proto: "optional_sint64", json: "optionalSint64", swift: "optionalSint64"),
-    7: .unique(proto: "optional_fixed32", json: "optionalFixed32", swift: "optionalFixed32"),
-    8: .unique(proto: "optional_fixed64", json: "optionalFixed64", swift: "optionalFixed64"),
-    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32", swift: "optionalSfixed32"),
-    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64", swift: "optionalSfixed64"),
-    11: .unique(proto: "optional_float", json: "optionalFloat", swift: "optionalFloat"),
-    12: .unique(proto: "optional_double", json: "optionalDouble", swift: "optionalDouble"),
-    13: .unique(proto: "optional_bool", json: "optionalBool", swift: "optionalBool"),
-    14: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
-    15: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
-    18: .unique(proto: "optional_message", json: "optionalMessage", swift: "optionalMessage"),
-    19: .unique(proto: "optional_enum", json: "optionalEnum", swift: "optionalEnum"),
-    31: .unique(proto: "repeated_int32", json: "repeatedInt32", swift: "repeatedInt32"),
-    32: .unique(proto: "repeated_int64", json: "repeatedInt64", swift: "repeatedInt64"),
-    33: .unique(proto: "repeated_uint32", json: "repeatedUint32", swift: "repeatedUint32"),
-    34: .unique(proto: "repeated_uint64", json: "repeatedUint64", swift: "repeatedUint64"),
-    35: .unique(proto: "repeated_sint32", json: "repeatedSint32", swift: "repeatedSint32"),
-    36: .unique(proto: "repeated_sint64", json: "repeatedSint64", swift: "repeatedSint64"),
-    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32", swift: "repeatedFixed32"),
-    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64", swift: "repeatedFixed64"),
-    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32", swift: "repeatedSfixed32"),
-    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64", swift: "repeatedSfixed64"),
-    41: .unique(proto: "repeated_float", json: "repeatedFloat", swift: "repeatedFloat"),
-    42: .unique(proto: "repeated_double", json: "repeatedDouble", swift: "repeatedDouble"),
-    43: .unique(proto: "repeated_bool", json: "repeatedBool", swift: "repeatedBool"),
-    44: .unique(proto: "repeated_string", json: "repeatedString", swift: "repeatedString"),
-    45: .unique(proto: "repeated_bytes", json: "repeatedBytes", swift: "repeatedBytes"),
-    48: .unique(proto: "repeated_message", json: "repeatedMessage", swift: "repeatedMessage"),
-    49: .unique(proto: "repeated_enum", json: "repeatedEnum", swift: "repeatedEnum"),
-    51: .unique(proto: "oneof_int32", json: "oneofInt32", swift: "oneofInt32"),
-    52: .unique(proto: "oneof_int64", json: "oneofInt64", swift: "oneofInt64"),
-    53: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
-    54: .unique(proto: "oneof_uint64", json: "oneofUint64", swift: "oneofUint64"),
-    55: .unique(proto: "oneof_sint32", json: "oneofSint32", swift: "oneofSint32"),
-    56: .unique(proto: "oneof_sint64", json: "oneofSint64", swift: "oneofSint64"),
-    57: .unique(proto: "oneof_fixed32", json: "oneofFixed32", swift: "oneofFixed32"),
-    58: .unique(proto: "oneof_fixed64", json: "oneofFixed64", swift: "oneofFixed64"),
-    59: .unique(proto: "oneof_sfixed32", json: "oneofSfixed32", swift: "oneofSfixed32"),
-    60: .unique(proto: "oneof_sfixed64", json: "oneofSfixed64", swift: "oneofSfixed64"),
-    61: .unique(proto: "oneof_float", json: "oneofFloat", swift: "oneofFloat"),
-    62: .unique(proto: "oneof_double", json: "oneofDouble", swift: "oneofDouble"),
-    63: .unique(proto: "oneof_bool", json: "oneofBool", swift: "oneofBool"),
-    64: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
-    65: .unique(proto: "oneof_bytes", json: "oneofBytes", swift: "oneofBytes"),
-    68: .unique(proto: "oneof_message", json: "oneofMessage", swift: "oneofMessage"),
-    69: .unique(proto: "oneof_enum", json: "oneofEnum", swift: "oneofEnum"),
-    70: .unique(proto: "map_int32_int32", json: "mapInt32Int32", swift: "mapInt32Int32"),
-    71: .unique(proto: "map_int64_int64", json: "mapInt64Int64", swift: "mapInt64Int64"),
-    72: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32", swift: "mapUint32Uint32"),
-    73: .unique(proto: "map_uint64_uint64", json: "mapUint64Uint64", swift: "mapUint64Uint64"),
-    74: .unique(proto: "map_sint32_sint32", json: "mapSint32Sint32", swift: "mapSint32Sint32"),
-    75: .unique(proto: "map_sint64_sint64", json: "mapSint64Sint64", swift: "mapSint64Sint64"),
-    76: .unique(proto: "map_fixed32_fixed32", json: "mapFixed32Fixed32", swift: "mapFixed32Fixed32"),
-    77: .unique(proto: "map_fixed64_fixed64", json: "mapFixed64Fixed64", swift: "mapFixed64Fixed64"),
-    78: .unique(proto: "map_sfixed32_sfixed32", json: "mapSfixed32Sfixed32", swift: "mapSfixed32Sfixed32"),
-    79: .unique(proto: "map_sfixed64_sfixed64", json: "mapSfixed64Sfixed64", swift: "mapSfixed64Sfixed64"),
-    80: .unique(proto: "map_int32_float", json: "mapInt32Float", swift: "mapInt32Float"),
-    81: .unique(proto: "map_int32_double", json: "mapInt32Double", swift: "mapInt32Double"),
-    82: .unique(proto: "map_bool_bool", json: "mapBoolBool", swift: "mapBoolBool"),
-    83: .unique(proto: "map_string_string", json: "mapStringString", swift: "mapStringString"),
-    84: .unique(proto: "map_string_bytes", json: "mapStringBytes", swift: "mapStringBytes"),
-    85: .unique(proto: "map_string_message", json: "mapStringMessage", swift: "mapStringMessage"),
-    86: .unique(proto: "map_int32_bytes", json: "mapInt32Bytes", swift: "mapInt32Bytes"),
-    87: .unique(proto: "map_int32_enum", json: "mapInt32Enum", swift: "mapInt32Enum"),
-    88: .unique(proto: "map_int32_message", json: "mapInt32Message", swift: "mapInt32Message"),
+    1: .unique(proto: "optional_int32", json: "optionalInt32"),
+    2: .unique(proto: "optional_int64", json: "optionalInt64"),
+    3: .unique(proto: "optional_uint32", json: "optionalUint32"),
+    4: .unique(proto: "optional_uint64", json: "optionalUint64"),
+    5: .unique(proto: "optional_sint32", json: "optionalSint32"),
+    6: .unique(proto: "optional_sint64", json: "optionalSint64"),
+    7: .unique(proto: "optional_fixed32", json: "optionalFixed32"),
+    8: .unique(proto: "optional_fixed64", json: "optionalFixed64"),
+    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32"),
+    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64"),
+    11: .unique(proto: "optional_float", json: "optionalFloat"),
+    12: .unique(proto: "optional_double", json: "optionalDouble"),
+    13: .unique(proto: "optional_bool", json: "optionalBool"),
+    14: .unique(proto: "optional_string", json: "optionalString"),
+    15: .unique(proto: "optional_bytes", json: "optionalBytes"),
+    18: .unique(proto: "optional_message", json: "optionalMessage"),
+    19: .unique(proto: "optional_enum", json: "optionalEnum"),
+    31: .unique(proto: "repeated_int32", json: "repeatedInt32"),
+    32: .unique(proto: "repeated_int64", json: "repeatedInt64"),
+    33: .unique(proto: "repeated_uint32", json: "repeatedUint32"),
+    34: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
+    35: .unique(proto: "repeated_sint32", json: "repeatedSint32"),
+    36: .unique(proto: "repeated_sint64", json: "repeatedSint64"),
+    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
+    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64"),
+    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32"),
+    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64"),
+    41: .unique(proto: "repeated_float", json: "repeatedFloat"),
+    42: .unique(proto: "repeated_double", json: "repeatedDouble"),
+    43: .unique(proto: "repeated_bool", json: "repeatedBool"),
+    44: .unique(proto: "repeated_string", json: "repeatedString"),
+    45: .unique(proto: "repeated_bytes", json: "repeatedBytes"),
+    48: .unique(proto: "repeated_message", json: "repeatedMessage"),
+    49: .unique(proto: "repeated_enum", json: "repeatedEnum"),
+    51: .unique(proto: "oneof_int32", json: "oneofInt32"),
+    52: .unique(proto: "oneof_int64", json: "oneofInt64"),
+    53: .unique(proto: "oneof_uint32", json: "oneofUint32"),
+    54: .unique(proto: "oneof_uint64", json: "oneofUint64"),
+    55: .unique(proto: "oneof_sint32", json: "oneofSint32"),
+    56: .unique(proto: "oneof_sint64", json: "oneofSint64"),
+    57: .unique(proto: "oneof_fixed32", json: "oneofFixed32"),
+    58: .unique(proto: "oneof_fixed64", json: "oneofFixed64"),
+    59: .unique(proto: "oneof_sfixed32", json: "oneofSfixed32"),
+    60: .unique(proto: "oneof_sfixed64", json: "oneofSfixed64"),
+    61: .unique(proto: "oneof_float", json: "oneofFloat"),
+    62: .unique(proto: "oneof_double", json: "oneofDouble"),
+    63: .unique(proto: "oneof_bool", json: "oneofBool"),
+    64: .unique(proto: "oneof_string", json: "oneofString"),
+    65: .unique(proto: "oneof_bytes", json: "oneofBytes"),
+    68: .unique(proto: "oneof_message", json: "oneofMessage"),
+    69: .unique(proto: "oneof_enum", json: "oneofEnum"),
+    70: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
+    71: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
+    72: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32"),
+    73: .unique(proto: "map_uint64_uint64", json: "mapUint64Uint64"),
+    74: .unique(proto: "map_sint32_sint32", json: "mapSint32Sint32"),
+    75: .unique(proto: "map_sint64_sint64", json: "mapSint64Sint64"),
+    76: .unique(proto: "map_fixed32_fixed32", json: "mapFixed32Fixed32"),
+    77: .unique(proto: "map_fixed64_fixed64", json: "mapFixed64Fixed64"),
+    78: .unique(proto: "map_sfixed32_sfixed32", json: "mapSfixed32Sfixed32"),
+    79: .unique(proto: "map_sfixed64_sfixed64", json: "mapSfixed64Sfixed64"),
+    80: .unique(proto: "map_int32_float", json: "mapInt32Float"),
+    81: .unique(proto: "map_int32_double", json: "mapInt32Double"),
+    82: .unique(proto: "map_bool_bool", json: "mapBoolBool"),
+    83: .unique(proto: "map_string_string", json: "mapStringString"),
+    84: .unique(proto: "map_string_bytes", json: "mapStringBytes"),
+    85: .unique(proto: "map_string_message", json: "mapStringMessage"),
+    86: .unique(proto: "map_int32_bytes", json: "mapInt32Bytes"),
+    87: .unique(proto: "map_int32_enum", json: "mapInt32Enum"),
+    88: .unique(proto: "map_int32_message", json: "mapInt32Message"),
   ]
 
   private class _StorageClass {
@@ -758,16 +757,6 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "extra3": self = .extra3
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "FOO": self = .foo
@@ -800,31 +789,19 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .extra3: return "\"EXTRA_3\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .extra3: return "EXTRA_3"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        case .extra3: return ".extra3"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 

@@ -465,220 +465,6 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "a": self = .a
-    case "string": self = .string
-    case "int": self = .int
-    case "double": self = .double
-    case "float": self = .float
-    case "uint": self = .uint
-    case "hashValue_": self = .hashValue_
-    case "description": self = .description
-    case "debugDescription_": self = .debugDescription_
-    case "swift": self = .swift
-    case "unrecognized": self = .unrecognized
-    case "class": self = .`class`
-    case "deinit": self = .`deinit`
-    case "enum": self = .`enum`
-    case "extension": self = .`extension`
-    case "func": self = .`func`
-    case "import": self = .`import`
-    case "init_": self = .init_
-    case "inout": self = .`inout`
-    case "internal": self = .`internal`
-    case "let": self = .`let`
-    case "operator": self = .`operator`
-    case "private": self = .`private`
-    case "protocol": self = .`protocol`
-    case "public": self = .`public`
-    case "static": self = .`static`
-    case "struct": self = .`struct`
-    case "subscript": self = .`subscript`
-    case "typealias": self = .`typealias`
-    case "var": self = .`var`
-    case "break": self = .`break`
-    case "case": self = .`case`
-    case "continue": self = .`continue`
-    case "default": self = .`default`
-    case "defer": self = .`defer`
-    case "do": self = .`do`
-    case "else": self = .`else`
-    case "fallthrough": self = .`fallthrough`
-    case "for": self = .`for`
-    case "guard": self = .`guard`
-    case "if": self = .`if`
-    case "in": self = .`in`
-    case "repeat": self = .`repeat`
-    case "return": self = .`return`
-    case "switch": self = .`switch`
-    case "where": self = .`where`
-    case "while": self = .`while`
-    case "as": self = .`as`
-    case "catch": self = .`catch`
-    case "dynamicType": self = .`dynamicType`
-    case "false": self = .`false`
-    case "is": self = .`is`
-    case "nil": self = .`nil`
-    case "rethrows": self = .`rethrows`
-    case "super": self = .`super`
-    case "self_": self = .self_
-    case "throw": self = .`throw`
-    case "throws": self = .`throws`
-    case "true": self = .`true`
-    case "try": self = .`try`
-    case "_Column__": self = ._Column__
-    case "_File__": self = ._File__
-    case "_Function__": self = ._Function__
-    case "_Line__": self = ._Line__
-    case "___": self = .___
-    case "associativity": self = .`associativity`
-    case "convenience": self = .convenience
-    case "dynamic": self = .dynamic
-    case "didSet": self = .didSet
-    case "final": self = .final
-    case "get": self = .get
-    case "infix": self = .infix
-    case "indirect": self = .indirect
-    case "lazy": self = .lazy
-    case "left": self = .left
-    case "mutating": self = .mutating
-    case "none": self = .none
-    case "nonmutating": self = .nonmutating
-    case "optional": self = .`optional`
-    case "override": self = .override
-    case "postfix": self = .postfix
-    case "precedence": self = .precedence
-    case "prefix": self = .prefix
-    case "required": self = .`required`
-    case "right": self = .right
-    case "set": self = .set
-    case "type": self = .type
-    case "unowned": self = .unowned
-    case "weak": self = .weak
-    case "willSet": self = .willSet
-    case "id": self = .id
-    case "cmd": self = .cmd
-    case "out": self = .out
-    case "bycopy": self = .bycopy
-    case "byref": self = .byref
-    case "oneway": self = .oneway
-    case "and": self = .and
-    case "andEq": self = .andEq
-    case "alignas": self = .alignas
-    case "alignof": self = .alignof
-    case "asm": self = .asm
-    case "auto": self = .auto
-    case "bitand": self = .bitand
-    case "bitor": self = .bitor
-    case "bool": self = .bool
-    case "char": self = .char
-    case "char16T": self = .char16T
-    case "char32T": self = .char32T
-    case "compl": self = .compl
-    case "const": self = .const
-    case "constexpr": self = .constexpr
-    case "constCast": self = .constCast
-    case "decltype": self = .decltype
-    case "delete": self = .delete
-    case "dynamicCast": self = .dynamicCast
-    case "explicit": self = .explicit
-    case "export": self = .export
-    case "extern": self = .extern
-    case "friend": self = .friend
-    case "goto": self = .goto
-    case "inline": self = .inline
-    case "long": self = .long
-    case "mutable": self = .mutable
-    case "namespace": self = .namespace
-    case "new": self = .new
-    case "noexcept": self = .noexcept
-    case "not": self = .not
-    case "notEq": self = .notEq
-    case "nullptr": self = .nullptr
-    case "or": self = .or
-    case "orEq": self = .orEq
-    case "protected": self = .protected
-    case "register": self = .register
-    case "reinterpretCast": self = .reinterpretCast
-    case "short": self = .short
-    case "signed": self = .signed
-    case "sizeof": self = .sizeof
-    case "staticAssert": self = .staticAssert
-    case "staticCast": self = .staticCast
-    case "template": self = .template
-    case "this": self = .this
-    case "threadLocal": self = .threadLocal
-    case "typedef": self = .typedef
-    case "typeid": self = .typeid
-    case "typename": self = .typename
-    case "union": self = .union
-    case "unsigned": self = .unsigned
-    case "using": self = .using
-    case "virtual": self = .virtual
-    case "void": self = .void
-    case "volatile": self = .volatile
-    case "wcharT": self = .wcharT
-    case "xor": self = .xor
-    case "xorEq": self = .xorEq
-    case "restrict": self = .restrict
-    case "category": self = .category
-    case "ivar": self = .ivar
-    case "method": self = .method
-    case "finalize": self = .finalize
-    case "hash": self = .hash
-    case "dealloc": self = .dealloc
-    case "superclass": self = .superclass
-    case "retain": self = .retain
-    case "release": self = .release
-    case "autorelease": self = .autorelease
-    case "retainCount": self = .retainCount
-    case "zone": self = .zone
-    case "isProxy": self = .isProxy
-    case "copy": self = .copy
-    case "mutableCopy": self = .mutableCopy
-    case "classForCoder": self = .classForCoder
-    case "clear": self = .clear
-    case "data": self = .data
-    case "delimitedData": self = .delimitedData
-    case "descriptor": self = .descriptor
-    case "extensionRegistry": self = .extensionRegistry
-    case "extensionsCurrentlySet": self = .extensionsCurrentlySet
-    case "isInitialized": self = .isInitialized
-    case "serializedSize": self = .serializedSize
-    case "sortedExtensionsInUse": self = .sortedExtensionsInUse
-    case "unknownFields": self = .unknownFields
-    case "fixed": self = .fixed
-    case "fract": self = .fract
-    case "size": self = .size
-    case "logicalAddress": self = .logicalAddress
-    case "physicalAddress": self = .physicalAddress
-    case "byteCount": self = .byteCount
-    case "byteOffset": self = .byteOffset
-    case "duration": self = .duration
-    case "absoluteTime": self = .absoluteTime
-    case "optionBits": self = .optionBits
-    case "itemCount": self = .itemCount
-    case "pbversion": self = .pbversion
-    case "scriptCode": self = .scriptCode
-    case "langCode": self = .langCode
-    case "regionCode": self = .regionCode
-    case "ostype": self = .ostype
-    case "processSerialNumber": self = .processSerialNumber
-    case "point": self = .point
-    case "rect": self = .rect
-    case "fixedPoint": self = .fixedPoint
-    case "fixedRect": self = .fixedRect
-    case "style": self = .style
-    case "styleParameter": self = .styleParameter
-    case "styleField": self = .styleField
-    case "timeScale": self = .timeScale
-    case "timeBase": self = .timeBase
-    case "timeRecord": self = .timeRecord
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "A": self = .a
@@ -1323,439 +1109,223 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .a: return "\"A\""
-      case .string: return "\"String\""
-      case .int: return "\"Int\""
-      case .double: return "\"Double\""
-      case .float: return "\"Float\""
-      case .uint: return "\"UInt\""
-      case .hashValue_: return "\"hashValue\""
-      case .description: return "\"description\""
-      case .debugDescription_: return "\"debugDescription\""
-      case .swift: return "\"Swift\""
-      case .unrecognized: return "\"UNRECOGNIZED\""
-      case .`class`: return "\"class\""
-      case .`deinit`: return "\"deinit\""
-      case .`enum`: return "\"enum\""
-      case .`extension`: return "\"extension\""
-      case .`func`: return "\"func\""
-      case .`import`: return "\"import\""
-      case .init_: return "\"init\""
-      case .`inout`: return "\"inout\""
-      case .`internal`: return "\"internal\""
-      case .`let`: return "\"let\""
-      case .`operator`: return "\"operator\""
-      case .`private`: return "\"private\""
-      case .`protocol`: return "\"protocol\""
-      case .`public`: return "\"public\""
-      case .`static`: return "\"static\""
-      case .`struct`: return "\"struct\""
-      case .`subscript`: return "\"subscript\""
-      case .`typealias`: return "\"typealias\""
-      case .`var`: return "\"var\""
-      case .`break`: return "\"break\""
-      case .`case`: return "\"case\""
-      case .`continue`: return "\"continue\""
-      case .`default`: return "\"default\""
-      case .`defer`: return "\"defer\""
-      case .`do`: return "\"do\""
-      case .`else`: return "\"else\""
-      case .`fallthrough`: return "\"fallthrough\""
-      case .`for`: return "\"for\""
-      case .`guard`: return "\"guard\""
-      case .`if`: return "\"if\""
-      case .`in`: return "\"in\""
-      case .`repeat`: return "\"repeat\""
-      case .`return`: return "\"return\""
-      case .`switch`: return "\"switch\""
-      case .`where`: return "\"where\""
-      case .`while`: return "\"while\""
-      case .`as`: return "\"as\""
-      case .`catch`: return "\"catch\""
-      case .`dynamicType`: return "\"dynamicType\""
-      case .`false`: return "\"false\""
-      case .`is`: return "\"is\""
-      case .`nil`: return "\"nil\""
-      case .`rethrows`: return "\"rethrows\""
-      case .`super`: return "\"super\""
-      case .self_: return "\"self\""
-      case .`throw`: return "\"throw\""
-      case .`throws`: return "\"throws\""
-      case .`true`: return "\"true\""
-      case .`try`: return "\"try\""
-      case ._Column__: return "\"__COLUMN__\""
-      case ._File__: return "\"__FILE__\""
-      case ._Function__: return "\"__FUNCTION__\""
-      case ._Line__: return "\"__LINE__\""
-      case .___: return "\"_\""
-      case .`associativity`: return "\"associativity\""
-      case .convenience: return "\"convenience\""
-      case .dynamic: return "\"dynamic\""
-      case .didSet: return "\"didSet\""
-      case .final: return "\"final\""
-      case .get: return "\"get\""
-      case .infix: return "\"infix\""
-      case .indirect: return "\"indirect\""
-      case .lazy: return "\"lazy\""
-      case .left: return "\"left\""
-      case .mutating: return "\"mutating\""
-      case .none: return "\"none\""
-      case .nonmutating: return "\"nonmutating\""
-      case .`optional`: return "\"optional\""
-      case .override: return "\"override\""
-      case .postfix: return "\"postfix\""
-      case .precedence: return "\"precedence\""
-      case .prefix: return "\"prefix\""
-      case .`required`: return "\"required\""
-      case .right: return "\"right\""
-      case .set: return "\"set\""
-      case .type: return "\"Type\""
-      case .unowned: return "\"unowned\""
-      case .weak: return "\"weak\""
-      case .willSet: return "\"willSet\""
-      case .id: return "\"id\""
-      case .cmd: return "\"_cmd\""
-      case .out: return "\"out\""
-      case .bycopy: return "\"bycopy\""
-      case .byref: return "\"byref\""
-      case .oneway: return "\"oneway\""
-      case .and: return "\"and\""
-      case .andEq: return "\"and_eq\""
-      case .alignas: return "\"alignas\""
-      case .alignof: return "\"alignof\""
-      case .asm: return "\"asm\""
-      case .auto: return "\"auto\""
-      case .bitand: return "\"bitand\""
-      case .bitor: return "\"bitor\""
-      case .bool: return "\"bool\""
-      case .char: return "\"char\""
-      case .char16T: return "\"char16_t\""
-      case .char32T: return "\"char32_t\""
-      case .compl: return "\"compl\""
-      case .const: return "\"const\""
-      case .constexpr: return "\"constexpr\""
-      case .constCast: return "\"const_cast\""
-      case .decltype: return "\"decltype\""
-      case .delete: return "\"delete\""
-      case .dynamicCast: return "\"dynamic_cast\""
-      case .explicit: return "\"explicit\""
-      case .export: return "\"export\""
-      case .extern: return "\"extern\""
-      case .friend: return "\"friend\""
-      case .goto: return "\"goto\""
-      case .inline: return "\"inline\""
-      case .long: return "\"long\""
-      case .mutable: return "\"mutable\""
-      case .namespace: return "\"namespace\""
-      case .new: return "\"new\""
-      case .noexcept: return "\"noexcept\""
-      case .not: return "\"not\""
-      case .notEq: return "\"not_eq\""
-      case .nullptr: return "\"nullptr\""
-      case .or: return "\"or\""
-      case .orEq: return "\"or_eq\""
-      case .protected: return "\"protected\""
-      case .register: return "\"register\""
-      case .reinterpretCast: return "\"reinterpret_cast\""
-      case .short: return "\"short\""
-      case .signed: return "\"signed\""
-      case .sizeof: return "\"sizeof\""
-      case .staticAssert: return "\"static_assert\""
-      case .staticCast: return "\"static_cast\""
-      case .template: return "\"template\""
-      case .this: return "\"this\""
-      case .threadLocal: return "\"thread_local\""
-      case .typedef: return "\"typedef\""
-      case .typeid: return "\"typeid\""
-      case .typename: return "\"typename\""
-      case .union: return "\"union\""
-      case .unsigned: return "\"unsigned\""
-      case .using: return "\"using\""
-      case .virtual: return "\"virtual\""
-      case .void: return "\"void\""
-      case .volatile: return "\"volatile\""
-      case .wcharT: return "\"wchar_t\""
-      case .xor: return "\"xor\""
-      case .xorEq: return "\"xor_eq\""
-      case .restrict: return "\"restrict\""
-      case .category: return "\"Category\""
-      case .ivar: return "\"Ivar\""
-      case .method: return "\"Method\""
-      case .finalize: return "\"finalize\""
-      case .hash: return "\"hash\""
-      case .dealloc: return "\"dealloc\""
-      case .superclass: return "\"superclass\""
-      case .retain: return "\"retain\""
-      case .release: return "\"release\""
-      case .autorelease: return "\"autorelease\""
-      case .retainCount: return "\"retainCount\""
-      case .zone: return "\"zone\""
-      case .isProxy: return "\"isProxy\""
-      case .copy: return "\"copy\""
-      case .mutableCopy: return "\"mutableCopy\""
-      case .classForCoder: return "\"classForCoder\""
-      case .clear: return "\"clear\""
-      case .data: return "\"data\""
-      case .delimitedData: return "\"delimitedData\""
-      case .descriptor: return "\"descriptor\""
-      case .extensionRegistry: return "\"extensionRegistry\""
-      case .extensionsCurrentlySet: return "\"extensionsCurrentlySet\""
-      case .isInitialized: return "\"isInitialized\""
-      case .serializedSize: return "\"serializedSize\""
-      case .sortedExtensionsInUse: return "\"sortedExtensionsInUse\""
-      case .unknownFields: return "\"unknownFields\""
-      case .fixed: return "\"Fixed\""
-      case .fract: return "\"Fract\""
-      case .size: return "\"Size\""
-      case .logicalAddress: return "\"LogicalAddress\""
-      case .physicalAddress: return "\"PhysicalAddress\""
-      case .byteCount: return "\"ByteCount\""
-      case .byteOffset: return "\"ByteOffset\""
-      case .duration: return "\"Duration\""
-      case .absoluteTime: return "\"AbsoluteTime\""
-      case .optionBits: return "\"OptionBits\""
-      case .itemCount: return "\"ItemCount\""
-      case .pbversion: return "\"PBVersion\""
-      case .scriptCode: return "\"ScriptCode\""
-      case .langCode: return "\"LangCode\""
-      case .regionCode: return "\"RegionCode\""
-      case .ostype: return "\"OSType\""
-      case .processSerialNumber: return "\"ProcessSerialNumber\""
-      case .point: return "\"Point\""
-      case .rect: return "\"Rect\""
-      case .fixedPoint: return "\"FixedPoint\""
-      case .fixedRect: return "\"FixedRect\""
-      case .style: return "\"Style\""
-      case .styleParameter: return "\"StyleParameter\""
-      case .styleField: return "\"StyleField\""
-      case .timeScale: return "\"TimeScale\""
-      case .timeBase: return "\"TimeBase\""
-      case .timeRecord: return "\"TimeRecord\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .a: return "A"
+      case .string: return "String"
+      case .int: return "Int"
+      case .double: return "Double"
+      case .float: return "Float"
+      case .uint: return "UInt"
+      case .hashValue_: return "hashValue"
+      case .description: return "description"
+      case .debugDescription_: return "debugDescription"
+      case .swift: return "Swift"
+      case .unrecognized: return "UNRECOGNIZED"
+      case .`class`: return "class"
+      case .`deinit`: return "deinit"
+      case .`enum`: return "enum"
+      case .`extension`: return "extension"
+      case .`func`: return "func"
+      case .`import`: return "import"
+      case .init_: return "init"
+      case .`inout`: return "inout"
+      case .`internal`: return "internal"
+      case .`let`: return "let"
+      case .`operator`: return "operator"
+      case .`private`: return "private"
+      case .`protocol`: return "protocol"
+      case .`public`: return "public"
+      case .`static`: return "static"
+      case .`struct`: return "struct"
+      case .`subscript`: return "subscript"
+      case .`typealias`: return "typealias"
+      case .`var`: return "var"
+      case .`break`: return "break"
+      case .`case`: return "case"
+      case .`continue`: return "continue"
+      case .`default`: return "default"
+      case .`defer`: return "defer"
+      case .`do`: return "do"
+      case .`else`: return "else"
+      case .`fallthrough`: return "fallthrough"
+      case .`for`: return "for"
+      case .`guard`: return "guard"
+      case .`if`: return "if"
+      case .`in`: return "in"
+      case .`repeat`: return "repeat"
+      case .`return`: return "return"
+      case .`switch`: return "switch"
+      case .`where`: return "where"
+      case .`while`: return "while"
+      case .`as`: return "as"
+      case .`catch`: return "catch"
+      case .`dynamicType`: return "dynamicType"
+      case .`false`: return "false"
+      case .`is`: return "is"
+      case .`nil`: return "nil"
+      case .`rethrows`: return "rethrows"
+      case .`super`: return "super"
+      case .self_: return "self"
+      case .`throw`: return "throw"
+      case .`throws`: return "throws"
+      case .`true`: return "true"
+      case .`try`: return "try"
+      case ._Column__: return "__COLUMN__"
+      case ._File__: return "__FILE__"
+      case ._Function__: return "__FUNCTION__"
+      case ._Line__: return "__LINE__"
+      case .___: return "_"
+      case .`associativity`: return "associativity"
+      case .convenience: return "convenience"
+      case .dynamic: return "dynamic"
+      case .didSet: return "didSet"
+      case .final: return "final"
+      case .get: return "get"
+      case .infix: return "infix"
+      case .indirect: return "indirect"
+      case .lazy: return "lazy"
+      case .left: return "left"
+      case .mutating: return "mutating"
+      case .none: return "none"
+      case .nonmutating: return "nonmutating"
+      case .`optional`: return "optional"
+      case .override: return "override"
+      case .postfix: return "postfix"
+      case .precedence: return "precedence"
+      case .prefix: return "prefix"
+      case .`required`: return "required"
+      case .right: return "right"
+      case .set: return "set"
+      case .type: return "Type"
+      case .unowned: return "unowned"
+      case .weak: return "weak"
+      case .willSet: return "willSet"
+      case .id: return "id"
+      case .cmd: return "_cmd"
+      case .out: return "out"
+      case .bycopy: return "bycopy"
+      case .byref: return "byref"
+      case .oneway: return "oneway"
+      case .and: return "and"
+      case .andEq: return "and_eq"
+      case .alignas: return "alignas"
+      case .alignof: return "alignof"
+      case .asm: return "asm"
+      case .auto: return "auto"
+      case .bitand: return "bitand"
+      case .bitor: return "bitor"
+      case .bool: return "bool"
+      case .char: return "char"
+      case .char16T: return "char16_t"
+      case .char32T: return "char32_t"
+      case .compl: return "compl"
+      case .const: return "const"
+      case .constexpr: return "constexpr"
+      case .constCast: return "const_cast"
+      case .decltype: return "decltype"
+      case .delete: return "delete"
+      case .dynamicCast: return "dynamic_cast"
+      case .explicit: return "explicit"
+      case .export: return "export"
+      case .extern: return "extern"
+      case .friend: return "friend"
+      case .goto: return "goto"
+      case .inline: return "inline"
+      case .long: return "long"
+      case .mutable: return "mutable"
+      case .namespace: return "namespace"
+      case .new: return "new"
+      case .noexcept: return "noexcept"
+      case .not: return "not"
+      case .notEq: return "not_eq"
+      case .nullptr: return "nullptr"
+      case .or: return "or"
+      case .orEq: return "or_eq"
+      case .protected: return "protected"
+      case .register: return "register"
+      case .reinterpretCast: return "reinterpret_cast"
+      case .short: return "short"
+      case .signed: return "signed"
+      case .sizeof: return "sizeof"
+      case .staticAssert: return "static_assert"
+      case .staticCast: return "static_cast"
+      case .template: return "template"
+      case .this: return "this"
+      case .threadLocal: return "thread_local"
+      case .typedef: return "typedef"
+      case .typeid: return "typeid"
+      case .typename: return "typename"
+      case .union: return "union"
+      case .unsigned: return "unsigned"
+      case .using: return "using"
+      case .virtual: return "virtual"
+      case .void: return "void"
+      case .volatile: return "volatile"
+      case .wcharT: return "wchar_t"
+      case .xor: return "xor"
+      case .xorEq: return "xor_eq"
+      case .restrict: return "restrict"
+      case .category: return "Category"
+      case .ivar: return "Ivar"
+      case .method: return "Method"
+      case .finalize: return "finalize"
+      case .hash: return "hash"
+      case .dealloc: return "dealloc"
+      case .superclass: return "superclass"
+      case .retain: return "retain"
+      case .release: return "release"
+      case .autorelease: return "autorelease"
+      case .retainCount: return "retainCount"
+      case .zone: return "zone"
+      case .isProxy: return "isProxy"
+      case .copy: return "copy"
+      case .mutableCopy: return "mutableCopy"
+      case .classForCoder: return "classForCoder"
+      case .clear: return "clear"
+      case .data: return "data"
+      case .delimitedData: return "delimitedData"
+      case .descriptor: return "descriptor"
+      case .extensionRegistry: return "extensionRegistry"
+      case .extensionsCurrentlySet: return "extensionsCurrentlySet"
+      case .isInitialized: return "isInitialized"
+      case .serializedSize: return "serializedSize"
+      case .sortedExtensionsInUse: return "sortedExtensionsInUse"
+      case .unknownFields: return "unknownFields"
+      case .fixed: return "Fixed"
+      case .fract: return "Fract"
+      case .size: return "Size"
+      case .logicalAddress: return "LogicalAddress"
+      case .physicalAddress: return "PhysicalAddress"
+      case .byteCount: return "ByteCount"
+      case .byteOffset: return "ByteOffset"
+      case .duration: return "Duration"
+      case .absoluteTime: return "AbsoluteTime"
+      case .optionBits: return "OptionBits"
+      case .itemCount: return "ItemCount"
+      case .pbversion: return "PBVersion"
+      case .scriptCode: return "ScriptCode"
+      case .langCode: return "LangCode"
+      case .regionCode: return "RegionCode"
+      case .ostype: return "OSType"
+      case .processSerialNumber: return "ProcessSerialNumber"
+      case .point: return "Point"
+      case .rect: return "Rect"
+      case .fixedPoint: return "FixedPoint"
+      case .fixedRect: return "FixedRect"
+      case .style: return "Style"
+      case .styleParameter: return "StyleParameter"
+      case .styleField: return "StyleField"
+      case .timeScale: return "TimeScale"
+      case .timeBase: return "TimeBase"
+      case .timeRecord: return "TimeRecord"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .a: return ".a"
-      case .string: return ".string"
-      case .int: return ".int"
-      case .double: return ".double"
-      case .float: return ".float"
-      case .uint: return ".uint"
-      case .hashValue_: return ".hashValue_"
-      case .description: return ".description"
-      case .debugDescription_: return ".debugDescription_"
-      case .swift: return ".swift"
-      case .unrecognized: return ".unrecognized"
-      case .`class`: return ".class"
-      case .`deinit`: return ".deinit"
-      case .`enum`: return ".enum"
-      case .`extension`: return ".extension"
-      case .`func`: return ".func"
-      case .`import`: return ".import"
-      case .init_: return ".init_"
-      case .`inout`: return ".inout"
-      case .`internal`: return ".internal"
-      case .`let`: return ".let"
-      case .`operator`: return ".operator"
-      case .`private`: return ".private"
-      case .`protocol`: return ".protocol"
-      case .`public`: return ".public"
-      case .`static`: return ".static"
-      case .`struct`: return ".struct"
-      case .`subscript`: return ".subscript"
-      case .`typealias`: return ".typealias"
-      case .`var`: return ".var"
-      case .`break`: return ".break"
-      case .`case`: return ".case"
-      case .`continue`: return ".continue"
-      case .`default`: return ".default"
-      case .`defer`: return ".defer"
-      case .`do`: return ".do"
-      case .`else`: return ".else"
-      case .`fallthrough`: return ".fallthrough"
-      case .`for`: return ".for"
-      case .`guard`: return ".guard"
-      case .`if`: return ".if"
-      case .`in`: return ".in"
-      case .`repeat`: return ".repeat"
-      case .`return`: return ".return"
-      case .`switch`: return ".switch"
-      case .`where`: return ".where"
-      case .`while`: return ".while"
-      case .`as`: return ".as"
-      case .`catch`: return ".catch"
-      case .`dynamicType`: return ".dynamicType"
-      case .`false`: return ".false"
-      case .`is`: return ".is"
-      case .`nil`: return ".nil"
-      case .`rethrows`: return ".rethrows"
-      case .`super`: return ".super"
-      case .self_: return ".self_"
-      case .`throw`: return ".throw"
-      case .`throws`: return ".throws"
-      case .`true`: return ".true"
-      case .`try`: return ".try"
-      case ._Column__: return "._Column__"
-      case ._File__: return "._File__"
-      case ._Function__: return "._Function__"
-      case ._Line__: return "._Line__"
-      case .___: return ".___"
-      case .`associativity`: return ".associativity"
-      case .convenience: return ".convenience"
-      case .dynamic: return ".dynamic"
-      case .didSet: return ".didSet"
-      case .final: return ".final"
-      case .get: return ".get"
-      case .infix: return ".infix"
-      case .indirect: return ".indirect"
-      case .lazy: return ".lazy"
-      case .left: return ".left"
-      case .mutating: return ".mutating"
-      case .none: return ".none"
-      case .nonmutating: return ".nonmutating"
-      case .`optional`: return ".optional"
-      case .override: return ".override"
-      case .postfix: return ".postfix"
-      case .precedence: return ".precedence"
-      case .prefix: return ".prefix"
-      case .`required`: return ".required"
-      case .right: return ".right"
-      case .set: return ".set"
-      case .type: return ".type"
-      case .unowned: return ".unowned"
-      case .weak: return ".weak"
-      case .willSet: return ".willSet"
-      case .id: return ".id"
-      case .cmd: return ".cmd"
-      case .out: return ".out"
-      case .bycopy: return ".bycopy"
-      case .byref: return ".byref"
-      case .oneway: return ".oneway"
-      case .and: return ".and"
-      case .andEq: return ".andEq"
-      case .alignas: return ".alignas"
-      case .alignof: return ".alignof"
-      case .asm: return ".asm"
-      case .auto: return ".auto"
-      case .bitand: return ".bitand"
-      case .bitor: return ".bitor"
-      case .bool: return ".bool"
-      case .char: return ".char"
-      case .char16T: return ".char16T"
-      case .char32T: return ".char32T"
-      case .compl: return ".compl"
-      case .const: return ".const"
-      case .constexpr: return ".constexpr"
-      case .constCast: return ".constCast"
-      case .decltype: return ".decltype"
-      case .delete: return ".delete"
-      case .dynamicCast: return ".dynamicCast"
-      case .explicit: return ".explicit"
-      case .export: return ".export"
-      case .extern: return ".extern"
-      case .friend: return ".friend"
-      case .goto: return ".goto"
-      case .inline: return ".inline"
-      case .long: return ".long"
-      case .mutable: return ".mutable"
-      case .namespace: return ".namespace"
-      case .new: return ".new"
-      case .noexcept: return ".noexcept"
-      case .not: return ".not"
-      case .notEq: return ".notEq"
-      case .nullptr: return ".nullptr"
-      case .or: return ".or"
-      case .orEq: return ".orEq"
-      case .protected: return ".protected"
-      case .register: return ".register"
-      case .reinterpretCast: return ".reinterpretCast"
-      case .short: return ".short"
-      case .signed: return ".signed"
-      case .sizeof: return ".sizeof"
-      case .staticAssert: return ".staticAssert"
-      case .staticCast: return ".staticCast"
-      case .template: return ".template"
-      case .this: return ".this"
-      case .threadLocal: return ".threadLocal"
-      case .typedef: return ".typedef"
-      case .typeid: return ".typeid"
-      case .typename: return ".typename"
-      case .union: return ".union"
-      case .unsigned: return ".unsigned"
-      case .using: return ".using"
-      case .virtual: return ".virtual"
-      case .void: return ".void"
-      case .volatile: return ".volatile"
-      case .wcharT: return ".wcharT"
-      case .xor: return ".xor"
-      case .xorEq: return ".xorEq"
-      case .restrict: return ".restrict"
-      case .category: return ".category"
-      case .ivar: return ".ivar"
-      case .method: return ".method"
-      case .finalize: return ".finalize"
-      case .hash: return ".hash"
-      case .dealloc: return ".dealloc"
-      case .superclass: return ".superclass"
-      case .retain: return ".retain"
-      case .release: return ".release"
-      case .autorelease: return ".autorelease"
-      case .retainCount: return ".retainCount"
-      case .zone: return ".zone"
-      case .isProxy: return ".isProxy"
-      case .copy: return ".copy"
-      case .mutableCopy: return ".mutableCopy"
-      case .classForCoder: return ".classForCoder"
-      case .clear: return ".clear"
-      case .data: return ".data"
-      case .delimitedData: return ".delimitedData"
-      case .descriptor: return ".descriptor"
-      case .extensionRegistry: return ".extensionRegistry"
-      case .extensionsCurrentlySet: return ".extensionsCurrentlySet"
-      case .isInitialized: return ".isInitialized"
-      case .serializedSize: return ".serializedSize"
-      case .sortedExtensionsInUse: return ".sortedExtensionsInUse"
-      case .unknownFields: return ".unknownFields"
-      case .fixed: return ".fixed"
-      case .fract: return ".fract"
-      case .size: return ".size"
-      case .logicalAddress: return ".logicalAddress"
-      case .physicalAddress: return ".physicalAddress"
-      case .byteCount: return ".byteCount"
-      case .byteOffset: return ".byteOffset"
-      case .duration: return ".duration"
-      case .absoluteTime: return ".absoluteTime"
-      case .optionBits: return ".optionBits"
-      case .itemCount: return ".itemCount"
-      case .pbversion: return ".pbversion"
-      case .scriptCode: return ".scriptCode"
-      case .langCode: return ".langCode"
-      case .regionCode: return ".regionCode"
-      case .ostype: return ".ostype"
-      case .processSerialNumber: return ".processSerialNumber"
-      case .point: return ".point"
-      case .rect: return ".rect"
-      case .fixedPoint: return ".fixedPoint"
-      case .fixedRect: return ".fixedRect"
-      case .style: return ".style"
-      case .styleParameter: return ".styleParameter"
-      case .styleField: return ".styleField"
-      case .timeScale: return ".timeScale"
-      case .timeBase: return ".timeBase"
-      case .timeRecord: return ".timeRecord"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -1785,14 +1355,6 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "aa": self = .aa
-    case "____": self = .____
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "AA": self = .aa
@@ -1819,27 +1381,17 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .aa: return "\"AA\""
-      case .____: return "\"__\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .aa: return "AA"
+      case .____: return "__"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .aa: return ".aa"
-      case .____: return ".____"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -1847,218 +1399,217 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 //  TODO: Create tests that access every field, enum, message to verify the name is generated correctly
 
 struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "SwiftUnittest_Names_FieldNames"}
   public var protoMessageName: String {return "FieldNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "String", swift: "string"),
-    2: .same(proto: "Int", swift: "int"),
-    3: .same(proto: "Double", swift: "double"),
-    4: .same(proto: "Float", swift: "float"),
-    5: .same(proto: "UInt", swift: "uint"),
-    6: .same(proto: "hashValue", swift: "hashValue_p"),
-    7: .same(proto: "description", swift: "description_p"),
-    8: .same(proto: "debugDescription", swift: "debugDescription_p"),
-    9: .same(proto: "Swift", swift: "swift"),
-    10: .same(proto: "UNRECOGNIZED", swift: "unrecognized"),
-    11: .same(proto: "class", swift: "class_p"),
-    12: .same(proto: "deinit", swift: "deinit_p"),
-    13: .same(proto: "enum", swift: "enum_p"),
-    14: .same(proto: "extension", swift: "extension_p"),
-    15: .same(proto: "func", swift: "func_p"),
-    16: .same(proto: "import", swift: "import_p"),
-    17: .same(proto: "init", swift: "init_p"),
-    18: .same(proto: "inout", swift: "inout_p"),
-    19: .same(proto: "internal", swift: "internal_p"),
-    20: .same(proto: "let", swift: "let_p"),
-    21: .same(proto: "operator", swift: "operator_p"),
-    22: .same(proto: "private", swift: "private_p"),
-    23: .same(proto: "protocol", swift: "protocol_p"),
-    24: .same(proto: "public", swift: "public_p"),
-    25: .same(proto: "static", swift: "static_p"),
-    26: .same(proto: "struct", swift: "struct_p"),
-    27: .same(proto: "subscript", swift: "subscript_p"),
-    28: .same(proto: "typealias", swift: "typealias_p"),
-    29: .same(proto: "var", swift: "var_p"),
-    30: .same(proto: "break", swift: "break_p"),
-    31: .same(proto: "case", swift: "case_p"),
-    32: .same(proto: "continue", swift: "continue_p"),
-    33: .same(proto: "default", swift: "default_p"),
-    34: .same(proto: "defer", swift: "defer_p"),
-    35: .same(proto: "do", swift: "do_p"),
-    36: .same(proto: "else", swift: "else_p"),
-    37: .same(proto: "fallthrough", swift: "fallthrough_p"),
-    38: .same(proto: "for", swift: "for_p"),
-    39: .same(proto: "guard", swift: "guard_p"),
-    40: .same(proto: "if", swift: "if_p"),
-    41: .same(proto: "in", swift: "in_p"),
-    42: .same(proto: "repeat", swift: "repeat_p"),
-    43: .same(proto: "return", swift: "return_p"),
-    44: .same(proto: "switch", swift: "switch_p"),
-    45: .same(proto: "where", swift: "where_p"),
-    46: .same(proto: "while", swift: "while_p"),
-    47: .same(proto: "as", swift: "as_p"),
-    48: .same(proto: "catch", swift: "catch_p"),
-    49: .same(proto: "dynamicType", swift: "dynamicType_p"),
-    50: .same(proto: "false", swift: "false_p"),
-    51: .same(proto: "is", swift: "is_p"),
-    52: .same(proto: "nil", swift: "nil_p"),
-    53: .same(proto: "rethrows", swift: "rethrows_p"),
-    54: .same(proto: "super", swift: "super_p"),
-    55: .same(proto: "self", swift: "self_p"),
-    57: .same(proto: "throw", swift: "throw_p"),
-    58: .same(proto: "throws", swift: "throws_p"),
-    59: .same(proto: "true", swift: "true_p"),
-    60: .same(proto: "try", swift: "try_p"),
-    61: .unique(proto: "__COLUMN__", json: "COLUMN", swift: "_Column__"),
-    62: .unique(proto: "__FILE__", json: "FILE", swift: "_File__"),
-    63: .unique(proto: "__FUNCTION__", json: "FUNCTION", swift: "_Function__"),
-    64: .unique(proto: "__LINE__", json: "LINE", swift: "_Line__"),
-    65: .unique(proto: "_", json: "", swift: "___"),
-    66: .same(proto: "associativity", swift: "associativity"),
-    67: .same(proto: "convenience", swift: "convenience"),
-    68: .same(proto: "dynamic", swift: "dynamic"),
-    69: .same(proto: "didSet", swift: "didSet"),
-    70: .same(proto: "final", swift: "final"),
-    71: .same(proto: "get", swift: "get"),
-    72: .same(proto: "infix", swift: "infix"),
-    73: .same(proto: "indirect", swift: "indirect"),
-    74: .same(proto: "lazy", swift: "lazy"),
-    75: .same(proto: "left", swift: "left"),
-    76: .same(proto: "mutating", swift: "mutating"),
-    77: .same(proto: "none", swift: "none"),
-    78: .same(proto: "nonmutating", swift: "nonmutating"),
-    79: .same(proto: "optional", swift: "optional"),
-    80: .same(proto: "override", swift: "override"),
-    81: .same(proto: "postfix", swift: "postfix"),
-    82: .same(proto: "precedence", swift: "precedence"),
-    83: .same(proto: "prefix", swift: "prefix"),
-    85: .same(proto: "required", swift: "required"),
-    86: .same(proto: "right", swift: "right"),
-    87: .same(proto: "set", swift: "set"),
-    88: .same(proto: "Type", swift: "type"),
-    89: .same(proto: "unowned", swift: "unowned"),
-    90: .same(proto: "weak", swift: "weak"),
-    91: .same(proto: "willSet", swift: "willSet"),
-    92: .same(proto: "id", swift: "id"),
-    93: .unique(proto: "_cmd", json: "Cmd", swift: "cmd"),
-    96: .same(proto: "out", swift: "out"),
-    98: .same(proto: "bycopy", swift: "bycopy"),
-    99: .same(proto: "byref", swift: "byref"),
-    100: .same(proto: "oneway", swift: "oneway"),
-    102: .same(proto: "and", swift: "and"),
-    103: .unique(proto: "and_eq", json: "andEq", swift: "andEq"),
-    104: .same(proto: "alignas", swift: "alignas"),
-    105: .same(proto: "alignof", swift: "alignof"),
-    106: .same(proto: "asm", swift: "asm"),
-    107: .same(proto: "auto", swift: "auto"),
-    108: .same(proto: "bitand", swift: "bitand"),
-    109: .same(proto: "bitor", swift: "bitor"),
-    110: .same(proto: "bool", swift: "bool"),
-    114: .same(proto: "char", swift: "char"),
-    115: .unique(proto: "char16_t", json: "char16T", swift: "char16T"),
-    116: .unique(proto: "char32_t", json: "char32T", swift: "char32T"),
-    118: .same(proto: "compl", swift: "compl"),
-    119: .same(proto: "const", swift: "const"),
-    120: .same(proto: "constexpr", swift: "constexpr"),
-    121: .unique(proto: "const_cast", json: "constCast", swift: "constCast"),
-    123: .same(proto: "decltype", swift: "decltype"),
-    125: .same(proto: "delete", swift: "delete"),
-    127: .unique(proto: "dynamic_cast", json: "dynamicCast", swift: "dynamicCast"),
-    130: .same(proto: "explicit", swift: "explicit"),
-    131: .same(proto: "export", swift: "export"),
-    132: .same(proto: "extern", swift: "extern"),
-    136: .same(proto: "friend", swift: "friend"),
-    137: .same(proto: "goto", swift: "goto"),
-    139: .same(proto: "inline", swift: "inline"),
-    141: .same(proto: "long", swift: "long"),
-    142: .same(proto: "mutable", swift: "mutable"),
-    143: .same(proto: "namespace", swift: "namespace"),
-    144: .same(proto: "new", swift: "new"),
-    145: .same(proto: "noexcept", swift: "noexcept"),
-    146: .same(proto: "not", swift: "not"),
-    147: .unique(proto: "not_eq", json: "notEq", swift: "notEq"),
-    148: .same(proto: "nullptr", swift: "nullptr"),
-    150: .same(proto: "or", swift: "or"),
-    151: .unique(proto: "or_eq", json: "orEq", swift: "orEq"),
-    153: .same(proto: "protected", swift: "protected"),
-    155: .same(proto: "register", swift: "register"),
-    156: .unique(proto: "reinterpret_cast", json: "reinterpretCast", swift: "reinterpretCast"),
-    158: .same(proto: "short", swift: "short"),
-    159: .same(proto: "signed", swift: "signed"),
-    160: .same(proto: "sizeof", swift: "sizeof"),
-    162: .unique(proto: "static_assert", json: "staticAssert", swift: "staticAssert"),
-    163: .unique(proto: "static_cast", json: "staticCast", swift: "staticCast"),
-    166: .same(proto: "template", swift: "template"),
-    167: .same(proto: "this", swift: "this"),
-    168: .unique(proto: "thread_local", json: "threadLocal", swift: "threadLocal"),
-    172: .same(proto: "typedef", swift: "typedef"),
-    173: .same(proto: "typeid", swift: "typeid"),
-    174: .same(proto: "typename", swift: "typename"),
-    175: .same(proto: "union", swift: "union"),
-    176: .same(proto: "unsigned", swift: "unsigned"),
-    177: .same(proto: "using", swift: "using"),
-    178: .same(proto: "virtual", swift: "virtual"),
-    179: .same(proto: "void", swift: "void"),
-    180: .same(proto: "volatile", swift: "volatile"),
-    181: .unique(proto: "wchar_t", json: "wcharT", swift: "wcharT"),
-    183: .same(proto: "xor", swift: "xor"),
-    184: .unique(proto: "xor_eq", json: "xorEq", swift: "xorEq"),
-    185: .same(proto: "restrict", swift: "restrict"),
-    186: .same(proto: "Category", swift: "category"),
-    187: .same(proto: "Ivar", swift: "ivar"),
-    188: .same(proto: "Method", swift: "method"),
-    192: .same(proto: "finalize", swift: "finalize"),
-    193: .same(proto: "hash", swift: "hash"),
-    194: .same(proto: "dealloc", swift: "dealloc"),
-    197: .same(proto: "superclass", swift: "superclass"),
-    198: .same(proto: "retain", swift: "retain"),
-    199: .same(proto: "release", swift: "release"),
-    200: .same(proto: "autorelease", swift: "autorelease"),
-    201: .same(proto: "retainCount", swift: "retainCount"),
-    202: .same(proto: "zone", swift: "zone"),
-    203: .same(proto: "isProxy", swift: "isProxy"),
-    204: .same(proto: "copy", swift: "copy"),
-    205: .same(proto: "mutableCopy", swift: "mutableCopy"),
-    206: .same(proto: "classForCoder", swift: "classForCoder"),
-    207: .same(proto: "clear", swift: "clear"),
-    208: .same(proto: "data", swift: "data"),
-    209: .same(proto: "delimitedData", swift: "delimitedData"),
-    210: .same(proto: "descriptor", swift: "descriptor"),
-    211: .same(proto: "extensionRegistry", swift: "extensionRegistry"),
-    212: .same(proto: "extensionsCurrentlySet", swift: "extensionsCurrentlySet"),
-    213: .same(proto: "isInitialized", swift: "isInitialized"),
-    214: .same(proto: "serializedSize", swift: "serializedSize"),
-    215: .same(proto: "sortedExtensionsInUse", swift: "sortedExtensionsInUse"),
-    216: .same(proto: "unknownFields", swift: "unknownFields"),
-    217: .same(proto: "Fixed", swift: "fixed"),
-    218: .same(proto: "Fract", swift: "fract"),
-    219: .same(proto: "Size", swift: "size"),
-    220: .same(proto: "LogicalAddress", swift: "logicalAddress"),
-    221: .same(proto: "PhysicalAddress", swift: "physicalAddress"),
-    222: .same(proto: "ByteCount", swift: "byteCount"),
-    223: .same(proto: "ByteOffset", swift: "byteOffset"),
-    224: .same(proto: "Duration", swift: "duration"),
-    225: .same(proto: "AbsoluteTime", swift: "absoluteTime"),
-    226: .same(proto: "OptionBits", swift: "optionBits"),
-    227: .same(proto: "ItemCount", swift: "itemCount"),
-    228: .same(proto: "PBVersion", swift: "pbversion"),
-    229: .same(proto: "ScriptCode", swift: "scriptCode"),
-    230: .same(proto: "LangCode", swift: "langCode"),
-    231: .same(proto: "RegionCode", swift: "regionCode"),
-    232: .same(proto: "OSType", swift: "ostype"),
-    233: .same(proto: "ProcessSerialNumber", swift: "processSerialNumber"),
-    234: .same(proto: "Point", swift: "point"),
-    235: .same(proto: "Rect", swift: "rect"),
-    236: .same(proto: "FixedPoint", swift: "fixedPoint"),
-    237: .same(proto: "FixedRect", swift: "fixedRect"),
-    238: .same(proto: "Style", swift: "style"),
-    239: .same(proto: "StyleParameter", swift: "styleParameter"),
-    240: .same(proto: "StyleField", swift: "styleField"),
-    241: .same(proto: "TimeScale", swift: "timeScale"),
-    242: .same(proto: "TimeBase", swift: "timeBase"),
-    243: .same(proto: "TimeRecord", swift: "timeRecord"),
-    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden", swift: "jsonShouldBeOverriden"),
+    1: .same(proto: "String"),
+    2: .same(proto: "Int"),
+    3: .same(proto: "Double"),
+    4: .same(proto: "Float"),
+    5: .same(proto: "UInt"),
+    6: .same(proto: "hashValue"),
+    7: .same(proto: "description"),
+    8: .same(proto: "debugDescription"),
+    9: .same(proto: "Swift"),
+    10: .same(proto: "UNRECOGNIZED"),
+    11: .same(proto: "class"),
+    12: .same(proto: "deinit"),
+    13: .same(proto: "enum"),
+    14: .same(proto: "extension"),
+    15: .same(proto: "func"),
+    16: .same(proto: "import"),
+    17: .same(proto: "init"),
+    18: .same(proto: "inout"),
+    19: .same(proto: "internal"),
+    20: .same(proto: "let"),
+    21: .same(proto: "operator"),
+    22: .same(proto: "private"),
+    23: .same(proto: "protocol"),
+    24: .same(proto: "public"),
+    25: .same(proto: "static"),
+    26: .same(proto: "struct"),
+    27: .same(proto: "subscript"),
+    28: .same(proto: "typealias"),
+    29: .same(proto: "var"),
+    30: .same(proto: "break"),
+    31: .same(proto: "case"),
+    32: .same(proto: "continue"),
+    33: .same(proto: "default"),
+    34: .same(proto: "defer"),
+    35: .same(proto: "do"),
+    36: .same(proto: "else"),
+    37: .same(proto: "fallthrough"),
+    38: .same(proto: "for"),
+    39: .same(proto: "guard"),
+    40: .same(proto: "if"),
+    41: .same(proto: "in"),
+    42: .same(proto: "repeat"),
+    43: .same(proto: "return"),
+    44: .same(proto: "switch"),
+    45: .same(proto: "where"),
+    46: .same(proto: "while"),
+    47: .same(proto: "as"),
+    48: .same(proto: "catch"),
+    49: .same(proto: "dynamicType"),
+    50: .same(proto: "false"),
+    51: .same(proto: "is"),
+    52: .same(proto: "nil"),
+    53: .same(proto: "rethrows"),
+    54: .same(proto: "super"),
+    55: .same(proto: "self"),
+    57: .same(proto: "throw"),
+    58: .same(proto: "throws"),
+    59: .same(proto: "true"),
+    60: .same(proto: "try"),
+    61: .unique(proto: "__COLUMN__", json: "COLUMN"),
+    62: .unique(proto: "__FILE__", json: "FILE"),
+    63: .unique(proto: "__FUNCTION__", json: "FUNCTION"),
+    64: .unique(proto: "__LINE__", json: "LINE"),
+    65: .unique(proto: "_", json: ""),
+    66: .same(proto: "associativity"),
+    67: .same(proto: "convenience"),
+    68: .same(proto: "dynamic"),
+    69: .same(proto: "didSet"),
+    70: .same(proto: "final"),
+    71: .same(proto: "get"),
+    72: .same(proto: "infix"),
+    73: .same(proto: "indirect"),
+    74: .same(proto: "lazy"),
+    75: .same(proto: "left"),
+    76: .same(proto: "mutating"),
+    77: .same(proto: "none"),
+    78: .same(proto: "nonmutating"),
+    79: .same(proto: "optional"),
+    80: .same(proto: "override"),
+    81: .same(proto: "postfix"),
+    82: .same(proto: "precedence"),
+    83: .same(proto: "prefix"),
+    85: .same(proto: "required"),
+    86: .same(proto: "right"),
+    87: .same(proto: "set"),
+    88: .same(proto: "Type"),
+    89: .same(proto: "unowned"),
+    90: .same(proto: "weak"),
+    91: .same(proto: "willSet"),
+    92: .same(proto: "id"),
+    93: .unique(proto: "_cmd", json: "Cmd"),
+    96: .same(proto: "out"),
+    98: .same(proto: "bycopy"),
+    99: .same(proto: "byref"),
+    100: .same(proto: "oneway"),
+    102: .same(proto: "and"),
+    103: .unique(proto: "and_eq", json: "andEq"),
+    104: .same(proto: "alignas"),
+    105: .same(proto: "alignof"),
+    106: .same(proto: "asm"),
+    107: .same(proto: "auto"),
+    108: .same(proto: "bitand"),
+    109: .same(proto: "bitor"),
+    110: .same(proto: "bool"),
+    114: .same(proto: "char"),
+    115: .unique(proto: "char16_t", json: "char16T"),
+    116: .unique(proto: "char32_t", json: "char32T"),
+    118: .same(proto: "compl"),
+    119: .same(proto: "const"),
+    120: .same(proto: "constexpr"),
+    121: .unique(proto: "const_cast", json: "constCast"),
+    123: .same(proto: "decltype"),
+    125: .same(proto: "delete"),
+    127: .unique(proto: "dynamic_cast", json: "dynamicCast"),
+    130: .same(proto: "explicit"),
+    131: .same(proto: "export"),
+    132: .same(proto: "extern"),
+    136: .same(proto: "friend"),
+    137: .same(proto: "goto"),
+    139: .same(proto: "inline"),
+    141: .same(proto: "long"),
+    142: .same(proto: "mutable"),
+    143: .same(proto: "namespace"),
+    144: .same(proto: "new"),
+    145: .same(proto: "noexcept"),
+    146: .same(proto: "not"),
+    147: .unique(proto: "not_eq", json: "notEq"),
+    148: .same(proto: "nullptr"),
+    150: .same(proto: "or"),
+    151: .unique(proto: "or_eq", json: "orEq"),
+    153: .same(proto: "protected"),
+    155: .same(proto: "register"),
+    156: .unique(proto: "reinterpret_cast", json: "reinterpretCast"),
+    158: .same(proto: "short"),
+    159: .same(proto: "signed"),
+    160: .same(proto: "sizeof"),
+    162: .unique(proto: "static_assert", json: "staticAssert"),
+    163: .unique(proto: "static_cast", json: "staticCast"),
+    166: .same(proto: "template"),
+    167: .same(proto: "this"),
+    168: .unique(proto: "thread_local", json: "threadLocal"),
+    172: .same(proto: "typedef"),
+    173: .same(proto: "typeid"),
+    174: .same(proto: "typename"),
+    175: .same(proto: "union"),
+    176: .same(proto: "unsigned"),
+    177: .same(proto: "using"),
+    178: .same(proto: "virtual"),
+    179: .same(proto: "void"),
+    180: .same(proto: "volatile"),
+    181: .unique(proto: "wchar_t", json: "wcharT"),
+    183: .same(proto: "xor"),
+    184: .unique(proto: "xor_eq", json: "xorEq"),
+    185: .same(proto: "restrict"),
+    186: .same(proto: "Category"),
+    187: .same(proto: "Ivar"),
+    188: .same(proto: "Method"),
+    192: .same(proto: "finalize"),
+    193: .same(proto: "hash"),
+    194: .same(proto: "dealloc"),
+    197: .same(proto: "superclass"),
+    198: .same(proto: "retain"),
+    199: .same(proto: "release"),
+    200: .same(proto: "autorelease"),
+    201: .same(proto: "retainCount"),
+    202: .same(proto: "zone"),
+    203: .same(proto: "isProxy"),
+    204: .same(proto: "copy"),
+    205: .same(proto: "mutableCopy"),
+    206: .same(proto: "classForCoder"),
+    207: .same(proto: "clear"),
+    208: .same(proto: "data"),
+    209: .same(proto: "delimitedData"),
+    210: .same(proto: "descriptor"),
+    211: .same(proto: "extensionRegistry"),
+    212: .same(proto: "extensionsCurrentlySet"),
+    213: .same(proto: "isInitialized"),
+    214: .same(proto: "serializedSize"),
+    215: .same(proto: "sortedExtensionsInUse"),
+    216: .same(proto: "unknownFields"),
+    217: .same(proto: "Fixed"),
+    218: .same(proto: "Fract"),
+    219: .same(proto: "Size"),
+    220: .same(proto: "LogicalAddress"),
+    221: .same(proto: "PhysicalAddress"),
+    222: .same(proto: "ByteCount"),
+    223: .same(proto: "ByteOffset"),
+    224: .same(proto: "Duration"),
+    225: .same(proto: "AbsoluteTime"),
+    226: .same(proto: "OptionBits"),
+    227: .same(proto: "ItemCount"),
+    228: .same(proto: "PBVersion"),
+    229: .same(proto: "ScriptCode"),
+    230: .same(proto: "LangCode"),
+    231: .same(proto: "RegionCode"),
+    232: .same(proto: "OSType"),
+    233: .same(proto: "ProcessSerialNumber"),
+    234: .same(proto: "Point"),
+    235: .same(proto: "Rect"),
+    236: .same(proto: "FixedPoint"),
+    237: .same(proto: "FixedRect"),
+    238: .same(proto: "Style"),
+    239: .same(proto: "StyleParameter"),
+    240: .same(proto: "StyleField"),
+    241: .same(proto: "TimeScale"),
+    242: .same(proto: "TimeBase"),
+    243: .same(proto: "TimeRecord"),
+    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden"),
   ]
 
   private class _StorageClass {
@@ -4607,18 +4158,16 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames"}
   public var protoMessageName: String {return "MessageNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
 
   struct StringMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StringMessage"}
     public var protoMessageName: String {return "String"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4646,11 +4195,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct ProtocolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ProtocolMessage"}
     public var protoMessageName: String {return "Protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4678,11 +4226,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct IntMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.IntMessage"}
     public var protoMessageName: String {return "Int"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4710,11 +4257,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.DoubleMessage"}
     public var protoMessageName: String {return "Double"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4742,11 +4288,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct FloatMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FloatMessage"}
     public var protoMessageName: String {return "Float"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4774,11 +4319,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct UIntMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.UIntMessage"}
     public var protoMessageName: String {return "UInt"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4806,11 +4350,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct hashValueMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.hashValueMessage"}
     public var protoMessageName: String {return "hashValue"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4838,11 +4381,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.descriptionMessage"}
     public var protoMessageName: String {return "description"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4870,11 +4412,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.debugDescriptionMessage"}
     public var protoMessageName: String {return "debugDescription"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4902,11 +4443,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Swift: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Swift"}
     public var protoMessageName: String {return "Swift"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4934,11 +4474,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct UNRECOGNIZED: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.UNRECOGNIZED"}
     public var protoMessageName: String {return "UNRECOGNIZED"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4966,11 +4505,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -4998,11 +4536,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct deinitMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.deinitMessage"}
     public var protoMessageName: String {return "deinit"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5030,11 +4567,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct enumMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.enumMessage"}
     public var protoMessageName: String {return "enum"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5062,11 +4598,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct extensionMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionMessage"}
     public var protoMessageName: String {return "extension"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5094,11 +4629,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct funcMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.funcMessage"}
     public var protoMessageName: String {return "func"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5126,11 +4660,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct importMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.importMessage"}
     public var protoMessageName: String {return "import"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5158,11 +4691,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct initMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.initMessage"}
     public var protoMessageName: String {return "init"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5190,11 +4722,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct inoutMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inoutMessage"}
     public var protoMessageName: String {return "inout"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5222,11 +4753,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct internalMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.internalMessage"}
     public var protoMessageName: String {return "internal"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5254,11 +4784,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct letMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.letMessage"}
     public var protoMessageName: String {return "let"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5286,11 +4815,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct operatorMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.operatorMessage"}
     public var protoMessageName: String {return "operator"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5318,11 +4846,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct privateMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.privateMessage"}
     public var protoMessageName: String {return "private"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5350,11 +4877,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct protocolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.protocolMessage"}
     public var protoMessageName: String {return "protocol"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5382,11 +4908,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct publicMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.publicMessage"}
     public var protoMessageName: String {return "public"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5414,11 +4939,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct staticMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.staticMessage"}
     public var protoMessageName: String {return "static"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5446,11 +4970,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct structMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.structMessage"}
     public var protoMessageName: String {return "struct"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5478,11 +5001,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.subscriptMessage"}
     public var protoMessageName: String {return "subscript"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5510,11 +5032,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typealiasMessage"}
     public var protoMessageName: String {return "typealias"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5542,11 +5063,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct varMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.varMessage"}
     public var protoMessageName: String {return "var"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5574,11 +5094,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct breakMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.breakMessage"}
     public var protoMessageName: String {return "break"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5606,11 +5125,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct caseMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.caseMessage"}
     public var protoMessageName: String {return "case"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5638,11 +5156,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct continueMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.continueMessage"}
     public var protoMessageName: String {return "continue"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5670,11 +5187,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct defaultMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.defaultMessage"}
     public var protoMessageName: String {return "default"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5702,11 +5218,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct deferMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.deferMessage"}
     public var protoMessageName: String {return "defer"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5734,11 +5249,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct doMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.doMessage"}
     public var protoMessageName: String {return "do"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5766,11 +5280,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct elseMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.elseMessage"}
     public var protoMessageName: String {return "else"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5798,11 +5311,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct fallthroughMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.fallthroughMessage"}
     public var protoMessageName: String {return "fallthrough"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5830,11 +5342,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct forMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.forMessage"}
     public var protoMessageName: String {return "for"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5862,11 +5373,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct guardMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.guardMessage"}
     public var protoMessageName: String {return "guard"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5894,11 +5404,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct ifMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ifMessage"}
     public var protoMessageName: String {return "if"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5926,11 +5435,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct inMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inMessage"}
     public var protoMessageName: String {return "in"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5958,11 +5466,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct repeatMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.repeatMessage"}
     public var protoMessageName: String {return "repeat"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -5990,11 +5497,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct returnMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.returnMessage"}
     public var protoMessageName: String {return "return"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6022,11 +5528,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct switchMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.switchMessage"}
     public var protoMessageName: String {return "switch"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6054,11 +5559,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct whereMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.whereMessage"}
     public var protoMessageName: String {return "where"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6086,11 +5590,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct whileMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.whileMessage"}
     public var protoMessageName: String {return "while"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6118,11 +5621,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct asMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.asMessage"}
     public var protoMessageName: String {return "as"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6150,11 +5652,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct catchMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.catchMessage"}
     public var protoMessageName: String {return "catch"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6182,11 +5683,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct dynamicTypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamicTypeMessage"}
     public var protoMessageName: String {return "dynamicType"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6214,11 +5714,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct falseMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.falseMessage"}
     public var protoMessageName: String {return "false"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6246,11 +5745,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct isMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isMessage"}
     public var protoMessageName: String {return "is"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6278,11 +5776,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct nilMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nilMessage"}
     public var protoMessageName: String {return "nil"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6310,11 +5807,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.rethrowsMessage"}
     public var protoMessageName: String {return "rethrows"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6342,11 +5838,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct superMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.superMessage"}
     public var protoMessageName: String {return "super"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6374,11 +5869,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct selfMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.selfMessage"}
     public var protoMessageName: String {return "self"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6406,11 +5900,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct throwMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.throwMessage"}
     public var protoMessageName: String {return "throw"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6438,11 +5931,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct throwsMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.throwsMessage"}
     public var protoMessageName: String {return "throws"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6470,11 +5962,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct trueMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.trueMessage"}
     public var protoMessageName: String {return "true"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6502,11 +5993,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct tryMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.tryMessage"}
     public var protoMessageName: String {return "try"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6534,11 +6024,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct __COLUMN__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__COLUMN__Message"}
     public var protoMessageName: String {return "__COLUMN__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6566,11 +6055,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct __FILE__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__FILE__Message"}
     public var protoMessageName: String {return "__FILE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6598,11 +6086,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct __FUNCTION__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__FUNCTION__Message"}
     public var protoMessageName: String {return "__FUNCTION__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6630,11 +6117,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct __LINE__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__LINE__Message"}
     public var protoMessageName: String {return "__LINE__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6662,11 +6148,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct _Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames._Message"}
     public var protoMessageName: String {return "_"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6694,11 +6179,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct __Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.__Message"}
     public var protoMessageName: String {return "__"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6726,11 +6210,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct associativity: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.associativity"}
     public var protoMessageName: String {return "associativity"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6758,11 +6241,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct convenience: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.convenience"}
     public var protoMessageName: String {return "convenience"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6790,11 +6272,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct dynamic: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamic"}
     public var protoMessageName: String {return "dynamic"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6822,11 +6303,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct didSet: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.didSet"}
     public var protoMessageName: String {return "didSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6854,11 +6334,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct final: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.final"}
     public var protoMessageName: String {return "final"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6886,11 +6365,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct get: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.get"}
     public var protoMessageName: String {return "get"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6918,11 +6396,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct infix: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.infix"}
     public var protoMessageName: String {return "infix"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6950,11 +6427,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct indirect: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.indirect"}
     public var protoMessageName: String {return "indirect"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -6982,11 +6458,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct lazy: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.lazy"}
     public var protoMessageName: String {return "lazy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7014,11 +6489,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct left: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.left"}
     public var protoMessageName: String {return "left"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7046,11 +6520,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct mutating: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutating"}
     public var protoMessageName: String {return "mutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7078,11 +6551,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct none: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.none"}
     public var protoMessageName: String {return "none"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7110,11 +6582,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct nonmutating: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nonmutating"}
     public var protoMessageName: String {return "nonmutating"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7142,11 +6613,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct optional: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.optional"}
     public var protoMessageName: String {return "optional"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7174,11 +6644,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct override: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.override"}
     public var protoMessageName: String {return "override"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7206,11 +6675,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct postfix: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.postfix"}
     public var protoMessageName: String {return "postfix"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7238,11 +6706,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct precedence: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.precedence"}
     public var protoMessageName: String {return "precedence"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7270,11 +6737,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct prefix: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.prefix"}
     public var protoMessageName: String {return "prefix"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7302,11 +6768,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct required: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.required"}
     public var protoMessageName: String {return "required"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7334,11 +6799,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct right: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.right"}
     public var protoMessageName: String {return "right"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7366,11 +6830,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct set: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.set"}
     public var protoMessageName: String {return "set"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7398,11 +6861,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7430,11 +6892,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct unowned: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unowned"}
     public var protoMessageName: String {return "unowned"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7462,11 +6923,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct weak: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.weak"}
     public var protoMessageName: String {return "weak"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7494,11 +6954,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct willSet: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.willSet"}
     public var protoMessageName: String {return "willSet"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7526,11 +6985,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct id: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.id"}
     public var protoMessageName: String {return "id"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7558,11 +7016,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct _cmd: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames._cmd"}
     public var protoMessageName: String {return "_cmd"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7590,11 +7047,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct out: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.out"}
     public var protoMessageName: String {return "out"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7622,11 +7078,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct bycopy: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bycopy"}
     public var protoMessageName: String {return "bycopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7654,11 +7109,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct byref: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.byref"}
     public var protoMessageName: String {return "byref"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7686,11 +7140,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct oneway: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.oneway"}
     public var protoMessageName: String {return "oneway"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7718,11 +7171,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct and: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.and"}
     public var protoMessageName: String {return "and"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7750,11 +7202,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct and_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.and_eq"}
     public var protoMessageName: String {return "and_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7782,11 +7233,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct alignas: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.alignas"}
     public var protoMessageName: String {return "alignas"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7814,11 +7264,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct alignof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.alignof"}
     public var protoMessageName: String {return "alignof"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7846,11 +7295,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct asm: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.asm"}
     public var protoMessageName: String {return "asm"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7878,11 +7326,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct auto: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.auto"}
     public var protoMessageName: String {return "auto"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7910,11 +7357,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct bitand: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bitand"}
     public var protoMessageName: String {return "bitand"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7942,11 +7388,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct bitor: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bitor"}
     public var protoMessageName: String {return "bitor"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -7974,11 +7419,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct bool: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.bool"}
     public var protoMessageName: String {return "bool"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8006,11 +7450,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct char: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char"}
     public var protoMessageName: String {return "char"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8038,11 +7481,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct char16_t: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char16_t"}
     public var protoMessageName: String {return "char16_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8070,11 +7512,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct char32_t: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.char32_t"}
     public var protoMessageName: String {return "char32_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8102,11 +7543,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct compl: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.compl"}
     public var protoMessageName: String {return "compl"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8134,11 +7574,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct const: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.const"}
     public var protoMessageName: String {return "const"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8166,11 +7605,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct constexpr: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.constexpr"}
     public var protoMessageName: String {return "constexpr"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8198,11 +7636,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct const_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.const_cast"}
     public var protoMessageName: String {return "const_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8230,11 +7667,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct decltype: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.decltype"}
     public var protoMessageName: String {return "decltype"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8262,11 +7698,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct delete: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.delete"}
     public var protoMessageName: String {return "delete"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8294,11 +7729,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct dynamic_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dynamic_cast"}
     public var protoMessageName: String {return "dynamic_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8326,11 +7760,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct explicit: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.explicit"}
     public var protoMessageName: String {return "explicit"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8358,11 +7791,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct export: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.export"}
     public var protoMessageName: String {return "export"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8390,11 +7822,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct extern: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extern"}
     public var protoMessageName: String {return "extern"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8422,11 +7853,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct friend: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.friend"}
     public var protoMessageName: String {return "friend"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8454,11 +7884,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct goto: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.goto"}
     public var protoMessageName: String {return "goto"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8486,11 +7915,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct inline: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.inline"}
     public var protoMessageName: String {return "inline"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8518,11 +7946,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct long: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.long"}
     public var protoMessageName: String {return "long"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8550,11 +7977,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct mutable: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutable"}
     public var protoMessageName: String {return "mutable"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8582,11 +8008,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct namespace: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.namespace"}
     public var protoMessageName: String {return "namespace"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8614,11 +8039,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct new: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.new"}
     public var protoMessageName: String {return "new"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8646,11 +8070,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct noexcept: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.noexcept"}
     public var protoMessageName: String {return "noexcept"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8678,11 +8101,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct not: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.not"}
     public var protoMessageName: String {return "not"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8710,11 +8132,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct not_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.not_eq"}
     public var protoMessageName: String {return "not_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8742,11 +8163,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct nullptr: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.nullptr"}
     public var protoMessageName: String {return "nullptr"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8774,11 +8194,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct or: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.or"}
     public var protoMessageName: String {return "or"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8806,11 +8225,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct or_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.or_eq"}
     public var protoMessageName: String {return "or_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8838,11 +8256,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct protected: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.protected"}
     public var protoMessageName: String {return "protected"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8870,11 +8287,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct register: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.register"}
     public var protoMessageName: String {return "register"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8902,11 +8318,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct reinterpret_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.reinterpret_cast"}
     public var protoMessageName: String {return "reinterpret_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8934,11 +8349,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct short: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.short"}
     public var protoMessageName: String {return "short"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8966,11 +8380,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct signed: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.signed"}
     public var protoMessageName: String {return "signed"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -8998,11 +8411,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct sizeof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.sizeof"}
     public var protoMessageName: String {return "sizeof"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9030,11 +8442,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct static_assert: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.static_assert"}
     public var protoMessageName: String {return "static_assert"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9062,11 +8473,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct static_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.static_cast"}
     public var protoMessageName: String {return "static_cast"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9094,11 +8504,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct template: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.template"}
     public var protoMessageName: String {return "template"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9126,11 +8535,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct this: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.this"}
     public var protoMessageName: String {return "this"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9158,11 +8566,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct thread_local: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.thread_local"}
     public var protoMessageName: String {return "thread_local"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9190,11 +8597,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct typedef: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typedef"}
     public var protoMessageName: String {return "typedef"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9222,11 +8628,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct typeid: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typeid"}
     public var protoMessageName: String {return "typeid"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9254,11 +8659,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct typename: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.typename"}
     public var protoMessageName: String {return "typename"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9286,11 +8690,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct union: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.union"}
     public var protoMessageName: String {return "union"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9318,11 +8721,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct unsigned: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unsigned"}
     public var protoMessageName: String {return "unsigned"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9350,11 +8752,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct using: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.using"}
     public var protoMessageName: String {return "using"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9382,11 +8783,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct virtual: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.virtual"}
     public var protoMessageName: String {return "virtual"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9414,11 +8814,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct void: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.void"}
     public var protoMessageName: String {return "void"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9446,11 +8845,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct volatile: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.volatile"}
     public var protoMessageName: String {return "volatile"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9478,11 +8876,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct wchar_t: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.wchar_t"}
     public var protoMessageName: String {return "wchar_t"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9510,11 +8907,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct xor: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.xor"}
     public var protoMessageName: String {return "xor"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9542,11 +8938,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct xor_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.xor_eq"}
     public var protoMessageName: String {return "xor_eq"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9574,11 +8969,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct restrict: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.restrict"}
     public var protoMessageName: String {return "restrict"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9606,11 +9000,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Category: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Category"}
     public var protoMessageName: String {return "Category"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9638,11 +9031,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Ivar: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Ivar"}
     public var protoMessageName: String {return "Ivar"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9670,11 +9062,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Method: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Method"}
     public var protoMessageName: String {return "Method"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9702,11 +9093,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct finalize: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.finalize"}
     public var protoMessageName: String {return "finalize"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9734,11 +9124,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct hash: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.hash"}
     public var protoMessageName: String {return "hash"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9766,11 +9155,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct dealloc: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.dealloc"}
     public var protoMessageName: String {return "dealloc"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9798,11 +9186,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct superclass: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.superclass"}
     public var protoMessageName: String {return "superclass"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9830,11 +9217,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct retain: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.retain"}
     public var protoMessageName: String {return "retain"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9862,11 +9248,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct release: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.release"}
     public var protoMessageName: String {return "release"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9894,11 +9279,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct autorelease: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.autorelease"}
     public var protoMessageName: String {return "autorelease"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9926,11 +9310,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct retainCount: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.retainCount"}
     public var protoMessageName: String {return "retainCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9958,11 +9341,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct zone: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.zone"}
     public var protoMessageName: String {return "zone"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -9990,11 +9372,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct isProxy: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isProxy"}
     public var protoMessageName: String {return "isProxy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10022,11 +9403,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct copy: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.copy"}
     public var protoMessageName: String {return "copy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10054,11 +9434,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct mutableCopy: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.mutableCopy"}
     public var protoMessageName: String {return "mutableCopy"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10086,11 +9465,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct classForCoder: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.classForCoder"}
     public var protoMessageName: String {return "classForCoder"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10118,11 +9496,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct clear: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.clear"}
     public var protoMessageName: String {return "clear"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10150,11 +9527,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct data: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.data"}
     public var protoMessageName: String {return "data"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10182,11 +9558,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct delimitedData: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.delimitedData"}
     public var protoMessageName: String {return "delimitedData"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10214,11 +9589,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct descriptor: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.descriptor"}
     public var protoMessageName: String {return "descriptor"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10246,11 +9620,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct extensionRegistry: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionRegistry"}
     public var protoMessageName: String {return "extensionRegistry"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10278,11 +9651,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct extensionsCurrentlySet: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.extensionsCurrentlySet"}
     public var protoMessageName: String {return "extensionsCurrentlySet"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10310,11 +9682,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct isInitialized: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.isInitialized"}
     public var protoMessageName: String {return "isInitialized"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10342,11 +9713,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct serializedSize: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.serializedSize"}
     public var protoMessageName: String {return "serializedSize"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10374,11 +9744,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct sortedExtensionsInUse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.sortedExtensionsInUse"}
     public var protoMessageName: String {return "sortedExtensionsInUse"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10406,11 +9775,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct unknownFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.unknownFields"}
     public var protoMessageName: String {return "unknownFields"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10438,11 +9806,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Fixed: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Fixed"}
     public var protoMessageName: String {return "Fixed"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10470,11 +9837,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Fract: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Fract"}
     public var protoMessageName: String {return "Fract"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10502,11 +9868,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Size: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Size"}
     public var protoMessageName: String {return "Size"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10534,11 +9899,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct LogicalAddress: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.LogicalAddress"}
     public var protoMessageName: String {return "LogicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10566,11 +9930,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct PhysicalAddress: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.PhysicalAddress"}
     public var protoMessageName: String {return "PhysicalAddress"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10598,11 +9961,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct ByteCount: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ByteCount"}
     public var protoMessageName: String {return "ByteCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10630,11 +9992,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct ByteOffset: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ByteOffset"}
     public var protoMessageName: String {return "ByteOffset"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10662,11 +10023,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Duration"}
     public var protoMessageName: String {return "Duration"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10694,11 +10054,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct AbsoluteTime: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.AbsoluteTime"}
     public var protoMessageName: String {return "AbsoluteTime"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10726,11 +10085,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct OptionBits: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.OptionBits"}
     public var protoMessageName: String {return "OptionBits"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10758,11 +10116,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct ItemCount: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ItemCount"}
     public var protoMessageName: String {return "ItemCount"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10790,11 +10147,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct PBVersion: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.PBVersion"}
     public var protoMessageName: String {return "PBVersion"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10822,11 +10178,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct ScriptCode: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ScriptCode"}
     public var protoMessageName: String {return "ScriptCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10854,11 +10209,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct LangCode: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.LangCode"}
     public var protoMessageName: String {return "LangCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10886,11 +10240,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct RegionCode: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.RegionCode"}
     public var protoMessageName: String {return "RegionCode"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10918,11 +10271,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct OSType: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.OSType"}
     public var protoMessageName: String {return "OSType"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10950,11 +10302,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct ProcessSerialNumber: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.ProcessSerialNumber"}
     public var protoMessageName: String {return "ProcessSerialNumber"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -10982,11 +10333,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Point: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Point"}
     public var protoMessageName: String {return "Point"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11014,11 +10364,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Rect: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Rect"}
     public var protoMessageName: String {return "Rect"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11046,11 +10395,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct FixedPoint: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FixedPoint"}
     public var protoMessageName: String {return "FixedPoint"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11078,11 +10426,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct FixedRect: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.FixedRect"}
     public var protoMessageName: String {return "FixedRect"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11110,11 +10457,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct Style: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.Style"}
     public var protoMessageName: String {return "Style"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11142,11 +10488,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct StyleParameter: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StyleParameter"}
     public var protoMessageName: String {return "StyleParameter"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11174,11 +10519,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct StyleField: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.StyleField"}
     public var protoMessageName: String {return "StyleField"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11206,11 +10550,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct TimeScale: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeScale"}
     public var protoMessageName: String {return "TimeScale"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11238,11 +10581,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct TimeBase: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeBase"}
     public var protoMessageName: String {return "TimeBase"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11270,11 +10612,10 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 
   struct TimeRecord: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "SwiftUnittest_Names_MessageNames.TimeRecord"}
     public var protoMessageName: String {return "TimeRecord"}
     public var protoPackageName: String {return "swift_unittest.names"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a", swift: "a"),
+      1: .same(proto: "a"),
     ]
 
 
@@ -11315,7 +10656,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
 }
 
 struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "SwiftUnittest_Names_EnumNames"}
   public var protoMessageName: String {return "EnumNames"}
   public var protoPackageName: String {return "swift_unittest.names"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -11334,13 +10674,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aString
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aString": self = .aString
-      default: return nil
       }
     }
 
@@ -11367,25 +10700,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aString: return "\"aString\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aString: return "aString"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aString: return ".aString"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11402,13 +10726,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aProtocol
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aProtocol": self = .aProtocol
-      default: return nil
       }
     }
 
@@ -11435,25 +10752,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aProtocol: return "\"aProtocol\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aProtocol: return "aProtocol"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aProtocol: return ".aProtocol"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11470,13 +10778,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aInt
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aInt": self = .aInt
-      default: return nil
       }
     }
 
@@ -11503,25 +10804,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aInt: return "\"aInt\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aInt: return "aInt"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aInt: return ".aInt"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11538,13 +10830,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aDouble
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aDouble": self = .aDouble
-      default: return nil
       }
     }
 
@@ -11571,25 +10856,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aDouble: return "\"aDouble\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aDouble: return "aDouble"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aDouble: return ".aDouble"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11606,13 +10882,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aFloat
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aFloat": self = .aFloat
-      default: return nil
       }
     }
 
@@ -11639,25 +10908,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aFloat: return "\"aFloat\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aFloat: return "aFloat"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aFloat: return ".aFloat"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11674,13 +10934,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aUint
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aUint": self = .aUint
-      default: return nil
       }
     }
 
@@ -11707,25 +10960,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aUint: return "\"aUInt\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aUint: return "aUInt"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aUint: return ".aUint"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11742,13 +10986,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ahashValue
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ahashValue": self = .ahashValue
-      default: return nil
       }
     }
 
@@ -11775,25 +11012,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ahashValue: return "\"ahashValue\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ahashValue: return "ahashValue"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ahashValue: return ".ahashValue"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11810,13 +11038,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adescription
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adescription": self = .adescription
-      default: return nil
       }
     }
 
@@ -11843,25 +11064,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adescription: return "\"adescription\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adescription: return "adescription"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adescription: return ".adescription"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11878,13 +11090,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adebugDescription
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adebugDescription": self = .adebugDescription
-      default: return nil
       }
     }
 
@@ -11911,25 +11116,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adebugDescription: return "\"adebugDescription\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adebugDescription: return "adebugDescription"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adebugDescription: return ".adebugDescription"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -11946,13 +11142,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aSwift
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aSwift": self = .aSwift
-      default: return nil
       }
     }
 
@@ -11979,25 +11168,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aSwift: return "\"aSwift\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aSwift: return "aSwift"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aSwift: return ".aSwift"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12014,13 +11194,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aUnrecognized
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aUnrecognized": self = .aUnrecognized
-      default: return nil
       }
     }
 
@@ -12047,25 +11220,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aUnrecognized: return "\"aUNRECOGNIZED\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aUnrecognized: return "aUNRECOGNIZED"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aUnrecognized: return ".aUnrecognized"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12082,13 +11246,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aclass
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aclass": self = .aclass
-      default: return nil
       }
     }
 
@@ -12115,25 +11272,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aclass: return "\"aclass\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aclass: return "aclass"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aclass: return ".aclass"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12150,13 +11298,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adeinit
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adeinit": self = .adeinit
-      default: return nil
       }
     }
 
@@ -12183,25 +11324,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adeinit: return "\"adeinit\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adeinit: return "adeinit"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adeinit: return ".adeinit"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12218,13 +11350,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aenum
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aenum": self = .aenum
-      default: return nil
       }
     }
 
@@ -12251,25 +11376,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aenum: return "\"aenum\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aenum: return "aenum"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aenum: return ".aenum"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12286,13 +11402,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aextension
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aextension": self = .aextension
-      default: return nil
       }
     }
 
@@ -12319,25 +11428,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aextension: return "\"aextension\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aextension: return "aextension"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aextension: return ".aextension"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12354,13 +11454,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afunc
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afunc": self = .afunc
-      default: return nil
       }
     }
 
@@ -12387,25 +11480,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .afunc: return "\"afunc\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .afunc: return "afunc"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .afunc: return ".afunc"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12422,13 +11506,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aimport
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aimport": self = .aimport
-      default: return nil
       }
     }
 
@@ -12455,25 +11532,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aimport: return "\"aimport\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aimport: return "aimport"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aimport: return ".aimport"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12490,13 +11558,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainit
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainit": self = .ainit
-      default: return nil
       }
     }
 
@@ -12523,25 +11584,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ainit: return "\"ainit\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ainit: return "ainit"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ainit: return ".ainit"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12558,13 +11610,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainout
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainout": self = .ainout
-      default: return nil
       }
     }
 
@@ -12591,25 +11636,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ainout: return "\"ainout\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ainout: return "ainout"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ainout: return ".ainout"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12626,13 +11662,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainternal
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainternal": self = .ainternal
-      default: return nil
       }
     }
 
@@ -12659,25 +11688,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ainternal: return "\"ainternal\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ainternal: return "ainternal"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ainternal: return ".ainternal"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12694,13 +11714,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .alet
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "alet": self = .alet
-      default: return nil
       }
     }
 
@@ -12727,25 +11740,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .alet: return "\"alet\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .alet: return "alet"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .alet: return ".alet"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12762,13 +11766,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aoperator
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aoperator": self = .aoperator
-      default: return nil
       }
     }
 
@@ -12795,25 +11792,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aoperator: return "\"aoperator\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aoperator: return "aoperator"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aoperator: return ".aoperator"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12830,13 +11818,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aprivate
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aprivate": self = .aprivate
-      default: return nil
       }
     }
 
@@ -12863,25 +11844,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aprivate: return "\"aprivate\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aprivate: return "aprivate"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aprivate: return ".aprivate"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12898,13 +11870,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aprotocol
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aprotocol": self = .aprotocol
-      default: return nil
       }
     }
 
@@ -12931,25 +11896,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aprotocol: return "\"aprotocol\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aprotocol: return "aprotocol"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aprotocol: return ".aprotocol"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -12966,13 +11922,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .apublic
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "apublic": self = .apublic
-      default: return nil
       }
     }
 
@@ -12999,25 +11948,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .apublic: return "\"apublic\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .apublic: return "apublic"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .apublic: return ".apublic"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13034,13 +11974,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .astatic
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "astatic": self = .astatic
-      default: return nil
       }
     }
 
@@ -13067,25 +12000,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .astatic: return "\"astatic\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .astatic: return "astatic"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .astatic: return ".astatic"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13102,13 +12026,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .astruct
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "astruct": self = .astruct
-      default: return nil
       }
     }
 
@@ -13135,25 +12052,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .astruct: return "\"astruct\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .astruct: return "astruct"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .astruct: return ".astruct"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13170,13 +12078,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asubscript
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asubscript": self = .asubscript
-      default: return nil
       }
     }
 
@@ -13203,25 +12104,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .asubscript: return "\"asubscript\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .asubscript: return "asubscript"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .asubscript: return ".asubscript"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13238,13 +12130,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atypealias
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atypealias": self = .atypealias
-      default: return nil
       }
     }
 
@@ -13271,25 +12156,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .atypealias: return "\"atypealias\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .atypealias: return "atypealias"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .atypealias: return ".atypealias"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13306,13 +12182,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .avar
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "avar": self = .avar
-      default: return nil
       }
     }
 
@@ -13339,25 +12208,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .avar: return "\"avar\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .avar: return "avar"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .avar: return ".avar"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13374,13 +12234,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abreak
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abreak": self = .abreak
-      default: return nil
       }
     }
 
@@ -13407,25 +12260,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .abreak: return "\"abreak\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .abreak: return "abreak"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .abreak: return ".abreak"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13442,13 +12286,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acase
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acase": self = .acase
-      default: return nil
       }
     }
 
@@ -13475,25 +12312,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .acase: return "\"acase\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .acase: return "acase"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .acase: return ".acase"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13510,13 +12338,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acontinue
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acontinue": self = .acontinue
-      default: return nil
       }
     }
 
@@ -13543,25 +12364,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .acontinue: return "\"acontinue\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .acontinue: return "acontinue"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .acontinue: return ".acontinue"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13578,13 +12390,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adefault
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adefault": self = .adefault
-      default: return nil
       }
     }
 
@@ -13611,25 +12416,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adefault: return "\"adefault\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adefault: return "adefault"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adefault: return ".adefault"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13646,13 +12442,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adefer
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adefer": self = .adefer
-      default: return nil
       }
     }
 
@@ -13679,25 +12468,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adefer: return "\"adefer\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adefer: return "adefer"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adefer: return ".adefer"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13714,13 +12494,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ado
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ado": self = .ado
-      default: return nil
       }
     }
 
@@ -13747,25 +12520,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ado: return "\"ado\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ado: return "ado"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ado: return ".ado"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13782,13 +12546,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aelse
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aelse": self = .aelse
-      default: return nil
       }
     }
 
@@ -13815,25 +12572,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aelse: return "\"aelse\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aelse: return "aelse"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aelse: return ".aelse"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13850,13 +12598,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afallthrough
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afallthrough": self = .afallthrough
-      default: return nil
       }
     }
 
@@ -13883,25 +12624,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .afallthrough: return "\"afallthrough\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .afallthrough: return "afallthrough"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .afallthrough: return ".afallthrough"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13918,13 +12650,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afor
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afor": self = .afor
-      default: return nil
       }
     }
 
@@ -13951,25 +12676,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .afor: return "\"afor\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .afor: return "afor"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .afor: return ".afor"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -13986,13 +12702,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aguard
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aguard": self = .aguard
-      default: return nil
       }
     }
 
@@ -14019,25 +12728,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aguard: return "\"aguard\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aguard: return "aguard"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aguard: return ".aguard"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14054,13 +12754,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aif
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aif": self = .aif
-      default: return nil
       }
     }
 
@@ -14087,25 +12780,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aif: return "\"aif\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aif: return "aif"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aif: return ".aif"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14122,13 +12806,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ain
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ain": self = .ain
-      default: return nil
       }
     }
 
@@ -14155,25 +12832,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ain: return "\"ain\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ain: return "ain"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ain: return ".ain"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14190,13 +12858,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .arepeat
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "arepeat": self = .arepeat
-      default: return nil
       }
     }
 
@@ -14223,25 +12884,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .arepeat: return "\"arepeat\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .arepeat: return "arepeat"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .arepeat: return ".arepeat"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14258,13 +12910,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .areturn
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "areturn": self = .areturn
-      default: return nil
       }
     }
 
@@ -14291,25 +12936,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .areturn: return "\"areturn\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .areturn: return "areturn"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .areturn: return ".areturn"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14326,13 +12962,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aswitch
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aswitch": self = .aswitch
-      default: return nil
       }
     }
 
@@ -14359,25 +12988,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aswitch: return "\"aswitch\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aswitch: return "aswitch"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aswitch: return ".aswitch"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14394,13 +13014,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .awhere
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "awhere": self = .awhere
-      default: return nil
       }
     }
 
@@ -14427,25 +13040,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .awhere: return "\"awhere\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .awhere: return "awhere"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .awhere: return ".awhere"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14462,13 +13066,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .awhile
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "awhile": self = .awhile
-      default: return nil
       }
     }
 
@@ -14495,25 +13092,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .awhile: return "\"awhile\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .awhile: return "awhile"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .awhile: return ".awhile"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14530,13 +13118,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aas
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aas": self = .aas
-      default: return nil
       }
     }
 
@@ -14563,25 +13144,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aas: return "\"aas\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aas: return "aas"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aas: return ".aas"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14598,13 +13170,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acatch
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acatch": self = .acatch
-      default: return nil
       }
     }
 
@@ -14631,25 +13196,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .acatch: return "\"acatch\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .acatch: return "acatch"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .acatch: return ".acatch"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14666,13 +13222,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adynamicType
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adynamicType": self = .adynamicType
-      default: return nil
       }
     }
 
@@ -14699,25 +13248,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adynamicType: return "\"adynamicType\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adynamicType: return "adynamicType"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adynamicType: return ".adynamicType"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14734,13 +13274,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afalse
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afalse": self = .afalse
-      default: return nil
       }
     }
 
@@ -14767,25 +13300,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .afalse: return "\"afalse\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .afalse: return "afalse"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .afalse: return ".afalse"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14802,13 +13326,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ais
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ais": self = .ais
-      default: return nil
       }
     }
 
@@ -14835,25 +13352,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ais: return "\"ais\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ais: return "ais"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ais: return ".ais"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14870,13 +13378,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anil
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anil": self = .anil
-      default: return nil
       }
     }
 
@@ -14903,25 +13404,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anil: return "\"anil\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anil: return "anil"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anil: return ".anil"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -14938,13 +13430,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .arethrows
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "arethrows": self = .arethrows
-      default: return nil
       }
     }
 
@@ -14971,25 +13456,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .arethrows: return "\"arethrows\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .arethrows: return "arethrows"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .arethrows: return ".arethrows"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15006,13 +13482,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asuper
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asuper": self = .asuper
-      default: return nil
       }
     }
 
@@ -15039,25 +13508,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .asuper: return "\"asuper\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .asuper: return "asuper"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .asuper: return ".asuper"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15074,13 +13534,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aself
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aself": self = .aself
-      default: return nil
       }
     }
 
@@ -15107,25 +13560,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aself: return "\"aself\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aself: return "aself"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aself: return ".aself"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15142,13 +13586,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .athrow
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "athrow": self = .athrow
-      default: return nil
       }
     }
 
@@ -15175,25 +13612,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .athrow: return "\"athrow\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .athrow: return "athrow"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .athrow: return ".athrow"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15210,13 +13638,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .athrows
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "athrows": self = .athrows
-      default: return nil
       }
     }
 
@@ -15243,25 +13664,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .athrows: return "\"athrows\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .athrows: return "athrows"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .athrows: return ".athrows"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15278,13 +13690,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atrue
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atrue": self = .atrue
-      default: return nil
       }
     }
 
@@ -15311,25 +13716,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .atrue: return "\"atrue\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .atrue: return "atrue"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .atrue: return ".atrue"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15346,13 +13742,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atry
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atry": self = .atry
-      default: return nil
       }
     }
 
@@ -15379,25 +13768,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .atry: return "\"atry\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .atry: return "atry"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .atry: return ".atry"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15414,13 +13794,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a_Column__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a_Column__": self = .a_Column__
-      default: return nil
       }
     }
 
@@ -15447,25 +13820,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .a_Column__: return "\"a__COLUMN__\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .a_Column__: return "a__COLUMN__"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a_Column__: return ".a_Column__"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15482,13 +13846,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a_File__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a_File__": self = .a_File__
-      default: return nil
       }
     }
 
@@ -15515,25 +13872,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .a_File__: return "\"a__FILE__\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .a_File__: return "a__FILE__"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a_File__: return ".a_File__"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15550,13 +13898,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a_Function__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a_Function__": self = .a_Function__
-      default: return nil
       }
     }
 
@@ -15583,25 +13924,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .a_Function__: return "\"a__FUNCTION__\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .a_Function__: return "a__FUNCTION__"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a_Function__: return ".a_Function__"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15618,13 +13950,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a_Line__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a_Line__": self = .a_Line__
-      default: return nil
       }
     }
 
@@ -15651,25 +13976,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .a_Line__: return "\"a__LINE__\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .a_Line__: return "a__LINE__"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a_Line__: return ".a_Line__"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15686,13 +14002,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a_
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a_": self = .a_
-      default: return nil
       }
     }
 
@@ -15719,25 +14028,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .a_: return "\"a_\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .a_: return "a_"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a_: return ".a_"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15754,13 +14054,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .a__
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a__": self = .a__
-      default: return nil
       }
     }
 
@@ -15787,25 +14080,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .a__: return "\"a__\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .a__: return "a__"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a__: return ".a__"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15822,13 +14106,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aassociativity
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aassociativity": self = .aassociativity
-      default: return nil
       }
     }
 
@@ -15855,25 +14132,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aassociativity: return "\"aassociativity\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aassociativity: return "aassociativity"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aassociativity: return ".aassociativity"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15890,13 +14158,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aconvenience
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aconvenience": self = .aconvenience
-      default: return nil
       }
     }
 
@@ -15923,25 +14184,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aconvenience: return "\"aconvenience\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aconvenience: return "aconvenience"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aconvenience: return ".aconvenience"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -15958,13 +14210,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adynamic
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adynamic": self = .adynamic
-      default: return nil
       }
     }
 
@@ -15991,25 +14236,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adynamic: return "\"adynamic\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adynamic: return "adynamic"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adynamic: return ".adynamic"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16026,13 +14262,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adidSet
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adidSet": self = .adidSet
-      default: return nil
       }
     }
 
@@ -16059,25 +14288,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adidSet: return "\"adidSet\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adidSet: return "adidSet"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adidSet: return ".adidSet"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16094,13 +14314,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afinal
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afinal": self = .afinal
-      default: return nil
       }
     }
 
@@ -16127,25 +14340,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .afinal: return "\"afinal\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .afinal: return "afinal"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .afinal: return ".afinal"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16162,13 +14366,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aget
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aget": self = .aget
-      default: return nil
       }
     }
 
@@ -16195,25 +14392,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aget: return "\"aget\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aget: return "aget"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aget: return ".aget"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16230,13 +14418,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainfix
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainfix": self = .ainfix
-      default: return nil
       }
     }
 
@@ -16263,25 +14444,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ainfix: return "\"ainfix\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ainfix: return "ainfix"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ainfix: return ".ainfix"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16298,13 +14470,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aindirect
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aindirect": self = .aindirect
-      default: return nil
       }
     }
 
@@ -16331,25 +14496,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aindirect: return "\"aindirect\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aindirect: return "aindirect"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aindirect: return ".aindirect"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16366,13 +14522,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .alazy
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "alazy": self = .alazy
-      default: return nil
       }
     }
 
@@ -16399,25 +14548,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .alazy: return "\"alazy\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .alazy: return "alazy"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .alazy: return ".alazy"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16434,13 +14574,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aleft
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aleft": self = .aleft
-      default: return nil
       }
     }
 
@@ -16467,25 +14600,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aleft: return "\"aleft\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aleft: return "aleft"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aleft: return ".aleft"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16502,13 +14626,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .amutating
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "amutating": self = .amutating
-      default: return nil
       }
     }
 
@@ -16535,25 +14652,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .amutating: return "\"amutating\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .amutating: return "amutating"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .amutating: return ".amutating"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16570,13 +14678,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anone
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anone": self = .anone
-      default: return nil
       }
     }
 
@@ -16603,25 +14704,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anone: return "\"anone\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anone: return "anone"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anone: return ".anone"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16638,13 +14730,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anonmutating
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anonmutating": self = .anonmutating
-      default: return nil
       }
     }
 
@@ -16671,25 +14756,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anonmutating: return "\"anonmutating\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anonmutating: return "anonmutating"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anonmutating: return ".anonmutating"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16706,13 +14782,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aoptional
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aoptional": self = .aoptional
-      default: return nil
       }
     }
 
@@ -16739,25 +14808,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aoptional: return "\"aoptional\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aoptional: return "aoptional"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aoptional: return ".aoptional"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16774,13 +14834,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aoverride
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aoverride": self = .aoverride
-      default: return nil
       }
     }
 
@@ -16807,25 +14860,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aoverride: return "\"aoverride\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aoverride: return "aoverride"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aoverride: return ".aoverride"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16842,13 +14886,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .apostfix
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "apostfix": self = .apostfix
-      default: return nil
       }
     }
 
@@ -16875,25 +14912,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .apostfix: return "\"apostfix\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .apostfix: return "apostfix"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .apostfix: return ".apostfix"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16910,13 +14938,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aprecedence
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aprecedence": self = .aprecedence
-      default: return nil
       }
     }
 
@@ -16943,25 +14964,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aprecedence: return "\"aprecedence\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aprecedence: return "aprecedence"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aprecedence: return ".aprecedence"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -16978,13 +14990,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aprefix
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aprefix": self = .aprefix
-      default: return nil
       }
     }
 
@@ -17011,25 +15016,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aprefix: return "\"aprefix\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aprefix: return "aprefix"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aprefix: return ".aprefix"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17046,13 +15042,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .arequired
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "arequired": self = .arequired
-      default: return nil
       }
     }
 
@@ -17079,25 +15068,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .arequired: return "\"arequired\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .arequired: return "arequired"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .arequired: return ".arequired"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17114,13 +15094,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aright
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aright": self = .aright
-      default: return nil
       }
     }
 
@@ -17147,25 +15120,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aright: return "\"aright\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aright: return "aright"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aright: return ".aright"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17182,13 +15146,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aset
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aset": self = .aset
-      default: return nil
       }
     }
 
@@ -17215,25 +15172,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aset: return "\"aset\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aset: return "aset"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aset: return ".aset"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17250,13 +15198,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aType
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aType": self = .aType
-      default: return nil
       }
     }
 
@@ -17283,25 +15224,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aType: return "\"aType\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aType: return "aType"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aType: return ".aType"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17318,13 +15250,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aunowned
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aunowned": self = .aunowned
-      default: return nil
       }
     }
 
@@ -17351,25 +15276,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aunowned: return "\"aunowned\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aunowned: return "aunowned"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aunowned: return ".aunowned"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17386,13 +15302,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aweak
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aweak": self = .aweak
-      default: return nil
       }
     }
 
@@ -17419,25 +15328,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aweak: return "\"aweak\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aweak: return "aweak"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aweak: return ".aweak"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17454,13 +15354,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .awillSet
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "awillSet": self = .awillSet
-      default: return nil
       }
     }
 
@@ -17487,25 +15380,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .awillSet: return "\"awillSet\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .awillSet: return "awillSet"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .awillSet: return ".awillSet"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17522,13 +15406,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aid
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aid": self = .aid
-      default: return nil
       }
     }
 
@@ -17555,25 +15432,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aid: return "\"aid\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aid: return "aid"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aid: return ".aid"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17590,13 +15458,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aCmd
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aCmd": self = .aCmd
-      default: return nil
       }
     }
 
@@ -17623,25 +15484,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aCmd: return "\"a_cmd\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aCmd: return "a_cmd"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aCmd: return ".aCmd"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17658,13 +15510,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aout
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aout": self = .aout
-      default: return nil
       }
     }
 
@@ -17691,25 +15536,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aout: return "\"aout\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aout: return "aout"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aout: return ".aout"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17726,13 +15562,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abycopy
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abycopy": self = .abycopy
-      default: return nil
       }
     }
 
@@ -17759,25 +15588,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .abycopy: return "\"abycopy\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .abycopy: return "abycopy"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .abycopy: return ".abycopy"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17794,13 +15614,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abyref
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abyref": self = .abyref
-      default: return nil
       }
     }
 
@@ -17827,25 +15640,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .abyref: return "\"abyref\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .abyref: return "abyref"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .abyref: return ".abyref"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17862,13 +15666,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aoneway
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aoneway": self = .aoneway
-      default: return nil
       }
     }
 
@@ -17895,25 +15692,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aoneway: return "\"aoneway\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aoneway: return "aoneway"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aoneway: return ".aoneway"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17930,13 +15718,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aand
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aand": self = .aand
-      default: return nil
       }
     }
 
@@ -17963,25 +15744,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aand: return "\"aand\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aand: return "aand"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aand: return ".aand"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -17998,13 +15770,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aandEq
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aandEq": self = .aandEq
-      default: return nil
       }
     }
 
@@ -18031,25 +15796,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aandEq: return "\"aand_eq\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aandEq: return "aand_eq"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aandEq: return ".aandEq"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18066,13 +15822,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aalignas
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aalignas": self = .aalignas
-      default: return nil
       }
     }
 
@@ -18099,25 +15848,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aalignas: return "\"aalignas\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aalignas: return "aalignas"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aalignas: return ".aalignas"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18134,13 +15874,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aalignof
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aalignof": self = .aalignof
-      default: return nil
       }
     }
 
@@ -18167,25 +15900,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aalignof: return "\"aalignof\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aalignof: return "aalignof"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aalignof: return ".aalignof"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18202,13 +15926,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aasm
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aasm": self = .aasm
-      default: return nil
       }
     }
 
@@ -18235,25 +15952,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aasm: return "\"aasm\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aasm: return "aasm"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aasm: return ".aasm"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18270,13 +15978,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aauto
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aauto": self = .aauto
-      default: return nil
       }
     }
 
@@ -18303,25 +16004,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aauto: return "\"aauto\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aauto: return "aauto"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aauto: return ".aauto"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18338,13 +16030,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abitand
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abitand": self = .abitand
-      default: return nil
       }
     }
 
@@ -18371,25 +16056,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .abitand: return "\"abitand\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .abitand: return "abitand"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .abitand: return ".abitand"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18406,13 +16082,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abitor
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abitor": self = .abitor
-      default: return nil
       }
     }
 
@@ -18439,25 +16108,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .abitor: return "\"abitor\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .abitor: return "abitor"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .abitor: return ".abitor"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18474,13 +16134,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .abool
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "abool": self = .abool
-      default: return nil
       }
     }
 
@@ -18507,25 +16160,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .abool: return "\"abool\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .abool: return "abool"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .abool: return ".abool"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18542,13 +16186,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .achar
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "achar": self = .achar
-      default: return nil
       }
     }
 
@@ -18575,25 +16212,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .achar: return "\"achar\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .achar: return "achar"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .achar: return ".achar"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18610,13 +16238,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .achar16T
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "achar16T": self = .achar16T
-      default: return nil
       }
     }
 
@@ -18643,25 +16264,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .achar16T: return "\"achar16_t\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .achar16T: return "achar16_t"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .achar16T: return ".achar16T"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18678,13 +16290,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .achar32T
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "achar32T": self = .achar32T
-      default: return nil
       }
     }
 
@@ -18711,25 +16316,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .achar32T: return "\"achar32_t\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .achar32T: return "achar32_t"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .achar32T: return ".achar32T"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18746,13 +16342,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acompl
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acompl": self = .acompl
-      default: return nil
       }
     }
 
@@ -18779,25 +16368,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .acompl: return "\"acompl\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .acompl: return "acompl"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .acompl: return ".acompl"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18814,13 +16394,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aconst
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aconst": self = .aconst
-      default: return nil
       }
     }
 
@@ -18847,25 +16420,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aconst: return "\"aconst\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aconst: return "aconst"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aconst: return ".aconst"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18882,13 +16446,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aconstexpr
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aconstexpr": self = .aconstexpr
-      default: return nil
       }
     }
 
@@ -18915,25 +16472,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aconstexpr: return "\"aconstexpr\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aconstexpr: return "aconstexpr"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aconstexpr: return ".aconstexpr"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -18950,13 +16498,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aconstCast
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aconstCast": self = .aconstCast
-      default: return nil
       }
     }
 
@@ -18983,25 +16524,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aconstCast: return "\"aconst_cast\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aconstCast: return "aconst_cast"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aconstCast: return ".aconstCast"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19018,13 +16550,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adecltype
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adecltype": self = .adecltype
-      default: return nil
       }
     }
 
@@ -19051,25 +16576,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adecltype: return "\"adecltype\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adecltype: return "adecltype"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adecltype: return ".adecltype"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19086,13 +16602,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adelete
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adelete": self = .adelete
-      default: return nil
       }
     }
 
@@ -19119,25 +16628,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adelete: return "\"adelete\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adelete: return "adelete"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adelete: return ".adelete"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19154,13 +16654,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adynamicCast
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adynamicCast": self = .adynamicCast
-      default: return nil
       }
     }
 
@@ -19187,25 +16680,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adynamicCast: return "\"adynamic_cast\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adynamicCast: return "adynamic_cast"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adynamicCast: return ".adynamicCast"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19222,13 +16706,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aexplicit
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aexplicit": self = .aexplicit
-      default: return nil
       }
     }
 
@@ -19255,25 +16732,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aexplicit: return "\"aexplicit\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aexplicit: return "aexplicit"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aexplicit: return ".aexplicit"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19290,13 +16758,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aexport
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aexport": self = .aexport
-      default: return nil
       }
     }
 
@@ -19323,25 +16784,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aexport: return "\"aexport\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aexport: return "aexport"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aexport: return ".aexport"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19358,13 +16810,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aextern
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aextern": self = .aextern
-      default: return nil
       }
     }
 
@@ -19391,25 +16836,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aextern: return "\"aextern\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aextern: return "aextern"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aextern: return ".aextern"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19426,13 +16862,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afriend
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afriend": self = .afriend
-      default: return nil
       }
     }
 
@@ -19459,25 +16888,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .afriend: return "\"afriend\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .afriend: return "afriend"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .afriend: return ".afriend"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19494,13 +16914,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .agoto
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "agoto": self = .agoto
-      default: return nil
       }
     }
 
@@ -19527,25 +16940,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .agoto: return "\"agoto\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .agoto: return "agoto"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .agoto: return ".agoto"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19562,13 +16966,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ainline
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ainline": self = .ainline
-      default: return nil
       }
     }
 
@@ -19595,25 +16992,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ainline: return "\"ainline\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ainline: return "ainline"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ainline: return ".ainline"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19630,13 +17018,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .along
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "along": self = .along
-      default: return nil
       }
     }
 
@@ -19663,25 +17044,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .along: return "\"along\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .along: return "along"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .along: return ".along"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19698,13 +17070,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .amutable
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "amutable": self = .amutable
-      default: return nil
       }
     }
 
@@ -19731,25 +17096,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .amutable: return "\"amutable\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .amutable: return "amutable"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .amutable: return ".amutable"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19766,13 +17122,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anamespace
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anamespace": self = .anamespace
-      default: return nil
       }
     }
 
@@ -19799,25 +17148,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anamespace: return "\"anamespace\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anamespace: return "anamespace"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anamespace: return ".anamespace"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19834,13 +17174,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anew
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anew": self = .anew
-      default: return nil
       }
     }
 
@@ -19867,25 +17200,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anew: return "\"anew\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anew: return "anew"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anew: return ".anew"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19902,13 +17226,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anoexcept
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anoexcept": self = .anoexcept
-      default: return nil
       }
     }
 
@@ -19935,25 +17252,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anoexcept: return "\"anoexcept\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anoexcept: return "anoexcept"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anoexcept: return ".anoexcept"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -19970,13 +17278,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anot
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anot": self = .anot
-      default: return nil
       }
     }
 
@@ -20003,25 +17304,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anot: return "\"anot\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anot: return "anot"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anot: return ".anot"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20038,13 +17330,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anotEq
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anotEq": self = .anotEq
-      default: return nil
       }
     }
 
@@ -20071,25 +17356,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anotEq: return "\"anot_eq\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anotEq: return "anot_eq"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anotEq: return ".anotEq"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20106,13 +17382,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .anullptr
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "anullptr": self = .anullptr
-      default: return nil
       }
     }
 
@@ -20139,25 +17408,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .anullptr: return "\"anullptr\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .anullptr: return "anullptr"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .anullptr: return ".anullptr"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20174,13 +17434,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aor
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aor": self = .aor
-      default: return nil
       }
     }
 
@@ -20207,25 +17460,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aor: return "\"aor\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aor: return "aor"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aor: return ".aor"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20242,13 +17486,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aorEq
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aorEq": self = .aorEq
-      default: return nil
       }
     }
 
@@ -20275,25 +17512,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aorEq: return "\"aor_eq\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aorEq: return "aor_eq"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aorEq: return ".aorEq"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20310,13 +17538,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aprotected
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aprotected": self = .aprotected
-      default: return nil
       }
     }
 
@@ -20343,25 +17564,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aprotected: return "\"aprotected\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aprotected: return "aprotected"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aprotected: return ".aprotected"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20378,13 +17590,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aregister
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aregister": self = .aregister
-      default: return nil
       }
     }
 
@@ -20411,25 +17616,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aregister: return "\"aregister\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aregister: return "aregister"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aregister: return ".aregister"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20446,13 +17642,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .areinterpretCast
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "areinterpretCast": self = .areinterpretCast
-      default: return nil
       }
     }
 
@@ -20479,25 +17668,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .areinterpretCast: return "\"areinterpret_cast\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .areinterpretCast: return "areinterpret_cast"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .areinterpretCast: return ".areinterpretCast"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20514,13 +17694,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ashort
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ashort": self = .ashort
-      default: return nil
       }
     }
 
@@ -20547,25 +17720,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ashort: return "\"ashort\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ashort: return "ashort"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ashort: return ".ashort"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20582,13 +17746,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asigned
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asigned": self = .asigned
-      default: return nil
       }
     }
 
@@ -20615,25 +17772,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .asigned: return "\"asigned\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .asigned: return "asigned"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .asigned: return ".asigned"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20650,13 +17798,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asizeof
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asizeof": self = .asizeof
-      default: return nil
       }
     }
 
@@ -20683,25 +17824,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .asizeof: return "\"asizeof\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .asizeof: return "asizeof"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .asizeof: return ".asizeof"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20718,13 +17850,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .astaticAssert
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "astaticAssert": self = .astaticAssert
-      default: return nil
       }
     }
 
@@ -20751,25 +17876,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .astaticAssert: return "\"astatic_assert\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .astaticAssert: return "astatic_assert"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .astaticAssert: return ".astaticAssert"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20786,13 +17902,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .astaticCast
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "astaticCast": self = .astaticCast
-      default: return nil
       }
     }
 
@@ -20819,25 +17928,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .astaticCast: return "\"astatic_cast\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .astaticCast: return "astatic_cast"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .astaticCast: return ".astaticCast"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20854,13 +17954,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atemplate
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atemplate": self = .atemplate
-      default: return nil
       }
     }
 
@@ -20887,25 +17980,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .atemplate: return "\"atemplate\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .atemplate: return "atemplate"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .atemplate: return ".atemplate"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20922,13 +18006,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .athis
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "athis": self = .athis
-      default: return nil
       }
     }
 
@@ -20955,25 +18032,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .athis: return "\"athis\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .athis: return "athis"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .athis: return ".athis"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -20990,13 +18058,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .athreadLocal
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "athreadLocal": self = .athreadLocal
-      default: return nil
       }
     }
 
@@ -21023,25 +18084,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .athreadLocal: return "\"athread_local\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .athreadLocal: return "athread_local"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .athreadLocal: return ".athreadLocal"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21058,13 +18110,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atypedef
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atypedef": self = .atypedef
-      default: return nil
       }
     }
 
@@ -21091,25 +18136,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .atypedef: return "\"atypedef\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .atypedef: return "atypedef"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .atypedef: return ".atypedef"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21126,13 +18162,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atypeid
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atypeid": self = .atypeid
-      default: return nil
       }
     }
 
@@ -21159,25 +18188,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .atypeid: return "\"atypeid\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .atypeid: return "atypeid"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .atypeid: return ".atypeid"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21194,13 +18214,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .atypename
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "atypename": self = .atypename
-      default: return nil
       }
     }
 
@@ -21227,25 +18240,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .atypename: return "\"atypename\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .atypename: return "atypename"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .atypename: return ".atypename"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21262,13 +18266,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aunion
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aunion": self = .aunion
-      default: return nil
       }
     }
 
@@ -21295,25 +18292,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aunion: return "\"aunion\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aunion: return "aunion"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aunion: return ".aunion"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21330,13 +18318,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aunsigned
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aunsigned": self = .aunsigned
-      default: return nil
       }
     }
 
@@ -21363,25 +18344,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aunsigned: return "\"aunsigned\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aunsigned: return "aunsigned"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aunsigned: return ".aunsigned"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21398,13 +18370,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ausing
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ausing": self = .ausing
-      default: return nil
       }
     }
 
@@ -21431,25 +18396,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ausing: return "\"ausing\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ausing: return "ausing"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ausing: return ".ausing"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21466,13 +18422,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .avirtual
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "avirtual": self = .avirtual
-      default: return nil
       }
     }
 
@@ -21499,25 +18448,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .avirtual: return "\"avirtual\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .avirtual: return "avirtual"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .avirtual: return ".avirtual"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21534,13 +18474,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .avoid
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "avoid": self = .avoid
-      default: return nil
       }
     }
 
@@ -21567,25 +18500,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .avoid: return "\"avoid\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .avoid: return "avoid"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .avoid: return ".avoid"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21602,13 +18526,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .avolatile
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "avolatile": self = .avolatile
-      default: return nil
       }
     }
 
@@ -21635,25 +18552,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .avolatile: return "\"avolatile\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .avolatile: return "avolatile"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .avolatile: return ".avolatile"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21670,13 +18578,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .awcharT
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "awcharT": self = .awcharT
-      default: return nil
       }
     }
 
@@ -21703,25 +18604,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .awcharT: return "\"awchar_t\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .awcharT: return "awchar_t"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .awcharT: return ".awcharT"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21738,13 +18630,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .axor
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "axor": self = .axor
-      default: return nil
       }
     }
 
@@ -21771,25 +18656,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .axor: return "\"axor\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .axor: return "axor"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .axor: return ".axor"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21806,13 +18682,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .axorEq
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "axorEq": self = .axorEq
-      default: return nil
       }
     }
 
@@ -21839,25 +18708,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .axorEq: return "\"axor_eq\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .axorEq: return "axor_eq"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .axorEq: return ".axorEq"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21874,13 +18734,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .arestrict
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "arestrict": self = .arestrict
-      default: return nil
       }
     }
 
@@ -21907,25 +18760,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .arestrict: return "\"arestrict\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .arestrict: return "arestrict"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .arestrict: return ".arestrict"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -21942,13 +18786,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aCategory
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aCategory": self = .aCategory
-      default: return nil
       }
     }
 
@@ -21975,25 +18812,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aCategory: return "\"aCategory\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aCategory: return "aCategory"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aCategory: return ".aCategory"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22010,13 +18838,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aIvar
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aIvar": self = .aIvar
-      default: return nil
       }
     }
 
@@ -22043,25 +18864,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aIvar: return "\"aIvar\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aIvar: return "aIvar"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aIvar: return ".aIvar"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22078,13 +18890,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aMethod
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aMethod": self = .aMethod
-      default: return nil
       }
     }
 
@@ -22111,25 +18916,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aMethod: return "\"aMethod\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aMethod: return "aMethod"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aMethod: return ".aMethod"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22146,13 +18942,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .afinalize
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "afinalize": self = .afinalize
-      default: return nil
       }
     }
 
@@ -22179,25 +18968,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .afinalize: return "\"afinalize\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .afinalize: return "afinalize"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .afinalize: return ".afinalize"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22214,13 +18994,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .ahash
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "ahash": self = .ahash
-      default: return nil
       }
     }
 
@@ -22247,25 +19020,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .ahash: return "\"ahash\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .ahash: return "ahash"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .ahash: return ".ahash"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22282,13 +19046,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adealloc
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adealloc": self = .adealloc
-      default: return nil
       }
     }
 
@@ -22315,25 +19072,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adealloc: return "\"adealloc\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adealloc: return "adealloc"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adealloc: return ".adealloc"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22350,13 +19098,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asuperclass
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asuperclass": self = .asuperclass
-      default: return nil
       }
     }
 
@@ -22383,25 +19124,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .asuperclass: return "\"asuperclass\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .asuperclass: return "asuperclass"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .asuperclass: return ".asuperclass"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22418,13 +19150,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aretain
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aretain": self = .aretain
-      default: return nil
       }
     }
 
@@ -22451,25 +19176,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aretain: return "\"aretain\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aretain: return "aretain"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aretain: return ".aretain"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22486,13 +19202,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .arelease
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "arelease": self = .arelease
-      default: return nil
       }
     }
 
@@ -22519,25 +19228,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .arelease: return "\"arelease\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .arelease: return "arelease"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .arelease: return ".arelease"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22554,13 +19254,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aautorelease
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aautorelease": self = .aautorelease
-      default: return nil
       }
     }
 
@@ -22587,25 +19280,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aautorelease: return "\"aautorelease\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aautorelease: return "aautorelease"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aautorelease: return ".aautorelease"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22622,13 +19306,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aretainCount
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aretainCount": self = .aretainCount
-      default: return nil
       }
     }
 
@@ -22655,25 +19332,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aretainCount: return "\"aretainCount\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aretainCount: return "aretainCount"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aretainCount: return ".aretainCount"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22690,13 +19358,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .azone
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "azone": self = .azone
-      default: return nil
       }
     }
 
@@ -22723,25 +19384,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .azone: return "\"azone\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .azone: return "azone"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .azone: return ".azone"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22758,13 +19410,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aisProxy
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aisProxy": self = .aisProxy
-      default: return nil
       }
     }
 
@@ -22791,25 +19436,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aisProxy: return "\"aisProxy\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aisProxy: return "aisProxy"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aisProxy: return ".aisProxy"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22826,13 +19462,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .acopy
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "acopy": self = .acopy
-      default: return nil
       }
     }
 
@@ -22859,25 +19488,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .acopy: return "\"acopy\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .acopy: return "acopy"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .acopy: return ".acopy"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22894,13 +19514,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .amutableCopy
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "amutableCopy": self = .amutableCopy
-      default: return nil
       }
     }
 
@@ -22927,25 +19540,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .amutableCopy: return "\"amutableCopy\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .amutableCopy: return "amutableCopy"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .amutableCopy: return ".amutableCopy"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -22962,13 +19566,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aclassForCoder
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aclassForCoder": self = .aclassForCoder
-      default: return nil
       }
     }
 
@@ -22995,25 +19592,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aclassForCoder: return "\"aclassForCoder\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aclassForCoder: return "aclassForCoder"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aclassForCoder: return ".aclassForCoder"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23030,13 +19618,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aclear
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aclear": self = .aclear
-      default: return nil
       }
     }
 
@@ -23063,25 +19644,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aclear: return "\"aclear\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aclear: return "aclear"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aclear: return ".aclear"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23098,13 +19670,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adata
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adata": self = .adata
-      default: return nil
       }
     }
 
@@ -23131,25 +19696,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adata: return "\"adata\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adata: return "adata"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adata: return ".adata"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23166,13 +19722,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adelimitedData
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adelimitedData": self = .adelimitedData
-      default: return nil
       }
     }
 
@@ -23199,25 +19748,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adelimitedData: return "\"adelimitedData\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adelimitedData: return "adelimitedData"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adelimitedData: return ".adelimitedData"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23234,13 +19774,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .adescriptor
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "adescriptor": self = .adescriptor
-      default: return nil
       }
     }
 
@@ -23267,25 +19800,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .adescriptor: return "\"adescriptor\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .adescriptor: return "adescriptor"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .adescriptor: return ".adescriptor"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23302,13 +19826,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aextensionRegistry
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aextensionRegistry": self = .aextensionRegistry
-      default: return nil
       }
     }
 
@@ -23335,25 +19852,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aextensionRegistry: return "\"aextensionRegistry\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aextensionRegistry: return "aextensionRegistry"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aextensionRegistry: return ".aextensionRegistry"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23370,13 +19878,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aextensionsCurrentlySet
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aextensionsCurrentlySet": self = .aextensionsCurrentlySet
-      default: return nil
       }
     }
 
@@ -23403,25 +19904,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aextensionsCurrentlySet: return "\"aextensionsCurrentlySet\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aextensionsCurrentlySet: return "aextensionsCurrentlySet"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aextensionsCurrentlySet: return ".aextensionsCurrentlySet"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23438,13 +19930,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aisInitialized
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aisInitialized": self = .aisInitialized
-      default: return nil
       }
     }
 
@@ -23471,25 +19956,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aisInitialized: return "\"aisInitialized\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aisInitialized: return "aisInitialized"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aisInitialized: return ".aisInitialized"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23506,13 +19982,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aserializedSize
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aserializedSize": self = .aserializedSize
-      default: return nil
       }
     }
 
@@ -23539,25 +20008,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aserializedSize: return "\"aserializedSize\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aserializedSize: return "aserializedSize"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aserializedSize: return ".aserializedSize"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23574,13 +20034,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .asortedExtensionsInUse
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "asortedExtensionsInUse": self = .asortedExtensionsInUse
-      default: return nil
       }
     }
 
@@ -23607,25 +20060,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .asortedExtensionsInUse: return "\"asortedExtensionsInUse\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .asortedExtensionsInUse: return "asortedExtensionsInUse"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .asortedExtensionsInUse: return ".asortedExtensionsInUse"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23642,13 +20086,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aunknownFields
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aunknownFields": self = .aunknownFields
-      default: return nil
       }
     }
 
@@ -23675,25 +20112,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aunknownFields: return "\"aunknownFields\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aunknownFields: return "aunknownFields"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aunknownFields: return ".aunknownFields"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23710,13 +20138,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aFixed
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aFixed": self = .aFixed
-      default: return nil
       }
     }
 
@@ -23743,25 +20164,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aFixed: return "\"aFixed\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aFixed: return "aFixed"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aFixed: return ".aFixed"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23778,13 +20190,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aFract
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aFract": self = .aFract
-      default: return nil
       }
     }
 
@@ -23811,25 +20216,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aFract: return "\"aFract\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aFract: return "aFract"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aFract: return ".aFract"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23846,13 +20242,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aSize
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aSize": self = .aSize
-      default: return nil
       }
     }
 
@@ -23879,25 +20268,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aSize: return "\"aSize\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aSize: return "aSize"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aSize: return ".aSize"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23914,13 +20294,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aLogicalAddress
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aLogicalAddress": self = .aLogicalAddress
-      default: return nil
       }
     }
 
@@ -23947,25 +20320,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aLogicalAddress: return "\"aLogicalAddress\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aLogicalAddress: return "aLogicalAddress"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aLogicalAddress: return ".aLogicalAddress"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -23982,13 +20346,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aPhysicalAddress
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aPhysicalAddress": self = .aPhysicalAddress
-      default: return nil
       }
     }
 
@@ -24015,25 +20372,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aPhysicalAddress: return "\"aPhysicalAddress\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aPhysicalAddress: return "aPhysicalAddress"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aPhysicalAddress: return ".aPhysicalAddress"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24050,13 +20398,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aByteCount
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aByteCount": self = .aByteCount
-      default: return nil
       }
     }
 
@@ -24083,25 +20424,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aByteCount: return "\"aByteCount\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aByteCount: return "aByteCount"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aByteCount: return ".aByteCount"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24118,13 +20450,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aByteOffset
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aByteOffset": self = .aByteOffset
-      default: return nil
       }
     }
 
@@ -24151,25 +20476,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aByteOffset: return "\"aByteOffset\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aByteOffset: return "aByteOffset"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aByteOffset: return ".aByteOffset"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24186,13 +20502,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aDuration
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aDuration": self = .aDuration
-      default: return nil
       }
     }
 
@@ -24219,25 +20528,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aDuration: return "\"aDuration\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aDuration: return "aDuration"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aDuration: return ".aDuration"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24254,13 +20554,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aAbsoluteTime
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aAbsoluteTime": self = .aAbsoluteTime
-      default: return nil
       }
     }
 
@@ -24287,25 +20580,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aAbsoluteTime: return "\"aAbsoluteTime\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aAbsoluteTime: return "aAbsoluteTime"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aAbsoluteTime: return ".aAbsoluteTime"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24322,13 +20606,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aOptionBits
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aOptionBits": self = .aOptionBits
-      default: return nil
       }
     }
 
@@ -24355,25 +20632,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aOptionBits: return "\"aOptionBits\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aOptionBits: return "aOptionBits"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aOptionBits: return ".aOptionBits"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24390,13 +20658,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aItemCount
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aItemCount": self = .aItemCount
-      default: return nil
       }
     }
 
@@ -24423,25 +20684,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aItemCount: return "\"aItemCount\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aItemCount: return "aItemCount"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aItemCount: return ".aItemCount"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24458,13 +20710,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aPbversion
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aPbversion": self = .aPbversion
-      default: return nil
       }
     }
 
@@ -24491,25 +20736,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aPbversion: return "\"aPBVersion\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aPbversion: return "aPBVersion"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aPbversion: return ".aPbversion"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24526,13 +20762,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aScriptCode
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aScriptCode": self = .aScriptCode
-      default: return nil
       }
     }
 
@@ -24559,25 +20788,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aScriptCode: return "\"aScriptCode\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aScriptCode: return "aScriptCode"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aScriptCode: return ".aScriptCode"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24594,13 +20814,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aLangCode
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aLangCode": self = .aLangCode
-      default: return nil
       }
     }
 
@@ -24627,25 +20840,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aLangCode: return "\"aLangCode\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aLangCode: return "aLangCode"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aLangCode: return ".aLangCode"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24662,13 +20866,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aRegionCode
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aRegionCode": self = .aRegionCode
-      default: return nil
       }
     }
 
@@ -24695,25 +20892,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aRegionCode: return "\"aRegionCode\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aRegionCode: return "aRegionCode"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aRegionCode: return ".aRegionCode"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24730,13 +20918,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aOstype
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aOstype": self = .aOstype
-      default: return nil
       }
     }
 
@@ -24763,25 +20944,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aOstype: return "\"aOSType\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aOstype: return "aOSType"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aOstype: return ".aOstype"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24798,13 +20970,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aProcessSerialNumber
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aProcessSerialNumber": self = .aProcessSerialNumber
-      default: return nil
       }
     }
 
@@ -24831,25 +20996,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aProcessSerialNumber: return "\"aProcessSerialNumber\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aProcessSerialNumber: return "aProcessSerialNumber"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aProcessSerialNumber: return ".aProcessSerialNumber"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24866,13 +21022,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aPoint
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aPoint": self = .aPoint
-      default: return nil
       }
     }
 
@@ -24899,25 +21048,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aPoint: return "\"aPoint\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aPoint: return "aPoint"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aPoint: return ".aPoint"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -24934,13 +21074,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aRect
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aRect": self = .aRect
-      default: return nil
       }
     }
 
@@ -24967,25 +21100,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aRect: return "\"aRect\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aRect: return "aRect"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aRect: return ".aRect"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25002,13 +21126,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aFixedPoint
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aFixedPoint": self = .aFixedPoint
-      default: return nil
       }
     }
 
@@ -25035,25 +21152,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aFixedPoint: return "\"aFixedPoint\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aFixedPoint: return "aFixedPoint"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aFixedPoint: return ".aFixedPoint"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25070,13 +21178,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aFixedRect
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aFixedRect": self = .aFixedRect
-      default: return nil
       }
     }
 
@@ -25103,25 +21204,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aFixedRect: return "\"aFixedRect\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aFixedRect: return "aFixedRect"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aFixedRect: return ".aFixedRect"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25138,13 +21230,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aStyle
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aStyle": self = .aStyle
-      default: return nil
       }
     }
 
@@ -25171,25 +21256,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aStyle: return "\"aStyle\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aStyle: return "aStyle"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aStyle: return ".aStyle"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25206,13 +21282,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aStyleParameter
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aStyleParameter": self = .aStyleParameter
-      default: return nil
       }
     }
 
@@ -25239,25 +21308,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aStyleParameter: return "\"aStyleParameter\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aStyleParameter: return "aStyleParameter"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aStyleParameter: return ".aStyleParameter"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25274,13 +21334,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aStyleField
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aStyleField": self = .aStyleField
-      default: return nil
       }
     }
 
@@ -25307,25 +21360,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aStyleField: return "\"aStyleField\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aStyleField: return "aStyleField"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aStyleField: return ".aStyleField"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25342,13 +21386,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aTimeScale
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aTimeScale": self = .aTimeScale
-      default: return nil
       }
     }
 
@@ -25375,25 +21412,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aTimeScale: return "\"aTimeScale\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aTimeScale: return "aTimeScale"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aTimeScale: return ".aTimeScale"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25410,13 +21438,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aTimeBase
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aTimeBase": self = .aTimeBase
-      default: return nil
       }
     }
 
@@ -25443,25 +21464,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aTimeBase: return "\"aTimeBase\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aTimeBase: return "aTimeBase"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aTimeBase: return ".aTimeBase"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 
@@ -25478,13 +21490,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       switch rawValue {
       case 0: self = .aTimeRecord
       default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "aTimeRecord": self = .aTimeRecord
-      default: return nil
       }
     }
 
@@ -25511,25 +21516,16 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .aTimeRecord: return "\"aTimeRecord\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .aTimeRecord: return "aTimeRecord"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .aTimeRecord: return ".aTimeRecord"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
 
   }
 

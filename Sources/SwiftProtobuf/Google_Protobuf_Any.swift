@@ -127,12 +127,11 @@ public extension Message {
 /// limitation of Google's spec for google.protobuf.Any.
 ///
 public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Any"}
     public var protoPackageName: String {return "google.protobuf"}
     public var protoMessageName: String {return "Any"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-        1: .unique(proto: "type_url", json: "@type", swift: "typeURL"),
-        2: .same(proto: "value", swift: "value"),
+        1: .unique(proto: "type_url", json: "@type"),
+        2: .same(proto: "value"),
     ]
 
     ///   A URL/resource name whose content describes the type of the
@@ -356,22 +355,6 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 hash = (hash &* 16777619) ^ m.hashValue
             }
             return hash
-        }
-    }
-
-    public var debugDescription: String {
-        get {
-            if let message = _message {
-                return "Google_Protobuf_Any{" + String(reflecting: message) + "}"
-            } else if let typeURL = typeURL {
-                if let value = _value {
-                    return "Google_Protobuf_Any{\(typeURL), \(value)}"
-                } else {
-                    return "Google_Protobuf_Any{\(typeURL), <JSON>}"
-                }
-            } else {
-                return "Google_Protobuf_Any{}"
-            }
         }
     }
 

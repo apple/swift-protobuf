@@ -51,11 +51,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   Same field number appears inside and outside of the group.
 struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "SwiftTestGroupExtensions"}
   public var protoMessageName: String {return "SwiftTestGroupExtensions"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "a", swift: "a"),
+    1: .same(proto: "a"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -124,11 +123,10 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
 }
 
 struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ExtensionGroup"}
   public var protoMessageName: String {return "ExtensionGroup"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "a", swift: "a"),
+    1: .same(proto: "a"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -169,11 +167,10 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, Swift
 }
 
 struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "RepeatedExtensionGroup"}
   public var protoMessageName: String {return "RepeatedExtensionGroup"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "a", swift: "a"),
+    1: .same(proto: "a"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -214,11 +211,10 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Messag
 }
 
 struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "SwiftTestGroupUnextended"}
   public var protoMessageName: String {return "SwiftTestGroupUnextended"}
   public var protoPackageName: String {return ""}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "a", swift: "a"),
+    1: .same(proto: "a"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -260,13 +256,13 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
 
 let Extensions_extensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
   protoFieldNumber: 2,
-  fieldNames: .same(proto: "ExtensionGroup", swift: "extensionGroup"),
+  fieldNames: .same(proto: "ExtensionGroup"),
   defaultValue: ExtensionGroup()
 )
 
 let Extensions_repeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
   protoFieldNumber: 3,
-  fieldNames: .same(proto: "RepeatedExtensionGroup", swift: "repeatedExtensionGroup"),
+  fieldNames: .same(proto: "RepeatedExtensionGroup"),
   defaultValue: []
 )
 

@@ -71,16 +71,6 @@ enum Proto3LiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "foreignZero": self = .foreignZero
-    case "foreignFoo": self = .foreignFoo
-    case "foreignBar": self = .foreignBar
-    case "foreignBaz": self = .foreignBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "FOREIGN_ZERO": self = .foreignZero
@@ -113,92 +103,79 @@ enum Proto3LiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .foreignZero: return "\"FOREIGN_ZERO\""
-      case .foreignFoo: return "\"FOREIGN_FOO\""
-      case .foreignBar: return "\"FOREIGN_BAR\""
-      case .foreignBaz: return "\"FOREIGN_BAZ\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .foreignZero: return "FOREIGN_ZERO"
+      case .foreignFoo: return "FOREIGN_FOO"
+      case .foreignBar: return "FOREIGN_BAR"
+      case .foreignBaz: return "FOREIGN_BAZ"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .foreignZero: return ".foreignZero"
-      case .foreignFoo: return ".foreignFoo"
-      case .foreignBar: return ".foreignBar"
-      case .foreignBaz: return ".foreignBaz"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
-
 }
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3LiteUnittest_TestAllTypes"}
   public var protoMessageName: String {return "TestAllTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "optional_int32", json: "optionalInt32", swift: "optionalInt32"),
-    2: .unique(proto: "optional_int64", json: "optionalInt64", swift: "optionalInt64"),
-    3: .unique(proto: "optional_uint32", json: "optionalUint32", swift: "optionalUint32"),
-    4: .unique(proto: "optional_uint64", json: "optionalUint64", swift: "optionalUint64"),
-    5: .unique(proto: "optional_sint32", json: "optionalSint32", swift: "optionalSint32"),
-    6: .unique(proto: "optional_sint64", json: "optionalSint64", swift: "optionalSint64"),
-    7: .unique(proto: "optional_fixed32", json: "optionalFixed32", swift: "optionalFixed32"),
-    8: .unique(proto: "optional_fixed64", json: "optionalFixed64", swift: "optionalFixed64"),
-    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32", swift: "optionalSfixed32"),
-    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64", swift: "optionalSfixed64"),
-    11: .unique(proto: "optional_float", json: "optionalFloat", swift: "optionalFloat"),
-    12: .unique(proto: "optional_double", json: "optionalDouble", swift: "optionalDouble"),
-    13: .unique(proto: "optional_bool", json: "optionalBool", swift: "optionalBool"),
-    14: .unique(proto: "optional_string", json: "optionalString", swift: "optionalString"),
-    15: .unique(proto: "optional_bytes", json: "optionalBytes", swift: "optionalBytes"),
-    18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage", swift: "optionalNestedMessage"),
-    19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage", swift: "optionalForeignMessage"),
-    20: .unique(proto: "optional_import_message", json: "optionalImportMessage", swift: "optionalImportMessage"),
-    21: .unique(proto: "optional_nested_enum", json: "optionalNestedEnum", swift: "optionalNestedEnum"),
-    22: .unique(proto: "optional_foreign_enum", json: "optionalForeignEnum", swift: "optionalForeignEnum"),
-    24: .unique(proto: "optional_string_piece", json: "optionalStringPiece", swift: "optionalStringPiece"),
-    25: .unique(proto: "optional_cord", json: "optionalCord", swift: "optionalCord"),
-    26: .unique(proto: "optional_public_import_message", json: "optionalPublicImportMessage", swift: "optionalPublicImportMessage"),
-    27: .unique(proto: "optional_lazy_message", json: "optionalLazyMessage", swift: "optionalLazyMessage"),
-    31: .unique(proto: "repeated_int32", json: "repeatedInt32", swift: "repeatedInt32"),
-    32: .unique(proto: "repeated_int64", json: "repeatedInt64", swift: "repeatedInt64"),
-    33: .unique(proto: "repeated_uint32", json: "repeatedUint32", swift: "repeatedUint32"),
-    34: .unique(proto: "repeated_uint64", json: "repeatedUint64", swift: "repeatedUint64"),
-    35: .unique(proto: "repeated_sint32", json: "repeatedSint32", swift: "repeatedSint32"),
-    36: .unique(proto: "repeated_sint64", json: "repeatedSint64", swift: "repeatedSint64"),
-    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32", swift: "repeatedFixed32"),
-    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64", swift: "repeatedFixed64"),
-    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32", swift: "repeatedSfixed32"),
-    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64", swift: "repeatedSfixed64"),
-    41: .unique(proto: "repeated_float", json: "repeatedFloat", swift: "repeatedFloat"),
-    42: .unique(proto: "repeated_double", json: "repeatedDouble", swift: "repeatedDouble"),
-    43: .unique(proto: "repeated_bool", json: "repeatedBool", swift: "repeatedBool"),
-    44: .unique(proto: "repeated_string", json: "repeatedString", swift: "repeatedString"),
-    45: .unique(proto: "repeated_bytes", json: "repeatedBytes", swift: "repeatedBytes"),
-    48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage", swift: "repeatedNestedMessage"),
-    49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage", swift: "repeatedForeignMessage"),
-    50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage", swift: "repeatedImportMessage"),
-    51: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum", swift: "repeatedNestedEnum"),
-    52: .unique(proto: "repeated_foreign_enum", json: "repeatedForeignEnum", swift: "repeatedForeignEnum"),
-    54: .unique(proto: "repeated_string_piece", json: "repeatedStringPiece", swift: "repeatedStringPiece"),
-    55: .unique(proto: "repeated_cord", json: "repeatedCord", swift: "repeatedCord"),
-    57: .unique(proto: "repeated_lazy_message", json: "repeatedLazyMessage", swift: "repeatedLazyMessage"),
-    111: .unique(proto: "oneof_uint32", json: "oneofUint32", swift: "oneofUint32"),
-    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage", swift: "oneofNestedMessage"),
-    113: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
-    114: .unique(proto: "oneof_bytes", json: "oneofBytes", swift: "oneofBytes"),
+    1: .unique(proto: "optional_int32", json: "optionalInt32"),
+    2: .unique(proto: "optional_int64", json: "optionalInt64"),
+    3: .unique(proto: "optional_uint32", json: "optionalUint32"),
+    4: .unique(proto: "optional_uint64", json: "optionalUint64"),
+    5: .unique(proto: "optional_sint32", json: "optionalSint32"),
+    6: .unique(proto: "optional_sint64", json: "optionalSint64"),
+    7: .unique(proto: "optional_fixed32", json: "optionalFixed32"),
+    8: .unique(proto: "optional_fixed64", json: "optionalFixed64"),
+    9: .unique(proto: "optional_sfixed32", json: "optionalSfixed32"),
+    10: .unique(proto: "optional_sfixed64", json: "optionalSfixed64"),
+    11: .unique(proto: "optional_float", json: "optionalFloat"),
+    12: .unique(proto: "optional_double", json: "optionalDouble"),
+    13: .unique(proto: "optional_bool", json: "optionalBool"),
+    14: .unique(proto: "optional_string", json: "optionalString"),
+    15: .unique(proto: "optional_bytes", json: "optionalBytes"),
+    18: .unique(proto: "optional_nested_message", json: "optionalNestedMessage"),
+    19: .unique(proto: "optional_foreign_message", json: "optionalForeignMessage"),
+    20: .unique(proto: "optional_import_message", json: "optionalImportMessage"),
+    21: .unique(proto: "optional_nested_enum", json: "optionalNestedEnum"),
+    22: .unique(proto: "optional_foreign_enum", json: "optionalForeignEnum"),
+    24: .unique(proto: "optional_string_piece", json: "optionalStringPiece"),
+    25: .unique(proto: "optional_cord", json: "optionalCord"),
+    26: .unique(proto: "optional_public_import_message", json: "optionalPublicImportMessage"),
+    27: .unique(proto: "optional_lazy_message", json: "optionalLazyMessage"),
+    31: .unique(proto: "repeated_int32", json: "repeatedInt32"),
+    32: .unique(proto: "repeated_int64", json: "repeatedInt64"),
+    33: .unique(proto: "repeated_uint32", json: "repeatedUint32"),
+    34: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
+    35: .unique(proto: "repeated_sint32", json: "repeatedSint32"),
+    36: .unique(proto: "repeated_sint64", json: "repeatedSint64"),
+    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
+    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64"),
+    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32"),
+    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64"),
+    41: .unique(proto: "repeated_float", json: "repeatedFloat"),
+    42: .unique(proto: "repeated_double", json: "repeatedDouble"),
+    43: .unique(proto: "repeated_bool", json: "repeatedBool"),
+    44: .unique(proto: "repeated_string", json: "repeatedString"),
+    45: .unique(proto: "repeated_bytes", json: "repeatedBytes"),
+    48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
+    49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage"),
+    50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage"),
+    51: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum"),
+    52: .unique(proto: "repeated_foreign_enum", json: "repeatedForeignEnum"),
+    54: .unique(proto: "repeated_string_piece", json: "repeatedStringPiece"),
+    55: .unique(proto: "repeated_cord", json: "repeatedCord"),
+    57: .unique(proto: "repeated_lazy_message", json: "repeatedLazyMessage"),
+    111: .unique(proto: "oneof_uint32", json: "oneofUint32"),
+    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage"),
+    113: .unique(proto: "oneof_string", json: "oneofString"),
+    114: .unique(proto: "oneof_bytes", json: "oneofBytes"),
   ]
 
   private class _StorageClass {
@@ -666,17 +643,6 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "zero": self = .zero
-      case "foo": self = .foo
-      case "bar": self = .bar
-      case "baz": self = .baz
-      case "neg": self = .neg
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "ZERO": self = .zero
@@ -712,42 +678,28 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .zero: return "\"ZERO\""
-        case .foo: return "\"FOO\""
-        case .bar: return "\"BAR\""
-        case .baz: return "\"BAZ\""
-        case .neg: return "\"NEG\""
-        case .UNRECOGNIZED(let i): return String(i)
+        case .zero: return "ZERO"
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
+        case .UNRECOGNIZED: return nil
         }
       }
     }
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .zero: return ".zero"
-        case .foo: return ".foo"
-        case .bar: return ".bar"
-        case .baz: return ".baz"
-        case .neg: return ".neg"
-        case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-        }
-      }
-    }
-
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "Proto3LiteUnittest_TestAllTypes.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "proto3_lite_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "bb", swift: "bb"),
+      1: .same(proto: "bb"),
     ]
 
 
@@ -1145,24 +1097,23 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
 //  Test messages for packed fields
 
 struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3LiteUnittest_TestPackedTypes"}
   public var protoMessageName: String {return "TestPackedTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    90: .unique(proto: "packed_int32", json: "packedInt32", swift: "packedInt32"),
-    91: .unique(proto: "packed_int64", json: "packedInt64", swift: "packedInt64"),
-    92: .unique(proto: "packed_uint32", json: "packedUint32", swift: "packedUint32"),
-    93: .unique(proto: "packed_uint64", json: "packedUint64", swift: "packedUint64"),
-    94: .unique(proto: "packed_sint32", json: "packedSint32", swift: "packedSint32"),
-    95: .unique(proto: "packed_sint64", json: "packedSint64", swift: "packedSint64"),
-    96: .unique(proto: "packed_fixed32", json: "packedFixed32", swift: "packedFixed32"),
-    97: .unique(proto: "packed_fixed64", json: "packedFixed64", swift: "packedFixed64"),
-    98: .unique(proto: "packed_sfixed32", json: "packedSfixed32", swift: "packedSfixed32"),
-    99: .unique(proto: "packed_sfixed64", json: "packedSfixed64", swift: "packedSfixed64"),
-    100: .unique(proto: "packed_float", json: "packedFloat", swift: "packedFloat"),
-    101: .unique(proto: "packed_double", json: "packedDouble", swift: "packedDouble"),
-    102: .unique(proto: "packed_bool", json: "packedBool", swift: "packedBool"),
-    103: .unique(proto: "packed_enum", json: "packedEnum", swift: "packedEnum"),
+    90: .unique(proto: "packed_int32", json: "packedInt32"),
+    91: .unique(proto: "packed_int64", json: "packedInt64"),
+    92: .unique(proto: "packed_uint32", json: "packedUint32"),
+    93: .unique(proto: "packed_uint64", json: "packedUint64"),
+    94: .unique(proto: "packed_sint32", json: "packedSint32"),
+    95: .unique(proto: "packed_sint64", json: "packedSint64"),
+    96: .unique(proto: "packed_fixed32", json: "packedFixed32"),
+    97: .unique(proto: "packed_fixed64", json: "packedFixed64"),
+    98: .unique(proto: "packed_sfixed32", json: "packedSfixed32"),
+    99: .unique(proto: "packed_sfixed64", json: "packedSfixed64"),
+    100: .unique(proto: "packed_float", json: "packedFloat"),
+    101: .unique(proto: "packed_double", json: "packedDouble"),
+    102: .unique(proto: "packed_bool", json: "packedBool"),
+    103: .unique(proto: "packed_enum", json: "packedEnum"),
   ]
 
 
@@ -1282,24 +1233,23 @@ struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.
 
 ///   Explicitly set packed to false
 struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3LiteUnittest_TestUnpackedTypes"}
   public var protoMessageName: String {return "TestUnpackedTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "repeated_int32", json: "repeatedInt32", swift: "repeatedInt32"),
-    2: .unique(proto: "repeated_int64", json: "repeatedInt64", swift: "repeatedInt64"),
-    3: .unique(proto: "repeated_uint32", json: "repeatedUint32", swift: "repeatedUint32"),
-    4: .unique(proto: "repeated_uint64", json: "repeatedUint64", swift: "repeatedUint64"),
-    5: .unique(proto: "repeated_sint32", json: "repeatedSint32", swift: "repeatedSint32"),
-    6: .unique(proto: "repeated_sint64", json: "repeatedSint64", swift: "repeatedSint64"),
-    7: .unique(proto: "repeated_fixed32", json: "repeatedFixed32", swift: "repeatedFixed32"),
-    8: .unique(proto: "repeated_fixed64", json: "repeatedFixed64", swift: "repeatedFixed64"),
-    9: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32", swift: "repeatedSfixed32"),
-    10: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64", swift: "repeatedSfixed64"),
-    11: .unique(proto: "repeated_float", json: "repeatedFloat", swift: "repeatedFloat"),
-    12: .unique(proto: "repeated_double", json: "repeatedDouble", swift: "repeatedDouble"),
-    13: .unique(proto: "repeated_bool", json: "repeatedBool", swift: "repeatedBool"),
-    14: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum", swift: "repeatedNestedEnum"),
+    1: .unique(proto: "repeated_int32", json: "repeatedInt32"),
+    2: .unique(proto: "repeated_int64", json: "repeatedInt64"),
+    3: .unique(proto: "repeated_uint32", json: "repeatedUint32"),
+    4: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
+    5: .unique(proto: "repeated_sint32", json: "repeatedSint32"),
+    6: .unique(proto: "repeated_sint64", json: "repeatedSint64"),
+    7: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
+    8: .unique(proto: "repeated_fixed64", json: "repeatedFixed64"),
+    9: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32"),
+    10: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64"),
+    11: .unique(proto: "repeated_float", json: "repeatedFloat"),
+    12: .unique(proto: "repeated_double", json: "repeatedDouble"),
+    13: .unique(proto: "repeated_bool", json: "repeatedBool"),
+    14: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum"),
   ]
 
 
@@ -1419,12 +1369,11 @@ struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobu
 
 ///   This proto includes a recusively nested message.
 struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3LiteUnittest_NestedTestAllTypes"}
   public var protoMessageName: String {return "NestedTestAllTypes"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "child", swift: "child"),
-    2: .same(proto: "payload", swift: "payload"),
+    1: .same(proto: "child"),
+    2: .same(proto: "payload"),
   ]
 
   private class _StorageClass {
@@ -1515,11 +1464,10 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3LiteUnittest_ForeignMessage"}
   public var protoMessageName: String {return "ForeignMessage"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "c", swift: "c"),
+    1: .same(proto: "c"),
   ]
 
 
@@ -1548,7 +1496,6 @@ struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.P
 
 ///   TestEmptyMessage is used to test behavior of unknown fields.
 struct Proto3LiteUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Proto3LiteUnittest_TestEmptyMessage"}
   public var protoMessageName: String {return "TestEmptyMessage"}
   public var protoPackageName: String {return "proto3_lite_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()

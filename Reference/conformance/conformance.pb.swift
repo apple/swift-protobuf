@@ -72,7 +72,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
-  case json_ // = 2
+  case json // = 2
   case UNRECOGNIZED(Int)
 
   init() {
@@ -83,17 +83,8 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .protobuf
-    case 2: self = .json_
+    case 2: self = .json
     default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "unspecified": self = .unspecified
-    case "protobuf": self = .protobuf
-    case "json_": self = .json_
-    default: return nil
     }
   }
 
@@ -101,7 +92,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     switch jsonName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
-    case "JSON": self = .json_
+    case "JSON": self = .json
     default: return nil
     }
   }
@@ -110,7 +101,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     switch protoName {
     case "UNSPECIFIED": self = .unspecified
     case "PROTOBUF": self = .protobuf
-    case "JSON": self = .json_
+    case "JSON": self = .json
     default: return nil
     }
   }
@@ -120,35 +111,24 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
       switch self {
       case .unspecified: return 0
       case .protobuf: return 1
-      case .json_: return 2
+      case .json: return 2
       case .UNRECOGNIZED(let i): return i
       }
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .unspecified: return "\"UNSPECIFIED\""
-      case .protobuf: return "\"PROTOBUF\""
-      case .json_: return "\"JSON\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .unspecified: return "UNSPECIFIED"
+      case .protobuf: return "PROTOBUF"
+      case .json: return "JSON"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .unspecified: return ".unspecified"
-      case .protobuf: return ".protobuf"
-      case .json_: return ".json_"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -158,13 +138,12 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Conformance_ConformanceRequest"}
   public var protoMessageName: String {return "ConformanceRequest"}
   public var protoPackageName: String {return "conformance"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "protobuf_payload", json: "protobufPayload", swift: "protobufPayload"),
-    2: .unique(proto: "json_payload", json: "jsonPayload", swift: "jsonPayload"),
-    3: .unique(proto: "requested_output_format", json: "requestedOutputFormat", swift: "requestedOutputFormat"),
+    1: .unique(proto: "protobuf_payload", json: "protobufPayload"),
+    2: .unique(proto: "json_payload", json: "jsonPayload"),
+    3: .unique(proto: "requested_output_format", json: "requestedOutputFormat"),
   ]
 
 
@@ -279,16 +258,15 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
 ///   Represents a single test case's output.
 struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Conformance_ConformanceResponse"}
   public var protoMessageName: String {return "ConformanceResponse"}
   public var protoPackageName: String {return "conformance"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "parse_error", json: "parseError", swift: "parseError"),
-    6: .unique(proto: "serialize_error", json: "serializeError", swift: "serializeError"),
-    2: .unique(proto: "runtime_error", json: "runtimeError", swift: "runtimeError"),
-    3: .unique(proto: "protobuf_payload", json: "protobufPayload", swift: "protobufPayload"),
-    4: .unique(proto: "json_payload", json: "jsonPayload", swift: "jsonPayload"),
-    5: .same(proto: "skipped", swift: "skipped"),
+    1: .unique(proto: "parse_error", json: "parseError"),
+    6: .unique(proto: "serialize_error", json: "serializeError"),
+    2: .unique(proto: "runtime_error", json: "runtimeError"),
+    3: .unique(proto: "protobuf_payload", json: "protobufPayload"),
+    4: .unique(proto: "json_payload", json: "jsonPayload"),
+    5: .same(proto: "skipped"),
   ]
 
 

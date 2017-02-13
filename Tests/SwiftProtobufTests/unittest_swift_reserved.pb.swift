@@ -36,7 +36,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest"}
   public var protoMessageName: String {return "SwiftReservedTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -46,7 +45,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   enum Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case double // = 1
-    case json_ // = 2
+    case json // = 2
     case `class` // = 3
     case ___ // = 4
     case self_ // = 5
@@ -59,7 +58,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .double
-      case 2: self = .json_
+      case 2: self = .json
       case 3: self = .`class`
       case 4: self = .___
       case 5: self = .self_
@@ -68,22 +67,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    init?(name: String) {
-      switch name {
-      case "double": self = .double
-      case "json_": self = .json_
-      case "class": self = .`class`
-      case "___": self = .___
-      case "self_": self = .self_
-      case "type": self = .type
-      default: return nil
-      }
-    }
-
     init?(jsonName: String) {
       switch jsonName {
       case "DOUBLE": self = .double
-      case "JSON": self = .json_
+      case "JSON": self = .json
       case "CLASS": self = .`class`
       case "_": self = .___
       case "SELF": self = .self_
@@ -95,7 +82,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     init?(protoName: String) {
       switch protoName {
       case "DOUBLE": self = .double
-      case "JSON": self = .json_
+      case "JSON": self = .json
       case "CLASS": self = .`class`
       case "_": self = .___
       case "SELF": self = .self_
@@ -108,7 +95,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       get {
         switch self {
         case .double: return 1
-        case .json_: return 2
+        case .json: return 2
         case .`class`: return 3
         case .___: return 4
         case .self_: return 5
@@ -117,33 +104,20 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .double: return "\"DOUBLE\""
-        case .json_: return "\"JSON\""
-        case .`class`: return "\"CLASS\""
-        case .___: return "\"_\""
-        case .self_: return "\"SELF\""
-        case .type: return "\"TYPE\""
+        case .double: return "DOUBLE"
+        case .json: return "JSON"
+        case .`class`: return "CLASS"
+        case .___: return "_"
+        case .self_: return "SELF"
+        case .type: return "TYPE"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .double: return ".double"
-        case .json_: return ".json_"
-        case .`class`: return ".class"
-        case .___: return ".___"
-        case .self_: return ".self_"
-        case .type: return ".type"
-        }
-      }
-    }
 
   }
 
@@ -158,13 +132,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     init?(rawValue: Int) {
       switch rawValue {
       case 1: self = .a
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "a": self = .a
       default: return nil
       }
     }
@@ -191,28 +158,19 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .a: return "\"a\""
+        case .a: return "a"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
 
-    var debugDescription: String {
-      get {
-        switch self {
-        case .a: return ".a"
-        }
-      }
-    }
-
   }
 
   struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.classMessage"}
     public var protoMessageName: String {return "class"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames = FieldNameMap()
@@ -235,7 +193,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.TypeMessage"}
     public var protoMessageName: String {return "Type"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames = FieldNameMap()
@@ -258,7 +215,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct isEqualMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_SwiftReservedTest.isEqualMessage"}
     public var protoMessageName: String {return "isEqual"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames = FieldNameMap()

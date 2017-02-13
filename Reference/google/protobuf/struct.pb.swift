@@ -70,13 +70,6 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "nullValue": self = .nullValue
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "NULL_VALUE": self = .nullValue
@@ -100,25 +93,16 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .nullValue: return "\"NULL_VALUE\""
-      case .UNRECOGNIZED(let i): return String(i)
+      case .nullValue: return "NULL_VALUE"
+      case .UNRECOGNIZED: return nil
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .nullValue: return ".nullValue"
-      case .UNRECOGNIZED(let v): return ".UNRECOGNIZED(\(v))"
-      }
-    }
-  }
 
 }
 
@@ -131,11 +115,10 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
 ///  
 ///   The JSON representation for `Struct` is JSON object.
 struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Struct"}
   public var protoMessageName: String {return "Struct"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "fields", swift: "fields"),
+    1: .same(proto: "fields"),
   ]
 
 
@@ -170,16 +153,15 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
 ///  
 ///   The JSON representation for `Value` is JSON value.
 struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Value"}
   public var protoMessageName: String {return "Value"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "null_value", json: "nullValue", swift: "nullValue"),
-    2: .unique(proto: "number_value", json: "numberValue", swift: "numberValue"),
-    3: .unique(proto: "string_value", json: "stringValue", swift: "stringValue"),
-    4: .unique(proto: "bool_value", json: "boolValue", swift: "boolValue"),
-    5: .unique(proto: "struct_value", json: "structValue", swift: "structValue"),
-    6: .unique(proto: "list_value", json: "listValue", swift: "listValue"),
+    1: .unique(proto: "null_value", json: "nullValue"),
+    2: .unique(proto: "number_value", json: "numberValue"),
+    3: .unique(proto: "string_value", json: "stringValue"),
+    4: .unique(proto: "bool_value", json: "boolValue"),
+    5: .unique(proto: "struct_value", json: "structValue"),
+    6: .unique(proto: "list_value", json: "listValue"),
   ]
 
   private class _StorageClass {
@@ -425,11 +407,10 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
 struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_ListValue"}
   public var protoMessageName: String {return "ListValue"}
   public var protoPackageName: String {return "google.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "values", swift: "values"),
+    1: .same(proto: "values"),
   ]
 
 

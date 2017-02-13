@@ -199,7 +199,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             XCTFail()
         }
 
-        XCTAssertEqual(null.debugDescription, "Google_Protobuf_Value(null)")
+        XCTAssertEqual(null.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nnull_value: NULL_VALUE\n")
     }
 
     func testValue_number() throws {
@@ -217,7 +217,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("  3.25  ") {$0.numberValue == 3.25}
         assertJSONDecodeFails("3.2.5")
 
-        XCTAssertEqual(oneFromIntegerLiteral.debugDescription, "Google_Protobuf_Value(numberValue:1)")
+        XCTAssertEqual(oneFromIntegerLiteral.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nnumber_value: 1\n")
     }
 
     func testValue_string() throws {
@@ -254,7 +254,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         // PB serialization
         XCTAssertEqual([26, 3, 97, 34, 98], try Google_Protobuf_Value(stringValue: "a\"b").serializeProtobufBytes())
 
-        XCTAssertEqual(fromStringLiteral.debugDescription, "Google_Protobuf_Value(stringValue:\"abcd\")")
+        XCTAssertEqual(fromStringLiteral.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nstring_value: \"abcd\"\n")
     }
 
     func testValue_bool() {
@@ -274,7 +274,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("yes")
         assertJSONDecodeFails("  true false   ")
 
-        XCTAssertEqual(trueFromLiteral.debugDescription, "Google_Protobuf_Value(boolValue:true)")
+        XCTAssertEqual(trueFromLiteral.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nbool_value: true\n")
     }
 
     func testValue_struct() throws {
@@ -284,7 +284,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
 
         let structValue = try Google_Protobuf_Value(json: "{\"a\":1.0}")
         let d = structValue.debugDescription
-        XCTAssertEqual(d, "Google_Protobuf_Value(structValue:{\"a\":1})")
+        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value: {\n      number_value: 1\n    }\n  }\n}\n")
     }
 
     func testValue_list() throws {
@@ -302,7 +302,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
 
         let listValue = try Google_Protobuf_Value(json: "[1, true, \"abc\"]")
         let d = listValue.debugDescription
-        XCTAssertEqual(d, "Google_Protobuf_Value(listValue:[1,true,\"abc\"])")
+        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n")
 
     }
 

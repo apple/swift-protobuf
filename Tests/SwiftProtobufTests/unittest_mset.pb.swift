@@ -57,11 +57,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetContainer"}
   public var protoMessageName: String {return "TestMessageSetContainer"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "message_set", json: "messageSet", swift: "messageSet"),
+    1: .unique(proto: "message_set", json: "messageSet"),
   ]
 
   private class _StorageClass {
@@ -140,11 +139,10 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
 }
 
 struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension1"}
   public var protoMessageName: String {return "TestMessageSetExtension1"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    15: .same(proto: "i", swift: "i"),
+    15: .same(proto: "i"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -153,7 +151,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
 
     static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
       protoFieldNumber: 1545008,
-      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension1.message_set_extension", swift: "ProtobufUnittest_TestMessageSetExtension1_messageSetExtension"),
+      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension1.message_set_extension"),
       defaultValue: ProtobufUnittest_TestMessageSetExtension1()
     )
   }
@@ -194,11 +192,10 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
 }
 
 struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_TestMessageSetExtension2"}
   public var protoMessageName: String {return "TestMessageSetExtension2"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    25: .same(proto: "str", swift: "str"),
+    25: .same(proto: "str"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -207,7 +204,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
 
     static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
       protoFieldNumber: 1547769,
-      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension2.message_set_extension", swift: "ProtobufUnittest_TestMessageSetExtension2_messageSetExtension"),
+      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension2.message_set_extension"),
       defaultValue: ProtobufUnittest_TestMessageSetExtension2()
     )
   }
@@ -260,22 +257,20 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
 
 ///   MessageSet wire format is equivalent to this.
 struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet"}
   public var protoMessageName: String {return "RawMessageSet"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "Item", json: "item", swift: "item"),
+    1: .unique(proto: "Item", json: "item"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Item: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_RawMessageSet.Item"}
     public var protoMessageName: String {return "Item"}
     public var protoPackageName: String {return "protobuf_unittest"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      2: .unique(proto: "type_id", json: "typeId", swift: "typeId"),
-      3: .same(proto: "message", swift: "message"),
+      2: .unique(proto: "type_id", json: "typeId"),
+      3: .same(proto: "message"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -315,8 +310,12 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
 
     public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _typeId ?? 0, fieldNumber: 2)
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _message ?? Data(), fieldNumber: 3)
+      if let v = _typeId {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+      }
+      if let v = _message {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 3)
+      }
       unknown.traverse(visitor: visitor)
     }
 

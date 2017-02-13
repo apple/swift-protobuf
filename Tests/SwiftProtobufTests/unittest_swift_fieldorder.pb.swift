@@ -36,18 +36,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Swift_Protobuf_TestFieldOrderings"}
   public var protoMessageName: String {return "TestFieldOrderings"}
   public var protoPackageName: String {return "swift.protobuf"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    11: .unique(proto: "my_string", json: "myString", swift: "myString"),
-    1: .unique(proto: "my_int", json: "myInt", swift: "myInt"),
-    101: .unique(proto: "my_float", json: "myFloat", swift: "myFloat"),
-    60: .unique(proto: "oneof_int64", json: "oneofInt64", swift: "oneofInt64"),
-    9: .unique(proto: "oneof_bool", json: "oneofBool", swift: "oneofBool"),
-    150: .unique(proto: "oneof_string", json: "oneofString", swift: "oneofString"),
-    10: .unique(proto: "oneof_int32", json: "oneofInt32", swift: "oneofInt32"),
-    200: .unique(proto: "optional_nested_message", json: "optionalNestedMessage", swift: "optionalNestedMessage"),
+    11: .unique(proto: "my_string", json: "myString"),
+    1: .unique(proto: "my_int", json: "myInt"),
+    101: .unique(proto: "my_float", json: "myFloat"),
+    60: .unique(proto: "oneof_int64", json: "oneofInt64"),
+    9: .unique(proto: "oneof_bool", json: "oneofBool"),
+    150: .unique(proto: "oneof_string", json: "oneofString"),
+    10: .unique(proto: "oneof_int32", json: "oneofInt32"),
+    200: .unique(proto: "optional_nested_message", json: "optionalNestedMessage"),
   ]
 
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
@@ -212,12 +211,11 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "Swift_Protobuf_TestFieldOrderings.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "swift.protobuf"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      2: .same(proto: "oo", swift: "oo"),
-      1: .same(proto: "bb", swift: "bb"),
+      2: .same(proto: "oo"),
+      1: .same(proto: "bb"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -416,13 +414,13 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
 let Swift_Protobuf_Extensions_myExtensionString = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
   protoFieldNumber: 50,
-  fieldNames: .same(proto: "swift.protobuf.my_extension_string", swift: "Swift_Protobuf_myExtensionString"),
+  fieldNames: .same(proto: "swift.protobuf.my_extension_string"),
   defaultValue: ""
 )
 
 let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
   protoFieldNumber: 5,
-  fieldNames: .same(proto: "swift.protobuf.my_extension_int", swift: "Swift_Protobuf_myExtensionInt"),
+  fieldNames: .same(proto: "swift.protobuf.my_extension_int"),
   defaultValue: 0
 )
 

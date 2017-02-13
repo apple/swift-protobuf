@@ -67,14 +67,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   The version number of protocol compiler.
 public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Compiler_Version"}
   public var protoMessageName: String {return "Version"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "major", swift: "major"),
-    2: .same(proto: "minor", swift: "minor"),
-    3: .same(proto: "patch", swift: "patch"),
-    4: .same(proto: "suffix", swift: "suffix"),
+    1: .same(proto: "major"),
+    2: .same(proto: "minor"),
+    3: .same(proto: "patch"),
+    4: .same(proto: "suffix"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
@@ -169,14 +168,13 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProt
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
 public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorRequest"}
   public var protoMessageName: String {return "CodeGeneratorRequest"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .unique(proto: "file_to_generate", json: "fileToGenerate", swift: "fileToGenerate"),
-    2: .same(proto: "parameter", swift: "parameter"),
-    15: .unique(proto: "proto_file", json: "protoFile", swift: "protoFile"),
-    3: .unique(proto: "compiler_version", json: "compilerVersion", swift: "compilerVersion"),
+    1: .unique(proto: "file_to_generate", json: "fileToGenerate"),
+    2: .same(proto: "parameter"),
+    15: .unique(proto: "proto_file", json: "protoFile"),
+    3: .unique(proto: "compiler_version", json: "compilerVersion"),
   ]
 
   private class _StorageClass {
@@ -314,25 +312,23 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
 public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse"}
   public var protoMessageName: String {return "CodeGeneratorResponse"}
   public var protoPackageName: String {return "google.protobuf.compiler"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "error", swift: "error"),
-    15: .same(proto: "file", swift: "file"),
+    1: .same(proto: "error"),
+    15: .same(proto: "file"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
   public struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "Google_Protobuf_Compiler_CodeGeneratorResponse.File"}
     public var protoMessageName: String {return "File"}
     public var protoPackageName: String {return "google.protobuf.compiler"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "name", swift: "name"),
-      2: .unique(proto: "insertion_point", json: "insertionPoint", swift: "insertionPoint"),
-      15: .same(proto: "content", swift: "content"),
+      1: .same(proto: "name"),
+      2: .unique(proto: "insertion_point", json: "insertionPoint"),
+      15: .same(proto: "content"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()

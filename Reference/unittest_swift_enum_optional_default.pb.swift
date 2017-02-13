@@ -36,7 +36,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault"}
   public var protoMessageName: String {return "EnumOptionalDefault"}
   public var protoPackageName: String {return "protobuf_unittest.extend"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -44,12 +43,11 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   public var unknown = SwiftProtobuf.UnknownStorage()
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage"}
     public var protoMessageName: String {return "NestedMessage"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "message", swift: "message"),
-      17: .unique(proto: "optional_enum", json: "optionalEnum", swift: "optionalEnum"),
+      1: .same(proto: "message"),
+      17: .unique(proto: "optional_enum", json: "optionalEnum"),
     ]
 
     private class _StorageClass {
@@ -116,13 +114,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      init?(name: String) {
-        switch name {
-        case "foo": self = .foo
-        default: return nil
-        }
-      }
-
       init?(jsonName: String) {
         switch jsonName {
         case "FOO": self = .foo
@@ -145,23 +136,15 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      var json: String {
+      var _protobuf_jsonName: String? {
         get {
           switch self {
-          case .foo: return "\"FOO\""
+          case .foo: return "FOO"
           }
         }
       }
 
       var hashValue: Int { return rawValue }
-
-      var debugDescription: String {
-        get {
-          switch self {
-          case .foo: return ".foo"
-          }
-        }
-      }
 
     }
 
@@ -212,11 +195,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   }
 
   struct NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var swiftClassName: String {return "ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2"}
     public var protoMessageName: String {return "NestedMessage2"}
     public var protoPackageName: String {return "protobuf_unittest.extend"}
     public static let _protobuf_fieldNames: FieldNameMap = [
-      17: .unique(proto: "optional_enum", json: "optionalEnum", swift: "optionalEnum"),
+      17: .unique(proto: "optional_enum", json: "optionalEnum"),
     ]
 
     public var unknown = SwiftProtobuf.UnknownStorage()
@@ -232,13 +214,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       init?(rawValue: Int) {
         switch rawValue {
         case 0: self = .foo
-        default: return nil
-        }
-      }
-
-      init?(name: String) {
-        switch name {
-        case "foo": self = .foo
         default: return nil
         }
       }
@@ -265,23 +240,15 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      var json: String {
+      var _protobuf_jsonName: String? {
         get {
           switch self {
-          case .foo: return "\"FOO\""
+          case .foo: return "FOO"
           }
         }
       }
 
       var hashValue: Int { return rawValue }
-
-      var debugDescription: String {
-        get {
-          switch self {
-          case .foo: return ".foo"
-          }
-        }
-      }
 
     }
 

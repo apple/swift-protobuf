@@ -50,7 +50,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittest_SwiftEnumTest"}
   public var protoMessageName: String {return "SwiftEnumTest"}
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
@@ -70,14 +69,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       switch rawValue {
       case 1: self = .firstValue
       case 2: self = .secondValue
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "firstValue": self = .firstValue
-      case "secondValue": self = .secondValue
       default: return nil
       }
     }
@@ -107,25 +98,16 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .firstValue: return "\"ENUM_TEST_1_FIRST_VALUE\""
-        case .secondValue: return "\"ENUM_TEST_1_SECOND_VALUE\""
+        case .firstValue: return "ENUM_TEST_1_FIRST_VALUE"
+        case .secondValue: return "ENUM_TEST_1_SECOND_VALUE"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .firstValue: return ".firstValue"
-        case .secondValue: return ".secondValue"
-        }
-      }
-    }
 
   }
 
@@ -142,14 +124,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       switch rawValue {
       case 1: self = .enumTest2FirstValue
       case 2: self = .secondValue
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "enumTest2FirstValue": self = .enumTest2FirstValue
-      case "secondValue": self = .secondValue
       default: return nil
       }
     }
@@ -179,25 +153,16 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .enumTest2FirstValue: return "\"ENUM_TEST_2_FIRST_VALUE\""
-        case .secondValue: return "\"SECOND_VALUE\""
+        case .enumTest2FirstValue: return "ENUM_TEST_2_FIRST_VALUE"
+        case .secondValue: return "SECOND_VALUE"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .enumTest2FirstValue: return ".enumTest2FirstValue"
-        case .secondValue: return ".secondValue"
-        }
-      }
-    }
 
   }
 
@@ -214,14 +179,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       switch rawValue {
       case 1: self = .enumTestNoStem1
       case 2: self = .enumTestNoStem2
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "enumTestNoStem1": self = .enumTestNoStem1
-      case "enumTestNoStem2": self = .enumTestNoStem2
       default: return nil
       }
     }
@@ -251,25 +208,16 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .enumTestNoStem1: return "\"ENUM_TEST_NO_STEM_1\""
-        case .enumTestNoStem2: return "\"ENUM_TEST_NO_STEM_2\""
+        case .enumTestNoStem1: return "ENUM_TEST_NO_STEM_1"
+        case .enumTestNoStem2: return "ENUM_TEST_NO_STEM_2"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .enumTestNoStem1: return ".enumTestNoStem1"
-        case .enumTestNoStem2: return ".enumTestNoStem2"
-        }
-      }
-    }
 
   }
 
@@ -286,14 +234,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       switch rawValue {
       case 1: self = .`var`
       case 2: self = .notReserved
-      default: return nil
-      }
-    }
-
-    init?(name: String) {
-      switch name {
-      case "var": self = .`var`
-      case "notReserved": self = .notReserved
       default: return nil
       }
     }
@@ -323,25 +263,16 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var json: String {
+    var _protobuf_jsonName: String? {
       get {
         switch self {
-        case .`var`: return "\"ENUM_TEST_RESERVED_WORD_VAR\""
-        case .notReserved: return "\"ENUM_TEST_RESERVED_WORD_NOT_RESERVED\""
+        case .`var`: return "ENUM_TEST_RESERVED_WORD_VAR"
+        case .notReserved: return "ENUM_TEST_RESERVED_WORD_NOT_RESERVED"
         }
       }
     }
 
     var hashValue: Int { return rawValue }
-
-    var debugDescription: String {
-      get {
-        switch self {
-        case .`var`: return ".var"
-        case .notReserved: return ".notReserved"
-        }
-      }
-    }
 
   }
 

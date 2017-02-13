@@ -74,15 +74,6 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(name: String) {
-    switch name {
-    case "importFoo": self = .importFoo
-    case "importBar": self = .importBar
-    case "importBaz": self = .importBaz
-    default: return nil
-    }
-  }
-
   init?(jsonName: String) {
     switch jsonName {
     case "IMPORT_FOO": self = .importFoo
@@ -111,27 +102,17 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .importFoo: return "\"IMPORT_FOO\""
-      case .importBar: return "\"IMPORT_BAR\""
-      case .importBaz: return "\"IMPORT_BAZ\""
+      case .importFoo: return "IMPORT_FOO"
+      case .importBar: return "IMPORT_BAR"
+      case .importBaz: return "IMPORT_BAZ"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
-
-  var debugDescription: String {
-    get {
-      switch self {
-      case .importFoo: return ".importFoo"
-      case .importBar: return ".importBar"
-      case .importBaz: return ".importBaz"
-      }
-    }
-  }
 
 }
 
@@ -151,15 +132,6 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
     case 0: self = .unknown
     case 1: self = .foo
     case 2: self = .bar
-    default: return nil
-    }
-  }
-
-  init?(name: String) {
-    switch name {
-    case "unknown": self = .unknown
-    case "foo": self = .foo
-    case "bar": self = .bar
     default: return nil
     }
   }
@@ -192,36 +164,25 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
     }
   }
 
-  var json: String {
+  var _protobuf_jsonName: String? {
     get {
       switch self {
-      case .unknown: return "\"UNKNOWN\""
-      case .foo: return "\"FOO\""
-      case .bar: return "\"BAR\""
+      case .unknown: return "UNKNOWN"
+      case .foo: return "FOO"
+      case .bar: return "BAR"
       }
     }
   }
 
   var hashValue: Int { return rawValue }
 
-  var debugDescription: String {
-    get {
-      switch self {
-      case .unknown: return ".unknown"
-      case .foo: return ".foo"
-      case .bar: return ".bar"
-      }
-    }
-  }
-
 }
 
 struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var swiftClassName: String {return "ProtobufUnittestImport_ImportMessage"}
   public var protoMessageName: String {return "ImportMessage"}
   public var protoPackageName: String {return "protobuf_unittest_import"}
   public static let _protobuf_fieldNames: FieldNameMap = [
-    1: .same(proto: "d", swift: "d"),
+    1: .same(proto: "d"),
   ]
 
   public var unknown = SwiftProtobuf.UnknownStorage()
