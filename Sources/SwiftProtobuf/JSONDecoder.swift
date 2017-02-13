@@ -18,6 +18,7 @@ import Swift
 public struct JSONDecoder: Decoder {
     internal var scanner: JSONScanner
     private var fieldCount = 0
+    private var isMapKey = false
     private var fieldNameMap: FieldNameMap?
 
     public mutating func handleConflictingOneOf() throws {
@@ -349,7 +350,11 @@ public struct JSONDecoder: Decoder {
             value = false
             return
         }
-        value = try scanner.nextBool()
+        if isMapKey {
+            value = try scanner.nextQuotedBool()
+        } else {
+            value = try scanner.nextBool()
+        }
     }
 
     public mutating func decodeSingularBoolField(value: inout Bool?) throws {
@@ -357,7 +362,11 @@ public struct JSONDecoder: Decoder {
             value = nil
             return
         }
-        value = try scanner.nextBool()
+        if isMapKey {
+            value = try scanner.nextQuotedBool()
+        } else {
+            value = try scanner.nextBool()
+        }
     }
 
     public mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
@@ -604,8 +613,10 @@ public struct JSONDecoder: Decoder {
             if c != "\"" {
                 throw JSONDecodingError.unquotedMapKey
             }
+            isMapKey = true
             var keyField: KeyType.BaseType?
             try KeyType.decodeSingular(value: &keyField, from: &self)
+            isMapKey = false
             try scanner.skipRequiredColon()
             var valueField: ValueType.BaseType?
             try ValueType.decodeSingular(value: &valueField, from: &self)
@@ -636,8 +647,10 @@ public struct JSONDecoder: Decoder {
             if c != "\"" {
                 throw JSONDecodingError.unquotedMapKey
             }
+            isMapKey = true
             var keyField: KeyType.BaseType?
             try KeyType.decodeSingular(value: &keyField, from: &self)
+            isMapKey = false
             try scanner.skipRequiredColon()
             var valueField: ValueType?
             try decodeSingularEnumField(value: &valueField)
@@ -668,8 +681,10 @@ public struct JSONDecoder: Decoder {
             if c != "\"" {
                 throw JSONDecodingError.unquotedMapKey
             }
+            isMapKey = true
             var keyField: KeyType.BaseType?
             try KeyType.decodeSingular(value: &keyField, from: &self)
+            isMapKey = false
             try scanner.skipRequiredColon()
             var valueField: ValueType?
             try decodeSingularMessageField(value: &valueField)

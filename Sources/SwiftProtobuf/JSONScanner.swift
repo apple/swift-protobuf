@@ -901,14 +901,6 @@ internal struct JSONScanner {
         }
         let c = p[0]
         switch c {
-        case asciiDoubleQuote: // "
-            if let s = parseOptionalQuotedString() {
-                switch s {
-                case "false": return false
-                case "true": return true
-                default: break
-                }
-            }
         case asciiLowerF: // f
             if skipOptionalKeyword(bytes: [asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE]) {
                 return false
@@ -919,6 +911,27 @@ internal struct JSONScanner {
             }
         default:
             break
+        }
+        throw JSONDecodingError.malformedBool
+    }
+
+    /// Return the following Bool "true" or "false", including
+    /// full processing of quoted boolean values.  (Used in map
+    /// keys, for instance.)
+    internal mutating func nextQuotedBool() throws -> Bool {
+        skipWhitespace()
+        if p == end {
+            throw JSONDecodingError.truncated
+        }
+        if p[0] != asciiDoubleQuote {
+            throw JSONDecodingError.unquotedMapKey
+        }
+        if let s = parseOptionalQuotedString() {
+            switch s {
+            case "false": return false
+            case "true": return true
+            default: break
+            }
         }
         throw JSONDecodingError.malformedBool
     }
