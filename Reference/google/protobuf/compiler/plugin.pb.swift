@@ -187,6 +187,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
     init() {}
 
+    var isInitialized: Bool {
+      if !SwiftProtobuf.Internal.areAllInitialized(_protoFile) {return false}
+      return true
+    }
+
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_fileToGenerate)
@@ -289,6 +294,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

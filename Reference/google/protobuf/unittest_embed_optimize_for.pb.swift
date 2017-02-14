@@ -71,6 +71,12 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
 
     init() {}
 
+    var isInitialized: Bool {
+      if let v = _optionalMessage, !v.isInitialized {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_repeatedMessage) {return false}
+      return true
+    }
+
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_TestOptimizedForSize.self, value: &_optionalMessage)
@@ -131,6 +137,10 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)

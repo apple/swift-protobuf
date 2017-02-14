@@ -72,6 +72,11 @@ struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobuf.P
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !SwiftProtobuf.Internal.areAllInitialized(file) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_FileDescriptorProto.self, value: &file)
@@ -129,6 +134,15 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     var _syntax: String? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if !SwiftProtobuf.Internal.areAllInitialized(_messageType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_enumType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_service) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_extension_p) {return false}
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -336,6 +350,10 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -388,6 +406,16 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
     var _reservedName: [String] = []
 
     init() {}
+
+    var isInitialized: Bool {
+      if !SwiftProtobuf.Internal.areAllInitialized(_field) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_extension_p) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_nestedType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_enumType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_oneofDecl) {return false}
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -673,6 +701,10 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -725,6 +757,11 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     var _options: Google_Protobuf_FieldOptions? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1183,6 +1220,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1219,6 +1260,11 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     var _options: Google_Protobuf_OneofOptions? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1285,6 +1331,10 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1323,6 +1373,12 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     var _options: Google_Protobuf_EnumOptions? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if !SwiftProtobuf.Internal.areAllInitialized(_value) {return false}
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1400,6 +1456,10 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1438,6 +1498,11 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
     var _options: Google_Protobuf_EnumValueOptions? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1521,6 +1586,10 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1559,6 +1628,12 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
     var _options: Google_Protobuf_ServiceOptions? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if !SwiftProtobuf.Internal.areAllInitialized(_method) {return false}
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1636,6 +1711,10 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1680,6 +1759,11 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     var _serverStreaming: Bool? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if let v = _options, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1817,6 +1901,10 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -2197,6 +2285,12 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_javaPackage)
@@ -2432,6 +2526,12 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   init() {}
+
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2775,6 +2875,12 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: Google_Protobuf_FieldOptions.CType.self, value: &_ctype)
@@ -2867,6 +2973,12 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   init() {}
+
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -2963,6 +3075,12 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_allowAlias)
@@ -3053,6 +3171,12 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_deprecated)
@@ -3142,6 +3266,12 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   init() {}
+
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
@@ -3314,6 +3444,12 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 33: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_deprecated)
@@ -3435,6 +3571,12 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
+    public var isInitialized: Bool {
+      if _namePart == nil {return false}
+      if _isExtension == nil {return false}
+      return true
+    }
+
     public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_namePart)
@@ -3538,6 +3680,11 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    if !SwiftProtobuf.Internal.areAllInitialized(name) {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

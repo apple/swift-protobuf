@@ -561,6 +561,11 @@ struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProt
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !SwiftProtobuf.Internal.areAllInitialized(mapField) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequired>.self, value: &mapField)

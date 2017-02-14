@@ -71,4 +71,13 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
     }
     return nil
   }
+
+  public var isInitialized: Bool {
+    for (_, v) in values {
+      if !v.isInitialized {
+        return false
+      }
+    }
+    return true
+  }
 }

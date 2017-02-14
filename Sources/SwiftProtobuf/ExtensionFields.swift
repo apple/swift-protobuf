@@ -36,6 +36,15 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
 
   /// Fields know their own type, so can dispatch to a visitor
   func traverse(visitor: Visitor) throws
+
+  /// Check if the field is initialized.
+  var isInitialized: Bool { get }
+}
+
+public extension AnyExtensionField {
+  // Default implementation for extensions fields.  The message types below provide
+  // custom versions.
+  var isInitialized: Bool { return true }
 }
 
 ///
@@ -247,6 +256,13 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
         value: v, fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
+
+  public var isInitialized: Bool {
+    if let v = value {
+      return v.isInitialized
+    }
+    return true
+  }
 }
 
 public struct RepeatedMessageExtensionField<M: Message & Equatable>:
@@ -294,6 +310,10 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
         value: value, fieldNumber: protobufExtension.protoFieldNumber)
     }
   }
+
+  public var isInitialized: Bool {
+    return Internal.areAllInitialized(value)
+  }
 }
 
 //
@@ -336,6 +356,13 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
       try visitor.visitSingularGroupField(
         value: v, fieldNumber: protobufExtension.protoFieldNumber)
     }
+  }
+
+  public var isInitialized: Bool {
+    if let v = value {
+      return v.isInitialized
+    }
+    return true
   }
 }
 
@@ -383,5 +410,9 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
       try visitor.visitRepeatedGroupField(
         value: value, fieldNumber: protobufExtension.protoFieldNumber)
     }
+  }
+
+  public var isInitialized: Bool {
+    return Internal.areAllInitialized(value)
   }
 }

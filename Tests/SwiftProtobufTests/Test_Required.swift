@@ -121,6 +121,111 @@ class Test_Required: XCTestCase, PBTestHelpers {
         + "\"defaultCord\":\"123\""
         + "}")
 
+    func test_IsInitialized() {
+        // message declared in proto2 syntax file with required fields.
+        var msg = ProtobufUnittest_TestRequired()
+        XCTAssertFalse(msg.isInitialized)
+        msg.a = 1
+        XCTAssertFalse(msg.isInitialized)
+        msg.b = 2
+        XCTAssertFalse(msg.isInitialized)
+        msg.c = 3
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func test_OneOf_IsInitialized() {
+        // message declared in proto2 syntax file with a message in a oneof where that message
+        // has a required field.
+        var msg = ProtobufUnittest_TestRequiredOneof()
+        XCTAssertTrue(msg.isInitialized)
+        msg.fooMessage = ProtobufUnittest_TestRequiredOneof.NestedMessage()
+        XCTAssertFalse(msg.isInitialized)
+        msg.fooInt = 1
+        XCTAssertTrue(msg.isInitialized)
+        msg.fooMessage = ProtobufUnittest_TestRequiredOneof.NestedMessage()
+        XCTAssertFalse(msg.isInitialized)
+        msg.fooMessage.requiredDouble = 1.1
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+
+    func test_NestedInProto2_IsInitialized() {
+        // message declared in proto2 syntax file, with fields that are another message that has
+        // required fields.
+        var msg = ProtobufUnittest_TestRequiredForeign()
+
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.optionalMessage = ProtobufUnittest_TestRequired()
+        XCTAssertFalse(msg.isInitialized)
+        msg.optionalMessage.a = 1
+        msg.optionalMessage.b = 2
+        XCTAssertFalse(msg.isInitialized)
+        msg.optionalMessage.c = 3
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.repeatedMessage.append(ProtobufUnittest_TestRequired())
+        XCTAssertFalse(msg.isInitialized)
+        msg.repeatedMessage[0].a = 1
+        msg.repeatedMessage[0].b = 2
+        XCTAssertFalse(msg.isInitialized)
+        msg.repeatedMessage[0].c = 3
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func test_NestedInProto3_IsInitialized() {
+        // message declared in proto3 syntax file, with fields that are another message that has
+        // required fields.
+        var msg = Proto2NofieldpresenceUnittest_TestProto2Required()
+
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.proto2 = ProtobufUnittest_TestRequired()
+        XCTAssertFalse(msg.isInitialized)
+        msg.proto2.a = 1
+        msg.proto2.b = 2
+        XCTAssertFalse(msg.isInitialized)
+        msg.proto2.c = 3
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func test_map_isInitialized() {
+        var msg = ProtobufUnittest_TestRequiredMessageMap()
+
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.mapField[0] = ProtobufUnittest_TestRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.mapField[0]!.a = 1
+        msg.mapField[0]!.b = 2
+        XCTAssertFalse(msg.isInitialized)
+        msg.mapField[0]!.c = 3
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func test_Extensions_isInitialized() {
+        var msg = ProtobufUnittest_TestAllExtensions()
+
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.ProtobufUnittest_TestRequired_single = ProtobufUnittest_TestRequired()
+        XCTAssertFalse(msg.isInitialized)
+        msg.ProtobufUnittest_TestRequired_single.a = 1
+        msg.ProtobufUnittest_TestRequired_single.b = 2
+        XCTAssertFalse(msg.isInitialized)
+        msg.ProtobufUnittest_TestRequired_single.c = 3
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.ProtobufUnittest_TestRequired_multi.append(ProtobufUnittest_TestRequired())
+        XCTAssertFalse(msg.isInitialized)
+        msg.ProtobufUnittest_TestRequired_multi[0].a = 1
+        msg.ProtobufUnittest_TestRequired_multi[0].b = 2
+        XCTAssertFalse(msg.isInitialized)
+        msg.ProtobufUnittest_TestRequired_multi[0].c = 3
+        XCTAssertTrue(msg.isInitialized)
+    }
+
     func DISABLED_test_bare() throws {
         // Because we always encode required fields, we get a non-trivial
         // output even for a bare object.

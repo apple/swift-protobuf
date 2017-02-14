@@ -52,7 +52,7 @@ BEGIN {
 
 /class .*:.* XCTestCase/ {
     if (CLASS != "") {
-	printf("        ]\n")
+	printf("\n        ]\n")
 	printf("    }\n")
 	printf("}\n")
     }

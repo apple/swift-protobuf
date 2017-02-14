@@ -160,6 +160,67 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
+    var isInitialized: Bool {
+      if _requiredInt32 == nil {return false}
+      if _requiredInt64 == nil {return false}
+      if _requiredUint32 == nil {return false}
+      if _requiredUint64 == nil {return false}
+      if _requiredSint32 == nil {return false}
+      if _requiredSint64 == nil {return false}
+      if _requiredFixed32 == nil {return false}
+      if _requiredFixed64 == nil {return false}
+      if _requiredSfixed32 == nil {return false}
+      if _requiredSfixed64 == nil {return false}
+      if _requiredFloat == nil {return false}
+      if _requiredDouble == nil {return false}
+      if _requiredBool == nil {return false}
+      if _requiredString == nil {return false}
+      if _requiredBytes == nil {return false}
+      if _requiredGroup == nil {return false}
+      if _requiredNestedMessage == nil {return false}
+      if _requiredForeignMessage == nil {return false}
+      if _requiredImportMessage == nil {return false}
+      if _requiredNestedEnum == nil {return false}
+      if _requiredForeignEnum == nil {return false}
+      if _requiredImportEnum == nil {return false}
+      if _requiredStringPiece == nil {return false}
+      if _requiredCord == nil {return false}
+      if _requiredPublicImportMessage == nil {return false}
+      if _requiredLazyMessage == nil {return false}
+      if _defaultInt32 == nil {return false}
+      if _defaultInt64 == nil {return false}
+      if _defaultUint32 == nil {return false}
+      if _defaultUint64 == nil {return false}
+      if _defaultSint32 == nil {return false}
+      if _defaultSint64 == nil {return false}
+      if _defaultFixed32 == nil {return false}
+      if _defaultFixed64 == nil {return false}
+      if _defaultSfixed32 == nil {return false}
+      if _defaultSfixed64 == nil {return false}
+      if _defaultFloat == nil {return false}
+      if _defaultDouble == nil {return false}
+      if _defaultBool == nil {return false}
+      if _defaultString == nil {return false}
+      if _defaultBytes == nil {return false}
+      if _defaultNestedEnum == nil {return false}
+      if _defaultForeignEnum == nil {return false}
+      if _defaultImportEnum == nil {return false}
+      if _defaultStringPiece == nil {return false}
+      if _defaultCord == nil {return false}
+      if let v = _requiredGroup, !v.isInitialized {return false}
+      if let v = _requiredNestedMessage, !v.isInitialized {return false}
+      if let v = _requiredLazyMessage, !v.isInitialized {return false}
+      switch _oneofField {
+      case .oneofNestedMessage(let v):
+        if !v.isInitialized {return false}
+      case .None:
+        break
+      default:
+        break
+      }
+      return true
+    }
+
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_requiredInt32)
@@ -648,6 +709,11 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
+    public var isInitialized: Bool {
+      if _bb == nil {return false}
+      return true
+    }
+
     public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
       case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_bb)
@@ -691,6 +757,11 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
 
     init() {}
+
+    public var isInitialized: Bool {
+      if _a == nil {return false}
+      return true
+    }
 
     public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1279,6 +1350,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
   init() {}
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
   }
@@ -1436,6 +1511,16 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    if _requiredInt32 == nil {return false}
+    if _requiredFloat == nil {return false}
+    if _requiredBool == nil {return false}
+    if _requiredString == nil {return false}
+    if _requiredBytes == nil {return false}
+    if _requiredNestedEnum == nil {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

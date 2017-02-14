@@ -41,6 +41,10 @@ public protocol Message: CustomDebugStringConvertible {
   var anyTypePrefix: String { get }
   var anyTypeURL: String { get }
 
+  /// Check if all required fields (if any) have values set on this message
+  /// on any messages withing this message.
+  var isInitialized: Bool { get }
+
   //
   // General serialization/deserialization machinery
   //
@@ -116,6 +120,12 @@ public protocol Message: CustomDebugStringConvertible {
 }
 
 public extension Message {
+
+  var isInitialized: Bool {
+    // The generated code will include a specialization as needed.
+    return true;
+  }
+
   var hashValue: Int {
     let visitor = HashVisitor()
     try? traverse(visitor: visitor)

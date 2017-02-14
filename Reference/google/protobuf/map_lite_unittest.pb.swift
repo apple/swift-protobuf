@@ -846,6 +846,11 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !SwiftProtobuf.Internal.areAllInitialized(mapField) {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: &mapField)
@@ -1033,6 +1038,13 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    if _a == nil {return false}
+    if _b == nil {return false}
+    if _c == nil {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

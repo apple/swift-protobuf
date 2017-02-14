@@ -682,6 +682,11 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_foo)
@@ -766,6 +771,12 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     var _barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = []
 
     init() {}
+
+    var isInitialized: Bool {
+      if !extensionFieldValues.isInitialized {return false}
+      if let v = _bar, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -917,6 +928,10 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1182,6 +1197,11 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
 
   init() {}
 
+  public var isInitialized: Bool {
+    if !extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     if (4 <= protoFieldNumber && protoFieldNumber < 2147483647) {
       try setter.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufUnittest_AggregateMessageSet.self, protoFieldNumber: protoFieldNumber)
@@ -1299,6 +1319,13 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     var _mset: ProtobufUnittest_AggregateMessageSet? = nil
 
     init() {}
+
+    var isInitialized: Bool {
+      if let v = _sub, !v.isInitialized {return false}
+      if let v = _file, !v.isInitialized {return false}
+      if let v = _mset, !v.isInitialized {return false}
+      return true
+    }
 
     func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
       switch protoFieldNumber {
@@ -1427,6 +1454,10 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
@@ -1691,6 +1722,11 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   init() {}
 
+  public var isInitialized: Bool {
+    if _value == nil {return false}
+    return true
+  }
+
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {
     case 1: try setter.decodeSingularField(fieldType: ProtobufUnittest_OldOptionType.TestEnum.self, value: &_value)
@@ -1790,6 +1826,11 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   init() {}
+
+  public var isInitialized: Bool {
+    if _value == nil {return false}
+    return true
+  }
 
   public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
     switch protoFieldNumber {

@@ -94,17 +94,21 @@ func hasMessageField(descriptor: Google_Protobuf_DescriptorProto, context: Conte
 
 class StorageClassGenerator {
     private let fields: [MessageFieldGenerator]
+    private let oneofs: [OneofGenerator]
     private let descriptor: Google_Protobuf_DescriptorProto
     private let messageSwiftName: String
     private let isProto3: Bool
     private let isExtensible: Bool
+    private let context: Context
 
-    init(descriptor: Google_Protobuf_DescriptorProto, fields: [MessageFieldGenerator], file: FileGenerator, messageSwiftName: String, isExtensible: Bool) {
+    init(descriptor: Google_Protobuf_DescriptorProto, fields: [MessageFieldGenerator], oneofs: [OneofGenerator], file: FileGenerator, messageSwiftName: String, isExtensible: Bool, context: Context) {
         self.descriptor = descriptor
         self.fields = fields
+        self.oneofs = oneofs
         self.messageSwiftName = messageSwiftName
         self.isProto3 = file.isProto3
         self.isExtensible = isExtensible
+        self.context = context
     }
 
     func generateNested(printer p: inout CodePrinter) {
@@ -141,6 +145,8 @@ class StorageClassGenerator {
 
         p.print("\n")
         p.print("init() {}\n")
+
+        generateIsInitialized(printer: &p)
 
         // decodeField
         p.print("\n")
@@ -286,10 +292,98 @@ class StorageClassGenerator {
         p.outdent()
         p.print("}\n")
     }
+
+    func generateIsInitialized(printer p: inout CodePrinter) {
+      var functionStarted = false;
+      func ensureFunctionStarted() {
+        if functionStarted { return }
+        functionStarted = true
+        p.print("\nvar isInitialized: Bool {\n")
+        p.indent()
+      }
+
+      if isExtensible {
+        ensureFunctionStarted()
+        p.print("if !extensionFieldValues.isInitialized {return false}\n")
+      }
+
+      if !isProto3 {
+        // Only proto2 syntax can have field presence (required fields); ensure required
+        // fields have values.
+        for f in fields {
+          if f.descriptor.label != .required {
+            continue
+          }
+          ensureFunctionStarted()
+          p.print("if \(f.swiftStorageName) == nil {return false}\n")
+        }
+      }
+
+      // Check that all non-oneof embedded messages are initialized.
+      for f in fields {
+        if f.fieldHoldsMessage && f.oneof == nil &&
+          messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+          ensureFunctionStarted()
+          if f.isRepeated {
+            p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftStorageName)) {return false}\n")
+          } else {
+            p.print("if let v = \(f.swiftStorageName), !v.isInitialized {return false}\n")
+          }
+        }
+      }
+
+      // Check the oneofs using a switch so we can be more efficent.
+      for oneofField in oneofs {
+        var hasRequiredFields = false
+        for f in oneofField.fields {
+          if f.descriptor.isMessage &&
+            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+            hasRequiredFields = true
+            break
+          }
+        }
+        if !hasRequiredFields {
+          continue
+        }
+
+        ensureFunctionStarted()
+        p.print("switch \(oneofField.descriptor.swiftStorageFieldName) {\n")
+        var needsDefault = false
+        for f in oneofField.fields {
+          if f.descriptor.isMessage &&
+            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+            p.print("case .\(f.swiftName)(let v):\n")
+            p.indent()
+            p.print("if !v.isInitialized {return false}\n")
+            p.outdent()
+          } else {
+            needsDefault = true
+          }
+        }
+        p.print("case .None:\n")
+        p.indent()
+        p.print("break\n")
+        p.outdent()
+        if needsDefault {
+          p.print("default:\n")
+          p.indent()
+          p.print("break\n")
+          p.outdent()
+        }
+        p.print("}\n")
+      }
+
+      if functionStarted {
+        p.print("return true\n")
+        p.outdent()
+        p.print("}\n")
+      }
+    }
 }
 
 class MessageGenerator {
     private let descriptor: Google_Protobuf_DescriptorProto
+    private let context: Context
     private let generatorOptions: GeneratorOptions
     private let protoFullName: String
     private let swiftFullName: String
@@ -312,6 +406,7 @@ class MessageGenerator {
 
     init(descriptor: Google_Protobuf_DescriptorProto, path: [Int32], parentSwiftName: String?, parentProtoPath: String?, file: FileGenerator, context: Context) {
         self.protoMessageName = descriptor.name
+        self.context = context
         self.generatorOptions = context.options
         self.protoFullName = (parentProtoPath == nil ? "" : (parentProtoPath! + ".")) + self.protoMessageName
         self.descriptor = descriptor
@@ -403,7 +498,7 @@ class MessageGenerator {
         // storage yet.
         let useHeapStorage = fields.count > 16 || hasMessageField(descriptor: descriptor, context: context)
         if useHeapStorage {
-            self.storage = StorageClassGenerator(descriptor: descriptor, fields: fields, file: file, messageSwiftName: self.swiftFullName, isExtensible: isExtensible)
+          self.storage = StorageClassGenerator(descriptor: descriptor, fields: fields, oneofs: oneofs, file: file, messageSwiftName: self.swiftFullName, isExtensible: isExtensible, context: context)
         } else {
             self.storage = nil
         }
@@ -509,6 +604,9 @@ class MessageGenerator {
         // Default init
         p.print("\n")
         p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
+
+        // isInitialized
+        generateIsInitialized(printer:&p)
 
         // Field-addressable decoding
         p.print("\n")
@@ -718,6 +816,118 @@ class MessageGenerator {
         p.print("}\n")
     }
 
+    func generateIsInitialized(printer p: inout CodePrinter) {
+      var functionStarted = false;
+      func ensureFunctionStarted() {
+        if functionStarted { return }
+        functionStarted = true
+        p.print("\npublic var isInitialized: Bool {\n")
+        p.indent()
+        if storage != nil {
+          p.print("return _storage.isInitialized\n")
+        }
+      }
+
+      if isExtensible {
+        ensureFunctionStarted()
+        if storage == nil {
+          p.print("if !extensionFieldValues.isInitialized {return false}\n")
+        }
+      }
+
+      if !isProto3 {
+        // Only proto2 syntax can have field presence (required fields); ensure required
+        // fields have values.
+        for f in fields {
+          if f.descriptor.label != .required {
+            continue
+          }
+          ensureFunctionStarted()
+          if storage != nil {
+            // No need to check other fields, using storage deferred to the
+            // storage_.isInitialized.
+            break
+          } else {
+            p.print("if \(f.swiftStorageName) == nil {return false}\n")
+          }
+        }
+      }
+
+      // Check that all non-oneof embedded messages are initialized.
+      for f in fields {
+        if f.fieldHoldsMessage && f.oneof == nil &&
+          messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+          ensureFunctionStarted()
+          if storage != nil {
+            // No need to check other fields, using storage deferred to the
+            // storage_.isInitialized.
+            break
+          } else {
+            if f.isRepeated {
+              p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftName)) {return false}\n")
+            } else {
+              p.print("if let v = \(f.swiftName), !v.isInitialized {return false}\n")
+            }
+          }
+        }
+      }
+
+      // Check the oneofs using a switch so we can be more efficent.
+      for oneofField in oneofs {
+        var hasRequiredFields = false
+        for f in oneofField.fields {
+          if f.descriptor.isMessage &&
+            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+            hasRequiredFields = true
+            break
+          }
+        }
+        if !hasRequiredFields {
+          continue
+        }
+
+        ensureFunctionStarted()
+        if storage != nil {
+          // No need to check other fields, using storage deferred to the
+          // storage_.isInitialized.
+          break;
+        }
+
+        p.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
+        var needsDefault = false
+        for f in oneofField.fields {
+          if f.descriptor.isMessage &&
+            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+            p.print("case .\(f.swiftName)(let v):\n")
+            p.indent()
+            p.print("if !v.isInitialized {return false}\n")
+            p.outdent()
+          } else {
+            needsDefault = true
+          }
+        }
+        p.print("case .None:\n")
+        p.indent()
+        p.print("break\n")
+        p.outdent()
+        if needsDefault {
+          p.print("default:\n")
+          p.indent()
+          p.print("break\n")
+          p.outdent()
+        }
+        p.print("}\n")
+      }
+
+      if functionStarted {
+        if storage == nil {
+          p.print("return true\n")
+        }
+        p.outdent()
+        p.print("}\n")
+      }
+    }
+
     func generateTopLevel(printer p: inout CodePrinter) {
         // nested messages
         for m in messages {
@@ -738,4 +948,44 @@ class MessageGenerator {
             m.registerExtensions(registry: &registry)
         }
     }
+}
+
+// The logic for this check comes from google/protobuf; the C++ and Java generators specificly.
+//
+// This is a helper for generating isInitialized methods.
+fileprivate func messageHasRequiredFields(descriptor msgDesc: Google_Protobuf_DescriptorProto, context: Context) -> Bool {
+  var alreadySeen = Set<Google_Protobuf_DescriptorProto>()
+
+  func hasRequiredFieldsInner(_ msgDesc: Google_Protobuf_DescriptorProto) -> Bool {
+    if alreadySeen.contains(msgDesc) {
+      // First required thing found causes this to return true, so one can assume if it is already
+      // visited, it didn't have required fields.
+      return false
+    }
+    alreadySeen.insert(msgDesc)
+
+    // If it can support extesions, and extension could be a message with required fields.
+    if msgDesc.extensionRange.count > 0 {
+      return true
+    }
+
+    for f in msgDesc.field {
+      if f.label == .required {
+        return true
+      }
+      if (f.isMessage || f.isGroup) &&
+        hasRequiredFieldsInner(context.getMessageForPath(path: f.typeName)!) {
+        return true
+      }
+    }
+
+    return false
+  }
+
+  return hasRequiredFieldsInner(msgDesc);
+}
+
+fileprivate func messageHasRequiredFields(msgTypeName: String, context: Context) -> Bool {
+  let msgDesc = context.getMessageForPath(path: msgTypeName)!
+  return messageHasRequiredFields(descriptor: msgDesc, context: context)
 }

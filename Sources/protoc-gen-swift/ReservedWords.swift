@@ -163,6 +163,7 @@ private let reservedFieldNames: Set<String> = [
             "inout",
             "internal",
             "is",
+            "isInitialized",
             "jsonFieldNames",
             "let",
             "nil",
