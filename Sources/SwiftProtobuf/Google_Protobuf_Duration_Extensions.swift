@@ -99,30 +99,13 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
     }
 
     if nanos == 0 {
-        return "\(seconds)s"
+        return String(format: "%ds", seconds)
+    } else if nanos % 1000000 == 0 {
+        return String(format: "%d.%03ds", seconds, abs(nanos) / 1000000)
+    } else if nanos % 1000 == 0 {
+        return String(format: "%d.%06ds", seconds, abs(nanos) / 1000)
     } else {
-        // String(format:...) is broken on Swift 2.2/Linux
-        // So we do this the hard way...
-        var digits: Int
-        var fraction: Int
-        let n = abs(nanos)
-        if n % 1000000 == 0 {
-            fraction = Int(n) / 1000000
-            digits = 3
-        } else if n % 1000 == 0 {
-            fraction = Int(n) / 1000
-            digits = 6
-        } else {
-            fraction = Int(n)
-            digits = 9
-        }
-        var formatted_fraction = ""
-        while digits > 0 {
-            formatted_fraction = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][fraction % 10] + formatted_fraction
-            fraction /= 10
-            digits -= 1
-        }
-        return "\(seconds).\(formatted_fraction)s"
+        return String(format: "%d.%09ds", seconds, abs(nanos))
     }
 }
 

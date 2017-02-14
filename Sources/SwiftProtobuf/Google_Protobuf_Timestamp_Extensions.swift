@@ -182,60 +182,17 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
         return nil
     }
 
-    let (hour, min, sec) = timeOfDayFromSecondsSince1970(seconds: seconds)
-    let (year, month, mday) = gregorianDateFromSecondsSince1970(seconds: seconds)
-
-    // We can't use strftime here (it varies with locale)
-    // We can't use strftime_l here (it's not portable)
-    // The following is crude, but it works.
-    // TODO: If String(format:) works, that might be even better
-    // (it was broken on Linux a while back...)
-
-    func formatInt(n: Int32, digits: Int) -> String {
-        if n < 0 {
-            return formatInt(n: -n, digits: digits)
-        } else if digits <= 0 {
-            return ""
-        } else if digits == 1 && n < 10 {
-            return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n)]
-        } else {
-            return formatInt(n: n / 10, digits: digits - 1) +  ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n % 10)]
-        }
-    }
-
-    let result = (formatInt(n: Int32(year), digits: 4)
-        + "-"
-        + formatInt(n: Int32(month), digits: 2)
-        + "-"
-        + formatInt(n: mday, digits: 2)
-        + "T"
-        + formatInt(n: hour, digits: 2)
-        + ":"
-        + formatInt(n: min, digits: 2)
-        + ":"
-        + formatInt(n: sec, digits: 2))
+    let (hh, mm, ss) = timeOfDayFromSecondsSince1970(seconds: seconds)
+    let (YY, MM, DD) = gregorianDateFromSecondsSince1970(seconds: seconds)
+    
     if nanos == 0 {
-        return "\(result)Z"
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02dZ", YY, MM, DD, hh, mm, ss)
+    } else if nanos % 1000000 == 0 {
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%03dZ", YY, MM, DD, hh, mm, ss, nanos / 1000000)
+    } else if nanos % 1000 == 0 {
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%06dZ", YY, MM, DD, hh, mm, ss, nanos / 1000)
     } else {
-        var digits: Int
-        var fraction: Int
-        if nanos % 1000000 == 0 {
-            fraction = Int(nanos) / 1000000
-            digits = 3
-        } else if nanos % 1000 == 0 {
-            fraction = Int(nanos) / 1000
-            digits = 6
-        } else {
-            fraction = Int(nanos)
-            digits = 9
-        }
-        var formatted_fraction = ""
-        while digits > 0 {
-            formatted_fraction = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][fraction % 10] + formatted_fraction
-            fraction /= 10
-            digits -= 1
-        }
-        return "\(result).\(formatted_fraction)Z"
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%09dZ", YY, MM, DD, hh, mm, ss, nanos)
     }
 }
 
