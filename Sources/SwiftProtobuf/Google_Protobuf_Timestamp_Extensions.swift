@@ -24,40 +24,6 @@ let nanosPerSecond: Int32 = 1000000000
 // Int or Double, an easy way to convert to/from Foundation's
 // NSDateTime (on Apple platforms only?), others?
 
-private func FormatInt(n: Int32, digits: Int) -> String {
-    if n < 0 {
-        return FormatInt(n: -n, digits: digits)
-    } else if digits <= 0 {
-        return ""
-    } else if digits == 1 && n < 10 {
-        return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n)]
-    } else {
-        return FormatInt(n: n / 10, digits: digits - 1) +  ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n % 10)]
-    }
-}
-
-private func fromAscii2(_ digit0: Int, _ digit1: Int) throws -> Int {
-    let zero = Int(48)
-    let nine = Int(57)
-
-    if digit0 < zero || digit0 > nine || digit1 < zero || digit1 > nine {
-        throw JSONDecodingError.malformedTimestamp
-    }
-    return digit0 * 10 + digit1 - 528
-}
-
-private func fromAscii4(_ digit0: Int, _ digit1: Int, _ digit2: Int, _ digit3: Int) throws -> Int {
-    let zero = Int(48)
-    let nine = Int(57)
-
-    if (digit0 < zero || digit0 > nine
-        || digit1 < zero || digit1 > nine
-        || digit2 < zero || digit2 > nine
-        || digit3 < zero || digit3 > nine) {
-        throw JSONDecodingError.malformedTimestamp
-    }
-    return digit0 * 1000 + digit1 * 100 + digit2 * 10 + digit3 - 53328
-}
 
 // Parse an RFC3339 timestamp into a pair of seconds-since-1970 and nanos.
 private func parseTimestamp(s: String) throws -> (Int64, Int32) {
@@ -76,6 +42,23 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     let letterT = Int(84)
     let letterZ = Int(90)
     let period = Int(46)
+
+    func fromAscii2(_ digit0: Int, _ digit1: Int) throws -> Int {
+        if digit0 < zero || digit0 > nine || digit1 < zero || digit1 > nine {
+            throw JSONDecodingError.malformedTimestamp
+        }
+        return digit0 * 10 + digit1 - 528
+    }
+
+    func fromAscii4(_ digit0: Int, _ digit1: Int, _ digit2: Int, _ digit3: Int) throws -> Int {
+        if (digit0 < zero || digit0 > nine
+            || digit1 < zero || digit1 > nine
+            || digit2 < zero || digit2 > nine
+            || digit3 < zero || digit3 > nine) {
+            throw JSONDecodingError.malformedTimestamp
+        }
+        return digit0 * 1000 + digit1 * 100 + digit2 * 10 + digit3 - 53328
+    }
 
     // Year: 4 digits followed by '-'
     let year = try fromAscii4(value[0], value[1], value[2], value[3])
@@ -224,17 +207,30 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
     // The following is crude, but it works.
     // TODO: If String(format:) works, that might be even better
     // (it was broken on Linux a while back...)
-    let result = (FormatInt(n: Int32(year), digits: 4)
+
+    func formatInt(n: Int32, digits: Int) -> String {
+        if n < 0 {
+            return formatInt(n: -n, digits: digits)
+        } else if digits <= 0 {
+            return ""
+        } else if digits == 1 && n < 10 {
+            return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n)]
+        } else {
+            return formatInt(n: n / 10, digits: digits - 1) +  ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n % 10)]
+        }
+    }
+
+    let result = (formatInt(n: Int32(year), digits: 4)
         + "-"
-        + FormatInt(n: Int32(month), digits: 2)
+        + formatInt(n: Int32(month), digits: 2)
         + "-"
-        + FormatInt(n: mday, digits: 2)
+        + formatInt(n: mday, digits: 2)
         + "T"
-        + FormatInt(n: hour, digits: 2)
+        + formatInt(n: hour, digits: 2)
         + ":"
-        + FormatInt(n: min, digits: 2)
+        + formatInt(n: min, digits: 2)
         + ":"
-        + FormatInt(n: sec, digits: 2))
+        + formatInt(n: sec, digits: 2))
     if nanos == 0 {
         return "\(result)Z"
     } else {
@@ -259,7 +255,6 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
         return "\(result).\(formatted_fraction)Z"
     }
 }
-
 
 public extension Google_Protobuf_Timestamp {
     public init(seconds: Int64 = 0, nanos: Int32 = 0) {
