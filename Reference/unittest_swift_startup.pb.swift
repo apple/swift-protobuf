@@ -56,8 +56,6 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Swift
 
   public var unknown = SwiftProtobuf.UnknownStorage()
 
-  init() {}
-
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
     return true
@@ -126,8 +124,6 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftP
       defaultValue: ""
     )
   }
-
-  init() {}
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -142,8 +142,6 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
-  init() {}
-
   public var isInitialized: Bool {
     return _storage.isInitialized
   }

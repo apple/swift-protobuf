@@ -213,8 +213,6 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
     set {_uniqueStorage()._syntax = newValue}
   }
 
-  init() {}
-
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -274,8 +272,6 @@ struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
 
   ///   The source syntax of this method.
   var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
-  init() {}
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -424,8 +420,6 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ///   If non-empty specifies a path under which inherited HTTP paths
   ///   are rooted.
   var root: String = ""
-
-  init() {}
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

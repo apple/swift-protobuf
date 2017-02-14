@@ -264,8 +264,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  init() {}
-
   public var isInitialized: Bool {
     return _storage.isInitialized
   }
@@ -333,8 +331,6 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
   mutating func clearX() {
     return _x = nil
   }
-
-  init() {}
 
   public var isInitialized: Bool {
     if _x == nil {return false}
@@ -438,8 +434,6 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
   mutating func clearO() {
     return _storage._o = nil
   }
-
-  init() {}
 
   public var isInitialized: Bool {
     return _storage.isInitialized

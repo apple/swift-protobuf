@@ -612,9 +612,14 @@ class MessageGenerator {
             }
         }
 
-        // Default init
-        p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
+        // Every property is defaulted and Swift's Default Initializers are internal by
+        // default, so there is no need to explicity generate the code (the compiler will
+        // still do its checks, so only generated the Default Initializer when it needs
+        // an explicit visibility.
+        if generatorOptions.visibility != .Internal {
+            p.print("\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
+        }
 
         // isInitialized
         generateIsInitialized(printer:&p)
