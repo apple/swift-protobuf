@@ -364,7 +364,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     return _storage._optionalNestedMessage = nil
   }
 
-  public var options: OneOf_Options {
+  var options: OneOf_Options {
     get {return _storage._options}
     set {
       _uniqueStorage()._options = newValue

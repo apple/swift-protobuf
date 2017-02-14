@@ -1860,7 +1860,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     return _storage._deceptivelyNamedList = nil
   }
 
-  public var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -3539,7 +3539,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  public var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue

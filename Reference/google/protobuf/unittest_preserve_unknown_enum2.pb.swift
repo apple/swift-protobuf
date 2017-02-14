@@ -215,7 +215,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     }
   }
 
-  public var o: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
+  var o: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
 
   var oneofE2: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {

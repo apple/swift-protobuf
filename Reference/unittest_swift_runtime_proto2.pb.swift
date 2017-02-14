@@ -1621,7 +1621,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     set {_uniqueStorage()._mapInt32Message = newValue}
   }
 
-  public var o: OneOf_O {
+  var o: OneOf_O {
     get {return _storage._o}
     set {
       _uniqueStorage()._o = newValue

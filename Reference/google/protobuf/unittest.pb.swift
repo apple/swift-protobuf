@@ -1865,7 +1865,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -5954,7 +5954,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     }
   }
 
-  public var foo: OneOf_Foo {
+  var foo: OneOf_Foo {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
@@ -6895,14 +6895,14 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     return _storage._bazString = nil
   }
 
-  public var foo: OneOf_Foo {
+  var foo: OneOf_Foo {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
     }
   }
 
-  public var bar: OneOf_Bar {
+  var bar: OneOf_Bar {
     get {return _storage._bar}
     set {
       _uniqueStorage()._bar = newValue
@@ -7132,7 +7132,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  public var foo: OneOf_Foo {
+  var foo: OneOf_Foo {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
@@ -9234,7 +9234,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue

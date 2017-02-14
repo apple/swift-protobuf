@@ -148,7 +148,7 @@ class OneofGenerator {
 
     func generateProxyIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("public var \(descriptor.swiftFieldName): \(swiftRelativeName) {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName) {\n")
         p.indent()
         p.print("get {return _storage.\(descriptor.swiftStorageFieldName)}\n")
         p.print("set {\n")
@@ -162,6 +162,6 @@ class OneofGenerator {
 
     func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("public var \(descriptor.swiftFieldName): \(swiftFullName) = .None\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName) = .None\n")
     }
 }
