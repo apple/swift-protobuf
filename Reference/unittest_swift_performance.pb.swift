@@ -122,8 +122,6 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Prot
     var _repeatedBytes: [Data] = []
     var _mapStringMessage: Dictionary<String,Swift_Performance_TestAllTypes> = [:]
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

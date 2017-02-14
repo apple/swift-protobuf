@@ -1823,8 +1823,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
     var _timeRecord: Int32 = 0
     var _jsonShouldBeOverriden: Int32 = 0
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

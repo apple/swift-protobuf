@@ -143,9 +143,6 @@ class StorageClassGenerator {
             }
         }
 
-        p.print("\n")
-        p.print("init() {}\n")
-
         generateIsInitialized(printer: &p)
 
         // decodeField

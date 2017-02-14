@@ -73,8 +73,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     var _msg: ProtobufUnittest_ForeignMessage? = nil
     var _foo = ProtobufUnittest_TestOptimizedForSize.OneOf_Foo()
 
-    init() {}
-
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
       return true
@@ -375,8 +373,6 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
     typealias ExtendedMessage = ProtobufUnittest_TestOptionalOptimizedForSize
     var unknown = SwiftProtobuf.UnknownStorage()
     var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if let v = _o, !v.isInitialized {return false}

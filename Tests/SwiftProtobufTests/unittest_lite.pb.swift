@@ -379,8 +379,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     var _oneofField = ProtobufUnittest_TestAllTypesLite.OneOf_OneofField()
     var _deceptivelyNamedList: Int32? = nil
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2422,8 +2420,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     var _optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup? = nil
     var _repeatedGroup: [ProtobufUnittest_TestParsingMergeLite.RepeatedGroup] = []
 
-    init() {}
-
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
       if _requiredAllTypes == nil {return false}
@@ -2527,8 +2523,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         var unknown = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypesLite? = nil
 
-        init() {}
-
         func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
           while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2616,8 +2610,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2
         var unknown = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypesLite? = nil
-
-        init() {}
 
         func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
           while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2778,8 +2770,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       var unknown = SwiftProtobuf.UnknownStorage()
       var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
 
-      init() {}
-
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2867,8 +2857,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.RepeatedGroup
       var unknown = SwiftProtobuf.UnknownStorage()
       var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
-
-      init() {}
 
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3317,8 +3305,6 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup? = nil
     var _stringStringMap: Dictionary<String,String> = [:]
     var _oneofField = ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField()
-
-    init() {}
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}

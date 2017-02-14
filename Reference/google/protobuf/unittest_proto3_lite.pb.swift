@@ -229,8 +229,6 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     var _repeatedLazyMessage: [Proto3LiteUnittest_TestAllTypes.NestedMessage] = []
     var _oneofField = Proto3LiteUnittest_TestAllTypes.OneOf_OneofField()
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1400,8 +1398,6 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
     typealias ExtendedMessage = Proto3LiteUnittest_NestedTestAllTypes
     var _child: Proto3LiteUnittest_NestedTestAllTypes? = nil
     var _payload: Proto3LiteUnittest_TestAllTypes? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {

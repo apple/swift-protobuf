@@ -72,8 +72,6 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
     var _mixins: [Google_Protobuf_Mixin] = []
     var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

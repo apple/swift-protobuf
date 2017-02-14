@@ -822,8 +822,6 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     var _fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil
     var _barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = []
 
-    init() {}
-
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
       if let v = _bar, !v.isInitialized {return false}
@@ -1049,8 +1047,6 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     var unknown = SwiftProtobuf.UnknownStorage()
     var _qux: Int32? = nil
     var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1409,8 +1405,6 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     var _sub: ProtobufUnittest_Aggregate? = nil
     var _file: Google_Protobuf_FileOptions? = nil
     var _mset: ProtobufUnittest_AggregateMessageSet? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if let v = _sub, !v.isInitialized {return false}

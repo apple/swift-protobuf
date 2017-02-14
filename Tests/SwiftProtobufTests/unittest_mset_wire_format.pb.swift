@@ -128,8 +128,6 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     var unknown = SwiftProtobuf.UnknownStorage()
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 
-    init() {}
-
     var isInitialized: Bool {
       if let v = _messageSet, !v.isInitialized {return false}
       return true

@@ -164,8 +164,6 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
     var _mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -415,8 +413,6 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
   private class _StorageClass {
     typealias ExtendedMessage = Proto3TestMapSubmessage
     var _testMap: Proto3TestMap? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {

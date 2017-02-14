@@ -189,8 +189,6 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
     var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
     var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
 
-    init() {}
-
     var isInitialized: Bool {
       if !SwiftProtobuf.Internal.areAllInitialized(_protoFile) {return false}
       return true

@@ -69,8 +69,6 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
     var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
     var _repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []
 
-    init() {}
-
     var isInitialized: Bool {
       if let v = _optionalMessage, !v.isInitialized {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_repeatedMessage) {return false}

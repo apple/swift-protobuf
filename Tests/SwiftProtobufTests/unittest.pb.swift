@@ -433,8 +433,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     var _defaultCord: String? = nil
     var _oneofField = ProtobufUnittest_TestAllTypes.OneOf_OneofField()
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1931,8 +1929,6 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _payload: ProtobufUnittest_TestAllTypes? = nil
     var _repeatedChild: [ProtobufUnittest_NestedTestAllTypes] = []
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2460,8 +2456,6 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
     var _dummy31: Int32? = nil
     var _dummy32: Int32? = nil
     var _c: Int32? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if _a == nil {return false}
@@ -3127,8 +3121,6 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobu
     var _repeatedMessage: [ProtobufUnittest_TestRequired] = []
     var _dummy: Int32? = nil
 
-    init() {}
-
     var isInitialized: Bool {
       if let v = _optionalMessage, !v.isInitialized {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_repeatedMessage) {return false}
@@ -3255,8 +3247,6 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.
     typealias ExtendedMessage = ProtobufUnittest_TestForeignNested
     var unknown = SwiftProtobuf.UnknownStorage()
     var _foreignNested: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3568,8 +3558,6 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtob
     var _a: ProtobufUnittest_TestRecursiveMessage? = nil
     var _i: Int32? = nil
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3676,8 +3664,6 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtob
     var unknown = SwiftProtobuf.UnknownStorage()
     var _bb: ProtobufUnittest_TestMutualRecursionB? = nil
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3767,8 +3753,6 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtob
     var unknown = SwiftProtobuf.UnknownStorage()
     var _a: ProtobufUnittest_TestMutualRecursionA? = nil
     var _optionalInt32: Int32? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3882,8 +3866,6 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
     var _a: Int32? = nil
     var _foo: ProtobufUnittest_TestDupFieldNumber.Foo? = nil
     var _bar: ProtobufUnittest_TestDupFieldNumber.Bar? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4105,8 +4087,6 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf.P
     var unknown = SwiftProtobuf.UnknownStorage()
     var _subMessage: ProtobufUnittest_TestAllTypes? = nil
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -4194,8 +4174,6 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf.Pr
     typealias ExtendedMessage = ProtobufUnittest_TestLazyMessage
     var unknown = SwiftProtobuf.UnknownStorage()
     var _subMessage: ProtobufUnittest_TestAllTypes? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4285,8 +4263,6 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
     typealias ExtendedMessage = ProtobufUnittest_TestNestedMessageHasBits
     var unknown = SwiftProtobuf.UnknownStorage()
     var _optionalNestedMessage: ProtobufUnittest_TestNestedMessageHasBits.NestedMessage? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4445,8 +4421,6 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftPro
     var _repeatedMessageField: [ProtobufUnittest_ForeignMessage] = []
     var _repeatedStringPieceField: [String] = []
     var _repeatedCordField: [String] = []
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4695,8 +4669,6 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     var _myInt: Int64? = nil
     var _myFloat: Float? = nil
     var _optionalNestedMessage: ProtobufUnittest_TestFieldOrderings.NestedMessage? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
@@ -4991,8 +4963,6 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftPr
     var _stringPieceWithZero: String? = nil
     var _cordWithZero: String? = nil
     var _replacementString: String? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6002,8 +5972,6 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     var unknown = SwiftProtobuf.UnknownStorage()
     var _foo = ProtobufUnittest_TestOneof.OneOf_Foo()
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -6290,8 +6258,6 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
     var _fooMessage: ProtobufUnittest_TestAllTypes? = nil
     var _fooGroup: ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup? = nil
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -6515,8 +6481,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     var _bar = ProtobufUnittest_TestOneof2.OneOf_Bar()
     var _bazInt: Int32? = nil
     var _bazString: String? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -7262,8 +7226,6 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
     var unknown = SwiftProtobuf.UnknownStorage()
     var _foo = ProtobufUnittest_TestRequiredOneof.OneOf_Foo()
 
-    init() {}
-
     var isInitialized: Bool {
       switch _foo {
       case .fooMessage(let v):
@@ -7946,8 +7908,6 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
     var _repeatedExtension: [String] = []
     var _packedExtension: [Int32] = []
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -8330,8 +8290,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
     var _optionalGroup: ProtobufUnittest_TestParsingMerge.OptionalGroup? = nil
     var _repeatedGroup: [ProtobufUnittest_TestParsingMerge.RepeatedGroup] = []
 
-    init() {}
-
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
       if _requiredAllTypes == nil {return false}
@@ -8440,8 +8398,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
         var unknown = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypes? = nil
 
-        init() {}
-
         func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
           while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -8529,8 +8485,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
         typealias ExtendedMessage = ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2
         var unknown = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypes? = nil
-
-        init() {}
 
         func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
           while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8691,8 +8645,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
       var unknown = SwiftProtobuf.UnknownStorage()
       var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
 
-      init() {}
-
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -8780,8 +8732,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
       typealias ExtendedMessage = ProtobufUnittest_TestParsingMerge.RepeatedGroup
       var unknown = SwiftProtobuf.UnknownStorage()
       var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
-
-      init() {}
 
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9343,8 +9293,6 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup? = nil
     var _stringStringMap: Dictionary<String,String> = [:]
     var _oneofField = ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField()
-
-    init() {}
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}

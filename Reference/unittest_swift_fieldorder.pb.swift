@@ -59,8 +59,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     var _options = Swift_Protobuf_TestFieldOrderings.OneOf_Options()
     var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
 
-    init() {}
-
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
       return true

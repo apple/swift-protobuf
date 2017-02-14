@@ -223,8 +223,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
     var _repeatedLazyMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
     var _oneofField = Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField()
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1060,8 +1058,6 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
   private class _StorageClass {
     typealias ExtendedMessage = Proto2NofieldpresenceUnittest_TestProto2Required
     var _proto2: ProtobufUnittest_TestRequired? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if let v = _proto2, !v.isInitialized {return false}

@@ -365,8 +365,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     var _fieldName17__: Int32 = 0
     var _fieldName18__: Int32 = 0
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1271,8 +1269,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       typealias ExtendedMessage = ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage
       var _a: Int32 = 0
       var _corecursive: ProtobufTestMessages_Proto3_TestAllTypes? = nil
-
-      init() {}
 
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {

@@ -158,8 +158,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     var _defaultCord: String? = nil
     var _oneofField = ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField()
 
-    init() {}
-
     var isInitialized: Bool {
       if _requiredInt32 == nil {return false}
       if _requiredInt64 == nil {return false}

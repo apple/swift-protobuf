@@ -69,8 +69,6 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _bytesField: Google_Protobuf_BytesValue? = nil
     var _valueField: Google_Protobuf_Value? = nil
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -493,8 +491,6 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     var _stringField: [Google_Protobuf_StringValue] = []
     var _bytesField: [Google_Protobuf_BytesValue] = []
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -773,8 +769,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_OneofWellKnownTypes
     var _oneofField = ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField()
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1354,8 +1348,6 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
     var _boolField: Dictionary<Int32,Google_Protobuf_BoolValue> = [:]
     var _stringField: Dictionary<Int32,Google_Protobuf_StringValue> = [:]
     var _bytesField: Dictionary<Int32,Google_Protobuf_BytesValue> = [:]
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
