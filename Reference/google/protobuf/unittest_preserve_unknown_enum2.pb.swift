@@ -189,10 +189,10 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     get {return _e ?? Proto2PreserveUnknownEnumUnittest_MyEnum.foo}
     set {_e = newValue}
   }
-  public var hasE: Bool {
+  var hasE: Bool {
     return _e != nil
   }
-  public mutating func clearE() {
+  mutating func clearE() {
     return _e = nil
   }
 

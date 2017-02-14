@@ -814,10 +814,10 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     get {return _storage._optionalNestedMessage ?? Proto3LiteUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-  public var hasOptionalNestedMessage: Bool {
+  var hasOptionalNestedMessage: Bool {
     return _storage._optionalNestedMessage != nil
   }
-  public mutating func clearOptionalNestedMessage() {
+  mutating func clearOptionalNestedMessage() {
     return _storage._optionalNestedMessage = nil
   }
 
@@ -825,10 +825,10 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     get {return _storage._optionalForeignMessage ?? Proto3LiteUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
-  public var hasOptionalForeignMessage: Bool {
+  var hasOptionalForeignMessage: Bool {
     return _storage._optionalForeignMessage != nil
   }
-  public mutating func clearOptionalForeignMessage() {
+  mutating func clearOptionalForeignMessage() {
     return _storage._optionalForeignMessage = nil
   }
 
@@ -836,10 +836,10 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
-  public var hasOptionalImportMessage: Bool {
+  var hasOptionalImportMessage: Bool {
     return _storage._optionalImportMessage != nil
   }
-  public mutating func clearOptionalImportMessage() {
+  mutating func clearOptionalImportMessage() {
     return _storage._optionalImportMessage = nil
   }
 
@@ -873,10 +873,10 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
-  public var hasOptionalPublicImportMessage: Bool {
+  var hasOptionalPublicImportMessage: Bool {
     return _storage._optionalPublicImportMessage != nil
   }
-  public mutating func clearOptionalPublicImportMessage() {
+  mutating func clearOptionalPublicImportMessage() {
     return _storage._optionalPublicImportMessage = nil
   }
 
@@ -884,10 +884,10 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
     get {return _storage._optionalLazyMessage ?? Proto3LiteUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
-  public var hasOptionalLazyMessage: Bool {
+  var hasOptionalLazyMessage: Bool {
     return _storage._optionalLazyMessage != nil
   }
-  public mutating func clearOptionalLazyMessage() {
+  mutating func clearOptionalLazyMessage() {
     return _storage._optionalLazyMessage = nil
   }
 
@@ -1421,10 +1421,10 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._child ?? Proto3LiteUnittest_NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
-  public var hasChild: Bool {
+  var hasChild: Bool {
     return _storage._child != nil
   }
-  public mutating func clearChild() {
+  mutating func clearChild() {
     return _storage._child = nil
   }
 
@@ -1432,10 +1432,10 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._payload ?? Proto3LiteUnittest_TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
   }
-  public var hasPayload: Bool {
+  var hasPayload: Bool {
     return _storage._payload != nil
   }
-  public mutating func clearPayload() {
+  mutating func clearPayload() {
     return _storage._payload = nil
   }
 

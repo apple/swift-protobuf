@@ -1018,10 +1018,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _bb ?? 0}
       set {_bb = newValue}
     }
-    public var hasBb: Bool {
+    var hasBb: Bool {
       return _bb != nil
     }
-    public mutating func clearBb() {
+    mutating func clearBb() {
       return _bb = nil
     }
 
@@ -1030,10 +1030,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _cc ?? 0}
       set {_cc = newValue}
     }
-    public var hasCc: Bool {
+    var hasCc: Bool {
       return _cc != nil
     }
-    public mutating func clearCc() {
+    mutating func clearCc() {
       return _cc = nil
     }
 
@@ -1079,10 +1079,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    public var hasA: Bool {
+    var hasA: Bool {
       return _a != nil
     }
-    public mutating func clearA() {
+    mutating func clearA() {
       return _a = nil
     }
 
@@ -1123,10 +1123,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    public var hasA: Bool {
+    var hasA: Bool {
       return _a != nil
     }
-    public mutating func clearA() {
+    mutating func clearA() {
       return _a = nil
     }
 
@@ -1158,10 +1158,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
-  public var hasOptionalInt32: Bool {
+  var hasOptionalInt32: Bool {
     return _storage._optionalInt32 != nil
   }
-  public mutating func clearOptionalInt32() {
+  mutating func clearOptionalInt32() {
     return _storage._optionalInt32 = nil
   }
 
@@ -1169,10 +1169,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalInt64 ?? 0}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
-  public var hasOptionalInt64: Bool {
+  var hasOptionalInt64: Bool {
     return _storage._optionalInt64 != nil
   }
-  public mutating func clearOptionalInt64() {
+  mutating func clearOptionalInt64() {
     return _storage._optionalInt64 = nil
   }
 
@@ -1180,10 +1180,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalUint32 ?? 0}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
-  public var hasOptionalUint32: Bool {
+  var hasOptionalUint32: Bool {
     return _storage._optionalUint32 != nil
   }
-  public mutating func clearOptionalUint32() {
+  mutating func clearOptionalUint32() {
     return _storage._optionalUint32 = nil
   }
 
@@ -1191,10 +1191,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalUint64 ?? 0}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
-  public var hasOptionalUint64: Bool {
+  var hasOptionalUint64: Bool {
     return _storage._optionalUint64 != nil
   }
-  public mutating func clearOptionalUint64() {
+  mutating func clearOptionalUint64() {
     return _storage._optionalUint64 = nil
   }
 
@@ -1202,10 +1202,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalSint32 ?? 0}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
-  public var hasOptionalSint32: Bool {
+  var hasOptionalSint32: Bool {
     return _storage._optionalSint32 != nil
   }
-  public mutating func clearOptionalSint32() {
+  mutating func clearOptionalSint32() {
     return _storage._optionalSint32 = nil
   }
 
@@ -1213,10 +1213,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalSint64 ?? 0}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
-  public var hasOptionalSint64: Bool {
+  var hasOptionalSint64: Bool {
     return _storage._optionalSint64 != nil
   }
-  public mutating func clearOptionalSint64() {
+  mutating func clearOptionalSint64() {
     return _storage._optionalSint64 = nil
   }
 
@@ -1224,10 +1224,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalFixed32 ?? 0}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
-  public var hasOptionalFixed32: Bool {
+  var hasOptionalFixed32: Bool {
     return _storage._optionalFixed32 != nil
   }
-  public mutating func clearOptionalFixed32() {
+  mutating func clearOptionalFixed32() {
     return _storage._optionalFixed32 = nil
   }
 
@@ -1235,10 +1235,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalFixed64 ?? 0}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
-  public var hasOptionalFixed64: Bool {
+  var hasOptionalFixed64: Bool {
     return _storage._optionalFixed64 != nil
   }
-  public mutating func clearOptionalFixed64() {
+  mutating func clearOptionalFixed64() {
     return _storage._optionalFixed64 = nil
   }
 
@@ -1246,10 +1246,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalSfixed32 ?? 0}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
-  public var hasOptionalSfixed32: Bool {
+  var hasOptionalSfixed32: Bool {
     return _storage._optionalSfixed32 != nil
   }
-  public mutating func clearOptionalSfixed32() {
+  mutating func clearOptionalSfixed32() {
     return _storage._optionalSfixed32 = nil
   }
 
@@ -1257,10 +1257,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalSfixed64 ?? 0}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
-  public var hasOptionalSfixed64: Bool {
+  var hasOptionalSfixed64: Bool {
     return _storage._optionalSfixed64 != nil
   }
-  public mutating func clearOptionalSfixed64() {
+  mutating func clearOptionalSfixed64() {
     return _storage._optionalSfixed64 = nil
   }
 
@@ -1268,10 +1268,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalFloat ?? 0}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
-  public var hasOptionalFloat: Bool {
+  var hasOptionalFloat: Bool {
     return _storage._optionalFloat != nil
   }
-  public mutating func clearOptionalFloat() {
+  mutating func clearOptionalFloat() {
     return _storage._optionalFloat = nil
   }
 
@@ -1279,10 +1279,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalDouble ?? 0}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
-  public var hasOptionalDouble: Bool {
+  var hasOptionalDouble: Bool {
     return _storage._optionalDouble != nil
   }
-  public mutating func clearOptionalDouble() {
+  mutating func clearOptionalDouble() {
     return _storage._optionalDouble = nil
   }
 
@@ -1290,10 +1290,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalBool ?? false}
     set {_uniqueStorage()._optionalBool = newValue}
   }
-  public var hasOptionalBool: Bool {
+  var hasOptionalBool: Bool {
     return _storage._optionalBool != nil
   }
-  public mutating func clearOptionalBool() {
+  mutating func clearOptionalBool() {
     return _storage._optionalBool = nil
   }
 
@@ -1301,10 +1301,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalString ?? ""}
     set {_uniqueStorage()._optionalString = newValue}
   }
-  public var hasOptionalString: Bool {
+  var hasOptionalString: Bool {
     return _storage._optionalString != nil
   }
-  public mutating func clearOptionalString() {
+  mutating func clearOptionalString() {
     return _storage._optionalString = nil
   }
 
@@ -1312,10 +1312,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
-  public var hasOptionalBytes: Bool {
+  var hasOptionalBytes: Bool {
     return _storage._optionalBytes != nil
   }
-  public mutating func clearOptionalBytes() {
+  mutating func clearOptionalBytes() {
     return _storage._optionalBytes = nil
   }
 
@@ -1323,10 +1323,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalGroup ?? ProtobufUnittest_TestAllTypesLite.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
-  public var hasOptionalGroup: Bool {
+  var hasOptionalGroup: Bool {
     return _storage._optionalGroup != nil
   }
-  public mutating func clearOptionalGroup() {
+  mutating func clearOptionalGroup() {
     return _storage._optionalGroup = nil
   }
 
@@ -1334,10 +1334,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-  public var hasOptionalNestedMessage: Bool {
+  var hasOptionalNestedMessage: Bool {
     return _storage._optionalNestedMessage != nil
   }
-  public mutating func clearOptionalNestedMessage() {
+  mutating func clearOptionalNestedMessage() {
     return _storage._optionalNestedMessage = nil
   }
 
@@ -1345,10 +1345,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalForeignMessage ?? ProtobufUnittest_ForeignMessageLite()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
-  public var hasOptionalForeignMessage: Bool {
+  var hasOptionalForeignMessage: Bool {
     return _storage._optionalForeignMessage != nil
   }
-  public mutating func clearOptionalForeignMessage() {
+  mutating func clearOptionalForeignMessage() {
     return _storage._optionalForeignMessage = nil
   }
 
@@ -1356,10 +1356,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessageLite()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
-  public var hasOptionalImportMessage: Bool {
+  var hasOptionalImportMessage: Bool {
     return _storage._optionalImportMessage != nil
   }
-  public mutating func clearOptionalImportMessage() {
+  mutating func clearOptionalImportMessage() {
     return _storage._optionalImportMessage = nil
   }
 
@@ -1367,10 +1367,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalNestedEnum ?? ProtobufUnittest_TestAllTypesLite.NestedEnum.foo}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
-  public var hasOptionalNestedEnum: Bool {
+  var hasOptionalNestedEnum: Bool {
     return _storage._optionalNestedEnum != nil
   }
-  public mutating func clearOptionalNestedEnum() {
+  mutating func clearOptionalNestedEnum() {
     return _storage._optionalNestedEnum = nil
   }
 
@@ -1378,10 +1378,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalForeignEnum ?? ProtobufUnittest_ForeignEnumLite.foreignLiteFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
-  public var hasOptionalForeignEnum: Bool {
+  var hasOptionalForeignEnum: Bool {
     return _storage._optionalForeignEnum != nil
   }
-  public mutating func clearOptionalForeignEnum() {
+  mutating func clearOptionalForeignEnum() {
     return _storage._optionalForeignEnum = nil
   }
 
@@ -1389,10 +1389,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalImportEnum ?? ProtobufUnittestImport_ImportEnumLite.importLiteFoo}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
-  public var hasOptionalImportEnum: Bool {
+  var hasOptionalImportEnum: Bool {
     return _storage._optionalImportEnum != nil
   }
-  public mutating func clearOptionalImportEnum() {
+  mutating func clearOptionalImportEnum() {
     return _storage._optionalImportEnum = nil
   }
 
@@ -1400,10 +1400,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalStringPiece ?? ""}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
-  public var hasOptionalStringPiece: Bool {
+  var hasOptionalStringPiece: Bool {
     return _storage._optionalStringPiece != nil
   }
-  public mutating func clearOptionalStringPiece() {
+  mutating func clearOptionalStringPiece() {
     return _storage._optionalStringPiece = nil
   }
 
@@ -1411,10 +1411,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalCord ?? ""}
     set {_uniqueStorage()._optionalCord = newValue}
   }
-  public var hasOptionalCord: Bool {
+  var hasOptionalCord: Bool {
     return _storage._optionalCord != nil
   }
-  public mutating func clearOptionalCord() {
+  mutating func clearOptionalCord() {
     return _storage._optionalCord = nil
   }
 
@@ -1423,10 +1423,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessageLite()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
-  public var hasOptionalPublicImportMessage: Bool {
+  var hasOptionalPublicImportMessage: Bool {
     return _storage._optionalPublicImportMessage != nil
   }
-  public mutating func clearOptionalPublicImportMessage() {
+  mutating func clearOptionalPublicImportMessage() {
     return _storage._optionalPublicImportMessage = nil
   }
 
@@ -1434,10 +1434,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalLazyMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
-  public var hasOptionalLazyMessage: Bool {
+  var hasOptionalLazyMessage: Bool {
     return _storage._optionalLazyMessage != nil
   }
-  public mutating func clearOptionalLazyMessage() {
+  mutating func clearOptionalLazyMessage() {
     return _storage._optionalLazyMessage = nil
   }
 
@@ -1572,10 +1572,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
   }
-  public var hasDefaultInt32: Bool {
+  var hasDefaultInt32: Bool {
     return _storage._defaultInt32 != nil
   }
-  public mutating func clearDefaultInt32() {
+  mutating func clearDefaultInt32() {
     return _storage._defaultInt32 = nil
   }
 
@@ -1583,10 +1583,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultInt64 ?? 42}
     set {_uniqueStorage()._defaultInt64 = newValue}
   }
-  public var hasDefaultInt64: Bool {
+  var hasDefaultInt64: Bool {
     return _storage._defaultInt64 != nil
   }
-  public mutating func clearDefaultInt64() {
+  mutating func clearDefaultInt64() {
     return _storage._defaultInt64 = nil
   }
 
@@ -1594,10 +1594,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultUint32 ?? 43}
     set {_uniqueStorage()._defaultUint32 = newValue}
   }
-  public var hasDefaultUint32: Bool {
+  var hasDefaultUint32: Bool {
     return _storage._defaultUint32 != nil
   }
-  public mutating func clearDefaultUint32() {
+  mutating func clearDefaultUint32() {
     return _storage._defaultUint32 = nil
   }
 
@@ -1605,10 +1605,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultUint64 ?? 44}
     set {_uniqueStorage()._defaultUint64 = newValue}
   }
-  public var hasDefaultUint64: Bool {
+  var hasDefaultUint64: Bool {
     return _storage._defaultUint64 != nil
   }
-  public mutating func clearDefaultUint64() {
+  mutating func clearDefaultUint64() {
     return _storage._defaultUint64 = nil
   }
 
@@ -1616,10 +1616,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultSint32 ?? -45}
     set {_uniqueStorage()._defaultSint32 = newValue}
   }
-  public var hasDefaultSint32: Bool {
+  var hasDefaultSint32: Bool {
     return _storage._defaultSint32 != nil
   }
-  public mutating func clearDefaultSint32() {
+  mutating func clearDefaultSint32() {
     return _storage._defaultSint32 = nil
   }
 
@@ -1627,10 +1627,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultSint64 ?? 46}
     set {_uniqueStorage()._defaultSint64 = newValue}
   }
-  public var hasDefaultSint64: Bool {
+  var hasDefaultSint64: Bool {
     return _storage._defaultSint64 != nil
   }
-  public mutating func clearDefaultSint64() {
+  mutating func clearDefaultSint64() {
     return _storage._defaultSint64 = nil
   }
 
@@ -1638,10 +1638,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultFixed32 ?? 47}
     set {_uniqueStorage()._defaultFixed32 = newValue}
   }
-  public var hasDefaultFixed32: Bool {
+  var hasDefaultFixed32: Bool {
     return _storage._defaultFixed32 != nil
   }
-  public mutating func clearDefaultFixed32() {
+  mutating func clearDefaultFixed32() {
     return _storage._defaultFixed32 = nil
   }
 
@@ -1649,10 +1649,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultFixed64 ?? 48}
     set {_uniqueStorage()._defaultFixed64 = newValue}
   }
-  public var hasDefaultFixed64: Bool {
+  var hasDefaultFixed64: Bool {
     return _storage._defaultFixed64 != nil
   }
-  public mutating func clearDefaultFixed64() {
+  mutating func clearDefaultFixed64() {
     return _storage._defaultFixed64 = nil
   }
 
@@ -1660,10 +1660,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultSfixed32 ?? 49}
     set {_uniqueStorage()._defaultSfixed32 = newValue}
   }
-  public var hasDefaultSfixed32: Bool {
+  var hasDefaultSfixed32: Bool {
     return _storage._defaultSfixed32 != nil
   }
-  public mutating func clearDefaultSfixed32() {
+  mutating func clearDefaultSfixed32() {
     return _storage._defaultSfixed32 = nil
   }
 
@@ -1671,10 +1671,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultSfixed64 ?? -50}
     set {_uniqueStorage()._defaultSfixed64 = newValue}
   }
-  public var hasDefaultSfixed64: Bool {
+  var hasDefaultSfixed64: Bool {
     return _storage._defaultSfixed64 != nil
   }
-  public mutating func clearDefaultSfixed64() {
+  mutating func clearDefaultSfixed64() {
     return _storage._defaultSfixed64 = nil
   }
 
@@ -1682,10 +1682,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultFloat ?? 51.5}
     set {_uniqueStorage()._defaultFloat = newValue}
   }
-  public var hasDefaultFloat: Bool {
+  var hasDefaultFloat: Bool {
     return _storage._defaultFloat != nil
   }
-  public mutating func clearDefaultFloat() {
+  mutating func clearDefaultFloat() {
     return _storage._defaultFloat = nil
   }
 
@@ -1693,10 +1693,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultDouble ?? 52000}
     set {_uniqueStorage()._defaultDouble = newValue}
   }
-  public var hasDefaultDouble: Bool {
+  var hasDefaultDouble: Bool {
     return _storage._defaultDouble != nil
   }
-  public mutating func clearDefaultDouble() {
+  mutating func clearDefaultDouble() {
     return _storage._defaultDouble = nil
   }
 
@@ -1704,10 +1704,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultBool ?? true}
     set {_uniqueStorage()._defaultBool = newValue}
   }
-  public var hasDefaultBool: Bool {
+  var hasDefaultBool: Bool {
     return _storage._defaultBool != nil
   }
-  public mutating func clearDefaultBool() {
+  mutating func clearDefaultBool() {
     return _storage._defaultBool = nil
   }
 
@@ -1715,10 +1715,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultString ?? "hello"}
     set {_uniqueStorage()._defaultString = newValue}
   }
-  public var hasDefaultString: Bool {
+  var hasDefaultString: Bool {
     return _storage._defaultString != nil
   }
-  public mutating func clearDefaultString() {
+  mutating func clearDefaultString() {
     return _storage._defaultString = nil
   }
 
@@ -1726,10 +1726,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
-  public var hasDefaultBytes: Bool {
+  var hasDefaultBytes: Bool {
     return _storage._defaultBytes != nil
   }
-  public mutating func clearDefaultBytes() {
+  mutating func clearDefaultBytes() {
     return _storage._defaultBytes = nil
   }
 
@@ -1737,10 +1737,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultNestedEnum ?? ProtobufUnittest_TestAllTypesLite.NestedEnum.bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
-  public var hasDefaultNestedEnum: Bool {
+  var hasDefaultNestedEnum: Bool {
     return _storage._defaultNestedEnum != nil
   }
-  public mutating func clearDefaultNestedEnum() {
+  mutating func clearDefaultNestedEnum() {
     return _storage._defaultNestedEnum = nil
   }
 
@@ -1748,10 +1748,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultForeignEnum ?? ProtobufUnittest_ForeignEnumLite.foreignLiteBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
-  public var hasDefaultForeignEnum: Bool {
+  var hasDefaultForeignEnum: Bool {
     return _storage._defaultForeignEnum != nil
   }
-  public mutating func clearDefaultForeignEnum() {
+  mutating func clearDefaultForeignEnum() {
     return _storage._defaultForeignEnum = nil
   }
 
@@ -1759,10 +1759,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnumLite.importLiteBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
-  public var hasDefaultImportEnum: Bool {
+  var hasDefaultImportEnum: Bool {
     return _storage._defaultImportEnum != nil
   }
-  public mutating func clearDefaultImportEnum() {
+  mutating func clearDefaultImportEnum() {
     return _storage._defaultImportEnum = nil
   }
 
@@ -1770,10 +1770,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultStringPiece ?? "abc"}
     set {_uniqueStorage()._defaultStringPiece = newValue}
   }
-  public var hasDefaultStringPiece: Bool {
+  var hasDefaultStringPiece: Bool {
     return _storage._defaultStringPiece != nil
   }
-  public mutating func clearDefaultStringPiece() {
+  mutating func clearDefaultStringPiece() {
     return _storage._defaultStringPiece = nil
   }
 
@@ -1781,10 +1781,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._defaultCord ?? "123"}
     set {_uniqueStorage()._defaultCord = newValue}
   }
-  public var hasDefaultCord: Bool {
+  var hasDefaultCord: Bool {
     return _storage._defaultCord != nil
   }
-  public mutating func clearDefaultCord() {
+  mutating func clearDefaultCord() {
     return _storage._defaultCord = nil
   }
 
@@ -1853,10 +1853,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._deceptivelyNamedList ?? 0}
     set {_uniqueStorage()._deceptivelyNamedList = newValue}
   }
-  public var hasDeceptivelyNamedList: Bool {
+  var hasDeceptivelyNamedList: Bool {
     return _storage._deceptivelyNamedList != nil
   }
-  public mutating func clearDeceptivelyNamedList() {
+  mutating func clearDeceptivelyNamedList() {
     return _storage._deceptivelyNamedList = nil
   }
 
@@ -1903,10 +1903,10 @@ struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  public var hasC: Bool {
+  var hasC: Bool {
     return _c != nil
   }
-  public mutating func clearC() {
+  mutating func clearC() {
     return _c = nil
   }
 
@@ -2141,10 +2141,10 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, Swi
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  public var hasA: Bool {
+  var hasA: Bool {
     return _a != nil
   }
-  public mutating func clearA() {
+  mutating func clearA() {
     return _a = nil
   }
 
@@ -2185,10 +2185,10 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, Swi
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  public var hasA: Bool {
+  var hasA: Bool {
     return _a != nil
   }
-  public mutating func clearA() {
+  mutating func clearA() {
     return _a = nil
   }
 
@@ -2318,10 +2318,10 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf
     get {return _deprecatedField ?? 0}
     set {_deprecatedField = newValue}
   }
-  public var hasDeprecatedField: Bool {
+  var hasDeprecatedField: Bool {
     return _deprecatedField != nil
   }
-  public mutating func clearDeprecatedField() {
+  mutating func clearDeprecatedField() {
     return _deprecatedField = nil
   }
 
@@ -2510,10 +2510,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypesLite()}
         set {_uniqueStorage()._field1 = newValue}
       }
-      public var hasField1: Bool {
+      var hasField1: Bool {
         return _storage._field1 != nil
       }
-      public mutating func clearField1() {
+      mutating func clearField1() {
         return _storage._field1 = nil
       }
 
@@ -2592,10 +2592,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypesLite()}
         set {_uniqueStorage()._field1 = newValue}
       }
-      public var hasField1: Bool {
+      var hasField1: Bool {
         return _storage._field1 != nil
       }
-      public mutating func clearField1() {
+      mutating func clearField1() {
         return _storage._field1 = nil
       }
 
@@ -2741,10 +2741,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       get {return _storage._optionalGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
       set {_uniqueStorage()._optionalGroupAllTypes = newValue}
     }
-    public var hasOptionalGroupAllTypes: Bool {
+    var hasOptionalGroupAllTypes: Bool {
       return _storage._optionalGroupAllTypes != nil
     }
-    public mutating func clearOptionalGroupAllTypes() {
+    mutating func clearOptionalGroupAllTypes() {
       return _storage._optionalGroupAllTypes = nil
     }
 
@@ -2823,10 +2823,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       get {return _storage._repeatedGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
       set {_uniqueStorage()._repeatedGroupAllTypes = newValue}
     }
-    public var hasRepeatedGroupAllTypes: Bool {
+    var hasRepeatedGroupAllTypes: Bool {
       return _storage._repeatedGroupAllTypes != nil
     }
-    public mutating func clearRepeatedGroupAllTypes() {
+    mutating func clearRepeatedGroupAllTypes() {
       return _storage._repeatedGroupAllTypes = nil
     }
 
@@ -2871,10 +2871,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
     set {_uniqueStorage()._requiredAllTypes = newValue}
   }
-  public var hasRequiredAllTypes: Bool {
+  var hasRequiredAllTypes: Bool {
     return _storage._requiredAllTypes != nil
   }
-  public mutating func clearRequiredAllTypes() {
+  mutating func clearRequiredAllTypes() {
     return _storage._requiredAllTypes = nil
   }
 
@@ -2882,10 +2882,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._optionalAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
     set {_uniqueStorage()._optionalAllTypes = newValue}
   }
-  public var hasOptionalAllTypes: Bool {
+  var hasOptionalAllTypes: Bool {
     return _storage._optionalAllTypes != nil
   }
-  public mutating func clearOptionalAllTypes() {
+  mutating func clearOptionalAllTypes() {
     return _storage._optionalAllTypes = nil
   }
 
@@ -2898,10 +2898,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._optionalGroup ?? ProtobufUnittest_TestParsingMergeLite.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
-  public var hasOptionalGroup: Bool {
+  var hasOptionalGroup: Bool {
     return _storage._optionalGroup != nil
   }
-  public mutating func clearOptionalGroup() {
+  mutating func clearOptionalGroup() {
     return _storage._optionalGroup = nil
   }
 
@@ -3051,10 +3051,10 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _intField ?? 0}
     set {_intField = newValue}
   }
-  public var hasIntField: Bool {
+  var hasIntField: Bool {
     return _intField != nil
   }
-  public mutating func clearIntField() {
+  mutating func clearIntField() {
     return _intField = nil
   }
 
@@ -3063,10 +3063,10 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _enumField ?? ProtobufUnittest_V1EnumLite.v1First}
     set {_enumField = newValue}
   }
-  public var hasEnumField: Bool {
+  var hasEnumField: Bool {
     return _enumField != nil
   }
-  public mutating func clearEnumField() {
+  mutating func clearEnumField() {
     return _enumField = nil
   }
 
@@ -3118,10 +3118,10 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _intField ?? 0}
     set {_intField = newValue}
   }
-  public var hasIntField: Bool {
+  var hasIntField: Bool {
     return _intField != nil
   }
-  public mutating func clearIntField() {
+  mutating func clearIntField() {
     return _intField = nil
   }
 
@@ -3130,10 +3130,10 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _enumField ?? ProtobufUnittest_V2EnumLite.v2First}
     set {_enumField = newValue}
   }
-  public var hasEnumField: Bool {
+  var hasEnumField: Bool {
     return _enumField != nil
   }
-  public mutating func clearEnumField() {
+  mutating func clearEnumField() {
     return _enumField = nil
   }
 
@@ -3409,10 +3409,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       get {return _groupA ?? 0}
       set {_groupA = newValue}
     }
-    public var hasGroupA: Bool {
+    var hasGroupA: Bool {
       return _groupA != nil
     }
-    public mutating func clearGroupA() {
+    mutating func clearGroupA() {
       return _groupA = nil
     }
 
@@ -3443,10 +3443,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
-  public var hasOptionalInt32: Bool {
+  var hasOptionalInt32: Bool {
     return _storage._optionalInt32 != nil
   }
-  public mutating func clearOptionalInt32() {
+  mutating func clearOptionalInt32() {
     return _storage._optionalInt32 = nil
   }
 
@@ -3454,10 +3454,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     get {return _storage._fixed32 ?? 0}
     set {_uniqueStorage()._fixed32 = newValue}
   }
-  public var hasFixed32: Bool {
+  var hasFixed32: Bool {
     return _storage._fixed32 != nil
   }
-  public mutating func clearFixed32() {
+  mutating func clearFixed32() {
     return _storage._fixed32 = nil
   }
 
@@ -3475,10 +3475,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     get {return _storage._optionalEnum ?? ProtobufUnittest_ForeignEnumLite.foreignLiteFoo}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
-  public var hasOptionalEnum: Bool {
+  var hasOptionalEnum: Bool {
     return _storage._optionalEnum != nil
   }
-  public mutating func clearOptionalEnum() {
+  mutating func clearOptionalEnum() {
     return _storage._optionalEnum = nil
   }
 
@@ -3486,10 +3486,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     get {return _storage._optionalString ?? ""}
     set {_uniqueStorage()._optionalString = newValue}
   }
-  public var hasOptionalString: Bool {
+  var hasOptionalString: Bool {
     return _storage._optionalString != nil
   }
-  public mutating func clearOptionalString() {
+  mutating func clearOptionalString() {
     return _storage._optionalString = nil
   }
 
@@ -3497,10 +3497,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
-  public var hasOptionalBytes: Bool {
+  var hasOptionalBytes: Bool {
     return _storage._optionalBytes != nil
   }
-  public mutating func clearOptionalBytes() {
+  mutating func clearOptionalBytes() {
     return _storage._optionalBytes = nil
   }
 
@@ -3508,10 +3508,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     get {return _storage._optionalMessage ?? ProtobufUnittest_ForeignMessageLite()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
-  public var hasOptionalMessage: Bool {
+  var hasOptionalMessage: Bool {
     return _storage._optionalMessage != nil
   }
-  public mutating func clearOptionalMessage() {
+  mutating func clearOptionalMessage() {
     return _storage._optionalMessage = nil
   }
 
@@ -3519,10 +3519,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     get {return _storage._optionalGroup ?? ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
-  public var hasOptionalGroup: Bool {
+  var hasOptionalGroup: Bool {
     return _storage._optionalGroup != nil
   }
-  public mutating func clearOptionalGroup() {
+  mutating func clearOptionalGroup() {
     return _storage._optionalGroup = nil
   }
 

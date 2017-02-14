@@ -964,10 +964,10 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     get {return _storage._singleNestedMessage ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
   }
-  public var hasSingleNestedMessage: Bool {
+  var hasSingleNestedMessage: Bool {
     return _storage._singleNestedMessage != nil
   }
-  public mutating func clearSingleNestedMessage() {
+  mutating func clearSingleNestedMessage() {
     return _storage._singleNestedMessage = nil
   }
 
@@ -975,10 +975,10 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     get {return _storage._singleForeignMessage ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._singleForeignMessage = newValue}
   }
-  public var hasSingleForeignMessage: Bool {
+  var hasSingleForeignMessage: Bool {
     return _storage._singleForeignMessage != nil
   }
-  public mutating func clearSingleForeignMessage() {
+  mutating func clearSingleForeignMessage() {
     return _storage._singleForeignMessage = nil
   }
 
@@ -986,10 +986,10 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     get {return _storage._singleImportMessage ?? Proto3ImportMessage()}
     set {_uniqueStorage()._singleImportMessage = newValue}
   }
-  public var hasSingleImportMessage: Bool {
+  var hasSingleImportMessage: Bool {
     return _storage._singleImportMessage != nil
   }
-  public mutating func clearSingleImportMessage() {
+  mutating func clearSingleImportMessage() {
     return _storage._singleImportMessage = nil
   }
 
@@ -1013,10 +1013,10 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     get {return _storage._singlePublicImportMessage ?? Proto3PublicImportMessage()}
     set {_uniqueStorage()._singlePublicImportMessage = newValue}
   }
-  public var hasSinglePublicImportMessage: Bool {
+  var hasSinglePublicImportMessage: Bool {
     return _storage._singlePublicImportMessage != nil
   }
-  public mutating func clearSinglePublicImportMessage() {
+  mutating func clearSinglePublicImportMessage() {
     return _storage._singlePublicImportMessage = nil
   }
 
@@ -1271,10 +1271,10 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     get {return _storage._child ?? Proto3NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
-  public var hasChild: Bool {
+  var hasChild: Bool {
     return _storage._child != nil
   }
-  public mutating func clearChild() {
+  mutating func clearChild() {
     return _storage._child = nil
   }
 
@@ -1282,10 +1282,10 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     get {return _storage._payload ?? Proto3TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
   }
-  public var hasPayload: Bool {
+  var hasPayload: Bool {
     return _storage._payload != nil
   }
-  public mutating func clearPayload() {
+  mutating func clearPayload() {
     return _storage._payload = nil
   }
 
@@ -1445,10 +1445,10 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
     get {return _storage._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._foreignNested = newValue}
   }
-  public var hasForeignNested: Bool {
+  var hasForeignNested: Bool {
     return _storage._foreignNested != nil
   }
-  public mutating func clearForeignNested() {
+  mutating func clearForeignNested() {
     return _storage._foreignNested = nil
   }
 
@@ -1569,10 +1569,10 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     get {return _storage._a ?? Proto3TestRecursiveMessage()}
     set {_uniqueStorage()._a = newValue}
   }
-  public var hasA: Bool {
+  var hasA: Bool {
     return _storage._a != nil
   }
-  public mutating func clearA() {
+  mutating func clearA() {
     return _storage._a = nil
   }
 
@@ -1649,10 +1649,10 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     get {return _storage._bb ?? Proto3TestMutualRecursionB()}
     set {_uniqueStorage()._bb = newValue}
   }
-  public var hasBb: Bool {
+  var hasBb: Bool {
     return _storage._bb != nil
   }
-  public mutating func clearBb() {
+  mutating func clearBb() {
     return _storage._bb = nil
   }
 
@@ -1731,10 +1731,10 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     get {return _storage._a ?? Proto3TestMutualRecursionA()}
     set {_uniqueStorage()._a = newValue}
   }
-  public var hasA: Bool {
+  var hasA: Bool {
     return _storage._a != nil
   }
-  public mutating func clearA() {
+  mutating func clearA() {
     return _storage._a = nil
   }
 
@@ -1883,10 +1883,10 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
     get {return _storage._messageField ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._messageField = newValue}
   }
-  public var hasMessageField: Bool {
+  var hasMessageField: Bool {
     return _storage._messageField != nil
   }
-  public mutating func clearMessageField() {
+  mutating func clearMessageField() {
     return _storage._messageField = nil
   }
 
@@ -2060,10 +2060,10 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     get {return _storage._singleNestedMessage ?? Proto3TestFieldOrderings.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
   }
-  public var hasSingleNestedMessage: Bool {
+  var hasSingleNestedMessage: Bool {
     return _storage._singleNestedMessage != nil
   }
-  public mutating func clearSingleNestedMessage() {
+  mutating func clearSingleNestedMessage() {
     return _storage._singleNestedMessage = nil
   }
 

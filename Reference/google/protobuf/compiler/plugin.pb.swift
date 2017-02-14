@@ -83,10 +83,10 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     get {return _major ?? 0}
     set {_major = newValue}
   }
-  public var hasMajor: Bool {
+  var hasMajor: Bool {
     return _major != nil
   }
-  public mutating func clearMajor() {
+  mutating func clearMajor() {
     return _major = nil
   }
 
@@ -95,10 +95,10 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     get {return _minor ?? 0}
     set {_minor = newValue}
   }
-  public var hasMinor: Bool {
+  var hasMinor: Bool {
     return _minor != nil
   }
-  public mutating func clearMinor() {
+  mutating func clearMinor() {
     return _minor = nil
   }
 
@@ -107,10 +107,10 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     get {return _patch ?? 0}
     set {_patch = newValue}
   }
-  public var hasPatch: Bool {
+  var hasPatch: Bool {
     return _patch != nil
   }
-  public mutating func clearPatch() {
+  mutating func clearPatch() {
     return _patch = nil
   }
 
@@ -121,10 +121,10 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     get {return _suffix ?? ""}
     set {_suffix = newValue}
   }
-  public var hasSuffix: Bool {
+  var hasSuffix: Bool {
     return _suffix != nil
   }
-  public mutating func clearSuffix() {
+  mutating func clearSuffix() {
     return _suffix = nil
   }
 
@@ -258,10 +258,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
     get {return _storage._parameter ?? ""}
     set {_uniqueStorage()._parameter = newValue}
   }
-  public var hasParameter: Bool {
+  var hasParameter: Bool {
     return _storage._parameter != nil
   }
-  public mutating func clearParameter() {
+  mutating func clearParameter() {
     return _storage._parameter = nil
   }
 
@@ -286,10 +286,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
     get {return _storage._compilerVersion ?? Google_Protobuf_Compiler_Version()}
     set {_uniqueStorage()._compilerVersion = newValue}
   }
-  public var hasCompilerVersion: Bool {
+  var hasCompilerVersion: Bool {
     return _storage._compilerVersion != nil
   }
-  public mutating func clearCompilerVersion() {
+  mutating func clearCompilerVersion() {
     return _storage._compilerVersion = nil
   }
 
@@ -358,10 +358,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       get {return _name ?? ""}
       set {_name = newValue}
     }
-    public var hasName: Bool {
+    var hasName: Bool {
       return _name != nil
     }
-    public mutating func clearName() {
+    mutating func clearName() {
       return _name = nil
     }
 
@@ -407,10 +407,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       get {return _insertionPoint ?? ""}
       set {_insertionPoint = newValue}
     }
-    public var hasInsertionPoint: Bool {
+    var hasInsertionPoint: Bool {
       return _insertionPoint != nil
     }
-    public mutating func clearInsertionPoint() {
+    mutating func clearInsertionPoint() {
       return _insertionPoint = nil
     }
 
@@ -420,10 +420,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       get {return _content ?? ""}
       set {_content = newValue}
     }
-    public var hasContent: Bool {
+    var hasContent: Bool {
       return _content != nil
     }
-    public mutating func clearContent() {
+    mutating func clearContent() {
       return _content = nil
     }
 
@@ -473,10 +473,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     get {return _error ?? ""}
     set {_error = newValue}
   }
-  public var hasError: Bool {
+  var hasError: Bool {
     return _error != nil
   }
-  public mutating func clearError() {
+  mutating func clearError() {
     return _error = nil
   }
 

@@ -442,10 +442,10 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
     get {return _storage._testMap ?? Proto3TestMap()}
     set {_uniqueStorage()._testMap = newValue}
   }
-  public var hasTestMap: Bool {
+  var hasTestMap: Bool {
     return _storage._testMap != nil
   }
-  public mutating func clearTestMap() {
+  mutating func clearTestMap() {
     return _storage._testMap = nil
   }
 

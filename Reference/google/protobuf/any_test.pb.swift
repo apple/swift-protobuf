@@ -115,10 +115,10 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     get {return _storage._anyValue ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyValue = newValue}
   }
-  public var hasAnyValue: Bool {
+  var hasAnyValue: Bool {
     return _storage._anyValue != nil
   }
-  public mutating func clearAnyValue() {
+  mutating func clearAnyValue() {
     return _storage._anyValue = nil
   }
 

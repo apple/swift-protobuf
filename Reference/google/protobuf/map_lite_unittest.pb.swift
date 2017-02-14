@@ -1006,10 +1006,10 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  public var hasA: Bool {
+  var hasA: Bool {
     return _a != nil
   }
-  public mutating func clearA() {
+  mutating func clearA() {
     return _a = nil
   }
 
@@ -1018,10 +1018,10 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _b ?? 0}
     set {_b = newValue}
   }
-  public var hasB: Bool {
+  var hasB: Bool {
     return _b != nil
   }
-  public mutating func clearB() {
+  mutating func clearB() {
     return _b = nil
   }
 
@@ -1030,10 +1030,10 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  public var hasC: Bool {
+  var hasC: Bool {
     return _c != nil
   }
-  public mutating func clearC() {
+  mutating func clearC() {
     return _c = nil
   }
 
@@ -1091,10 +1091,10 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftPro
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  public var hasC: Bool {
+  var hasC: Bool {
     return _c != nil
   }
-  public mutating func clearC() {
+  mutating func clearC() {
     return _c = nil
   }
 

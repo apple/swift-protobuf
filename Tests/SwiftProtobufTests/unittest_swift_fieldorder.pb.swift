@@ -230,10 +230,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _oo ?? 0}
       set {_oo = newValue}
     }
-    public var hasOo: Bool {
+    var hasOo: Bool {
       return _oo != nil
     }
-    public mutating func clearOo() {
+    mutating func clearOo() {
       return _oo = nil
     }
 
@@ -242,10 +242,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _bb ?? 0}
       set {_bb = newValue}
     }
-    public var hasBb: Bool {
+    var hasBb: Bool {
       return _bb != nil
     }
-    public mutating func clearBb() {
+    mutating func clearBb() {
       return _bb = nil
     }
 
@@ -281,10 +281,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._myString ?? ""}
     set {_uniqueStorage()._myString = newValue}
   }
-  public var hasMyString: Bool {
+  var hasMyString: Bool {
     return _storage._myString != nil
   }
-  public mutating func clearMyString() {
+  mutating func clearMyString() {
     return _storage._myString = nil
   }
 
@@ -292,10 +292,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._myInt ?? 0}
     set {_uniqueStorage()._myInt = newValue}
   }
-  public var hasMyInt: Bool {
+  var hasMyInt: Bool {
     return _storage._myInt != nil
   }
-  public mutating func clearMyInt() {
+  mutating func clearMyInt() {
     return _storage._myInt = nil
   }
 
@@ -303,10 +303,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._myFloat ?? 0}
     set {_uniqueStorage()._myFloat = newValue}
   }
-  public var hasMyFloat: Bool {
+  var hasMyFloat: Bool {
     return _storage._myFloat != nil
   }
-  public mutating func clearMyFloat() {
+  mutating func clearMyFloat() {
     return _storage._myFloat = nil
   }
 
@@ -362,10 +362,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _storage._optionalNestedMessage ?? Swift_Protobuf_TestFieldOrderings.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-  public var hasOptionalNestedMessage: Bool {
+  var hasOptionalNestedMessage: Bool {
     return _storage._optionalNestedMessage != nil
   }
-  public mutating func clearOptionalNestedMessage() {
+  mutating func clearOptionalNestedMessage() {
     return _storage._optionalNestedMessage = nil
   }
 

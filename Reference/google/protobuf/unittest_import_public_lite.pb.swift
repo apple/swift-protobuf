@@ -65,10 +65,10 @@ struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message, Sw
     get {return _e ?? 0}
     set {_e = newValue}
   }
-  public var hasE: Bool {
+  var hasE: Bool {
     return _e != nil
   }
-  public mutating func clearE() {
+  mutating func clearE() {
     return _e = nil
   }
 

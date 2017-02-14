@@ -782,10 +782,10 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
     get {return _storage._optionalNestedMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-  public var hasOptionalNestedMessage: Bool {
+  var hasOptionalNestedMessage: Bool {
     return _storage._optionalNestedMessage != nil
   }
-  public mutating func clearOptionalNestedMessage() {
+  mutating func clearOptionalNestedMessage() {
     return _storage._optionalNestedMessage = nil
   }
 
@@ -793,10 +793,10 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
     get {return _storage._optionalForeignMessage ?? Proto2NofieldpresenceUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
-  public var hasOptionalForeignMessage: Bool {
+  var hasOptionalForeignMessage: Bool {
     return _storage._optionalForeignMessage != nil
   }
-  public mutating func clearOptionalForeignMessage() {
+  mutating func clearOptionalForeignMessage() {
     return _storage._optionalForeignMessage = nil
   }
 
@@ -804,10 +804,10 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
     get {return _storage._optionalProto2Message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._optionalProto2Message = newValue}
   }
-  public var hasOptionalProto2Message: Bool {
+  var hasOptionalProto2Message: Bool {
     return _storage._optionalProto2Message != nil
   }
-  public mutating func clearOptionalProto2Message() {
+  mutating func clearOptionalProto2Message() {
     return _storage._optionalProto2Message = nil
   }
 
@@ -838,10 +838,10 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
     get {return _storage._optionalLazyMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
-  public var hasOptionalLazyMessage: Bool {
+  var hasOptionalLazyMessage: Bool {
     return _storage._optionalLazyMessage != nil
   }
-  public mutating func clearOptionalLazyMessage() {
+  mutating func clearOptionalLazyMessage() {
     return _storage._optionalLazyMessage = nil
   }
 
@@ -1088,10 +1088,10 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
     get {return _storage._proto2 ?? ProtobufUnittest_TestRequired()}
     set {_uniqueStorage()._proto2 = newValue}
   }
-  public var hasProto2: Bool {
+  var hasProto2: Bool {
     return _storage._proto2 != nil
   }
-  public mutating func clearProto2() {
+  mutating func clearProto2() {
     return _storage._proto2 = nil
   }
 

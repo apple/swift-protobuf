@@ -1311,10 +1311,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       get {return _storage._corecursive ?? ProtobufTestMessages_Proto3_TestAllTypes()}
       set {_uniqueStorage()._corecursive = newValue}
     }
-    public var hasCorecursive: Bool {
+    var hasCorecursive: Bool {
       return _storage._corecursive != nil
     }
-    public mutating func clearCorecursive() {
+    mutating func clearCorecursive() {
       return _storage._corecursive = nil
     }
 
@@ -1420,10 +1420,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalNestedMessage ?? ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-  public var hasOptionalNestedMessage: Bool {
+  var hasOptionalNestedMessage: Bool {
     return _storage._optionalNestedMessage != nil
   }
-  public mutating func clearOptionalNestedMessage() {
+  mutating func clearOptionalNestedMessage() {
     return _storage._optionalNestedMessage = nil
   }
 
@@ -1431,10 +1431,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalForeignMessage ?? ProtobufTestMessages_Proto3_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
-  public var hasOptionalForeignMessage: Bool {
+  var hasOptionalForeignMessage: Bool {
     return _storage._optionalForeignMessage != nil
   }
-  public mutating func clearOptionalForeignMessage() {
+  mutating func clearOptionalForeignMessage() {
     return _storage._optionalForeignMessage = nil
   }
 
@@ -1462,10 +1462,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._recursiveMessage ?? ProtobufTestMessages_Proto3_TestAllTypes()}
     set {_uniqueStorage()._recursiveMessage = newValue}
   }
-  public var hasRecursiveMessage: Bool {
+  var hasRecursiveMessage: Bool {
     return _storage._recursiveMessage != nil
   }
-  public mutating func clearRecursiveMessage() {
+  mutating func clearRecursiveMessage() {
     return _storage._recursiveMessage = nil
   }
 
@@ -1784,10 +1784,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
   }
-  public var hasOptionalBoolWrapper: Bool {
+  var hasOptionalBoolWrapper: Bool {
     return _storage._optionalBoolWrapper != nil
   }
-  public mutating func clearOptionalBoolWrapper() {
+  mutating func clearOptionalBoolWrapper() {
     return _storage._optionalBoolWrapper = nil
   }
 
@@ -1795,10 +1795,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalInt32Wrapper ?? Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._optionalInt32Wrapper = newValue}
   }
-  public var hasOptionalInt32Wrapper: Bool {
+  var hasOptionalInt32Wrapper: Bool {
     return _storage._optionalInt32Wrapper != nil
   }
-  public mutating func clearOptionalInt32Wrapper() {
+  mutating func clearOptionalInt32Wrapper() {
     return _storage._optionalInt32Wrapper = nil
   }
 
@@ -1806,10 +1806,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalInt64Wrapper ?? Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._optionalInt64Wrapper = newValue}
   }
-  public var hasOptionalInt64Wrapper: Bool {
+  var hasOptionalInt64Wrapper: Bool {
     return _storage._optionalInt64Wrapper != nil
   }
-  public mutating func clearOptionalInt64Wrapper() {
+  mutating func clearOptionalInt64Wrapper() {
     return _storage._optionalInt64Wrapper = nil
   }
 
@@ -1817,10 +1817,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalUint32Wrapper ?? Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._optionalUint32Wrapper = newValue}
   }
-  public var hasOptionalUint32Wrapper: Bool {
+  var hasOptionalUint32Wrapper: Bool {
     return _storage._optionalUint32Wrapper != nil
   }
-  public mutating func clearOptionalUint32Wrapper() {
+  mutating func clearOptionalUint32Wrapper() {
     return _storage._optionalUint32Wrapper = nil
   }
 
@@ -1828,10 +1828,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalUint64Wrapper ?? Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._optionalUint64Wrapper = newValue}
   }
-  public var hasOptionalUint64Wrapper: Bool {
+  var hasOptionalUint64Wrapper: Bool {
     return _storage._optionalUint64Wrapper != nil
   }
-  public mutating func clearOptionalUint64Wrapper() {
+  mutating func clearOptionalUint64Wrapper() {
     return _storage._optionalUint64Wrapper = nil
   }
 
@@ -1839,10 +1839,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalFloatWrapper ?? Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._optionalFloatWrapper = newValue}
   }
-  public var hasOptionalFloatWrapper: Bool {
+  var hasOptionalFloatWrapper: Bool {
     return _storage._optionalFloatWrapper != nil
   }
-  public mutating func clearOptionalFloatWrapper() {
+  mutating func clearOptionalFloatWrapper() {
     return _storage._optionalFloatWrapper = nil
   }
 
@@ -1850,10 +1850,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalDoubleWrapper ?? Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._optionalDoubleWrapper = newValue}
   }
-  public var hasOptionalDoubleWrapper: Bool {
+  var hasOptionalDoubleWrapper: Bool {
     return _storage._optionalDoubleWrapper != nil
   }
-  public mutating func clearOptionalDoubleWrapper() {
+  mutating func clearOptionalDoubleWrapper() {
     return _storage._optionalDoubleWrapper = nil
   }
 
@@ -1861,10 +1861,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalStringWrapper ?? Google_Protobuf_StringValue()}
     set {_uniqueStorage()._optionalStringWrapper = newValue}
   }
-  public var hasOptionalStringWrapper: Bool {
+  var hasOptionalStringWrapper: Bool {
     return _storage._optionalStringWrapper != nil
   }
-  public mutating func clearOptionalStringWrapper() {
+  mutating func clearOptionalStringWrapper() {
     return _storage._optionalStringWrapper = nil
   }
 
@@ -1872,10 +1872,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalBytesWrapper ?? Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._optionalBytesWrapper = newValue}
   }
-  public var hasOptionalBytesWrapper: Bool {
+  var hasOptionalBytesWrapper: Bool {
     return _storage._optionalBytesWrapper != nil
   }
-  public mutating func clearOptionalBytesWrapper() {
+  mutating func clearOptionalBytesWrapper() {
     return _storage._optionalBytesWrapper = nil
   }
 
@@ -1928,10 +1928,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalDuration ?? Google_Protobuf_Duration()}
     set {_uniqueStorage()._optionalDuration = newValue}
   }
-  public var hasOptionalDuration: Bool {
+  var hasOptionalDuration: Bool {
     return _storage._optionalDuration != nil
   }
-  public mutating func clearOptionalDuration() {
+  mutating func clearOptionalDuration() {
     return _storage._optionalDuration = nil
   }
 
@@ -1939,10 +1939,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalTimestamp ?? Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._optionalTimestamp = newValue}
   }
-  public var hasOptionalTimestamp: Bool {
+  var hasOptionalTimestamp: Bool {
     return _storage._optionalTimestamp != nil
   }
-  public mutating func clearOptionalTimestamp() {
+  mutating func clearOptionalTimestamp() {
     return _storage._optionalTimestamp = nil
   }
 
@@ -1950,10 +1950,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalFieldMask ?? Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._optionalFieldMask = newValue}
   }
-  public var hasOptionalFieldMask: Bool {
+  var hasOptionalFieldMask: Bool {
     return _storage._optionalFieldMask != nil
   }
-  public mutating func clearOptionalFieldMask() {
+  mutating func clearOptionalFieldMask() {
     return _storage._optionalFieldMask = nil
   }
 
@@ -1961,10 +1961,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalStruct ?? Google_Protobuf_Struct()}
     set {_uniqueStorage()._optionalStruct = newValue}
   }
-  public var hasOptionalStruct: Bool {
+  var hasOptionalStruct: Bool {
     return _storage._optionalStruct != nil
   }
-  public mutating func clearOptionalStruct() {
+  mutating func clearOptionalStruct() {
     return _storage._optionalStruct = nil
   }
 
@@ -1972,10 +1972,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalAny ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._optionalAny = newValue}
   }
-  public var hasOptionalAny: Bool {
+  var hasOptionalAny: Bool {
     return _storage._optionalAny != nil
   }
-  public mutating func clearOptionalAny() {
+  mutating func clearOptionalAny() {
     return _storage._optionalAny = nil
   }
 
@@ -1983,10 +1983,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     get {return _storage._optionalValue ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._optionalValue = newValue}
   }
-  public var hasOptionalValue: Bool {
+  var hasOptionalValue: Bool {
     return _storage._optionalValue != nil
   }
-  public mutating func clearOptionalValue() {
+  mutating func clearOptionalValue() {
     return _storage._optionalValue = nil
   }
 

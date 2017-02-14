@@ -170,10 +170,10 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
   }
-  public var hasMessageSet: Bool {
+  var hasMessageSet: Bool {
     return _storage._messageSet != nil
   }
-  public mutating func clearMessageSet() {
+  mutating func clearMessageSet() {
     return _storage._messageSet = nil
   }
 
