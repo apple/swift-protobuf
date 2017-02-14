@@ -22,16 +22,18 @@ let secondsPerMinute: Int32 = 60
 let nanosPerSecond: Int32 = 1000000000
 
 func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: Int32, ss: Int32) {
-    let secondsSinceMidnight = Int32(mod(seconds, 86400))
-    let ss = mod(secondsSinceMidnight, 60)
-    let mm = mod(div(secondsSinceMidnight, 60), 60)
-    let hh = div(secondsSinceMidnight, 3600)
+    let secondsSinceMidnight = Int32(mod(seconds, Int64(secondsPerDay)))
+    let ss = mod(secondsSinceMidnight, secondsPerMinute)
+    let mm = mod(div(secondsSinceMidnight, secondsPerMinute), minutesPerHour)
+    let hh = div(secondsSinceMidnight, secondsPerHour)
     
     return (hh: hh, mm: mm, ss: ss)
 }
 
 func julianDayNumberFromSecondsSince1970(seconds: Int64) -> Int64 {
-    return div(seconds + 210866803200, 86400)
+    // January 1, 1970 is Julian Day Number 2440588.
+    // See http://aa.usno.navy.mil/faq/docs/JD_Formula.php
+    return div(seconds + 2440588 * Int64(secondsPerDay), Int64(secondsPerDay))
 }
 
 func gregorianDateFromSecondsSince1970(seconds: Int64) -> (YY: Int32, MM: Int32, DD: Int32) {
