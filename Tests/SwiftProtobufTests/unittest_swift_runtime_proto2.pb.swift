@@ -551,7 +551,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -882,7 +882,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       17: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -930,7 +930,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       47: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -979,7 +979,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       167: .same(proto: "b"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {

@@ -122,7 +122,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
     case oneofE1(Proto2PreserveUnknownEnumUnittest_MyEnum)

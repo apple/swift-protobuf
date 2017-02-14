@@ -42,7 +42,7 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
   public var protoPackageName: String {return "protobuf_unittest.extend4"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var protoMessageName: String {return "C"}
@@ -51,7 +51,7 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
       1410: .same(proto: "c"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _c: Int64? = nil
     var c: Int64 {
@@ -133,7 +133,7 @@ struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.
     1420: .same(proto: "c"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int64? = nil
   var c: Int64 {

@@ -109,7 +109,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -160,7 +160,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
     15: .same(proto: "i"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Extensions {
 
@@ -217,7 +217,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
     25: .same(proto: "str"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Extensions {
 
@@ -286,7 +286,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
     1: .unique(proto: "Item", json: "item"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Item: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var protoMessageName: String {return "Item"}
@@ -296,7 +296,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
       3: .same(proto: "message"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _typeId: Int32? = nil
     var typeId: Int32 {

@@ -422,7 +422,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -725,7 +725,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.P
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -852,7 +852,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
     1: .unique(proto: "map_field", json: "mapField"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
 
@@ -896,7 +896,7 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Pr
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
@@ -942,7 +942,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftPr
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
 
@@ -987,7 +987,7 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf
     1: .unique(proto: "map_int32_message", json: "mapInt32Message"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
 
@@ -1027,7 +1027,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
     3: .same(proto: "c"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {
@@ -1116,7 +1116,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftPro
     1: .same(proto: "c"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int32? = nil
   var c: Int32 {

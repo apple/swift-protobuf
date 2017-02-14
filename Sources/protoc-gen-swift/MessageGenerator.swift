@@ -546,9 +546,9 @@ class MessageGenerator {
         p.print("\n")
         if !file.isProto3 {
             if storage == nil {
-                p.print("public var unknown = SwiftProtobuf.UnknownStorage()\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)var unknown = SwiftProtobuf.UnknownStorage()\n")
             } else {
-                p.print("public var unknown: SwiftProtobuf.UnknownStorage {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)var unknown: SwiftProtobuf.UnknownStorage {\n")
                 p.print("  get {return _storage.unknown}\n")
                 p.print("  set {_storage.unknown = newValue}\n")
                 p.print("}\n")

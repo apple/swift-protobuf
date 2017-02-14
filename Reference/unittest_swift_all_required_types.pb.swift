@@ -529,7 +529,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -694,7 +694,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       1: .same(proto: "bb"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
@@ -750,7 +750,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       17: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -1400,7 +1400,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     6: .unique(proto: "required_nested_enum", json: "requiredNestedEnum"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int

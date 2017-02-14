@@ -54,7 +54,7 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Swift
   public var protoPackageName: String {return "protobuf_objc_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
@@ -114,7 +114,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftP
   public var protoPackageName: String {return "protobuf_objc_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Extensions {
 

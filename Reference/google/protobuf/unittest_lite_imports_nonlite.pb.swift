@@ -101,7 +101,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }

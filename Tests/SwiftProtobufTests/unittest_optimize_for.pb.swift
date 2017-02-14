@@ -129,7 +129,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -316,7 +316,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
     1: .same(proto: "x"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _x: Int32? = nil
   var x: Int32 {
@@ -415,7 +415,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }

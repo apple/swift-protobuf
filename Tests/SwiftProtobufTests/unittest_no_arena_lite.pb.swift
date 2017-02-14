@@ -56,7 +56,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftP
     1: .same(proto: "c"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int32? = nil
   var c: Int32 {

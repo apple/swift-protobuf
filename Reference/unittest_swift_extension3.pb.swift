@@ -42,7 +42,7 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
   public var protoPackageName: String {return "protobuf_unittest.extend3"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var protoMessageName: String {return "C"}
@@ -51,7 +51,7 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
       1310: .same(proto: "c"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _c: Int64? = nil
     var c: Int64 {
@@ -133,7 +133,7 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     1320: .same(proto: "c"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int64? = nil
   var c: Int64 {

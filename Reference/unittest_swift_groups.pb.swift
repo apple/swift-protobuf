@@ -57,7 +57,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
     1: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {
@@ -138,7 +138,7 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, Swift
     1: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {
@@ -186,7 +186,7 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Messag
     1: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {
@@ -234,7 +234,7 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
     1: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {

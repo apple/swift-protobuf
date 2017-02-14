@@ -56,7 +56,7 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.P
     1: .same(proto: "d"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _d: Int32? = nil
   var d: Int32 {
@@ -105,7 +105,7 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf.Pr
     2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
 

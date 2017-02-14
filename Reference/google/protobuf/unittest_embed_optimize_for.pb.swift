@@ -117,7 +117,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }

@@ -58,7 +58,7 @@ struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message, Sw
     1: .same(proto: "e"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _e: Int32? = nil
   var e: Int32 {

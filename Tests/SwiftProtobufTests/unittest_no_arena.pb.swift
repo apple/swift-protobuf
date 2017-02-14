@@ -738,7 +738,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -915,7 +915,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       1: .same(proto: "bb"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
@@ -966,7 +966,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       17: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -1014,7 +1014,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       47: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -1790,7 +1790,7 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProto
     1: .same(proto: "c"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int32? = nil
   var c: Int32 {
@@ -1879,7 +1879,7 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }

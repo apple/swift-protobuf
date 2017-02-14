@@ -109,7 +109,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
     1: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {

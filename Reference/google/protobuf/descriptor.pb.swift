@@ -66,7 +66,7 @@ struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobuf.P
     1: .same(proto: "file"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var file: [Google_Protobuf_FileDescriptorProto] = []
 
@@ -248,7 +248,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -515,7 +515,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -528,7 +528,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       2: .same(proto: "end"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _start: Int32? = nil
     var start: Int32 {
@@ -597,7 +597,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       2: .same(proto: "end"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   Inclusive.
     private var _start: Int32? = nil
@@ -875,7 +875,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -1336,7 +1336,7 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -1462,7 +1462,7 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -1592,7 +1592,7 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -1729,7 +1729,7 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -1883,7 +1883,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -2040,7 +2040,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Generated classes can be optimized for speed or code size.
   enum OptimizeMode: SwiftProtobuf.Enum {
@@ -2490,7 +2490,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Set true to use the old proto1 MessageSet wire format for extensions.
   ///   This is provided for backwards-compatibility with the MessageSet wire
@@ -2683,7 +2683,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   enum CType: SwiftProtobuf.Enum {
     typealias RawValue = Int
@@ -3039,7 +3039,7 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   The parser stores options it doesn't recognize here. See above.
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -3114,7 +3114,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Set this option to true to allow mapping different tag names to the same
   ///   value.
@@ -3228,7 +3228,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Pr
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Is this enum value deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
@@ -3323,7 +3323,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
   //    framework.  We apologize for hoarding these numbers to ourselves, but
@@ -3424,7 +3424,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
   ///   or neither? HTTP based RPC implementation may choose GET verb for safe
@@ -3620,7 +3620,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     8: .unique(proto: "aggregate_value", json: "aggregateValue"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   The name of the uninterpreted option.  Each string represents a segment in
   ///   a dot-separated name.  is_extension is true iff a segment represents an
@@ -3635,7 +3635,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
       2: .unique(proto: "is_extension", json: "isExtension"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _namePart: String? = nil
     var namePart: String {
@@ -3849,7 +3849,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
     1: .same(proto: "location"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Location: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var protoMessageName: String {return "Location"}
@@ -3862,7 +3862,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
       6: .unique(proto: "leading_detached_comments", json: "leadingDetachedComments"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   Identifies which part of the FileDescriptorProto was defined at this
     ///   location.
@@ -4098,7 +4098,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
     1: .same(proto: "annotation"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Annotation: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var protoMessageName: String {return "Annotation"}
@@ -4110,7 +4110,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
       4: .same(proto: "end"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   Identifies the element in the original source .proto file. This field
     ///   is formatted the same as SourceCodeInfo.Location.path.

@@ -76,7 +76,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     4: .same(proto: "suffix"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _major: Int32? = nil
   var major: Int32 {
@@ -248,7 +248,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -338,7 +338,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     15: .same(proto: "file"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
   struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -350,7 +350,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       15: .same(proto: "content"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   The file name, relative to the output directory.  The name must not
     ///   contain "." or ".." components and must be relative, not be absolute (so,

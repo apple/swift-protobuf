@@ -893,7 +893,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -1058,7 +1058,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       1: .same(proto: "bb"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
@@ -1109,7 +1109,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       17: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -1157,7 +1157,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       47: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -1977,7 +1977,7 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -2040,7 +2040,7 @@ struct ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftProtob
     1: .unique(proto: "deprecated_int32", json: "deprecatedInt32"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _deprecatedInt32: Int32? = nil
   var deprecatedInt32: Int32 {
@@ -2091,7 +2091,7 @@ struct ProtobufUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Pro
     2: .same(proto: "d"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int32? = nil
   var c: Int32 {
@@ -2154,7 +2154,7 @@ struct ProtobufUnittest_TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2180,7 +2180,7 @@ struct ProtobufUnittest_TestAllExtensions: SwiftProtobuf.Message, SwiftProtobuf.
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
@@ -2242,7 +2242,7 @@ struct ProtobufUnittest_OptionalGroup_extension: SwiftProtobuf.Message, SwiftPro
     17: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {
@@ -2290,7 +2290,7 @@ struct ProtobufUnittest_RepeatedGroup_extension: SwiftProtobuf.Message, SwiftPro
     47: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _a: Int32? = nil
   var a: Int32 {
@@ -2336,7 +2336,7 @@ struct ProtobufUnittest_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobu
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Extensions {
 
@@ -2692,7 +2692,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -3175,7 +3175,7 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -3284,7 +3284,7 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -3330,7 +3330,7 @@ struct ProtobufUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3358,7 +3358,7 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.Message, S
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
@@ -3418,7 +3418,7 @@ struct ProtobufUnittest_TestMultipleExtensionRanges: SwiftProtobuf.Message, Swif
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
@@ -3484,7 +3484,7 @@ struct ProtobufUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftPr
     268435455: .same(proto: "bb"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   The largest possible tag number is 2^28 - 1, since the wire format uses
   ///   three bits to communicate wire type.
@@ -3600,7 +3600,7 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -3700,7 +3700,7 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -3796,7 +3796,7 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -3915,7 +3915,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -3927,7 +3927,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
       1: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -3975,7 +3975,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
       1: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -4123,7 +4123,7 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf.P
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -4211,7 +4211,7 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -4300,7 +4300,7 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -4313,7 +4313,7 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
       2: .unique(proto: "nestedmessage_repeated_foreignmessage", json: "nestedmessageRepeatedForeignmessage"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     var nestedmessageRepeatedInt32: [Int32] = []
 
@@ -4524,7 +4524,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftPro
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -4735,7 +4735,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -4748,7 +4748,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
       1: .same(proto: "bb"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _oo: Int64? = nil
     var oo: Int64 {
@@ -5156,7 +5156,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftPr
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -5501,7 +5501,7 @@ struct ProtobufUnittest_SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobuf.
     1: .unique(proto: "sparse_enum", json: "sparseEnum"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _sparseEnum: ProtobufUnittest_TestSparseEnum? = nil
   var sparseEnum: ProtobufUnittest_TestSparseEnum {
@@ -5550,7 +5550,7 @@ struct ProtobufUnittest_OneString: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _data: String? = nil
   var data: String {
@@ -5598,7 +5598,7 @@ struct ProtobufUnittest_MoreString: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var data: [String] = []
 
@@ -5636,7 +5636,7 @@ struct ProtobufUnittest_OneBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _data: Data? = nil
   var data: Data {
@@ -5684,7 +5684,7 @@ struct ProtobufUnittest_MoreBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var data: [Data] = []
 
@@ -5723,7 +5723,7 @@ struct ProtobufUnittest_Int32Message: SwiftProtobuf.Message, SwiftProtobuf.Proto
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _data: Int32? = nil
   var data: Int32 {
@@ -5771,7 +5771,7 @@ struct ProtobufUnittest_Uint32Message: SwiftProtobuf.Message, SwiftProtobuf.Prot
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _data: UInt32? = nil
   var data: UInt32 {
@@ -5819,7 +5819,7 @@ struct ProtobufUnittest_Int64Message: SwiftProtobuf.Message, SwiftProtobuf.Proto
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _data: Int64? = nil
   var data: Int64 {
@@ -5867,7 +5867,7 @@ struct ProtobufUnittest_Uint64Message: SwiftProtobuf.Message, SwiftProtobuf.Prot
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _data: UInt64? = nil
   var data: UInt64 {
@@ -5915,7 +5915,7 @@ struct ProtobufUnittest_BoolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     1: .same(proto: "data"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _data: Bool? = nil
   var data: Bool {
@@ -6006,7 +6006,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -6103,7 +6103,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
       6: .same(proto: "b"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -6312,7 +6312,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -6325,7 +6325,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
       6: .same(proto: "b"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -6532,7 +6532,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -6858,7 +6858,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       10: .same(proto: "b"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -6924,7 +6924,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       2: .unique(proto: "corge_int", json: "corgeInt"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _quxInt: Int64? = nil
     var quxInt: Int64 {
@@ -7272,7 +7272,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -7356,7 +7356,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
       1: .unique(proto: "required_double", json: "requiredDouble"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _requiredDouble: Double? = nil
     var requiredDouble: Double {
@@ -7495,7 +7495,7 @@ struct ProtobufUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Pr
     103: .unique(proto: "packed_enum", json: "packedEnum"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var packedInt32: [Int32] = []
 
@@ -7639,7 +7639,7 @@ struct ProtobufUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.
     103: .unique(proto: "unpacked_enum", json: "unpackedEnum"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var unpackedInt32: [Int32] = []
 
@@ -7766,7 +7766,7 @@ struct ProtobufUnittest_TestPackedExtensions: SwiftProtobuf.Message, SwiftProtob
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
@@ -7826,7 +7826,7 @@ struct ProtobufUnittest_TestUnpackedExtensions: SwiftProtobuf.Message, SwiftProt
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
@@ -7980,7 +7980,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -8053,7 +8053,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
       2100: .unique(proto: "dynamic_field", json: "dynamicField"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _dynamicField: Int32? = nil
     var dynamicField: Int32 {
@@ -8195,7 +8195,7 @@ struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Messa
     262143: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   Parsing repeated fixed size values used to fail. This message needs to be
   ///   used in order to get a tag of the right size; all of the repeated fields
@@ -8361,7 +8361,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -8384,7 +8384,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
       1001: .same(proto: "ext2"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     struct Group1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
       public var protoMessageName: String {return "Group1"}
@@ -8434,7 +8434,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
       private var _storage = _StorageClass()
 
-      public var unknown: SwiftProtobuf.UnknownStorage {
+      var unknown: SwiftProtobuf.UnknownStorage {
         get {return _storage.unknown}
         set {_storage.unknown = newValue}
       }
@@ -8522,7 +8522,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
       private var _storage = _StorageClass()
 
-      public var unknown: SwiftProtobuf.UnknownStorage {
+      var unknown: SwiftProtobuf.UnknownStorage {
         get {return _storage.unknown}
         set {_storage.unknown = newValue}
       }
@@ -8681,7 +8681,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
     private var _storage = _StorageClass()
 
-    public var unknown: SwiftProtobuf.UnknownStorage {
+    var unknown: SwiftProtobuf.UnknownStorage {
       get {return _storage.unknown}
       set {_storage.unknown = newValue}
     }
@@ -8769,7 +8769,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
     private var _storage = _StorageClass()
 
-    public var unknown: SwiftProtobuf.UnknownStorage {
+    var unknown: SwiftProtobuf.UnknownStorage {
       get {return _storage.unknown}
       set {_storage.unknown = newValue}
     }
@@ -8921,7 +8921,7 @@ struct ProtobufUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message, Swif
     1: .same(proto: "a"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   ///   */ <- This should not close the generated doc comment
   private var _a: String? = nil
@@ -8969,7 +8969,7 @@ struct ProtobufUnittest_FooRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -8995,7 +8995,7 @@ struct ProtobufUnittest_FooResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9021,7 +9021,7 @@ struct ProtobufUnittest_FooClientMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9047,7 +9047,7 @@ struct ProtobufUnittest_FooServerMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9073,7 +9073,7 @@ struct ProtobufUnittest_BarRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9099,7 +9099,7 @@ struct ProtobufUnittest_BarResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -9132,7 +9132,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf.Proto
     6: .unique(proto: "field_name6", json: "@type"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _fieldName1: Int32? = nil
   var fieldName1: Int32 {
@@ -9398,7 +9398,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -9494,7 +9494,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       536870009: .unique(proto: "group_a", json: "groupA"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _groupA: Int32? = nil
     var groupA: Int32 {

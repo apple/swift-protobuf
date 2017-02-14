@@ -40,7 +40,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   public var protoPackageName: String {return "protobuf_unittest.extend"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public var protoMessageName: String {return "NestedMessage"}
@@ -98,7 +98,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
 
     private var _storage = _StorageClass()
 
-    public var unknown: SwiftProtobuf.UnknownStorage {
+    var unknown: SwiftProtobuf.UnknownStorage {
       get {return _storage.unknown}
       set {_storage.unknown = newValue}
     }
@@ -207,7 +207,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       17: .unique(proto: "optional_enum", json: "optionalEnum"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int

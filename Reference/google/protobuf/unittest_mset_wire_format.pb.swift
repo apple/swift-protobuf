@@ -61,7 +61,7 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
   public var protoPackageName: String {return "proto2_wireformat_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !extensionFieldValues.isInitialized {return false}
@@ -169,7 +169,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }

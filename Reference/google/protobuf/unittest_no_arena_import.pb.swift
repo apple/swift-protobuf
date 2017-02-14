@@ -56,7 +56,7 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, Sw
     1: .same(proto: "d"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _d: Int32? = nil
   var d: Int32 {

@@ -54,7 +54,7 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
   public var protoPackageName: String {return "protobuf_unittest"}
   public static let _protobuf_fieldNames = FieldNameMap()
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   enum EnumTest1: SwiftProtobuf.Enum {
     typealias RawValue = Int

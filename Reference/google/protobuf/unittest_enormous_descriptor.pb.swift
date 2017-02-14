@@ -8096,7 +8096,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProto
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }

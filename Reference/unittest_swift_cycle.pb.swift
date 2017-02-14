@@ -120,7 +120,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -246,7 +246,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -372,7 +372,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }

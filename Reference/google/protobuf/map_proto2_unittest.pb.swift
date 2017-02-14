@@ -185,7 +185,7 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
@@ -231,7 +231,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtob
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
@@ -276,7 +276,7 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.
     1: .unique(proto: "import_enum_amp", json: "importEnumAmp"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
 
@@ -314,7 +314,7 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf.Prot
     1: .same(proto: "m"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var m: Dictionary<Int32,Int32> = [:]
 
@@ -364,7 +364,7 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     12: .unique(proto: "m_string", json: "mString"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   var mInt32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
 
