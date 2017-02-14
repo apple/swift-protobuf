@@ -125,11 +125,17 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_a)
-    default: if (1000 <= protoFieldNumber && protoFieldNumber < 536870912) {
-        try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularInt32Field(value: &_a)
+    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
+        try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -138,7 +144,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
     if let v = _a {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
-    try extensionFieldValues.traverse(visitor: visitor, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -152,22 +158,22 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   public mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_NoGenericServicesTest_TestMessage>, value: F.ValueType) {
-    extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
+    extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
   }
 
   public mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_NoGenericServicesTest_TestMessage>) {
-    extensionFieldValues[ext.protoFieldNumber] = nil
+    extensionFieldValues[ext.fieldNumber] = nil
   }
 
   public func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_NoGenericServicesTest_TestMessage>) -> F.ValueType {
-    if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
+    if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
   }
 
   public func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_NoGenericServicesTest_TestMessage>) -> Bool {
-    return extensionFieldValues[ext.protoFieldNumber] is F
+    return extensionFieldValues[ext.fieldNumber] is F
   }
   public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
     return Google_Protobuf_NoGenericServicesTest_TestMessage._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
@@ -175,7 +181,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
 }
 
 let Google_Protobuf_NoGenericServicesTest_Extensions_testExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
-  protoFieldNumber: 1000,
+  fieldNumber: 1000,
   fieldNames: .same(proto: "google.protobuf.no_generic_services_test.test_extension"),
   defaultValue: 0
 )
