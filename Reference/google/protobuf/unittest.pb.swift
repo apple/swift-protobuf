@@ -918,11 +918,11 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -6061,11 +6061,11 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -6601,11 +6601,11 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -6739,11 +6739,11 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -7331,11 +7331,11 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -9473,11 +9473,11 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

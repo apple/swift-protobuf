@@ -718,11 +718,11 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -2593,11 +2593,11 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

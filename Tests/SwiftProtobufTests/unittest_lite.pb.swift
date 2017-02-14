@@ -872,11 +872,11 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -3447,11 +3447,11 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

@@ -138,11 +138,11 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

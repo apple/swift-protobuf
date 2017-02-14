@@ -577,11 +577,11 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

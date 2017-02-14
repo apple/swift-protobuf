@@ -563,11 +563,11 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

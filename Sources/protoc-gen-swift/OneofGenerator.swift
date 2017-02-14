@@ -72,13 +72,13 @@ class OneofGenerator {
 
         // ExpressibleByNilLiteral conformance
         p.print("\n")
-        p.print("public init(nilLiteral: ()) {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)init(nilLiteral: ()) {\n")
         p.print("  self = .None\n")
         p.print("}\n")
 
         // Basic init
         p.print("\n")
-        p.print("public init() {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)init() {\n")
         p.print("  self = .None\n")
         p.print("}\n")
 

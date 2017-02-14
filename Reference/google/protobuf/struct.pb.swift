@@ -228,11 +228,11 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

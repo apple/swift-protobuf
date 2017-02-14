@@ -161,11 +161,11 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
@@ -296,11 +296,11 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

@@ -563,11 +563,11 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

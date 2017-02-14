@@ -854,11 +854,11 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 

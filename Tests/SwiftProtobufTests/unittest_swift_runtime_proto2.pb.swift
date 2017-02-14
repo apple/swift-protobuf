@@ -604,11 +604,11 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
