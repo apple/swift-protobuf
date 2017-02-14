@@ -18,7 +18,6 @@ import Swift
 
 private let minDurationSeconds: Int64 = -maxDurationSeconds
 private let maxDurationSeconds: Int64 = 315576000000
-private let nanosPerSecond: Int32 = 1000000000
 
 private func parseDuration(text: String) throws -> (Int64, Int32) {
     var digits = [Character]()

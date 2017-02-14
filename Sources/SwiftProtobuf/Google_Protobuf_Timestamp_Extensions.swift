@@ -17,7 +17,6 @@ import Swift
 
 private let minTimestampSeconds: Int64 = -62135596800  // 0001-01-01T00:00:00Z
 private let maxTimestampSeconds: Int64 = 253402300799  // 9999-12-31T23:59:59Z
-private let nanosPerSecond: Int32 = 1000000000
 
 // TODO: Add convenience methods to interoperate with standard
 // date/time classes:  an initializer that accepts Unix timestamp as
@@ -183,24 +182,8 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
         return nil
     }
 
-    // Can't just use gmtime() here because time_t is sometimes 32 bits. Ugh.
-    let secondsSinceStartOfDay = (Int32(seconds % 86400) + 86400) % 86400
-    let sec = secondsSinceStartOfDay % 60
-    let min = (secondsSinceStartOfDay / 60) % 60
-    let hour = secondsSinceStartOfDay / 3600
-
-    // The following implements Richards' algorithm (see the Wikipedia article
-    // for "Julian day").
-    // If you touch this code, please test it exhaustively by playing with
-    // Test_Timestamp.testJSON_range.
-    let julian = (seconds + 210866803200) / 86400
-    let f = julian + 1401 + (((4 * julian + 274277) / 146097) * 3) / 4 - 38
-    let e = 4 * f + 3
-    let g = e % 1461 / 4
-    let h = 5 * g + 2
-    let mday = Int32(h % 153 / 5 + 1)
-    let month = (h / 153 + 2) % 12 + 1
-    let year = e / 1461 - 4716 + (12 + 2 - month) / 12
+    let (hour, min, sec) = timeOfDayFromSecondsSince1970(seconds: seconds)
+    let (year, month, mday) = gregorianDateFromSecondsSince1970(seconds: seconds)
 
     // We can't use strftime here (it varies with locale)
     // We can't use strftime_l here (it's not portable)
@@ -283,17 +266,8 @@ public extension Google_Protobuf_Timestamp {
 }
 
 private func normalizeForTimestamp(seconds: Int64, nanos: Int32) -> (seconds: Int64, nanos: Int32) {
-    // The Timestamp spec says that nanos must be in the range [0, 999999999), as in actual
-    // modular arithmetic. Integer % and / do not reflect this, so mod() and div() are defined
-    // for this purpose. Factored out, they make normalization very straightforward.
-    func mod(_ a: Int32, _ b: Int32) -> Int32 {
-        assert(b > 0)
-        return a % b >= 0 ? a % b : a % b + b
-    }
-    func div(_ a: Int32, _ b: Int32) -> Int32 {
-        assert(b > 0)
-        return a >= 0 ? a / b : (a + 1) / b - 1
-    }
+    // The Timestamp spec says that nanos must be in the range [0, 999999999),
+    // as in actual modular arithmetic.
 
     let s = seconds + Int64(div(nanos, nanosPerSecond))
     let n = mod(nanos, nanosPerSecond)
