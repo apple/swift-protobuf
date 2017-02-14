@@ -81,7 +81,7 @@ final class HashVisitor: Visitor {
     var mapHash = 0
     for (k, v) in value {
       // Note: This calculation cannot depend on the order of the items.
-      mapHash += k.hashValue ^ v.hashValue
+      mapHash = mapHash &+ (k.hashValue ^ v.hashValue)
     }
     mix(mapHash)
   }
