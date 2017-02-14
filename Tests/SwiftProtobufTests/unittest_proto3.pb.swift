@@ -1180,7 +1180,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     }
   }
 
-  public var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -2547,7 +2547,7 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
     }
   }
 
-  public var foo: OneOf_Foo {
+  var foo: OneOf_Foo {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue

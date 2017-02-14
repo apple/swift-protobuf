@@ -273,7 +273,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     }
   }
 
-  public var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
 
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
@@ -415,7 +415,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     }
   }
 
-  public var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O = .None
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O = .None
 
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {

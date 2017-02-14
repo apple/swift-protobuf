@@ -1341,7 +1341,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  public var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue

@@ -374,7 +374,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
     }
   }
 
-  public var kind: OneOf_Kind {
+  var kind: OneOf_Kind {
     get {return _storage._kind}
     set {
       _uniqueStorage()._kind = newValue

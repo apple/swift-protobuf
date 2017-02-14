@@ -2112,7 +2112,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     set {_uniqueStorage()._fieldName18__ = newValue}
   }
 
-  public var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue

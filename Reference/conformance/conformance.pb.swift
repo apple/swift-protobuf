@@ -215,7 +215,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  public var payload: Conformance_ConformanceRequest.OneOf_Payload = .None
+  var payload: Conformance_ConformanceRequest.OneOf_Payload = .None
 
   var jsonPayload: String {
     get {
@@ -383,7 +383,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  public var result: Conformance_ConformanceResponse.OneOf_Result = .None
+  var result: Conformance_ConformanceResponse.OneOf_Result = .None
 
   ///   If the input was successfully parsed but errors occurred when
   ///   serializing it to the requested output format, set the error message in

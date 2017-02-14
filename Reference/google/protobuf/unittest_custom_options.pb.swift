@@ -298,7 +298,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
     }
   }
 
-  public var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof = .None
+  var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof = .None
 
   init() {}
 
