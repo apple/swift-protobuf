@@ -45,7 +45,7 @@
 /// including `hashValue` and `debugDescription`, are designed to let you
 /// override the functionality in custom extensions to the generated code.
 public protocol Message: CustomDebugStringConvertible {
-  /// Builds an instance of the message with all fields initialized to
+  /// Creates an instance of the message with all fields initialized to
   /// their default values.
   init()
 
@@ -53,16 +53,16 @@ public protocol Message: CustomDebugStringConvertible {
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
 
-  /// Name of the message from the original .proto file
+  /// The name of the message from the original .proto file.
   var protoMessageName: String { get }
 
-  /// Name of the protobuf package from the original .proto file
+  /// The name of the protobuf package from the original .proto file.
   var protoPackageName: String { get }
 
-  /// Prefix used for this message's type when encoded as an `Any`
+  /// The prefix used for this message's type when encoded as an `Any`.
   var anyTypePrefix: String { get }
 
-  /// Fully qualifed name used for this message's type when encoed as an `Any`
+  /// The fully qualifed name used for this message's type when encoded as an `Any`.
   var anyTypeURL: String { get }
 
   //
@@ -80,7 +80,8 @@ public protocol Message: CustomDebugStringConvertible {
   /// this to decode the field value.
   ///
   /// - Parameters:
-  ///   - setter: A `FieldDecoder` whose type matches the field
+  ///   - setter: A `FieldDecoder`; the `Message` will call the method corresponding
+  ///     to the type of this field.
   ///   - protoFieldNumber: number of the field to decode
   /// - Throws: An instance of `DecoderError` on failure or type mismatch
   mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws
@@ -105,6 +106,9 @@ public protocol Message: CustomDebugStringConvertible {
 
   /// Attempts to decode raw bytes into this message.
   ///
+  /// This is primarily for use by the generated code; you should use
+  /// `init(protobuf:)` and siblings to parse binary encoded messages.
+  ///
   /// - Parameters:
   ///   - protobufBytes: raw buffer to decode
   ///   - count: length of buffer
@@ -123,17 +127,18 @@ public protocol Message: CustomDebugStringConvertible {
   // google.protobuf.Any support
   //
 
-  /// Decode from an instance of `Any` (which might itself have
-  /// been decoded from JSON, protobuf, or another `Any`).
+  /// Creates an instance of this message by decoding an instance of `Any`
+  /// (which might itself have been decoded from JSON, protobuf, or another `Any`).
   ///
   /// - Parameter any: item to decode
   /// - Throws: an instance of `DecodingError` if the message cannot be parsed
   init(any: Google_Protobuf_Any) throws
 
-  /// Serialize as an `Any` object in JSON format.
+  /// Returns this message serialized as an `Any` object in JSON format.
   ///
-  /// For generated message types, this generates the same JSON object as
-  /// `serializeJSON()` except it adds an additional `@type` field.
+  /// This is used by the JSON serialization support to allow certain types
+  /// to override how they are represented within `Any` containers. You should
+  /// not normally call or override this method.
   ///
   /// - Throws: an instance of `EncodingError` on failure
   func serializeAnyJSON() throws -> String
@@ -142,10 +147,19 @@ public protocol Message: CustomDebugStringConvertible {
   // JSON encoding/decoding support
   //
 
-  /// Serialize using the standard protobuf JSON representation.
+  /// Returns this message serialized using the standard protobuf JSON representation.
   ///
   /// - Throws: an instance of `EncodingError` on failure
   func serializeJSON() throws -> String
+
+
+  /// Creates an instance of this message based on the given
+  /// `JSONDecoder` argument. This is overridden by messages with
+  /// specialized JSON encodings, but should not normally be overridden
+  /// in user code.
+  ///
+  /// - Parameter decoder: the decoder
+  /// - Throws: an instance of `DecodingError` on failure
   init(decoder: inout JSONDecoder) throws
 
   // Standard utility properties and methods.
@@ -154,18 +168,18 @@ public protocol Message: CustomDebugStringConvertible {
   // so can be overridden in user code by defining custom extensions to
   // the generated struct.
 
-  /// Hash value generated from this message's contents, for conformance with
-  /// the `Hashable` protocol
+  /// The hash value generated from this message's contents, for conformance with
+  /// the `Hashable` protocol.
   var hashValue: Int { get }
 
-  /// Textual representation of this message's contents suitable for debugging,
+  /// A textual representation of this message's contents suitable for debugging,
   /// for conformance with the `CustomDebutStringConvertible` protocol.
   var debugDescription: String { get }
 }
 
 public extension Message {
 
-  /// Generates a hash based on the message's full contents. Can be overridden
+  /// A hash based on the message's full contents. Can be overridden
   /// to improve performance and/or remove some values from being used for the
   /// hash.
   ///
@@ -178,8 +192,8 @@ public extension Message {
     return visitor.hashValue
   }
 
-  /// Uses a `Visitor` to recursively generate a description. May be overridden
-  /// to improve readability and/or performance.
+  /// A description generated by recursively visiting all fields in the message,
+  /// including messages. May be overridden to improve readability and/or performance.
   var debugDescription: String {
     // TODO Ideally there would be something like serializeText() that can
     // take a prefix so we could do something like:
@@ -200,12 +214,13 @@ public extension Message {
   // messages.
   // TODO: It would be nice if this could default to "" instead; that would save
   // ~20 bytes on every serialized Any.
-  /// Returns the literal `type.googleapis.com`; may be overridden if your 
-  /// message's type should be encoded differently
+
+  /// The literal `type.googleapis.com`; may be overridden if your
+  /// message's type should be encoded differently.
   var anyTypePrefix: String { return "type.googleapis.com" }
 
-  /// Returns `anyTypePrefix/protoPackageName.protoMessageName`; may
-  /// be overridden if your message's type should be encoded differently
+  /// A type URL of the form `anyTypePrefix/protoPackageName.protoMessageName`; may
+  /// be overridden if your message's type should be encoded differently.
   var anyTypeURL: String {
     var url = anyTypePrefix
     if anyTypePrefix == "" || anyTypePrefix.characters.last! != "/" {
@@ -245,7 +260,7 @@ public extension Message {
 /// a proto2 source file.
 ///
 public protocol Proto2Message: Message {
-  /// Provides access to unknown fields found when deserializing the message.
+  /// An accessor for unknown fields found when deserializing the message.
   var unknown: UnknownStorage { get set }
 }
 

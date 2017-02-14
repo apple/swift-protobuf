@@ -46,9 +46,6 @@ public extension Message {
   /// instance is encoded in the default manner, whether's in in binary
   /// protobuf or JSON formats.
   ///
-  /// Can be overridden to change how the data should be interpreted. See
-  /// `Google_Protobuf_Any` for more details.
-  ///
   /// - Parameter any: message to decode
   /// - Throws: an instance of `DecodingError` on failure
   public init(any: Google_Protobuf_Any) throws {
