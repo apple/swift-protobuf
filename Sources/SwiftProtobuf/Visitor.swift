@@ -6,29 +6,25 @@
 // See LICENSE.txt for license information:
 // https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
-// -----------------------------------------------------------------------------
-///
-/// Protocol for traversing the object tree.
-///
-/// This is used by:
-/// = Protobuf serialization
-/// = JSON serialization (with some twists to account for specialty JSON
-///   encodings)
-/// = Protobuf text serialization
-/// = hashValue computation
-///
-/// Conceptually, serializers create visitor objects that are
-/// then passed recursively to every message and field via generated
-/// 'traverse' methods.  The details get a little involved due to
-/// the need to allow particular messages to override particular
-/// behaviors for specific encodings, but the general idea is quite simple.
-///
-// -----------------------------------------------------------------------------
 
 import Foundation
 
-/// Objects conforming to this protocol can be passed to a message's `traverse`
-/// method to visit each of its fields in order.
+/// Protocol for traversing the fields of a message, including recursing
+/// into any fields which are messages themselves.
+///
+/// Internally, this is used by:
+///
+/// * Protobuf binary serialization
+/// * JSON serialization (with some twists to account for specialty JSON
+///   encodings)
+/// * Protobuf text serialization, including `debugDescription`
+/// * `hashValue` computation
+///
+/// Conceptually, serializers create visitor objects that are
+/// then passed recursively to every message and field via generated
+/// `traverse` methods.  The details get a little involved due to
+/// the need to allow particular messages to override particular
+/// behaviors for specific encodings, but the general idea is quite simple.
 public protocol Visitor: class {
 
   /// Called for each non-repeated scalar field (i.e., not messages or groups).
@@ -46,11 +42,6 @@ public protocol Visitor: class {
   /// Called for each repeated, packed scalar field (i.e., not messages or
   /// groups). The method is called once with the complete array of values for
   /// the field.
-  ///
-  /// A default implementation is provided that simply forwards to
-  /// `visitRepeatedField`. Implementors who need to handle packed fields
-  /// differently than unpacked fields can override this and provide distinct
-  /// implementations.
   func visitPackedField<S: FieldType>(fieldType: S.Type,
                                       value: [S.BaseType],
                                       fieldNumber: Int) throws
@@ -64,19 +55,9 @@ public protocol Visitor: class {
                                              fieldNumber: Int) throws
 
   /// Called for each non-repeated proto2 group field.
-  ///
-  /// A default implementation is provided that simply forwards to
-  /// `visitSingularMessageField`. Implementors who need to handle groups
-  /// differently than nested messages can override this and provide distinct
-  /// implementations.
   func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws
 
   /// Called for each repeated proto2 group field.
-  ///
-  /// A default implementation is provided that simply forwards to
-  /// `visitRepeatedMessageField`. Implementors who need to handle groups
-  /// differently than nested messages can override this and provide distinct
-  /// implementations.
   func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws
 
   /// Called for each map field. The method is called once with the complete
@@ -90,9 +71,11 @@ public protocol Visitor: class {
   func visitUnknown(bytes: Data)
 }
 
-/// Forwarding default implementations of some visitor methods, for convenience.
 extension Visitor {
 
+  /// Forwards to `visitRepeatedField`. Implementors who need to handle 
+  /// packed fields differently than unpacked fields can override this and
+  /// provide distinct implementations.
   public func visitPackedField<S: FieldType>(fieldType: S.Type,
                                              value: [S.BaseType],
                                              fieldNumber: Int) throws {
@@ -101,11 +84,18 @@ extension Visitor {
                            fieldNumber: fieldNumber)
   }
 
+  /// Forwards to `visitSingularMessageField`. Implementors who need to handle
+  /// groups differently than nested messages can override this and provide
+  /// distinct implementations.
   public func visitSingularGroupField<G: Message>(value: G,
                                                   fieldNumber: Int) throws {
     try visitSingularMessageField(value: value, fieldNumber: fieldNumber)
   }
 
+  /// Forwards to `visitRepeatedMessageField`. Implementors who need to handle
+  /// groups differently than nested messages can override this and provide
+  /// distinct
+  /// implementations.
   public func visitRepeatedGroupField<G: Message>(value: [G],
                                                   fieldNumber: Int) throws {
     try visitRepeatedMessageField(value: value, fieldNumber: fieldNumber)
