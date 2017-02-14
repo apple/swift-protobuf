@@ -286,12 +286,12 @@ private func normalizeForTimestamp(seconds: Int64, nanos: Int32) -> (seconds: In
     // The Timestamp spec says that nanos must be in the range [0, 999999999), as in actual
     // modular arithmetic. Integer % and / do not reflect this, so mod() and div() are defined
     // for this purpose. Factored out, they make normalization very straightforward.
-    func mod<T : SignedInteger>(_ a: T, _ b: T) -> T {
-        let b = abs(b)
+    func mod(_ a: Int32, _ b: Int32) -> Int32 {
+        assert(b > 0)
         return a % b >= 0 ? a % b : a % b + b
     }
-    func div<T : SignedInteger>(_ a: T, _ b: T) -> T {
-        let b = abs(b)
+    func div(_ a: Int32, _ b: Int32) -> Int32 {
+        assert(b > 0)
         return a >= 0 ? a / b : (a + 1) / b - 1
     }
 
