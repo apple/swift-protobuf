@@ -106,10 +106,10 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
     get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
   }
-  public var hasMessage: Bool {
+  var hasMessage: Bool {
     return _storage._message != nil
   }
-  public mutating func clearMessage() {
+  mutating func clearMessage() {
     return _storage._message = nil
   }
 

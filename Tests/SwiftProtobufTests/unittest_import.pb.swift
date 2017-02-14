@@ -192,10 +192,10 @@ struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobu
     get {return _d ?? 0}
     set {_d = newValue}
   }
-  public var hasD: Bool {
+  var hasD: Bool {
     return _d != nil
   }
-  public mutating func clearD() {
+  mutating func clearD() {
     return _d = nil
   }
 

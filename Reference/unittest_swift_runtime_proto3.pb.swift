@@ -885,10 +885,10 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     get {return _storage._optionalMessage ?? ProtobufUnittest_Message3()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
-  public var hasOptionalMessage: Bool {
+  var hasOptionalMessage: Bool {
     return _storage._optionalMessage != nil
   }
-  public mutating func clearOptionalMessage() {
+  mutating func clearOptionalMessage() {
     return _storage._optionalMessage = nil
   }
 

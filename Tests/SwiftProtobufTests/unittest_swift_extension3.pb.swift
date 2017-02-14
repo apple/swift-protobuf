@@ -58,10 +58,10 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
       get {return _c ?? 0}
       set {_c = newValue}
     }
-    public var hasC: Bool {
+    var hasC: Bool {
       return _c != nil
     }
-    public mutating func clearC() {
+    mutating func clearC() {
       return _c = nil
     }
 
@@ -132,10 +132,10 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  public var hasC: Bool {
+  var hasC: Bool {
     return _c != nil
   }
-  public mutating func clearC() {
+  mutating func clearC() {
     return _c = nil
   }
 

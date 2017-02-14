@@ -211,10 +211,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._anyField ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyField = newValue}
   }
-  public var hasAnyField: Bool {
+  var hasAnyField: Bool {
     return _storage._anyField != nil
   }
-  public mutating func clearAnyField() {
+  mutating func clearAnyField() {
     return _storage._anyField = nil
   }
 
@@ -222,10 +222,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._apiField ?? Google_Protobuf_Api()}
     set {_uniqueStorage()._apiField = newValue}
   }
-  public var hasApiField: Bool {
+  var hasApiField: Bool {
     return _storage._apiField != nil
   }
-  public mutating func clearApiField() {
+  mutating func clearApiField() {
     return _storage._apiField = nil
   }
 
@@ -233,10 +233,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._durationField ?? Google_Protobuf_Duration()}
     set {_uniqueStorage()._durationField = newValue}
   }
-  public var hasDurationField: Bool {
+  var hasDurationField: Bool {
     return _storage._durationField != nil
   }
-  public mutating func clearDurationField() {
+  mutating func clearDurationField() {
     return _storage._durationField = nil
   }
 
@@ -244,10 +244,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._emptyField ?? Google_Protobuf_Empty()}
     set {_uniqueStorage()._emptyField = newValue}
   }
-  public var hasEmptyField: Bool {
+  var hasEmptyField: Bool {
     return _storage._emptyField != nil
   }
-  public mutating func clearEmptyField() {
+  mutating func clearEmptyField() {
     return _storage._emptyField = nil
   }
 
@@ -255,10 +255,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._fieldMaskField ?? Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._fieldMaskField = newValue}
   }
-  public var hasFieldMaskField: Bool {
+  var hasFieldMaskField: Bool {
     return _storage._fieldMaskField != nil
   }
-  public mutating func clearFieldMaskField() {
+  mutating func clearFieldMaskField() {
     return _storage._fieldMaskField = nil
   }
 
@@ -266,10 +266,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._sourceContextField ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContextField = newValue}
   }
-  public var hasSourceContextField: Bool {
+  var hasSourceContextField: Bool {
     return _storage._sourceContextField != nil
   }
-  public mutating func clearSourceContextField() {
+  mutating func clearSourceContextField() {
     return _storage._sourceContextField = nil
   }
 
@@ -277,10 +277,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._structField ?? Google_Protobuf_Struct()}
     set {_uniqueStorage()._structField = newValue}
   }
-  public var hasStructField: Bool {
+  var hasStructField: Bool {
     return _storage._structField != nil
   }
-  public mutating func clearStructField() {
+  mutating func clearStructField() {
     return _storage._structField = nil
   }
 
@@ -288,10 +288,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._timestampField ?? Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._timestampField = newValue}
   }
-  public var hasTimestampField: Bool {
+  var hasTimestampField: Bool {
     return _storage._timestampField != nil
   }
-  public mutating func clearTimestampField() {
+  mutating func clearTimestampField() {
     return _storage._timestampField = nil
   }
 
@@ -299,10 +299,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._typeField ?? Google_Protobuf_Type()}
     set {_uniqueStorage()._typeField = newValue}
   }
-  public var hasTypeField: Bool {
+  var hasTypeField: Bool {
     return _storage._typeField != nil
   }
-  public mutating func clearTypeField() {
+  mutating func clearTypeField() {
     return _storage._typeField = nil
   }
 
@@ -310,10 +310,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._doubleField ?? Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._doubleField = newValue}
   }
-  public var hasDoubleField: Bool {
+  var hasDoubleField: Bool {
     return _storage._doubleField != nil
   }
-  public mutating func clearDoubleField() {
+  mutating func clearDoubleField() {
     return _storage._doubleField = nil
   }
 
@@ -321,10 +321,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._floatField ?? Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._floatField = newValue}
   }
-  public var hasFloatField: Bool {
+  var hasFloatField: Bool {
     return _storage._floatField != nil
   }
-  public mutating func clearFloatField() {
+  mutating func clearFloatField() {
     return _storage._floatField = nil
   }
 
@@ -332,10 +332,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._int64Field ?? Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._int64Field = newValue}
   }
-  public var hasInt64Field: Bool {
+  var hasInt64Field: Bool {
     return _storage._int64Field != nil
   }
-  public mutating func clearInt64Field() {
+  mutating func clearInt64Field() {
     return _storage._int64Field = nil
   }
 
@@ -343,10 +343,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._uint64Field ?? Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._uint64Field = newValue}
   }
-  public var hasUint64Field: Bool {
+  var hasUint64Field: Bool {
     return _storage._uint64Field != nil
   }
-  public mutating func clearUint64Field() {
+  mutating func clearUint64Field() {
     return _storage._uint64Field = nil
   }
 
@@ -354,10 +354,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._int32Field ?? Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._int32Field = newValue}
   }
-  public var hasInt32Field: Bool {
+  var hasInt32Field: Bool {
     return _storage._int32Field != nil
   }
-  public mutating func clearInt32Field() {
+  mutating func clearInt32Field() {
     return _storage._int32Field = nil
   }
 
@@ -365,10 +365,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._uint32Field ?? Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._uint32Field = newValue}
   }
-  public var hasUint32Field: Bool {
+  var hasUint32Field: Bool {
     return _storage._uint32Field != nil
   }
-  public mutating func clearUint32Field() {
+  mutating func clearUint32Field() {
     return _storage._uint32Field = nil
   }
 
@@ -376,10 +376,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._boolField ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._boolField = newValue}
   }
-  public var hasBoolField: Bool {
+  var hasBoolField: Bool {
     return _storage._boolField != nil
   }
-  public mutating func clearBoolField() {
+  mutating func clearBoolField() {
     return _storage._boolField = nil
   }
 
@@ -387,10 +387,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._stringField ?? Google_Protobuf_StringValue()}
     set {_uniqueStorage()._stringField = newValue}
   }
-  public var hasStringField: Bool {
+  var hasStringField: Bool {
     return _storage._stringField != nil
   }
-  public mutating func clearStringField() {
+  mutating func clearStringField() {
     return _storage._stringField = nil
   }
 
@@ -398,10 +398,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._bytesField ?? Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._bytesField = newValue}
   }
-  public var hasBytesField: Bool {
+  var hasBytesField: Bool {
     return _storage._bytesField != nil
   }
-  public mutating func clearBytesField() {
+  mutating func clearBytesField() {
     return _storage._bytesField = nil
   }
 
@@ -410,10 +410,10 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._valueField ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._valueField = newValue}
   }
-  public var hasValueField: Bool {
+  var hasValueField: Bool {
     return _storage._valueField != nil
   }
-  public mutating func clearValueField() {
+  mutating func clearValueField() {
     return _storage._valueField = nil
   }
 

@@ -109,10 +109,10 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
   }
-  public var hasMessageSet: Bool {
+  var hasMessageSet: Bool {
     return _storage._messageSet != nil
   }
-  public mutating func clearMessageSet() {
+  mutating func clearMessageSet() {
     return _storage._messageSet = nil
   }
 
@@ -161,10 +161,10 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
     get {return _i ?? 0}
     set {_i = newValue}
   }
-  public var hasI: Bool {
+  var hasI: Bool {
     return _i != nil
   }
-  public mutating func clearI() {
+  mutating func clearI() {
     return _i = nil
   }
 
@@ -214,10 +214,10 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
     get {return _str ?? ""}
     set {_str = newValue}
   }
-  public var hasStr: Bool {
+  var hasStr: Bool {
     return _str != nil
   }
-  public mutating func clearStr() {
+  mutating func clearStr() {
     return _str = nil
   }
 
@@ -280,10 +280,10 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
       get {return _typeId ?? 0}
       set {_typeId = newValue}
     }
-    public var hasTypeId: Bool {
+    var hasTypeId: Bool {
       return _typeId != nil
     }
-    public mutating func clearTypeId() {
+    mutating func clearTypeId() {
       return _typeId = nil
     }
 
@@ -292,10 +292,10 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
       get {return _message ?? Data()}
       set {_message = newValue}
     }
-    public var hasMessage: Bool {
+    var hasMessage: Bool {
       return _message != nil
     }
-    public mutating func clearMessage() {
+    mutating func clearMessage() {
       return _message = nil
     }
 

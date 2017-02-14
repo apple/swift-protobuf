@@ -639,10 +639,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       get {return _bb ?? 0}
       set {_bb = newValue}
     }
-    public var hasBb: Bool {
+    var hasBb: Bool {
       return _bb != nil
     }
-    public mutating func clearBb() {
+    mutating func clearBb() {
       return _bb = nil
     }
 
@@ -683,10 +683,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    public var hasA: Bool {
+    var hasA: Bool {
       return _a != nil
     }
-    public mutating func clearA() {
+    mutating func clearA() {
       return _a = nil
     }
 
@@ -718,10 +718,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredInt32 ?? 0}
     set {_uniqueStorage()._requiredInt32 = newValue}
   }
-  public var hasRequiredInt32: Bool {
+  var hasRequiredInt32: Bool {
     return _storage._requiredInt32 != nil
   }
-  public mutating func clearRequiredInt32() {
+  mutating func clearRequiredInt32() {
     return _storage._requiredInt32 = nil
   }
 
@@ -729,10 +729,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredInt64 ?? 0}
     set {_uniqueStorage()._requiredInt64 = newValue}
   }
-  public var hasRequiredInt64: Bool {
+  var hasRequiredInt64: Bool {
     return _storage._requiredInt64 != nil
   }
-  public mutating func clearRequiredInt64() {
+  mutating func clearRequiredInt64() {
     return _storage._requiredInt64 = nil
   }
 
@@ -740,10 +740,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredUint32 ?? 0}
     set {_uniqueStorage()._requiredUint32 = newValue}
   }
-  public var hasRequiredUint32: Bool {
+  var hasRequiredUint32: Bool {
     return _storage._requiredUint32 != nil
   }
-  public mutating func clearRequiredUint32() {
+  mutating func clearRequiredUint32() {
     return _storage._requiredUint32 = nil
   }
 
@@ -751,10 +751,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredUint64 ?? 0}
     set {_uniqueStorage()._requiredUint64 = newValue}
   }
-  public var hasRequiredUint64: Bool {
+  var hasRequiredUint64: Bool {
     return _storage._requiredUint64 != nil
   }
-  public mutating func clearRequiredUint64() {
+  mutating func clearRequiredUint64() {
     return _storage._requiredUint64 = nil
   }
 
@@ -762,10 +762,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredSint32 ?? 0}
     set {_uniqueStorage()._requiredSint32 = newValue}
   }
-  public var hasRequiredSint32: Bool {
+  var hasRequiredSint32: Bool {
     return _storage._requiredSint32 != nil
   }
-  public mutating func clearRequiredSint32() {
+  mutating func clearRequiredSint32() {
     return _storage._requiredSint32 = nil
   }
 
@@ -773,10 +773,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredSint64 ?? 0}
     set {_uniqueStorage()._requiredSint64 = newValue}
   }
-  public var hasRequiredSint64: Bool {
+  var hasRequiredSint64: Bool {
     return _storage._requiredSint64 != nil
   }
-  public mutating func clearRequiredSint64() {
+  mutating func clearRequiredSint64() {
     return _storage._requiredSint64 = nil
   }
 
@@ -784,10 +784,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredFixed32 ?? 0}
     set {_uniqueStorage()._requiredFixed32 = newValue}
   }
-  public var hasRequiredFixed32: Bool {
+  var hasRequiredFixed32: Bool {
     return _storage._requiredFixed32 != nil
   }
-  public mutating func clearRequiredFixed32() {
+  mutating func clearRequiredFixed32() {
     return _storage._requiredFixed32 = nil
   }
 
@@ -795,10 +795,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredFixed64 ?? 0}
     set {_uniqueStorage()._requiredFixed64 = newValue}
   }
-  public var hasRequiredFixed64: Bool {
+  var hasRequiredFixed64: Bool {
     return _storage._requiredFixed64 != nil
   }
-  public mutating func clearRequiredFixed64() {
+  mutating func clearRequiredFixed64() {
     return _storage._requiredFixed64 = nil
   }
 
@@ -806,10 +806,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredSfixed32 ?? 0}
     set {_uniqueStorage()._requiredSfixed32 = newValue}
   }
-  public var hasRequiredSfixed32: Bool {
+  var hasRequiredSfixed32: Bool {
     return _storage._requiredSfixed32 != nil
   }
-  public mutating func clearRequiredSfixed32() {
+  mutating func clearRequiredSfixed32() {
     return _storage._requiredSfixed32 = nil
   }
 
@@ -817,10 +817,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredSfixed64 ?? 0}
     set {_uniqueStorage()._requiredSfixed64 = newValue}
   }
-  public var hasRequiredSfixed64: Bool {
+  var hasRequiredSfixed64: Bool {
     return _storage._requiredSfixed64 != nil
   }
-  public mutating func clearRequiredSfixed64() {
+  mutating func clearRequiredSfixed64() {
     return _storage._requiredSfixed64 = nil
   }
 
@@ -828,10 +828,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredFloat ?? 0}
     set {_uniqueStorage()._requiredFloat = newValue}
   }
-  public var hasRequiredFloat: Bool {
+  var hasRequiredFloat: Bool {
     return _storage._requiredFloat != nil
   }
-  public mutating func clearRequiredFloat() {
+  mutating func clearRequiredFloat() {
     return _storage._requiredFloat = nil
   }
 
@@ -839,10 +839,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredDouble ?? 0}
     set {_uniqueStorage()._requiredDouble = newValue}
   }
-  public var hasRequiredDouble: Bool {
+  var hasRequiredDouble: Bool {
     return _storage._requiredDouble != nil
   }
-  public mutating func clearRequiredDouble() {
+  mutating func clearRequiredDouble() {
     return _storage._requiredDouble = nil
   }
 
@@ -850,10 +850,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredBool ?? false}
     set {_uniqueStorage()._requiredBool = newValue}
   }
-  public var hasRequiredBool: Bool {
+  var hasRequiredBool: Bool {
     return _storage._requiredBool != nil
   }
-  public mutating func clearRequiredBool() {
+  mutating func clearRequiredBool() {
     return _storage._requiredBool = nil
   }
 
@@ -861,10 +861,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredString ?? ""}
     set {_uniqueStorage()._requiredString = newValue}
   }
-  public var hasRequiredString: Bool {
+  var hasRequiredString: Bool {
     return _storage._requiredString != nil
   }
-  public mutating func clearRequiredString() {
+  mutating func clearRequiredString() {
     return _storage._requiredString = nil
   }
 
@@ -872,10 +872,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredBytes ?? Data()}
     set {_uniqueStorage()._requiredBytes = newValue}
   }
-  public var hasRequiredBytes: Bool {
+  var hasRequiredBytes: Bool {
     return _storage._requiredBytes != nil
   }
-  public mutating func clearRequiredBytes() {
+  mutating func clearRequiredBytes() {
     return _storage._requiredBytes = nil
   }
 
@@ -883,10 +883,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredGroup ?? ProtobufUnittest_TestAllRequiredTypes.RequiredGroup()}
     set {_uniqueStorage()._requiredGroup = newValue}
   }
-  public var hasRequiredGroup: Bool {
+  var hasRequiredGroup: Bool {
     return _storage._requiredGroup != nil
   }
-  public mutating func clearRequiredGroup() {
+  mutating func clearRequiredGroup() {
     return _storage._requiredGroup = nil
   }
 
@@ -894,10 +894,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredNestedMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredNestedMessage = newValue}
   }
-  public var hasRequiredNestedMessage: Bool {
+  var hasRequiredNestedMessage: Bool {
     return _storage._requiredNestedMessage != nil
   }
-  public mutating func clearRequiredNestedMessage() {
+  mutating func clearRequiredNestedMessage() {
     return _storage._requiredNestedMessage = nil
   }
 
@@ -905,10 +905,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredForeignMessage ?? ProtobufUnittest_ForeignMessage()}
     set {_uniqueStorage()._requiredForeignMessage = newValue}
   }
-  public var hasRequiredForeignMessage: Bool {
+  var hasRequiredForeignMessage: Bool {
     return _storage._requiredForeignMessage != nil
   }
-  public mutating func clearRequiredForeignMessage() {
+  mutating func clearRequiredForeignMessage() {
     return _storage._requiredForeignMessage = nil
   }
 
@@ -916,10 +916,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._requiredImportMessage = newValue}
   }
-  public var hasRequiredImportMessage: Bool {
+  var hasRequiredImportMessage: Bool {
     return _storage._requiredImportMessage != nil
   }
-  public mutating func clearRequiredImportMessage() {
+  mutating func clearRequiredImportMessage() {
     return _storage._requiredImportMessage = nil
   }
 
@@ -927,10 +927,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo}
     set {_uniqueStorage()._requiredNestedEnum = newValue}
   }
-  public var hasRequiredNestedEnum: Bool {
+  var hasRequiredNestedEnum: Bool {
     return _storage._requiredNestedEnum != nil
   }
-  public mutating func clearRequiredNestedEnum() {
+  mutating func clearRequiredNestedEnum() {
     return _storage._requiredNestedEnum = nil
   }
 
@@ -938,10 +938,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo}
     set {_uniqueStorage()._requiredForeignEnum = newValue}
   }
-  public var hasRequiredForeignEnum: Bool {
+  var hasRequiredForeignEnum: Bool {
     return _storage._requiredForeignEnum != nil
   }
-  public mutating func clearRequiredForeignEnum() {
+  mutating func clearRequiredForeignEnum() {
     return _storage._requiredForeignEnum = nil
   }
 
@@ -949,10 +949,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo}
     set {_uniqueStorage()._requiredImportEnum = newValue}
   }
-  public var hasRequiredImportEnum: Bool {
+  var hasRequiredImportEnum: Bool {
     return _storage._requiredImportEnum != nil
   }
-  public mutating func clearRequiredImportEnum() {
+  mutating func clearRequiredImportEnum() {
     return _storage._requiredImportEnum = nil
   }
 
@@ -960,10 +960,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredStringPiece ?? ""}
     set {_uniqueStorage()._requiredStringPiece = newValue}
   }
-  public var hasRequiredStringPiece: Bool {
+  var hasRequiredStringPiece: Bool {
     return _storage._requiredStringPiece != nil
   }
-  public mutating func clearRequiredStringPiece() {
+  mutating func clearRequiredStringPiece() {
     return _storage._requiredStringPiece = nil
   }
 
@@ -971,10 +971,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredCord ?? ""}
     set {_uniqueStorage()._requiredCord = newValue}
   }
-  public var hasRequiredCord: Bool {
+  var hasRequiredCord: Bool {
     return _storage._requiredCord != nil
   }
-  public mutating func clearRequiredCord() {
+  mutating func clearRequiredCord() {
     return _storage._requiredCord = nil
   }
 
@@ -983,10 +983,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._requiredPublicImportMessage = newValue}
   }
-  public var hasRequiredPublicImportMessage: Bool {
+  var hasRequiredPublicImportMessage: Bool {
     return _storage._requiredPublicImportMessage != nil
   }
-  public mutating func clearRequiredPublicImportMessage() {
+  mutating func clearRequiredPublicImportMessage() {
     return _storage._requiredPublicImportMessage = nil
   }
 
@@ -994,10 +994,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._requiredLazyMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredLazyMessage = newValue}
   }
-  public var hasRequiredLazyMessage: Bool {
+  var hasRequiredLazyMessage: Bool {
     return _storage._requiredLazyMessage != nil
   }
-  public mutating func clearRequiredLazyMessage() {
+  mutating func clearRequiredLazyMessage() {
     return _storage._requiredLazyMessage = nil
   }
 
@@ -1006,10 +1006,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
   }
-  public var hasDefaultInt32: Bool {
+  var hasDefaultInt32: Bool {
     return _storage._defaultInt32 != nil
   }
-  public mutating func clearDefaultInt32() {
+  mutating func clearDefaultInt32() {
     return _storage._defaultInt32 = nil
   }
 
@@ -1017,10 +1017,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultInt64 ?? 42}
     set {_uniqueStorage()._defaultInt64 = newValue}
   }
-  public var hasDefaultInt64: Bool {
+  var hasDefaultInt64: Bool {
     return _storage._defaultInt64 != nil
   }
-  public mutating func clearDefaultInt64() {
+  mutating func clearDefaultInt64() {
     return _storage._defaultInt64 = nil
   }
 
@@ -1028,10 +1028,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultUint32 ?? 43}
     set {_uniqueStorage()._defaultUint32 = newValue}
   }
-  public var hasDefaultUint32: Bool {
+  var hasDefaultUint32: Bool {
     return _storage._defaultUint32 != nil
   }
-  public mutating func clearDefaultUint32() {
+  mutating func clearDefaultUint32() {
     return _storage._defaultUint32 = nil
   }
 
@@ -1039,10 +1039,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultUint64 ?? 44}
     set {_uniqueStorage()._defaultUint64 = newValue}
   }
-  public var hasDefaultUint64: Bool {
+  var hasDefaultUint64: Bool {
     return _storage._defaultUint64 != nil
   }
-  public mutating func clearDefaultUint64() {
+  mutating func clearDefaultUint64() {
     return _storage._defaultUint64 = nil
   }
 
@@ -1050,10 +1050,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultSint32 ?? -45}
     set {_uniqueStorage()._defaultSint32 = newValue}
   }
-  public var hasDefaultSint32: Bool {
+  var hasDefaultSint32: Bool {
     return _storage._defaultSint32 != nil
   }
-  public mutating func clearDefaultSint32() {
+  mutating func clearDefaultSint32() {
     return _storage._defaultSint32 = nil
   }
 
@@ -1061,10 +1061,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultSint64 ?? 46}
     set {_uniqueStorage()._defaultSint64 = newValue}
   }
-  public var hasDefaultSint64: Bool {
+  var hasDefaultSint64: Bool {
     return _storage._defaultSint64 != nil
   }
-  public mutating func clearDefaultSint64() {
+  mutating func clearDefaultSint64() {
     return _storage._defaultSint64 = nil
   }
 
@@ -1072,10 +1072,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultFixed32 ?? 47}
     set {_uniqueStorage()._defaultFixed32 = newValue}
   }
-  public var hasDefaultFixed32: Bool {
+  var hasDefaultFixed32: Bool {
     return _storage._defaultFixed32 != nil
   }
-  public mutating func clearDefaultFixed32() {
+  mutating func clearDefaultFixed32() {
     return _storage._defaultFixed32 = nil
   }
 
@@ -1083,10 +1083,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultFixed64 ?? 48}
     set {_uniqueStorage()._defaultFixed64 = newValue}
   }
-  public var hasDefaultFixed64: Bool {
+  var hasDefaultFixed64: Bool {
     return _storage._defaultFixed64 != nil
   }
-  public mutating func clearDefaultFixed64() {
+  mutating func clearDefaultFixed64() {
     return _storage._defaultFixed64 = nil
   }
 
@@ -1094,10 +1094,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultSfixed32 ?? 49}
     set {_uniqueStorage()._defaultSfixed32 = newValue}
   }
-  public var hasDefaultSfixed32: Bool {
+  var hasDefaultSfixed32: Bool {
     return _storage._defaultSfixed32 != nil
   }
-  public mutating func clearDefaultSfixed32() {
+  mutating func clearDefaultSfixed32() {
     return _storage._defaultSfixed32 = nil
   }
 
@@ -1105,10 +1105,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultSfixed64 ?? -50}
     set {_uniqueStorage()._defaultSfixed64 = newValue}
   }
-  public var hasDefaultSfixed64: Bool {
+  var hasDefaultSfixed64: Bool {
     return _storage._defaultSfixed64 != nil
   }
-  public mutating func clearDefaultSfixed64() {
+  mutating func clearDefaultSfixed64() {
     return _storage._defaultSfixed64 = nil
   }
 
@@ -1116,10 +1116,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultFloat ?? 51.5}
     set {_uniqueStorage()._defaultFloat = newValue}
   }
-  public var hasDefaultFloat: Bool {
+  var hasDefaultFloat: Bool {
     return _storage._defaultFloat != nil
   }
-  public mutating func clearDefaultFloat() {
+  mutating func clearDefaultFloat() {
     return _storage._defaultFloat = nil
   }
 
@@ -1127,10 +1127,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultDouble ?? 52000}
     set {_uniqueStorage()._defaultDouble = newValue}
   }
-  public var hasDefaultDouble: Bool {
+  var hasDefaultDouble: Bool {
     return _storage._defaultDouble != nil
   }
-  public mutating func clearDefaultDouble() {
+  mutating func clearDefaultDouble() {
     return _storage._defaultDouble = nil
   }
 
@@ -1138,10 +1138,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultBool ?? true}
     set {_uniqueStorage()._defaultBool = newValue}
   }
-  public var hasDefaultBool: Bool {
+  var hasDefaultBool: Bool {
     return _storage._defaultBool != nil
   }
-  public mutating func clearDefaultBool() {
+  mutating func clearDefaultBool() {
     return _storage._defaultBool = nil
   }
 
@@ -1149,10 +1149,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultString ?? "hello"}
     set {_uniqueStorage()._defaultString = newValue}
   }
-  public var hasDefaultString: Bool {
+  var hasDefaultString: Bool {
     return _storage._defaultString != nil
   }
-  public mutating func clearDefaultString() {
+  mutating func clearDefaultString() {
     return _storage._defaultString = nil
   }
 
@@ -1160,10 +1160,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
-  public var hasDefaultBytes: Bool {
+  var hasDefaultBytes: Bool {
     return _storage._defaultBytes != nil
   }
-  public mutating func clearDefaultBytes() {
+  mutating func clearDefaultBytes() {
     return _storage._defaultBytes = nil
   }
 
@@ -1171,10 +1171,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
-  public var hasDefaultNestedEnum: Bool {
+  var hasDefaultNestedEnum: Bool {
     return _storage._defaultNestedEnum != nil
   }
-  public mutating func clearDefaultNestedEnum() {
+  mutating func clearDefaultNestedEnum() {
     return _storage._defaultNestedEnum = nil
   }
 
@@ -1182,10 +1182,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
-  public var hasDefaultForeignEnum: Bool {
+  var hasDefaultForeignEnum: Bool {
     return _storage._defaultForeignEnum != nil
   }
-  public mutating func clearDefaultForeignEnum() {
+  mutating func clearDefaultForeignEnum() {
     return _storage._defaultForeignEnum = nil
   }
 
@@ -1193,10 +1193,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
-  public var hasDefaultImportEnum: Bool {
+  var hasDefaultImportEnum: Bool {
     return _storage._defaultImportEnum != nil
   }
-  public mutating func clearDefaultImportEnum() {
+  mutating func clearDefaultImportEnum() {
     return _storage._defaultImportEnum = nil
   }
 
@@ -1204,10 +1204,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultStringPiece ?? "abc"}
     set {_uniqueStorage()._defaultStringPiece = newValue}
   }
-  public var hasDefaultStringPiece: Bool {
+  var hasDefaultStringPiece: Bool {
     return _storage._defaultStringPiece != nil
   }
-  public mutating func clearDefaultStringPiece() {
+  mutating func clearDefaultStringPiece() {
     return _storage._defaultStringPiece = nil
   }
 
@@ -1215,10 +1215,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._defaultCord ?? "123"}
     set {_uniqueStorage()._defaultCord = newValue}
   }
-  public var hasDefaultCord: Bool {
+  var hasDefaultCord: Bool {
     return _storage._defaultCord != nil
   }
-  public mutating func clearDefaultCord() {
+  mutating func clearDefaultCord() {
     return _storage._defaultCord = nil
   }
 
@@ -1368,10 +1368,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     get {return _requiredInt32 ?? 0}
     set {_requiredInt32 = newValue}
   }
-  public var hasRequiredInt32: Bool {
+  var hasRequiredInt32: Bool {
     return _requiredInt32 != nil
   }
-  public mutating func clearRequiredInt32() {
+  mutating func clearRequiredInt32() {
     return _requiredInt32 = nil
   }
 
@@ -1380,10 +1380,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     get {return _requiredFloat ?? 0}
     set {_requiredFloat = newValue}
   }
-  public var hasRequiredFloat: Bool {
+  var hasRequiredFloat: Bool {
     return _requiredFloat != nil
   }
-  public mutating func clearRequiredFloat() {
+  mutating func clearRequiredFloat() {
     return _requiredFloat = nil
   }
 
@@ -1392,10 +1392,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     get {return _requiredBool ?? false}
     set {_requiredBool = newValue}
   }
-  public var hasRequiredBool: Bool {
+  var hasRequiredBool: Bool {
     return _requiredBool != nil
   }
-  public mutating func clearRequiredBool() {
+  mutating func clearRequiredBool() {
     return _requiredBool = nil
   }
 
@@ -1404,10 +1404,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     get {return _requiredString ?? ""}
     set {_requiredString = newValue}
   }
-  public var hasRequiredString: Bool {
+  var hasRequiredString: Bool {
     return _requiredString != nil
   }
-  public mutating func clearRequiredString() {
+  mutating func clearRequiredString() {
     return _requiredString = nil
   }
 
@@ -1416,10 +1416,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     get {return _requiredBytes ?? Data()}
     set {_requiredBytes = newValue}
   }
-  public var hasRequiredBytes: Bool {
+  var hasRequiredBytes: Bool {
     return _requiredBytes != nil
   }
-  public mutating func clearRequiredBytes() {
+  mutating func clearRequiredBytes() {
     return _requiredBytes = nil
   }
 
@@ -1428,10 +1428,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     get {return _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo}
     set {_requiredNestedEnum = newValue}
   }
-  public var hasRequiredNestedEnum: Bool {
+  var hasRequiredNestedEnum: Bool {
     return _requiredNestedEnum != nil
   }
-  public mutating func clearRequiredNestedEnum() {
+  mutating func clearRequiredNestedEnum() {
     return _requiredNestedEnum = nil
   }
 

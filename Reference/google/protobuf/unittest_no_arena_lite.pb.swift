@@ -63,10 +63,10 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftP
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  public var hasC: Bool {
+  var hasC: Bool {
     return _c != nil
   }
-  public mutating func clearC() {
+  mutating func clearC() {
     return _c = nil
   }
 

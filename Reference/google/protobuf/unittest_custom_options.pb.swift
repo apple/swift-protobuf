@@ -279,10 +279,10 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
     get {return _field1 ?? ""}
     set {_field1 = newValue}
   }
-  public var hasField1: Bool {
+  var hasField1: Bool {
     return _field1 != nil
   }
-  public mutating func clearField1() {
+  mutating func clearField1() {
     return _field1 = nil
   }
 
@@ -647,10 +647,10 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     get {return _foo ?? 0}
     set {_foo = newValue}
   }
-  public var hasFoo: Bool {
+  var hasFoo: Bool {
     return _foo != nil
   }
-  public mutating func clearFoo() {
+  mutating func clearFoo() {
     return _foo = nil
   }
 
@@ -659,10 +659,10 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     get {return _foo2 ?? 0}
     set {_foo2 = newValue}
   }
-  public var hasFoo2: Bool {
+  var hasFoo2: Bool {
     return _foo2 != nil
   }
-  public mutating func clearFoo2() {
+  mutating func clearFoo2() {
     return _foo2 = nil
   }
 
@@ -671,10 +671,10 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     get {return _foo3 ?? 0}
     set {_foo3 = newValue}
   }
-  public var hasFoo3: Bool {
+  var hasFoo3: Bool {
     return _foo3 != nil
   }
-  public mutating func clearFoo3() {
+  mutating func clearFoo3() {
     return _foo3 = nil
   }
 
@@ -848,10 +848,10 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       get {return _waldo ?? 0}
       set {_waldo = newValue}
     }
-    public var hasWaldo: Bool {
+    var hasWaldo: Bool {
       return _waldo != nil
     }
-    public mutating func clearWaldo() {
+    mutating func clearWaldo() {
       return _waldo = nil
     }
 
@@ -882,10 +882,10 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._bar ?? ProtobufUnittest_ComplexOptionType1()}
     set {_uniqueStorage()._bar = newValue}
   }
-  public var hasBar: Bool {
+  var hasBar: Bool {
     return _storage._bar != nil
   }
-  public mutating func clearBar() {
+  mutating func clearBar() {
     return _storage._bar = nil
   }
 
@@ -893,10 +893,10 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._baz ?? 0}
     set {_uniqueStorage()._baz = newValue}
   }
-  public var hasBaz: Bool {
+  var hasBaz: Bool {
     return _storage._baz != nil
   }
-  public mutating func clearBaz() {
+  mutating func clearBaz() {
     return _storage._baz = nil
   }
 
@@ -904,10 +904,10 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._fred ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}
     set {_uniqueStorage()._fred = newValue}
   }
-  public var hasFred: Bool {
+  var hasFred: Bool {
     return _storage._fred != nil
   }
-  public mutating func clearFred() {
+  mutating func clearFred() {
     return _storage._fred = nil
   }
 
@@ -1028,10 +1028,10 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
       get {return _plugh ?? 0}
       set {_plugh = newValue}
     }
-    public var hasPlugh: Bool {
+    var hasPlugh: Bool {
       return _plugh != nil
     }
-    public mutating func clearPlugh() {
+    mutating func clearPlugh() {
       return _plugh = nil
     }
 
@@ -1062,10 +1062,10 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._qux ?? 0}
     set {_uniqueStorage()._qux = newValue}
   }
-  public var hasQux: Bool {
+  var hasQux: Bool {
     return _storage._qux != nil
   }
-  public mutating func clearQux() {
+  mutating func clearQux() {
     return _storage._qux = nil
   }
 
@@ -1073,10 +1073,10 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._complexOptionType5 ?? ProtobufUnittest_ComplexOptionType3.ComplexOptionType5()}
     set {_uniqueStorage()._complexOptionType5 = newValue}
   }
-  public var hasComplexOptionType5: Bool {
+  var hasComplexOptionType5: Bool {
     return _storage._complexOptionType5 != nil
   }
-  public mutating func clearComplexOptionType5() {
+  mutating func clearComplexOptionType5() {
     return _storage._complexOptionType5 = nil
   }
 
@@ -1116,10 +1116,10 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     get {return _xyzzy ?? 0}
     set {_xyzzy = newValue}
   }
-  public var hasXyzzy: Bool {
+  var hasXyzzy: Bool {
     return _xyzzy != nil
   }
-  public mutating func clearXyzzy() {
+  mutating func clearXyzzy() {
     return _xyzzy = nil
   }
 
@@ -1247,10 +1247,10 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, Swift
     get {return _s ?? ""}
     set {_s = newValue}
   }
-  public var hasS: Bool {
+  var hasS: Bool {
     return _s != nil
   }
-  public mutating func clearS() {
+  mutating func clearS() {
     return _s = nil
   }
 
@@ -1372,10 +1372,10 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
   }
-  public var hasI: Bool {
+  var hasI: Bool {
     return _storage._i != nil
   }
-  public mutating func clearI() {
+  mutating func clearI() {
     return _storage._i = nil
   }
 
@@ -1383,10 +1383,10 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     get {return _storage._s ?? ""}
     set {_uniqueStorage()._s = newValue}
   }
-  public var hasS: Bool {
+  var hasS: Bool {
     return _storage._s != nil
   }
-  public mutating func clearS() {
+  mutating func clearS() {
     return _storage._s = nil
   }
 
@@ -1395,10 +1395,10 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     get {return _storage._sub ?? ProtobufUnittest_Aggregate()}
     set {_uniqueStorage()._sub = newValue}
   }
-  public var hasSub: Bool {
+  var hasSub: Bool {
     return _storage._sub != nil
   }
-  public mutating func clearSub() {
+  mutating func clearSub() {
     return _storage._sub = nil
   }
 
@@ -1407,10 +1407,10 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     get {return _storage._file ?? Google_Protobuf_FileOptions()}
     set {_uniqueStorage()._file = newValue}
   }
-  public var hasFile: Bool {
+  var hasFile: Bool {
     return _storage._file != nil
   }
-  public mutating func clearFile() {
+  mutating func clearFile() {
     return _storage._file = nil
   }
 
@@ -1419,10 +1419,10 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     get {return _storage._mset ?? ProtobufUnittest_AggregateMessageSet()}
     set {_uniqueStorage()._mset = newValue}
   }
-  public var hasMset: Bool {
+  var hasMset: Bool {
     return _storage._mset != nil
   }
-  public mutating func clearMset() {
+  mutating func clearMset() {
     return _storage._mset = nil
   }
 
@@ -1462,10 +1462,10 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message, SwiftProtobuf.P
     get {return _fieldname ?? 0}
     set {_fieldname = newValue}
   }
-  public var hasFieldname: Bool {
+  var hasFieldname: Bool {
     return _fieldname != nil
   }
-  public mutating func clearFieldname() {
+  mutating func clearFieldname() {
     return _fieldname = nil
   }
 
@@ -1563,10 +1563,10 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _nestedField ?? 0}
       set {_nestedField = newValue}
     }
-    public var hasNestedField: Bool {
+    var hasNestedField: Bool {
       return _nestedField != nil
     }
-    public mutating func clearNestedField() {
+    mutating func clearNestedField() {
       return _nestedField = nil
     }
 
@@ -1682,10 +1682,10 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _value ?? ProtobufUnittest_OldOptionType.TestEnum.oldValue}
     set {_value = newValue}
   }
-  public var hasValue: Bool {
+  var hasValue: Bool {
     return _value != nil
   }
-  public mutating func clearValue() {
+  mutating func clearValue() {
     return _value = nil
   }
 
@@ -1782,10 +1782,10 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _value ?? ProtobufUnittest_NewOptionType.TestEnum.oldValue}
     set {_value = newValue}
   }
-  public var hasValue: Bool {
+  var hasValue: Bool {
     return _value != nil
   }
-  public mutating func clearValue() {
+  mutating func clearValue() {
     return _value = nil
   }
 

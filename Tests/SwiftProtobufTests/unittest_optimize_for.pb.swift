@@ -204,10 +204,10 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
   }
-  public var hasI: Bool {
+  var hasI: Bool {
     return _storage._i != nil
   }
-  public mutating func clearI() {
+  mutating func clearI() {
     return _storage._i = nil
   }
 
@@ -215,10 +215,10 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._msg ?? ProtobufUnittest_ForeignMessage()}
     set {_uniqueStorage()._msg = newValue}
   }
-  public var hasMsg: Bool {
+  var hasMsg: Bool {
     return _storage._msg != nil
   }
-  public mutating func clearMsg() {
+  mutating func clearMsg() {
     return _storage._msg = nil
   }
 
@@ -308,10 +308,10 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
     get {return _x ?? 0}
     set {_x = newValue}
   }
-  public var hasX: Bool {
+  var hasX: Bool {
     return _x != nil
   }
-  public mutating func clearX() {
+  mutating func clearX() {
     return _x = nil
   }
 
@@ -391,10 +391,10 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
     get {return _storage._o ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {_uniqueStorage()._o = newValue}
   }
-  public var hasO: Bool {
+  var hasO: Bool {
     return _storage._o != nil
   }
-  public mutating func clearO() {
+  mutating func clearO() {
     return _storage._o = nil
   }
 

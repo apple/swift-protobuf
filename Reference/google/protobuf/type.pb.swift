@@ -222,10 +222,10 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
-  public var hasSourceContext: Bool {
+  var hasSourceContext: Bool {
     return _storage._sourceContext != nil
   }
-  public mutating func clearSourceContext() {
+  mutating func clearSourceContext() {
     return _storage._sourceContext = nil
   }
 
@@ -748,10 +748,10 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
-  public var hasSourceContext: Bool {
+  var hasSourceContext: Bool {
     return _storage._sourceContext != nil
   }
-  public mutating func clearSourceContext() {
+  mutating func clearSourceContext() {
     return _storage._sourceContext = nil
   }
 
@@ -902,10 +902,10 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
   }
-  public var hasValue: Bool {
+  var hasValue: Bool {
     return _storage._value != nil
   }
-  public mutating func clearValue() {
+  mutating func clearValue() {
     return _storage._value = nil
   }
 

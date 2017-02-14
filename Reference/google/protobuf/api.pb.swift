@@ -188,10 +188,10 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
-  public var hasSourceContext: Bool {
+  var hasSourceContext: Bool {
     return _storage._sourceContext != nil
   }
-  public mutating func clearSourceContext() {
+  mutating func clearSourceContext() {
     return _storage._sourceContext = nil
   }
 

@@ -236,10 +236,10 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -248,10 +248,10 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._package ?? ""}
     set {_uniqueStorage()._package = newValue}
   }
-  public var hasPackage: Bool {
+  var hasPackage: Bool {
     return _storage._package != nil
   }
-  public mutating func clearPackage() {
+  mutating func clearPackage() {
     return _storage._package = nil
   }
 
@@ -299,10 +299,10 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._options ?? Google_Protobuf_FileOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -314,10 +314,10 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._sourceCodeInfo ?? Google_Protobuf_SourceCodeInfo()}
     set {_uniqueStorage()._sourceCodeInfo = newValue}
   }
-  public var hasSourceCodeInfo: Bool {
+  var hasSourceCodeInfo: Bool {
     return _storage._sourceCodeInfo != nil
   }
-  public mutating func clearSourceCodeInfo() {
+  mutating func clearSourceCodeInfo() {
     return _storage._sourceCodeInfo = nil
   }
 
@@ -327,10 +327,10 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._syntax ?? ""}
     set {_uniqueStorage()._syntax = newValue}
   }
-  public var hasSyntax: Bool {
+  var hasSyntax: Bool {
     return _storage._syntax != nil
   }
-  public mutating func clearSyntax() {
+  mutating func clearSyntax() {
     return _storage._syntax = nil
   }
 
@@ -493,10 +493,10 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       get {return _start ?? 0}
       set {_start = newValue}
     }
-    public var hasStart: Bool {
+    var hasStart: Bool {
       return _start != nil
     }
-    public mutating func clearStart() {
+    mutating func clearStart() {
       return _start = nil
     }
 
@@ -505,10 +505,10 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       get {return _end ?? 0}
       set {_end = newValue}
     }
-    public var hasEnd: Bool {
+    var hasEnd: Bool {
       return _end != nil
     }
-    public mutating func clearEnd() {
+    mutating func clearEnd() {
       return _end = nil
     }
 
@@ -559,10 +559,10 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       get {return _start ?? 0}
       set {_start = newValue}
     }
-    public var hasStart: Bool {
+    var hasStart: Bool {
       return _start != nil
     }
-    public mutating func clearStart() {
+    mutating func clearStart() {
       return _start = nil
     }
 
@@ -572,10 +572,10 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       get {return _end ?? 0}
       set {_end = newValue}
     }
-    public var hasEnd: Bool {
+    var hasEnd: Bool {
       return _end != nil
     }
-    public mutating func clearEnd() {
+    mutating func clearEnd() {
       return _end = nil
     }
 
@@ -611,10 +611,10 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -652,10 +652,10 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
     get {return _storage._options ?? Google_Protobuf_MessageOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -1055,10 +1055,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -1066,10 +1066,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._number ?? 0}
     set {_uniqueStorage()._number = newValue}
   }
-  public var hasNumber: Bool {
+  var hasNumber: Bool {
     return _storage._number != nil
   }
-  public mutating func clearNumber() {
+  mutating func clearNumber() {
     return _storage._number = nil
   }
 
@@ -1077,10 +1077,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._label ?? Google_Protobuf_FieldDescriptorProto.Label.`optional`}
     set {_uniqueStorage()._label = newValue}
   }
-  public var hasLabel: Bool {
+  var hasLabel: Bool {
     return _storage._label != nil
   }
-  public mutating func clearLabel() {
+  mutating func clearLabel() {
     return _storage._label = nil
   }
 
@@ -1090,10 +1090,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._type ?? Google_Protobuf_FieldDescriptorProto.TypeEnum.double}
     set {_uniqueStorage()._type = newValue}
   }
-  public var hasType: Bool {
+  var hasType: Bool {
     return _storage._type != nil
   }
-  public mutating func clearType() {
+  mutating func clearType() {
     return _storage._type = nil
   }
 
@@ -1106,10 +1106,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._typeName ?? ""}
     set {_uniqueStorage()._typeName = newValue}
   }
-  public var hasTypeName: Bool {
+  var hasTypeName: Bool {
     return _storage._typeName != nil
   }
-  public mutating func clearTypeName() {
+  mutating func clearTypeName() {
     return _storage._typeName = nil
   }
 
@@ -1119,10 +1119,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._extendee ?? ""}
     set {_uniqueStorage()._extendee = newValue}
   }
-  public var hasExtendee: Bool {
+  var hasExtendee: Bool {
     return _storage._extendee != nil
   }
-  public mutating func clearExtendee() {
+  mutating func clearExtendee() {
     return _storage._extendee = nil
   }
 
@@ -1135,10 +1135,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._defaultValue ?? ""}
     set {_uniqueStorage()._defaultValue = newValue}
   }
-  public var hasDefaultValue: Bool {
+  var hasDefaultValue: Bool {
     return _storage._defaultValue != nil
   }
-  public mutating func clearDefaultValue() {
+  mutating func clearDefaultValue() {
     return _storage._defaultValue = nil
   }
 
@@ -1148,10 +1148,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._oneofIndex ?? 0}
     set {_uniqueStorage()._oneofIndex = newValue}
   }
-  public var hasOneofIndex: Bool {
+  var hasOneofIndex: Bool {
     return _storage._oneofIndex != nil
   }
-  public mutating func clearOneofIndex() {
+  mutating func clearOneofIndex() {
     return _storage._oneofIndex = nil
   }
 
@@ -1163,10 +1163,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._jsonName ?? ""}
     set {_uniqueStorage()._jsonName = newValue}
   }
-  public var hasJsonName: Bool {
+  var hasJsonName: Bool {
     return _storage._jsonName != nil
   }
-  public mutating func clearJsonName() {
+  mutating func clearJsonName() {
     return _storage._jsonName = nil
   }
 
@@ -1174,10 +1174,10 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._options ?? Google_Protobuf_FieldOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -1265,10 +1265,10 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -1276,10 +1276,10 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     get {return _storage._options ?? Google_Protobuf_OneofOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -1375,10 +1375,10 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -1391,10 +1391,10 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._options ?? Google_Protobuf_EnumOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -1490,10 +1490,10 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -1501,10 +1501,10 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
     get {return _storage._number ?? 0}
     set {_uniqueStorage()._number = newValue}
   }
-  public var hasNumber: Bool {
+  var hasNumber: Bool {
     return _storage._number != nil
   }
-  public mutating func clearNumber() {
+  mutating func clearNumber() {
     return _storage._number = nil
   }
 
@@ -1512,10 +1512,10 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
     get {return _storage._options ?? Google_Protobuf_EnumValueOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -1611,10 +1611,10 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -1627,10 +1627,10 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
     get {return _storage._options ?? Google_Protobuf_ServiceOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -1750,10 +1750,10 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
   }
-  public var hasName: Bool {
+  var hasName: Bool {
     return _storage._name != nil
   }
-  public mutating func clearName() {
+  mutating func clearName() {
     return _storage._name = nil
   }
 
@@ -1763,10 +1763,10 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._inputType ?? ""}
     set {_uniqueStorage()._inputType = newValue}
   }
-  public var hasInputType: Bool {
+  var hasInputType: Bool {
     return _storage._inputType != nil
   }
-  public mutating func clearInputType() {
+  mutating func clearInputType() {
     return _storage._inputType = nil
   }
 
@@ -1774,10 +1774,10 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._outputType ?? ""}
     set {_uniqueStorage()._outputType = newValue}
   }
-  public var hasOutputType: Bool {
+  var hasOutputType: Bool {
     return _storage._outputType != nil
   }
-  public mutating func clearOutputType() {
+  mutating func clearOutputType() {
     return _storage._outputType = nil
   }
 
@@ -1785,10 +1785,10 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._options ?? Google_Protobuf_MethodOptions()}
     set {_uniqueStorage()._options = newValue}
   }
-  public var hasOptions: Bool {
+  var hasOptions: Bool {
     return _storage._options != nil
   }
-  public mutating func clearOptions() {
+  mutating func clearOptions() {
     return _storage._options = nil
   }
 
@@ -1797,10 +1797,10 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._clientStreaming ?? false}
     set {_uniqueStorage()._clientStreaming = newValue}
   }
-  public var hasClientStreaming: Bool {
+  var hasClientStreaming: Bool {
     return _storage._clientStreaming != nil
   }
-  public mutating func clearClientStreaming() {
+  mutating func clearClientStreaming() {
     return _storage._clientStreaming = nil
   }
 
@@ -1809,10 +1809,10 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._serverStreaming ?? false}
     set {_uniqueStorage()._serverStreaming = newValue}
   }
-  public var hasServerStreaming: Bool {
+  var hasServerStreaming: Bool {
     return _storage._serverStreaming != nil
   }
-  public mutating func clearServerStreaming() {
+  mutating func clearServerStreaming() {
     return _storage._serverStreaming = nil
   }
 
@@ -1971,10 +1971,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _javaPackage ?? ""}
     set {_javaPackage = newValue}
   }
-  public var hasJavaPackage: Bool {
+  var hasJavaPackage: Bool {
     return _javaPackage != nil
   }
-  public mutating func clearJavaPackage() {
+  mutating func clearJavaPackage() {
     return _javaPackage = nil
   }
 
@@ -1988,10 +1988,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _javaOuterClassname ?? ""}
     set {_javaOuterClassname = newValue}
   }
-  public var hasJavaOuterClassname: Bool {
+  var hasJavaOuterClassname: Bool {
     return _javaOuterClassname != nil
   }
-  public mutating func clearJavaOuterClassname() {
+  mutating func clearJavaOuterClassname() {
     return _javaOuterClassname = nil
   }
 
@@ -2006,10 +2006,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _javaMultipleFiles ?? false}
     set {_javaMultipleFiles = newValue}
   }
-  public var hasJavaMultipleFiles: Bool {
+  var hasJavaMultipleFiles: Bool {
     return _javaMultipleFiles != nil
   }
-  public mutating func clearJavaMultipleFiles() {
+  mutating func clearJavaMultipleFiles() {
     return _javaMultipleFiles = nil
   }
 
@@ -2019,10 +2019,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _javaGenerateEqualsAndHash ?? false}
     set {_javaGenerateEqualsAndHash = newValue}
   }
-  public var hasJavaGenerateEqualsAndHash: Bool {
+  var hasJavaGenerateEqualsAndHash: Bool {
     return _javaGenerateEqualsAndHash != nil
   }
-  public mutating func clearJavaGenerateEqualsAndHash() {
+  mutating func clearJavaGenerateEqualsAndHash() {
     return _javaGenerateEqualsAndHash = nil
   }
 
@@ -2037,10 +2037,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _javaStringCheckUtf8 ?? false}
     set {_javaStringCheckUtf8 = newValue}
   }
-  public var hasJavaStringCheckUtf8: Bool {
+  var hasJavaStringCheckUtf8: Bool {
     return _javaStringCheckUtf8 != nil
   }
-  public mutating func clearJavaStringCheckUtf8() {
+  mutating func clearJavaStringCheckUtf8() {
     return _javaStringCheckUtf8 = nil
   }
 
@@ -2049,10 +2049,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _optimizeFor ?? Google_Protobuf_FileOptions.OptimizeMode.speed}
     set {_optimizeFor = newValue}
   }
-  public var hasOptimizeFor: Bool {
+  var hasOptimizeFor: Bool {
     return _optimizeFor != nil
   }
-  public mutating func clearOptimizeFor() {
+  mutating func clearOptimizeFor() {
     return _optimizeFor = nil
   }
 
@@ -2066,10 +2066,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _goPackage ?? ""}
     set {_goPackage = newValue}
   }
-  public var hasGoPackage: Bool {
+  var hasGoPackage: Bool {
     return _goPackage != nil
   }
-  public mutating func clearGoPackage() {
+  mutating func clearGoPackage() {
     return _goPackage = nil
   }
 
@@ -2088,10 +2088,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _ccGenericServices ?? false}
     set {_ccGenericServices = newValue}
   }
-  public var hasCcGenericServices: Bool {
+  var hasCcGenericServices: Bool {
     return _ccGenericServices != nil
   }
-  public mutating func clearCcGenericServices() {
+  mutating func clearCcGenericServices() {
     return _ccGenericServices = nil
   }
 
@@ -2100,10 +2100,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _javaGenericServices ?? false}
     set {_javaGenericServices = newValue}
   }
-  public var hasJavaGenericServices: Bool {
+  var hasJavaGenericServices: Bool {
     return _javaGenericServices != nil
   }
-  public mutating func clearJavaGenericServices() {
+  mutating func clearJavaGenericServices() {
     return _javaGenericServices = nil
   }
 
@@ -2112,10 +2112,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _pyGenericServices ?? false}
     set {_pyGenericServices = newValue}
   }
-  public var hasPyGenericServices: Bool {
+  var hasPyGenericServices: Bool {
     return _pyGenericServices != nil
   }
-  public mutating func clearPyGenericServices() {
+  mutating func clearPyGenericServices() {
     return _pyGenericServices = nil
   }
 
@@ -2128,10 +2128,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
   }
-  public var hasDeprecated: Bool {
+  var hasDeprecated: Bool {
     return _deprecated != nil
   }
-  public mutating func clearDeprecated() {
+  mutating func clearDeprecated() {
     return _deprecated = nil
   }
 
@@ -2142,10 +2142,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _ccEnableArenas ?? false}
     set {_ccEnableArenas = newValue}
   }
-  public var hasCcEnableArenas: Bool {
+  var hasCcEnableArenas: Bool {
     return _ccEnableArenas != nil
   }
-  public mutating func clearCcEnableArenas() {
+  mutating func clearCcEnableArenas() {
     return _ccEnableArenas = nil
   }
 
@@ -2156,10 +2156,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _objcClassPrefix ?? ""}
     set {_objcClassPrefix = newValue}
   }
-  public var hasObjcClassPrefix: Bool {
+  var hasObjcClassPrefix: Bool {
     return _objcClassPrefix != nil
   }
-  public mutating func clearObjcClassPrefix() {
+  mutating func clearObjcClassPrefix() {
     return _objcClassPrefix = nil
   }
 
@@ -2169,10 +2169,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _csharpNamespace ?? ""}
     set {_csharpNamespace = newValue}
   }
-  public var hasCsharpNamespace: Bool {
+  var hasCsharpNamespace: Bool {
     return _csharpNamespace != nil
   }
-  public mutating func clearCsharpNamespace() {
+  mutating func clearCsharpNamespace() {
     return _csharpNamespace = nil
   }
 
@@ -2185,10 +2185,10 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _swiftPrefix ?? ""}
     set {_swiftPrefix = newValue}
   }
-  public var hasSwiftPrefix: Bool {
+  var hasSwiftPrefix: Bool {
     return _swiftPrefix != nil
   }
-  public mutating func clearSwiftPrefix() {
+  mutating func clearSwiftPrefix() {
     return _swiftPrefix = nil
   }
 
@@ -2357,10 +2357,10 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _messageSetWireFormat ?? false}
     set {_messageSetWireFormat = newValue}
   }
-  public var hasMessageSetWireFormat: Bool {
+  var hasMessageSetWireFormat: Bool {
     return _messageSetWireFormat != nil
   }
-  public mutating func clearMessageSetWireFormat() {
+  mutating func clearMessageSetWireFormat() {
     return _messageSetWireFormat = nil
   }
 
@@ -2372,10 +2372,10 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _noStandardDescriptorAccessor ?? false}
     set {_noStandardDescriptorAccessor = newValue}
   }
-  public var hasNoStandardDescriptorAccessor: Bool {
+  var hasNoStandardDescriptorAccessor: Bool {
     return _noStandardDescriptorAccessor != nil
   }
-  public mutating func clearNoStandardDescriptorAccessor() {
+  mutating func clearNoStandardDescriptorAccessor() {
     return _noStandardDescriptorAccessor = nil
   }
 
@@ -2388,10 +2388,10 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
   }
-  public var hasDeprecated: Bool {
+  var hasDeprecated: Bool {
     return _deprecated != nil
   }
-  public mutating func clearDeprecated() {
+  mutating func clearDeprecated() {
     return _deprecated = nil
   }
 
@@ -2421,10 +2421,10 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _mapEntry ?? false}
     set {_mapEntry = newValue}
   }
-  public var hasMapEntry: Bool {
+  var hasMapEntry: Bool {
     return _mapEntry != nil
   }
-  public mutating func clearMapEntry() {
+  mutating func clearMapEntry() {
     return _mapEntry = nil
   }
 
@@ -2656,10 +2656,10 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     get {return _ctype ?? Google_Protobuf_FieldOptions.CType.string}
     set {_ctype = newValue}
   }
-  public var hasCtype: Bool {
+  var hasCtype: Bool {
     return _ctype != nil
   }
-  public mutating func clearCtype() {
+  mutating func clearCtype() {
     return _ctype = nil
   }
 
@@ -2673,10 +2673,10 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     get {return _packed ?? false}
     set {_packed = newValue}
   }
-  public var hasPacked: Bool {
+  var hasPacked: Bool {
     return _packed != nil
   }
-  public mutating func clearPacked() {
+  mutating func clearPacked() {
     return _packed = nil
   }
 
@@ -2694,10 +2694,10 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     get {return _jstype ?? Google_Protobuf_FieldOptions.JSType.jsNormal}
     set {_jstype = newValue}
   }
-  public var hasJstype: Bool {
+  var hasJstype: Bool {
     return _jstype != nil
   }
-  public mutating func clearJstype() {
+  mutating func clearJstype() {
     return _jstype = nil
   }
 
@@ -2734,10 +2734,10 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     get {return _lazy ?? false}
     set {_lazy = newValue}
   }
-  public var hasLazy: Bool {
+  var hasLazy: Bool {
     return _lazy != nil
   }
-  public mutating func clearLazy() {
+  mutating func clearLazy() {
     return _lazy = nil
   }
 
@@ -2750,10 +2750,10 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
   }
-  public var hasDeprecated: Bool {
+  var hasDeprecated: Bool {
     return _deprecated != nil
   }
-  public mutating func clearDeprecated() {
+  mutating func clearDeprecated() {
     return _deprecated = nil
   }
 
@@ -2763,10 +2763,10 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     get {return _weak ?? false}
     set {_weak = newValue}
   }
-  public var hasWeak: Bool {
+  var hasWeak: Bool {
     return _weak != nil
   }
-  public mutating func clearWeak() {
+  mutating func clearWeak() {
     return _weak = nil
   }
 
@@ -2935,10 +2935,10 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _allowAlias ?? false}
     set {_allowAlias = newValue}
   }
-  public var hasAllowAlias: Bool {
+  var hasAllowAlias: Bool {
     return _allowAlias != nil
   }
-  public mutating func clearAllowAlias() {
+  mutating func clearAllowAlias() {
     return _allowAlias = nil
   }
 
@@ -2951,10 +2951,10 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
   }
-  public var hasDeprecated: Bool {
+  var hasDeprecated: Bool {
     return _deprecated != nil
   }
-  public mutating func clearDeprecated() {
+  mutating func clearDeprecated() {
     return _deprecated = nil
   }
 
@@ -3041,10 +3041,10 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Pr
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
   }
-  public var hasDeprecated: Bool {
+  var hasDeprecated: Bool {
     return _deprecated != nil
   }
-  public mutating func clearDeprecated() {
+  mutating func clearDeprecated() {
     return _deprecated = nil
   }
 
@@ -3131,10 +3131,10 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
   }
-  public var hasDeprecated: Bool {
+  var hasDeprecated: Bool {
     return _deprecated != nil
   }
-  public mutating func clearDeprecated() {
+  mutating func clearDeprecated() {
     return _deprecated = nil
   }
 
@@ -3290,10 +3290,10 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
   }
-  public var hasDeprecated: Bool {
+  var hasDeprecated: Bool {
     return _deprecated != nil
   }
-  public mutating func clearDeprecated() {
+  mutating func clearDeprecated() {
     return _deprecated = nil
   }
 
@@ -3302,10 +3302,10 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
     get {return _idempotencyLevel ?? Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown}
     set {_idempotencyLevel = newValue}
   }
-  public var hasIdempotencyLevel: Bool {
+  var hasIdempotencyLevel: Bool {
     return _idempotencyLevel != nil
   }
-  public mutating func clearIdempotencyLevel() {
+  mutating func clearIdempotencyLevel() {
     return _idempotencyLevel = nil
   }
 
@@ -3414,10 +3414,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
       get {return _namePart ?? ""}
       set {_namePart = newValue}
     }
-    public var hasNamePart: Bool {
+    var hasNamePart: Bool {
       return _namePart != nil
     }
-    public mutating func clearNamePart() {
+    mutating func clearNamePart() {
       return _namePart = nil
     }
 
@@ -3426,10 +3426,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
       get {return _isExtension ?? false}
       set {_isExtension = newValue}
     }
-    public var hasIsExtension: Bool {
+    var hasIsExtension: Bool {
       return _isExtension != nil
     }
-    public mutating func clearIsExtension() {
+    mutating func clearIsExtension() {
       return _isExtension = nil
     }
 
@@ -3470,10 +3470,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     get {return _identifierValue ?? ""}
     set {_identifierValue = newValue}
   }
-  public var hasIdentifierValue: Bool {
+  var hasIdentifierValue: Bool {
     return _identifierValue != nil
   }
-  public mutating func clearIdentifierValue() {
+  mutating func clearIdentifierValue() {
     return _identifierValue = nil
   }
 
@@ -3482,10 +3482,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     get {return _positiveIntValue ?? 0}
     set {_positiveIntValue = newValue}
   }
-  public var hasPositiveIntValue: Bool {
+  var hasPositiveIntValue: Bool {
     return _positiveIntValue != nil
   }
-  public mutating func clearPositiveIntValue() {
+  mutating func clearPositiveIntValue() {
     return _positiveIntValue = nil
   }
 
@@ -3494,10 +3494,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     get {return _negativeIntValue ?? 0}
     set {_negativeIntValue = newValue}
   }
-  public var hasNegativeIntValue: Bool {
+  var hasNegativeIntValue: Bool {
     return _negativeIntValue != nil
   }
-  public mutating func clearNegativeIntValue() {
+  mutating func clearNegativeIntValue() {
     return _negativeIntValue = nil
   }
 
@@ -3506,10 +3506,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     get {return _doubleValue ?? 0}
     set {_doubleValue = newValue}
   }
-  public var hasDoubleValue: Bool {
+  var hasDoubleValue: Bool {
     return _doubleValue != nil
   }
-  public mutating func clearDoubleValue() {
+  mutating func clearDoubleValue() {
     return _doubleValue = nil
   }
 
@@ -3518,10 +3518,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     get {return _stringValue ?? Data()}
     set {_stringValue = newValue}
   }
-  public var hasStringValue: Bool {
+  var hasStringValue: Bool {
     return _stringValue != nil
   }
-  public mutating func clearStringValue() {
+  mutating func clearStringValue() {
     return _stringValue = nil
   }
 
@@ -3530,10 +3530,10 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     get {return _aggregateValue ?? ""}
     set {_aggregateValue = newValue}
   }
-  public var hasAggregateValue: Bool {
+  var hasAggregateValue: Bool {
     return _aggregateValue != nil
   }
-  public mutating func clearAggregateValue() {
+  mutating func clearAggregateValue() {
     return _aggregateValue = nil
   }
 
@@ -3701,10 +3701,10 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
       get {return _leadingComments ?? ""}
       set {_leadingComments = newValue}
     }
-    public var hasLeadingComments: Bool {
+    var hasLeadingComments: Bool {
       return _leadingComments != nil
     }
-    public mutating func clearLeadingComments() {
+    mutating func clearLeadingComments() {
       return _leadingComments = nil
     }
 
@@ -3713,10 +3713,10 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
       get {return _trailingComments ?? ""}
       set {_trailingComments = newValue}
     }
-    public var hasTrailingComments: Bool {
+    var hasTrailingComments: Bool {
       return _trailingComments != nil
     }
-    public mutating func clearTrailingComments() {
+    mutating func clearTrailingComments() {
       return _trailingComments = nil
     }
 
@@ -3867,10 +3867,10 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _sourceFile ?? ""}
       set {_sourceFile = newValue}
     }
-    public var hasSourceFile: Bool {
+    var hasSourceFile: Bool {
       return _sourceFile != nil
     }
-    public mutating func clearSourceFile() {
+    mutating func clearSourceFile() {
       return _sourceFile = nil
     }
 
@@ -3881,10 +3881,10 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _begin ?? 0}
       set {_begin = newValue}
     }
-    public var hasBegin: Bool {
+    var hasBegin: Bool {
       return _begin != nil
     }
-    public mutating func clearBegin() {
+    mutating func clearBegin() {
       return _begin = nil
     }
 
@@ -3896,10 +3896,10 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
       get {return _end ?? 0}
       set {_end = newValue}
     }
-    public var hasEnd: Bool {
+    var hasEnd: Bool {
       return _end != nil
     }
-    public mutating func clearEnd() {
+    mutating func clearEnd() {
       return _end = nil
     }
 

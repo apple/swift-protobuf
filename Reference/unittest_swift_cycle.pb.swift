@@ -125,10 +125,10 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
-  public var hasAFoo: Bool {
+  var hasAFoo: Bool {
     return _storage._aFoo != nil
   }
-  public mutating func clearAFoo() {
+  mutating func clearAFoo() {
     return _storage._aFoo = nil
   }
 
@@ -136,10 +136,10 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
-  public var hasABar: Bool {
+  var hasABar: Bool {
     return _storage._aBar != nil
   }
-  public mutating func clearABar() {
+  mutating func clearABar() {
     return _storage._aBar = nil
   }
 
@@ -147,10 +147,10 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
-  public var hasABaz: Bool {
+  var hasABaz: Bool {
     return _storage._aBaz != nil
   }
-  public mutating func clearABaz() {
+  mutating func clearABaz() {
     return _storage._aBaz = nil
   }
 
@@ -245,10 +245,10 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
-  public var hasABar: Bool {
+  var hasABar: Bool {
     return _storage._aBar != nil
   }
-  public mutating func clearABar() {
+  mutating func clearABar() {
     return _storage._aBar = nil
   }
 
@@ -256,10 +256,10 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
-  public var hasABaz: Bool {
+  var hasABaz: Bool {
     return _storage._aBaz != nil
   }
-  public mutating func clearABaz() {
+  mutating func clearABaz() {
     return _storage._aBaz = nil
   }
 
@@ -267,10 +267,10 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
-  public var hasAFoo: Bool {
+  var hasAFoo: Bool {
     return _storage._aFoo != nil
   }
-  public mutating func clearAFoo() {
+  mutating func clearAFoo() {
     return _storage._aFoo = nil
   }
 
@@ -365,10 +365,10 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
-  public var hasABaz: Bool {
+  var hasABaz: Bool {
     return _storage._aBaz != nil
   }
-  public mutating func clearABaz() {
+  mutating func clearABaz() {
     return _storage._aBaz = nil
   }
 
@@ -376,10 +376,10 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
-  public var hasAFoo: Bool {
+  var hasAFoo: Bool {
     return _storage._aFoo != nil
   }
-  public mutating func clearAFoo() {
+  mutating func clearAFoo() {
     return _storage._aFoo = nil
   }
 
@@ -387,10 +387,10 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
-  public var hasABar: Bool {
+  var hasABar: Bool {
     return _storage._aBar != nil
   }
-  public mutating func clearABar() {
+  mutating func clearABar() {
     return _storage._aBar = nil
   }
 

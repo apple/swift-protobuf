@@ -118,10 +118,10 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
     get {return _storage._optionalMessage ?? ProtobufUnittest_TestOptimizedForSize()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
-  public var hasOptionalMessage: Bool {
+  var hasOptionalMessage: Bool {
     return _storage._optionalMessage != nil
   }
-  public mutating func clearOptionalMessage() {
+  mutating func clearOptionalMessage() {
     return _storage._optionalMessage = nil
   }
 

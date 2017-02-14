@@ -58,10 +58,10 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
       get {return _c ?? 0}
       set {_c = newValue}
     }
-    public var hasC: Bool {
+    var hasC: Bool {
       return _c != nil
     }
-    public mutating func clearC() {
+    mutating func clearC() {
       return _c = nil
     }
 
@@ -132,10 +132,10 @@ struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  public var hasC: Bool {
+  var hasC: Bool {
     return _c != nil
   }
-  public mutating func clearC() {
+  mutating func clearC() {
     return _c = nil
   }
 

@@ -885,10 +885,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    public var hasA: Bool {
+    var hasA: Bool {
       return _a != nil
     }
-    public mutating func clearA() {
+    mutating func clearA() {
       return _a = nil
     }
 
@@ -929,10 +929,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    public var hasA: Bool {
+    var hasA: Bool {
       return _a != nil
     }
-    public mutating func clearA() {
+    mutating func clearA() {
       return _a = nil
     }
 
@@ -974,10 +974,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       get {return _a ?? 116}
       set {_a = newValue}
     }
-    public var hasA: Bool {
+    var hasA: Bool {
       return _a != nil
     }
-    public mutating func clearA() {
+    mutating func clearA() {
       return _a = nil
     }
 
@@ -986,10 +986,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       get {return _b ?? 0}
       set {_b = newValue}
     }
-    public var hasB: Bool {
+    var hasB: Bool {
       return _b != nil
     }
-    public mutating func clearB() {
+    mutating func clearB() {
       return _b = nil
     }
 
@@ -1025,10 +1025,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
-  public var hasOptionalInt32: Bool {
+  var hasOptionalInt32: Bool {
     return _storage._optionalInt32 != nil
   }
-  public mutating func clearOptionalInt32() {
+  mutating func clearOptionalInt32() {
     return _storage._optionalInt32 = nil
   }
 
@@ -1036,10 +1036,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalInt64 ?? 0}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
-  public var hasOptionalInt64: Bool {
+  var hasOptionalInt64: Bool {
     return _storage._optionalInt64 != nil
   }
-  public mutating func clearOptionalInt64() {
+  mutating func clearOptionalInt64() {
     return _storage._optionalInt64 = nil
   }
 
@@ -1047,10 +1047,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalUint32 ?? 0}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
-  public var hasOptionalUint32: Bool {
+  var hasOptionalUint32: Bool {
     return _storage._optionalUint32 != nil
   }
-  public mutating func clearOptionalUint32() {
+  mutating func clearOptionalUint32() {
     return _storage._optionalUint32 = nil
   }
 
@@ -1058,10 +1058,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalUint64 ?? 0}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
-  public var hasOptionalUint64: Bool {
+  var hasOptionalUint64: Bool {
     return _storage._optionalUint64 != nil
   }
-  public mutating func clearOptionalUint64() {
+  mutating func clearOptionalUint64() {
     return _storage._optionalUint64 = nil
   }
 
@@ -1069,10 +1069,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalSint32 ?? 0}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
-  public var hasOptionalSint32: Bool {
+  var hasOptionalSint32: Bool {
     return _storage._optionalSint32 != nil
   }
-  public mutating func clearOptionalSint32() {
+  mutating func clearOptionalSint32() {
     return _storage._optionalSint32 = nil
   }
 
@@ -1080,10 +1080,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalSint64 ?? 0}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
-  public var hasOptionalSint64: Bool {
+  var hasOptionalSint64: Bool {
     return _storage._optionalSint64 != nil
   }
-  public mutating func clearOptionalSint64() {
+  mutating func clearOptionalSint64() {
     return _storage._optionalSint64 = nil
   }
 
@@ -1091,10 +1091,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalFixed32 ?? 0}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
-  public var hasOptionalFixed32: Bool {
+  var hasOptionalFixed32: Bool {
     return _storage._optionalFixed32 != nil
   }
-  public mutating func clearOptionalFixed32() {
+  mutating func clearOptionalFixed32() {
     return _storage._optionalFixed32 = nil
   }
 
@@ -1102,10 +1102,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalFixed64 ?? 0}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
-  public var hasOptionalFixed64: Bool {
+  var hasOptionalFixed64: Bool {
     return _storage._optionalFixed64 != nil
   }
-  public mutating func clearOptionalFixed64() {
+  mutating func clearOptionalFixed64() {
     return _storage._optionalFixed64 = nil
   }
 
@@ -1113,10 +1113,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalSfixed32 ?? 0}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
-  public var hasOptionalSfixed32: Bool {
+  var hasOptionalSfixed32: Bool {
     return _storage._optionalSfixed32 != nil
   }
-  public mutating func clearOptionalSfixed32() {
+  mutating func clearOptionalSfixed32() {
     return _storage._optionalSfixed32 = nil
   }
 
@@ -1124,10 +1124,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalSfixed64 ?? 0}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
-  public var hasOptionalSfixed64: Bool {
+  var hasOptionalSfixed64: Bool {
     return _storage._optionalSfixed64 != nil
   }
-  public mutating func clearOptionalSfixed64() {
+  mutating func clearOptionalSfixed64() {
     return _storage._optionalSfixed64 = nil
   }
 
@@ -1135,10 +1135,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalFloat ?? 0}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
-  public var hasOptionalFloat: Bool {
+  var hasOptionalFloat: Bool {
     return _storage._optionalFloat != nil
   }
-  public mutating func clearOptionalFloat() {
+  mutating func clearOptionalFloat() {
     return _storage._optionalFloat = nil
   }
 
@@ -1146,10 +1146,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalDouble ?? 0}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
-  public var hasOptionalDouble: Bool {
+  var hasOptionalDouble: Bool {
     return _storage._optionalDouble != nil
   }
-  public mutating func clearOptionalDouble() {
+  mutating func clearOptionalDouble() {
     return _storage._optionalDouble = nil
   }
 
@@ -1157,10 +1157,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalBool ?? false}
     set {_uniqueStorage()._optionalBool = newValue}
   }
-  public var hasOptionalBool: Bool {
+  var hasOptionalBool: Bool {
     return _storage._optionalBool != nil
   }
-  public mutating func clearOptionalBool() {
+  mutating func clearOptionalBool() {
     return _storage._optionalBool = nil
   }
 
@@ -1168,10 +1168,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalString ?? ""}
     set {_uniqueStorage()._optionalString = newValue}
   }
-  public var hasOptionalString: Bool {
+  var hasOptionalString: Bool {
     return _storage._optionalString != nil
   }
-  public mutating func clearOptionalString() {
+  mutating func clearOptionalString() {
     return _storage._optionalString = nil
   }
 
@@ -1179,10 +1179,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
-  public var hasOptionalBytes: Bool {
+  var hasOptionalBytes: Bool {
     return _storage._optionalBytes != nil
   }
-  public mutating func clearOptionalBytes() {
+  mutating func clearOptionalBytes() {
     return _storage._optionalBytes = nil
   }
 
@@ -1190,10 +1190,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalGroup ?? ProtobufUnittest_Message2.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
-  public var hasOptionalGroup: Bool {
+  var hasOptionalGroup: Bool {
     return _storage._optionalGroup != nil
   }
-  public mutating func clearOptionalGroup() {
+  mutating func clearOptionalGroup() {
     return _storage._optionalGroup = nil
   }
 
@@ -1201,10 +1201,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalMessage ?? ProtobufUnittest_Message2()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
-  public var hasOptionalMessage: Bool {
+  var hasOptionalMessage: Bool {
     return _storage._optionalMessage != nil
   }
-  public mutating func clearOptionalMessage() {
+  mutating func clearOptionalMessage() {
     return _storage._optionalMessage = nil
   }
 
@@ -1212,10 +1212,10 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     get {return _storage._optionalEnum ?? ProtobufUnittest_Message2.Enum.foo}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
-  public var hasOptionalEnum: Bool {
+  var hasOptionalEnum: Bool {
     return _storage._optionalEnum != nil
   }
-  public mutating func clearOptionalEnum() {
+  mutating func clearOptionalEnum() {
     return _storage._optionalEnum = nil
   }
 
