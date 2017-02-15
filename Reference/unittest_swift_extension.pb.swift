@@ -71,7 +71,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
 
       public var isInitialized: Bool {
-        if !extensionFieldValues.isInitialized {return false}
+        if !_extensionFieldValues.isInitialized {return false}
         return true
       }
 
@@ -85,7 +85,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
         switch fieldNumber {
         case 1: try decoder.decodeSingularInt32Field(value: &_a)
         default: if (100 <= fieldNumber && fieldNumber < 1001) {
-            try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: Baz.self, fieldNumber: fieldNumber)
+            try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Baz.self, fieldNumber: fieldNumber)
           }
         }
       }
@@ -94,39 +94,39 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
         if let v = _a {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
         }
-        try visitor.visitExtensionFields(fields: extensionFieldValues, start: 100, end: 1001)
+        try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 1001)
         unknown.traverse(visitor: visitor)
       }
 
       func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar.Baz) -> Bool {
         if _a != other._a {return false}
         if unknown != other.unknown {return false}
-        if extensionFieldValues != other.extensionFieldValues {return false}
+        if _extensionFieldValues != other._extensionFieldValues {return false}
         return true
       }
 
-      private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+      private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
       mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Baz>, value: F.ValueType) {
-        extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+        _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
       }
 
       mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Baz>) {
-        extensionFieldValues[ext.fieldNumber] = nil
+        _extensionFieldValues[ext.fieldNumber] = nil
       }
 
       func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Baz>) -> F.ValueType {
-        if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
+        if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
           return fieldValue.value
         }
         return ext.defaultValue
       }
 
       func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Baz>) -> Bool {
-        return extensionFieldValues[ext.fieldNumber] is F
+        return _extensionFieldValues[ext.fieldNumber] is F
       }
       func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-        return Baz._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
+        return Baz._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
       }
     }
 

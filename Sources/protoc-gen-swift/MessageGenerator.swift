@@ -680,7 +680,7 @@ class MessageGenerator {
                 }
                 p.print(" {\n")
                 p.indent()
-                p.print("try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+                p.print("try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
                 p.outdent()
                 p.print("}\n")
             }
@@ -706,7 +706,7 @@ class MessageGenerator {
             var oneofEnd = 0
             for f in (fields.sorted {$0.number < $1.number}) {
                 while nextRange != nil && Int(nextRange!.start) < f.number {
-                    p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                    p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                     nextRange = ranges.next()
                 }
                 if let c = currentOneof, let n = f.oneof, n.name == c.name {
@@ -729,7 +729,7 @@ class MessageGenerator {
                 p.print("try \(oneof.swiftFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
             }
             while nextRange != nil {
-                p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if !file.isProto3 {
@@ -748,7 +748,7 @@ class MessageGenerator {
                 p.print("if unknown != other.unknown {return false}\n")
             }
             if isExtensible {
-                p.print("if extensionFieldValues != other.extensionFieldValues {return false}\n")
+                p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
             }
             p.print("return true\n")
         } else {
@@ -771,7 +771,7 @@ class MessageGenerator {
                     p.print("if unknown != other.unknown {return false}\n")
                 }
                 if isExtensible {
-                    p.print("if extensionFieldValues != other.extensionFieldValues {return false}\n")
+                    p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
                 }
                 p.print("return true\n")
             }
@@ -814,28 +814,28 @@ class MessageGenerator {
                 p.print("}\n")
             } else {
                 p.print("\n")
-                p.print("private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
+                p.print("private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
-                p.print("  extensionFieldValues[ext.fieldNumber] = ext.set(value: value)\n")
+                p.print("  _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
-                p.print("  extensionFieldValues[ext.fieldNumber] = nil\n")
+                p.print("  _extensionFieldValues[ext.fieldNumber] = nil\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
-                p.print("  if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {\n")
+                p.print("  if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {\n")
                 p.print("    return fieldValue.value\n")
                 p.print("  }\n")
                 p.print("  return ext.defaultValue\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
-                p.print("  return extensionFieldValues[ext.fieldNumber] is F\n")
+                p.print("  return _extensionFieldValues[ext.fieldNumber] is F\n")
                 p.print("}\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
-                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)\n")
+                p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)\n")
                 p.print("}\n")
             }
         }
@@ -859,7 +859,7 @@ class MessageGenerator {
       if isExtensible {
         ensureFunctionStarted()
         if storage == nil {
-          p.print("if !extensionFieldValues.isInitialized {return false}\n")
+          p.print("if !_extensionFieldValues.isInitialized {return false}\n")
         }
       }
 
