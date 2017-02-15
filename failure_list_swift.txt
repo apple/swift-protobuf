@@ -1,4 +1,2 @@
-Required.JsonInput.AnyNested.JsonOutput
-Required.JsonInput.AnyNested.ProtobufOutput
 Required.ProtobufInput.RepeatedScalarSelectsLast.DOUBLE.JsonOutput
 Required.ProtobufInput.ValidDataRepeated.DOUBLE.JsonOutput

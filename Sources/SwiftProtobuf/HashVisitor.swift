@@ -58,6 +58,20 @@ final class HashVisitor: Visitor {
     }
   }
 
+  func visitSingularEnumField<E: Enum>(value: E,
+                                   fieldNumber: Int) {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E],
+                                       fieldNumber: Int) {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
   func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
     mix(fieldNumber)
     mix(value.hashValue)
@@ -84,5 +98,44 @@ final class HashVisitor: Visitor {
       mapHash = mapHash &+ (k.hashValue ^ v.hashValue)
     }
     mix(mapHash)
+  }
+
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    mix(fieldNumber)
+    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
+    // simplify to mix(value.hashValue).
+    var mapHash = 0
+    for (k, v) in value {
+      // Note: This calculation cannot depend on the order of the items.
+      mapHash += k.hashValue ^ v.hashValue
+    }
+    mix(mapHash)
+  }
+
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) where KeyType.BaseType: Hashable {
+    mix(fieldNumber)
+    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
+    // simplify to mix(value.hashValue).
+    var mapHash = 0
+    for (k, v) in value {
+      // Note: This calculation cannot depend on the order of the items.
+      mapHash += k.hashValue ^ v.hashValue
+    }
+    mix(mapHash)
+  }
+
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: self, start: start, end: end)
   }
 }

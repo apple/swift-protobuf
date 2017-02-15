@@ -77,14 +77,16 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         set(newValue) {fields[index] = newValue}
     }
 
-    public init(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return
         }
         while true {
-            let key = try decoder.scanner.nextKey()
-            let value = try Google_Protobuf_Value(decoder: &decoder)
+            let key = try decoder.scanner.nextQuotedString()
+            try decoder.scanner.skipRequiredColon()
+            var value = Google_Protobuf_Value()
+            try value.decodeJSON(from: &decoder)
             fields[key] = value
             if decoder.scanner.skipOptionalObjectEnd() {
                 return
@@ -109,9 +111,15 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 
-    public mutating func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
-        case 1: try setter.decodeMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
+    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+    }
+
+    public mutating func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
+        case 1: try decoder.decodeMapField(fieldType: ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
         default:
             break
         }
@@ -119,7 +127,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 
     public func _protoc_generated_traverse(visitor: Visitor) throws {
         if !fields.isEmpty {
-            try visitor.visitMapField(fieldType: ProtobufMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
+            try visitor.visitMapField(fieldType: ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
         }
     }
 
@@ -231,10 +239,16 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
+    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+    }
+
+    mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
         case 1, 2, 3, 4, 5, 6:
-            try kind.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+            try kind.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
         default: break
         }
     }
@@ -254,30 +268,30 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         try kind.serializeJSONField(encoder: &jsonEncoder)
     }
 
-    public init(decoder: inout JSONDecoder) throws {
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let c = try decoder.scanner.peekOneCharacter()
         switch c {
         case "n":
-            if decoder.scanner.skipOptionalNull() {
-                self.init()
-            } else {
-                throw DecodingError.malformedJSON
+            if !decoder.scanner.skipOptionalNull() {
+                throw JSONDecodingError.failure
             }
         case "[":
-            let l = try Google_Protobuf_ListValue(decoder: &decoder)
-            self.init(listValue: l)
+            var l = Google_Protobuf_ListValue()
+            try l.decodeJSON(from: &decoder)
+            kind = .listValue(l)
         case "{":
-            let s = try Google_Protobuf_Struct(decoder: &decoder)
-            self.init(structValue: s)
+            var s = Google_Protobuf_Struct()
+            try s.decodeJSON(from: &decoder)
+            kind = .structValue(s)
         case "t", "f":
             let b = try decoder.scanner.nextBool()
-            self.init(boolValue: b)
+            kind = .boolValue(b)
         case "\"":
             let s = try decoder.scanner.nextQuotedString()
-            self.init(stringValue: s)
+            kind = .stringValue(s)
         default:
             let d = try decoder.scanner.nextDouble()
-            self.init(numberValue: d)
+            kind = .numberValue(d)
         }
     }
 
@@ -415,46 +429,46 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             self = .None
         }
 
-        public mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-            switch protoFieldNumber {
+        public mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+            switch fieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
-                try setter.decodeSingularField(fieldType: Google_Protobuf_NullValue.self, value: &value)
+                try decoder.decodeSingularEnumField(value: &value)
                 if let value = value {
                     self = .nullValue(value)
                 }
             case 2:
                 var value: Double?
-                try setter.decodeSingularField(fieldType: ProtobufDouble.self, value: &value)
+                try decoder.decodeSingularDoubleField(value: &value)
                 if let value = value {
                     self = .numberValue(value)
                 }
             case 3:
                 var value: String?
-                try setter.decodeSingularField(fieldType: ProtobufString.self, value: &value)
+                try decoder.decodeSingularStringField(value: &value)
                 if let value = value {
                     self = .stringValue(value)
                 }
             case 4:
                 var value: Bool?
-                try setter.decodeSingularField(fieldType: ProtobufBool.self, value: &value)
+                try decoder.decodeSingularBoolField(value: &value)
                 if let value = value {
                     self = .boolValue(value)
                 }
             case 5:
                 var value: Google_Protobuf_Struct?
-                try setter.decodeSingularMessageField(fieldType: Google_Protobuf_Struct.self, value: &value)
+                try decoder.decodeSingularMessageField(value: &value)
                 if let value = value {
                     self = .structValue(value)
                 }
             case 6:
                 var value: Google_Protobuf_ListValue?
-                try setter.decodeSingularMessageField(fieldType: Google_Protobuf_ListValue.self, value: &value)
+                try decoder.decodeSingularMessageField(value: &value)
                 if let value = value {
                     self = .listValue(value)
                 }
             default:
-                throw DecodingError.schemaMismatch
+                break
             }
         }
 
@@ -475,7 +489,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {
-                    try visitor.visitSingularField(fieldType: Google_Protobuf_NullValue.self, value: v, fieldNumber: 1)
+                    try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
                 }
             case .numberValue(let v):
                 if start <= 2 && 2 < end {
@@ -565,8 +579,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         return jsonEncoder.result
     }
 
-    public init(decoder: inout JSONDecoder) throws {
-        self.init()
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         if decoder.scanner.skipOptionalNull() {
             return
         }
@@ -575,7 +588,8 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
             return
         }
         while true {
-            let v = try Google_Protobuf_Value(decoder: &decoder)
+            var v = Google_Protobuf_Value()
+            try v.decodeJSON(from: &decoder)
             values.append(v)
             if decoder.scanner.skipOptionalArrayEnd() {
                 return
@@ -593,9 +607,15 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         try any.unpackTo(target: &self)
     }
 
-    mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
-        case 1: try setter.decodeRepeatedMessageField(fieldType: Google_Protobuf_Value.self, value: &values)
+    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+    }
+
+    mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
+        case 1: try decoder.decodeRepeatedMessageField(value: &values)
         default: break
         }
     }

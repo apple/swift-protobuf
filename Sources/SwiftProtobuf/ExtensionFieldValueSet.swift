@@ -66,10 +66,7 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
   }
 
   public func fieldNames(for number: Int) -> FieldNameMap.Names? {
-    if let n = values[number]?.protobufExtension.fieldNames {
-        return .same(proto: "[\(n.protoName)]")
-    }
-    return nil
+    return values[number]?.protobufExtension.fieldNames
   }
 
   public var isInitialized: Bool {

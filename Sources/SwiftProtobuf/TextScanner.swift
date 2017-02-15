@@ -247,14 +247,9 @@ private func decodeString(_ s: String) -> String? {
     }
   }
   // There has got to be an easier way to convert a [UInt8] into a String.
-  out.append(0)
   return out.withUnsafeBufferPointer { ptr in
     if let addr = ptr.baseAddress {
-      return addr.withMemoryRebound(to: CChar.self, capacity: ptr.count) { p in
-        let q = UnsafePointer<CChar>(p)
-        let s = String(validatingUTF8: q)
-        return s
-      }
+        return utf8ToString(bytes: addr, count: ptr.count)
     } else {
       return ""
     }
@@ -264,14 +259,16 @@ private func decodeString(_ s: String) -> String? {
 ///
 /// TextScanner has no public members.
 ///
-public class TextScanner {
+public struct TextScanner {
     internal var extensions: ExtensionSet?
     private var utf8: String.UTF8View
     private var index: String.UTF8View.Index
-    private var eof: Bool = false
+
     internal var complete: Bool {
-        skipWhitespace()
-        return index == utf8.endIndex
+        mutating get {
+            skipWhitespace()
+            return index == utf8.endIndex
+        }
     }
 
     internal init(text: String, extensions: ExtensionSet? = nil) {
@@ -281,7 +278,7 @@ public class TextScanner {
     }
 
     /// Skip whitespace
-    private func skipWhitespace() {
+    private mutating func skipWhitespace() {
         while index != utf8.endIndex {
             let u = utf8[index]
             switch u {
@@ -306,7 +303,7 @@ public class TextScanner {
         }
     }
 
-    private func parseIdentifier() -> String? {
+    private mutating func parseIdentifier() -> String? {
         let start = index
         while index != utf8.endIndex {
             let c = utf8[index]
@@ -326,7 +323,7 @@ public class TextScanner {
     /// Parse the rest of an [extension_field_name] in the input, assuming the
     /// initial "[" character has already been read (and is in the prefix)
     /// This is also used for AnyURL, so we include "/", "."
-    private func parseExtensionKey() -> String? {
+    private mutating func parseExtensionKey() -> String? {
         let start = index
         if index == utf8.endIndex {
             return nil
@@ -359,7 +356,7 @@ public class TextScanner {
     }
 
     /// Assumes the leading quote has already been consumed
-    private func parseQuotedString(terminator: UInt8) -> String? {
+    private mutating func parseQuotedString(terminator: UInt8) -> String? {
         let start = index
         while index != utf8.endIndex {
             let c = utf8[index]
@@ -380,7 +377,7 @@ public class TextScanner {
     }
 
     /// Assumes the leading quote has already been consumed
-    private func parseStringSegment(terminator: UInt8) -> String? {
+    private mutating func parseStringSegment(terminator: UInt8) -> String? {
         let start = index
         var sawBackslash = false
         while index != utf8.endIndex {
@@ -406,10 +403,10 @@ public class TextScanner {
         return nil // Unterminated quoted string
     }
 
-    internal func nextUInt() throws -> UInt64 {
+    internal mutating func nextUInt() throws -> UInt64 {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedTextNumber
+            throw TextDecodingError.malformedNumber
         }
         let c = utf8[index]
         index = utf8.index(after: index)
@@ -434,7 +431,7 @@ public class TextScanner {
                         return n
                     }
                     if n > UInt64.max / 16 {
-                        throw DecodingError.malformedTextNumber
+                        throw TextDecodingError.malformedNumber
                     }
                     index = utf8.index(after: index)
                     n = n * 16 + val
@@ -453,7 +450,7 @@ public class TextScanner {
                     }
                     let val = UInt64(digit - asciiZero)
                     if n > UInt64.max / 8 {
-                        throw DecodingError.malformedTextNumber
+                        throw TextDecodingError.malformedNumber
                     }
                     index = utf8.index(after: index)
                     n = n * 8 + val
@@ -474,7 +471,7 @@ public class TextScanner {
                 let val = UInt64(digit - asciiZero)
                 if n >= UInt64.max / 10 {
                     if n > UInt64.max / 10 || val > UInt64.max % 10 {
-                        throw DecodingError.malformedTextNumber
+                        throw TextDecodingError.malformedNumber
                     }
                 }
                 index = utf8.index(after: index)
@@ -482,13 +479,13 @@ public class TextScanner {
             }
             return n
         }
-        throw DecodingError.malformedTextNumber
+        throw TextDecodingError.malformedNumber
     }
 
-    internal func nextSInt() throws -> Int64 {
+    internal mutating func nextSInt() throws -> Int64 {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedTextNumber
+            throw TextDecodingError.malformedNumber
         }
         let c = utf8[index]
         if c == asciiMinus { // -
@@ -496,13 +493,13 @@ public class TextScanner {
             // character after '-' must be digit
             let digit = utf8[index]
             if digit < asciiZero || digit > asciiNine {
-                throw DecodingError.malformedTextNumber
+                throw TextDecodingError.malformedNumber
             }
             let n = try nextUInt()
             if n >= 0x8000000000000000 { // -Int64.min
                 if n > 0x8000000000000000 {
                     // Too large negative number
-                    throw DecodingError.malformedTextNumber
+                    throw TextDecodingError.malformedNumber
                 } else {
                     return Int64.min // Special case for Int64.min
                 }
@@ -511,27 +508,27 @@ public class TextScanner {
         } else {
             let n = try nextUInt()
             if n > UInt64(bitPattern: Int64.max) {
-                throw DecodingError.malformedTextNumber
+                throw TextDecodingError.malformedNumber
             }
             return Int64(bitPattern: n)
         }
     }
 
-    internal func nextStringValue() throws -> String {
+    internal mutating func nextStringValue() throws -> String {
         var result: String
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         index = utf8.index(after: index)
         if let s = parseStringSegment(terminator: c) {
             result = s
         } else {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
 
         while true {
@@ -547,26 +544,26 @@ public class TextScanner {
             if let s = parseStringSegment(terminator: c) {
                 result.append(s)
             } else {
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         }
     }
 
-    internal func nextBytesValue() throws -> Data {
+    internal mutating func nextBytesValue() throws -> Data {
         var result: Data
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         index = utf8.index(after: index)
         if let s = parseQuotedString(terminator: c), let b = decodeBytes(s) {
             result = b
         } else {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
 
         while true {
@@ -583,14 +580,14 @@ public class TextScanner {
                let b = decodeBytes(s) {
                 result.append(b)
             } else {
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         }
     }
 
     // Tries to identify a sequence of UTF8 characters
     // that represent a numeric floating-point value.
-    private func tryParseFloatString() -> String? {
+    private mutating func tryParseFloatString() -> String? {
         skipWhitespace()
         guard index != utf8.endIndex else {return nil}
         let start = index
@@ -646,7 +643,7 @@ public class TextScanner {
         return String(utf8[start..<index])!
     }
 
-    private func skipOptionalKeyword(bytes: [UInt8]) -> Bool {
+    private mutating func skipOptionalKeyword(bytes: [UInt8]) -> Bool {
         skipWhitespace()
         let start = index
         for b in bytes {
@@ -680,14 +677,14 @@ public class TextScanner {
     }
 
     // If the next token is the identifier "nan", return true.
-    private func skipOptionalNaN() -> Bool {
+    private mutating func skipOptionalNaN() -> Bool {
         return skipOptionalKeyword(bytes:
                                   [asciiLowerN, asciiLowerA, asciiLowerN])
     }
 
     // If the next token is a recognized spelling of "infinity",
     // return Float.infinity or -Float.infinity
-    private func skipOptionalInfinity() -> Float? {
+    private mutating func skipOptionalInfinity() -> Float? {
         skipWhitespace()
         if index == utf8.endIndex {
             return nil
@@ -710,7 +707,7 @@ public class TextScanner {
         return nil
     }
 
-    internal func nextFloat() throws -> Float {
+    internal mutating func nextFloat() throws -> Float {
         if let s = tryParseFloatString() {
             if let n = Float(s) {
                 return n
@@ -722,10 +719,10 @@ public class TextScanner {
         if let inf = skipOptionalInfinity() {
             return inf
         }
-        throw DecodingError.malformedTextNumber
+        throw TextDecodingError.malformedNumber
     }
 
-    internal func nextDouble() throws -> Double {
+    internal mutating func nextDouble() throws -> Double {
         if let s = tryParseFloatString() {
             if let n = Double(s) {
                 return n
@@ -737,13 +734,13 @@ public class TextScanner {
         if let inf = skipOptionalInfinity() {
             return Double(inf)
         }
-        throw DecodingError.malformedTextNumber
+        throw TextDecodingError.malformedNumber
     }
 
-    internal func nextBool() throws -> Bool {
+    internal mutating func nextBool() throws -> Bool {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         switch c {
@@ -765,13 +762,13 @@ public class TextScanner {
                 }
             }
         }
-        throw DecodingError.malformedText
+        throw TextDecodingError.malformedText
     }
 
-    internal func nextOptionalEnumName() throws -> String? {
+    internal mutating func nextOptionalEnumName() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
         let c = utf8[index]
         let start = index
@@ -789,7 +786,7 @@ public class TextScanner {
 
     /// Any URLs are syntactically (almost) identical to extension
     /// keys, so we share the code for those.
-    internal func nextOptionalAnyURL() throws -> String? {
+    internal mutating func nextOptionalAnyURL() throws -> String? {
         return try nextOptionalExtensionKey()
     }
 
@@ -804,24 +801,23 @@ public class TextScanner {
     /// key names cannot.  But in practice, accepting / chracters for
     /// extension keys works fine, since the result just gets rejected
     /// when the key is looked up.
-    internal func nextOptionalExtensionKey() throws -> String? {
+    internal mutating func nextOptionalExtensionKey() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
-            eof = true
             return nil
         }
         if utf8[index] == asciiOpenSquareBracket { // [
             index = utf8.index(after: index)
             if let s = parseExtensionKey() {
                 if index == utf8.endIndex || utf8[index] != asciiCloseSquareBracket {
-                    throw DecodingError.malformedText
+                    throw TextDecodingError.malformedText
                 }
                 // Skip ]
                 index = utf8.index(after: index)
                 return s
             } else {
                 print("Error parsing extension identifier")
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         }
         return nil
@@ -834,25 +830,24 @@ public class TextScanner {
     ///
     /// This is only used by map parsing; we should be able to
     /// rework that to use nextFieldNumber instead.
-    internal func nextKey() throws -> String? {
+    internal mutating func nextKey() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
-            eof = true
             return nil
         }
         let c = utf8[index]
         switch c {
         case asciiOpenSquareBracket: // [
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         case asciiLowerA...asciiLowerZ,
              asciiUpperA...asciiUpperZ: // a...z, A...Z
             if let s = parseIdentifier() {
                 return s
             } else {
-                throw DecodingError.malformedText
+                throw TextDecodingError.malformedText
             }
         default:
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
     }
 
@@ -866,10 +861,9 @@ public class TextScanner {
     ///
     /// This function accounts for as much as 2/3 of the total run
     /// time of the entire parse.
-    internal func nextFieldNumber(names: FieldNameMap) throws -> Int? {
+    internal mutating func nextFieldNumber(names: FieldNameMap) throws -> Int? {
         skipWhitespace()
         if index == utf8.endIndex {
-            eof = true
             return nil
         }
         let c = utf8[index]
@@ -890,46 +884,38 @@ public class TextScanner {
                     break scanKeyLoop
                 }
             }
-            // The next line can account for more than 1/3 of the total
-            // run time of the entire parse, just to create a String
-            // object that is discarded almost immediately.
-            //
-            // One idea: Have the name map build a ternary tree
-            // instead of a hash table, turn the character scan above
-            // into a walk of that tree.  This would look up the field
-            // number directly from the character scan without
-            // creating this intermediate string.
-            if let key = String(utf8[start..<index]) {
-                if let protoFieldNumber = names.fieldNumber(forProtoName: key) {
-                    return protoFieldNumber
+            let key = Array(utf8[start..<index])
+            return try key.withUnsafeBufferPointer { buff in
+                if let fieldNumber = names.fieldNumber(forProtoName: buff) {
+                    return fieldNumber
                 } else {
-                    throw DecodingError.unknownField
+                    throw TextDecodingError.unknownField
                 }
             }
         default:
             break
         }
-        throw DecodingError.malformedText
+        throw TextDecodingError.malformedText
     }
 
-    private func skipRequiredCharacter(_ c: UInt8) throws {
+    private mutating func skipRequiredCharacter(_ c: UInt8) throws {
         skipWhitespace()
         if index != utf8.endIndex && utf8[index] == c {
             index = utf8.index(after: index)
         } else {
-            throw DecodingError.malformedText
+            throw TextDecodingError.malformedText
         }
     }
 
-    internal func skipRequiredComma() throws {
+    internal mutating func skipRequiredComma() throws {
         try skipRequiredCharacter(asciiComma)
     }
 
-    internal func skipRequiredColon() throws {
+    internal mutating func skipRequiredColon() throws {
         try skipRequiredCharacter(asciiColon)
     }
 
-    private func skipOptionalCharacter(_ c: UInt8) -> Bool {
+    private mutating func skipOptionalCharacter(_ c: UInt8) -> Bool {
         skipWhitespace()
         if index != utf8.endIndex && utf8[index] == c {
             index = utf8.index(after: index)
@@ -938,23 +924,23 @@ public class TextScanner {
         return false
     }
 
-    internal func skipOptionalColon() -> Bool {
+    internal mutating func skipOptionalColon() -> Bool {
         return skipOptionalCharacter(asciiColon)
     }
 
-    internal func skipOptionalEndArray() -> Bool {
+    internal mutating func skipOptionalEndArray() -> Bool {
         return skipOptionalCharacter(asciiCloseSquareBracket)
     }
 
-    internal func skipOptionalBeginArray() -> Bool {
+    internal mutating func skipOptionalBeginArray() -> Bool {
         return skipOptionalCharacter(asciiOpenSquareBracket)
     }
 
-    internal func skipOptionalObjectEnd(_ c: UInt8) -> Bool {
+    internal mutating func skipOptionalObjectEnd(_ c: UInt8) -> Bool {
         return skipOptionalCharacter(c)
     }
 
-    internal func skipOptionalSeparator() {
+    internal mutating func skipOptionalSeparator() {
         skipWhitespace()
         if index != utf8.endIndex {
             let c = utf8[index]
@@ -966,7 +952,7 @@ public class TextScanner {
 
     /// Returns the character that should end this field.
     /// E.g., if object starts with "{", returns "}"
-    internal func skipObjectStart() throws -> UInt8 {
+    internal mutating func skipObjectStart() throws -> UInt8 {
         skipWhitespace()
         if index != utf8.endIndex {
             let c = utf8[index]
@@ -980,6 +966,6 @@ public class TextScanner {
                 break
             }
         }
-        throw DecodingError.malformedText
+        throw TextDecodingError.malformedText
     }
 }

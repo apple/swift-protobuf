@@ -50,15 +50,18 @@ public protocol Message: CustomDebugStringConvertible {
   //
 
   /// Decode a field identified by a field number (as given in the .proto file).
-  /// The Message will call the FieldDecoder method corresponding
+  /// The Message will call the Decoder method corresponding
   /// to the declared type of the field.
   ///
   /// This is the core method used by the deserialization machinery.
   ///
   /// Note that this is not specific to protobuf encoding; formats that use
-  /// textual identifiers translate those to protoFieldNumbers and then invoke
+  /// textual identifiers translate those to fieldNumbers and then invoke
   /// this to decode the field value.
- mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws
+  mutating func decodeField<D: Decoder>(decoder: inout D, fieldNumber: Int) throws
+
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
+
 
   /// Support for traversing the object tree.
   ///
@@ -79,14 +82,14 @@ public protocol Message: CustomDebugStringConvertible {
   //
   // Protobuf Binary decoding
   //
-  mutating func decodeIntoSelf(protobufBytes: UnsafePointer<UInt8>,
+  mutating func decodeProtobuf(from: UnsafePointer<UInt8>,
                                count: Int,
                                extensions: ExtensionSet?) throws
 
   //
   // Protobuf Text decoding
   //
-  init(scanner: TextScanner) throws
+  mutating func decodeText(from: inout TextDecoder) throws
 
   //
   // google.protobuf.Any support
@@ -108,7 +111,8 @@ public protocol Message: CustomDebugStringConvertible {
 
   /// Overridden by well-known-types with custom JSON requirements.
   func serializeJSON() throws -> String
-  init(decoder: inout JSONDecoder) throws
+
+  mutating func decodeJSON(from: inout JSONDecoder) throws
 
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.
@@ -216,12 +220,14 @@ public protocol Proto3Message: Message {
 /// `SwiftProtobuf.Message & Hashable` if you need to use equality
 /// tests or put it in a `Set<>`.
 ///
-public protocol _MessageImplementationBase: Message, Hashable, MapValueType, FieldType {
+public protocol _MessageImplementationBase: Message, Hashable {
   // The compiler actually generates the following methods. Default
   // implementations below redirect the standard names. This allows developers
   // to override the standard names to customize the behavior.
-  mutating func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T,
-                                              protoFieldNumber: Int) throws
+  mutating func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws
+
+  mutating func _protoc_generated_decodeField<T: Decoder>(decoder: inout T,
+                                                          fieldNumber: Int) throws
 
   func _protoc_generated_traverse(visitor: Visitor) throws
 
@@ -238,8 +244,12 @@ public extension _MessageImplementationBase {
     try _protoc_generated_traverse(visitor: visitor)
   }
 
-  mutating func decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    try _protoc_generated_decodeField(setter: &setter,
-                                      protoFieldNumber: protoFieldNumber)
+  mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+    try _protoc_generated_decodeField(decoder: &decoder,
+                                      fieldNumber: fieldNumber)
+  }
+
+  mutating func decodeMessage<T: Decoder>(decoder: inout T) throws {
+      try _protoc_generated_decodeMessage(decoder: &decoder)
   }
 }

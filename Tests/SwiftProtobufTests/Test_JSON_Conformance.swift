@@ -171,4 +171,23 @@ class Test_JSON_Conformance: XCTestCase {
         }
         XCTAssertEqual(try t.serializeJSON(), start)
     }
+
+
+    func testNestedAny() {
+        let start = ("{\n"
+                     + "        \"optionalAny\": {\n"
+                     + "          \"@type\": \"type.googleapis.com/google.protobuf.Any\",\n"
+                     + "          \"value\": {\n"
+                     + "            \"@type\": \"type.googleapis.com/protobuf_test_messages.proto3.TestAllTypes\",\n"
+                     + "            \"optionalInt32\": 12345\n"
+                     + "          }\n"
+                     + "        }\n"
+                     + "      }")
+        do {
+            _ = try ProtobufTestMessages_Proto3_TestAllTypes(json: start)
+        } catch {
+            XCTFail("Failed to decode: \(start)")
+            return
+        }
+    }
 }

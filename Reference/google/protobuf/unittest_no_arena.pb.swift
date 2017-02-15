@@ -280,80 +280,86 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
     init() {}
 
-    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_optionalInt32)
-      case 2: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_optionalInt64)
-      case 3: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &_optionalUint32)
-      case 4: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &_optionalUint64)
-      case 5: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &_optionalSint32)
-      case 6: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &_optionalSint64)
-      case 7: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &_optionalFixed32)
-      case 8: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &_optionalFixed64)
-      case 9: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &_optionalSfixed32)
-      case 10: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &_optionalSfixed64)
-      case 11: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_optionalFloat)
-      case 12: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &_optionalDouble)
-      case 13: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_optionalBool)
-      case 14: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_optionalString)
-      case 15: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_optionalBytes)
-      case 16: try setter.decodeSingularGroupField(fieldType: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup.self, value: &_optionalGroup)
-      case 18: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_optionalNestedMessage)
-      case 19: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_ForeignMessage.self, value: &_optionalForeignMessage)
-      case 20: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_optionalImportMessage)
-      case 21: try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: &_optionalNestedEnum)
-      case 22: try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: &_optionalForeignEnum)
-      case 23: try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_optionalImportEnum)
-      case 24: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_optionalStringPiece)
-      case 25: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_optionalCord)
-      case 26: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestImport_PublicImportMessage.self, value: &_optionalPublicImportMessage)
-      case 27: try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_optionalMessage)
-      case 31: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_repeatedInt32)
-      case 32: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_repeatedInt64)
-      case 33: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &_repeatedUint32)
-      case 34: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &_repeatedUint64)
-      case 35: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &_repeatedSint32)
-      case 36: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &_repeatedSint64)
-      case 37: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &_repeatedFixed32)
-      case 38: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &_repeatedFixed64)
-      case 39: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &_repeatedSfixed32)
-      case 40: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &_repeatedSfixed64)
-      case 41: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_repeatedFloat)
-      case 42: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &_repeatedDouble)
-      case 43: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_repeatedBool)
-      case 44: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_repeatedString)
-      case 45: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_repeatedBytes)
-      case 46: try setter.decodeRepeatedGroupField(fieldType: ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup.self, value: &_repeatedGroup)
-      case 48: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_repeatedNestedMessage)
-      case 49: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittestNoArena_ForeignMessage.self, value: &_repeatedForeignMessage)
-      case 50: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittestImport_ImportMessage.self, value: &_repeatedImportMessage)
-      case 51: try setter.decodeRepeatedField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: &_repeatedNestedEnum)
-      case 52: try setter.decodeRepeatedField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: &_repeatedForeignEnum)
-      case 53: try setter.decodeRepeatedField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_repeatedImportEnum)
-      case 54: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_repeatedStringPiece)
-      case 55: try setter.decodeRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_repeatedCord)
-      case 57: try setter.decodeRepeatedMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &_repeatedLazyMessage)
-      case 61: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_defaultInt32)
-      case 62: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: &_defaultInt64)
-      case 63: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &_defaultUint32)
-      case 64: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: &_defaultUint64)
-      case 65: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: &_defaultSint32)
-      case 66: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: &_defaultSint64)
-      case 67: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: &_defaultFixed32)
-      case 68: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: &_defaultFixed64)
-      case 69: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: &_defaultSfixed32)
-      case 70: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: &_defaultSfixed64)
-      case 71: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: &_defaultFloat)
-      case 72: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: &_defaultDouble)
-      case 73: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: &_defaultBool)
-      case 74: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_defaultString)
-      case 75: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &_defaultBytes)
-      case 81: try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: &_defaultNestedEnum)
-      case 82: try setter.decodeSingularField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: &_defaultForeignEnum)
-      case 83: try setter.decodeSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: &_defaultImportEnum)
-      case 84: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_defaultStringPiece)
-      case 85: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &_defaultCord)
-      case 111, 112, 113, 114, 115: try _oneofField.decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_optionalInt32)
+      case 2: try decoder.decodeSingularInt64Field(value: &_optionalInt64)
+      case 3: try decoder.decodeSingularUInt32Field(value: &_optionalUint32)
+      case 4: try decoder.decodeSingularUInt64Field(value: &_optionalUint64)
+      case 5: try decoder.decodeSingularSInt32Field(value: &_optionalSint32)
+      case 6: try decoder.decodeSingularSInt64Field(value: &_optionalSint64)
+      case 7: try decoder.decodeSingularFixed32Field(value: &_optionalFixed32)
+      case 8: try decoder.decodeSingularFixed64Field(value: &_optionalFixed64)
+      case 9: try decoder.decodeSingularSFixed32Field(value: &_optionalSfixed32)
+      case 10: try decoder.decodeSingularSFixed64Field(value: &_optionalSfixed64)
+      case 11: try decoder.decodeSingularFloatField(value: &_optionalFloat)
+      case 12: try decoder.decodeSingularDoubleField(value: &_optionalDouble)
+      case 13: try decoder.decodeSingularBoolField(value: &_optionalBool)
+      case 14: try decoder.decodeSingularStringField(value: &_optionalString)
+      case 15: try decoder.decodeSingularBytesField(value: &_optionalBytes)
+      case 16: try decoder.decodeSingularGroupField(value: &_optionalGroup)
+      case 18: try decoder.decodeSingularMessageField(value: &_optionalNestedMessage)
+      case 19: try decoder.decodeSingularMessageField(value: &_optionalForeignMessage)
+      case 20: try decoder.decodeSingularMessageField(value: &_optionalImportMessage)
+      case 21: try decoder.decodeSingularEnumField(value: &_optionalNestedEnum)
+      case 22: try decoder.decodeSingularEnumField(value: &_optionalForeignEnum)
+      case 23: try decoder.decodeSingularEnumField(value: &_optionalImportEnum)
+      case 24: try decoder.decodeSingularStringField(value: &_optionalStringPiece)
+      case 25: try decoder.decodeSingularStringField(value: &_optionalCord)
+      case 26: try decoder.decodeSingularMessageField(value: &_optionalPublicImportMessage)
+      case 27: try decoder.decodeSingularMessageField(value: &_optionalMessage)
+      case 31: try decoder.decodeRepeatedInt32Field(value: &_repeatedInt32)
+      case 32: try decoder.decodeRepeatedInt64Field(value: &_repeatedInt64)
+      case 33: try decoder.decodeRepeatedUInt32Field(value: &_repeatedUint32)
+      case 34: try decoder.decodeRepeatedUInt64Field(value: &_repeatedUint64)
+      case 35: try decoder.decodeRepeatedSInt32Field(value: &_repeatedSint32)
+      case 36: try decoder.decodeRepeatedSInt64Field(value: &_repeatedSint64)
+      case 37: try decoder.decodeRepeatedFixed32Field(value: &_repeatedFixed32)
+      case 38: try decoder.decodeRepeatedFixed64Field(value: &_repeatedFixed64)
+      case 39: try decoder.decodeRepeatedSFixed32Field(value: &_repeatedSfixed32)
+      case 40: try decoder.decodeRepeatedSFixed64Field(value: &_repeatedSfixed64)
+      case 41: try decoder.decodeRepeatedFloatField(value: &_repeatedFloat)
+      case 42: try decoder.decodeRepeatedDoubleField(value: &_repeatedDouble)
+      case 43: try decoder.decodeRepeatedBoolField(value: &_repeatedBool)
+      case 44: try decoder.decodeRepeatedStringField(value: &_repeatedString)
+      case 45: try decoder.decodeRepeatedBytesField(value: &_repeatedBytes)
+      case 46: try decoder.decodeRepeatedGroupField(value: &_repeatedGroup)
+      case 48: try decoder.decodeRepeatedMessageField(value: &_repeatedNestedMessage)
+      case 49: try decoder.decodeRepeatedMessageField(value: &_repeatedForeignMessage)
+      case 50: try decoder.decodeRepeatedMessageField(value: &_repeatedImportMessage)
+      case 51: try decoder.decodeRepeatedEnumField(value: &_repeatedNestedEnum)
+      case 52: try decoder.decodeRepeatedEnumField(value: &_repeatedForeignEnum)
+      case 53: try decoder.decodeRepeatedEnumField(value: &_repeatedImportEnum)
+      case 54: try decoder.decodeRepeatedStringField(value: &_repeatedStringPiece)
+      case 55: try decoder.decodeRepeatedStringField(value: &_repeatedCord)
+      case 57: try decoder.decodeRepeatedMessageField(value: &_repeatedLazyMessage)
+      case 61: try decoder.decodeSingularInt32Field(value: &_defaultInt32)
+      case 62: try decoder.decodeSingularInt64Field(value: &_defaultInt64)
+      case 63: try decoder.decodeSingularUInt32Field(value: &_defaultUint32)
+      case 64: try decoder.decodeSingularUInt64Field(value: &_defaultUint64)
+      case 65: try decoder.decodeSingularSInt32Field(value: &_defaultSint32)
+      case 66: try decoder.decodeSingularSInt64Field(value: &_defaultSint64)
+      case 67: try decoder.decodeSingularFixed32Field(value: &_defaultFixed32)
+      case 68: try decoder.decodeSingularFixed64Field(value: &_defaultFixed64)
+      case 69: try decoder.decodeSingularSFixed32Field(value: &_defaultSfixed32)
+      case 70: try decoder.decodeSingularSFixed64Field(value: &_defaultSfixed64)
+      case 71: try decoder.decodeSingularFloatField(value: &_defaultFloat)
+      case 72: try decoder.decodeSingularDoubleField(value: &_defaultDouble)
+      case 73: try decoder.decodeSingularBoolField(value: &_defaultBool)
+      case 74: try decoder.decodeSingularStringField(value: &_defaultString)
+      case 75: try decoder.decodeSingularBytesField(value: &_defaultBytes)
+      case 81: try decoder.decodeSingularEnumField(value: &_defaultNestedEnum)
+      case 82: try decoder.decodeSingularEnumField(value: &_defaultForeignEnum)
+      case 83: try decoder.decodeSingularEnumField(value: &_defaultImportEnum)
+      case 84: try decoder.decodeSingularStringField(value: &_defaultStringPiece)
+      case 85: try decoder.decodeSingularStringField(value: &_defaultCord)
+      case 111, 112, 113, 114, 115: try _oneofField.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -417,13 +423,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
         try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
       }
       if let v = _optionalNestedEnum {
-        try visitor.visitSingularField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: v, fieldNumber: 21)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
       }
       if let v = _optionalForeignEnum {
-        try visitor.visitSingularField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: v, fieldNumber: 22)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 22)
       }
       if let v = _optionalImportEnum {
-        try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: v, fieldNumber: 23)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 23)
       }
       if let v = _optionalStringPiece {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 24)
@@ -495,13 +501,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
         try visitor.visitRepeatedMessageField(value: _repeatedImportMessage, fieldNumber: 50)
       }
       if !_repeatedNestedEnum.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: _repeatedNestedEnum, fieldNumber: 51)
+        try visitor.visitRepeatedEnumField(value: _repeatedNestedEnum, fieldNumber: 51)
       }
       if !_repeatedForeignEnum.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: _repeatedForeignEnum, fieldNumber: 52)
+        try visitor.visitRepeatedEnumField(value: _repeatedForeignEnum, fieldNumber: 52)
       }
       if !_repeatedImportEnum.isEmpty {
-        try visitor.visitRepeatedField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: _repeatedImportEnum, fieldNumber: 53)
+        try visitor.visitRepeatedEnumField(value: _repeatedImportEnum, fieldNumber: 53)
       }
       if !_repeatedStringPiece.isEmpty {
         try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedStringPiece, fieldNumber: 54)
@@ -558,13 +564,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 75)
       }
       if let v = _defaultNestedEnum {
-        try visitor.visitSingularField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedEnum.self, value: v, fieldNumber: 81)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 81)
       }
       if let v = _defaultForeignEnum {
-        try visitor.visitSingularField(fieldType: ProtobufUnittestNoArena_ForeignEnum.self, value: v, fieldNumber: 82)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 82)
       }
       if let v = _defaultImportEnum {
-        try visitor.visitSingularField(fieldType: ProtobufUnittestImport_ImportEnum.self, value: v, fieldNumber: 83)
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 83)
       }
       if let v = _defaultStringPiece {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 84)
@@ -767,38 +773,38 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       self = .None
     }
 
-    public mutating func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      if self != .None && setter.rejectConflictingOneof {
-        throw SwiftProtobuf.DecodingError.duplicatedOneOf
+    public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
+      if self != .None {
+        try decoder.handleConflictingOneOf()
       }
-      switch protoFieldNumber {
+      switch fieldNumber {
       case 111:
         var value: UInt32?
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: &value)
+        try decoder.decodeSingularUInt32Field(value: &value)
         if let value = value {
           self = .oneofUint32(value)
         }
       case 112:
         var value: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
-        try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &value)
+        try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .oneofNestedMessage(value)
         }
       case 113:
         var value: String?
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: &value)
+        try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .oneofString(value)
         }
       case 114:
         var value: Data?
-        try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: &value)
+        try decoder.decodeSingularBytesField(value: &value)
         if let value = value {
           self = .oneofBytes(value)
         }
       case 115:
         var value: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
-        try setter.decodeSingularMessageField(fieldType: ProtobufUnittestNoArena_TestAllTypes.NestedMessage.self, value: &value)
+        try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .lazyOneofNestedMessage(value)
         }
@@ -930,9 +936,15 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_bb)
+    public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_bb)
       default: break
       }
     }
@@ -974,9 +986,15 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 17: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_a)
+    public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 17: try decoder.decodeSingularInt32Field(value: &_a)
       default: break
       }
     }
@@ -1018,9 +1036,15 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
     init() {}
 
-    public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 47: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_a)
+    public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 47: try decoder.decodeSingularInt32Field(value: &_a)
       default: break
       }
     }
@@ -1743,8 +1767,12 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try _uniqueStorage().decodeMessage(decoder: &decoder)
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
@@ -1788,9 +1816,15 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProto
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    switch protoFieldNumber {
-    case 1: try setter.decodeSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: &_c)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularInt32Field(value: &_c)
     default: break
     }
   }
@@ -1823,9 +1857,15 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
 
     init() {}
 
-    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 1: try setter.decodeSingularMessageField(fieldType: Proto2ArenaUnittest_ArenaMessage.self, value: &_arenaMessage)
+    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &_arenaMessage)
       default: break
       }
     }
@@ -1871,8 +1911,12 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try _uniqueStorage().decodeMessage(decoder: &decoder)
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {

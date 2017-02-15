@@ -15,10 +15,26 @@
 import Foundation
 import Swift
 
-public struct ProtobufMap<KeyType: MapKeyType, ValueType: MapValueType>
+public struct ProtobufMap<KeyType: MapKeyType, ValueType: FieldType>
     where KeyType.BaseType: Hashable
 {
-    typealias Key = KeyType.BaseType
-    typealias Value = ValueType.BaseType
+    public typealias Key = KeyType.BaseType
+    public typealias Value = ValueType.BaseType
+    public typealias BaseType = Dictionary<Key, Value>
+}
+
+public struct ProtobufMessageMap<KeyType: MapKeyType, ValueType: Message>
+    where KeyType.BaseType: Hashable
+{
+    public typealias Key = KeyType.BaseType
+    public typealias Value = ValueType
+    public typealias BaseType = Dictionary<Key, Value>
+}
+
+public struct ProtobufEnumMap<KeyType: MapKeyType, ValueType: Enum>
+    where KeyType.BaseType: Hashable
+{
+    public typealias Key = KeyType.BaseType
+    public typealias Value = ValueType
     public typealias BaseType = Dictionary<Key, Value>
 }

@@ -18,7 +18,6 @@ public protocol OneofEnum: Equatable {
 
   func traverse(visitor: Visitor, start: Int, end: Int) throws
 
-//  mutating func decodeField(setter: inout FieldDecoder,
-  mutating func decodeField<T: FieldDecoder>(setter: inout T,
-                            protoFieldNumber: Int) throws
+  mutating func decodeField<D: Decoder>(decoder: inout D,
+                                        fieldNumber: Int) throws
 }

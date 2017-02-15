@@ -17,48 +17,6 @@
 
 import Swift
 
-public enum DecodingError: Error {
-    /// An unspecified decoding failure
-    case failure
-    /// JSON format does not allow a oneof field to be specified more than once
-    /// TODO: Remove me!  (This was in generated code until May 18, 2016; remove in July 2016.)
-    case DuplicatedOneOf // TODO: Remove me!
-    /// JSON format does not allow a oneof field to be specified more than once
-    /// Note:  This is used in generated code!  Changing this is difficult.
-    case duplicatedOneOf
-    /// Extraneous data remained after decoding should have been complete
-    case trailingGarbage
-    /// Input was truncated
-    case truncatedInput
-    /// The data being parsed does not match the type specified in the proto file
-    case schemaMismatch
-    /// Any field could not be unpacked
-    case malformedAnyField
-    /// Names in a field mask could not be converted
-    case fieldMaskConversion
-    /// The JSON was syntactically invalid
-    case malformedJSON
-    /// A JSON number was not parseable
-    case malformedJSONNumber
-    /// A JSON timestamp was not parseable
-    case malformedJSONTimestamp
-    /// The Protobuf text-format input was syntactically invalid
-    case malformedText
-    /// A Protobuf text-format number was not parseable
-    case malformedTextNumber
-    /// The enum value was not recognized (for JSON, this is a parse error)
-    case unrecognizedEnumValue
-    /// Strings must always be valid UTF-8
-    case invalidUTF8
-    /// Protobuf binary was syntactically invalid
-    case malformedProtobuf
-    /// Field names were not compiled into the binary
-    case missingFieldNames
-    /// The field identifier (name or number) was not recognized
-    case unknownField
-    /// TODO: More here?
-}
-
 public enum EncodingError: Error {
     /// An unspecified encoding failure
     case failure

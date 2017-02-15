@@ -20,6 +20,7 @@ extension Google_Protobuf_FieldDescriptorProto {
 
     var isRepeated: Bool {return label == .repeated}
     var isMessage: Bool {return type == .message}
+    var isEnum: Bool {return type == .enum}
     var isGroup: Bool {return type == .group}
 
     var isPackable: Bool {
@@ -51,6 +52,30 @@ extension Google_Protobuf_FieldDescriptorProto {
         if type != .message {return false}
         let m = context.getMessageForPath(path: typeName)!
         return m.options.mapEntry
+    }
+
+
+    func getProtoTypeName(context: Context) -> String {
+        switch type {
+        case .double: return "Double"
+        case .float: return "Float"
+        case .int64: return "Int64"
+        case .uint64: return "UInt64"
+        case .int32: return "Int32"
+        case .fixed64: return "Fixed64"
+        case .fixed32: return "Fixed32"
+        case .bool: return "Bool"
+        case .string: return "String"
+        case .group: return context.getMessageNameForPath(path: typeName)!
+        case .message: return context.getMessageNameForPath(path: typeName)!
+        case .bytes: return "Bytes"
+        case .uint32: return "UInt32"
+        case .enum: return "Enum"
+        case .sfixed32: return "SFixed32"
+        case .sfixed64: return "SFixed64"
+        case .sint32: return "SInt32"
+        case .sint64: return "SInt64"
+        }
     }
 
     func getSwiftBaseType(context: Context) -> String {
@@ -154,7 +179,13 @@ extension Google_Protobuf_FieldDescriptorProto {
             let keyTraits = keyField.getTraitsType(context: context)
             let valueField = m.field[1]
             let valueTraits = valueField.getTraitsType(context: context)
-            return "SwiftProtobuf.ProtobufMap<" + keyTraits + "," + valueTraits + ">"
+            if valueField.isMessage {
+                return "SwiftProtobuf.ProtobufMessageMap<" + keyTraits + "," + valueTraits + ">"
+            } else if valueField.isEnum {
+                return "SwiftProtobuf.ProtobufEnumMap<" + keyTraits + "," + valueTraits + ">"
+            } else {
+                return "SwiftProtobuf.ProtobufMap<" + keyTraits + "," + valueTraits + ">"
+            }
         }
         switch type {
         case .double: return "SwiftProtobuf.ProtobufDouble"
@@ -283,6 +314,7 @@ struct MessageFieldGenerator {
     var isGroup: Bool {return descriptor.isGroup}
     var isMap: Bool {return descriptor.getIsMap(context: context)}
     var isMessage: Bool {return descriptor.isMessage}
+    var isEnum: Bool {return descriptor.type == .enum}
     var isPacked: Bool {return descriptor.isPackable &&
         (descriptor.options.hasPacked ? descriptor.options.packed : isProto3)}
     var isRepeated: Bool {return descriptor.isRepeated}
@@ -312,7 +344,7 @@ struct MessageFieldGenerator {
     }
 
     var name: String {return descriptor.name}
-
+    var protoTypeName: String {return descriptor.getProtoTypeName(context: context)}
     var swiftBaseType: String {return descriptor.getSwiftBaseType(context: context)}
     var swiftApiType: String {return descriptor.getSwiftApiType(context: context, isProto3: isProto3)}
 
@@ -322,19 +354,6 @@ struct MessageFieldGenerator {
 
     var swiftProto2DefaultValue: String? {
         return descriptor.getSwiftProto2DefaultValue(context: context)
-    }
-
-
-    var swiftDecoderMethod: String {
-        if isMap {
-            return "decodeMapField"
-        } else {
-            let modifier = (isRepeated ? "Repeated" : "Singular")
-            let special = isGroup ? "Group"
-                         : isMessage ? "Message"
-                         : ""
-            return "decode\(modifier)\(special)Field"
-        }
     }
 
     var swiftStorageType: String {
@@ -467,7 +486,35 @@ struct MessageFieldGenerator {
         if prefix == "" && !isRepeated && !isMap && !isProto3 {
             prefix = "_"
         }
-        p.print("case \(number): try setter.\(swiftDecoderMethod)(fieldType: \(traitsType).self, value: &\(prefix)\(swiftName))\n")
+
+        let decoderMethod: String
+        let traitsArg: String
+        let valueArg: String
+        if isMap {
+            // Map fields
+            decoderMethod = "decodeMapField"
+            traitsArg = "fieldType: \(traitsType).self"
+            valueArg = "value: &\(prefix)\(swiftName)"
+        } else if isGroup || isMessage || isEnum {
+            // Message, Group, Enum fields
+            let modifier = (isRepeated ? "Repeated" : "Singular")
+            let special = isGroup ? "Group"
+                         : isMessage ? "Message"
+                         : isEnum ? "Enum"
+                         : ""
+            decoderMethod = "decode\(modifier)\(special)Field"
+            traitsArg = ""
+            valueArg = "value: &\(prefix)\(swiftName)"
+        } else {
+            // Primitive fields
+            let modifier = (isRepeated ? "Repeated" : "Singular")
+            let protoType = descriptor.getProtoTypeName(context: context)
+            decoderMethod = "decode\(modifier)\(protoType)Field"
+            traitsArg = ""
+            valueArg = "value: &\(prefix)\(swiftName)"
+        }
+        let separator = traitsArg.isEmpty ? "" : ", "
+        p.print("case \(number): try decoder.\(decoderMethod)(\(traitsArg)\(separator)\(valueArg))\n")
     }
 
     func generateTraverse(printer p: inout CodePrinter, prefix: String = "") {
@@ -485,12 +532,13 @@ struct MessageFieldGenerator {
                          : "Singular")
             let special = isGroup ? "Group"
                          : isMessage ? "Message"
+                         : isEnum ? "Enum"
                          : ""
             visitMethod = "visit\(modifier)\(special)Field"
         }
 
         let fieldTypeArg: String
-        if isMap || (!isGroup && !isMessage) {
+        if isMap || (!isGroup && !isMessage && !isEnum) {
             fieldTypeArg = "fieldType: \(traitsType).self, "
         } else {
             fieldTypeArg = ""
