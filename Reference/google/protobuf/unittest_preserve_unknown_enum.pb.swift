@@ -196,44 +196,34 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
   ]
 
 
-  enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_O: SwiftProtobuf.OneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
-    case None
 
     static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
       switch (lhs, rhs) {
       case (.oneofE1(let l), .oneofE1(let r)): return l == r
       case (.oneofE2(let l), .oneofE2(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 5:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
         try decoder.decodeSingularEnumField(value: &value)
         self = .oneofE1(value)
+        return
       case 6:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
         try decoder.decodeSingularEnumField(value: &value)
         self = .oneofE2(value)
+        return
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -246,8 +236,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
         if start <= 6 && 6 < end {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
         }
-      case .None:
-        break
       }
     }
   }
@@ -263,7 +251,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
 
   var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
-      if case .oneofE1(let v) = o {
+      if case .oneofE1(let v)? = o {
         return v
       }
       return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
@@ -273,11 +261,11 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     }
   }
 
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O = .None
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O? = nil
 
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
-      if case .oneofE2(let v) = o {
+      if case .oneofE2(let v)? = o {
         return v
       }
       return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
@@ -299,7 +287,11 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     case 2: try decoder.decodeRepeatedEnumField(value: &repeatedE)
     case 3: try decoder.decodeRepeatedEnumField(value: &repeatedPackedE)
     case 4: try decoder.decodeRepeatedEnumField(value: &repeatedPackedUnexpectedE)
-    case 5, 6: try o.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    case 5, 6:
+      if o != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      o = try Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
     default: break
     }
   }
@@ -317,7 +309,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     if !repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitPackedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try o.traverse(visitor: visitor, start: 5, end: 7)
+    try o?.traverse(visitor: visitor, start: 5, end: 7)
   }
 
   func _protoc_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessage) -> Bool {
@@ -343,44 +335,34 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   ]
 
 
-  enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_O: SwiftProtobuf.OneofEnum {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
-    case None
 
     static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O) -> Bool {
       switch (lhs, rhs) {
       case (.oneofE1(let l), .oneofE1(let r)): return l == r
       case (.oneofE2(let l), .oneofE2(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 5:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
         try decoder.decodeSingularEnumField(value: &value)
         self = .oneofE1(value)
+        return
       case 6:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
         try decoder.decodeSingularEnumField(value: &value)
         self = .oneofE2(value)
+        return
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -393,8 +375,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
         if start <= 6 && 6 < end {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
         }
-      case .None:
-        break
       }
     }
   }
@@ -409,7 +389,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
 
   var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
-      if case .oneofE1(let v) = o {
+      if case .oneofE1(let v)? = o {
         return v
       }
       return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
@@ -419,11 +399,11 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     }
   }
 
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O = .None
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O? = nil
 
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
-      if case .oneofE2(let v) = o {
+      if case .oneofE2(let v)? = o {
         return v
       }
       return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
@@ -445,7 +425,11 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     case 2: try decoder.decodeRepeatedEnumField(value: &repeatedE)
     case 3: try decoder.decodeRepeatedEnumField(value: &repeatedPackedE)
     case 4: try decoder.decodeRepeatedEnumField(value: &repeatedPackedUnexpectedE)
-    case 5, 6: try o.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    case 5, 6:
+      if o != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      o = try Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
     default: break
     }
   }
@@ -463,7 +447,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     if !repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitPackedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try o.traverse(visitor: visitor, start: 5, end: 7)
+    try o?.traverse(visitor: visitor, start: 5, end: 7)
   }
 
   func _protoc_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra) -> Bool {

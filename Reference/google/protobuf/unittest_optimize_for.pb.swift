@@ -71,7 +71,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     var unknown = SwiftProtobuf.UnknownStorage()
     var _i: Int32? = nil
     var _msg: ProtobufUnittest_ForeignMessage? = nil
-    var _foo = ProtobufUnittest_TestOptimizedForSize.OneOf_Foo()
+    var _foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo?
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
@@ -88,7 +88,11 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt32Field(value: &_i)
       case 19: try decoder.decodeSingularMessageField(value: &_msg)
-      case 2, 3: try _foo.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 2, 3:
+        if _foo != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
           try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
         }
@@ -99,7 +103,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       if let v = _i {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
       }
-      try _foo.traverse(visitor: visitor, start: 2, end: 4)
+      try _foo?.traverse(visitor: visitor, start: 2, end: 4)
       if let v = _msg {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
@@ -134,48 +138,38 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_Foo: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Foo: SwiftProtobuf.OneofEnum {
     case integerField(Int32)
     case stringField(String)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo) -> Bool {
       switch (lhs, rhs) {
       case (.integerField(let l), .integerField(let r)): return l == r
       case (.stringField(let l), .stringField(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 2:
         var value: Int32?
         try decoder.decodeSingularInt32Field(value: &value)
         if let value = value {
           self = .integerField(value)
+          return
         }
       case 3:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .stringField(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -188,8 +182,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
         if start <= 3 && 3 < end {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 3)
         }
-      case .None:
-        break
       }
     }
   }
@@ -233,7 +225,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   var integerField: Int32 {
     get {
-      if case .integerField(let v) = _storage._foo {
+      if case .integerField(let v)? = _storage._foo {
         return v
       }
       return 0
@@ -245,7 +237,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   var stringField: String {
     get {
-      if case .stringField(let v) = _storage._foo {
+      if case .stringField(let v)? = _storage._foo {
         return v
       }
       return ""
@@ -255,7 +247,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  var foo: OneOf_Foo {
+  var foo: OneOf_Foo? {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
