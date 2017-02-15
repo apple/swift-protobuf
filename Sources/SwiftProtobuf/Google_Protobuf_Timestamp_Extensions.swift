@@ -15,45 +15,14 @@
 
 import Swift
 
+private let minTimestampSeconds: Int64 = -62135596800  // 0001-01-01T00:00:00Z
+private let maxTimestampSeconds: Int64 = 253402300799  // 9999-12-31T23:59:59Z
+
 // TODO: Add convenience methods to interoperate with standard
 // date/time classes:  an initializer that accepts Unix timestamp as
 // Int or Double, an easy way to convert to/from Foundation's
 // NSDateTime (on Apple platforms only?), others?
 
-private func FormatInt(n: Int32, digits: Int) -> String {
-    if n < 0 {
-        return FormatInt(n: -n, digits: digits)
-    } else if digits <= 0 {
-        return ""
-    } else if digits == 1 && n < 10 {
-        return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n)]
-    } else {
-        return FormatInt(n: n / 10, digits: digits - 1) +  ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][Int(n % 10)]
-    }
-}
-
-private func fromAscii2(_ digit0: Int, _ digit1: Int) throws -> Int {
-    let zero = Int(48)
-    let nine = Int(57)
-
-    if digit0 < zero || digit0 > nine || digit1 < zero || digit1 > nine {
-        throw JSONDecodingError.malformedTimestamp
-    }
-    return digit0 * 10 + digit1 - 528
-}
-
-private func fromAscii4(_ digit0: Int, _ digit1: Int, _ digit2: Int, _ digit3: Int) throws -> Int {
-    let zero = Int(48)
-    let nine = Int(57)
-
-    if (digit0 < zero || digit0 > nine
-        || digit1 < zero || digit1 > nine
-        || digit2 < zero || digit2 > nine
-        || digit3 < zero || digit3 > nine) {
-        throw JSONDecodingError.malformedTimestamp
-    }
-    return digit0 * 1000 + digit1 * 100 + digit2 * 10 + digit3 - 53328
-}
 
 // Parse an RFC3339 timestamp into a pair of seconds-since-1970 and nanos.
 private func parseTimestamp(s: String) throws -> (Int64, Int32) {
@@ -72,6 +41,23 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     let letterT = Int(84)
     let letterZ = Int(90)
     let period = Int(46)
+
+    func fromAscii2(_ digit0: Int, _ digit1: Int) throws -> Int {
+        if digit0 < zero || digit0 > nine || digit1 < zero || digit1 > nine {
+            throw JSONDecodingError.malformedTimestamp
+        }
+        return digit0 * 10 + digit1 - 528
+    }
+
+    func fromAscii4(_ digit0: Int, _ digit1: Int, _ digit2: Int, _ digit3: Int) throws -> Int {
+        if (digit0 < zero || digit0 > nine
+            || digit1 < zero || digit1 > nine
+            || digit2 < zero || digit2 > nine
+            || digit3 < zero || digit3 > nine) {
+            throw JSONDecodingError.malformedTimestamp
+        }
+        return digit0 * 1000 + digit1 * 100 + digit2 * 10 + digit3 - 53328
+    }
 
     // Year: 4 digits followed by '-'
     let year = try fromAscii4(value[0], value[1], value[2], value[3])
@@ -173,7 +159,7 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
             adjusted += Int64(hourOffset) * Int64(3600)
             adjusted += Int64(minuteOffset) * Int64(60)
         }
-        if adjusted < -62135596800 || adjusted > 253402300799 {
+        if adjusted < minTimestampSeconds || adjusted > maxTimestampSeconds {
             throw JSONDecodingError.malformedTimestamp
         }
         seconds = adjusted
@@ -191,74 +177,24 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
 }
 
 private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
-    if ((seconds < 0 && nanos > 0)
-        || (seconds > 0 && nanos < 0)
-        || (seconds < -62135596800)
-        || (seconds == -62135596800 && nanos < 0)
-        || (seconds >= 253402300800)) {
-            return nil
+    let (seconds, nanos) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
+    guard seconds >= minTimestampSeconds && seconds <= maxTimestampSeconds else {
+        return nil
     }
 
-    // Can't just use gmtime() here because time_t is sometimes 32 bits. Ugh.
-    let secondsSinceStartOfDay = (Int32(seconds % 86400) + 86400) % 86400
-    let sec = secondsSinceStartOfDay % 60
-    let min = (secondsSinceStartOfDay / 60) % 60
-    let hour = secondsSinceStartOfDay / 3600
-
-    // The following implements Richards' algorithm (see the Wikipedia article
-    // for "Julian day").
-    // If you touch this code, please test it exhaustively by playing with
-    // Test_Timestamp.testJSON_range.
-    let julian = (seconds + 210866803200) / 86400
-    let f = julian + 1401 + (((4 * julian + 274277) / 146097) * 3) / 4 - 38
-    let e = 4 * f + 3
-    let g = e % 1461 / 4
-    let h = 5 * g + 2
-    let mday = Int32(h % 153 / 5 + 1)
-    let month = (h / 153 + 2) % 12 + 1
-    let year = e / 1461 - 4716 + (12 + 2 - month) / 12
-
-    // We can't use strftime here (it varies with locale)
-    // We can't use strftime_l here (it's not portable)
-    // The following is crude, but it works.
-    // TODO: If String(format:) works, that might be even better
-    // (it was broken on Linux a while back...)
-    let result = (FormatInt(n: Int32(year), digits: 4)
-        + "-"
-        + FormatInt(n: Int32(month), digits: 2)
-        + "-"
-        + FormatInt(n: mday, digits: 2)
-        + "T"
-        + FormatInt(n: hour, digits: 2)
-        + ":"
-        + FormatInt(n: min, digits: 2)
-        + ":"
-        + FormatInt(n: sec, digits: 2))
+    let (hh, mm, ss) = timeOfDayFromSecondsSince1970(seconds: seconds)
+    let (YY, MM, DD) = gregorianDateFromSecondsSince1970(seconds: seconds)
+    
     if nanos == 0 {
-        return "\(result)Z"
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02dZ", YY, MM, DD, hh, mm, ss)
+    } else if nanos % 1000000 == 0 {
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%03dZ", YY, MM, DD, hh, mm, ss, nanos / 1000000)
+    } else if nanos % 1000 == 0 {
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%06dZ", YY, MM, DD, hh, mm, ss, nanos / 1000)
     } else {
-        var digits: Int
-        var fraction: Int
-        if nanos % 1000000 == 0 {
-            fraction = Int(nanos) / 1000000
-            digits = 3
-        } else if nanos % 1000 == 0 {
-            fraction = Int(nanos) / 1000
-            digits = 6
-        } else {
-            fraction = Int(nanos)
-            digits = 9
-        }
-        var formatted_fraction = ""
-        while digits > 0 {
-            formatted_fraction = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][fraction % 10] + formatted_fraction
-            fraction /= 10
-            digits -= 1
-        }
-        return "\(result).\(formatted_fraction)Z"
+        return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%09dZ", YY, MM, DD, hh, mm, ss, nanos)
     }
 }
-
 
 public extension Google_Protobuf_Timestamp {
     public init(seconds: Int64 = 0, nanos: Int32 = 0) {
@@ -269,49 +205,44 @@ public extension Google_Protobuf_Timestamp {
 
     public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let s = try decoder.scanner.nextQuotedString()
-        let timestamp = try parseTimestamp(s: s)
-        seconds = timestamp.0
-        nanos = timestamp.1
+        (seconds, nanos) = try parseTimestamp(s: s)
     }
 
     public func serializeJSON() throws -> String {
-        let s = seconds
-        let n = nanos
-        if let formatted = formatTimestamp(seconds: s, nanos: n) {
+        if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
         } else {
             throw EncodingError.timestampJSONRange
         }
     }
 
-    func serializeAnyJSON() throws -> String {
+    public func serializeAnyJSON() throws -> String {
         let value = try serializeJSON()
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 }
 
-private func normalizedTimestamp(seconds: Int64, nanos: Int32) -> Google_Protobuf_Timestamp {
-    var s = seconds
-    var n = nanos
-    if n >= 1000000000 || n <= -1000000000 {
-        s += Int64(n) / 1000000000
-        n = n % 1000000000
-    }
-    if s > 0 && n < 0 {
-        n += 1000000000
-        s -= 1
-    } else if s < 0 && n > 0 {
-        n -= 1000000000
-        s += 1
-    }
+private func normalizeForTimestamp(seconds: Int64, nanos: Int32) -> (seconds: Int64, nanos: Int32) {
+    // The Timestamp spec says that nanos must be in the range [0, 999999999),
+    // as in actual modular arithmetic.
+
+    let s = seconds + Int64(div(nanos, nanosPerSecond))
+    let n = mod(nanos, nanosPerSecond)
+    return (seconds: s, nanos: n)
+}
+
+public func+(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp {
+    let (s, n) = normalizeForTimestamp(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
+    return Google_Protobuf_Timestamp(seconds: s, nanos: n)
+}
+
+public func+(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Timestamp) -> Google_Protobuf_Timestamp {
+    let (s, n) = normalizeForTimestamp(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
     return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
 public func -(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp {
-    return normalizedTimestamp(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
-}
-
-public func+(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp {
-    return normalizedTimestamp(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
+    let (s, n) = normalizeForTimestamp(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
+    return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 

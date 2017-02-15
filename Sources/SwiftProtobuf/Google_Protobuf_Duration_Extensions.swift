@@ -16,8 +16,8 @@
 
 import Swift
 
-private let DurationMax: Int64 = 315576000000
-private let DurationMin: Int64 = -DurationMax
+private let minDurationSeconds: Int64 = -maxDurationSeconds
+private let maxDurationSeconds: Int64 = 315576000000
 
 private func parseDuration(text: String) throws -> (Int64, Int32) {
     var digits = [Character]()
@@ -42,7 +42,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
                 throw JSONDecodingError.malformedDuration
             }
             let digitString = String(digits)
-            if let s = Int64(digitString), s >= DurationMin && s <= DurationMax {
+            if let s = Int64(digitString), s >= minDurationSeconds && s <= maxDurationSeconds {
                 seconds = s
             } else {
                 throw JSONDecodingError.malformedDuration
@@ -73,7 +73,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
             } else {
                 // No fraction, we just have an integral number of seconds
                 let digitString = String(digits)
-                if let s = Int64(digitString), s >= DurationMin && s <= DurationMax {
+                if let s = Int64(digitString), s >= minDurationSeconds && s <= maxDurationSeconds {
                     seconds = s
                 } else {
                     throw JSONDecodingError.malformedDuration
@@ -93,53 +93,36 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
 }
 
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
-    if ((seconds < 0 && nanos > 0)
-        || (seconds > 0 && nanos < 0)
-        || (seconds < -315576000000)
-        || (seconds > 315576000000)) {
+    let (seconds, nanos) = normalizeForDuration(seconds: seconds, nanos: nanos)
+    guard seconds >= minDurationSeconds && seconds <= maxDurationSeconds else {
         return nil
-    } else if nanos == 0 {
-        return "\(seconds)s"
+    }
+
+    if nanos == 0 {
+        return String(format: "%ds", seconds)
+    } else if nanos % 1000000 == 0 {
+        return String(format: "%d.%03ds", seconds, abs(nanos) / 1000000)
+    } else if nanos % 1000 == 0 {
+        return String(format: "%d.%06ds", seconds, abs(nanos) / 1000)
     } else {
-        // String(format:...) is broken on Swift 2.2/Linux
-        // So we do this the hard way...
-        var digits: Int
-        var fraction: Int
-        let n = abs(nanos)
-        if n % 1000000 == 0 {
-            fraction = Int(n) / 1000000
-            digits = 3
-        } else if n % 1000 == 0 {
-            fraction = Int(n) / 1000
-            digits = 6
-        } else {
-            fraction = Int(n)
-            digits = 9
-        }
-        var formatted_fraction = ""
-        while digits > 0 {
-            formatted_fraction = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"][fraction % 10] + formatted_fraction
-            fraction /= 10
-            digits -= 1
-        }
-        return "\(seconds).\(formatted_fraction)s"
+        return String(format: "%d.%09ds", seconds, abs(nanos))
     }
 }
 
 public extension Google_Protobuf_Duration {
+    public init(seconds: Int64 = 0, nanos: Int32 = 0) {
+        self.init()
+        self.seconds = seconds
+        self.nanos = nanos
+    }
 
     public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let s = try decoder.scanner.nextQuotedString()
-        let duration = try parseDuration(text: s)
-        seconds = duration.0
-        nanos = duration.1
+        (seconds, nanos) = try parseDuration(text: s)
     }
 
-
     public func serializeJSON() throws -> String {
-        let s = seconds
-        let n = nanos
-        if let formatted = formatDuration(seconds: s, nanos: n) {
+        if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
         } else {
             throw EncodingError.durationJSONRange
@@ -154,48 +137,55 @@ public extension Google_Protobuf_Duration {
 
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
-    public init(seconds: Int64 = 0, nanos: Int32 = 0) {
-        self.init()
-        self.seconds = seconds
-        self.nanos = nanos
-    }
-    public init(floatLiteral: Double) {
-        let seconds = Int64(floatLiteral)
-        let fractionalSeconds = floatLiteral - Double(seconds)
-        let nanos = Int32(fractionalSeconds * 1000000000.0)
+
+    public init(floatLiteral value: Double) {
+        let seconds = Int64(value)  // rounded towards zero
+        let fractionalSeconds = value - Double(seconds)
+        let nanos = Int32(fractionalSeconds * Double(nanosPerSecond))
         self.init(seconds: seconds, nanos: nanos)
     }
 }
 
-private func normalizedDuration(seconds: Int64, nanos: Int32) -> Google_Protobuf_Duration {
+private func normalizeForDuration(seconds: Int64, nanos: Int32) -> (seconds: Int64, nanos: Int32) {
     var s = seconds
     var n = nanos
-    if n >= 1000000000 || n <= -1000000000 {
-        s += Int64(n) / 1000000000
-        n = n % 1000000000
+
+    // If the magnitude of n exceeds a second then
+    // we need to factor it into s instead.
+    if n >= nanosPerSecond || n <= -nanosPerSecond {
+        s += Int64(n / nanosPerSecond)
+        n = n % nanosPerSecond
     }
+
+    // The Duration spec says that when s != 0, s and
+    // n must have the same sign.
     if s > 0 && n < 0 {
-        n += 1000000000
+        n += nanosPerSecond
         s -= 1
     } else if s < 0 && n > 0 {
-        n -= 1000000000
+        n -= nanosPerSecond
         s += 1
     }
+
+    return (seconds: s, nanos: n)
+}
+
+public prefix func -(operand: Google_Protobuf_Duration) -> Google_Protobuf_Duration {
+    let (s, n) = normalizeForDuration(seconds: -operand.seconds, nanos: -operand.nanos)
+    return Google_Protobuf_Duration(seconds: s, nanos: n)
+}
+
+public func+(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Duration {
+    let (s, n) = normalizeForDuration(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
+    return Google_Protobuf_Duration(seconds: s, nanos: n)
+}
+
+public func -(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Duration {
+    let (s, n) = normalizeForDuration(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
     return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
 
 public func -(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Timestamp) -> Google_Protobuf_Duration {
-    return normalizedDuration(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
-}
-
-public func -(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Duration {
-    return normalizedDuration(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
-}
-
-public func+(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Duration {
-    return normalizedDuration(seconds: lhs.seconds + rhs.seconds, nanos: lhs.nanos + rhs.nanos)
-}
-
-public prefix func -(operand: Google_Protobuf_Duration) -> Google_Protobuf_Duration {
-    return normalizedDuration(seconds: -operand.seconds, nanos: -operand.nanos)
+    let (s, n) = normalizeForDuration(seconds: lhs.seconds - rhs.seconds, nanos: lhs.nanos - rhs.nanos)
+    return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
