@@ -171,40 +171,28 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
 
   var unknown = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_AnOneof: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_AnOneof: SwiftProtobuf.OneofEnum {
     case oneofField(Int32)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof, rhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof) -> Bool {
       switch (lhs, rhs) {
       case (.oneofField(let l), .oneofField(let r)): return l == r
-      case (.None, .None): return true
-      default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 2:
         var value: Int32?
         try decoder.decodeSingularInt32Field(value: &value)
         if let value = value {
           self = .oneofField(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -213,8 +201,6 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
         if start <= 2 && 2 < end {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
         }
-      case .None:
-        break
       }
     }
   }
@@ -288,7 +274,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
 
   var oneofField: Int32 {
     get {
-      if case .oneofField(let v) = anOneof {
+      if case .oneofField(let v)? = anOneof {
         return v
       }
       return 0
@@ -298,7 +284,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
     }
   }
 
-  var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof = .None
+  var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof? = nil
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -309,7 +295,11 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &_field1)
-    case 2: try anOneof.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    case 2:
+      if anOneof != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      anOneof = try ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
     default: break
     }
   }
@@ -318,7 +308,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
     if let v = _field1 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
     }
-    try anOneof.traverse(visitor: visitor, start: 2, end: 3)
+    try anOneof?.traverse(visitor: visitor, start: 2, end: 3)
     unknown.traverse(visitor: visitor)
   }
 

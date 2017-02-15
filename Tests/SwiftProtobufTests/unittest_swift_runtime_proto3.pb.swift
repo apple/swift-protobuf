@@ -160,7 +160,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     var _repeatedBytes: [Data] = []
     var _repeatedMessage: [ProtobufUnittest_Message3] = []
     var _repeatedEnum: [ProtobufUnittest_Message3.Enum] = []
-    var _o = ProtobufUnittest_Message3.OneOf_O()
+    var _o: ProtobufUnittest_Message3.OneOf_O?
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -223,7 +223,11 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       case 45: try decoder.decodeRepeatedBytesField(value: &_repeatedBytes)
       case 48: try decoder.decodeRepeatedMessageField(value: &_repeatedMessage)
       case 49: try decoder.decodeRepeatedEnumField(value: &_repeatedEnum)
-      case 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 68, 69: try _o.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 68, 69:
+        if _o != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _o = try ProtobufUnittest_Message3.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       case 70: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_mapInt32Int32)
       case 71: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: &_mapInt64Int64)
       case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: &_mapUint32Uint32)
@@ -350,7 +354,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       if !_repeatedEnum.isEmpty {
         try visitor.visitPackedEnumField(value: _repeatedEnum, fieldNumber: 49)
       }
-      try _o.traverse(visitor: visitor, start: 51, end: 70)
+      try _o?.traverse(visitor: visitor, start: 51, end: 70)
       if !_mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _mapInt32Int32, fieldNumber: 70)
       }
@@ -531,7 +535,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   private var _storage = _StorageClass()
 
 
-  enum OneOf_O: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_O: SwiftProtobuf.OneofEnum {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -549,7 +553,6 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     case oneofBytes(Data)
     case oneofMessage(ProtobufUnittest_Message3)
     case oneofEnum(ProtobufUnittest_Message3.Enum)
-    case None
 
     static func ==(lhs: ProtobufUnittest_Message3.OneOf_O, rhs: ProtobufUnittest_Message3.OneOf_O) -> Bool {
       switch (lhs, rhs) {
@@ -570,97 +573,103 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
       case (.oneofMessage(let l), .oneofMessage(let r)): return l == r
       case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 51:
         var value = Int32()
         try decoder.decodeSingularInt32Field(value: &value)
         self = .oneofInt32(value)
+        return
       case 52:
         var value = Int64()
         try decoder.decodeSingularInt64Field(value: &value)
         self = .oneofInt64(value)
+        return
       case 53:
         var value = UInt32()
         try decoder.decodeSingularUInt32Field(value: &value)
         self = .oneofUint32(value)
+        return
       case 54:
         var value = UInt64()
         try decoder.decodeSingularUInt64Field(value: &value)
         self = .oneofUint64(value)
+        return
       case 55:
         var value = Int32()
         try decoder.decodeSingularSInt32Field(value: &value)
         self = .oneofSint32(value)
+        return
       case 56:
         var value = Int64()
         try decoder.decodeSingularSInt64Field(value: &value)
         self = .oneofSint64(value)
+        return
       case 57:
         var value = UInt32()
         try decoder.decodeSingularFixed32Field(value: &value)
         self = .oneofFixed32(value)
+        return
       case 58:
         var value = UInt64()
         try decoder.decodeSingularFixed64Field(value: &value)
         self = .oneofFixed64(value)
+        return
       case 59:
         var value = Int32()
         try decoder.decodeSingularSFixed32Field(value: &value)
         self = .oneofSfixed32(value)
+        return
       case 60:
         var value = Int64()
         try decoder.decodeSingularSFixed64Field(value: &value)
         self = .oneofSfixed64(value)
+        return
       case 61:
         var value = Float()
         try decoder.decodeSingularFloatField(value: &value)
         self = .oneofFloat(value)
+        return
       case 62:
         var value = Double()
         try decoder.decodeSingularDoubleField(value: &value)
         self = .oneofDouble(value)
+        return
       case 63:
         var value = Bool()
         try decoder.decodeSingularBoolField(value: &value)
         self = .oneofBool(value)
+        return
       case 64:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .oneofString(value)
+        return
       case 65:
         var value = Data()
         try decoder.decodeSingularBytesField(value: &value)
         self = .oneofBytes(value)
+        return
       case 68:
         var value: ProtobufUnittest_Message3?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .oneofMessage(value)
+          return
         }
       case 69:
         var value = ProtobufUnittest_Message3.Enum()
         try decoder.decodeSingularEnumField(value: &value)
         self = .oneofEnum(value)
+        return
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -733,8 +742,6 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
         if start <= 69 && 69 < end {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
         }
-      case .None:
-        break
       }
     }
   }
@@ -989,7 +996,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofInt32: Int32 {
     get {
-      if case .oneofInt32(let v) = _storage._o {
+      if case .oneofInt32(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1001,7 +1008,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofInt64: Int64 {
     get {
-      if case .oneofInt64(let v) = _storage._o {
+      if case .oneofInt64(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1013,7 +1020,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v) = _storage._o {
+      if case .oneofUint32(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1025,7 +1032,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofUint64: UInt64 {
     get {
-      if case .oneofUint64(let v) = _storage._o {
+      if case .oneofUint64(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1037,7 +1044,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofSint32: Int32 {
     get {
-      if case .oneofSint32(let v) = _storage._o {
+      if case .oneofSint32(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1049,7 +1056,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofSint64: Int64 {
     get {
-      if case .oneofSint64(let v) = _storage._o {
+      if case .oneofSint64(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1061,7 +1068,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofFixed32: UInt32 {
     get {
-      if case .oneofFixed32(let v) = _storage._o {
+      if case .oneofFixed32(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1073,7 +1080,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofFixed64: UInt64 {
     get {
-      if case .oneofFixed64(let v) = _storage._o {
+      if case .oneofFixed64(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1085,7 +1092,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofSfixed32: Int32 {
     get {
-      if case .oneofSfixed32(let v) = _storage._o {
+      if case .oneofSfixed32(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1097,7 +1104,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofSfixed64: Int64 {
     get {
-      if case .oneofSfixed64(let v) = _storage._o {
+      if case .oneofSfixed64(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1109,7 +1116,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofFloat: Float {
     get {
-      if case .oneofFloat(let v) = _storage._o {
+      if case .oneofFloat(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1121,7 +1128,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofDouble: Double {
     get {
-      if case .oneofDouble(let v) = _storage._o {
+      if case .oneofDouble(let v)? = _storage._o {
         return v
       }
       return 0
@@ -1133,7 +1140,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofBool: Bool {
     get {
-      if case .oneofBool(let v) = _storage._o {
+      if case .oneofBool(let v)? = _storage._o {
         return v
       }
       return false
@@ -1145,7 +1152,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofString: String {
     get {
-      if case .oneofString(let v) = _storage._o {
+      if case .oneofString(let v)? = _storage._o {
         return v
       }
       return ""
@@ -1157,7 +1164,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v) = _storage._o {
+      if case .oneofBytes(let v)? = _storage._o {
         return v
       }
       return Data()
@@ -1170,7 +1177,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   ///   No 'group' in proto3.
   var oneofMessage: ProtobufUnittest_Message3 {
     get {
-      if case .oneofMessage(let v) = _storage._o {
+      if case .oneofMessage(let v)? = _storage._o {
         return v
       }
       return ProtobufUnittest_Message3()
@@ -1182,7 +1189,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
   var oneofEnum: ProtobufUnittest_Message3.Enum {
     get {
-      if case .oneofEnum(let v) = _storage._o {
+      if case .oneofEnum(let v)? = _storage._o {
         return v
       }
       return ProtobufUnittest_Message3.Enum.foo
@@ -1288,7 +1295,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     set {_uniqueStorage()._mapInt32Message = newValue}
   }
 
-  var o: OneOf_O {
+  var o: OneOf_O? {
     get {return _storage._o}
     set {
       _uniqueStorage()._o = newValue
