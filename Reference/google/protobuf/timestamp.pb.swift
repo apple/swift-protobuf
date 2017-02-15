@@ -100,9 +100,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       timestamp = Timestamp()
 ///       timestamp.GetCurrentTime()
 struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Timestamp"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "Timestamp"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),
   ]
@@ -119,13 +119,13 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   ///   inclusive.
   var nanos: Int32 = 0
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt64Field(value: &seconds)
     case 2: try decoder.decodeSingularInt32Field(value: &nanos)
@@ -133,7 +133,7 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if seconds != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: seconds, fieldNumber: 1)
     }
@@ -142,7 +142,7 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
     if seconds != other.seconds {return false}
     if nanos != other.nanos {return false}
     return true

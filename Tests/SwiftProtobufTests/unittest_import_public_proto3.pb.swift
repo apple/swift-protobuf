@@ -52,35 +52,35 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Proto3PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "PublicImportMessage"}
-  public var protoPackageName: String {return "protobuf_unittest_import"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "PublicImportMessage"}
+  var protoPackageName: String {return "protobuf_unittest_import"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "e"),
   ]
 
 
   var e: Int32 = 0
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &e)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if e != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: e, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Proto3PublicImportMessage) -> Bool {
+  func _protoc_generated_isEqualTo(other: Proto3PublicImportMessage) -> Bool {
     if e != other.e {return false}
     return true
   }

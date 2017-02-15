@@ -115,9 +115,9 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 }
 
 struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "ImportMessageLite"}
-  public var protoPackageName: String {return "protobuf_unittest_import"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "ImportMessageLite"}
+  var protoPackageName: String {return "protobuf_unittest_import"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "d"),
   ]
 
@@ -135,27 +135,27 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftPro
     return _d = nil
   }
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_d)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _d {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
     unknown.traverse(visitor: visitor)
   }
 
-  public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessageLite) -> Bool {
+  func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessageLite) -> Bool {
     if _d != other._d {return false}
     if unknown != other.unknown {return false}
     return true

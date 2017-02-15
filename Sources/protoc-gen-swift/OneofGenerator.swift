@@ -84,7 +84,7 @@ class OneofGenerator {
 
         // Decode one of our members
         p.print("\n")
-        p.print("public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {\n")
         p.indent()
         p.print("if self != .None {\n")
         p.print("  try decoder.handleConflictingOneOf()\n")
@@ -124,7 +124,7 @@ class OneofGenerator {
 
         // Traverse the current value
         p.print("\n")
-        p.print("public func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {\n")
         p.indent()
         p.print("switch self {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {

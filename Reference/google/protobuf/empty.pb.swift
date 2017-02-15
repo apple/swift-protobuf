@@ -58,24 +58,24 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///   The JSON representation for `Empty` is empty JSON object `{}`.
 struct Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Empty"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames = FieldNameMap()
+  var protoMessageName: String {return "Empty"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames = FieldNameMap()
 
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Empty) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_Empty) -> Bool {
     return true
   }
 }

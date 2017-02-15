@@ -50,9 +50,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Foo"}
-  public var protoPackageName: String {return "unittest_drop_unknown_fields"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "Foo"}
+  var protoPackageName: String {return "unittest_drop_unknown_fields"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "int32_value", json: "int32Value"),
     2: .unique(proto: "enum_value", json: "enumValue"),
   ]
@@ -126,13 +126,13 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
     case 2: try decoder.decodeSingularEnumField(value: &enumValue)
@@ -140,7 +140,7 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if int32Value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, fieldNumber: 1)
     }
@@ -149,7 +149,7 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
+  func _protoc_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
     if int32Value != other.int32Value {return false}
     if enumValue != other.enumValue {return false}
     return true
@@ -157,9 +157,9 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
 }
 
 struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "FooWithExtraFields"}
-  public var protoPackageName: String {return "unittest_drop_unknown_fields"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "FooWithExtraFields"}
+  var protoPackageName: String {return "unittest_drop_unknown_fields"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "int32_value", json: "int32Value"),
     2: .unique(proto: "enum_value", json: "enumValue"),
     3: .unique(proto: "extra_int32_value", json: "extraInt32Value"),
@@ -242,13 +242,13 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
 
   var extraInt32Value: Int32 = 0
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
     case 2: try decoder.decodeSingularEnumField(value: &enumValue)
@@ -257,7 +257,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if int32Value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, fieldNumber: 1)
     }
@@ -269,7 +269,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
+  func _protoc_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
     if int32Value != other.int32Value {return false}
     if enumValue != other.enumValue {return false}
     if extraInt32Value != other.extraInt32Value {return false}
