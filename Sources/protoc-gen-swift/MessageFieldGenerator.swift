@@ -163,7 +163,7 @@ extension Google_Protobuf_FieldDescriptorProto {
         case .enum:
             let e = context.enumByProtoName[typeName]!
             if e.value.count == 0 {
-                return ".None"
+                return "nil"
             } else {
                 let defaultCase = e.value[0].name
                 return context.getSwiftNameForEnumCase(path: typeName, caseName: defaultCase)
@@ -388,7 +388,7 @@ struct MessageFieldGenerator {
             p.indent()
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v) = \(oneof.swiftFieldName) {\n")
+            p.print("if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) {\n")
             p.indent()
             p.print("return v\n")
             p.outdent()
@@ -426,7 +426,7 @@ struct MessageFieldGenerator {
         if let oneof = oneof {
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v) = _storage.\(oneof.swiftStorageFieldName) {\n")
+            p.print("if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {\n")
             p.indent()
             p.print("return v\n")
             p.outdent()

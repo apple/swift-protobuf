@@ -135,7 +135,7 @@ class StorageClassGenerator {
                 let oneofIndex = f.descriptor.oneofIndex
                 if !oneofHandled.contains(oneofIndex) {
                     let oneof = f.oneof!
-                    p.print("var \(oneof.swiftStorageFieldName) = \(messageSwiftName).\(oneof.swiftRelativeType)()\n")
+                    p.print("var \(oneof.swiftStorageFieldName): \(messageSwiftName).\(oneof.swiftRelativeType)?\n")
                     oneofHandled.insert(oneofIndex)
                 }
             } else {
@@ -173,7 +173,13 @@ class StorageClassGenerator {
                         }
                     }
                     let oneof = f.oneof!
-                    p.print(": try \(oneof.swiftStorageFieldName).decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
+                    p.print(":\n")
+                    p.indent()
+                    p.print("if \(oneof.swiftStorageFieldName) != nil {\n")
+                    p.print("  try decoder.handleConflictingOneOf()\n")
+                    p.print("}\n")
+                    p.print("\(oneof.swiftStorageFieldName) = try \(messageSwiftName).\(oneof.swiftRelativeType)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
+                    p.outdent()
                     oneofHandled.insert(oneofIndex)
                 }
             } else {
@@ -220,7 +226,7 @@ class StorageClassGenerator {
                 oneofEnd = f.number + 1
             } else {
                 if let oneof = currentOneof {
-                    p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+                    p.print("try \(oneof.swiftStorageFieldName)?.traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
                     currentOneof = nil
                 }
                 if let newOneof = f.oneof {
@@ -233,7 +239,7 @@ class StorageClassGenerator {
             }
         }
         if let oneof = currentOneof {
-            p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+            p.print("try \(oneof.swiftStorageFieldName)?.traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
         }
         while nextRange != nil {
             p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
@@ -360,7 +366,7 @@ class StorageClassGenerator {
         for f in oneofField.fields {
           if f.descriptor.isMessage &&
             messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-            p.print("case .\(f.swiftName)(let v):\n")
+            p.print("case .\(f.swiftName)(let v)?:\n")
             p.indent()
             p.print("if !v.isInitialized {return false}\n")
             p.outdent()
@@ -368,10 +374,6 @@ class StorageClassGenerator {
             needsDefault = true
           }
         }
-        p.print("case .None:\n")
-        p.indent()
-        p.print("break\n")
-        p.outdent()
         if needsDefault {
           p.print("default:\n")
           p.indent()
@@ -657,7 +659,13 @@ class MessageGenerator {
                                 }
                             }
                             let oneof = f.oneof!
-                            p.print(": try \(oneof.swiftFieldName).decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
+                            p.print(":\n")
+                            p.indent()
+                            p.print("if \(oneof.swiftFieldName) != nil {\n")
+                            p.print("  try decoder.handleConflictingOneOf()\n")
+                            p.print("}\n")
+                            p.print("\(oneof.swiftFieldName) = try \(swiftFullName).\(oneof.swiftRelativeType)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
+                            p.outdent()
                             oneofHandled.insert(oneofIndex)
                         }
                     } else {
@@ -713,7 +721,7 @@ class MessageGenerator {
                     oneofEnd = f.number + 1
                 } else {
                     if let oneof = currentOneof {
-                        p.print("try \(oneof.swiftFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+                        p.print("try \(oneof.swiftFieldName)?.traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
                         currentOneof = nil
                     }
                     if let newOneof = f.oneof {
@@ -726,7 +734,7 @@ class MessageGenerator {
                 }
             }
             if let oneof = currentOneof {
-                p.print("try \(oneof.swiftFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+                p.print("try \(oneof.swiftFieldName)?.traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
             }
             while nextRange != nil {
                 p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
@@ -926,7 +934,7 @@ class MessageGenerator {
         for f in oneofField.fields {
           if f.descriptor.isMessage &&
             messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-            p.print("case .\(f.swiftName)(let v):\n")
+            p.print("case .\(f.swiftName)(let v)?:\n")
             p.indent()
             p.print("if !v.isInitialized {return false}\n")
             p.outdent()
@@ -934,10 +942,6 @@ class MessageGenerator {
             needsDefault = true
           }
         }
-        p.print("case .None:\n")
-        p.indent()
-        p.print("break\n")
-        p.outdent()
         if needsDefault {
           p.print("default:\n")
           p.indent()

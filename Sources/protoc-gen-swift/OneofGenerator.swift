@@ -47,14 +47,13 @@ class OneofGenerator {
 
     func generateNested(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): SwiftProtobuf.OneofEnum {\n")
         p.indent()
 
         // Oneof case for each ivar
         for f in fields {
             p.print("case \(f.swiftName)(\(f.swiftBaseType))\n")
         }
-        p.print("case None\n")
 
         // Equatable conformance
         p.print("\n")
@@ -64,31 +63,23 @@ class OneofGenerator {
         for f in fields {
             p.print("case (.\(f.swiftName)(let l), .\(f.swiftName)(let r)): return l == r\n")
         }
-        p.print("case (.None, .None): return true\n")
-        p.print("default: return false\n")
+        if fields.count > 1 {
+            // A tricky edge case: If the oneof only has a single case, then
+            // the case pattern generated above is exhaustive and generating a
+            // default produces a compiler error. If there is more than one
+            // case, then the case patterns are not exhaustive (because we
+            // don't compare mismatched pairs), and we have to include a
+            // default.
+            p.print("default: return false\n")
+        }
         p.print("}\n")
         p.outdent()
         p.print("}\n")
 
-        // ExpressibleByNilLiteral conformance
-        p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)init(nilLiteral: ()) {\n")
-        p.print("  self = .None\n")
-        p.print("}\n")
-
-        // Basic init
-        p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)init() {\n")
-        p.print("  self = .None\n")
-        p.print("}\n")
-
         // Decode one of our members
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {\n")
         p.indent()
-        p.print("if self != .None {\n")
-        p.print("  try decoder.handleConflictingOneOf()\n")
-        p.print("}\n")
         p.print("switch fieldNumber {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {
             let modifier = "Singular"
@@ -105,20 +96,23 @@ class OneofGenerator {
                 p.print("var value = \(f.swiftStorageType)()\n")
                 p.print("try decoder.\(decoderMethod)(value: &value)\n")
                 p.print("self = .\(f.swiftName)(value)\n")
+                p.print("return\n")
             } else {
                 p.print("var value: \(f.swiftStorageType)\n")
                 p.print("try decoder.\(decoderMethod)(value: &value)\n")
                 p.print("if let value = value {\n")
                 p.print("  self = .\(f.swiftName)(value)\n")
+                p.print("  return\n")
                 p.print("}\n")
             }
             p.outdent()
         }
         p.print("default:\n")
         p.indent()
-        p.print("self = .None\n")
+        p.print("break\n")
         p.outdent()
         p.print("}\n")
+        p.print("return nil\n")
         p.outdent()
         p.print("}\n")
 
@@ -140,8 +134,6 @@ class OneofGenerator {
             p.print("}\n")
             p.outdent()
         }
-        p.print("case .None:\n")
-        p.print("  break\n")
         p.print("}\n")
         p.outdent()
         p.print("}\n")
@@ -152,7 +144,7 @@ class OneofGenerator {
 
     func generateProxyIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName) {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName)? {\n")
         p.indent()
         p.print("get {return _storage.\(descriptor.swiftStorageFieldName)}\n")
         p.print("set {\n")
@@ -166,6 +158,6 @@ class OneofGenerator {
 
     func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName) = .None\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName)? = nil\n")
     }
 }
