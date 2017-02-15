@@ -128,8 +128,6 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   Represents a single test case's input.  The testee should:

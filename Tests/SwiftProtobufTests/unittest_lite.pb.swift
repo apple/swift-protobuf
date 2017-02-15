@@ -110,8 +110,6 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
@@ -158,8 +156,6 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -213,8 +209,6 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -1002,8 +996,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

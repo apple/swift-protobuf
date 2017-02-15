@@ -106,8 +106,6 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
@@ -173,8 +171,6 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
@@ -233,8 +229,6 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 

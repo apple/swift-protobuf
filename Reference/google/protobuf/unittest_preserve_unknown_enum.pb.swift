@@ -109,8 +109,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
@@ -178,8 +176,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 

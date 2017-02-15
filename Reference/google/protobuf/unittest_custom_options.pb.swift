@@ -106,8 +106,6 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
@@ -154,8 +152,6 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -269,8 +265,6 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -495,8 +489,6 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -1674,8 +1666,6 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -1810,8 +1800,6 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   private var _value: ProtobufUnittest_OldOptionType.TestEnum? = nil
@@ -1918,8 +1906,6 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

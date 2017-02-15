@@ -96,8 +96,6 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 //  *_generic_services are false by default.

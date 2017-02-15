@@ -28,3 +28,10 @@ public protocol Enum: RawRepresentable, Hashable {
     /// be used by consumers of the library.
     var _protobuf_jsonName: String? { get }
 }
+
+public extension Enum {
+    // Default impl.
+    var hashValue: Int {
+        return rawValue
+    }
+}

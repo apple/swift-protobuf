@@ -805,8 +805,6 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   var optionalInt32: Int32 {

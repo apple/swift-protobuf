@@ -110,8 +110,6 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {

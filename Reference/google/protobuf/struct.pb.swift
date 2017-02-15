@@ -102,8 +102,6 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   `Struct` represents a structured data value, consisting of fields
