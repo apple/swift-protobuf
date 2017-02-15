@@ -64,7 +64,7 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
   var unknown = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
-    if !extensionFieldValues.isInitialized {return false}
+    if !_extensionFieldValues.isInitialized {return false}
     return true
   }
 
@@ -76,43 +76,43 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     if (4 <= fieldNumber && fieldNumber < 2147483647) {
-      try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: Proto2WireformatUnittest_TestMessageSet.self, fieldNumber: fieldNumber)
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Proto2WireformatUnittest_TestMessageSet.self, fieldNumber: fieldNumber)
     }
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 4, end: 2147483647)
+    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 4, end: 2147483647)
     unknown.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2WireformatUnittest_TestMessageSet) -> Bool {
     if unknown != other.unknown {return false}
-    if extensionFieldValues != other.extensionFieldValues {return false}
+    if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
 
-  private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>, value: F.ValueType) {
-    extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) {
-    extensionFieldValues[ext.fieldNumber] = nil
+    _extensionFieldValues[ext.fieldNumber] = nil
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> F.ValueType {
-    if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
+    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
   }
 
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> Bool {
-    return extensionFieldValues[ext.fieldNumber] is F
+    return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Proto2WireformatUnittest_TestMessageSet._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
+    return Proto2WireformatUnittest_TestMessageSet._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 

@@ -72,7 +72,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
   }
 
   public var isInitialized: Bool {
-    if !extensionFieldValues.isInitialized {return false}
+    if !_extensionFieldValues.isInitialized {return false}
     return true
   }
 
@@ -86,7 +86,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_a)
     default: if (2 <= fieldNumber && fieldNumber < 11) {
-        try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -95,39 +95,39 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
     if let v = _a {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
-    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 2, end: 11)
+    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 2, end: 11)
     unknown.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
     if _a != other._a {return false}
     if unknown != other.unknown {return false}
-    if extensionFieldValues != other.extensionFieldValues {return false}
+    if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
 
-  private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftTestGroupExtensions>, value: F.ValueType) {
-    extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftTestGroupExtensions>) {
-    extensionFieldValues[ext.fieldNumber] = nil
+    _extensionFieldValues[ext.fieldNumber] = nil
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftTestGroupExtensions>) -> F.ValueType {
-    if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
+    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
   }
 
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftTestGroupExtensions>) -> Bool {
-    return extensionFieldValues[ext.fieldNumber] is F
+    return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return SwiftTestGroupExtensions._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
+    return SwiftTestGroupExtensions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
