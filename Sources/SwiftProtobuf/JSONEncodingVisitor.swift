@@ -72,6 +72,33 @@ final class JSONEncodingVisitor: Visitor {
     encoder.append(text: "]")
   }
 
+  func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    if let n = value._protobuf_jsonName {
+      encoder.putStringValue(value: n)
+    } else {
+      encoder.putInt64(value: Int64(value.rawValue), quote: false)
+    }
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    var arraySeparator = ""
+    encoder.append(text: "[")
+    for v in value {
+      encoder.append(text: arraySeparator)
+      if let n = v._protobuf_jsonName {
+        encoder.putStringValue(value: n)
+      } else {
+        encoder.putInt64(value: Int64(v.rawValue), quote: false)
+      }
+      arraySeparator = ","
+    }
+    encoder.append(text: "]")
+  }
+
   func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], fieldNumber: Int) throws {
     try visitRepeatedField(fieldType: fieldType, value: value, fieldNumber: fieldNumber)
   }
@@ -139,6 +166,45 @@ final class JSONEncodingVisitor: Visitor {
       arraySeparator = ","
     }
     encoder.append(text: "}")
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: ProtobufEnumMap<KeyType, ValueType>.Type, value: ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    var arraySeparator = ""
+    encoder.append(text: "{")
+    for (k,v) in value {
+      encoder.append(text: arraySeparator)
+      KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
+      encoder.append(text: ":")
+      if let n = v._protobuf_jsonName {
+        encoder.putStringValue(value: n)
+      } else {
+        encoder.putInt64(value: Int64(v.rawValue), quote: false)
+      }
+      arraySeparator = ","
+    }
+    encoder.append(text: "}")
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
+    encoder.startField(name: jsonFieldName)
+    var arraySeparator = ""
+    encoder.append(text: "{")
+    for (k,v) in value {
+      encoder.append(text: arraySeparator)
+      KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
+      encoder.append(text: ":")
+      try ValueType.serializeJSONValue(encoder: &encoder, value: v)
+      arraySeparator = ","
+    }
+    encoder.append(text: "}")
+  }
+
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    // JSON does not store extensions
   }
 
   /// Helper function that throws an error if the field number could not be

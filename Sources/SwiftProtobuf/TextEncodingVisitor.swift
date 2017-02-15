@@ -18,6 +18,7 @@ import Foundation
 final class TextEncodingVisitor: Visitor {
 
   private var encoder: TextEncoder
+  private var inExtension = false
   private var nameResolver: (Int) -> String?
 
   /// The protobuf text produced by the visitor.
@@ -80,11 +81,46 @@ final class TextEncodingVisitor: Visitor {
     encoder.endField()
   }
 
+  func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    encoder.startField(name: protoFieldName)
+    encoder.putEnumValue(value: value)
+    encoder.endField()
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+      let protoFieldName = try self.protoFieldName(for: fieldNumber)
+      for v in value {
+          encoder.startField(name: protoFieldName)
+          encoder.putEnumValue(value: v)
+          encoder.endField()
+      }
+  }
+
+  func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    encoder.startField(name: protoFieldName)
+    var firstItem = true
+    encoder.startArray()
+    for v in value {
+      if !firstItem {
+        encoder.arraySeparator()
+      }
+      encoder.putEnumValue(value: v)
+      firstItem = false
+    }
+    encoder.endArray()
+    encoder.endField()
+  }
+
   func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     encoder.startMessageField(name: protoFieldName)
-    try M.serializeTextValue(encoder: encoder, value: value)
+    encoder.startObject()
+    let visitor = TextEncodingVisitor(message: value, encoder: encoder)
+    try value.traverse(visitor: visitor)
+    encoder.endObject()
     encoder.endField()
   }
 
@@ -93,7 +129,10 @@ final class TextEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     for v in value {
       encoder.startMessageField(name: protoFieldName)
-      try M.serializeTextValue(encoder: encoder, value: v)
+      encoder.startObject()
+      let visitor = TextEncodingVisitor(message: v, encoder: encoder)
+      try v.traverse(visitor: visitor)
+      encoder.endObject()
       encoder.endField()
     }
   }
@@ -118,11 +157,65 @@ final class TextEncodingVisitor: Visitor {
     }
   }
 
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    for (k,v) in value {
+      encoder.startMessageField(name: protoFieldName)
+      encoder.startObject()
+      encoder.startField(name: "key")
+      try KeyType.serializeTextValue(encoder: encoder, value: k)
+      encoder.endField()
+      encoder.startField(name: "value")
+      encoder.putEnumValue(value: v)
+      encoder.endField()
+      encoder.endObject()
+      encoder.endField()
+    }
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    let protoFieldName = try self.protoFieldName(for: fieldNumber)
+    for (k,v) in value {
+      encoder.startMessageField(name: protoFieldName)
+      encoder.startObject()
+      encoder.startField(name: "key")
+      try KeyType.serializeTextValue(encoder: encoder, value: k)
+      encoder.endField()
+      encoder.startField(name: "value")
+      encoder.startObject()
+      let visitor = TextEncodingVisitor(message: v, encoder: encoder)
+      try v.traverse(visitor: visitor)
+      encoder.endObject()
+      encoder.endField()
+      encoder.endObject()
+      encoder.endField()
+    }
+  }
+
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    inExtension = true
+    try fields.traverse(visitor: self, start: start, end: end)
+    inExtension = false
+  }
+
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private func protoFieldName(for number: Int) throws -> String {
     if let protoName = nameResolver(number) {
-      return protoName
+      if inExtension {
+        return "[\(protoName)]"
+      } else {
+        return protoName
+      }
     }
     throw EncodingError.missingFieldNames
   }

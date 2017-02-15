@@ -20,7 +20,7 @@ import Swift
 /// Note that the MessageExtensionBase protocol has no generic
 /// pieces.
 public protocol MessageExtensionBase {
-    var protoFieldNumber: Int { get }
+    var fieldNumber: Int { get }
     var fieldNames: FieldNameMap.Names { get }
     var messageType: Message.Type { get }
     func newField() -> AnyExtensionField
@@ -30,12 +30,12 @@ public protocol MessageExtensionBase {
 /// a particular message.  The generic constraints allow
 /// compile-time compatibility checks.
 public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: MessageExtensionBase {
-    public let protoFieldNumber: Int
+    public let fieldNumber: Int
     public var fieldNames: FieldNameMap.Names
     public let messageType: Message.Type
     public let defaultValue: FieldType.ValueType
-    public init(protoFieldNumber: Int, fieldNames: FieldNameMap.Names, defaultValue: FieldType.ValueType) {
-        self.protoFieldNumber = protoFieldNumber
+    public init(fieldNumber: Int, fieldNames: FieldNameMap.Names, defaultValue: FieldType.ValueType) {
+        self.fieldNumber = fieldNumber
         self.fieldNames = fieldNames
         self.messageType = MessageType.self
         self.defaultValue = defaultValue

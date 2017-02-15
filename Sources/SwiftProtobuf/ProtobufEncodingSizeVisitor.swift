@@ -65,10 +65,46 @@ final class ProtobufEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
+  func visitSingularEnumField<E: Enum>(value: E,
+                                       fieldNumber: Int) throws {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .varint).encodedSize
+    serializedSize += tagSize
+    let dataSize = Varint.encodedSize(of: Int32(truncatingBitPattern: value.rawValue))
+    serializedSize += dataSize
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E],
+                                       fieldNumber: Int) throws {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .varint).encodedSize
+    serializedSize += value.count * tagSize
+    for v in value {
+      let dataSize = Varint.encodedSize(of: Int32(truncatingBitPattern: v.rawValue))
+      serializedSize += dataSize
+    }
+  }
+
+  func visitPackedEnumField<E: Enum>(value: [E],
+                                     fieldNumber: Int) throws {
+    guard !value.isEmpty else {
+      return
+    }
+
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .varint).encodedSize
+    serializedSize += tagSize
+    var dataSize = 0
+    for v in value {
+      dataSize += Varint.encodedSize(of: Int32(truncatingBitPattern: v.rawValue))
+    }
+    serializedSize += Varint.encodedSize(of: Int64(dataSize)) + dataSize
+  }
+
   func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
-                           wireFormat: M.protobufWireFormat).encodedSize
+                           wireFormat: .lengthDelimited).encodedSize
     let messageSize = try value.serializedProtobufSize()
     serializedSize +=
       tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
@@ -77,7 +113,7 @@ final class ProtobufEncodingSizeVisitor: Visitor {
   func visitRepeatedMessageField<M: Message>(value: [M],
                                              fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
-                           wireFormat: M.protobufWireFormat).encodedSize
+                           wireFormat: .lengthDelimited).encodedSize
     serializedSize += value.count * tagSize
     for v in value {
       let messageSize = try v.serializedProtobufSize()
@@ -122,5 +158,50 @@ final class ProtobufEncodingSizeVisitor: Visitor {
       serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
     }
     serializedSize += value.count * tagSize
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .lengthDelimited).encodedSize
+    let keyTagSize = FieldTag(
+      fieldNumber: 1, wireFormat: KeyType.protobufWireFormat).encodedSize
+    let valueTagSize = FieldTag(
+      fieldNumber: 2, wireFormat: .varint).encodedSize
+    for (k,v) in value {
+      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
+        valueTagSize + Varint.encodedSize(of: Int32(truncatingBitPattern: v.rawValue))
+      serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
+    }
+    serializedSize += value.count * tagSize
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    let tagSize = FieldTag(fieldNumber: fieldNumber,
+                           wireFormat: .lengthDelimited).encodedSize
+    let keyTagSize = FieldTag(
+      fieldNumber: 1, wireFormat: KeyType.protobufWireFormat).encodedSize
+    let valueTagSize = FieldTag(
+      fieldNumber: 2, wireFormat: .lengthDelimited).encodedSize
+    for (k,v) in value {
+      let keyValueSize = try KeyType.encodedSizeWithoutTag(of: k)
+      let messageSize = try v.serializedProtobufSize()
+      let valueValueSize = Varint.encodedSize(of: Int64(messageSize)) + messageSize
+      let entrySize = keyTagSize + keyValueSize + valueTagSize + valueValueSize
+      serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))
+    }
+    serializedSize += value.count * tagSize
+  }
+
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: self, start: start, end: end)
   }
 }

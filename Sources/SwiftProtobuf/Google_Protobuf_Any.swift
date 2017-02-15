@@ -18,6 +18,33 @@
 import Foundation
 import Swift
 
+/// Any objects can be parsed from Protobuf Binary, Protobuf Text, or JSON.
+/// The contents are not parsed immediately; the raw data is held in the Any
+/// object until you `unpack()` it into a message.  At this time, any
+/// error can occur that might have occurred from a regular decoding
+/// operation.  In addition, there are a number of other errors that are
+/// possible, involving the structure of the Any object itself.
+public enum AnyUnpackError: Error {
+    /// The `urlType` field in the Any object did not match the message type
+    /// provided to the `unpack()` method.
+    case typeMismatch
+    /// Well-known types being decoded from JSON must have only two
+    /// fields:  the `@type` field and a `value` field containing
+    /// the specialized JSON coding of the well-known type.
+    case malformedWellKnownTypeJSON
+    /// The `typeURL` field could not be parsed.
+    case malformedTypeURL
+    /// There was something else wrong...
+    case malformedAnyField
+    /// The Any field is empty.  You can only `unpack()` an Any
+    /// field if it contains an object (either from an initializer
+    /// or from having been decoded).
+    case emptyAnyField
+    /// Decoding JSON or Text format requires the message type
+    /// to have been compiled with textual field names.
+    case missingFieldNames
+}
+
 fileprivate func typeName(fromURL s: String) -> String {
     var typeStart = s.startIndex
     var i = typeStart
@@ -232,16 +259,59 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         typeURL = message.anyTypeURL
     }
 
-    mutating public func _protoc_generated_decodeField<T: FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-        switch protoFieldNumber {
-        case 1: try setter.decodeSingularField(fieldType: ProtobufString.self, value: &typeURL)
-        case 2: try setter.decodeSingularField(fieldType: ProtobufBytes.self, value: &_value)
+    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+    }
+
+    mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &typeURL)
+        case 2: try decoder.decodeSingularBytesField(value: &_value)
         default: break
         }
     }
 
-    public init(decoder: inout JSONDecoder) throws {
-        self.init()
+    public mutating func decodeText(from decoder: inout TextDecoder) throws {
+        // First, check if this uses the "verbose" Any encoding.
+        // If it does, and we have the type available, we can
+        // eagerly decode the contained Message object.
+        if let url = try decoder.scanner.nextOptionalAnyURL() {
+            // Decoding the verbose form requires knowing the type:
+            typeURL = url
+            let messageTypeName = typeName(fromURL: url)
+            // Is it a well-known type? Or a user-registered type?
+            if let messageType = (Google_Protobuf_Any.wellKnownTypes[messageTypeName]
+                ?? Google_Protobuf_Any.knownTypes[messageTypeName]) {
+                _message = messageType.init()
+                let terminator = try decoder.scanner.skipObjectStart()
+                var subDecoder = try TextDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+                try _message!.decodeText(from: &subDecoder)
+                decoder.scanner = subDecoder.scanner
+                if let _ = try decoder.nextFieldNumber() {
+                    // Verbose any can never have additional keys
+                    throw TextDecodingError.malformedText
+                }
+                return
+            }
+            // TODO: If we don't know the type, we should consider deferring the
+            // decode as we do for JSON and Protobuf binary.
+            throw TextDecodingError.malformedText
+        }
+
+        // This is not using the specialized encoding, so we can use the
+        // standard path to decode the binary value.
+        try decodeMessage(decoder: &decoder)
+    }
+
+    // TODO: If the type is well-known or has already been registered,
+    // we should consider decoding eagerly.  Eager decoding would
+    // catch certain errors earlier (good) but would probably be
+    // a performance hit if the Any contents were never accessed (bad).
+    // Of course, we can't always decode eagerly (we don't always have the
+    // message type available), so the deferred logic here is still needed.
+    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return
@@ -249,7 +319,8 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         _jsonFields = nil
         var jsonFields = [String:String]()
         while true {
-            let key = try decoder.scanner.nextKey()
+            let key = try decoder.scanner.nextQuotedString()
+            try decoder.scanner.skipRequiredColon()
             if key == "@type" {
                 typeURL = try decoder.scanner.nextQuotedString()
             } else {
@@ -270,15 +341,15 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     ///
     public func unpackTo<M: Message>(target: inout M) throws {
         if typeURL == nil {
-            throw DecodingError.malformedAnyField
+            throw AnyUnpackError.emptyAnyField
         }
         let encodedType = typeName(fromURL: typeURL!)
         if encodedType == "" {
-            throw DecodingError.malformedAnyField
+            throw AnyUnpackError.malformedTypeURL
         }
         let messageType = typeName(fromMessage: target)
         if encodedType != messageType {
-            throw DecodingError.malformedAnyField
+            throw AnyUnpackError.typeMismatch
         }
         var protobuf: Data?
         if let message = _message as? M {
@@ -295,7 +366,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             // Decode protobuf from the stored bytes
             if protobuf.count > 0 {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                    try target.decodeIntoSelf(protobufBytes: p, count: protobuf.count, extensions: nil)
+                    try target.decodeProtobuf(from: p, count: protobuf.count, extensions: nil)
                 }
             }
             return
@@ -304,32 +375,36 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             if Google_Protobuf_Any.wellKnownTypes[targetType] != nil {
                 // If it's a well-known type, the JSON coding must have a single 'value' field
                 if jsonFields.count != 1 {
-                    throw DecodingError.schemaMismatch
+                    throw AnyUnpackError.malformedWellKnownTypeJSON
                 }
                 if let v = jsonFields["value"], !v.isEmpty {
                     target = try M(json: v)
                 } else {
-                    throw DecodingError.schemaMismatch
+                    throw AnyUnpackError.malformedWellKnownTypeJSON
                 }
             } else {
                 // Decode JSON from the stored tokens for generated messages
                 guard let nameProviding = (target as? ProtoNameProviding) else {
-                    throw DecodingError.missingFieldNames
+                    throw JSONDecodingError.missingFieldNames
                 }
                 let fieldNames = type(of: nameProviding)._protobuf_fieldNames
                 for (k,v) in jsonFields {
-                    if let protoFieldNumber = fieldNames.fieldNumber(forJSONName: k) {
-                        var decoder = JSONDecoder(json: v)
-                        try target.decodeField(setter: &decoder, protoFieldNumber: protoFieldNumber)
-                        if !decoder.scanner.complete {
-                            throw DecodingError.trailingGarbage
+                    if let fieldNumber = fieldNames.fieldNumber(forJSONName: k) {
+                        let raw = v.data(using: String.Encoding.utf8)!
+                        try raw.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+                            var decoder = JSONDecoder(utf8Pointer: bytes, count: raw.count)
+                            try target.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+                            if !decoder.scanner.complete {
+                                throw JSONDecodingError.trailingGarbage
+                            }
                         }
                     }
+                    // Ignore unrecognized field names (as per usual with JSON decoding)
                 }
             }
             return
         }
-        throw DecodingError.malformedAnyField
+        throw AnyUnpackError.malformedAnyField
     }
 
     public var hashValue: Int {
@@ -408,27 +483,6 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     public func serializeAnyJSON() throws -> String {
         let value = try serializeJSON()
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
-    }
-
-    public init(scanner: TextScanner) throws {
-        self.init()
-        let terminator = try scanner.skipObjectStart()
-        // Note: Any field cannot be empty!
-        // So we don't need to look for an object end at this point.
-        if let url = try scanner.nextOptionalAnyURL() {
-            typeURL = url
-            let messageTypeName = typeName(fromURL: url)
-            if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
-                _message = try messageType.init(scanner: scanner)
-                if scanner.skipOptionalObjectEnd(terminator) {
-                    return
-                }
-            }
-            throw DecodingError.malformedText
-        }
-
-        var subDecoder = TextDecoder(scanner: scanner)
-        try subDecoder.decodeFullObject(message: &self, terminator: terminator)
     }
 
     // Caveat:  This can be very expensive.  We should consider organizing

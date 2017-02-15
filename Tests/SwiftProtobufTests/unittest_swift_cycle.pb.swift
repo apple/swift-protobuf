@@ -74,11 +74,17 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
     init() {}
 
-    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
-      case 2: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
-      case 3: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
+    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &_aFoo)
+      case 2: try decoder.decodeSingularMessageField(value: &_aBar)
+      case 3: try decoder.decodeSingularMessageField(value: &_aBaz)
       default: break
       }
     }
@@ -156,8 +162,12 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try _uniqueStorage().decodeMessage(decoder: &decoder)
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
@@ -194,11 +204,17 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
     init() {}
 
-    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
-      case 2: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
-      case 3: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
+    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &_aBar)
+      case 2: try decoder.decodeSingularMessageField(value: &_aBaz)
+      case 3: try decoder.decodeSingularMessageField(value: &_aFoo)
       default: break
       }
     }
@@ -276,8 +292,12 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try _uniqueStorage().decodeMessage(decoder: &decoder)
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
@@ -314,11 +334,17 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
     init() {}
 
-    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 1: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBaz.self, value: &_aBaz)
-      case 2: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleFoo.self, value: &_aFoo)
-      case 3: try setter.decodeSingularMessageField(fieldType: ProtobufUnittest_CycleBar.self, value: &_aBar)
+    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &_aBaz)
+      case 2: try decoder.decodeSingularMessageField(value: &_aFoo)
+      case 3: try decoder.decodeSingularMessageField(value: &_aBar)
       default: break
       }
     }
@@ -396,8 +422,12 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try _uniqueStorage().decodeMessage(decoder: &decoder)
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {

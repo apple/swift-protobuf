@@ -70,14 +70,20 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
     return true
   }
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    if (4 <= protoFieldNumber && protoFieldNumber < 2147483647) {
-      try setter.decodeExtensionField(values: &extensionFieldValues, messageType: Proto2WireformatUnittest_TestMessageSet.self, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    if (4 <= fieldNumber && fieldNumber < 2147483647) {
+      try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: Proto2WireformatUnittest_TestMessageSet.self, fieldNumber: fieldNumber)
     }
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try extensionFieldValues.traverse(visitor: visitor, start: 4, end: 2147483647)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 4, end: 2147483647)
     unknown.traverse(visitor: visitor)
   }
 
@@ -90,22 +96,22 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
   private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   public mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>, value: F.ValueType) {
-    extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
+    extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
   }
 
   public mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) {
-    extensionFieldValues[ext.protoFieldNumber] = nil
+    extensionFieldValues[ext.fieldNumber] = nil
   }
 
   public func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> F.ValueType {
-    if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
+    if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
   }
 
   public func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Proto2WireformatUnittest_TestMessageSet>) -> Bool {
-    return extensionFieldValues[ext.protoFieldNumber] is F
+    return extensionFieldValues[ext.fieldNumber] is F
   }
   public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
     return Proto2WireformatUnittest_TestMessageSet._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
@@ -131,9 +137,15 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
       return true
     }
 
-    func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-      switch protoFieldNumber {
-      case 1: try setter.decodeSingularMessageField(fieldType: Proto2WireformatUnittest_TestMessageSet.self, value: &_messageSet)
+    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+
+    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &_messageSet)
       default: break
       }
     }
@@ -183,8 +195,12 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     return _storage.isInitialized
   }
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try _uniqueStorage().decodeMessage(decoder: &decoder)
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {

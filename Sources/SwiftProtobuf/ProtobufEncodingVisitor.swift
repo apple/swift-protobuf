@@ -66,11 +66,40 @@ final class ProtobufEncodingVisitor: Visitor {
     }
   }
 
+  func visitSingularEnumField<E: Enum>(value: E,
+                                       fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber,
+                       wireFormat: .varint)
+    encoder.putVarInt(value: value.rawValue)
+  }
+
+  func visitRepeatedEnumField<E: Enum>(value: [E],
+                                   fieldNumber: Int) throws {
+    for v in value {
+      encoder.startField(fieldNumber: fieldNumber,
+                         wireFormat: .varint)
+      encoder.putVarInt(value: v.rawValue)
+    }
+  }
+
+  func visitPackedEnumField<E: Enum>(value: [E],
+                                 fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    var packedSize = 0
+    for v in value {
+      packedSize += Varint.encodedSize(of: Int32(truncatingBitPattern: v.rawValue))
+    }
+    encoder.putVarInt(value: packedSize)
+    for v in value {
+      encoder.putVarInt(value: v.rawValue)
+    }
+  }
+
   func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
     let t = try value.serializeProtobuf()
     encoder.startField(fieldNumber: fieldNumber,
-                       wireFormat: M.protobufWireFormat)
+                       wireFormat: .lengthDelimited)
     encoder.putBytesValue(value: t)
   }
 
@@ -79,7 +108,7 @@ final class ProtobufEncodingVisitor: Visitor {
     for v in value {
       let t = try v.serializeProtobuf()
       encoder.startField(fieldNumber: fieldNumber,
-                         wireFormat: M.protobufWireFormat)
+                         wireFormat: .lengthDelimited)
       encoder.putBytesValue(value: t)
     }
   }
@@ -117,11 +146,57 @@ final class ProtobufEncodingVisitor: Visitor {
       KeyType.serializeProtobufValue(encoder: &encoder, value: k)
       encoder.startField(fieldNumber: 2,
                          wireFormat: ValueType.protobufWireFormat)
-      // Note: ValueType could be a message, so messages need
-      // static func serializeProtobufValue(...)
-      // TODO: Could we traverse the valuetype instead?
-      // TODO: Propagate failure out of here...
       ValueType.serializeProtobufValue(encoder: &encoder, value: v)
     }
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    for (k,v) in value {
+      encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+      let keyTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
+      let valueTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
+      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
+        valueTagSize + Varint.encodedSize(of: Int32(truncatingBitPattern: v.rawValue))
+      encoder.putVarInt(value: entrySize)
+      encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
+      KeyType.serializeProtobufValue(encoder: &encoder, value: k)
+      encoder.startField(fieldNumber: 2, wireFormat: .varint)
+      encoder.putVarInt(value: v.rawValue)
+    }
+  }
+
+  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where KeyType.BaseType: Hashable {
+    for (k,v) in value {
+      encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+      let keyTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
+      let keyValueSize = try KeyType.encodedSizeWithoutTag(of: k)
+      let valueTagSize =
+        Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
+      let messageSize = try v.serializedProtobufSize()
+      let valueValueSize = Varint.encodedSize(of: Int64(messageSize)) + messageSize
+      let entrySize = keyTagSize + keyValueSize + valueTagSize + valueValueSize
+      encoder.putVarInt(value: entrySize)
+      encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
+      KeyType.serializeProtobufValue(encoder: &encoder, value: k)
+      encoder.startField(fieldNumber: 2, wireFormat: .lengthDelimited)
+      let messageBytes = try! v.serializeProtobuf()
+      encoder.putBytesValue(value: messageBytes)
+    }
+  }
+
+  /// Called for each extension range.
+  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: self, start: start, end: end)
   }
 }

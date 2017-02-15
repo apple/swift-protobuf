@@ -150,9 +150,20 @@ class StorageClassGenerator {
 
         // decodeField
         p.print("\n")
-        p.print("func decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {\n")
+        p.print("func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
         p.indent()
-        p.print("switch protoFieldNumber {\n")
+        p.print("while let fieldNumber = try decoder.nextFieldNumber() {\n")
+        p.indent()
+        p.print("try decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
+        p.outdent()
+        p.print("}\n")
+        p.outdent()
+        p.print("}\n")
+
+        p.print("\n")
+        p.print("func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
+        p.indent()
+        p.print("switch fieldNumber {\n")
         oneofHandled.removeAll(keepingCapacity: true)
         for f in fields {
             if f.descriptor.hasOneofIndex {
@@ -165,7 +176,7 @@ class StorageClassGenerator {
                         }
                     }
                     let oneof = f.oneof!
-                    p.print(": try \(oneof.swiftStorageFieldName).decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
+                    p.print(": try \(oneof.swiftStorageFieldName).decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
                     oneofHandled.insert(oneofIndex)
                 }
             } else {
@@ -177,13 +188,13 @@ class StorageClassGenerator {
             var separator = ""
             for range in descriptor.extensionRange {
                 p.print(separator)
-                p.print("(\(range.start) <= protoFieldNumber && protoFieldNumber < \(range.end))")
+                p.print("(\(range.start) <= fieldNumber && fieldNumber < \(range.end))")
                 separator = " || "
             }
             p.print(" {\n")
             p.indent()
             p.indent()
-            p.print("try setter.decodeExtensionField(values: &extensionFieldValues, messageType: \(messageSwiftName).self, protoFieldNumber: protoFieldNumber)\n")
+            p.print("try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: \(messageSwiftName).self, fieldNumber: fieldNumber)\n")
             p.outdent()
             p.print("}\n")
             p.outdent()
@@ -205,7 +216,7 @@ class StorageClassGenerator {
         var nextRange = ranges.next()
         for f in (fields.sorted {$0.number < $1.number}) {
             while nextRange != nil && Int(nextRange!.start) < f.number {
-                p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if let c = currentOneof, let n = f.oneof, n.name == c.name {
@@ -228,7 +239,7 @@ class StorageClassGenerator {
             p.print("try \(oneof.swiftStorageFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
         }
         while nextRange != nil {
-            p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+            p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
             nextRange = ranges.next()
         }
         if !isProto3 {
@@ -610,13 +621,28 @@ class MessageGenerator {
 
         // Field-addressable decoding
         p.print("\n")
-        p.print("public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {\n")
+        p.print("public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
         p.indent()
         if storage != nil {
-            p.print("try _uniqueStorage().decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
+            p.print("try _uniqueStorage().decodeMessage(decoder: &decoder)\n")
+        } else {
+            p.print("while let fieldNumber = try decoder.nextFieldNumber() {\n")
+            p.indent()
+            p.print("try decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
+            p.outdent()
+            p.print("}\n")
+        }
+        p.outdent()
+        p.print("}\n")
+
+        p.print("\n")
+        p.print("public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
+        p.indent()
+        if storage != nil {
+            p.print("try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
         } else {
             if !fields.isEmpty {
-                p.print("switch protoFieldNumber {\n")
+                p.print("switch fieldNumber {\n")
                 var oneofHandled = Set<Int32>()
                 for f in fields {
                     if f.descriptor.hasOneofIndex {
@@ -629,7 +655,7 @@ class MessageGenerator {
                                 }
                             }
                             let oneof = f.oneof!
-                            p.print(": try \(oneof.swiftFieldName).decodeField(setter: &setter, protoFieldNumber: protoFieldNumber)\n")
+                            p.print(": try \(oneof.swiftFieldName).decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
                             oneofHandled.insert(oneofIndex)
                         }
                     } else {
@@ -647,12 +673,12 @@ class MessageGenerator {
                 var separator = ""
                 for range in descriptor.extensionRange {
                     p.print(separator)
-                    p.print("(\(range.start) <= protoFieldNumber && protoFieldNumber < \(range.end))")
+                    p.print("(\(range.start) <= fieldNumber && fieldNumber < \(range.end))")
                     separator = " || "
                 }
                 p.print(" {\n")
                 p.indent()
-                p.print("try setter.decodeExtensionField(values: &extensionFieldValues, messageType: \(swiftRelativeName).self, protoFieldNumber: protoFieldNumber)\n")
+                p.print("try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
                 p.outdent()
                 p.print("}\n")
             }
@@ -678,7 +704,7 @@ class MessageGenerator {
             var oneofEnd = 0
             for f in (fields.sorted {$0.number < $1.number}) {
                 while nextRange != nil && Int(nextRange!.start) < f.number {
-                    p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                    p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                     nextRange = ranges.next()
                 }
                 if let c = currentOneof, let n = f.oneof, n.name == c.name {
@@ -701,7 +727,7 @@ class MessageGenerator {
                 p.print("try \(oneof.swiftFieldName).traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
             }
             while nextRange != nil {
-                p.print("try extensionFieldValues.traverse(visitor: visitor, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+                p.print("try visitor.visitExtensionFields(fields: extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
                 nextRange = ranges.next()
             }
             if !file.isProto3 {
@@ -789,22 +815,22 @@ class MessageGenerator {
                 p.print("private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
                 p.print("\n")
                 p.print("public mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
-                p.print("  extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)\n")
+                p.print("  extensionFieldValues[ext.fieldNumber] = ext.set(value: value)\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("public mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
-                p.print("  extensionFieldValues[ext.protoFieldNumber] = nil\n")
+                p.print("  extensionFieldValues[ext.fieldNumber] = nil\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("public func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
-                p.print("  if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {\n")
+                p.print("  if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {\n")
                 p.print("    return fieldValue.value\n")
                 p.print("  }\n")
                 p.print("  return ext.defaultValue\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("public func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
-                p.print("  return extensionFieldValues[ext.protoFieldNumber] is F\n")
+                p.print("  return extensionFieldValues[ext.fieldNumber] is F\n")
                 p.print("}\n")
                 p.print("public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
                 p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)\n")

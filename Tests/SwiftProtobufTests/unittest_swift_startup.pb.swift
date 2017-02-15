@@ -63,14 +63,20 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Swift
     return true
   }
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
-    if (1 <= protoFieldNumber && protoFieldNumber < 536870912) {
-      try setter.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufObjcUnittest_TestObjCStartupMessage.self, protoFieldNumber: protoFieldNumber)
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    if (1 <= fieldNumber && fieldNumber < 536870912) {
+      try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufObjcUnittest_TestObjCStartupMessage.self, fieldNumber: fieldNumber)
     }
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try extensionFieldValues.traverse(visitor: visitor, start: 1, end: 536870912)
+    try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1, end: 536870912)
     unknown.traverse(visitor: visitor)
   }
 
@@ -83,22 +89,22 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Swift
   private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   public mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufObjcUnittest_TestObjCStartupMessage>, value: F.ValueType) {
-    extensionFieldValues[ext.protoFieldNumber] = ext.set(value: value)
+    extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
   }
 
   public mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufObjcUnittest_TestObjCStartupMessage>) {
-    extensionFieldValues[ext.protoFieldNumber] = nil
+    extensionFieldValues[ext.fieldNumber] = nil
   }
 
   public func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufObjcUnittest_TestObjCStartupMessage>) -> F.ValueType {
-    if let fieldValue = extensionFieldValues[ext.protoFieldNumber] as? F {
+    if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
       return fieldValue.value
     }
     return ext.defaultValue
   }
 
   public func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufObjcUnittest_TestObjCStartupMessage>) -> Bool {
-    return extensionFieldValues[ext.protoFieldNumber] is F
+    return extensionFieldValues[ext.fieldNumber] is F
   }
   public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
     return ProtobufObjcUnittest_TestObjCStartupMessage._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)
@@ -115,7 +121,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftP
   struct Extensions {
 
     static let nestedStringExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-      protoFieldNumber: 3,
+      fieldNumber: 3,
       fieldNames: .same(proto: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension"),
       defaultValue: ""
     )
@@ -123,7 +129,13 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftP
 
   init() {}
 
-  public mutating func _protoc_generated_decodeField<T: SwiftProtobuf.FieldDecoder>(setter: inout T, protoFieldNumber: Int) throws {
+  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
@@ -138,13 +150,13 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftP
 
 ///   Singular
 let ProtobufObjcUnittest_Extensions_optionalInt32Extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-  protoFieldNumber: 1,
+  fieldNumber: 1,
   fieldNames: .same(proto: "protobuf_objc_unittest.optional_int32_extension"),
   defaultValue: 0
 )
 
 let ProtobufObjcUnittest_Extensions_repeatedInt32Extension = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-  protoFieldNumber: 2,
+  fieldNumber: 2,
   fieldNames: .same(proto: "protobuf_objc_unittest.repeated_int32_extension"),
   defaultValue: []
 )
