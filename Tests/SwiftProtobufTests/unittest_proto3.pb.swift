@@ -121,8 +121,6 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   Test an enum that has multiple values with the same number.
@@ -201,8 +199,6 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -293,8 +289,6 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -849,8 +843,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

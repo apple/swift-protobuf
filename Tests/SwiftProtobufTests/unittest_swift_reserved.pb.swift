@@ -117,8 +117,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum ProtocolEnum: SwiftProtobuf.Enum {
@@ -165,8 +163,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

@@ -107,8 +107,6 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   A protocol buffer message type.
@@ -476,8 +474,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   ///   Whether a field is optional, required, or repeated.
@@ -554,8 +550,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

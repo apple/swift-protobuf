@@ -118,8 +118,6 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   var int32Value: Int32 = 0
@@ -231,8 +229,6 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

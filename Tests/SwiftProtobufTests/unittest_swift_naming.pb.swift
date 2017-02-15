@@ -1325,8 +1325,6 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
@@ -1390,8 +1388,6 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -11555,8 +11551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum ProtocolEnum: SwiftProtobuf.Enum {
@@ -11606,8 +11600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -11659,8 +11651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum DoubleEnum: SwiftProtobuf.Enum {
@@ -11710,8 +11700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -11763,8 +11751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum UIntEnum: SwiftProtobuf.Enum {
@@ -11814,8 +11800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -11867,8 +11851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum descriptionEnum: SwiftProtobuf.Enum {
@@ -11918,8 +11900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -11971,8 +11951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum Swift: SwiftProtobuf.Enum {
@@ -12022,8 +12000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12075,8 +12051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum classEnum: SwiftProtobuf.Enum {
@@ -12126,8 +12100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12179,8 +12151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum enumEnum: SwiftProtobuf.Enum {
@@ -12230,8 +12200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12283,8 +12251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum funcEnum: SwiftProtobuf.Enum {
@@ -12334,8 +12300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12387,8 +12351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum initEnum: SwiftProtobuf.Enum {
@@ -12438,8 +12400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12491,8 +12451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum internalEnum: SwiftProtobuf.Enum {
@@ -12542,8 +12500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12595,8 +12551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum operatorEnum: SwiftProtobuf.Enum {
@@ -12646,8 +12600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12699,8 +12651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum protocolEnum: SwiftProtobuf.Enum {
@@ -12750,8 +12700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12803,8 +12751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum staticEnum: SwiftProtobuf.Enum {
@@ -12854,8 +12800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -12907,8 +12851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum subscriptEnum: SwiftProtobuf.Enum {
@@ -12958,8 +12900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13011,8 +12951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum varEnum: SwiftProtobuf.Enum {
@@ -13062,8 +13000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13115,8 +13051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum caseEnum: SwiftProtobuf.Enum {
@@ -13166,8 +13100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13219,8 +13151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum defaultEnum: SwiftProtobuf.Enum {
@@ -13270,8 +13200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13323,8 +13251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum doEnum: SwiftProtobuf.Enum {
@@ -13374,8 +13300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13427,8 +13351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum fallthroughEnum: SwiftProtobuf.Enum {
@@ -13478,8 +13400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13531,8 +13451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum guardEnum: SwiftProtobuf.Enum {
@@ -13582,8 +13500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13635,8 +13551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum inEnum: SwiftProtobuf.Enum {
@@ -13686,8 +13600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13739,8 +13651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum returnEnum: SwiftProtobuf.Enum {
@@ -13790,8 +13700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13843,8 +13751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum whereEnum: SwiftProtobuf.Enum {
@@ -13894,8 +13800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -13947,8 +13851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum asEnum: SwiftProtobuf.Enum {
@@ -13998,8 +13900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14051,8 +13951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum dynamicTypeEnum: SwiftProtobuf.Enum {
@@ -14102,8 +14000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14155,8 +14051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum isEnum: SwiftProtobuf.Enum {
@@ -14206,8 +14100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14259,8 +14151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum rethrowsEnum: SwiftProtobuf.Enum {
@@ -14310,8 +14200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14363,8 +14251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum selfEnum: SwiftProtobuf.Enum {
@@ -14414,8 +14300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14467,8 +14351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum throwsEnum: SwiftProtobuf.Enum {
@@ -14518,8 +14400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14571,8 +14451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum tryEnum: SwiftProtobuf.Enum {
@@ -14622,8 +14500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14675,8 +14551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum __FILE__Enum: SwiftProtobuf.Enum {
@@ -14726,8 +14600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14779,8 +14651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum __LINE__Enum: SwiftProtobuf.Enum {
@@ -14830,8 +14700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14883,8 +14751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum __Enum: SwiftProtobuf.Enum {
@@ -14934,8 +14800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -14987,8 +14851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum convenience: SwiftProtobuf.Enum {
@@ -15038,8 +14900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15091,8 +14951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum didSet: SwiftProtobuf.Enum {
@@ -15142,8 +15000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15195,8 +15051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum get: SwiftProtobuf.Enum {
@@ -15246,8 +15100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15299,8 +15151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum indirect: SwiftProtobuf.Enum {
@@ -15350,8 +15200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15403,8 +15251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum left: SwiftProtobuf.Enum {
@@ -15454,8 +15300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15507,8 +15351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum none: SwiftProtobuf.Enum {
@@ -15558,8 +15400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15611,8 +15451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum optional: SwiftProtobuf.Enum {
@@ -15662,8 +15500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15715,8 +15551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum postfix: SwiftProtobuf.Enum {
@@ -15766,8 +15600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15819,8 +15651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum prefix: SwiftProtobuf.Enum {
@@ -15870,8 +15700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -15923,8 +15751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum right: SwiftProtobuf.Enum {
@@ -15974,8 +15800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16027,8 +15851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum TypeEnum: SwiftProtobuf.Enum {
@@ -16078,8 +15900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16131,8 +15951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum weak: SwiftProtobuf.Enum {
@@ -16182,8 +16000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16235,8 +16051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum id: SwiftProtobuf.Enum {
@@ -16286,8 +16100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16339,8 +16151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum out: SwiftProtobuf.Enum {
@@ -16390,8 +16200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16443,8 +16251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum byref: SwiftProtobuf.Enum {
@@ -16494,8 +16300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16547,8 +16351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum and: SwiftProtobuf.Enum {
@@ -16598,8 +16400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16651,8 +16451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum alignas: SwiftProtobuf.Enum {
@@ -16702,8 +16500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16755,8 +16551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum asm: SwiftProtobuf.Enum {
@@ -16806,8 +16600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16859,8 +16651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum bitand: SwiftProtobuf.Enum {
@@ -16910,8 +16700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -16963,8 +16751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum bool: SwiftProtobuf.Enum {
@@ -17014,8 +16800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17067,8 +16851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum char16_t: SwiftProtobuf.Enum {
@@ -17118,8 +16900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17171,8 +16951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum compl: SwiftProtobuf.Enum {
@@ -17222,8 +17000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17275,8 +17051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum constexpr: SwiftProtobuf.Enum {
@@ -17326,8 +17100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17379,8 +17151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum decltype: SwiftProtobuf.Enum {
@@ -17430,8 +17200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17483,8 +17251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum dynamic_cast: SwiftProtobuf.Enum {
@@ -17534,8 +17300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17587,8 +17351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum export: SwiftProtobuf.Enum {
@@ -17638,8 +17400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17691,8 +17451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum friend: SwiftProtobuf.Enum {
@@ -17742,8 +17500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17795,8 +17551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum inline: SwiftProtobuf.Enum {
@@ -17846,8 +17600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -17899,8 +17651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum mutable: SwiftProtobuf.Enum {
@@ -17950,8 +17700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18003,8 +17751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum new: SwiftProtobuf.Enum {
@@ -18054,8 +17800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18107,8 +17851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum not: SwiftProtobuf.Enum {
@@ -18158,8 +17900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18211,8 +17951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum nullptr: SwiftProtobuf.Enum {
@@ -18262,8 +18000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18315,8 +18051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum or_eq: SwiftProtobuf.Enum {
@@ -18366,8 +18100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18419,8 +18151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum register: SwiftProtobuf.Enum {
@@ -18470,8 +18200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18523,8 +18251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum short: SwiftProtobuf.Enum {
@@ -18574,8 +18300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18627,8 +18351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum sizeof: SwiftProtobuf.Enum {
@@ -18678,8 +18400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18731,8 +18451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum static_cast: SwiftProtobuf.Enum {
@@ -18782,8 +18500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18835,8 +18551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum this: SwiftProtobuf.Enum {
@@ -18886,8 +18600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -18939,8 +18651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum typedef: SwiftProtobuf.Enum {
@@ -18990,8 +18700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19043,8 +18751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum typename: SwiftProtobuf.Enum {
@@ -19094,8 +18800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19147,8 +18851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum unsigned: SwiftProtobuf.Enum {
@@ -19198,8 +18900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19251,8 +18951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum virtual: SwiftProtobuf.Enum {
@@ -19302,8 +19000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19355,8 +19051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum volatile: SwiftProtobuf.Enum {
@@ -19406,8 +19100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19459,8 +19151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum xor: SwiftProtobuf.Enum {
@@ -19510,8 +19200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19563,8 +19251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum restrict: SwiftProtobuf.Enum {
@@ -19614,8 +19300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19667,8 +19351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum Ivar: SwiftProtobuf.Enum {
@@ -19718,8 +19400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19771,8 +19451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum finalize: SwiftProtobuf.Enum {
@@ -19822,8 +19500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19875,8 +19551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum dealloc: SwiftProtobuf.Enum {
@@ -19926,8 +19600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -19979,8 +19651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum retain: SwiftProtobuf.Enum {
@@ -20030,8 +19700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20083,8 +19751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum autorelease: SwiftProtobuf.Enum {
@@ -20134,8 +19800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20187,8 +19851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum zone: SwiftProtobuf.Enum {
@@ -20238,8 +19900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20291,8 +19951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum copy: SwiftProtobuf.Enum {
@@ -20342,8 +20000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20395,8 +20051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum classForCoder: SwiftProtobuf.Enum {
@@ -20446,8 +20100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20499,8 +20151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum data: SwiftProtobuf.Enum {
@@ -20550,8 +20200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20603,8 +20251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum descriptor: SwiftProtobuf.Enum {
@@ -20654,8 +20300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20707,8 +20351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum extensionsCurrentlySet: SwiftProtobuf.Enum {
@@ -20758,8 +20400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20811,8 +20451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum serializedSize: SwiftProtobuf.Enum {
@@ -20862,8 +20500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -20915,8 +20551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum unknownFields: SwiftProtobuf.Enum {
@@ -20966,8 +20600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21019,8 +20651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum Fract: SwiftProtobuf.Enum {
@@ -21070,8 +20700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21123,8 +20751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum LogicalAddress: SwiftProtobuf.Enum {
@@ -21174,8 +20800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21227,8 +20851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum ByteCount: SwiftProtobuf.Enum {
@@ -21278,8 +20900,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21331,8 +20951,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum Duration: SwiftProtobuf.Enum {
@@ -21382,8 +21000,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21435,8 +21051,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum OptionBits: SwiftProtobuf.Enum {
@@ -21486,8 +21100,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21539,8 +21151,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum PBVersion: SwiftProtobuf.Enum {
@@ -21590,8 +21200,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21643,8 +21251,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum LangCode: SwiftProtobuf.Enum {
@@ -21694,8 +21300,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21747,8 +21351,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum OSType: SwiftProtobuf.Enum {
@@ -21798,8 +21400,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21851,8 +21451,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum Point: SwiftProtobuf.Enum {
@@ -21902,8 +21500,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -21955,8 +21551,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum FixedPoint: SwiftProtobuf.Enum {
@@ -22006,8 +21600,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -22059,8 +21651,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum Style: SwiftProtobuf.Enum {
@@ -22110,8 +21700,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -22163,8 +21751,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum StyleField: SwiftProtobuf.Enum {
@@ -22214,8 +21800,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -22267,8 +21851,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum TimeBase: SwiftProtobuf.Enum {
@@ -22319,8 +21901,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum TimeRecord: SwiftProtobuf.Enum {
@@ -22370,8 +21950,6 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

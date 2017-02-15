@@ -148,8 +148,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      var hashValue: Int { return rawValue }
-
     }
 
     ///   The circular reference here forces the generator to
@@ -253,8 +251,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
           }
         }
       }
-
-      var hashValue: Int { return rawValue }
 
     }
 

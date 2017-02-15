@@ -683,8 +683,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -1446,8 +1444,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

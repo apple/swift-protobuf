@@ -107,8 +107,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum EnumTest2: SwiftProtobuf.Enum {
@@ -161,8 +159,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -217,8 +213,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum EnumTestReservedWord: SwiftProtobuf.Enum {
@@ -271,8 +265,6 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.Prot
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

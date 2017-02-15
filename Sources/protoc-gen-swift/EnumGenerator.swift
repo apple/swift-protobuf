@@ -260,11 +260,6 @@ class EnumGenerator {
         printer.outdent()
         printer.print("}\n")
 
-        // hashValue property
-        printer.print("\n")
-        printer.print("\(generatorOptions.visibilitySourceSnippet)var hashValue: Int { return rawValue }\n")
-
-
         printer.outdent()
         printer.print("\n")
         printer.print("}\n")

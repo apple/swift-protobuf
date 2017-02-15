@@ -115,8 +115,6 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   This proto includes every type of field in both singular and repeated
@@ -1252,8 +1250,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

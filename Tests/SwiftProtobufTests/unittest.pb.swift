@@ -112,8 +112,6 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   Test an enum that has multiple values with the same number.
@@ -183,8 +181,6 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -269,8 +265,6 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 
@@ -1046,8 +1040,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -6846,8 +6838,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   struct FooGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -8041,8 +8031,6 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

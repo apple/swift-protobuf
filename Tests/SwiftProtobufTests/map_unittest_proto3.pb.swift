@@ -116,8 +116,6 @@ enum Proto3MapEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   Tests maps.
@@ -766,8 +764,6 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtob
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 

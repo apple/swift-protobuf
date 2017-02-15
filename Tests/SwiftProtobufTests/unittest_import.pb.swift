@@ -112,8 +112,6 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  var hashValue: Int { return rawValue }
-
 }
 
 ///   To use an enum in a map, it must has the first value as 0.
@@ -173,8 +171,6 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
       }
     }
   }
-
-  var hashValue: Int { return rawValue }
 
 }
 

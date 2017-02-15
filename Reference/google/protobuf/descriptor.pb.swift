@@ -1049,8 +1049,6 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum Label: SwiftProtobuf.Enum {
@@ -1111,8 +1109,6 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -2106,8 +2102,6 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   ///   Sets the Java package where classes generated from this .proto will be
@@ -2744,8 +2738,6 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
       }
     }
 
-    var hashValue: Int { return rawValue }
-
   }
 
   enum JSType: SwiftProtobuf.Enum {
@@ -2810,8 +2802,6 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
@@ -3489,8 +3479,6 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
         }
       }
     }
-
-    var hashValue: Int { return rawValue }
 
   }
 
