@@ -118,9 +118,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///         "value": "1.212s"
 ///       }
 struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Any"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "Any"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "type_url", json: "typeUrl"),
     2: .same(proto: "value"),
   ]
@@ -152,15 +152,13 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
   ///   Must be a valid serialized protocol buffer of the above specified type.
   var value: Data = Data()
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &typeURL)
     case 2: try decoder.decodeSingularBytesField(value: &value)
@@ -168,7 +166,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if typeURL != "" {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: typeURL, fieldNumber: 1)
     }
@@ -177,7 +175,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
     if typeURL != other.typeURL {return false}
     if value != other.value {return false}
     return true

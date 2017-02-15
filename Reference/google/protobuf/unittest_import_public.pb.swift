@@ -52,13 +52,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "PublicImportMessage"}
-  public var protoPackageName: String {return "protobuf_unittest_import"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "PublicImportMessage"}
+  var protoPackageName: String {return "protobuf_unittest_import"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "e"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _e: Int32? = nil
   var e: Int32 {
@@ -72,29 +72,27 @@ struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftP
     return _e = nil
   }
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_e)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _e {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
     unknown.traverse(visitor: visitor)
   }
 
-  public func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_PublicImportMessage) -> Bool {
+  func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_PublicImportMessage) -> Bool {
     if _e != other._e {return false}
     if unknown != other.unknown {return false}
     return true

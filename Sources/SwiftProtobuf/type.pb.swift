@@ -133,8 +133,6 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
     var _sourceContext: Google_Protobuf_SourceContext? = nil
     var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -687,8 +685,6 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
     var _sourceContext: Google_Protobuf_SourceContext? = nil
     var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
 
-    init() {}
-
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -880,8 +876,6 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto
     typealias ExtendedMessage = Google_Protobuf_Option
     var _name: String = ""
     var _value: Google_Protobuf_Any? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {

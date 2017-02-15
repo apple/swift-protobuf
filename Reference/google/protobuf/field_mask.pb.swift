@@ -250,9 +250,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
 struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "FieldMask"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "FieldMask"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "paths"),
   ]
 
@@ -260,28 +260,26 @@ struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   ///   The set of field mask paths.
   var paths: [String] = []
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeRepeatedStringField(value: &paths)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if !paths.isEmpty {
       try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: paths, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
     if paths != other.paths {return false}
     return true
   }

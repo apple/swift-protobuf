@@ -50,13 +50,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "ImportNoArenaNestedMessage"}
-  public var protoPackageName: String {return "proto2_arena_unittest"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "ImportNoArenaNestedMessage"}
+  var protoPackageName: String {return "proto2_arena_unittest"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "d"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _d: Int32? = nil
   var d: Int32 {
@@ -70,29 +70,27 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, Sw
     return _d = nil
   }
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_d)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _d {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
     unknown.traverse(visitor: visitor)
   }
 
-  public func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_ImportNoArenaNestedMessage) -> Bool {
+  func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_ImportNoArenaNestedMessage) -> Bool {
     if _d != other._d {return false}
     if unknown != other.unknown {return false}
     return true

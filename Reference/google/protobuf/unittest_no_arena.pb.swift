@@ -121,9 +121,9 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum {
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "TestAllTypes"}
-  public var protoPackageName: String {return "protobuf_unittest_no_arena"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "TestAllTypes"}
+  var protoPackageName: String {return "protobuf_unittest_no_arena"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
     3: .unique(proto: "optional_uint32", json: "optionalUint32"),
@@ -277,8 +277,6 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
     var _defaultStringPiece: String? = nil
     var _defaultCord: String? = nil
     var _oneofField = ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField()
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -740,7 +738,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -765,15 +763,15 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    public init(nilLiteral: ()) {
+    init(nilLiteral: ()) {
       self = .None
     }
 
-    public init() {
+    init() {
       self = .None
     }
 
-    public mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
+    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
       if self != .None {
         try decoder.handleConflictingOneOf()
       }
@@ -813,7 +811,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    public func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofUint32(let v):
         if start <= 111 && 111 < end {
@@ -911,13 +909,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var protoMessageName: String {return "NestedMessage"}
-    public var protoPackageName: String {return "protobuf_unittest_no_arena"}
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    var protoMessageName: String {return "NestedMessage"}
+    var protoPackageName: String {return "protobuf_unittest_no_arena"}
+    static let _protobuf_fieldNames: FieldNameMap = [
       1: .same(proto: "bb"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
@@ -934,29 +932,27 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       return _bb = nil
     }
 
-    init() {}
-
-    public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
       }
     }
 
-    public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt32Field(value: &_bb)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _bb {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
       }
       unknown.traverse(visitor: visitor)
     }
 
-    public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.NestedMessage) -> Bool {
+    func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.NestedMessage) -> Bool {
       if _bb != other._bb {return false}
       if unknown != other.unknown {return false}
       return true
@@ -964,13 +960,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var protoMessageName: String {return "OptionalGroup"}
-    public var protoPackageName: String {return "protobuf_unittest_no_arena"}
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    var protoMessageName: String {return "OptionalGroup"}
+    var protoPackageName: String {return "protobuf_unittest_no_arena"}
+    static let _protobuf_fieldNames: FieldNameMap = [
       17: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -984,29 +980,27 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       return _a = nil
     }
 
-    init() {}
-
-    public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
       }
     }
 
-    public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
       case 17: try decoder.decodeSingularInt32Field(value: &_a)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _a {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 17)
       }
       unknown.traverse(visitor: visitor)
     }
 
-    public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup) -> Bool {
+    func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup) -> Bool {
       if _a != other._a {return false}
       if unknown != other.unknown {return false}
       return true
@@ -1014,13 +1008,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    public var protoMessageName: String {return "RepeatedGroup"}
-    public var protoPackageName: String {return "protobuf_unittest_no_arena"}
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    var protoMessageName: String {return "RepeatedGroup"}
+    var protoPackageName: String {return "protobuf_unittest_no_arena"}
+    static let _protobuf_fieldNames: FieldNameMap = [
       47: .same(proto: "a"),
     ]
 
-    public var unknown = SwiftProtobuf.UnknownStorage()
+    var unknown = SwiftProtobuf.UnknownStorage()
 
     private var _a: Int32? = nil
     var a: Int32 {
@@ -1034,29 +1028,27 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       return _a = nil
     }
 
-    init() {}
-
-    public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
       }
     }
 
-    public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
       case 47: try decoder.decodeSingularInt32Field(value: &_a)
       default: break
       }
     }
 
-    public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
       if let v = _a {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 47)
       }
       unknown.traverse(visitor: visitor)
     }
 
-    public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup) -> Bool {
+    func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup) -> Bool {
       if _a != other._a {return false}
       if unknown != other.unknown {return false}
       return true
@@ -1765,21 +1757,19 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: visitor)
   }
 
-  public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes) -> Bool {
+  func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes) -> Bool {
     return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 
@@ -1794,13 +1784,13 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "ForeignMessage"}
-  public var protoPackageName: String {return "protobuf_unittest_no_arena"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "ForeignMessage"}
+  var protoPackageName: String {return "protobuf_unittest_no_arena"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "c"),
   ]
 
-  public var unknown = SwiftProtobuf.UnknownStorage()
+  var unknown = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int32? = nil
   var c: Int32 {
@@ -1814,29 +1804,27 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProto
     return _c = nil
   }
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_c)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if let v = _c {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
     unknown.traverse(visitor: visitor)
   }
 
-  public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessage) -> Bool {
+  func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessage) -> Bool {
     if _c != other._c {return false}
     if unknown != other.unknown {return false}
     return true
@@ -1844,9 +1832,9 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProto
 }
 
 struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "TestNoArenaMessage"}
-  public var protoPackageName: String {return "protobuf_unittest_no_arena"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "TestNoArenaMessage"}
+  var protoPackageName: String {return "protobuf_unittest_no_arena"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "arena_message", json: "arenaMessage"),
   ]
 
@@ -1854,8 +1842,6 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
     typealias ExtendedMessage = ProtobufUnittestNoArena_TestNoArenaMessage
     var unknown = SwiftProtobuf.UnknownStorage()
     var _arenaMessage: Proto2ArenaUnittest_ArenaMessage? = nil
-
-    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1893,7 +1879,7 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
 
   private var _storage = _StorageClass()
 
-  public var unknown: SwiftProtobuf.UnknownStorage {
+  var unknown: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknown}
     set {_storage.unknown = newValue}
   }
@@ -1909,21 +1895,19 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
     return _storage._arenaMessage = nil
   }
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     try _storage.traverse(visitor: visitor)
   }
 
-  public func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestNoArenaMessage) -> Bool {
+  func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestNoArenaMessage) -> Bool {
     return _storage === other._storage || _storage.isEqualTo(other: other._storage)
   }
 

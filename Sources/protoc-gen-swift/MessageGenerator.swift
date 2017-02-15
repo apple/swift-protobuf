@@ -143,9 +143,6 @@ class StorageClassGenerator {
             }
         }
 
-        p.print("\n")
-        p.print("init() {}\n")
-
         generateIsInitialized(printer: &p)
 
         // decodeField
@@ -523,14 +520,14 @@ class MessageGenerator {
 
         p.print("\(generatorOptions.visibilitySourceSnippet)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
         p.indent()
-        p.print("public var protoMessageName: String {return \"\(protoMessageName)\"}\n")
-        p.print("public var protoPackageName: String {return \"\(protoPackageName)\"}\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var protoMessageName: String {return \"\(protoMessageName)\"}\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var protoPackageName: String {return \"\(protoPackageName)\"}\n")
 
         // Map proto field names to field number
         if fields.isEmpty {
-            p.print("public static let _protobuf_fieldNames = FieldNameMap()\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)static let _protobuf_fieldNames = FieldNameMap()\n")
         } else {
-            p.print("public static let _protobuf_fieldNames: FieldNameMap = [\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)static let _protobuf_fieldNames: FieldNameMap = [\n")
             p.indent()
             for f in fields {
                 p.print("\(f.number): \(f.fieldMapNames),\n")
@@ -549,9 +546,9 @@ class MessageGenerator {
         p.print("\n")
         if !file.isProto3 {
             if storage == nil {
-                p.print("public var unknown = SwiftProtobuf.UnknownStorage()\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)var unknown = SwiftProtobuf.UnknownStorage()\n")
             } else {
-                p.print("public var unknown: SwiftProtobuf.UnknownStorage {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)var unknown: SwiftProtobuf.UnknownStorage {\n")
                 p.print("  get {return _storage.unknown}\n")
                 p.print("  set {_storage.unknown = newValue}\n")
                 p.print("}\n")
@@ -612,16 +609,21 @@ class MessageGenerator {
             }
         }
 
-        // Default init
-        p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
+        // Every property is defaulted and Swift's Default Initializers are internal by
+        // default, so there is no need to explicity generate the code (the compiler will
+        // still do its checks, so only generated the Default Initializer when it needs
+        // an explicit visibility.
+        if generatorOptions.visibility != .Internal {
+            p.print("\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
+        }
 
         // isInitialized
         generateIsInitialized(printer:&p)
 
         // Field-addressable decoding
         p.print("\n")
-        p.print("public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
         p.indent()
         if storage != nil {
             p.print("try _uniqueStorage().decodeMessage(decoder: &decoder)\n")
@@ -636,7 +638,7 @@ class MessageGenerator {
         p.print("}\n")
 
         p.print("\n")
-        p.print("public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
         p.indent()
         if storage != nil {
             p.print("try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
@@ -692,7 +694,7 @@ class MessageGenerator {
 
         // Traversal method
         p.print("\n")
-        p.print("public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {\n")
         p.indent()
         if storage != nil {
             p.print("try _storage.traverse(visitor: visitor)\n")
@@ -739,7 +741,7 @@ class MessageGenerator {
 
         // isEqualTo method
         p.print("\n")
-        p.print("public func _protoc_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)func _protoc_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
         p.indent()
         if fields.isEmpty {
             if !isProto3 {
@@ -792,47 +794,47 @@ class MessageGenerator {
         if isExtensible {
             if storage != nil {
                 p.print("\n")
-                p.print("public mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
                 p.print("  return _uniqueStorage().setExtensionValue(ext: ext, value: value)\n")
                 p.print("}\n")
                 p.print("\n")
-                p.print("public mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
                 p.print("  return _storage.clearExtensionValue(ext: ext)\n")
                 p.print("}\n")
                 p.print("\n")
-                p.print("public func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
                 p.print("  return _storage.getExtensionValue(ext: ext)\n")
                 p.print("}\n")
                 p.print("\n")
-                p.print("public func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return _storage.hasExtensionValue(ext: ext)\n")
                 p.print("}\n")
-                p.print("public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
                 p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? _storage.extensionFieldValues.fieldNames(for: number)\n")
                 p.print("}\n")
             } else {
                 p.print("\n")
                 p.print("private var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
                 p.print("\n")
-                p.print("public mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
                 p.print("  extensionFieldValues[ext.fieldNumber] = ext.set(value: value)\n")
                 p.print("}\n")
                 p.print("\n")
-                p.print("public mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
                 p.print("  extensionFieldValues[ext.fieldNumber] = nil\n")
                 p.print("}\n")
                 p.print("\n")
-                p.print("public func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
                 p.print("  if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {\n")
                 p.print("    return fieldValue.value\n")
                 p.print("  }\n")
                 p.print("  return ext.defaultValue\n")
                 p.print("}\n")
                 p.print("\n")
-                p.print("public func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
                 p.print("  return extensionFieldValues[ext.fieldNumber] is F\n")
                 p.print("}\n")
-                p.print("public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
                 p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? extensionFieldValues.fieldNames(for: number)\n")
                 p.print("}\n")
             }

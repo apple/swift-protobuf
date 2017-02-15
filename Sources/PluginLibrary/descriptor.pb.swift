@@ -139,8 +139,6 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftP
     var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
     var _syntax: String? = nil
 
-    init() {}
-
     var isInitialized: Bool {
       if !SwiftProtobuf.Internal.areAllInitialized(_messageType) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_enumType) {return false}
@@ -420,8 +418,6 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
     var _options: Google_Protobuf_MessageOptions? = nil
     var _reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] = []
     var _reservedName: [String] = []
-
-    init() {}
 
     var isInitialized: Bool {
       if !SwiftProtobuf.Internal.areAllInitialized(_field) {return false}
@@ -793,8 +789,6 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
     var _oneofIndex: Int32? = nil
     var _jsonName: String? = nil
     var _options: Google_Protobuf_FieldOptions? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if let v = _options, !v.isInitialized {return false}
@@ -1307,8 +1301,6 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, Swift
     var _name: String? = nil
     var _options: Google_Protobuf_OneofOptions? = nil
 
-    init() {}
-
     var isInitialized: Bool {
       if let v = _options, !v.isInitialized {return false}
       return true
@@ -1429,8 +1421,6 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftP
     var _name: String? = nil
     var _value: [Google_Protobuf_EnumValueDescriptorProto] = []
     var _options: Google_Protobuf_EnumOptions? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if !SwiftProtobuf.Internal.areAllInitialized(_value) {return false}
@@ -1564,8 +1554,6 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, S
     var _name: String? = nil
     var _number: Int32? = nil
     var _options: Google_Protobuf_EnumValueOptions? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if let v = _options, !v.isInitialized {return false}
@@ -1705,8 +1693,6 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, Swi
     var _method: [Google_Protobuf_MethodDescriptorProto] = []
     var _options: Google_Protobuf_ServiceOptions? = nil
 
-    init() {}
-
     var isInitialized: Bool {
       if !SwiftProtobuf.Internal.areAllInitialized(_method) {return false}
       if let v = _options, !v.isInitialized {return false}
@@ -1845,8 +1831,6 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, Swif
     var _options: Google_Protobuf_MethodOptions? = nil
     var _clientStreaming: Bool? = nil
     var _serverStreaming: Bool? = nil
-
-    init() {}
 
     var isInitialized: Bool {
       if let v = _options, !v.isInitialized {return false}

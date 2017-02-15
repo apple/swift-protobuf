@@ -126,37 +126,35 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
 }
 
 struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "ImportMessage"}
-  public var protoPackageName: String {return "protobuf_unittest_import"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "ImportMessage"}
+  var protoPackageName: String {return "protobuf_unittest_import"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "d"),
   ]
 
 
   var d: Int32 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &d)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if d != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: d, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Proto3ImportMessage) -> Bool {
+  func _protoc_generated_isEqualTo(other: Proto3ImportMessage) -> Bool {
     if d != other.d {return false}
     return true
   }

@@ -51,9 +51,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
 struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "SourceContext"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "SourceContext"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "file_name", json: "fileName"),
   ]
 
@@ -62,28 +62,26 @@ struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf.Proto
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
   var fileName: String = ""
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &fileName)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if fileName != "" {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: fileName, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceContext) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceContext) -> Bool {
     if fileName != other.fileName {return false}
     return true
   }

@@ -20,9 +20,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "NamesTest"}
-  public var protoPackageName: String {return "swift.protobuf.test"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "NamesTest"}
+  var protoPackageName: String {return "swift.protobuf.test"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "http_request", json: "httpRequest"),
     3: .same(proto: "url"),
     6: .unique(proto: "a_b_c", json: "aBC"),
@@ -35,15 +35,13 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var aBC: Int32 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &httpRequest)
     case 3: try decoder.decodeSingularInt32Field(value: &url)
@@ -52,7 +50,7 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if httpRequest != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httpRequest, fieldNumber: 1)
     }
@@ -64,7 +62,7 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest) -> Bool {
+  func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest) -> Bool {
     if httpRequest != other.httpRequest {return false}
     if url != other.url {return false}
     if aBC != other.aBC {return false}
@@ -73,9 +71,9 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
 }
 
 struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "NamesTest2"}
-  public var protoPackageName: String {return "swift.protobuf.test"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "NamesTest2"}
+  var protoPackageName: String {return "swift.protobuf.test"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     2: .same(proto: "HTTPRequest"),
     4: .same(proto: "URL"),
   ]
@@ -85,15 +83,13 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   var url: Int32 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 2: try decoder.decodeSingularInt32Field(value: &httprequest)
     case 4: try decoder.decodeSingularInt32Field(value: &url)
@@ -101,7 +97,7 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if httprequest != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: httprequest, fieldNumber: 2)
     }
@@ -110,7 +106,7 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest2) -> Bool {
+  func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest2) -> Bool {
     if httprequest != other.httprequest {return false}
     if url != other.url {return false}
     return true
@@ -118,37 +114,35 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct Swift_Protobuf_Test_NamesTest3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "NamesTest3"}
-  public var protoPackageName: String {return "swift.protobuf.test"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "NamesTest3"}
+  var protoPackageName: String {return "swift.protobuf.test"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     5: .same(proto: "Url"),
   ]
 
 
   var url: Int32 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 5: try decoder.decodeSingularInt32Field(value: &url)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if url != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: url, fieldNumber: 5)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest3) -> Bool {
+  func _protoc_generated_isEqualTo(other: Swift_Protobuf_Test_NamesTest3) -> Bool {
     if url != other.url {return false}
     return true
   }

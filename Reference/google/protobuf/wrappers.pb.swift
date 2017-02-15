@@ -57,9 +57,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///   The JSON representation for `DoubleValue` is JSON number.
 struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "DoubleValue"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "DoubleValue"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -67,28 +67,26 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
   ///   The double value.
   var value: Double = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularDoubleField(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_DoubleValue) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_DoubleValue) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -98,9 +96,9 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///  
 ///   The JSON representation for `FloatValue` is JSON number.
 struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "FloatValue"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "FloatValue"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -108,28 +106,26 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ///   The float value.
   var value: Float = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularFloatField(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_FloatValue) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_FloatValue) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -139,9 +135,9 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///  
 ///   The JSON representation for `Int64Value` is JSON string.
 struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Int64Value"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "Int64Value"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -149,28 +145,26 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ///   The int64 value.
   var value: Int64 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt64Field(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Int64Value) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_Int64Value) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -180,9 +174,9 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///  
 ///   The JSON representation for `UInt64Value` is JSON string.
 struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "UInt64Value"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "UInt64Value"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -190,28 +184,26 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
   ///   The uint64 value.
   var value: UInt64 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularUInt64Field(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_UInt64Value) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_UInt64Value) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -221,9 +213,9 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///  
 ///   The JSON representation for `Int32Value` is JSON number.
 struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Int32Value"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "Int32Value"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -231,28 +223,26 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ///   The int32 value.
   var value: Int32 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Int32Value) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_Int32Value) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -262,9 +252,9 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///  
 ///   The JSON representation for `UInt32Value` is JSON number.
 struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "UInt32Value"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "UInt32Value"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -272,28 +262,26 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
   ///   The uint32 value.
   var value: UInt32 = 0
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularUInt32Field(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != 0 {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_UInt32Value) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_UInt32Value) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -303,9 +291,9 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///  
 ///   The JSON representation for `BoolValue` is JSON `true` and `false`.
 struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "BoolValue"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "BoolValue"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -313,28 +301,26 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   ///   The bool value.
   var value: Bool = false
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularBoolField(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != false {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_BoolValue) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_BoolValue) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -344,9 +330,9 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 ///  
 ///   The JSON representation for `StringValue` is JSON string.
 struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "StringValue"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "StringValue"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -354,28 +340,26 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
   ///   The string value.
   var value: String = ""
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != "" {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_StringValue) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_StringValue) -> Bool {
     if value != other.value {return false}
     return true
   }
@@ -385,9 +369,9 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///  
 ///   The JSON representation for `BytesValue` is JSON string.
 struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "BytesValue"}
-  public var protoPackageName: String {return "google.protobuf"}
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  var protoMessageName: String {return "BytesValue"}
+  var protoPackageName: String {return "google.protobuf"}
+  static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -395,28 +379,26 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ///   The bytes value.
   var value: Data = Data()
 
-  init() {}
-
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularBytesField(value: &value)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     if value != Data() {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: value, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_BytesValue) -> Bool {
+  func _protoc_generated_isEqualTo(other: Google_Protobuf_BytesValue) -> Bool {
     if value != other.value {return false}
     return true
   }
