@@ -49,12 +49,12 @@ func writeResponse(data: Data) {
     fflush(stdout)
 }
 
-func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
+func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     var response = Conformance_ConformanceResponse()
 
     let request: Conformance_ConformanceRequest
     do {
-        request = try Conformance_ConformanceRequest(protobuf: protobuf)
+        request = try Conformance_ConformanceRequest(serializedData: serializedData)
     } catch {
         response.runtimeError = "Failed to parse conformance request"
         return response
@@ -64,14 +64,14 @@ func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
     switch request.payload {
     case .protobufPayload(let data)?:
         do {
-            parsed = try ProtobufTestMessages_Proto3_TestAllTypes(protobuf: data)
+            parsed = try ProtobufTestMessages_Proto3_TestAllTypes(serializedData: data)
         } catch let e {
             response.parseError = "Protobuf failed to parse: \(e)"
             return response
         }
     case .jsonPayload(let json)?:
         do {
-            parsed = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
+            parsed = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json)
         } catch let e {
             response.parseError = "JSON failed to parse: \(e)"
             return response
@@ -92,13 +92,13 @@ func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
     switch request.requestedOutputFormat {
     case .protobuf:
         do {
-            response.protobufPayload = try testMessage.serializeProtobuf()
+            response.protobufPayload = try testMessage.serializedData()
         } catch let e {
             response.serializeError = "Failed to serialize: \(e)"
         }
     case .json:
         do {
-            response.jsonPayload = try testMessage.serializeJSON()
+            response.jsonPayload = try testMessage.jsonString()
         } catch let e {
             response.serializeError = "Failed to serialize: \(e)"
         }
@@ -110,8 +110,8 @@ func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
 
 func singleTest() throws -> Bool {
    if let indata = readRequest() {
-       let response = buildResponse(protobuf: indata)
-       let outdata = try response.serializeProtobuf()
+       let response = buildResponse(serializedData: indata)
+       let outdata = try response.serializedData()
        writeResponse(data: outdata)
        return true
    } else {
