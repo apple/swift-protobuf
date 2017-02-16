@@ -441,7 +441,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
     ///   Even though it is a raw name in the Extensions struct for the
     ///   Message (SwiftReservedTestExt), the generation controls what
     ///   that struct has to conform to, so collisions there don't matter.
-    static let hashValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+    static let hash_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
       fieldNumber: 1001,
       fieldNames: .same(proto: "protobuf_unittest.SwiftReservedTestExt.hash_value"),
       defaultValue: false
@@ -468,7 +468,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
 }
 
 ///   Won't get _p added because it is fully qualified.
-let ProtobufUnittest_Extensions_debugDescription = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+let ProtobufUnittest_Extensions_debug_description = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
   fieldNumber: 1000,
   fieldNames: .same(proto: "protobuf_unittest.debug_description"),
   defaultValue: false
@@ -479,32 +479,32 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
   ///   Message (SwiftReservedTestExt), the generation controls what
   ///   that struct has to conform to, so collisions there don't matter.
   var ProtobufUnittest_SwiftReservedTestExt_hashValue: Bool {
-    get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hashValue) ?? false}
-    set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hashValue, value: newValue)}
+    get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value, value: newValue)}
   }
   var hasProtobufUnittest_SwiftReservedTestExt_hashValue: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hashValue)
+    return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value)
   }
   mutating func clearProtobufUnittest_SwiftReservedTestExt_hashValue() {
-    clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hashValue)
+    clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value)
   }
 }
 
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
   ///   Won't get _p added because it is fully qualified.
   var ProtobufUnittest_debugDescription: Bool {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_debugDescription) ?? false}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_debugDescription, value: newValue)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_debug_description) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_debug_description, value: newValue)}
   }
   var hasProtobufUnittest_debugDescription: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_debugDescription)
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_debug_description)
   }
   mutating func clearProtobufUnittest_debugDescription() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_debugDescription)
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_debug_description)
   }
 }
 
 let ProtobufUnittest_UnittestSwiftReserved_Extensions: SwiftProtobuf.ExtensionSet = [
-  ProtobufUnittest_Extensions_debugDescription,
-  ProtobufUnittest_SwiftReservedTestExt.Extensions.hashValue
+  ProtobufUnittest_Extensions_debug_description,
+  ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value
 ]

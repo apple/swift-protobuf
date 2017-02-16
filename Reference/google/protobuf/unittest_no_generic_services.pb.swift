@@ -181,7 +181,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   }
 }
 
-let Google_Protobuf_NoGenericServicesTest_Extensions_testExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
+let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
   fieldNumber: 1000,
   fieldNames: .same(proto: "google.protobuf.no_generic_services_test.test_extension"),
   defaultValue: 0
@@ -189,17 +189,17 @@ let Google_Protobuf_NoGenericServicesTest_Extensions_testExtension = SwiftProtob
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
-    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension) ?? 0}
-    set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension, value: newValue)}
+    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}
+    set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
   }
   var hasGoogle_Protobuf_NoGenericServicesTest_testExtension: Bool {
-    return hasExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension)
+    return hasExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)
   }
   mutating func clearGoogle_Protobuf_NoGenericServicesTest_testExtension() {
-    clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_testExtension)
+    clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)
   }
 }
 
 let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.ExtensionSet = [
-  Google_Protobuf_NoGenericServicesTest_Extensions_testExtension
+  Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
 ]

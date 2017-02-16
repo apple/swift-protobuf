@@ -275,13 +275,13 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
   }
 }
 
-let Extensions_extensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
+let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
   fieldNumber: 2,
   fieldNames: .same(proto: "ExtensionGroup"),
   defaultValue: ExtensionGroup()
 )
 
-let Extensions_repeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
+let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
   fieldNumber: 3,
   fieldNames: .same(proto: "RepeatedExtensionGroup"),
   defaultValue: []
@@ -289,31 +289,31 @@ let Extensions_repeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedG
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
-    get {return getExtensionValue(ext: Extensions_extensionGroup) ?? ExtensionGroup()}
-    set {setExtensionValue(ext: Extensions_extensionGroup, value: newValue)}
+    get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}
+    set {setExtensionValue(ext: Extensions_ExtensionGroup, value: newValue)}
   }
   var hasExtensionGroup: Bool {
-    return hasExtensionValue(ext: Extensions_extensionGroup)
+    return hasExtensionValue(ext: Extensions_ExtensionGroup)
   }
   mutating func clearExtensionGroup() {
-    clearExtensionValue(ext: Extensions_extensionGroup)
+    clearExtensionValue(ext: Extensions_ExtensionGroup)
   }
 }
 
 extension SwiftTestGroupExtensions {
   var repeatedExtensionGroup: [RepeatedExtensionGroup] {
-    get {return getExtensionValue(ext: Extensions_repeatedExtensionGroup)}
-    set {setExtensionValue(ext: Extensions_repeatedExtensionGroup, value: newValue)}
+    get {return getExtensionValue(ext: Extensions_RepeatedExtensionGroup)}
+    set {setExtensionValue(ext: Extensions_RepeatedExtensionGroup, value: newValue)}
   }
   var hasRepeatedExtensionGroup: Bool {
-    return hasExtensionValue(ext: Extensions_repeatedExtensionGroup)
+    return hasExtensionValue(ext: Extensions_RepeatedExtensionGroup)
   }
   mutating func clearRepeatedExtensionGroup() {
-    clearExtensionValue(ext: Extensions_repeatedExtensionGroup)
+    clearExtensionValue(ext: Extensions_RepeatedExtensionGroup)
   }
 }
 
 let UnittestSwiftGroups_Extensions: SwiftProtobuf.ExtensionSet = [
-  Extensions_extensionGroup,
-  Extensions_repeatedExtensionGroup
+  Extensions_ExtensionGroup,
+  Extensions_RepeatedExtensionGroup
 ]

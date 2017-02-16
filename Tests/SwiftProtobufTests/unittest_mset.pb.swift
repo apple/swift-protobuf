@@ -164,7 +164,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
 
   struct Extensions {
 
-    static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
       fieldNumber: 1545008,
       fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension1.message_set_extension"),
       defaultValue: ProtobufUnittest_TestMessageSetExtension1()
@@ -221,7 +221,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
 
   struct Extensions {
 
-    static let messageSetExtension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
       fieldNumber: 1547769,
       fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension2.message_set_extension"),
       defaultValue: ProtobufUnittest_TestMessageSetExtension2()
@@ -396,31 +396,31 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
 extension Proto2WireformatUnittest_TestMessageSet {
   var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.messageSetExtension) ?? ProtobufUnittest_TestMessageSetExtension1()}
-    set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.messageSetExtension, value: newValue)}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension1()}
+    set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension, value: newValue)}
   }
   var hasProtobufUnittest_TestMessageSetExtension1_messageSetExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.messageSetExtension)
+    return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension)
   }
   mutating func clearProtobufUnittest_TestMessageSetExtension1_messageSetExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.messageSetExtension)
+    clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension)
   }
 }
 
 extension Proto2WireformatUnittest_TestMessageSet {
   var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.messageSetExtension) ?? ProtobufUnittest_TestMessageSetExtension2()}
-    set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.messageSetExtension, value: newValue)}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension2()}
+    set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension, value: newValue)}
   }
   var hasProtobufUnittest_TestMessageSetExtension2_messageSetExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.messageSetExtension)
+    return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension)
   }
   mutating func clearProtobufUnittest_TestMessageSetExtension2_messageSetExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.messageSetExtension)
+    clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension)
   }
 }
 
 let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.ExtensionSet = [
-  ProtobufUnittest_TestMessageSetExtension1.Extensions.messageSetExtension,
-  ProtobufUnittest_TestMessageSetExtension2.Extensions.messageSetExtension
+  ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension,
+  ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
 ]

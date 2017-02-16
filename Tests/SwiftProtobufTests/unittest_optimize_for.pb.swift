@@ -188,13 +188,13 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   struct Extensions {
 
-    static let testExtension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
+    static let test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
       fieldNumber: 1234,
       fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension"),
       defaultValue: 0
     )
 
-    static let testExtension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
+    static let test_extension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
       fieldNumber: 1235,
       fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension2"),
       defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize()
@@ -453,31 +453,31 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
 
 extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension, value: newValue)}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension, value: newValue)}
   }
   var hasProtobufUnittest_TestOptimizedForSize_testExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension)
+    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)
   }
   mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension)
+    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)
   }
 }
 
 extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
-    set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension2, value: newValue)}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
+    set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2, value: newValue)}
   }
   var hasProtobufUnittest_TestOptimizedForSize_testExtension2: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension2)
+    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)
   }
   mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension2() {
-    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension2)
+    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)
   }
 }
 
 let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.ExtensionSet = [
-  ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension,
-  ProtobufUnittest_TestOptimizedForSize.Extensions.testExtension2
+  ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension,
+  ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2
 ]

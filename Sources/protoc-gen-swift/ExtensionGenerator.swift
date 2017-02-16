@@ -81,21 +81,22 @@ struct ExtensionGenerator {
             self.protoPath = fieldName
         }
 
-        let fieldBaseName: String
+        let baseName: String
         if descriptor.type == .group {
             let g = context.getMessageForPath(path: descriptor.typeName)!
-            fieldBaseName = toLowerCamelCase(g.name)
+            baseName = g.name
         } else {
-            fieldBaseName = toLowerCamelCase(descriptor.name)
+            baseName = descriptor.name
         }
+        let fieldBaseName = toLowerCamelCase(baseName)
 
         if let msg = swiftDeclaringMessageName {
-            self.swiftRelativeExtensionName = fieldBaseName
-            self.swiftFullExtensionName = msg + ".Extensions." + fieldBaseName
+            self.swiftRelativeExtensionName = baseName
+            self.swiftFullExtensionName = msg + ".Extensions." + baseName
             self.swiftFieldName = periodsToUnderscores(msg + "_" + fieldBaseName)
         } else {
             let swiftPrefix = file.swiftPrefix
-            self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + fieldBaseName
+            self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
             self.swiftFullExtensionName = self.swiftRelativeExtensionName
             self.swiftFieldName = periodsToUnderscores(swiftPrefix + fieldBaseName)
         }

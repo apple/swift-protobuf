@@ -425,13 +425,13 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 }
 
-let Swift_Protobuf_Extensions_myExtensionString = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
+let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
   fieldNumber: 50,
   fieldNames: .same(proto: "swift.protobuf.my_extension_string"),
   defaultValue: ""
 )
 
-let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
+let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
   fieldNumber: 5,
   fieldNames: .same(proto: "swift.protobuf.my_extension_int"),
   defaultValue: 0
@@ -439,31 +439,31 @@ let Swift_Protobuf_Extensions_myExtensionInt = SwiftProtobuf.MessageExtension<Op
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionString) ?? ""}
-    set {setExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionString, value: newValue)}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? ""}
+    set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
   }
   var hasSwift_Protobuf_myExtensionString: Bool {
-    return hasExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionString)
+    return hasExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)
   }
   mutating func clearSwift_Protobuf_myExtensionString() {
-    clearExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionString)
+    clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)
   }
 }
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionInt: Int32 {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionInt) ?? 0}
-    set {setExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionInt, value: newValue)}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int) ?? 0}
+    set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int, value: newValue)}
   }
   var hasSwift_Protobuf_myExtensionInt: Bool {
-    return hasExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionInt)
+    return hasExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)
   }
   mutating func clearSwift_Protobuf_myExtensionInt() {
-    clearExtensionValue(ext: Swift_Protobuf_Extensions_myExtensionInt)
+    clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)
   }
 }
 
 let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.ExtensionSet = [
-  Swift_Protobuf_Extensions_myExtensionString,
-  Swift_Protobuf_Extensions_myExtensionInt
+  Swift_Protobuf_Extensions_my_extension_string,
+  Swift_Protobuf_Extensions_my_extension_int
 ]
