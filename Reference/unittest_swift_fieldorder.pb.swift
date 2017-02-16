@@ -49,7 +49,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     200: .unique(proto: "optional_nested_message", json: "optionalNestedMessage"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = Swift_Protobuf_TestFieldOrderings
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()

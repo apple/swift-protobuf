@@ -20,31 +20,34 @@ public protocol ExtensibleMessage: Message {
     mutating func clearExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>)
 }
 
-// Common support for storage classes to handle extension fields
-public protocol ExtensibleMessageStorage: class {
-    associatedtype ExtendedMessage: Message
-    var extensionFieldValues: ExtensionFieldValueSet {get set}
-    func setExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>, value: F.ValueType)
-    func getExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) -> F.ValueType
+
+// -----------------------------------------------------------------------------
+
+
+/// SwiftProtobuf Internal: Common support for storage classes to handle extension fields
+public protocol _ExtensibleMessageStorage: class {
+  associatedtype ExtendedMessage: Message
+  var extensionFieldValues: ExtensionFieldValueSet {get set}
 }
 
-public extension ExtensibleMessageStorage {
-    public func setExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>, value: F.ValueType) {
-        extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
-    }
+/// SwiftProtobuf Internal: Common support for storage classes to handle extension fields
+public extension _ExtensibleMessageStorage {
+  public func setExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>, value: F.ValueType) {
+    extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+  }
 
-    public func clearExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) {
-        extensionFieldValues[ext.fieldNumber] = nil
-    }
+  public func clearExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) {
+    extensionFieldValues[ext.fieldNumber] = nil
+  }
 
-    public func getExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) -> F.ValueType {
-        if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
-            return fieldValue.value
-        }
-        return ext.defaultValue
+  public func getExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) -> F.ValueType {
+    if let fieldValue = extensionFieldValues[ext.fieldNumber] as? F {
+      return fieldValue.value
     }
+    return ext.defaultValue
+  }
 
-    public func hasExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) -> Bool {
-        return extensionFieldValues[ext.fieldNumber] is F
-    }
+  public func hasExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, ExtendedMessage>) -> Bool {
+    return extensionFieldValues[ext.fieldNumber] is F
+  }
 }

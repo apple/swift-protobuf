@@ -821,7 +821,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     4: .same(proto: "barney"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_ComplexOptionType2
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()

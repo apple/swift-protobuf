@@ -4694,7 +4694,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     200: .unique(proto: "optional_nested_message", json: "optionalNestedMessage"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_TestFieldOrderings
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8341,7 +8341,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
     20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_TestParsingMerge
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9363,7 +9363,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     536870014: .unique(proto: "oneof_bytes", json: "oneofBytes"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_TestHugeFieldNumbers
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()
