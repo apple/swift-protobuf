@@ -20,11 +20,11 @@ import SwiftProtobuf
 class Test_JSON_Conformance: XCTestCase {
     func assertEmptyDecode(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) -> () {
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json)
             XCTAssertEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypes(), "Decoded object should be equal to empty object: \(decoded)", file: file, line: line)
-            let recoded = try decoded.serializeJSON()
+            let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{}", file: file, line: line)
-            let protobuf = try decoded.serializeProtobufBytes()
+            let protobuf = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [], file: file, line: line)
         } catch let e {
             XCTFail("Decode failed with error \(e)", file: file, line: line)
@@ -89,7 +89,7 @@ class Test_JSON_Conformance: XCTestCase {
         let valueNull = "{\"optionalValue\": null}"
         let decoded: ProtobufTestMessages_Proto3_TestAllTypes
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: valueNull)
+            decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: valueNull)
             XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypes())
         } catch let e {
             XCTFail("Decode failed with error \(e): \(valueNull)")
@@ -97,14 +97,14 @@ class Test_JSON_Conformance: XCTestCase {
         }
 
         do {
-            let recoded = try decoded.serializeJSON()
+            let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"optionalValue\":null}")
         } catch let e {
             XCTFail("JSON encode failed with error: \(e)")
         }
 
         do {
-            let protobuf = try decoded.serializeProtobufBytes()
+            let protobuf = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [146, 19, 2, 8, 0])
         } catch let e {
             XCTFail("Protobuf encode failed with error: \(e)")
@@ -114,14 +114,14 @@ class Test_JSON_Conformance: XCTestCase {
     func testNullSupport_Repeated() throws {
         // Nulls within repeated lists are errors
         let json1 = "{\"repeatedBoolWrapper\":[true, null, false]}"
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(json: json1))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json1))
         let json2 = "{\"repeatedNestedMessage\":[{}, null]}"
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(json: json2))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json2))
         // Make sure the above is failing for the right reason:
         let json3 = "{\"repeatedNestedMessage\":[{}]}"
-        let _ = try ProtobufTestMessages_Proto3_TestAllTypes(json: json3)
+        let _ = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json3)
         let json4 = "{\"repeatedNestedMessage\":[null]}"
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(json: json4))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json4))
     }
 
     func testNullSupport_RepeatedValue() throws {
@@ -129,7 +129,7 @@ class Test_JSON_Conformance: XCTestCase {
         let repeatedValueWithNull = "{\"repeatedValue\": [1, null]}"
         let decoded: ProtobufTestMessages_Proto3_TestAllTypes
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: repeatedValueWithNull)
+            decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: repeatedValueWithNull)
             XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypes())
             XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), Google_Protobuf_Value()])
         } catch {
@@ -137,13 +137,13 @@ class Test_JSON_Conformance: XCTestCase {
             return
         }
         do {
-            let recoded = try decoded.serializeJSON()
+            let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"repeatedValue\":[1,null]}")
         } catch {
             XCTFail("Re-encode failed with error: \(repeatedValueWithNull)")
         }
         do {
-            let protobuf = try decoded.serializeProtobufBytes()
+            let protobuf = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [226, 19, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 226, 19, 2, 8, 0])
         } catch {
             XCTFail("Protobuf encoding failed with error: \(repeatedValueWithNull)")
@@ -153,8 +153,8 @@ class Test_JSON_Conformance: XCTestCase {
     func testNullConformance() {
         let start = "{\n        \"optionalBoolWrapper\": null,\n        \"optionalInt32Wrapper\": null,\n        \"optionalUint32Wrapper\": null,\n        \"optionalInt64Wrapper\": null,\n        \"optionalUint64Wrapper\": null,\n        \"optionalFloatWrapper\": null,\n        \"optionalDoubleWrapper\": null,\n        \"optionalStringWrapper\": null,\n        \"optionalBytesWrapper\": null,\n        \"repeatedBoolWrapper\": null,\n        \"repeatedInt32Wrapper\": null,\n        \"repeatedUint32Wrapper\": null,\n        \"repeatedInt64Wrapper\": null,\n        \"repeatedUint64Wrapper\": null,\n        \"repeatedFloatWrapper\": null,\n        \"repeatedDoubleWrapper\": null,\n        \"repeatedStringWrapper\": null,\n        \"repeatedBytesWrapper\": null\n      }"
         do {
-            let t = try ProtobufTestMessages_Proto3_TestAllTypes(json: start)
-            XCTAssertEqual(try t.serializeJSON(), "{}")
+            let t = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: start)
+            XCTAssertEqual(try t.jsonString(), "{}")
         } catch {
             XCTFail()
         }
@@ -164,12 +164,12 @@ class Test_JSON_Conformance: XCTestCase {
         let start = "{\"optionalValue\":[0,\"hello\"]}"
         let t: ProtobufTestMessages_Proto3_TestAllTypes
         do {
-            t = try ProtobufTestMessages_Proto3_TestAllTypes(json: start)
+            t = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: start)
         } catch {
             XCTFail("Failed to decode: \(start)")
             return
         }
-        XCTAssertEqual(try t.serializeJSON(), start)
+        XCTAssertEqual(try t.jsonString(), start)
     }
 
 
@@ -184,7 +184,7 @@ class Test_JSON_Conformance: XCTestCase {
                      + "        }\n"
                      + "      }")
         do {
-            _ = try ProtobufTestMessages_Proto3_TestAllTypes(json: start)
+            _ = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: start)
         } catch {
             XCTFail("Failed to decode: \(start)")
             return
