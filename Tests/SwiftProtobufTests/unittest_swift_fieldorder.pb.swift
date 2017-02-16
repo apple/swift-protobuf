@@ -139,7 +139,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_Options: SwiftProtobuf.OneofEnum {
+  enum OneOf_Options: Equatable {
     case oneofInt64(Int64)
     case oneofBool(Bool)
     case oneofString(String)
@@ -155,7 +155,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 9:
         var value: Bool?
@@ -191,7 +191,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofBool(let v):
         if start <= 9 && 9 < end {

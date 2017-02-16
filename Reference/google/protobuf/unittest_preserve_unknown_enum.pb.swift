@@ -192,7 +192,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
   ]
 
 
-  enum OneOf_O: SwiftProtobuf.OneofEnum {
+  enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
 
@@ -204,7 +204,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 5:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
@@ -222,7 +222,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofE1(let v):
         if start <= 5 && 5 < end {
@@ -331,7 +331,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   ]
 
 
-  enum OneOf_O: SwiftProtobuf.OneofEnum {
+  enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
 
@@ -343,7 +343,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 5:
         var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
@@ -361,7 +361,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofE1(let v):
         if start <= 5 && 5 < end {

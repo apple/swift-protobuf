@@ -415,7 +415,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    public enum OneOf_Kind: OneofEnum {
+    public enum OneOf_Kind: Equatable {
         case nullValue(Google_Protobuf_NullValue)
         case numberValue(Double)
         case stringValue(String)
@@ -423,7 +423,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         case structValue(Google_Protobuf_Struct)
         case listValue(Google_Protobuf_ListValue)
 
-        public init?<T: Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+        fileprivate init?<T: Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
             switch fieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
@@ -484,7 +484,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             }
         }
 
-        public func traverse(visitor: Visitor, start: Int, end: Int) throws {
+        fileprivate func traverse(visitor: Visitor, start: Int, end: Int) throws {
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {

@@ -806,7 +806,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
   private var _storage = _StorageClass()
 
 
-  enum OneOf_OneofField: SwiftProtobuf.OneofEnum {
+  enum OneOf_OneofField: Equatable {
     case anyField(Google_Protobuf_Any)
     case apiField(Google_Protobuf_Api)
     case durationField(Google_Protobuf_Duration)
@@ -850,7 +850,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value: Google_Protobuf_Any?
@@ -984,7 +984,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .anyField(let v):
         if start <= 1 && 1 < end {

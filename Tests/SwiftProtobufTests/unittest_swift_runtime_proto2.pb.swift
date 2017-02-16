@@ -560,7 +560,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_O: SwiftProtobuf.OneofEnum {
+  enum OneOf_O: Equatable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -604,7 +604,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 51:
         var value: Int32?
@@ -738,7 +738,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofInt32(let v):
         if start <= 51 && 51 < end {

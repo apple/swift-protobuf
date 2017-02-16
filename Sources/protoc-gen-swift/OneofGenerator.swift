@@ -47,7 +47,7 @@ class OneofGenerator {
 
     func generateNested(printer p: inout CodePrinter) {
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): SwiftProtobuf.OneofEnum {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): Equatable {\n")
         p.indent()
 
         // Oneof case for each ivar
@@ -78,7 +78,7 @@ class OneofGenerator {
 
         // Decode one of our members
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {\n")
+        p.print("fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {\n")
         p.indent()
         p.print("switch fieldNumber {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {
@@ -118,7 +118,7 @@ class OneofGenerator {
 
         // Traverse the current value
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {\n")
+        p.print("fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {\n")
         p.indent()
         p.print("switch self {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {

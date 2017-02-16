@@ -145,7 +145,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
   ]
 
 
-  enum OneOf_Payload: SwiftProtobuf.OneofEnum {
+  enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)
 
@@ -157,7 +157,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value = Data()
@@ -175,7 +175,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .protobufPayload(let v):
         if start <= 1 && 1 < end {
@@ -264,7 +264,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ]
 
 
-  enum OneOf_Result: SwiftProtobuf.OneofEnum {
+  enum OneOf_Result: Equatable {
     case parseError(String)
     case serializeError(String)
     case runtimeError(String)
@@ -284,7 +284,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value = String()
@@ -322,7 +322,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .parseError(let v):
         if start <= 1 && 1 < end {
