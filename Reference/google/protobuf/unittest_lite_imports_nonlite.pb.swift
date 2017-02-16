@@ -62,7 +62,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
 
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_TestLiteImportsNonlite
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _message: ProtobufUnittest_TestAllTypes? = nil
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -82,18 +82,18 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
       if let v = _message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
       if _message != other._message {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._message = _message
       return clone
     }
@@ -101,9 +101,9 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   var message: ProtobufUnittest_TestAllTypes {

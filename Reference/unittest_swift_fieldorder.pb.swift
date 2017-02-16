@@ -52,7 +52,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
     typealias ExtendedMessage = Swift_Protobuf_TestFieldOrderings
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _myString: String? = nil
     var _myInt: Int64? = nil
     var _myFloat: Float? = nil
@@ -105,7 +105,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       if let v = _optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -114,14 +114,14 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       if _myFloat != other._myFloat {return false}
       if _options != other._options {return false}
       if _optionalNestedMessage != other._optionalNestedMessage {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       if extensionFieldValues != other.extensionFieldValues {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone.extensionFieldValues = extensionFieldValues
       clone._myString = _myString
       clone._myInt = _myInt
@@ -134,9 +134,9 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   enum OneOf_Options: SwiftProtobuf.OneofEnum {
@@ -221,7 +221,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       1: .same(proto: "bb"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     private var _oo: Int64? = nil
     var oo: Int64 {
@@ -268,13 +268,13 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       if let v = _oo {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 2)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
       if _oo != other._oo {return false}
       if _bb != other._bb {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }

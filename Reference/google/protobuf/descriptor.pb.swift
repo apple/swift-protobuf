@@ -66,7 +66,7 @@ struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobuf.P
     1: .same(proto: "file"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   var file: [Google_Protobuf_FileDescriptorProto] = []
 
@@ -92,12 +92,12 @@ struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobuf.P
     if !file.isEmpty {
       try visitor.visitRepeatedMessageField(value: file, fieldNumber: 1)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_FileDescriptorSet) -> Bool {
     if file != other.file {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -123,7 +123,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_FileDescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _package: String? = nil
     var _dependency: [String] = []
@@ -207,7 +207,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _syntax {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 12)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -223,13 +223,13 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       if _options != other._options {return false}
       if _sourceCodeInfo != other._sourceCodeInfo {return false}
       if _syntax != other._syntax {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._package = _package
       clone._dependency = _dependency
@@ -248,9 +248,9 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   ///   file name, relative to root of source tree
@@ -403,7 +403,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_DescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _field: [Google_Protobuf_FieldDescriptorProto] = []
     var _extension_p: [Google_Protobuf_FieldDescriptorProto] = []
@@ -478,7 +478,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       if !_reservedName.isEmpty {
         try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _reservedName, fieldNumber: 10)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -492,13 +492,13 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       if _options != other._options {return false}
       if _reservedRange != other._reservedRange {return false}
       if _reservedName != other._reservedName {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._field = _field
       clone._extension_p = _extension_p
@@ -515,9 +515,9 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   struct ExtensionRange: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -528,7 +528,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       2: .same(proto: "end"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     private var _start: Int32? = nil
     var start: Int32 {
@@ -575,13 +575,13 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       if let v = _end {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
       if _start != other._start {return false}
       if _end != other._end {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -597,7 +597,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       2: .same(proto: "end"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     ///   Inclusive.
     private var _start: Int32? = nil
@@ -646,13 +646,13 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       if let v = _end {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
       if _start != other._start {return false}
       if _end != other._end {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -768,7 +768,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_FieldDescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _number: Int32? = nil
     var _label: Google_Protobuf_FieldDescriptorProto.Label? = nil
@@ -838,7 +838,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       if let v = _jsonName {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 10)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -852,13 +852,13 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       if _oneofIndex != other._oneofIndex {return false}
       if _jsonName != other._jsonName {return false}
       if _options != other._options {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._number = _number
       clone._label = _label
@@ -875,9 +875,9 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   enum TypeEnum: SwiftProtobuf.Enum {
@@ -1281,7 +1281,7 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_OneofDescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _options: Google_Protobuf_OneofOptions? = nil
 
@@ -1311,19 +1311,19 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       if let v = _options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _options != other._options {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._options = _options
       return clone
@@ -1332,9 +1332,9 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   var name: String {
@@ -1399,7 +1399,7 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_EnumDescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _value: [Google_Protobuf_EnumValueDescriptorProto] = []
     var _options: Google_Protobuf_EnumOptions? = nil
@@ -1435,20 +1435,20 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _value != other._value {return false}
       if _options != other._options {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._value = _value
       clone._options = _options
@@ -1458,9 +1458,9 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   var name: String {
@@ -1530,7 +1530,7 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_EnumValueDescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _number: Int32? = nil
     var _options: Google_Protobuf_EnumValueOptions? = nil
@@ -1565,20 +1565,20 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
       if let v = _options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _number != other._number {return false}
       if _options != other._options {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._number = _number
       clone._options = _options
@@ -1588,9 +1588,9 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   var name: String {
@@ -1666,7 +1666,7 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_ServiceDescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _method: [Google_Protobuf_MethodDescriptorProto] = []
     var _options: Google_Protobuf_ServiceOptions? = nil
@@ -1702,20 +1702,20 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
       if let v = _options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _method != other._method {return false}
       if _options != other._options {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._method = _method
       clone._options = _options
@@ -1725,9 +1725,9 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   var name: String {
@@ -1800,7 +1800,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_MethodDescriptorProto
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _inputType: String? = nil
     var _outputType: String? = nil
@@ -1850,7 +1850,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
       if let v = _serverStreaming {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 6)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1860,13 +1860,13 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
       if _options != other._options {return false}
       if _clientStreaming != other._clientStreaming {return false}
       if _serverStreaming != other._serverStreaming {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._name = _name
       clone._inputType = _inputType
       clone._outputType = _outputType
@@ -1879,9 +1879,9 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   var name: String {
@@ -2036,7 +2036,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Generated classes can be optimized for speed or code size.
   enum OptimizeMode: SwiftProtobuf.Enum {
@@ -2423,7 +2423,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
@@ -2443,7 +2443,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     if _csharpNamespace != other._csharpNamespace {return false}
     if _swiftPrefix != other._swiftPrefix {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -2484,7 +2484,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Set true to use the old proto1 MessageSet wire format for extensions.
   ///   This is provided for backwards-compatibility with the MessageSet wire
@@ -2625,7 +2625,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_MessageOptions) -> Bool {
@@ -2634,7 +2634,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     if _deprecated != other._deprecated {return false}
     if _mapEntry != other._mapEntry {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -2677,7 +2677,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum CType: SwiftProtobuf.Enum {
     typealias RawValue = Int
@@ -2981,7 +2981,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldOptions) -> Bool {
@@ -2992,7 +2992,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     if _deprecated != other._deprecated {return false}
     if _weak != other._weak {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -3029,7 +3029,7 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   The parser stores options it doesn't recognize here. See above.
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
@@ -3060,12 +3060,12 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_OneofOptions) -> Bool {
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -3104,7 +3104,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Set this option to true to allow mapping different tag names to the same
   ///   value.
@@ -3173,14 +3173,14 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumOptions) -> Bool {
     if _allowAlias != other._allowAlias {return false}
     if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -3218,7 +3218,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Pr
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Is this enum value deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
@@ -3269,13 +3269,13 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Pr
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValueOptions) -> Bool {
     if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -3313,7 +3313,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
   //    framework.  We apologize for hoarding these numbers to ourselves, but
@@ -3369,13 +3369,13 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Prot
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_ServiceOptions) -> Bool {
     if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -3414,7 +3414,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
   ///   or neither? HTTP based RPC implementation may choose GET verb for safe
@@ -3552,14 +3552,14 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodOptions) -> Bool {
     if _deprecated != other._deprecated {return false}
     if _idempotencyLevel != other._idempotencyLevel {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -3608,7 +3608,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     8: .unique(proto: "aggregate_value", json: "aggregateValue"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   The name of the uninterpreted option.  Each string represents a segment in
   ///   a dot-separated name.  is_extension is true iff a segment represents an
@@ -3623,7 +3623,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
       2: .unique(proto: "is_extension", json: "isExtension"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     private var _namePart: String? = nil
     var namePart: String {
@@ -3676,13 +3676,13 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _isExtension {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 2)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
       if _namePart != other._namePart {return false}
       if _isExtension != other._isExtension {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -3809,7 +3809,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     if let v = _aggregateValue {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 8)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption) -> Bool {
@@ -3820,7 +3820,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     if _doubleValue != other._doubleValue {return false}
     if _stringValue != other._stringValue {return false}
     if _aggregateValue != other._aggregateValue {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -3837,7 +3837,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
     1: .same(proto: "location"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct Location: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     var protoMessageName: String {return "Location"}
@@ -3850,7 +3850,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
       6: .unique(proto: "leading_detached_comments", json: "leadingDetachedComments"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     ///   Identifies which part of the FileDescriptorProto was defined at this
     ///   location.
@@ -3990,7 +3990,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
       if !leadingDetachedComments.isEmpty {
         try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: leadingDetachedComments, fieldNumber: 6)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
@@ -3999,7 +3999,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
       if _leadingComments != other._leadingComments {return false}
       if _trailingComments != other._trailingComments {return false}
       if leadingDetachedComments != other.leadingDetachedComments {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -4066,12 +4066,12 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Prot
     if !location.isEmpty {
       try visitor.visitRepeatedMessageField(value: location, fieldNumber: 1)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo) -> Bool {
     if location != other.location {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -4086,7 +4086,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
     1: .same(proto: "annotation"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct Annotation: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     var protoMessageName: String {return "Annotation"}
@@ -4098,7 +4098,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
       4: .same(proto: "end"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     ///   Identifies the element in the original source .proto file. This field
     ///   is formatted the same as SourceCodeInfo.Location.path.
@@ -4175,7 +4175,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
       if let v = _end {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 4)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
@@ -4183,7 +4183,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
       if _sourceFile != other._sourceFile {return false}
       if _begin != other._begin {return false}
       if _end != other._end {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -4209,12 +4209,12 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.P
     if !annotation.isEmpty {
       try visitor.visitRepeatedMessageField(value: annotation, fieldNumber: 1)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo) -> Bool {
     if annotation != other.annotation {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

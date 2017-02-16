@@ -42,7 +42,7 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
   var protoPackageName: String {return "protobuf_unittest.extend3"}
   static let _protobuf_fieldNames = FieldNameMap()
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     var protoMessageName: String {return "C"}
@@ -51,7 +51,7 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
       1310: .same(proto: "c"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     private var _c: Int64? = nil
     var c: Int64 {
@@ -82,12 +82,12 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
       if let v = _c {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 1310)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend3_MyMessage.C) -> Bool {
       if _c != other._c {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -117,11 +117,11 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend3_MyMessage) -> Bool {
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -133,7 +133,7 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     1320: .same(proto: "c"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   private var _c: Int64? = nil
   var c: Int64 {
@@ -164,12 +164,12 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     if let v = _c {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 1320)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend3_C) -> Bool {
     if _c != other._c {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

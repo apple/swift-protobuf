@@ -76,7 +76,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     4: .same(proto: "suffix"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   private var _major: Int32? = nil
   var major: Int32 {
@@ -157,7 +157,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     if let v = _suffix {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 4)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
@@ -165,7 +165,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     if _minor != other._minor {return false}
     if _patch != other._patch {return false}
     if _suffix != other._suffix {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -183,7 +183,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_Compiler_CodeGeneratorRequest
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _fileToGenerate: [String] = []
     var _parameter: String? = nil
     var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
@@ -223,7 +223,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
       if !_protoFile.isEmpty {
         try visitor.visitRepeatedMessageField(value: _protoFile, fieldNumber: 15)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -231,13 +231,13 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
       if _parameter != other._parameter {return false}
       if _protoFile != other._protoFile {return false}
       if _compilerVersion != other._compilerVersion {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._fileToGenerate = _fileToGenerate
       clone._parameter = _parameter
       clone._protoFile = _protoFile
@@ -248,9 +248,9 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   ///   The .proto files that were explicitly listed on the command-line.  The
@@ -338,7 +338,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     15: .same(proto: "file"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
   struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -350,7 +350,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       15: .same(proto: "content"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     ///   The file name, relative to the output directory.  The name must not
     ///   contain "." or ".." components and must be relative, not be absolute (so,
@@ -462,14 +462,14 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       if let v = _content {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 15)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
       if _name != other._name {return false}
       if _insertionPoint != other._insertionPoint {return false}
       if _content != other._content {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -517,13 +517,13 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     if !file.isEmpty {
       try visitor.visitRepeatedMessageField(value: file, fieldNumber: 15)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
     if _error != other._error {return false}
     if file != other.file {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
