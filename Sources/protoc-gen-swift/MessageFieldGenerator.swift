@@ -263,13 +263,17 @@ struct MessageFieldGenerator {
         self.jsonName = descriptor.jsonName
         if descriptor.type == .group {
             let g = context.getMessageForPath(path: descriptor.typeName)!
-            self.swiftName = sanitizeFieldName(toLowerCamelCase(g.name))
-            self.swiftHasName = sanitizeFieldName("has" + toUpperCamelCase(g.name))
-            self.swiftClearName = sanitizeFieldName("clear" + toUpperCamelCase(g.name))
+            let lowerName = toLowerCamelCase(g.name)
+            self.swiftName = sanitizeFieldName(lowerName)
+            let sanitizedUpper = sanitizeFieldName(toUpperCamelCase(g.name), basedOn: lowerName)
+            self.swiftHasName = "has" + sanitizedUpper
+            self.swiftClearName = "clear" + sanitizedUpper
         } else {
-            self.swiftName = sanitizeFieldName(toLowerCamelCase(descriptor.name))
-            self.swiftHasName = sanitizeFieldName("has" + toUpperCamelCase(descriptor.name))
-            self.swiftClearName = sanitizeFieldName("clear" + toUpperCamelCase(descriptor.name))
+            let lowerName = toLowerCamelCase(descriptor.name)
+            self.swiftName = sanitizeFieldName(lowerName)
+            let sanitizedUpper = sanitizeFieldName(toUpperCamelCase(descriptor.name), basedOn: lowerName)
+            self.swiftHasName = "has" + sanitizedUpper
+            self.swiftClearName = "clear" + sanitizedUpper
         }
         if descriptor.hasOneofIndex {
             self.oneof = messageDescriptor.oneofDecl[Int(descriptor.oneofIndex)]

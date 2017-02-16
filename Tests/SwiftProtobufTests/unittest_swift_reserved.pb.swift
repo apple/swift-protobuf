@@ -307,10 +307,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     get {return _isInitialized_p ?? ""}
     set {_isInitialized_p = newValue}
   }
-  var hasIsInitialized: Bool {
+  var hasIsInitialized_p: Bool {
     return _isInitialized_p != nil
   }
-  mutating func clearIsInitialized() {
+  mutating func clearIsInitialized_p() {
     return _isInitialized_p = nil
   }
 
@@ -319,10 +319,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     get {return _hashValue_p ?? ""}
     set {_hashValue_p = newValue}
   }
-  var hasHashValue: Bool {
+  var hasHashValue_p: Bool {
     return _hashValue_p != nil
   }
-  mutating func clearHashValue() {
+  mutating func clearHashValue_p() {
     return _hashValue_p = nil
   }
 
@@ -331,10 +331,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     get {return _debugDescription_p ?? 0}
     set {_debugDescription_p = newValue}
   }
-  var hasDebugDescription: Bool {
+  var hasDebugDescription_p: Bool {
     return _debugDescription_p != nil
   }
-  mutating func clearDebugDescription() {
+  mutating func clearDebugDescription_p() {
     return _debugDescription_p = nil
   }
 
