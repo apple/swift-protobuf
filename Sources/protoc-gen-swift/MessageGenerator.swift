@@ -114,7 +114,7 @@ class StorageClassGenerator {
     func generateNested(printer p: inout CodePrinter) {
         p.print("\n")
         if isExtensible {
-            p.print("private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {\n")
+            p.print("private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {\n")
         } else {
             p.print("private class _StorageClass {\n")
         }

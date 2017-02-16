@@ -65,7 +65,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     3: .unique(proto: "string_field", json: "stringField"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_TestOptimizedForSize
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()

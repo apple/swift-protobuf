@@ -2420,7 +2420,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3316,7 +3316,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     536870014: .unique(proto: "oneof_bytes", json: "oneofBytes"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_TestHugeFieldNumbersLite
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()

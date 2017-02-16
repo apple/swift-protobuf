@@ -450,7 +450,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     2: .same(proto: "y"),
   ]
 
-  private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
+  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_Extend_MsgUsesStorage
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -479,17 +479,6 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
           try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufUnittest_Extend_MsgUsesStorage.self, fieldNumber: fieldNumber)
         }
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _x {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
-      }
-      if let v = _y {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      try visitor.visitExtensionFields(fields: extensionFieldValues, start: 100, end: 201)
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -555,7 +544,16 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._x {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._y {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 100, end: 201)
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgUsesStorage) -> Bool {
