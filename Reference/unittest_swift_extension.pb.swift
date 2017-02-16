@@ -36,22 +36,22 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Foo"}
-  var protoPackageName: String {return "protobuf_unittest.extend"}
+  static let protoMessageName: String = "Foo"
+  static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Bar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "Bar"}
-    var protoPackageName: String {return "protobuf_unittest.extend"}
+    static let protoMessageName: String = "Bar"
+    static let protoPackageName: String = "protobuf_unittest.extend"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknown = SwiftProtobuf.UnknownStorage()
 
     struct Baz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-      var protoMessageName: String {return "Baz"}
-      var protoPackageName: String {return "protobuf_unittest.extend"}
+      static let protoMessageName: String = "Baz"
+      static let protoPackageName: String = "protobuf_unittest.extend"
       static let _protobuf_fieldNames: FieldNameMap = [
         1: .same(proto: "a"),
       ]
@@ -169,8 +169,8 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 }
 
 struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "C"}
-  var protoPackageName: String {return "protobuf_unittest.extend"}
+  static let protoMessageName: String = "C"
+  static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames: FieldNameMap = [
     999: .same(proto: "c"),
   ]

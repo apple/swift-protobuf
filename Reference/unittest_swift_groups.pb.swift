@@ -51,8 +51,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   Same field number appears inside and outside of the group.
 struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "SwiftTestGroupExtensions"}
-  var protoPackageName: String {return ""}
+  static let protoMessageName: String = "SwiftTestGroupExtensions"
+  static let protoPackageName: String = ""
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
   ]
@@ -132,8 +132,8 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mess
 }
 
 struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ExtensionGroup"}
-  var protoPackageName: String {return ""}
+  static let protoMessageName: String = "ExtensionGroup"
+  static let protoPackageName: String = ""
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
   ]
@@ -180,8 +180,8 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, Swift
 }
 
 struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "RepeatedExtensionGroup"}
-  var protoPackageName: String {return ""}
+  static let protoMessageName: String = "RepeatedExtensionGroup"
+  static let protoPackageName: String = ""
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
   ]
@@ -228,8 +228,8 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Messag
 }
 
 struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "SwiftTestGroupUnextended"}
-  var protoPackageName: String {return ""}
+  static let protoMessageName: String = "SwiftTestGroupUnextended"
+  static let protoPackageName: String = ""
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
   ]

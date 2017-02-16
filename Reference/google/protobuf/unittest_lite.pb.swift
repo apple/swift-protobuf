@@ -214,8 +214,8 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
 
 ///   Same as TestAllTypes but with the lite runtime.
 struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestAllTypesLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestAllTypesLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -1000,8 +1000,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       1: .same(proto: "bb"),
       2: .same(proto: "cc"),
@@ -1066,8 +1066,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "OptionalGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "OptionalGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       17: .same(proto: "a"),
     ]
@@ -1114,8 +1114,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "RepeatedGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "RepeatedGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       47: .same(proto: "a"),
     ]
@@ -1900,8 +1900,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
 }
 
 struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ForeignMessageLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "ForeignMessageLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "c"),
   ]
@@ -1948,8 +1948,8 @@ struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestPackedTypesLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestPackedTypesLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     90: .unique(proto: "packed_int32", json: "packedInt32"),
     91: .unique(proto: "packed_int64", json: "packedInt64"),
@@ -2090,8 +2090,8 @@ struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobu
 }
 
 struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestAllExtensionsLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestAllExtensionsLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknown = SwiftProtobuf.UnknownStorage()
@@ -2150,8 +2150,8 @@ struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProto
 }
 
 struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "OptionalGroup_extension_lite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "OptionalGroup_extension_lite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     17: .same(proto: "a"),
   ]
@@ -2198,8 +2198,8 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, Swi
 }
 
 struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "RepeatedGroup_extension_lite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "RepeatedGroup_extension_lite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     47: .same(proto: "a"),
   ]
@@ -2246,8 +2246,8 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, Swi
 }
 
 struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestPackedExtensionsLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestPackedExtensionsLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknown = SwiftProtobuf.UnknownStorage()
@@ -2306,8 +2306,8 @@ struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftPr
 }
 
 struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestNestedExtensionLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestNestedExtensionLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknown = SwiftProtobuf.UnknownStorage()
@@ -2343,8 +2343,8 @@ struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftPro
 ///   Test that deprecated fields work.  We only verify that they compile (at one
 ///   point this failed).
 struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestDeprecatedLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestDeprecatedLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "deprecated_field", json: "deprecatedField"),
   ]
@@ -2392,8 +2392,8 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf
 
 ///   See the comments of the same type in unittest.proto.
 struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestParsingMergeLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestParsingMergeLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "required_all_types", json: "requiredAllTypes"),
     2: .unique(proto: "optional_all_types", json: "optionalAllTypes"),
@@ -2489,8 +2489,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   struct RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "RepeatedFieldsGenerator"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "RepeatedFieldsGenerator"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       1: .same(proto: "field1"),
       2: .same(proto: "field2"),
@@ -2504,8 +2504,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     var unknown = SwiftProtobuf.UnknownStorage()
 
     struct Group1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-      var protoMessageName: String {return "Group1"}
-      var protoPackageName: String {return "protobuf_unittest"}
+      static let protoMessageName: String = "Group1"
+      static let protoPackageName: String = "protobuf_unittest"
       static let _protobuf_fieldNames: FieldNameMap = [
         11: .same(proto: "field1"),
       ]
@@ -2592,8 +2592,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     }
 
     struct Group2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-      var protoMessageName: String {return "Group2"}
-      var protoPackageName: String {return "protobuf_unittest"}
+      static let protoMessageName: String = "Group2"
+      static let protoPackageName: String = "protobuf_unittest"
       static let _protobuf_fieldNames: FieldNameMap = [
         21: .same(proto: "field1"),
       ]
@@ -2751,8 +2751,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "OptionalGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "OptionalGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       11: .unique(proto: "optional_group_all_types", json: "optionalGroupAllTypes"),
     ]
@@ -2839,8 +2839,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "RepeatedGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "RepeatedGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       21: .unique(proto: "repeated_group_all_types", json: "repeatedGroupAllTypes"),
     ]
@@ -3033,8 +3033,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
 ///   TestEmptyMessageLite is used to test unknown fields support in lite mode.
 struct ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestEmptyMessageLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestEmptyMessageLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknown = SwiftProtobuf.UnknownStorage()
@@ -3061,8 +3061,8 @@ struct ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtob
 ///   Like above, but declare all field numbers as potential extensions.  No
 ///   actual extensions should ever be defined for this type.
 struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestEmptyMessageWithExtensionsLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestEmptyMessageWithExtensionsLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknown = SwiftProtobuf.UnknownStorage()
@@ -3121,8 +3121,8 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Messag
 }
 
 struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "V1MessageLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "V1MessageLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "int_field", json: "intField"),
     2: .unique(proto: "enum_field", json: "enumField"),
@@ -3192,8 +3192,8 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "V2MessageLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "V2MessageLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "int_field", json: "intField"),
     2: .unique(proto: "enum_field", json: "enumField"),
@@ -3263,8 +3263,8 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestHugeFieldNumbersLite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestHugeFieldNumbersLite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     536870000: .unique(proto: "optional_int32", json: "optionalInt32"),
     536870001: .unique(proto: "fixed_32", json: "fixed32"),
@@ -3492,8 +3492,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "OptionalGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "OptionalGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       536870009: .unique(proto: "group_a", json: "groupA"),
     ]

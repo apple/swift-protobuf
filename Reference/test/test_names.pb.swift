@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "NamesTest"}
-  var protoPackageName: String {return "swift.protobuf.test"}
+  static let protoMessageName: String = "NamesTest"
+  static let protoPackageName: String = "swift.protobuf.test"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "http_request", json: "httpRequest"),
     3: .same(proto: "url"),
@@ -71,8 +71,8 @@ struct Swift_Protobuf_Test_NamesTest: SwiftProtobuf.Message, SwiftProtobuf.Proto
 }
 
 struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "NamesTest2"}
-  var protoPackageName: String {return "swift.protobuf.test"}
+  static let protoMessageName: String = "NamesTest2"
+  static let protoPackageName: String = "swift.protobuf.test"
   static let _protobuf_fieldNames: FieldNameMap = [
     2: .same(proto: "HTTPRequest"),
     4: .same(proto: "URL"),
@@ -114,8 +114,8 @@ struct Swift_Protobuf_Test_NamesTest2: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct Swift_Protobuf_Test_NamesTest3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "NamesTest3"}
-  var protoPackageName: String {return "swift.protobuf.test"}
+  static let protoMessageName: String = "NamesTest3"
+  static let protoPackageName: String = "swift.protobuf.test"
   static let _protobuf_fieldNames: FieldNameMap = [
     5: .same(proto: "Url"),
   ]

@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "NestedMessage"}
-  var protoPackageName: String {return "proto2_arena_unittest"}
+  static let protoMessageName: String = "NestedMessage"
+  static let protoPackageName: String = "proto2_arena_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "d"),
   ]
@@ -98,8 +98,8 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.P
 }
 
 struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ArenaMessage"}
-  var protoPackageName: String {return "proto2_arena_unittest"}
+  static let protoMessageName: String = "ArenaMessage"
+  static let protoPackageName: String = "proto2_arena_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
     2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage"),

@@ -36,8 +36,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "SwiftReservedTest"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "SwiftReservedTest"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknown = SwiftProtobuf.UnknownStorage()
@@ -167,8 +167,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "class"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "class"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknown = SwiftProtobuf.UnknownStorage()
@@ -193,8 +193,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "Type"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "Type"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknown = SwiftProtobuf.UnknownStorage()
@@ -219,8 +219,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct isEqualMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "isEqual"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "isEqual"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknown = SwiftProtobuf.UnknownStorage()
