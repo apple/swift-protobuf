@@ -125,7 +125,7 @@ class StorageClassGenerator {
             p.print("var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
         }
         if !isProto3 {
-            p.print("var unknown = SwiftProtobuf.UnknownStorage()\n")
+            p.print("var unknownFields = SwiftProtobuf.UnknownStorage()\n")
         }
 
         // ivars
@@ -246,7 +246,7 @@ class StorageClassGenerator {
             nextRange = ranges.next()
         }
         if !isProto3 {
-            p.print("unknown.traverse(visitor: visitor)\n")
+            p.print("unknownFields.traverse(visitor: visitor)\n")
         }
         p.outdent()
         p.print("}\n")
@@ -268,7 +268,7 @@ class StorageClassGenerator {
             }
         }
         if !isProto3 {
-            p.print("if unknown != other.unknown {return false}\n")
+            p.print("if unknownFields != other.unknownFields {return false}\n")
         }
         if isExtensible {
             p.print("if extensionFieldValues != other.extensionFieldValues {return false}\n")
@@ -283,7 +283,7 @@ class StorageClassGenerator {
         p.indent()
         p.print("let clone = _StorageClass()\n")
         if !isProto3 {
-            p.print("clone.unknown = unknown\n")
+            p.print("clone.unknownFields = unknownFields\n")
         }
         if isExtensible {
             p.print("clone.extensionFieldValues = extensionFieldValues\n")
@@ -548,11 +548,11 @@ class MessageGenerator {
         p.print("\n")
         if !file.isProto3 {
             if storage == nil {
-                p.print("\(generatorOptions.visibilitySourceSnippet)var unknown = SwiftProtobuf.UnknownStorage()\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
             } else {
-                p.print("\(generatorOptions.visibilitySourceSnippet)var unknown: SwiftProtobuf.UnknownStorage {\n")
-                p.print("  get {return _storage.unknown}\n")
-                p.print("  set {_storage.unknown = newValue}\n")
+                p.print("\(generatorOptions.visibilitySourceSnippet)var unknownFields: SwiftProtobuf.UnknownStorage {\n")
+                p.print("  get {return _storage.unknownFields}\n")
+                p.print("  set {_storage.unknownFields = newValue}\n")
                 p.print("}\n")
             }
         }
@@ -741,7 +741,7 @@ class MessageGenerator {
                 nextRange = ranges.next()
             }
             if !file.isProto3 {
-                p.print("unknown.traverse(visitor: visitor)\n")
+                p.print("unknownFields.traverse(visitor: visitor)\n")
             }
         }
         p.outdent()
@@ -753,7 +753,7 @@ class MessageGenerator {
         p.indent()
         if fields.isEmpty {
             if !isProto3 {
-                p.print("if unknown != other.unknown {return false}\n")
+                p.print("if unknownFields != other.unknownFields {return false}\n")
             }
             if isExtensible {
                 p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
@@ -776,7 +776,7 @@ class MessageGenerator {
                     }
                 }
                 if !isProto3 {
-                    p.print("if unknown != other.unknown {return false}\n")
+                    p.print("if unknownFields != other.unknownFields {return false}\n")
                 }
                 if isExtensible {
                     p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")

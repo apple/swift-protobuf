@@ -249,35 +249,33 @@ extension ProtobufBytes {
 /// Messages
 ///
 public extension Message {
-    func serializeProtobuf() throws -> Data {
-        let requiredSize = try serializedProtobufSize()
+    func serializedData() throws -> Data {
+        let requiredSize = try serializedDataSize()
         var data = Data(count: requiredSize)
         try data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
-            try serializeProtobuf(into: pointer)
+            try serializeBinary(into: pointer)
         }
         return data
     }
 
-    private func serializeProtobuf(into pointer: UnsafeMutablePointer<UInt8>) throws {
+    private func serializeBinary(into pointer: UnsafeMutablePointer<UInt8>) throws {
         let visitor = ProtobufEncodingVisitor(forWritingInto: pointer)
         try traverse(visitor: visitor)
     }
 
-    internal func serializedProtobufSize() throws -> Int {
+    internal func serializedDataSize() throws -> Int {
         let visitor = ProtobufEncodingSizeVisitor()
         try traverse(visitor: visitor)
         return visitor.serializedSize
     }
 
-    init(protobuf: Data) throws {
-        try self.init(protobuf: protobuf, extensions: nil)
-    }
-
-    init(protobuf: Data, extensions: ExtensionSet?) throws {
+    init(serializedData data: Data, extensions: ExtensionSet? = nil) throws {
         self.init()
-        if !protobuf.isEmpty {
-            try protobuf.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
-                try decodeProtobuf(from: pointer, count: protobuf.count, extensions: extensions)
+        if !data.isEmpty {
+            try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
+                try decodeBinary(from: pointer,
+                                 count: data.count,
+                                 extensions: extensions)
             }
         }
     }
@@ -285,21 +283,21 @@ public extension Message {
 
 /// Proto2 messages preserve unknown fields
 public extension Proto2Message {
-    public mutating func decodeProtobuf(from protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    public mutating func decodeBinary(from protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &protobufDecoder)
         if !protobufDecoder.complete {
             throw ProtobufDecodingError.trailingGarbage
         }
         if let unknownData = protobufDecoder.unknownData {
-            unknown.append(protobufData: unknownData)
+            unknownFields.append(protobufData: unknownData)
         }
     }
 }
 
 // Proto3 messages ignore unknown fields
 public extension Proto3Message {
-    public mutating func decodeProtobuf(from protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    public mutating func decodeBinary(from protobufBytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var protobufDecoder = ProtobufDecoder(protobufPointer: protobufBytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &protobufDecoder)
         if !protobufDecoder.complete {

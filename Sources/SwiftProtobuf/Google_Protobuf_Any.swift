@@ -179,7 +179,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 return value
             } else if let message = _message {
                 do {
-                    return try message.serializeProtobuf()
+                    return try message.serializedData()
                 } catch {
                     return nil
                 }
@@ -190,7 +190,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[encodedTypeName] {
                     do {
                         let m = try messageType.init(any: self)
-                        return try m.serializeProtobuf()
+                        return try m.serializedData()
                     } catch {
                         return nil
                     }
@@ -199,7 +199,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 if let messageType = Google_Protobuf_Any.knownTypes[encodedTypeName] {
                     do {
                         let m = try messageType.init(any: self)
-                        return try m.serializeProtobuf()
+                        return try m.serializedData()
                     } catch {
                         return nil
                     }
@@ -273,7 +273,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public mutating func decodeText(from decoder: inout TextDecoder) throws {
+    public mutating func decodeTextFormat(from decoder: inout TextDecoder) throws {
         // First, check if this uses the "verbose" Any encoding.
         // If it does, and we have the type available, we can
         // eagerly decode the contained Message object.
@@ -287,7 +287,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 _message = messageType.init()
                 let terminator = try decoder.scanner.skipObjectStart()
                 var subDecoder = try TextDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-                try _message!.decodeText(from: &subDecoder)
+                try _message!.decodeTextFormat(from: &subDecoder)
                 decoder.scanner = subDecoder.scanner
                 if let _ = try decoder.nextFieldNumber() {
                     // Verbose any can never have additional keys
@@ -358,7 +358,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
 
         if let message = _message {
-            protobuf = try message.serializeProtobuf()
+            protobuf = try message.serializedData()
         } else if let value = _value {
             protobuf = value
         }
@@ -366,7 +366,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             // Decode protobuf from the stored bytes
             if protobuf.count > 0 {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                    try target.decodeProtobuf(from: p, count: protobuf.count, extensions: nil)
+                    try target.decodeBinary(from: p, count: protobuf.count, extensions: nil)
                 }
             }
             return
@@ -378,7 +378,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                     throw AnyUnpackError.malformedWellKnownTypeJSON
                 }
                 if let v = jsonFields["value"], !v.isEmpty {
-                    target = try M(json: v)
+                    target = try M(jsonString: v)
                 } else {
                     throw AnyUnpackError.malformedWellKnownTypeJSON
                 }
@@ -434,9 +434,9 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     //  * The protobuf field we were deserialized from.
     // The last case requires locating the type, deserializing
     // into an object, then reserializing back to JSON.
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         if let message = _message {
-            return try message.serializeAnyJSON()
+            return try message.anyJSONString()
         } else if let typeURL = typeURL {
             if _value != nil {
                 // Transcode protobuf-to-JSON by decoding and recoding.
@@ -444,12 +444,12 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 let messageTypeName = typeName(fromURL: typeURL)
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
                     let m = try messageType.init(any: self)
-                    return try m.serializeAnyJSON()
+                    return try m.anyJSONString()
                 }
                 // The user may have registered this type:
                 if let messageType = Google_Protobuf_Any.knownTypes[messageTypeName] {
                     let m = try messageType.init(any: self)
-                    return try m.serializeAnyJSON()
+                    return try m.anyJSONString()
                 }
                 // TODO: Google spec requires more work in the general case:
                 // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
@@ -480,8 +480,8 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
         return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
     }
 
