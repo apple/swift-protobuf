@@ -14,10 +14,7 @@
 
 public protocol OneofEnum: Equatable {
 
-  init()
+  init?<D: Decoder>(byDecodingFrom decoder: inout D, fieldNumber: Int) throws
 
   func traverse(visitor: Visitor, start: Int, end: Int) throws
-
-  mutating func decodeField<D: Decoder>(decoder: inout D,
-                                        fieldNumber: Int) throws
 }

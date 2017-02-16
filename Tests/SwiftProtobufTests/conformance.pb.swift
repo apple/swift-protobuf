@@ -145,44 +145,34 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
   ]
 
 
-  enum OneOf_Payload: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Payload: SwiftProtobuf.OneofEnum {
     case protobufPayload(Data)
     case jsonPayload(String)
-    case None
 
     static func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
       switch (lhs, rhs) {
       case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
       case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value = Data()
         try decoder.decodeSingularBytesField(value: &value)
         self = .protobufPayload(value)
+        return
       case 2:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .jsonPayload(value)
+        return
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -195,15 +185,13 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
         if start <= 2 && 2 < end {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
         }
-      case .None:
-        break
       }
     }
   }
 
   var protobufPayload: Data {
     get {
-      if case .protobufPayload(let v) = payload {
+      if case .protobufPayload(let v)? = payload {
         return v
       }
       return Data()
@@ -213,11 +201,11 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  var payload: Conformance_ConformanceRequest.OneOf_Payload = .None
+  var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
   var jsonPayload: String {
     get {
-      if case .jsonPayload(let v) = payload {
+      if case .jsonPayload(let v)? = payload {
         return v
       }
       return ""
@@ -238,14 +226,18 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 2: try payload.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    case 1, 2:
+      if payload != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      payload = try Conformance_ConformanceRequest.OneOf_Payload(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
     case 3: try decoder.decodeSingularEnumField(value: &requestedOutputFormat)
     default: break
     }
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try payload.traverse(visitor: visitor, start: 1, end: 3)
+    try payload?.traverse(visitor: visitor, start: 1, end: 3)
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
       try visitor.visitSingularEnumField(value: requestedOutputFormat, fieldNumber: 3)
     }
@@ -272,14 +264,13 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ]
 
 
-  enum OneOf_Result: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Result: SwiftProtobuf.OneofEnum {
     case parseError(String)
     case serializeError(String)
     case runtimeError(String)
     case protobufPayload(Data)
     case jsonPayload(String)
     case skipped(String)
-    case None
 
     static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
       switch (lhs, rhs) {
@@ -289,51 +280,46 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
       case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
       case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
       case (.skipped(let l), .skipped(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .parseError(value)
+        return
       case 2:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .runtimeError(value)
+        return
       case 3:
         var value = Data()
         try decoder.decodeSingularBytesField(value: &value)
         self = .protobufPayload(value)
+        return
       case 4:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .jsonPayload(value)
+        return
       case 5:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .skipped(value)
+        return
       case 6:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .serializeError(value)
+        return
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -362,8 +348,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
         if start <= 6 && 6 < end {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 6)
         }
-      case .None:
-        break
       }
     }
   }
@@ -375,7 +359,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ///   test.  Some of the test cases are intentionally invalid input.
   var parseError: String {
     get {
-      if case .parseError(let v) = result {
+      if case .parseError(let v)? = result {
         return v
       }
       return ""
@@ -385,14 +369,14 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  var result: Conformance_ConformanceResponse.OneOf_Result = .None
+  var result: Conformance_ConformanceResponse.OneOf_Result? = nil
 
   ///   If the input was successfully parsed but errors occurred when
   ///   serializing it to the requested output format, set the error message in
   ///   this field.
   var serializeError: String {
     get {
-      if case .serializeError(let v) = result {
+      if case .serializeError(let v)? = result {
         return v
       }
       return ""
@@ -407,7 +391,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ///   about the failure.
   var runtimeError: String {
     get {
-      if case .runtimeError(let v) = result {
+      if case .runtimeError(let v)? = result {
         return v
       }
       return ""
@@ -421,7 +405,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ///   protobuf, serialize it to protobuf and set it in this field.
   var protobufPayload: Data {
     get {
-      if case .protobufPayload(let v) = result {
+      if case .protobufPayload(let v)? = result {
         return v
       }
       return Data()
@@ -435,7 +419,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ///   serialize to JSON and set it in this field.
   var jsonPayload: String {
     get {
-      if case .jsonPayload(let v) = result {
+      if case .jsonPayload(let v)? = result {
         return v
       }
       return ""
@@ -449,7 +433,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ///   wasn't supported, like JSON input/output.
   var skipped: String {
     get {
-      if case .skipped(let v) = result {
+      if case .skipped(let v)? = result {
         return v
       }
       return ""
@@ -467,13 +451,17 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 6, 2, 3, 4, 5: try result.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    case 1, 6, 2, 3, 4, 5:
+      if result != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      result = try Conformance_ConformanceResponse.OneOf_Result(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
     default: break
     }
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try result.traverse(visitor: visitor, start: 1, end: 7)
+    try result?.traverse(visitor: visitor, start: 1, end: 7)
   }
 
   func _protoc_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {

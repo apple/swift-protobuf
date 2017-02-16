@@ -31,13 +31,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofInt32() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofInt32, 100)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofInt32 = 51
     XCTAssertEqual(msg.oneofInt32, 51)
     XCTAssertEqual(msg.o, .oneofInt32(51))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofInt32, 100)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofInt32 = 100
     XCTAssertEqual(msg.oneofInt32, 100)
     XCTAssertEqual(msg.o, .oneofInt32(100))
@@ -46,13 +46,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofInt64() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofInt64, 101)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofInt64 = 52
     XCTAssertEqual(msg.oneofInt64, 52)
     XCTAssertEqual(msg.o, .oneofInt64(52))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofInt64, 101)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofInt64 = 101
     XCTAssertEqual(msg.oneofInt64, 101)
     XCTAssertEqual(msg.o, .oneofInt64(101))
@@ -61,13 +61,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofUint32() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofUint32, 102)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofUint32 = 53
     XCTAssertEqual(msg.oneofUint32, 53)
     XCTAssertEqual(msg.o, .oneofUint32(53))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofUint32, 102)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofUint32 = 102
     XCTAssertEqual(msg.oneofUint32, 102)
     XCTAssertEqual(msg.o, .oneofUint32(102))
@@ -76,13 +76,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofUint64() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofUint64, 103)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofUint64 = 54
     XCTAssertEqual(msg.oneofUint64, 54)
     XCTAssertEqual(msg.o, .oneofUint64(54))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofUint64, 103)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofUint64 = 103
     XCTAssertEqual(msg.oneofUint64, 103)
     XCTAssertEqual(msg.o, .oneofUint64(103))
@@ -91,13 +91,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofSint32() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofSint32, 104)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSint32 = 55
     XCTAssertEqual(msg.oneofSint32, 55)
     XCTAssertEqual(msg.o, .oneofSint32(55))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofSint32, 104)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSint32 = 104
     XCTAssertEqual(msg.oneofSint32, 104)
     XCTAssertEqual(msg.o, .oneofSint32(104))
@@ -106,13 +106,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofSint64() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofSint64, 105)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSint64 = 56
     XCTAssertEqual(msg.oneofSint64, 56)
     XCTAssertEqual(msg.o, .oneofSint64(56))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofSint64, 105)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSint64 = 105
     XCTAssertEqual(msg.oneofSint64, 105)
     XCTAssertEqual(msg.o, .oneofSint64(105))
@@ -121,13 +121,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofFixed32() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofFixed32, 106)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofFixed32 = 57
     XCTAssertEqual(msg.oneofFixed32, 57)
     XCTAssertEqual(msg.o, .oneofFixed32(57))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofFixed32, 106)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofFixed32 = 106
     XCTAssertEqual(msg.oneofFixed32, 106)
     XCTAssertEqual(msg.o, .oneofFixed32(106))
@@ -136,13 +136,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofFixed64() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofFixed64, 107)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofFixed64 = 58
     XCTAssertEqual(msg.oneofFixed64, 58)
     XCTAssertEqual(msg.o, .oneofFixed64(58))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofFixed64, 107)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofFixed64 = 107
     XCTAssertEqual(msg.oneofFixed64, 107)
     XCTAssertEqual(msg.o, .oneofFixed64(107))
@@ -151,13 +151,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofSfixed32() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofSfixed32, 108)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSfixed32 = 59
     XCTAssertEqual(msg.oneofSfixed32, 59)
     XCTAssertEqual(msg.o, .oneofSfixed32(59))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofSfixed32, 108)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSfixed32 = 108
     XCTAssertEqual(msg.oneofSfixed32, 108)
     XCTAssertEqual(msg.o, .oneofSfixed32(108))
@@ -166,13 +166,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofSfixed64() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofSfixed64, 109)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSfixed64 = 60
     XCTAssertEqual(msg.oneofSfixed64, 60)
     XCTAssertEqual(msg.o, .oneofSfixed64(60))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofSfixed64, 109)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofSfixed64 = 109
     XCTAssertEqual(msg.oneofSfixed64, 109)
     XCTAssertEqual(msg.o, .oneofSfixed64(109))
@@ -181,13 +181,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofFloat() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofFloat, 110.0)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofFloat = 61.0
     XCTAssertEqual(msg.oneofFloat, 61.0)
     XCTAssertEqual(msg.o, .oneofFloat(61.0))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofFloat, 110.0)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofFloat = 110.0
     XCTAssertEqual(msg.oneofFloat, 110.0)
     XCTAssertEqual(msg.o, .oneofFloat(110.0))
@@ -196,13 +196,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofDouble() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofDouble, 111.0)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofDouble = 62.0
     XCTAssertEqual(msg.oneofDouble, 62.0)
     XCTAssertEqual(msg.o, .oneofDouble(62.0))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofDouble, 111.0)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofDouble = 111.0
     XCTAssertEqual(msg.oneofDouble, 111.0)
     XCTAssertEqual(msg.o, .oneofDouble(111.0))
@@ -211,13 +211,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofBool() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofBool, true)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofBool = false
     XCTAssertEqual(msg.oneofBool, false)
     XCTAssertEqual(msg.o, .oneofBool(false))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofBool, true)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofBool = true
     XCTAssertEqual(msg.oneofBool, true)
     XCTAssertEqual(msg.o, .oneofBool(true))
@@ -226,13 +226,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofString() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofString, "string")
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofString = "64"
     XCTAssertEqual(msg.oneofString, "64")
     XCTAssertEqual(msg.o, .oneofString("64"))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofString, "string")
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofString = "string"
     XCTAssertEqual(msg.oneofString, "string")
     XCTAssertEqual(msg.o, .oneofString("string"))
@@ -241,13 +241,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofBytes() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofBytes, "data".data(using: .utf8))
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofBytes = Data([65])
     XCTAssertEqual(msg.oneofBytes, Data([65]))
     XCTAssertEqual(msg.o, .oneofBytes(Data([65])))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofBytes, "data".data(using: .utf8))
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofBytes = "data".data(using: .utf8)!
     XCTAssertEqual(msg.oneofBytes, "data".data(using: .utf8))
     XCTAssertEqual(msg.o, .oneofBytes("data".data(using: .utf8)!))
@@ -257,24 +257,24 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofGroup.a, 116)
     XCTAssertFalse(msg.oneofGroup.hasA)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     var grp = ProtobufUnittest_Message2.OneofGroup()
     grp.a = 66
     msg.oneofGroup = grp
     XCTAssertEqual(msg.oneofGroup.a, 66)
     XCTAssertTrue(msg.oneofGroup.hasA)
     XCTAssertEqual(msg.oneofGroup, grp)
-    if case .oneofGroup(let v) = msg.o {
+    if case .oneofGroup(let v)? = msg.o {
       XCTAssertTrue(v.hasA)
       XCTAssertEqual(v.a, 66)
       XCTAssertEqual(v, grp)
     } else {
       XCTFail("Wasn't the right case")
     }
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofGroup.a, 116)
     XCTAssertFalse(msg.oneofGroup.hasA)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     // Default within the group
     var grp2 = ProtobufUnittest_Message2.OneofGroup()
     grp2.a = 116
@@ -282,21 +282,21 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
     XCTAssertEqual(msg.oneofGroup.a, 116)
     XCTAssertTrue(msg.oneofGroup.hasA)
     XCTAssertEqual(msg.oneofGroup, grp2)
-    if case .oneofGroup(let v) = msg.o {
+    if case .oneofGroup(let v)? = msg.o {
       XCTAssertTrue(v.hasA)
       XCTAssertEqual(v.a, 116)
       XCTAssertEqual(v, grp2)
     } else {
       XCTFail("Wasn't the right case")
     }
-    msg.o = .None
+    msg.o = nil
     // Group with nothing set.
     let grp3 = ProtobufUnittest_Message2.OneofGroup()
     msg.oneofGroup = grp3
     XCTAssertEqual(msg.oneofGroup.a, 116)
     XCTAssertFalse(msg.oneofGroup.hasA)
     XCTAssertEqual(msg.oneofGroup, grp3)
-    if case .oneofGroup(let v) = msg.o {
+    if case .oneofGroup(let v)? = msg.o {
       XCTAssertFalse(v.hasA)
       XCTAssertEqual(v.a, 116)
       XCTAssertEqual(v, grp3)
@@ -308,21 +308,21 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofMessage() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     var subMsg = ProtobufUnittest_Message2()
     subMsg.optionalInt32 = 66
     msg.oneofMessage = subMsg
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 66)
     XCTAssertEqual(msg.oneofMessage, subMsg)
-    if case .oneofMessage(let v) = msg.o {
+    if case .oneofMessage(let v)? = msg.o {
       XCTAssertEqual(v.optionalInt32, 66)
       XCTAssertEqual(v, subMsg)
     } else {
       XCTFail("Wasn't the right case")
     }
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     // Default within the message
     var subMsg2 = ProtobufUnittest_Message2()
     subMsg2.optionalInt32 = 0
@@ -330,21 +330,21 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
     XCTAssertTrue(msg.oneofMessage.hasOptionalInt32)
     XCTAssertEqual(msg.oneofMessage, subMsg2)
-    if case .oneofMessage(let v) = msg.o {
+    if case .oneofMessage(let v)? = msg.o {
       XCTAssertTrue(v.hasOptionalInt32)
       XCTAssertEqual(v.optionalInt32, 0)
       XCTAssertEqual(v, subMsg2)
     } else {
       XCTFail("Wasn't the right case")
     }
-    msg.o = .None
+    msg.o = nil
     // Message with nothing set.
     let subMsg3 = ProtobufUnittest_Message2()
     msg.oneofMessage = subMsg3
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
     XCTAssertFalse(msg.oneofMessage.hasOptionalInt32)
     XCTAssertEqual(msg.oneofMessage, subMsg3)
-    if case .oneofMessage(let v) = msg.o {
+    if case .oneofMessage(let v)? = msg.o {
       XCTAssertFalse(v.hasOptionalInt32)
       XCTAssertEqual(v.optionalInt32, 0)
       XCTAssertEqual(v, subMsg3)
@@ -356,13 +356,13 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
   func testOneofEnum() {
     var msg = ProtobufUnittest_Message2()
     XCTAssertEqual(msg.oneofEnum, .baz)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofEnum = .bar
     XCTAssertEqual(msg.oneofEnum, .bar)
     XCTAssertEqual(msg.o, .oneofEnum(.bar))
-    msg.o = .None
+    msg.o = nil
     XCTAssertEqual(msg.oneofEnum, .baz)
-    XCTAssertEqual(msg.o, .None)
+    XCTAssertNil(msg.o)
     msg.oneofEnum = .baz
     XCTAssertEqual(msg.oneofEnum, .baz)
     XCTAssertEqual(msg.o, .oneofEnum(.baz))
@@ -376,62 +376,62 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
     func assertRightFiledSet(_ i: Int) {
       // Make sure the case is correct for the enum based access.
       switch msg.o {
-      case .None:
+      case nil:
         XCTAssertEqual(i, 0)
-      case .oneofInt32(let v):
+      case .oneofInt32(let v)?:
         XCTAssertEqual(i, 1)
         XCTAssertEqual(v, 51)
-      case .oneofInt64(let v):
+      case .oneofInt64(let v)?:
         XCTAssertEqual(i, 2)
         XCTAssertEqual(v, 52)
-      case .oneofUint32(let v):
+      case .oneofUint32(let v)?:
         XCTAssertEqual(i, 3)
         XCTAssertEqual(v, 53)
-      case .oneofUint64(let v):
+      case .oneofUint64(let v)?:
         XCTAssertEqual(i, 4)
         XCTAssertEqual(v, 54)
-      case .oneofSint32(let v):
+      case .oneofSint32(let v)?:
         XCTAssertEqual(i, 5)
         XCTAssertEqual(v, 55)
-      case .oneofSint64(let v):
+      case .oneofSint64(let v)?:
         XCTAssertEqual(i, 6)
         XCTAssertEqual(v, 56)
-      case .oneofFixed32(let v):
+      case .oneofFixed32(let v)?:
         XCTAssertEqual(i, 7)
         XCTAssertEqual(v, 57)
-      case .oneofFixed64(let v):
+      case .oneofFixed64(let v)?:
         XCTAssertEqual(i, 8)
         XCTAssertEqual(v, 58)
-      case .oneofSfixed32(let v):
+      case .oneofSfixed32(let v)?:
         XCTAssertEqual(i, 9)
         XCTAssertEqual(v, 59)
-      case .oneofSfixed64(let v):
+      case .oneofSfixed64(let v)?:
         XCTAssertEqual(i, 10)
         XCTAssertEqual(v, 60)
-      case .oneofFloat(let v):
+      case .oneofFloat(let v)?:
         XCTAssertEqual(i, 11)
         XCTAssertEqual(v, 61.0)
-      case .oneofDouble(let v):
+      case .oneofDouble(let v)?:
         XCTAssertEqual(i, 12)
         XCTAssertEqual(v, 62.0)
-      case .oneofBool(let v):
+      case .oneofBool(let v)?:
         XCTAssertEqual(i, 13)
         XCTAssertEqual(v, false)
-      case .oneofString(let v):
+      case .oneofString(let v)?:
         XCTAssertEqual(i, 14)
         XCTAssertEqual(v, "64")
-      case .oneofBytes(let v):
+      case .oneofBytes(let v)?:
         XCTAssertEqual(i, 15)
         XCTAssertEqual(v, Data([65]))
-      case .oneofGroup(let v):
+      case .oneofGroup(let v)?:
         XCTAssertEqual(i, 16)
         XCTAssertTrue(v.hasA)
         XCTAssertEqual(v.a, 66)
-      case .oneofMessage(let v):
+      case .oneofMessage(let v)?:
         XCTAssertEqual(i, 17)
         XCTAssertTrue(v.hasOptionalInt32)
         XCTAssertEqual(v.optionalInt32, 68)
-      case .oneofEnum(let v):
+      case .oneofEnum(let v)?:
         XCTAssertEqual(i, 18)
         XCTAssertEqual(v, .bar)
       }

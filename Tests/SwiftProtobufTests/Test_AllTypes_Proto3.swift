@@ -1184,7 +1184,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertEncode([248, 6, 0]) {(o: inout MessageTestType) in o.oneofUint32 = 0}
         assertDecodeSucceeds([248, 6, 255, 255, 255, 255, 15]) {$0.oneofUint32 == UInt32.max}
         assertDecodeSucceeds([138, 7, 1, 97, 248, 6, 1]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField, o.oneofUint32 == UInt32(1) {
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == UInt32(1) {
               return true
             }
             return false
@@ -1221,16 +1221,16 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             o.oneofNestedMessage.bb = 1
         }
         assertDecodeSucceeds([130, 7, 0]) {(o: MessageTestType) in
-            if case .oneofNestedMessage(let m) = o.oneofField {
+            if case .oneofNestedMessage(let m)? = o.oneofField {
                 return m.bb == 0
             }
             return false
         }
         assertDecodeSucceeds([248, 6, 0, 130, 7, 2, 8, 1]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField {
+            if case .oneofUint32? = o.oneofField {
                 return false
             }
-            if case .oneofNestedMessage(let m) = o.oneofField {
+            if case .oneofNestedMessage(let m)? = o.oneofField {
                 return m.bb == 1
             }
             return false
@@ -1238,14 +1238,14 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
     func testEncoding_oneofNestedMessage1() {
         assertDecodeSucceeds([130, 7, 2, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField, o.oneofUint32 == UInt32(0) {
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == UInt32(0) {
                 return true
             }
             return false
         }
         // Unkonwn field within nested message should not break decoding
         assertDecodeSucceeds([130, 7, 5, 128, 127, 0, 8, 1, 248, 6, 0]) {(o: MessageTestType) in
-            if case .oneofUint32 = o.oneofField, o.oneofUint32 == 0 {
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == 0 {
                 return true
             }
             return false
@@ -1285,7 +1285,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([138, 7, 1, 97]) {$0.oneofString == "a"}
         assertDecodeSucceeds([138, 7, 0]) {$0.oneofString == ""}
         assertDecodeSucceeds([146, 7, 0, 138, 7, 1, 97]) {(o:MessageTestType) in
-            if case .oneofString = o.oneofField, o.oneofString == "a" {
+            if case .oneofString? = o.oneofField, o.oneofString == "a" {
               return true
             }
             return false
@@ -1319,7 +1319,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes2() {
         assertDecodeSucceeds([146, 7, 1, 1]) {(o: MessageTestType) in
             let expectedB = Data(bytes: [1])
-            if case .oneofBytes(let b) = o.oneofField {
+            if case .oneofBytes(let b)? = o.oneofField {
                 let s = o.oneofString
                 return b == expectedB && s == ""
             }
@@ -1329,7 +1329,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes3() {
         assertDecodeSucceeds([146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if case .oneofBytes(let b) = o.oneofField {
+            if case .oneofBytes(let b)? = o.oneofField {
                 let s = o.oneofString
                 return b == expectedB && s == ""
             }
@@ -1339,7 +1339,7 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     func testEncoding_oneofBytes4() {
         assertDecodeSucceeds([138, 7, 1, 97, 146, 7, 0]) {(o: MessageTestType) in
             let expectedB = Data()
-            if case .oneofBytes(let b) = o.oneofField {
+            if case .oneofBytes(let b)? = o.oneofField {
                 let s = o.oneofString
                 return b == expectedB && s == ""
             }

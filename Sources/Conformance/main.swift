@@ -62,14 +62,14 @@ func buildResponse(protobuf: Data) -> Conformance_ConformanceResponse {
 
     let parsed: ProtobufTestMessages_Proto3_TestAllTypes?
     switch request.payload {
-    case .protobufPayload(let data):
+    case .protobufPayload(let data)?:
         do {
             parsed = try ProtobufTestMessages_Proto3_TestAllTypes(protobuf: data)
         } catch let e {
             response.parseError = "Protobuf failed to parse: \(e)"
             return response
         }
-    case .jsonPayload(let json):
+    case .jsonPayload(let json)?:
         do {
             parsed = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
         } catch let e {

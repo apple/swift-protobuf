@@ -168,7 +168,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 
   private class _StorageClass {
     typealias ExtendedMessage = Google_Protobuf_Value
-    var _kind = Google_Protobuf_Value.OneOf_Kind()
+    var _kind: Google_Protobuf_Value.OneOf_Kind?
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -178,13 +178,17 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 
     func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1, 2, 3, 4, 5, 6: try _kind.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 1, 2, 3, 4, 5, 6:
+        if _kind != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _kind = try Google_Protobuf_Value.OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _kind.traverse(visitor: visitor, start: 1, end: 7)
+      try _kind?.traverse(visitor: visitor, start: 1, end: 7)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -202,14 +206,13 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   private var _storage = _StorageClass()
 
 
-  enum OneOf_Kind: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Kind: SwiftProtobuf.OneofEnum {
     case nullValue(Google_Protobuf_NullValue)
     case numberValue(Double)
     case stringValue(String)
     case boolValue(Bool)
     case structValue(Google_Protobuf_Struct)
     case listValue(Google_Protobuf_ListValue)
-    case None
 
     static func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
       switch (lhs, rhs) {
@@ -219,55 +222,50 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       case (.boolValue(let l), .boolValue(let r)): return l == r
       case (.structValue(let l), .structValue(let r)): return l == r
       case (.listValue(let l), .listValue(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value = Google_Protobuf_NullValue()
         try decoder.decodeSingularEnumField(value: &value)
         self = .nullValue(value)
+        return
       case 2:
         var value = Double()
         try decoder.decodeSingularDoubleField(value: &value)
         self = .numberValue(value)
+        return
       case 3:
         var value = String()
         try decoder.decodeSingularStringField(value: &value)
         self = .stringValue(value)
+        return
       case 4:
         var value = Bool()
         try decoder.decodeSingularBoolField(value: &value)
         self = .boolValue(value)
+        return
       case 5:
         var value: Google_Protobuf_Struct?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .structValue(value)
+          return
         }
       case 6:
         var value: Google_Protobuf_ListValue?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .listValue(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -296,8 +294,6 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
         if start <= 6 && 6 < end {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
         }
-      case .None:
-        break
       }
     }
   }
@@ -305,7 +301,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ///   Represents a null value.
   var nullValue: Google_Protobuf_NullValue {
     get {
-      if case .nullValue(let v) = _storage._kind {
+      if case .nullValue(let v)? = _storage._kind {
         return v
       }
       return Google_Protobuf_NullValue.nullValue
@@ -318,7 +314,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ///   Represents a double value.
   var numberValue: Double {
     get {
-      if case .numberValue(let v) = _storage._kind {
+      if case .numberValue(let v)? = _storage._kind {
         return v
       }
       return 0
@@ -331,7 +327,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ///   Represents a string value.
   var stringValue: String {
     get {
-      if case .stringValue(let v) = _storage._kind {
+      if case .stringValue(let v)? = _storage._kind {
         return v
       }
       return ""
@@ -344,7 +340,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ///   Represents a boolean value.
   var boolValue: Bool {
     get {
-      if case .boolValue(let v) = _storage._kind {
+      if case .boolValue(let v)? = _storage._kind {
         return v
       }
       return false
@@ -357,7 +353,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ///   Represents a structured value.
   var structValue: Google_Protobuf_Struct {
     get {
-      if case .structValue(let v) = _storage._kind {
+      if case .structValue(let v)? = _storage._kind {
         return v
       }
       return Google_Protobuf_Struct()
@@ -370,7 +366,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ///   Represents a repeated `Value`.
   var listValue: Google_Protobuf_ListValue {
     get {
-      if case .listValue(let v) = _storage._kind {
+      if case .listValue(let v)? = _storage._kind {
         return v
       }
       return Google_Protobuf_ListValue()
@@ -380,7 +376,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
     }
   }
 
-  var kind: OneOf_Kind {
+  var kind: OneOf_Kind? {
     get {return _storage._kind}
     set {
       _uniqueStorage()._kind = newValue

@@ -56,7 +56,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     var _myString: String? = nil
     var _myInt: Int64? = nil
     var _myFloat: Float? = nil
-    var _options = Swift_Protobuf_TestFieldOrderings.OneOf_Options()
+    var _options: Swift_Protobuf_TestFieldOrderings.OneOf_Options?
     var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
 
     var isInitialized: Bool {
@@ -75,7 +75,11 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       case 11: try decoder.decodeSingularStringField(value: &_myString)
       case 1: try decoder.decodeSingularInt64Field(value: &_myInt)
       case 101: try decoder.decodeSingularFloatField(value: &_myFloat)
-      case 60, 9, 150, 10: try _options.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 60, 9, 150, 10:
+        if _options != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       case 200: try decoder.decodeSingularMessageField(value: &_optionalNestedMessage)
       default: if (2 <= fieldNumber && fieldNumber < 9) || (12 <= fieldNumber && fieldNumber < 56) {
           try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
@@ -88,16 +92,16 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 1)
       }
       try visitor.visitExtensionFields(fields: extensionFieldValues, start: 2, end: 9)
-      try _options.traverse(visitor: visitor, start: 9, end: 11)
+      try _options?.traverse(visitor: visitor, start: 9, end: 11)
       if let v = _myString {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 11)
       }
       try visitor.visitExtensionFields(fields: extensionFieldValues, start: 12, end: 56)
-      try _options.traverse(visitor: visitor, start: 60, end: 61)
+      try _options?.traverse(visitor: visitor, start: 60, end: 61)
       if let v = _myFloat {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 101)
       }
-      try _options.traverse(visitor: visitor, start: 150, end: 151)
+      try _options?.traverse(visitor: visitor, start: 150, end: 151)
       if let v = _optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
@@ -135,12 +139,11 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_Options: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Options: SwiftProtobuf.OneofEnum {
     case oneofInt64(Int64)
     case oneofBool(Bool)
     case oneofString(String)
     case oneofInt32(Int32)
-    case None
 
     static func ==(lhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options, rhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options) -> Bool {
       switch (lhs, rhs) {
@@ -148,51 +151,44 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       case (.oneofBool(let l), .oneofBool(let r)): return l == r
       case (.oneofString(let l), .oneofString(let r)): return l == r
       case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 9:
         var value: Bool?
         try decoder.decodeSingularBoolField(value: &value)
         if let value = value {
           self = .oneofBool(value)
+          return
         }
       case 10:
         var value: Int32?
         try decoder.decodeSingularInt32Field(value: &value)
         if let value = value {
           self = .oneofInt32(value)
+          return
         }
       case 60:
         var value: Int64?
         try decoder.decodeSingularInt64Field(value: &value)
         if let value = value {
           self = .oneofInt64(value)
+          return
         }
       case 150:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .oneofString(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -213,8 +209,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
         if start <= 150 && 150 < end {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 150)
         }
-      case .None:
-        break
       }
     }
   }
@@ -320,7 +314,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
   var oneofInt64: Int64 {
     get {
-      if case .oneofInt64(let v) = _storage._options {
+      if case .oneofInt64(let v)? = _storage._options {
         return v
       }
       return 0
@@ -332,7 +326,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
   var oneofBool: Bool {
     get {
-      if case .oneofBool(let v) = _storage._options {
+      if case .oneofBool(let v)? = _storage._options {
         return v
       }
       return false
@@ -344,7 +338,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
   var oneofString: String {
     get {
-      if case .oneofString(let v) = _storage._options {
+      if case .oneofString(let v)? = _storage._options {
         return v
       }
       return ""
@@ -356,7 +350,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
 
   var oneofInt32: Int32 {
     get {
-      if case .oneofInt32(let v) = _storage._options {
+      if case .oneofInt32(let v)? = _storage._options {
         return v
       }
       return 0
@@ -377,7 +371,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     return _storage._optionalNestedMessage = nil
   }
 
-  var options: OneOf_Options {
+  var options: OneOf_Options? {
     get {return _storage._options}
     set {
       _uniqueStorage()._options = newValue

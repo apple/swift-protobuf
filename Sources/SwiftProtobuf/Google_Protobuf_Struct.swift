@@ -248,7 +248,10 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
         switch fieldNumber {
         case 1, 2, 3, 4, 5, 6:
-            try kind.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+            if kind != nil {
+                try decoder.handleConflictingOneOf()
+            }
+            kind = try OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
         default: break
         }
     }
@@ -265,7 +268,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     }
 
     fileprivate func serializeJSONValue(jsonEncoder: inout JSONEncoder) throws {
-        try kind.serializeJSONField(encoder: &jsonEncoder)
+        try kind?.serializeJSONField(encoder: &jsonEncoder)
     }
 
     public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -304,16 +307,16 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     }
 
     public func _protoc_generated_traverse(visitor: Visitor) throws {
-        try kind.traverse(visitor: visitor, start:1, end: 7)
+        try kind?.traverse(visitor: visitor, start:1, end: 7)
     }
 
     // Storage ivars
-    private var kind = Google_Protobuf_Value.OneOf_Kind()
+    private var kind: Google_Protobuf_Value.OneOf_Kind?
 
     ///   Represents a null value.
     public var nullValue: Google_Protobuf_NullValue? {
         get {
-            if case .nullValue(let v) = kind {
+            if case .nullValue(let v)? = kind {
                 return v
             }
             return nil
@@ -322,7 +325,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .nullValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -330,7 +333,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a double value.
     public var numberValue: Double? {
         get {
-            if case .numberValue(let v) = kind {
+            if case .numberValue(let v)? = kind {
                 return v
             }
             return nil
@@ -339,7 +342,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .numberValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -347,7 +350,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a string value.
     public var stringValue: String? {
         get {
-            if case .stringValue(let v) = kind {
+            if case .stringValue(let v)? = kind {
                 return v
             }
             return nil
@@ -356,7 +359,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .stringValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -364,7 +367,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a boolean value.
     public var boolValue: Bool? {
         get {
-            if case .boolValue(let v) = kind {
+            if case .boolValue(let v)? = kind {
                 return v
             }
             return nil
@@ -373,7 +376,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .boolValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -381,7 +384,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a structured value.
     public var structValue: Google_Protobuf_Struct? {
         get {
-            if case .structValue(let v) = kind {
+            if case .structValue(let v)? = kind {
                 return v
             }
             return nil
@@ -390,7 +393,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .structValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
@@ -398,7 +401,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     ///   Represents a repeated `Value`.
     public var listValue: Google_Protobuf_ListValue? {
         get {
-            if case .listValue(let v) = kind {
+            if case .listValue(let v)? = kind {
                 return v
             }
             return nil
@@ -407,69 +410,67 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             if let newValue = newValue {
                 kind = .listValue(newValue)
             } else {
-                kind = .None
+                kind = nil
             }
         }
     }
 
-    public enum OneOf_Kind: ExpressibleByNilLiteral, OneofEnum {
+    public enum OneOf_Kind: OneofEnum {
         case nullValue(Google_Protobuf_NullValue)
         case numberValue(Double)
         case stringValue(String)
         case boolValue(Bool)
         case structValue(Google_Protobuf_Struct)
         case listValue(Google_Protobuf_ListValue)
-        case None
 
-        public init(nilLiteral: ()) {
-            self = .None
-        }
-
-        public init() {
-            self = .None
-        }
-
-        public mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+        public init?<T: Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
             switch fieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
                 try decoder.decodeSingularEnumField(value: &value)
                 if let value = value {
                     self = .nullValue(value)
+                    return
                 }
             case 2:
                 var value: Double?
                 try decoder.decodeSingularDoubleField(value: &value)
                 if let value = value {
                     self = .numberValue(value)
+                    return
                 }
             case 3:
                 var value: String?
                 try decoder.decodeSingularStringField(value: &value)
                 if let value = value {
                     self = .stringValue(value)
+                    return
                 }
             case 4:
                 var value: Bool?
                 try decoder.decodeSingularBoolField(value: &value)
                 if let value = value {
                     self = .boolValue(value)
+                    return
                 }
             case 5:
                 var value: Google_Protobuf_Struct?
                 try decoder.decodeSingularMessageField(value: &value)
                 if let value = value {
                     self = .structValue(value)
+                    return
                 }
             case 6:
                 var value: Google_Protobuf_ListValue?
                 try decoder.decodeSingularMessageField(value: &value)
                 if let value = value {
                     self = .listValue(value)
+                    return
                 }
             default:
                 break
             }
+            return nil
         }
 
         fileprivate func serializeJSONField(encoder: inout JSONEncoder) throws {
@@ -480,8 +481,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             case .boolValue(let v): encoder.putBoolValue(value: v, quote: false)
             case .structValue(let v): encoder.append(text: try v.serializeJSON())
             case .listValue(let v): encoder.append(text: try v.serializeJSON())
-            case .None:
-                break
             }
         }
 
@@ -511,8 +510,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
                 if start <= 6 && 6 < end {
                     try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
                 }
-            case .None:
-                break
             }
         }
 
@@ -524,7 +521,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             case .boolValue(let v): return v.hashValue
             case .structValue(let v): return v.hashValue
             case .listValue(let v): return v.hashValue
-            case .None: return 0
             }
         }
     }
@@ -639,7 +635,6 @@ public func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value
   case (.boolValue(let l), .boolValue(let r)): return l == r
   case (.structValue(let l), .structValue(let r)): return l == r
   case (.listValue(let l), .listValue(let r)): return l == r
-  case (.None, .None): return true
   default: return false
   }
 }

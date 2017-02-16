@@ -768,7 +768,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_OneofWellKnownTypes
-    var _oneofField = ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField()
+    var _oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField?
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -778,13 +778,17 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
     func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18: try _oneofField.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18:
+        if _oneofField != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _oneofField = try ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _oneofField.traverse(visitor: visitor, start: 1, end: 19)
+      try _oneofField?.traverse(visitor: visitor, start: 1, end: 19)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -802,7 +806,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
   private var _storage = _StorageClass()
 
 
-  enum OneOf_OneofField: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_OneofField: SwiftProtobuf.OneofEnum {
     case anyField(Google_Protobuf_Any)
     case apiField(Google_Protobuf_Api)
     case durationField(Google_Protobuf_Duration)
@@ -821,7 +825,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
     case boolField(Google_Protobuf_BoolValue)
     case stringField(Google_Protobuf_StringValue)
     case bytesField(Google_Protobuf_BytesValue)
-    case None
 
     static func ==(lhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField, rhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
@@ -843,135 +846,142 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
       case (.boolField(let l), .boolField(let r)): return l == r
       case (.stringField(let l), .stringField(let r)): return l == r
       case (.bytesField(let l), .bytesField(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value: Google_Protobuf_Any?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .anyField(value)
+          return
         }
       case 2:
         var value: Google_Protobuf_Api?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .apiField(value)
+          return
         }
       case 3:
         var value: Google_Protobuf_Duration?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .durationField(value)
+          return
         }
       case 4:
         var value: Google_Protobuf_Empty?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .emptyField(value)
+          return
         }
       case 5:
         var value: Google_Protobuf_FieldMask?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .fieldMaskField(value)
+          return
         }
       case 6:
         var value: Google_Protobuf_SourceContext?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .sourceContextField(value)
+          return
         }
       case 7:
         var value: Google_Protobuf_Struct?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .structField(value)
+          return
         }
       case 8:
         var value: Google_Protobuf_Timestamp?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .timestampField(value)
+          return
         }
       case 9:
         var value: Google_Protobuf_Type?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .typeField(value)
+          return
         }
       case 10:
         var value: Google_Protobuf_DoubleValue?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .doubleField(value)
+          return
         }
       case 11:
         var value: Google_Protobuf_FloatValue?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .floatField(value)
+          return
         }
       case 12:
         var value: Google_Protobuf_Int64Value?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .int64Field(value)
+          return
         }
       case 13:
         var value: Google_Protobuf_UInt64Value?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .uint64Field(value)
+          return
         }
       case 14:
         var value: Google_Protobuf_Int32Value?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .int32Field(value)
+          return
         }
       case 15:
         var value: Google_Protobuf_UInt32Value?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .uint32Field(value)
+          return
         }
       case 16:
         var value: Google_Protobuf_BoolValue?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .boolField(value)
+          return
         }
       case 17:
         var value: Google_Protobuf_StringValue?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .stringField(value)
+          return
         }
       case 18:
         var value: Google_Protobuf_BytesValue?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .bytesField(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -1048,15 +1058,13 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
         if start <= 18 && 18 < end {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
         }
-      case .None:
-        break
       }
     }
   }
 
   var anyField: Google_Protobuf_Any {
     get {
-      if case .anyField(let v) = _storage._oneofField {
+      if case .anyField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Any()
@@ -1068,7 +1076,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var apiField: Google_Protobuf_Api {
     get {
-      if case .apiField(let v) = _storage._oneofField {
+      if case .apiField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Api()
@@ -1080,7 +1088,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var durationField: Google_Protobuf_Duration {
     get {
-      if case .durationField(let v) = _storage._oneofField {
+      if case .durationField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Duration()
@@ -1092,7 +1100,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var emptyField: Google_Protobuf_Empty {
     get {
-      if case .emptyField(let v) = _storage._oneofField {
+      if case .emptyField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Empty()
@@ -1104,7 +1112,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var fieldMaskField: Google_Protobuf_FieldMask {
     get {
-      if case .fieldMaskField(let v) = _storage._oneofField {
+      if case .fieldMaskField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_FieldMask()
@@ -1116,7 +1124,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var sourceContextField: Google_Protobuf_SourceContext {
     get {
-      if case .sourceContextField(let v) = _storage._oneofField {
+      if case .sourceContextField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_SourceContext()
@@ -1128,7 +1136,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var structField: Google_Protobuf_Struct {
     get {
-      if case .structField(let v) = _storage._oneofField {
+      if case .structField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Struct()
@@ -1140,7 +1148,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var timestampField: Google_Protobuf_Timestamp {
     get {
-      if case .timestampField(let v) = _storage._oneofField {
+      if case .timestampField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Timestamp()
@@ -1152,7 +1160,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var typeField: Google_Protobuf_Type {
     get {
-      if case .typeField(let v) = _storage._oneofField {
+      if case .typeField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Type()
@@ -1164,7 +1172,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var doubleField: Google_Protobuf_DoubleValue {
     get {
-      if case .doubleField(let v) = _storage._oneofField {
+      if case .doubleField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_DoubleValue()
@@ -1176,7 +1184,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var floatField: Google_Protobuf_FloatValue {
     get {
-      if case .floatField(let v) = _storage._oneofField {
+      if case .floatField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_FloatValue()
@@ -1188,7 +1196,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var int64Field: Google_Protobuf_Int64Value {
     get {
-      if case .int64Field(let v) = _storage._oneofField {
+      if case .int64Field(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Int64Value()
@@ -1200,7 +1208,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var uint64Field: Google_Protobuf_UInt64Value {
     get {
-      if case .uint64Field(let v) = _storage._oneofField {
+      if case .uint64Field(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_UInt64Value()
@@ -1212,7 +1220,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var int32Field: Google_Protobuf_Int32Value {
     get {
-      if case .int32Field(let v) = _storage._oneofField {
+      if case .int32Field(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_Int32Value()
@@ -1224,7 +1232,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var uint32Field: Google_Protobuf_UInt32Value {
     get {
-      if case .uint32Field(let v) = _storage._oneofField {
+      if case .uint32Field(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_UInt32Value()
@@ -1236,7 +1244,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var boolField: Google_Protobuf_BoolValue {
     get {
-      if case .boolField(let v) = _storage._oneofField {
+      if case .boolField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_BoolValue()
@@ -1248,7 +1256,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var stringField: Google_Protobuf_StringValue {
     get {
-      if case .stringField(let v) = _storage._oneofField {
+      if case .stringField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_StringValue()
@@ -1260,7 +1268,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   var bytesField: Google_Protobuf_BytesValue {
     get {
-      if case .bytesField(let v) = _storage._oneofField {
+      if case .bytesField(let v)? = _storage._oneofField {
         return v
       }
       return Google_Protobuf_BytesValue()
@@ -1270,7 +1278,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue

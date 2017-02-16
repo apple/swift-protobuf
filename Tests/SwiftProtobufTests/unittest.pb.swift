@@ -425,7 +425,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
     var _defaultStringPiece: String? = nil
     var _defaultCord: String? = nil
-    var _oneofField = ProtobufUnittest_TestAllTypes.OneOf_OneofField()
+    var _oneofField: ProtobufUnittest_TestAllTypes.OneOf_OneofField?
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -506,7 +506,11 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       case 83: try decoder.decodeSingularEnumField(value: &_defaultImportEnum)
       case 84: try decoder.decodeSingularStringField(value: &_defaultStringPiece)
       case 85: try decoder.decodeSingularStringField(value: &_defaultCord)
-      case 111, 112, 113, 114: try _oneofField.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 111, 112, 113, 114:
+        if _oneofField != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _oneofField = try ProtobufUnittest_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -725,7 +729,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       if let v = _defaultCord {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 85)
       }
-      try _oneofField.traverse(visitor: visitor, start: 111, end: 115)
+      try _oneofField?.traverse(visitor: visitor, start: 111, end: 115)
       unknown.traverse(visitor: visitor)
     }
 
@@ -892,12 +896,11 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_OneofField: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_OneofField: SwiftProtobuf.OneofEnum {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
@@ -905,51 +908,44 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
       case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
       case (.oneofString(let l), .oneofString(let r)): return l == r
       case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 111:
         var value: UInt32?
         try decoder.decodeSingularUInt32Field(value: &value)
         if let value = value {
           self = .oneofUint32(value)
+          return
         }
       case 112:
         var value: ProtobufUnittest_TestAllTypes.NestedMessage?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .oneofNestedMessage(value)
+          return
         }
       case 113:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .oneofString(value)
+          return
         }
       case 114:
         var value: Data?
         try decoder.decodeSingularBytesField(value: &value)
         if let value = value {
           self = .oneofBytes(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -970,8 +966,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
         if start <= 114 && 114 < end {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 114)
         }
-      case .None:
-        break
       }
     }
   }
@@ -1827,7 +1821,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v) = _storage._oneofField {
+      if case .oneofUint32(let v)? = _storage._oneofField {
         return v
       }
       return 0
@@ -1839,7 +1833,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var oneofNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v) = _storage._oneofField {
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {
         return v
       }
       return ProtobufUnittest_TestAllTypes.NestedMessage()
@@ -1851,7 +1845,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var oneofString: String {
     get {
-      if case .oneofString(let v) = _storage._oneofField {
+      if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
       return ""
@@ -1863,7 +1857,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v) = _storage._oneofField {
+      if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
       return Data()
@@ -1873,7 +1867,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
     }
   }
 
-  var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
@@ -5962,7 +5956,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_TestOneof
     var unknown = SwiftProtobuf.UnknownStorage()
-    var _foo = ProtobufUnittest_TestOneof.OneOf_Foo()
+    var _foo: ProtobufUnittest_TestOneof.OneOf_Foo?
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5972,13 +5966,17 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
     func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1, 2, 3, 4: try _foo.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 1, 2, 3, 4:
+        if _foo != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _foo = try ProtobufUnittest_TestOneof.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _foo.traverse(visitor: visitor, start: 1, end: 5)
+      try _foo?.traverse(visitor: visitor, start: 1, end: 5)
       unknown.traverse(visitor: visitor)
     }
 
@@ -6003,12 +6001,11 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_Foo: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Foo: SwiftProtobuf.OneofEnum {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestAllTypes)
     case fooGroup(ProtobufUnittest_TestOneof.FooGroup)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestOneof.OneOf_Foo, rhs: ProtobufUnittest_TestOneof.OneOf_Foo) -> Bool {
       switch (lhs, rhs) {
@@ -6016,51 +6013,44 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
       case (.fooString(let l), .fooString(let r)): return l == r
       case (.fooMessage(let l), .fooMessage(let r)): return l == r
       case (.fooGroup(let l), .fooGroup(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value: Int32?
         try decoder.decodeSingularInt32Field(value: &value)
         if let value = value {
           self = .fooInt(value)
+          return
         }
       case 2:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .fooString(value)
+          return
         }
       case 3:
         var value: ProtobufUnittest_TestAllTypes?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .fooMessage(value)
+          return
         }
       case 4:
         var value: ProtobufUnittest_TestOneof.FooGroup?
         try decoder.decodeSingularGroupField(value: &value)
         if let value = value {
           self = .fooGroup(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -6081,8 +6071,6 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
         if start <= 4 && 4 < end {
           try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
         }
-      case .None:
-        break
       }
     }
   }
@@ -6155,7 +6143,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
   var fooInt: Int32 {
     get {
-      if case .fooInt(let v) = _storage._foo {
+      if case .fooInt(let v)? = _storage._foo {
         return v
       }
       return 0
@@ -6167,7 +6155,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
   var fooString: String {
     get {
-      if case .fooString(let v) = _storage._foo {
+      if case .fooString(let v)? = _storage._foo {
         return v
       }
       return ""
@@ -6179,7 +6167,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
   var fooMessage: ProtobufUnittest_TestAllTypes {
     get {
-      if case .fooMessage(let v) = _storage._foo {
+      if case .fooMessage(let v)? = _storage._foo {
         return v
       }
       return ProtobufUnittest_TestAllTypes()
@@ -6191,7 +6179,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
   var fooGroup: ProtobufUnittest_TestOneof.FooGroup {
     get {
-      if case .fooGroup(let v) = _storage._foo {
+      if case .fooGroup(let v)? = _storage._foo {
         return v
       }
       return ProtobufUnittest_TestOneof.FooGroup()
@@ -6201,7 +6189,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     }
   }
 
-  var foo: OneOf_Foo {
+  var foo: OneOf_Foo? {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
@@ -6469,8 +6457,8 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_TestOneof2
     var unknown = SwiftProtobuf.UnknownStorage()
-    var _foo = ProtobufUnittest_TestOneof2.OneOf_Foo()
-    var _bar = ProtobufUnittest_TestOneof2.OneOf_Bar()
+    var _foo: ProtobufUnittest_TestOneof2.OneOf_Foo?
+    var _bar: ProtobufUnittest_TestOneof2.OneOf_Bar?
     var _bazInt: Int32? = nil
     var _bazString: String? = nil
 
@@ -6482,8 +6470,16 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
     func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1, 2, 3, 4, 5, 6, 7, 8, 11: try _foo.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      case 12, 13, 14, 15, 16, 17: try _bar.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 1, 2, 3, 4, 5, 6, 7, 8, 11:
+        if _foo != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _foo = try ProtobufUnittest_TestOneof2.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 12, 13, 14, 15, 16, 17:
+        if _bar != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _bar = try ProtobufUnittest_TestOneof2.OneOf_Bar(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       case 18: try decoder.decodeSingularInt32Field(value: &_bazInt)
       case 19: try decoder.decodeSingularStringField(value: &_bazString)
       default: break
@@ -6491,8 +6487,8 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _foo.traverse(visitor: visitor, start: 1, end: 12)
-      try _bar.traverse(visitor: visitor, start: 12, end: 18)
+      try _foo?.traverse(visitor: visitor, start: 1, end: 12)
+      try _bar?.traverse(visitor: visitor, start: 12, end: 18)
       if let v = _bazInt {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 18)
       }
@@ -6529,7 +6525,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_Foo: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Foo: SwiftProtobuf.OneofEnum {
     case fooInt(Int32)
     case fooString(String)
     case fooCord(String)
@@ -6539,7 +6535,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     case fooMessage(ProtobufUnittest_TestOneof2.NestedMessage)
     case fooGroup(ProtobufUnittest_TestOneof2.FooGroup)
     case fooLazyMessage(ProtobufUnittest_TestOneof2.NestedMessage)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Foo, rhs: ProtobufUnittest_TestOneof2.OneOf_Foo) -> Bool {
       switch (lhs, rhs) {
@@ -6552,81 +6547,79 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       case (.fooMessage(let l), .fooMessage(let r)): return l == r
       case (.fooGroup(let l), .fooGroup(let r)): return l == r
       case (.fooLazyMessage(let l), .fooLazyMessage(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value: Int32?
         try decoder.decodeSingularInt32Field(value: &value)
         if let value = value {
           self = .fooInt(value)
+          return
         }
       case 2:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .fooString(value)
+          return
         }
       case 3:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .fooCord(value)
+          return
         }
       case 4:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .fooStringPiece(value)
+          return
         }
       case 5:
         var value: Data?
         try decoder.decodeSingularBytesField(value: &value)
         if let value = value {
           self = .fooBytes(value)
+          return
         }
       case 6:
         var value: ProtobufUnittest_TestOneof2.NestedEnum?
         try decoder.decodeSingularEnumField(value: &value)
         if let value = value {
           self = .fooEnum(value)
+          return
         }
       case 7:
         var value: ProtobufUnittest_TestOneof2.NestedMessage?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .fooMessage(value)
+          return
         }
       case 8:
         var value: ProtobufUnittest_TestOneof2.FooGroup?
         try decoder.decodeSingularGroupField(value: &value)
         if let value = value {
           self = .fooGroup(value)
+          return
         }
       case 11:
         var value: ProtobufUnittest_TestOneof2.NestedMessage?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .fooLazyMessage(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -6667,20 +6660,17 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
         if start <= 11 && 11 < end {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
         }
-      case .None:
-        break
       }
     }
   }
 
-  enum OneOf_Bar: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Bar: SwiftProtobuf.OneofEnum {
     case barInt(Int32)
     case barString(String)
     case barCord(String)
     case barStringPiece(String)
     case barBytes(Data)
     case barEnum(ProtobufUnittest_TestOneof2.NestedEnum)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Bar, rhs: ProtobufUnittest_TestOneof2.OneOf_Bar) -> Bool {
       switch (lhs, rhs) {
@@ -6690,63 +6680,58 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
       case (.barStringPiece(let l), .barStringPiece(let r)): return l == r
       case (.barBytes(let l), .barBytes(let r)): return l == r
       case (.barEnum(let l), .barEnum(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 12:
         var value: Int32?
         try decoder.decodeSingularInt32Field(value: &value)
         if let value = value {
           self = .barInt(value)
+          return
         }
       case 13:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .barString(value)
+          return
         }
       case 14:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .barCord(value)
+          return
         }
       case 15:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .barStringPiece(value)
+          return
         }
       case 16:
         var value: Data?
         try decoder.decodeSingularBytesField(value: &value)
         if let value = value {
           self = .barBytes(value)
+          return
         }
       case 17:
         var value: ProtobufUnittest_TestOneof2.NestedEnum?
         try decoder.decodeSingularEnumField(value: &value)
         if let value = value {
           self = .barEnum(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -6775,8 +6760,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
         if start <= 17 && 17 < end {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
         }
-      case .None:
-        break
       }
     }
   }
@@ -6964,7 +6947,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooInt: Int32 {
     get {
-      if case .fooInt(let v) = _storage._foo {
+      if case .fooInt(let v)? = _storage._foo {
         return v
       }
       return 0
@@ -6976,7 +6959,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooString: String {
     get {
-      if case .fooString(let v) = _storage._foo {
+      if case .fooString(let v)? = _storage._foo {
         return v
       }
       return ""
@@ -6988,7 +6971,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooCord: String {
     get {
-      if case .fooCord(let v) = _storage._foo {
+      if case .fooCord(let v)? = _storage._foo {
         return v
       }
       return ""
@@ -7000,7 +6983,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooStringPiece: String {
     get {
-      if case .fooStringPiece(let v) = _storage._foo {
+      if case .fooStringPiece(let v)? = _storage._foo {
         return v
       }
       return ""
@@ -7012,7 +6995,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooBytes: Data {
     get {
-      if case .fooBytes(let v) = _storage._foo {
+      if case .fooBytes(let v)? = _storage._foo {
         return v
       }
       return Data()
@@ -7024,7 +7007,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooEnum: ProtobufUnittest_TestOneof2.NestedEnum {
     get {
-      if case .fooEnum(let v) = _storage._foo {
+      if case .fooEnum(let v)? = _storage._foo {
         return v
       }
       return ProtobufUnittest_TestOneof2.NestedEnum.foo
@@ -7036,7 +7019,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooMessage: ProtobufUnittest_TestOneof2.NestedMessage {
     get {
-      if case .fooMessage(let v) = _storage._foo {
+      if case .fooMessage(let v)? = _storage._foo {
         return v
       }
       return ProtobufUnittest_TestOneof2.NestedMessage()
@@ -7048,7 +7031,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooGroup: ProtobufUnittest_TestOneof2.FooGroup {
     get {
-      if case .fooGroup(let v) = _storage._foo {
+      if case .fooGroup(let v)? = _storage._foo {
         return v
       }
       return ProtobufUnittest_TestOneof2.FooGroup()
@@ -7060,7 +7043,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var fooLazyMessage: ProtobufUnittest_TestOneof2.NestedMessage {
     get {
-      if case .fooLazyMessage(let v) = _storage._foo {
+      if case .fooLazyMessage(let v)? = _storage._foo {
         return v
       }
       return ProtobufUnittest_TestOneof2.NestedMessage()
@@ -7072,7 +7055,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var barInt: Int32 {
     get {
-      if case .barInt(let v) = _storage._bar {
+      if case .barInt(let v)? = _storage._bar {
         return v
       }
       return 5
@@ -7084,7 +7067,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var barString: String {
     get {
-      if case .barString(let v) = _storage._bar {
+      if case .barString(let v)? = _storage._bar {
         return v
       }
       return "STRING"
@@ -7096,7 +7079,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var barCord: String {
     get {
-      if case .barCord(let v) = _storage._bar {
+      if case .barCord(let v)? = _storage._bar {
         return v
       }
       return "CORD"
@@ -7108,7 +7091,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var barStringPiece: String {
     get {
-      if case .barStringPiece(let v) = _storage._bar {
+      if case .barStringPiece(let v)? = _storage._bar {
         return v
       }
       return "SPIECE"
@@ -7120,7 +7103,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var barBytes: Data {
     get {
-      if case .barBytes(let v) = _storage._bar {
+      if case .barBytes(let v)? = _storage._bar {
         return v
       }
       return Data(bytes: [66, 89, 84, 69, 83])
@@ -7132,7 +7115,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var barEnum: ProtobufUnittest_TestOneof2.NestedEnum {
     get {
-      if case .barEnum(let v) = _storage._bar {
+      if case .barEnum(let v)? = _storage._bar {
         return v
       }
       return ProtobufUnittest_TestOneof2.NestedEnum.bar
@@ -7164,14 +7147,14 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     return _storage._bazString = nil
   }
 
-  var foo: OneOf_Foo {
+  var foo: OneOf_Foo? {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
     }
   }
 
-  var bar: OneOf_Bar {
+  var bar: OneOf_Bar? {
     get {return _storage._bar}
     set {
       _uniqueStorage()._bar = newValue
@@ -7214,14 +7197,12 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_TestRequiredOneof
     var unknown = SwiftProtobuf.UnknownStorage()
-    var _foo = ProtobufUnittest_TestRequiredOneof.OneOf_Foo()
+    var _foo: ProtobufUnittest_TestRequiredOneof.OneOf_Foo?
 
     var isInitialized: Bool {
       switch _foo {
-      case .fooMessage(let v):
+      case .fooMessage(let v)?:
         if !v.isInitialized {return false}
-      case .None:
-        break
       default:
         break
       }
@@ -7236,13 +7217,17 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
     func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
-      case 1, 2, 3: try _foo.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 1, 2, 3:
+        if _foo != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _foo = try ProtobufUnittest_TestRequiredOneof.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _foo.traverse(visitor: visitor, start: 1, end: 4)
+      try _foo?.traverse(visitor: visitor, start: 1, end: 4)
       unknown.traverse(visitor: visitor)
     }
 
@@ -7267,56 +7252,47 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_Foo: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_Foo: SwiftProtobuf.OneofEnum {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestRequiredOneof.NestedMessage)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo) -> Bool {
       switch (lhs, rhs) {
       case (.fooInt(let l), .fooInt(let r)): return l == r
       case (.fooString(let l), .fooString(let r)): return l == r
       case (.fooMessage(let l), .fooMessage(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value: Int32?
         try decoder.decodeSingularInt32Field(value: &value)
         if let value = value {
           self = .fooInt(value)
+          return
         }
       case 2:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .fooString(value)
+          return
         }
       case 3:
         var value: ProtobufUnittest_TestRequiredOneof.NestedMessage?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .fooMessage(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -7333,8 +7309,6 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
         if start <= 3 && 3 < end {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
         }
-      case .None:
-        break
       }
     }
   }
@@ -7394,7 +7368,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
   var fooInt: Int32 {
     get {
-      if case .fooInt(let v) = _storage._foo {
+      if case .fooInt(let v)? = _storage._foo {
         return v
       }
       return 0
@@ -7406,7 +7380,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
   var fooString: String {
     get {
-      if case .fooString(let v) = _storage._foo {
+      if case .fooString(let v)? = _storage._foo {
         return v
       }
       return ""
@@ -7418,7 +7392,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
   var fooMessage: ProtobufUnittest_TestRequiredOneof.NestedMessage {
     get {
-      if case .fooMessage(let v) = _storage._foo {
+      if case .fooMessage(let v)? = _storage._foo {
         return v
       }
       return ProtobufUnittest_TestRequiredOneof.NestedMessage()
@@ -7428,7 +7402,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  var foo: OneOf_Foo {
+  var foo: OneOf_Foo? {
     get {return _storage._foo}
     set {
       _uniqueStorage()._foo = newValue
@@ -9280,7 +9254,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     var _optionalMessage: ProtobufUnittest_ForeignMessage? = nil
     var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup? = nil
     var _stringStringMap: Dictionary<String,String> = [:]
-    var _oneofField = ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField()
+    var _oneofField: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField?
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
@@ -9305,7 +9279,11 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       case 536870007: try decoder.decodeSingularMessageField(value: &_optionalMessage)
       case 536870008: try decoder.decodeSingularGroupField(value: &_optionalGroup)
       case 536870010: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_stringStringMap)
-      case 536870011, 536870012, 536870013, 536870014: try _oneofField.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      case 536870011, 536870012, 536870013, 536870014:
+        if _oneofField != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        _oneofField = try ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: if (536860000 <= fieldNumber && fieldNumber < 536870000) {
           try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbers.self, fieldNumber: fieldNumber)
         }
@@ -9344,7 +9322,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       if !_stringStringMap.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _stringStringMap, fieldNumber: 536870010)
       }
-      try _oneofField.traverse(visitor: visitor, start: 536870011, end: 536870015)
+      try _oneofField?.traverse(visitor: visitor, start: 536870011, end: 536870015)
       unknown.traverse(visitor: visitor)
     }
 
@@ -9391,12 +9369,11 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     set {_storage.unknown = newValue}
   }
 
-  enum OneOf_OneofField: ExpressibleByNilLiteral, SwiftProtobuf.OneofEnum {
+  enum OneOf_OneofField: SwiftProtobuf.OneofEnum {
     case oneofUint32(UInt32)
     case oneofTestAllTypes(ProtobufUnittest_TestAllTypes)
     case oneofString(String)
     case oneofBytes(Data)
-    case None
 
     static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField, rhs: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
@@ -9404,51 +9381,44 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       case (.oneofTestAllTypes(let l), .oneofTestAllTypes(let r)): return l == r
       case (.oneofString(let l), .oneofString(let r)): return l == r
       case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-      case (.None, .None): return true
       default: return false
       }
     }
 
-    init(nilLiteral: ()) {
-      self = .None
-    }
-
-    init() {
-      self = .None
-    }
-
-    mutating func decodeField<T: SwiftProtobuf.Decoder>(decoder: inout T, fieldNumber: Int) throws {
-      if self != .None {
-        try decoder.handleConflictingOneOf()
-      }
+    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 536870011:
         var value: UInt32?
         try decoder.decodeSingularUInt32Field(value: &value)
         if let value = value {
           self = .oneofUint32(value)
+          return
         }
       case 536870012:
         var value: ProtobufUnittest_TestAllTypes?
         try decoder.decodeSingularMessageField(value: &value)
         if let value = value {
           self = .oneofTestAllTypes(value)
+          return
         }
       case 536870013:
         var value: String?
         try decoder.decodeSingularStringField(value: &value)
         if let value = value {
           self = .oneofString(value)
+          return
         }
       case 536870014:
         var value: Data?
         try decoder.decodeSingularBytesField(value: &value)
         if let value = value {
           self = .oneofBytes(value)
+          return
         }
       default:
-        self = .None
+        break
       }
+      return nil
     }
 
     func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
@@ -9469,8 +9439,6 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
         if start <= 536870014 && 536870014 < end {
           try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 536870014)
         }
-      case .None:
-        break
       }
     }
   }
@@ -9617,7 +9585,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v) = _storage._oneofField {
+      if case .oneofUint32(let v)? = _storage._oneofField {
         return v
       }
       return 0
@@ -9629,7 +9597,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
   var oneofTestAllTypes: ProtobufUnittest_TestAllTypes {
     get {
-      if case .oneofTestAllTypes(let v) = _storage._oneofField {
+      if case .oneofTestAllTypes(let v)? = _storage._oneofField {
         return v
       }
       return ProtobufUnittest_TestAllTypes()
@@ -9641,7 +9609,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
   var oneofString: String {
     get {
-      if case .oneofString(let v) = _storage._oneofField {
+      if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
       return ""
@@ -9653,7 +9621,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v) = _storage._oneofField {
+      if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
       return Data()
@@ -9663,7 +9631,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  var oneofField: OneOf_OneofField {
+  var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
     set {
       _uniqueStorage()._oneofField = newValue
