@@ -206,7 +206,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   private var _storage = _StorageClass()
 
 
-  enum OneOf_Kind: SwiftProtobuf.OneofEnum {
+  enum OneOf_Kind: Equatable {
     case nullValue(Google_Protobuf_NullValue)
     case numberValue(Double)
     case stringValue(String)
@@ -226,7 +226,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1:
         var value = Google_Protobuf_NullValue()
@@ -268,7 +268,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .nullValue(let v):
         if start <= 1 && 1 < end {
