@@ -42,7 +42,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     10: .unique(proto: "proto_message_name", json: "protoMessageName"),
     11: .unique(proto: "proto_package_name", json: "protoPackageName"),
     12: .unique(proto: "any_type_prefix", json: "anyTypePrefix"),
-    13: .same(proto: "anyTypeURL"),
+    13: .unique(proto: "any_type_url", json: "anyTypeUrl"),
     20: .unique(proto: "is_initialized", json: "isInitialized"),
     21: .unique(proto: "hash_value", json: "hashValue"),
     22: .unique(proto: "debug_description", json: "debugDescription"),

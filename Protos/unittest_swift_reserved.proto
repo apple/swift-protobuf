@@ -40,7 +40,7 @@ message SwiftReservedTest {
     optional int32 proto_message_name = 10;
     optional int32 proto_package_name = 11;
     optional int32 any_type_prefix = 12;
-    optional int32 anyTypeURL = 13;
+    optional int32 any_type_url = 13;
 
     // r/o properties on Message, ensure it gets remapped.
     optional string is_initialized = 20;
