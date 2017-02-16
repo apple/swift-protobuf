@@ -230,7 +230,7 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
@@ -251,11 +251,11 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Msg1) -> Bool {
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }
@@ -290,7 +290,7 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
@@ -311,11 +311,11 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Msg2) -> Bool {
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     if _extensionFieldValues != other._extensionFieldValues {return false}
     return true
   }

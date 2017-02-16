@@ -937,6 +937,8 @@ message FieldNamingInitials {
 
 }
 
+// For message scoped extensions.
+
 message ExtensionNamingInitials {
   extensions 1 to 1000;
 }
@@ -963,7 +965,7 @@ message Lowers {
 }
 
 message Uppers {
-  extend ExtensionNamingInitials{
+  extend ExtensionNamingInitials {
     optional int32 HTTP = 101;
     optional int32 HTTP_request = 102;
     optional int32 the_HTTP_request = 103;
@@ -982,7 +984,7 @@ message Uppers {
 }
 
 message WordCase {
-  extend ExtensionNamingInitials{
+  extend ExtensionNamingInitials {
     optional int32 Http = 201;
     optional int32 HttpRequest = 202;
     optional int32 TheHttpRequest = 203;
@@ -998,4 +1000,69 @@ message WordCase {
     optional int32 TheUrlValue = 223;
     optional int32 TheUrl = 224;
   }
+}
+
+// For global scoped extensions.
+
+message ExtensionNamingInitialsLowers {
+  extensions 1 to 1000;
+}
+message ExtensionNamingInitialsUppers {
+  extensions 1 to 1000;
+}
+message ExtensionNamingInitialsWordCase {
+  extensions 1 to 1000;
+}
+
+extend ExtensionNamingInitialsLowers {
+  optional int32 http = 1;
+  optional int32 http_request = 2;
+  optional int32 the_http_request = 3;
+  optional int32 the_http = 4;
+
+  optional int32 https = 11;
+  optional int32 https_request = 12;
+  optional int32 the_https_request = 13;
+  optional int32 the_https = 14;
+
+  optional int32 url = 21;
+  optional int32 url_value = 22;
+  optional int32 the_url_value = 23;
+  optional int32 the_url = 24;
+
+  optional int32 a_b_c = 31;
+}
+
+extend ExtensionNamingInitialsUppers {
+  optional int32 HTTP = 1;
+  optional int32 HTTP_request = 2;
+  optional int32 the_HTTP_request = 3;
+  optional int32 the_HTTP = 4;
+
+  optional int32 HTTPS = 11;
+  optional int32 HTTPS_request = 12;
+  optional int32 the_HTTPS_request = 13;
+  optional int32 the_HTTPS = 14;
+
+  optional int32 URL = 21;
+  optional int32 URL_value = 22;
+  optional int32 the_URL_value = 23;
+  optional int32 the_URL = 24;
+}
+
+extend ExtensionNamingInitialsWordCase {
+  optional int32 Http = 1;
+  optional int32 HttpRequest = 2;
+  optional int32 TheHttpRequest = 3;
+  optional int32 TheHttp = 4;
+
+  optional int32 Https = 11;
+  optional int32 HttpsRequest = 12;
+  optional int32 TheHttpsRequest = 13;
+  optional int32 TheHttps = 14;
+
+  optional int32 Url = 21;
+  optional int32 UrlValue = 22;
+  optional int32 TheUrlValue = 23;
+  optional int32 TheUrl = 24;
 }
