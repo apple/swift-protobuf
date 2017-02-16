@@ -184,3 +184,165 @@ class Test_FieldNamingInitials: XCTestCase {
     msg.clearTheURL()
   }
 }
+
+class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
+  func testLowers() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitials()
+
+    msg.SwiftUnittest_Names_Lowers_http = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_http)
+    msg.clearSwiftUnittest_Names_Lowers_http()
+
+    msg.SwiftUnittest_Names_Lowers_httpRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_httpRequest)
+    msg.clearSwiftUnittest_Names_Lowers_httpRequest()
+
+    msg.SwiftUnittest_Names_Lowers_theHTTPRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_theHTTPRequest)
+    msg.clearSwiftUnittest_Names_Lowers_theHTTPRequest()
+
+    msg.SwiftUnittest_Names_Lowers_theHTTP = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_theHTTP)
+    msg.clearSwiftUnittest_Names_Lowers_theHTTP()
+
+    msg.SwiftUnittest_Names_Lowers_https = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_https)
+    msg.clearSwiftUnittest_Names_Lowers_https()
+
+    msg.SwiftUnittest_Names_Lowers_httpsRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_httpsRequest)
+    msg.clearSwiftUnittest_Names_Lowers_httpsRequest()
+
+    msg.SwiftUnittest_Names_Lowers_theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_theHTTPSRequest)
+    msg.clearSwiftUnittest_Names_Lowers_theHTTPSRequest()
+
+    msg.SwiftUnittest_Names_Lowers_theHTTPS = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_theHTTPS)
+    msg.clearSwiftUnittest_Names_Lowers_theHTTPS()
+
+    msg.SwiftUnittest_Names_Lowers_url = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_url)
+    msg.clearSwiftUnittest_Names_Lowers_url()
+
+    msg.SwiftUnittest_Names_Lowers_urlValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_urlValue)
+    msg.clearSwiftUnittest_Names_Lowers_urlValue()
+
+    msg.SwiftUnittest_Names_Lowers_theURLValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_theURLValue)
+    msg.clearSwiftUnittest_Names_Lowers_theURLValue()
+
+    msg.SwiftUnittest_Names_Lowers_theURL = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_theURL)
+    msg.clearSwiftUnittest_Names_Lowers_theURL()
+
+    msg.SwiftUnittest_Names_Lowers_aBC = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_aBC)
+    msg.clearSwiftUnittest_Names_Lowers_aBC()
+  }
+
+  func testUppers() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitials()
+
+    msg.SwiftUnittest_Names_Uppers_http = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_http)
+    msg.clearSwiftUnittest_Names_Uppers_http()
+
+    msg.SwiftUnittest_Names_Uppers_httpRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_httpRequest)
+    msg.clearSwiftUnittest_Names_Uppers_httpRequest()
+
+    msg.SwiftUnittest_Names_Uppers_theHTTPRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theHTTPRequest)
+    msg.clearSwiftUnittest_Names_Uppers_theHTTPRequest()
+
+    msg.SwiftUnittest_Names_Uppers_theHTTP = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theHTTP)
+    msg.clearSwiftUnittest_Names_Uppers_theHTTP()
+
+    msg.SwiftUnittest_Names_Uppers_https = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_https)
+    msg.clearSwiftUnittest_Names_Uppers_https()
+
+    msg.SwiftUnittest_Names_Uppers_httpsRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_httpsRequest)
+    msg.clearSwiftUnittest_Names_Uppers_httpsRequest()
+
+    msg.SwiftUnittest_Names_Uppers_theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theHTTPSRequest)
+    msg.clearSwiftUnittest_Names_Uppers_theHTTPSRequest()
+
+    msg.SwiftUnittest_Names_Uppers_theHTTPS = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theHTTPS)
+    msg.clearSwiftUnittest_Names_Uppers_theHTTPS()
+
+    msg.SwiftUnittest_Names_Uppers_url = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_url)
+    msg.clearSwiftUnittest_Names_Uppers_url()
+
+    msg.SwiftUnittest_Names_Uppers_urlValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_urlValue)
+    msg.clearSwiftUnittest_Names_Uppers_urlValue()
+
+    msg.SwiftUnittest_Names_Uppers_theURLValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theURLValue)
+    msg.clearSwiftUnittest_Names_Uppers_theURLValue()
+
+    msg.SwiftUnittest_Names_Uppers_theURL = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theURL)
+    msg.clearSwiftUnittest_Names_Uppers_theURL()
+  }
+
+  func testWordCase() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitials()
+
+    msg.SwiftUnittest_Names_WordCase_http = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_http)
+    msg.clearSwiftUnittest_Names_WordCase_http()
+
+    msg.SwiftUnittest_Names_WordCase_httpRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_httpRequest)
+    msg.clearSwiftUnittest_Names_WordCase_httpRequest()
+
+    msg.SwiftUnittest_Names_WordCase_theHTTPRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theHTTPRequest)
+    msg.clearSwiftUnittest_Names_WordCase_theHTTPRequest()
+
+    msg.SwiftUnittest_Names_WordCase_theHTTP = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theHTTP)
+    msg.clearSwiftUnittest_Names_WordCase_theHTTP()
+
+    msg.SwiftUnittest_Names_WordCase_https = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_https)
+    msg.clearSwiftUnittest_Names_WordCase_https()
+
+    msg.SwiftUnittest_Names_WordCase_httpsRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_httpsRequest)
+    msg.clearSwiftUnittest_Names_WordCase_httpsRequest()
+
+    msg.SwiftUnittest_Names_WordCase_theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theHTTPSRequest)
+    msg.clearSwiftUnittest_Names_WordCase_theHTTPSRequest()
+
+    msg.SwiftUnittest_Names_WordCase_theHTTPS = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theHTTPS)
+    msg.clearSwiftUnittest_Names_WordCase_theHTTPS()
+
+    msg.SwiftUnittest_Names_WordCase_url = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_url)
+    msg.clearSwiftUnittest_Names_WordCase_url()
+
+    msg.SwiftUnittest_Names_WordCase_urlValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_urlValue)
+    msg.clearSwiftUnittest_Names_WordCase_urlValue()
+
+    msg.SwiftUnittest_Names_WordCase_theURLValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theURLValue)
+    msg.clearSwiftUnittest_Names_WordCase_theURLValue()
+
+    msg.SwiftUnittest_Names_WordCase_theURL = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theURL)
+    msg.clearSwiftUnittest_Names_WordCase_theURL()
+  }
+}
