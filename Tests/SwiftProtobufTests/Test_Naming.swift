@@ -21,7 +21,7 @@ import SwiftProtobuf
 // code to call those to help ensure things end up uniformly upper/lower as
 // needed.
 
-// NOTE: If this code fails to compile, make sure the name change make sense.
+// NOTE: If this code fails to compile, make sure the name changes make sense.
 
 class Test_FieldNamingInitials: XCTestCase {
   func testLowers() {
@@ -344,5 +344,167 @@ class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
     msg.SwiftUnittest_Names_WordCase_theURL = 1
     XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theURL)
     msg.clearSwiftUnittest_Names_WordCase_theURL()
+  }
+}
+
+class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
+  func testLowers() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitialsLowers()
+
+    msg.SwiftUnittest_Names_http = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_http)
+    msg.clearSwiftUnittest_Names_http()
+
+    msg.SwiftUnittest_Names_httpRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_httpRequest)
+    msg.clearSwiftUnittest_Names_httpRequest()
+
+    msg.SwiftUnittest_Names_theHTTPRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPRequest)
+    msg.clearSwiftUnittest_Names_theHTTPRequest()
+
+    msg.SwiftUnittest_Names_theHTTP = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTP)
+    msg.clearSwiftUnittest_Names_theHTTP()
+
+    msg.SwiftUnittest_Names_https = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_https)
+    msg.clearSwiftUnittest_Names_https()
+
+    msg.SwiftUnittest_Names_httpsRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_httpsRequest)
+    msg.clearSwiftUnittest_Names_httpsRequest()
+
+    msg.SwiftUnittest_Names_theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPSRequest)
+    msg.clearSwiftUnittest_Names_theHTTPSRequest()
+
+    msg.SwiftUnittest_Names_theHTTPS = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPS)
+    msg.clearSwiftUnittest_Names_theHTTPS()
+
+    msg.SwiftUnittest_Names_url = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_url)
+    msg.clearSwiftUnittest_Names_url()
+
+    msg.SwiftUnittest_Names_urlValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_urlValue)
+    msg.clearSwiftUnittest_Names_urlValue()
+
+    msg.SwiftUnittest_Names_theURLValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theURLValue)
+    msg.clearSwiftUnittest_Names_theURLValue()
+
+    msg.SwiftUnittest_Names_theURL = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theURL)
+    msg.clearSwiftUnittest_Names_theURL()
+
+    msg.SwiftUnittest_Names_aBC = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_aBC)
+    msg.clearSwiftUnittest_Names_aBC()
+  }
+
+  func testUppers() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitialsUppers()
+
+    msg.SwiftUnittest_Names_http = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_http)
+    msg.clearSwiftUnittest_Names_http()
+
+    msg.SwiftUnittest_Names_httpRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_httpRequest)
+    msg.clearSwiftUnittest_Names_httpRequest()
+
+    msg.SwiftUnittest_Names_theHTTPRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPRequest)
+    msg.clearSwiftUnittest_Names_theHTTPRequest()
+
+    msg.SwiftUnittest_Names_theHTTP = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTP)
+    msg.clearSwiftUnittest_Names_theHTTP()
+
+    msg.SwiftUnittest_Names_https = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_https)
+    msg.clearSwiftUnittest_Names_https()
+
+    msg.SwiftUnittest_Names_httpsRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_httpsRequest)
+    msg.clearSwiftUnittest_Names_httpsRequest()
+
+    msg.SwiftUnittest_Names_theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPSRequest)
+    msg.clearSwiftUnittest_Names_theHTTPSRequest()
+
+    msg.SwiftUnittest_Names_theHTTPS = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPS)
+    msg.clearSwiftUnittest_Names_theHTTPS()
+
+    msg.SwiftUnittest_Names_url = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_url)
+    msg.clearSwiftUnittest_Names_url()
+
+    msg.SwiftUnittest_Names_urlValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_urlValue)
+    msg.clearSwiftUnittest_Names_urlValue()
+
+    msg.SwiftUnittest_Names_theURLValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theURLValue)
+    msg.clearSwiftUnittest_Names_theURLValue()
+
+    msg.SwiftUnittest_Names_theURL = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theURL)
+    msg.clearSwiftUnittest_Names_theURL()
+  }
+
+  func testWordCase() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitialsWordCase()
+
+    msg.SwiftUnittest_Names_http = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_http)
+    msg.clearSwiftUnittest_Names_http()
+
+    msg.SwiftUnittest_Names_httpRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_httpRequest)
+    msg.clearSwiftUnittest_Names_httpRequest()
+
+    msg.SwiftUnittest_Names_theHTTPRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPRequest)
+    msg.clearSwiftUnittest_Names_theHTTPRequest()
+
+    msg.SwiftUnittest_Names_theHTTP = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTP)
+    msg.clearSwiftUnittest_Names_theHTTP()
+
+    msg.SwiftUnittest_Names_https = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_https)
+    msg.clearSwiftUnittest_Names_https()
+
+    msg.SwiftUnittest_Names_httpsRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_httpsRequest)
+    msg.clearSwiftUnittest_Names_httpsRequest()
+
+    msg.SwiftUnittest_Names_theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPSRequest)
+    msg.clearSwiftUnittest_Names_theHTTPSRequest()
+
+    msg.SwiftUnittest_Names_theHTTPS = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theHTTPS)
+    msg.clearSwiftUnittest_Names_theHTTPS()
+
+    msg.SwiftUnittest_Names_url = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_url)
+    msg.clearSwiftUnittest_Names_url()
+
+    msg.SwiftUnittest_Names_urlValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_urlValue)
+    msg.clearSwiftUnittest_Names_urlValue()
+
+    msg.SwiftUnittest_Names_theURLValue = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theURLValue)
+    msg.clearSwiftUnittest_Names_theURLValue()
+
+    msg.SwiftUnittest_Names_theURL = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theURL)
+    msg.clearSwiftUnittest_Names_theURL()
   }
 }
