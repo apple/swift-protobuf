@@ -100,8 +100,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       timestamp = Timestamp()
 ///       timestamp.GetCurrentTime()
 struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Timestamp"}
-  var protoPackageName: String {return "google.protobuf"}
+  static let protoMessageName: String = "Timestamp"
+  static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),

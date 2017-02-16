@@ -113,8 +113,8 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
 ///  
 ///   The JSON representation for `Struct` is JSON object.
 struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Struct"}
-  var protoPackageName: String {return "google.protobuf"}
+  static let protoMessageName: String = "Struct"
+  static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "fields"),
   ]
@@ -155,8 +155,8 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
 ///  
 ///   The JSON representation for `Value` is JSON value.
 struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Value"}
-  var protoPackageName: String {return "google.protobuf"}
+  static let protoMessageName: String = "Value"
+  static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "null_value", json: "nullValue"),
     2: .unique(proto: "number_value", json: "numberValue"),
@@ -411,8 +411,8 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
 struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ListValue"}
-  var protoPackageName: String {return "google.protobuf"}
+  static let protoMessageName: String = "ListValue"
+  static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "values"),
   ]

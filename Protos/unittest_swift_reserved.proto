@@ -33,4 +33,15 @@ message SwiftReservedTest {
     message class {}
     message Type {}
     message isEqual {}
+
+    // static r/o properties on Message, ensure they still work as fields.
+    optional int32 proto_message_name = 10;
+    optional int32 proto_package_name = 11;
+    optional int32 any_type_prefix = 12;
+    optional int32 anyTypeURL = 13;
+
+    // r/o properties on Message, ensure it gets remapped.
+    optional string is_initialized = 20;
+    optional string hash_value = 21;
+    optional int32 debug_description = 22;
 }

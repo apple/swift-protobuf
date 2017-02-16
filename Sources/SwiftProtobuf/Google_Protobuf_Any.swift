@@ -60,10 +60,12 @@ fileprivate func typeName(fromURL s: String) -> String {
 }
 
 fileprivate func typeName(fromMessage message: Message) -> String {
-    if message.protoPackageName == "" {
-        return message.protoMessageName
+    let msgType = type(of: message)
+    let protoPackageName = msgType.protoPackageName
+    if protoPackageName == "" {
+        return msgType.protoMessageName
     } else {
-        return "\(message.protoPackageName).\(message.protoMessageName)"
+        return "\(protoPackageName).\(msgType.protoMessageName)"
     }
 }
 
@@ -144,8 +146,8 @@ public extension Message {
 /// limitation of Google's spec for google.protobuf.Any.
 ///
 public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, ProtoNameProviding {
-    public var protoPackageName: String {return "google.protobuf"}
-    public var protoMessageName: String {return "Any"}
+    public static let protoPackageName: String = "google.protobuf"
+    public static let protoMessageName: String = "Any"
     public static let _protobuf_fieldNames: FieldNameMap = [
         1: .unique(proto: "type_url", json: "@type"),
         2: .same(proto: "value"),
@@ -256,7 +258,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
 
     public init(message: Message) {
         _message = message
-        typeURL = message.anyTypeURL
+        typeURL = type(of: message).anyTypeURL
     }
 
     mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
@@ -482,7 +484,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
 
     public func serializeAnyJSON() throws -> String {
         let value = try serializeJSON()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     // Caveat:  This can be very expensive.  We should consider organizing

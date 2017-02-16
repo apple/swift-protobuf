@@ -766,7 +766,9 @@ extension Test_SmallRequired {
 extension Test_Reserved {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Reserved).testEnumPrefix)})
+            ("testEnumNaming", {try run_test(test:($0 as! Test_Reserved).testEnumNaming)}),
+            ("testMessageNames", {try run_test(test:($0 as! Test_Reserved).testMessageNames)}),
+            ("testFieldNamesMatchingMetadata", {try run_test(test:($0 as! Test_Reserved).testFieldNamesMatchingMetadata)})
         ]
     }
 }

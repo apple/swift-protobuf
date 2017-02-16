@@ -56,8 +56,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestEmbedOptimizedForSize"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestEmbedOptimizedForSize"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "optional_message", json: "optionalMessage"),
     2: .unique(proto: "repeated_message", json: "repeatedMessage"),

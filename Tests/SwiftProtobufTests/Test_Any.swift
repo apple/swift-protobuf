@@ -24,7 +24,7 @@ class Test_Any: XCTestCase {
     func test_Any() throws {
         var content = ProtobufUnittest_TestAllTypes()
         content.optionalInt32 = 7
-        XCTAssertEqual(content.anyTypeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
+        XCTAssertEqual(type(of: content).anyTypeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
 
         var m = ProtobufUnittest_TestAny()
         m.int32Value = 12

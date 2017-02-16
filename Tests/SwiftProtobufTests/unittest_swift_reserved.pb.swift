@@ -36,9 +36,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "SwiftReservedTest"}
-  var protoPackageName: String {return "protobuf_unittest"}
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let protoMessageName: String = "SwiftReservedTest"
+  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_fieldNames: FieldNameMap = [
+    10: .unique(proto: "proto_message_name", json: "protoMessageName"),
+    11: .unique(proto: "proto_package_name", json: "protoPackageName"),
+    12: .unique(proto: "any_type_prefix", json: "anyTypePrefix"),
+    13: .same(proto: "anyTypeURL"),
+    20: .unique(proto: "is_initialized", json: "isInitialized"),
+    21: .unique(proto: "hash_value", json: "hashValue"),
+    22: .unique(proto: "debug_description", json: "debugDescription"),
+  ]
 
   var unknown = SwiftProtobuf.UnknownStorage()
 
@@ -167,8 +175,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "class"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "class"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknown = SwiftProtobuf.UnknownStorage()
@@ -193,8 +201,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "Type"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "Type"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknown = SwiftProtobuf.UnknownStorage()
@@ -219,8 +227,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct isEqualMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "isEqual"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "isEqual"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknown = SwiftProtobuf.UnknownStorage()
@@ -244,6 +252,92 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
+  ///   static r/o properties on Message, ensure they still work as fields.
+  private var _protoMessageName: Int32? = nil
+  var protoMessageName: Int32 {
+    get {return _protoMessageName ?? 0}
+    set {_protoMessageName = newValue}
+  }
+  var hasProtoMessageName: Bool {
+    return _protoMessageName != nil
+  }
+  mutating func clearProtoMessageName() {
+    return _protoMessageName = nil
+  }
+
+  private var _protoPackageName: Int32? = nil
+  var protoPackageName: Int32 {
+    get {return _protoPackageName ?? 0}
+    set {_protoPackageName = newValue}
+  }
+  var hasProtoPackageName: Bool {
+    return _protoPackageName != nil
+  }
+  mutating func clearProtoPackageName() {
+    return _protoPackageName = nil
+  }
+
+  private var _anyTypePrefix: Int32? = nil
+  var anyTypePrefix: Int32 {
+    get {return _anyTypePrefix ?? 0}
+    set {_anyTypePrefix = newValue}
+  }
+  var hasAnyTypePrefix: Bool {
+    return _anyTypePrefix != nil
+  }
+  mutating func clearAnyTypePrefix() {
+    return _anyTypePrefix = nil
+  }
+
+  private var _anyTypeURL: Int32? = nil
+  var anyTypeURL: Int32 {
+    get {return _anyTypeURL ?? 0}
+    set {_anyTypeURL = newValue}
+  }
+  var hasAnyTypeURL: Bool {
+    return _anyTypeURL != nil
+  }
+  mutating func clearAnyTypeURL() {
+    return _anyTypeURL = nil
+  }
+
+  ///   r/o properties on Message, ensure it gets remapped.
+  private var _isInitialized_p: String? = nil
+  var isInitialized_p: String {
+    get {return _isInitialized_p ?? ""}
+    set {_isInitialized_p = newValue}
+  }
+  var hasIsInitialized: Bool {
+    return _isInitialized_p != nil
+  }
+  mutating func clearIsInitialized() {
+    return _isInitialized_p = nil
+  }
+
+  private var _hashValue_p: String? = nil
+  var hashValue_p: String {
+    get {return _hashValue_p ?? ""}
+    set {_hashValue_p = newValue}
+  }
+  var hasHashValue: Bool {
+    return _hashValue_p != nil
+  }
+  mutating func clearHashValue() {
+    return _hashValue_p = nil
+  }
+
+  private var _debugDescription_p: Int32? = nil
+  var debugDescription_p: Int32 {
+    get {return _debugDescription_p ?? 0}
+    set {_debugDescription_p = newValue}
+  }
+  var hasDebugDescription: Bool {
+    return _debugDescription_p != nil
+  }
+  mutating func clearDebugDescription() {
+    return _debugDescription_p = nil
+  }
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -251,13 +345,51 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 10: try decoder.decodeSingularInt32Field(value: &_protoMessageName)
+    case 11: try decoder.decodeSingularInt32Field(value: &_protoPackageName)
+    case 12: try decoder.decodeSingularInt32Field(value: &_anyTypePrefix)
+    case 13: try decoder.decodeSingularInt32Field(value: &_anyTypeURL)
+    case 20: try decoder.decodeSingularStringField(value: &_isInitialized_p)
+    case 21: try decoder.decodeSingularStringField(value: &_hashValue_p)
+    case 22: try decoder.decodeSingularInt32Field(value: &_debugDescription_p)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    if let v = _protoMessageName {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 10)
+    }
+    if let v = _protoPackageName {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 11)
+    }
+    if let v = _anyTypePrefix {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 12)
+    }
+    if let v = _anyTypeURL {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 13)
+    }
+    if let v = _isInitialized_p {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 20)
+    }
+    if let v = _hashValue_p {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 21)
+    }
+    if let v = _debugDescription_p {
+      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 22)
+    }
     unknown.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
+    if _protoMessageName != other._protoMessageName {return false}
+    if _protoPackageName != other._protoPackageName {return false}
+    if _anyTypePrefix != other._anyTypePrefix {return false}
+    if _anyTypeURL != other._anyTypeURL {return false}
+    if _isInitialized_p != other._isInitialized_p {return false}
+    if _hashValue_p != other._hashValue_p {return false}
+    if _debugDescription_p != other._debugDescription_p {return false}
     if unknown != other.unknown {return false}
     return true
   }

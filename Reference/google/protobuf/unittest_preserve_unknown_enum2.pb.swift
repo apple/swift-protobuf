@@ -109,8 +109,8 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 }
 
 struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "MyMessage"}
-  var protoPackageName: String {return "proto2_preserve_unknown_enum_unittest"}
+  static let protoMessageName: String = "MyMessage"
+  static let protoPackageName: String = "proto2_preserve_unknown_enum_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "e"),
     2: .unique(proto: "repeated_e", json: "repeatedE"),
