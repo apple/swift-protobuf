@@ -1,2 +1,4 @@
+Required.JsonInput.DurationMaxValue.JsonOutput
+Required.JsonInput.DurationMinValue.JsonOutput
 Required.ProtobufInput.RepeatedScalarSelectsLast.DOUBLE.JsonOutput
 Required.ProtobufInput.ValidDataRepeated.DOUBLE.JsonOutput
