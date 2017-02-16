@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
 public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Api"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Api"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "methods"),
@@ -239,8 +239,8 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 
 ///   Method represents a method of an api.
 public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Method"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Method"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "name"),
     2: .unique(proto: "request_type_url", json: "requestTypeUrl"),
@@ -408,8 +408,8 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf.Proto
 ///         ...
 ///       }
 public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Mixin"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Mixin"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "root"),

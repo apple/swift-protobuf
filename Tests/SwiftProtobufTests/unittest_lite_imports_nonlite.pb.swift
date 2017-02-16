@@ -54,8 +54,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestLiteImportsNonlite"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestLiteImportsNonlite"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "message"),
   ]

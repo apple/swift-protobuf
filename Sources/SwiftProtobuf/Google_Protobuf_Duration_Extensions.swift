@@ -131,7 +131,7 @@ public extension Google_Protobuf_Duration {
 
     public func serializeAnyJSON() throws -> String {
         let value = try serializeJSON()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 }
 

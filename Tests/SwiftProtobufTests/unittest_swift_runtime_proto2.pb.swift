@@ -49,8 +49,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Message2"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "Message2"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -874,8 +874,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "OptionalGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "OptionalGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       17: .same(proto: "a"),
     ]
@@ -922,8 +922,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "RepeatedGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "RepeatedGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       47: .same(proto: "a"),
     ]
@@ -970,8 +970,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 
   struct OneofGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "OneofGroup"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "OneofGroup"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       67: .same(proto: "a"),
       167: .same(proto: "b"),

@@ -295,8 +295,8 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestAllTypes"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestAllTypes"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "single_int32", json: "singleInt32"),
     2: .unique(proto: "single_int64", json: "singleInt64"),
@@ -847,8 +847,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       1: .same(proto: "bb"),
     ]
@@ -1213,8 +1213,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
 
 ///   This proto includes a recusively nested message.
 struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "NestedTestAllTypes"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "NestedTestAllTypes"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
@@ -1325,8 +1325,8 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
 }
 
 struct Proto3TestDeprecatedFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestDeprecatedFields"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestDeprecatedFields"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "deprecated_int32", json: "deprecatedInt32"),
   ]
@@ -1362,8 +1362,8 @@ struct Proto3TestDeprecatedFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct Proto3ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ForeignMessage"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "ForeignMessage"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "c"),
   ]
@@ -1397,8 +1397,8 @@ struct Proto3ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 }
 
 struct Proto3TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestReservedFields"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestReservedFields"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 
@@ -1421,8 +1421,8 @@ struct Proto3TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
 
 ///   Test that we can use NestedMessage from outside TestAllTypes.
 struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestForeignNested"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestForeignNested"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "foreign_nested", json: "foreignNested"),
   ]
@@ -1502,8 +1502,8 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
 
 ///   Test that really large tag numbers don't break anything.
 struct Proto3TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestReallyLargeTagNumber"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestReallyLargeTagNumber"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
     268435455: .same(proto: "bb"),
@@ -1547,8 +1547,8 @@ struct Proto3TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftProtobuf.Prot
 }
 
 struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestRecursiveMessage"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestRecursiveMessage"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
     2: .same(proto: "i"),
@@ -1641,8 +1641,8 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 
 ///   Test that mutual recursion works.
 struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestMutualRecursionA"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestMutualRecursionA"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "bb"),
   ]
@@ -1721,8 +1721,8 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 }
 
 struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestMutualRecursionB"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestMutualRecursionB"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
     2: .unique(proto: "optional_int32", json: "optionalInt32"),
@@ -1816,8 +1816,8 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///   Test message with CamelCase field names.  This violates Protocol Buffer
 ///   standard style.
 struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestCamelCaseFieldNames"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestCamelCaseFieldNames"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "PrimitiveField"),
     2: .same(proto: "StringField"),
@@ -1989,8 +1989,8 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
 ///   We list fields out of order, to ensure that we're using field number and not
 ///   field index to determine serialization order.
 struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestFieldOrderings"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestFieldOrderings"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     11: .unique(proto: "my_string", json: "myString"),
     1: .unique(proto: "my_int", json: "myInt"),
@@ -2058,8 +2058,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
 
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       2: .same(proto: "oo"),
       1: .same(proto: "bb"),
@@ -2154,8 +2154,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
 }
 
 struct Proto3SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "SparseEnumMessage"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "SparseEnumMessage"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "sparse_enum", json: "sparseEnum"),
   ]
@@ -2190,8 +2190,8 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
 
 ///   Test String and Bytes: string is for valid UTF-8 strings
 struct Proto3OneString: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "OneString"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "OneString"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2225,8 +2225,8 @@ struct Proto3OneString: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
 }
 
 struct Proto3MoreString: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "MoreString"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "MoreString"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2260,8 +2260,8 @@ struct Proto3MoreString: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swi
 }
 
 struct Proto3OneBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "OneBytes"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "OneBytes"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2295,8 +2295,8 @@ struct Proto3OneBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swift
 }
 
 struct Proto3MoreBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "MoreBytes"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "MoreBytes"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2331,8 +2331,8 @@ struct Proto3MoreBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
 
 ///   Test int32, uint32, int64, uint64, and bool are all compatible
 struct Proto3Int32Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Int32Message"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "Int32Message"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2366,8 +2366,8 @@ struct Proto3Int32Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
 }
 
 struct Proto3Uint32Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Uint32Message"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "Uint32Message"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2401,8 +2401,8 @@ struct Proto3Uint32Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 }
 
 struct Proto3Int64Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Int64Message"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "Int64Message"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2436,8 +2436,8 @@ struct Proto3Int64Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
 }
 
 struct Proto3Uint64Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "Uint64Message"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "Uint64Message"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2471,8 +2471,8 @@ struct Proto3Uint64Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 }
 
 struct Proto3BoolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "BoolMessage"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "BoolMessage"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "data"),
   ]
@@ -2507,8 +2507,8 @@ struct Proto3BoolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Sw
 
 ///   Test oneofs.
 struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestOneof"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestOneof"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "foo_int", json: "fooInt"),
     2: .unique(proto: "foo_string", json: "fooString"),
@@ -2689,8 +2689,8 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
 //  Test messages for packed fields
 
 struct Proto3TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestPackedTypes"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestPackedTypes"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     90: .unique(proto: "packed_int32", json: "packedInt32"),
     91: .unique(proto: "packed_int64", json: "packedInt64"),
@@ -2830,8 +2830,8 @@ struct Proto3TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 ///   A message with the same fields as TestPackedTypes, but without packing. Used
 ///   to test packed <-> unpacked wire compatibility.
 struct Proto3TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestUnpackedTypes"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestUnpackedTypes"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     90: .unique(proto: "unpacked_int32", json: "unpackedInt32"),
     91: .unique(proto: "unpacked_int64", json: "unpackedInt64"),
@@ -2969,8 +2969,8 @@ struct Proto3TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
 }
 
 struct Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestRepeatedScalarDifferentTagSizes"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestRepeatedScalarDifferentTagSizes"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     12: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
     13: .unique(proto: "repeated_int32", json: "repeatedInt32"),
@@ -3050,8 +3050,8 @@ struct Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message, SwiftPr
 }
 
 struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestCommentInjectionMessage"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestCommentInjectionMessage"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "a"),
   ]
@@ -3087,8 +3087,8 @@ struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Message, SwiftProtobuf.P
 
 ///   Test that RPC services work.
 struct Proto3FooRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "FooRequest"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "FooRequest"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 
@@ -3110,8 +3110,8 @@ struct Proto3FooRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swi
 }
 
 struct Proto3FooResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "FooResponse"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "FooResponse"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 
@@ -3133,8 +3133,8 @@ struct Proto3FooResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Sw
 }
 
 struct Proto3FooClientMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "FooClientMessage"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "FooClientMessage"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 
@@ -3156,8 +3156,8 @@ struct Proto3FooClientMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
 }
 
 struct Proto3FooServerMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "FooServerMessage"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "FooServerMessage"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 
@@ -3179,8 +3179,8 @@ struct Proto3FooServerMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
 }
 
 struct Proto3BarRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "BarRequest"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "BarRequest"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 
@@ -3202,8 +3202,8 @@ struct Proto3BarRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swi
 }
 
 struct Proto3BarResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "BarResponse"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "BarResponse"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 

@@ -111,8 +111,8 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 
 ///   A protocol buffer message type.
 public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Type"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Type"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "fields"),
@@ -265,8 +265,8 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 
 ///   A single field of a message type.
 public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Field"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Field"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "kind"),
     2: .same(proto: "cardinality"),
@@ -661,8 +661,8 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3
 
 ///   Enum type definition.
 public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Enum"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Enum"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "enumvalue"),
@@ -801,8 +801,8 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 
 ///   Enum value definition.
 public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "EnumValue"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "EnumValue"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "number"),
@@ -859,8 +859,8 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
 ///   A protocol buffer option, which can be attached to a message, field,
 ///   enumeration, etc.
 public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Option"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Option"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "value"),

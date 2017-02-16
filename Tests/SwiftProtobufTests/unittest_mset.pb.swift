@@ -57,8 +57,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestMessageSetContainer"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestMessageSetContainer"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "message_set", json: "messageSet"),
   ]
@@ -154,8 +154,8 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
 }
 
 struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestMessageSetExtension1"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestMessageSetExtension1"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     15: .same(proto: "i"),
   ]
@@ -211,8 +211,8 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
 }
 
 struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestMessageSetExtension2"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "TestMessageSetExtension2"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     25: .same(proto: "str"),
   ]
@@ -280,8 +280,8 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
 
 ///   MessageSet wire format is equivalent to this.
 struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "RawMessageSet"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "RawMessageSet"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "Item", json: "item"),
   ]
@@ -289,8 +289,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
   var unknown = SwiftProtobuf.UnknownStorage()
 
   struct Item: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "Item"}
-    var protoPackageName: String {return "protobuf_unittest"}
+    static let protoMessageName: String = "Item"
+    static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       2: .unique(proto: "type_id", json: "typeId"),
       3: .same(proto: "message"),

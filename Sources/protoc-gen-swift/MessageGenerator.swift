@@ -520,8 +520,8 @@ class MessageGenerator {
 
         p.print("\(generatorOptions.visibilitySourceSnippet)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
         p.indent()
-        p.print("\(generatorOptions.visibilitySourceSnippet)var protoMessageName: String {return \"\(protoMessageName)\"}\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)var protoPackageName: String {return \"\(protoPackageName)\"}\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)static let protoMessageName: String = \"\(protoMessageName)\"\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)static let protoPackageName: String = \"\(protoPackageName)\"\n")
 
         // Map proto field names to field number
         if fields.isEmpty {
