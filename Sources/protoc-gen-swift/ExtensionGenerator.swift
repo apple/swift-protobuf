@@ -24,7 +24,6 @@ struct ExtensionGenerator {
     let path: [Int32]
     let protoPath: String
     let swiftDeclaringMessageName: String?
-    let extendedMessage: Google_Protobuf_DescriptorProto
     let context: Context
     let comments: String
     let apiType: String
@@ -71,8 +70,7 @@ struct ExtensionGenerator {
         self.generatorOptions = file.generatorOptions
         self.path = path
         self.swiftDeclaringMessageName = swiftDeclaringMessageName
-        self.extendedMessage = context.getMessageForPath(path: descriptor.extendee)!
-        self.swiftExtendedMessageName = context.swiftNameForProtoName(protoName: descriptor.extendee)
+        self.swiftExtendedMessageName = context.getMessageNameForPath(path: descriptor.extendee)!
         self.context = context
         self.apiType = descriptor.getSwiftApiType(context: context, isProto3: false)
         self.comments = file.commentsFor(path: path)
@@ -90,17 +88,16 @@ struct ExtensionGenerator {
         } else {
             fieldBaseName = toLowerCamelCase(descriptor.name)
         }
-        let baseName = sanitizeFieldName(fieldBaseName)
 
         if let msg = swiftDeclaringMessageName {
-            self.swiftRelativeExtensionName = baseName
-            self.swiftFullExtensionName = msg + ".Extensions." + baseName
-            self.swiftFieldName = sanitizeFieldName(periodsToUnderscores(msg + "_" + fieldBaseName))
+            self.swiftRelativeExtensionName = fieldBaseName
+            self.swiftFullExtensionName = msg + ".Extensions." + fieldBaseName
+            self.swiftFieldName = periodsToUnderscores(msg + "_" + fieldBaseName)
         } else {
             let swiftPrefix = file.swiftPrefix
-            self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
+            self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + fieldBaseName
             self.swiftFullExtensionName = self.swiftRelativeExtensionName
-            self.swiftFieldName = sanitizeFieldName(periodsToUnderscores(swiftPrefix + fieldBaseName))
+            self.swiftFieldName = periodsToUnderscores(swiftPrefix + fieldBaseName)
         }
         self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
         self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)

@@ -56,6 +56,13 @@ class Test_Reserved: XCTestCase {
         msg.hashValue_p = "bar"
         msg.debugDescription_p = 5
 
-        XCTAssertEqual(msg.debugDescription, "SwiftProtobufTests.ProtobufUnittest_SwiftReservedTest:\nproto_message_name: 1\nproto_package_name: 2\nany_type_prefix: 3\nanyTypeURL: 4\nis_initialized: \"foo\"\nhash_value: \"bar\"\ndebug_description: 5\n")
+        XCTAssertEqual(msg.debugDescription, "SwiftProtobufTests.ProtobufUnittest_SwiftReservedTest:\nproto_message_name: 1\nproto_package_name: 2\nany_type_prefix: 3\nany_type_url: 4\nis_initialized: \"foo\"\nhash_value: \"bar\"\ndebug_description: 5\n")
+
+        msg.clearIsInitialized_p()
+        msg.clearHashValue_p()
+        msg.clearDebugDescription_p()
+        XCTAssertFalse(msg.hasIsInitialized_p)
+        XCTAssertFalse(msg.hasHashValue_p)
+        XCTAssertFalse(msg.hasDebugDescription_p)
     }
 }
