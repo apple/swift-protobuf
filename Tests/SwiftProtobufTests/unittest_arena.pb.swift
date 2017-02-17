@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "NestedMessage"
   static let protoPackageName: String = "proto2_arena_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -99,7 +99,7 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 }
 
-struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "ArenaMessage"
   static let protoPackageName: String = "proto2_arena_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [

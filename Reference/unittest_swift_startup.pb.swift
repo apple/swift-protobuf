@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestObjCStartupMessage"
   static let protoPackageName: String = "protobuf_objc_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -111,7 +111,7 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Swift
   }
 }
 
-struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestObjCStartupNested"
   static let protoPackageName: String = "protobuf_objc_unittest"
   static let _protobuf_fieldNames = FieldNameMap()

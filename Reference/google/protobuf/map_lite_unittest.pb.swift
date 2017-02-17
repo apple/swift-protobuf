@@ -232,7 +232,7 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestMapLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -536,7 +536,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   }
 }
 
-struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestArenaMapLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -841,7 +841,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.P
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestRequiredMessageMapLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -886,7 +886,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
   }
 }
 
-struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestEnumMapLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -934,7 +934,7 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestEnumMapPlusExtraLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -982,7 +982,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestMessageMapLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -1022,7 +1022,7 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestRequiredLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -1115,7 +1115,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 }
 
-struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "ForeignMessageArenaLite"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [

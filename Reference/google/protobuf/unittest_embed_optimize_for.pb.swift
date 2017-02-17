@@ -55,7 +55,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestEmbedOptimizedForSize"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [

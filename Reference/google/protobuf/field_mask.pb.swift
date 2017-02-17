@@ -249,7 +249,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "FieldMask"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [

@@ -112,7 +112,7 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "ImportMessageLite"
   static let protoPackageName: String = "protobuf_unittest_import"
   static let _protobuf_fieldNames: FieldNameMap = [

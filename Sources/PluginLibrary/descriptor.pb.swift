@@ -59,7 +59,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   The protocol compiler can output a FileDescriptorSet containing the .proto
 ///   files it parses.
-public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "FileDescriptorSet"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -105,7 +105,7 @@ public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftPro
 }
 
 ///   Describes a complete .proto file.
-public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "FileDescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -388,7 +388,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftP
 }
 
 ///   Describes a message type.
-public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "DescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -490,7 +490,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
     set {_uniqueStorage().unknownFields = newValue}
   }
 
-  public struct ExtensionRange: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  public struct ExtensionRange: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public static let protoMessageName: String = "ExtensionRange"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -561,7 +561,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
   ///   Range of reserved tag numbers. Reserved tag numbers may not be used by
   ///   fields or extension ranges in the same message. Reserved ranges may
   ///   not overlap.
-  public struct ReservedRange: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  public struct ReservedRange: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public static let protoMessageName: String = "ReservedRange"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -758,7 +758,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
 }
 
 ///   Describes a field within a message.
-public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "FieldDescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1280,7 +1280,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
 }
 
 ///   Describes a oneof.
-public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "OneofDescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1398,7 +1398,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, Swift
 }
 
 ///   Describes an enum type.
-public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "EnumDescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1530,7 +1530,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftP
 }
 
 ///   Describes a value within an enum.
-public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "EnumValueDescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1667,7 +1667,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, S
 }
 
 ///   Describes a service.
-public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "ServiceDescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -1799,7 +1799,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, Swi
 }
 
 ///   Describes a method of a service.
-public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "MethodDescriptorProto"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -2028,7 +2028,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, Swif
 //    If this turns out to be popular, a web service will be set up
 //    to automatically assign option numbers.
 
-public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "FileOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -2489,7 +2489,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "MessageOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -2682,7 +2682,7 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "FieldOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3042,7 +3042,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "OneofOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3117,7 +3117,7 @@ public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "EnumOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3234,7 +3234,7 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "EnumValueOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3331,7 +3331,7 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "ServiceOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3433,7 +3433,7 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "MethodOptions"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3625,7 +3625,7 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
 ///   options protos in descriptor objects (e.g. returned by Descriptor::options(),
 ///   or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
 ///   in them.
-public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "UninterpretedOption"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3645,7 +3645,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftP
   ///   extension (denoted with parentheses in options specs in .proto files).
   ///   E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
   ///   "foo.(bar.baz).qux".
-  public struct NamePart: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  public struct NamePart: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public static let protoMessageName: String = "NamePart"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3864,7 +3864,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftP
 
 ///   Encapsulates information about the original source file from which a
 ///   FileDescriptorProto was generated.
-public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "SourceCodeInfo"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -3873,7 +3873,7 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtob
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct Location: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  public struct Location: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public static let protoMessageName: String = "Location"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -4117,7 +4117,7 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtob
 ///   Describes the relationship between generated code and its original source
 ///   file. A GeneratedCodeInfo message is associated with only one generated
 ///   source file, but may contain references to different source .proto files.
-public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   public static let protoMessageName: String = "GeneratedCodeInfo"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
@@ -4126,7 +4126,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftPro
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public struct Annotation: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  public struct Annotation: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     public static let protoMessageName: String = "Annotation"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [

@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestEnormousDescriptor"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
