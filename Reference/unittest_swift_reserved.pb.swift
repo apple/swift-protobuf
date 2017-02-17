@@ -199,21 +199,13 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     }
 
     func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-<<<<<<< HEAD
+      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 2001)
       unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
       if unknownFields != other.unknownFields {return false}
-=======
-      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 2001)
-      unknown.traverse(visitor: visitor)
-    }
-
-    func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
-      if unknown != other.unknown {return false}
       if _extensionFieldValues != other._extensionFieldValues {return false}
->>>>>>> master
       return true
     }
 
@@ -400,13 +392,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-<<<<<<< HEAD
-    unknownFields.traverse(visitor: visitor)
-  }
-
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-=======
     if let v = _protoMessageName {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 10)
     }
@@ -428,7 +413,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     if let v = _debugDescription_p {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 22)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
@@ -439,7 +424,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     if _isInitialized_p != other._isInitialized_p {return false}
     if _hashValue_p != other._hashValue_p {return false}
     if _debugDescription_p != other._debugDescription_p {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -449,7 +434,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct Extensions {
 
@@ -473,12 +458,11 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTestExt) -> Bool {
-    if unknown != other.unknown {return false}
->>>>>>> master
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
