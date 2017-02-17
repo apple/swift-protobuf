@@ -1786,7 +1786,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
     var _isInitialized_p: Int32? = nil
     var _serializedSize: Int32? = nil
     var _sortedExtensionsInUse: Int32? = nil
-    var _unknownFields: Int32? = nil
+    var _unknownFields_p: Int32? = nil
     var _fixed: Int32? = nil
     var _fract: Int32? = nil
     var _size: Int32? = nil
@@ -2003,7 +2003,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       case 213: try decoder.decodeSingularInt32Field(value: &_isInitialized_p)
       case 214: try decoder.decodeSingularInt32Field(value: &_serializedSize)
       case 215: try decoder.decodeSingularInt32Field(value: &_sortedExtensionsInUse)
-      case 216: try decoder.decodeSingularInt32Field(value: &_unknownFields)
+      case 216: try decoder.decodeSingularInt32Field(value: &_unknownFields_p)
       case 217: try decoder.decodeSingularInt32Field(value: &_fixed)
       case 218: try decoder.decodeSingularInt32Field(value: &_fract)
       case 219: try decoder.decodeSingularInt32Field(value: &_size)
@@ -2574,7 +2574,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       if let v = _sortedExtensionsInUse {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 215)
       }
-      if let v = _unknownFields {
+      if let v = _unknownFields_p {
         try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 216)
       }
       if let v = _fixed {
@@ -2844,7 +2844,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       if _isInitialized_p != other._isInitialized_p {return false}
       if _serializedSize != other._serializedSize {return false}
       if _sortedExtensionsInUse != other._sortedExtensionsInUse {return false}
-      if _unknownFields != other._unknownFields {return false}
+      if _unknownFields_p != other._unknownFields_p {return false}
       if _fixed != other._fixed {return false}
       if _fract != other._fract {return false}
       if _size != other._size {return false}
@@ -3059,7 +3059,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
       clone._isInitialized_p = _isInitialized_p
       clone._serializedSize = _serializedSize
       clone._sortedExtensionsInUse = _sortedExtensionsInUse
-      clone._unknownFields = _unknownFields
+      clone._unknownFields_p = _unknownFields_p
       clone._fixed = _fixed
       clone._fract = _fract
       clone._size = _size
@@ -5068,15 +5068,15 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
     return _storage._sortedExtensionsInUse = nil
   }
 
-  var unknownFields: Int32 {
-    get {return _storage._unknownFields ?? 0}
-    set {_uniqueStorage()._unknownFields = newValue}
+  var unknownFields_p: Int32 {
+    get {return _storage._unknownFields_p ?? 0}
+    set {_uniqueStorage()._unknownFields_p = newValue}
   }
-  var hasUnknownFields: Bool {
-    return _storage._unknownFields != nil
+  var hasUnknownFields_p: Bool {
+    return _storage._unknownFields_p != nil
   }
-  mutating func clearUnknownFields() {
-    return _storage._unknownFields = nil
+  mutating func clearUnknownFields_p() {
+    return _storage._unknownFields_p = nil
   }
 
   var fixed: Int32 {
@@ -14106,7 +14106,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct unknownFields: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "unknownFields"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14147,7 +14147,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       unknownFields.traverse(visitor: visitor)
     }
 
-    func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFields) -> Bool {
+    func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFieldsMessage) -> Bool {
       if _a != other._a {return false}
       if unknownFields != other.unknownFields {return false}
       return true
@@ -23983,7 +23983,7 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   }
 
-  enum unknownFields: SwiftProtobuf.Enum {
+  enum unknownFieldsEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aunknownFields // = 0
 
