@@ -1033,7 +1033,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>) -> F.ValueType {

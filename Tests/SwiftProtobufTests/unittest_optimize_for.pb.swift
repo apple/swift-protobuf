@@ -290,7 +290,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> F.ValueType {

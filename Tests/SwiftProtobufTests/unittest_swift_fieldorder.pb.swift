@@ -416,7 +416,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>) -> F.ValueType {

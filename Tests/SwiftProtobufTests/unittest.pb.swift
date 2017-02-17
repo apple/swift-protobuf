@@ -4950,7 +4950,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestFieldOrderings>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestFieldOrderings>) -> F.ValueType {
@@ -9018,7 +9018,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestParsingMerge>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestParsingMerge>) -> F.ValueType {
@@ -9849,7 +9849,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestHugeFieldNumbers>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestHugeFieldNumbers>) -> F.ValueType {

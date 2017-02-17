@@ -424,7 +424,9 @@ extension Test_Extensions {
             ("test_repeatedInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_repeatedInt32Extension)}),
             ("test_defaultInt32Extension", {try run_test(test:($0 as! Test_Extensions).test_defaultInt32Extension)}),
             ("test_groupExtension", {try run_test(test:($0 as! Test_Extensions).test_groupExtension)}),
-            ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)})
+            ("test_repeatedGroupExtension", {try run_test(test:($0 as! Test_Extensions).test_repeatedGroupExtension)}),
+            ("test_MessageNoStorageClass", {try run_test(test:($0 as! Test_Extensions).test_MessageNoStorageClass)}),
+            ("test_MessageUseingStorageClass", {try run_test(test:($0 as! Test_Extensions).test_MessageUseingStorageClass)})
         ]
     }
 }

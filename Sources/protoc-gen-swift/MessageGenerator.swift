@@ -810,7 +810,7 @@ class MessageGenerator {
                 p.print("}\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
-                p.print("  return _storage.clearExtensionValue(ext: ext)\n")
+                p.print("  return _uniqueStorage().clearExtensionValue(ext: ext)\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")
