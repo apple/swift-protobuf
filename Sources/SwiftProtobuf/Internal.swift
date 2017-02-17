@@ -14,9 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 import Foundation
-import Swift
 
 public struct Internal {
   private init() {}

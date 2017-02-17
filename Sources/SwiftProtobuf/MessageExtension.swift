@@ -15,8 +15,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 /// Note that the MessageExtensionBase protocol has no generic
 /// pieces.
 public protocol MessageExtensionBase {

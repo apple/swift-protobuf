@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 let minutesPerDay: Int32 = 1440
 let minutesPerHour: Int32 = 60
 let secondsPerDay: Int32 = 86400

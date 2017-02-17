@@ -23,8 +23,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
-
 
 // Note: The protobuf- and JSON-specific methods here are defined
 // in ProtobufTypeAdditions.swift and JSONTypeAdditions.swift
@@ -55,10 +53,10 @@ public protocol FieldType {
     static func encodedSizeWithoutTag(of value: BaseType) throws -> Int
 
     /// Write the protobuf-encoded value to the encoder
-    static func serializeProtobufValue(encoder: inout ProtobufEncoder, value: BaseType)
+    static func serializeProtobufValue(encoder: inout BinaryEncoder, value: BaseType)
 
     /// Serialize the value to a Text encoder
-    static func serializeTextValue(encoder: TextEncoder, value: BaseType) throws
+    static func serializeTextValue(encoder: TextFormatEncoder, value: BaseType) throws
 
     /// Serialize the value to a JSON encoder
     static func serializeJSONValue(encoder: inout JSONEncoder, value: BaseType) throws

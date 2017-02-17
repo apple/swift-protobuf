@@ -13,7 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 /// An internal protocol that the 32- and 64-bit Swift integer types conform to
 /// within this compilation unit so that we can write the numeric conversions
 /// in `JSONToken` more cleanly.

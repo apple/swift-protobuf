@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/ProtobufEncoder.swift - Binary encoding support
+// Sources/SwiftProtobuf/BinaryEncoder.swift - Binary encoding support
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -14,17 +14,16 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 /*
  * Encoder for Binary Protocol Buffer format
  *
  * TODO: Should this be a class?
  */
-public struct ProtobufEncoder {
+public struct BinaryEncoder {
     private var pointer: UnsafeMutablePointer<UInt8>
 
-    public init(pointer: UnsafeMutablePointer<UInt8>) {
+    public init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
         self.pointer = pointer
     }
 

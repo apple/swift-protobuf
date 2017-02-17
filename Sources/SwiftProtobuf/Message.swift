@@ -89,7 +89,7 @@ public protocol Message: CustomDebugStringConvertible {
   //
   // Protobuf Text decoding
   //
-  mutating func decodeTextFormat(from: inout TextDecoder) throws
+  mutating func decodeTextFormat(from: inout TextFormatDecoder) throws
 
   //
   // google.protobuf.Any support

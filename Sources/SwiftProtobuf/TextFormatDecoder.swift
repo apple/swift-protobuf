@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/TextDecoder.swift - Text format decoding
+// Sources/SwiftProtobuf/TextFormatDecoder.swift - Text format decoding
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -13,16 +13,15 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 ///
 /// Provides a higher-level interface to the token stream coming
-/// from a TextScanner.  In particular, this provides single-token
-/// pushback and convenience functions for iterating over complex
-/// structures.
+/// from a TextFormatScanner.  In particular, this provides
+/// single-token pushback and convenience functions for iterating
+/// over complex structures.
 ///
-public struct TextDecoder: Decoder {
-    internal var scanner: TextScanner
+public struct TextFormatDecoder: Decoder {
+    internal var scanner: TextFormatScanner
     private var fieldCount = 0
     private var terminator: UInt8?
     private var fieldNameMap: FieldNameMap?
@@ -35,19 +34,19 @@ public struct TextDecoder: Decoder {
     }
 
     internal init(messageType: Message.Type, text: String, extensions: ExtensionSet?) throws {
-        scanner = TextScanner(text: text, extensions: extensions)
+        scanner = TextFormatScanner(text: text, extensions: extensions)
         guard let nameProviding = (messageType as? ProtoNameProviding.Type) else {
-            throw TextDecodingError.missingFieldNames
+            throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames
         self.messageType = messageType
     }
 
-    internal init(messageType: Message.Type, scanner: TextScanner, terminator: UInt8?) throws {
+    internal init(messageType: Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
         self.scanner = scanner
         self.terminator = terminator
         guard let nameProviding = (messageType as? ProtoNameProviding.Type) else {
-            throw TextDecodingError.missingFieldNames
+            throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames
         self.messageType = messageType
@@ -55,7 +54,7 @@ public struct TextDecoder: Decoder {
 
 
     public mutating func handleConflictingOneOf() throws {
-        throw TextDecodingError.conflictingOneOf
+        throw TextFormatDecodingError.conflictingOneOf
     }
 
     public mutating func nextFieldNumber() throws -> Int? {
@@ -73,7 +72,7 @@ public struct TextDecoder: Decoder {
                 fieldCount += 1
                 return fieldNumber
             } else {
-                throw TextDecodingError.unknownField
+                throw TextFormatDecodingError.unknownField
             }
         } else if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
             fieldCount += 1
@@ -81,7 +80,7 @@ public struct TextDecoder: Decoder {
         } else if terminator == nil {
             return nil
         } else {
-            throw TextDecodingError.truncated
+            throw TextFormatDecodingError.truncated
         }
 
     }
@@ -148,7 +147,7 @@ public struct TextDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw TextDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         value = Int32(truncatingBitPattern: n)
     }
@@ -156,7 +155,7 @@ public struct TextDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw TextDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         value = Int32(truncatingBitPattern: n)
     }
@@ -175,14 +174,14 @@ public struct TextDecoder: Decoder {
                 }
                 let n = try scanner.nextSInt()
                 if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                    throw TextDecodingError.malformedNumber
+                    throw TextFormatDecodingError.malformedNumber
                 }
                 value.append(Int32(truncatingBitPattern: n))
             }
         } else {
             let n = try scanner.nextSInt()
             if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                throw TextDecodingError.malformedNumber
+                throw TextFormatDecodingError.malformedNumber
             }
             value.append(Int32(truncatingBitPattern: n))
         }
@@ -220,7 +219,7 @@ public struct TextDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
-            throw TextDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         value = UInt32(truncatingBitPattern: n)
     }
@@ -228,7 +227,7 @@ public struct TextDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
-            throw TextDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         value = UInt32(truncatingBitPattern: n)
     }
@@ -247,14 +246,14 @@ public struct TextDecoder: Decoder {
                 }
                 let n = try scanner.nextUInt()
                 if n > UInt64(UInt32.max) {
-                    throw TextDecodingError.malformedNumber
+                    throw TextFormatDecodingError.malformedNumber
                 }
                 value.append(UInt32(truncatingBitPattern: n))
             }
         } else {
             let n = try scanner.nextUInt()
             if n > UInt64(UInt32.max) {
-                throw TextDecodingError.malformedNumber
+                throw TextFormatDecodingError.malformedNumber
             }
             value.append(UInt32(truncatingBitPattern: n))
         }
@@ -435,7 +434,7 @@ public struct TextDecoder: Decoder {
             if let b = E(protoName: name) {
                 return b
             } else {
-                throw TextDecodingError.unrecognizedEnumValue
+                throw TextFormatDecodingError.unrecognizedEnumValue
             }
         }
         let number = try scanner.nextSInt()
@@ -444,10 +443,10 @@ public struct TextDecoder: Decoder {
             if let e = E(rawValue: Int(n)) {
                 return e
             } else {
-                throw TextDecodingError.unrecognizedEnumValue
+                throw TextFormatDecodingError.unrecognizedEnumValue
             }
         }
-        throw TextDecodingError.malformedText
+        throw TextFormatDecodingError.malformedText
 
     }
 
@@ -492,7 +491,7 @@ public struct TextDecoder: Decoder {
             value = M()
         }
         let terminator = try scanner.skipObjectStart()
-        var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+        var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
         try value!.decodeTextFormat(from: &subDecoder)
         scanner = subDecoder.scanner
     }
@@ -512,7 +511,7 @@ public struct TextDecoder: Decoder {
                 }
                 var message = M()
                 let terminator = try scanner.skipObjectStart()
-                var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+                var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
                 try message.decodeTextFormat(from: &subDecoder)
                 scanner = subDecoder.scanner
                 value.append(message)
@@ -520,7 +519,7 @@ public struct TextDecoder: Decoder {
         } else {
             var message = M()
             let terminator = try scanner.skipObjectStart()
-            var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+            var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
             try message.decodeTextFormat(from: &subDecoder)
             scanner = subDecoder.scanner
             value.append(message)
@@ -545,7 +544,7 @@ public struct TextDecoder: Decoder {
                     value[keyField] = valueField
                     return
                 } else {
-                    throw TextDecodingError.malformedText
+                    throw TextFormatDecodingError.malformedText
                 }
             }
             if let key = try scanner.nextKey() {
@@ -555,7 +554,7 @@ public struct TextDecoder: Decoder {
                 case "value":
                     try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
-                    throw TextDecodingError.unknownField
+                    throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
             }
@@ -592,7 +591,7 @@ public struct TextDecoder: Decoder {
                     value[keyField] = valueField
                     return
                 } else {
-                    throw TextDecodingError.malformedText
+                    throw TextFormatDecodingError.malformedText
                 }
             }
             if let key = try scanner.nextKey() {
@@ -602,7 +601,7 @@ public struct TextDecoder: Decoder {
                 case "value":
                     try decodeSingularEnumField(value: &valueField)
                 default:
-                    throw TextDecodingError.unknownField
+                    throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
             }
@@ -639,7 +638,7 @@ public struct TextDecoder: Decoder {
                     value[keyField] = valueField
                     return
                 } else {
-                    throw TextDecodingError.malformedText
+                    throw TextFormatDecodingError.malformedText
                 }
             }
             if let key = try scanner.nextKey() {
@@ -649,7 +648,7 @@ public struct TextDecoder: Decoder {
                 case "value":
                     try decodeSingularMessageField(value: &valueField)
                 default:
-                    throw TextDecodingError.unknownField
+                    throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
             }

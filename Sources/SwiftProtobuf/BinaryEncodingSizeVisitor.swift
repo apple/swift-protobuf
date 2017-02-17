@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/ProtobufEncodingSizeVisitor.swift - Binary size calculation support
+// Sources/SwiftProtobuf/BinaryEncodingSizeVisitor.swift - Binary size calculation support
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -18,7 +18,7 @@ import Foundation
 /// Visitor that calculates the binary-encoded size of a message so that a
 /// properly sized `Data` or `UInt8` array can be pre-allocated before
 /// serialization.
-final class ProtobufEncodingSizeVisitor: Visitor {
+final class BinaryEncodingSizeVisitor: Visitor {
 
   /// Accumulates the required size of the message during traversal.
   var serializedSize: Int = 0

@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/ProtobufEncodingVisitor.swift - Binary encoding support
+// Sources/SwiftProtobuf/BinaryEncodingVisitor.swift - Binary encoding support
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -16,9 +16,9 @@
 import Foundation
 
 /// Visitor that encodes a message graph in the protobuf binary wire format.
-final class ProtobufEncodingVisitor: Visitor {
+final class BinaryEncodingVisitor: Visitor {
 
-  private var encoder: ProtobufEncoder
+  private var encoder: BinaryEncoder
 
   /// Creates a new visitor that writes the binary-coded message into the memory
   /// at the given pointer.
@@ -27,7 +27,7 @@ final class ProtobufEncodingVisitor: Visitor {
   ///   is large enough to hold the entire encoded message. For performance
   ///   reasons, the encoder does not make any attempts to verify this.
   init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
-    encoder = ProtobufEncoder(pointer: pointer)
+    encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
   func visitUnknown(bytes: Data) {

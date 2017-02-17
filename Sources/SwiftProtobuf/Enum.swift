@@ -15,8 +15,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 public protocol Enum: RawRepresentable, Hashable {
     init()
     init?(jsonName: String)

@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 private let asciiBell = UInt8(7)
 private let asciiBackspace = UInt8(8)
