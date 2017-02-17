@@ -68,7 +68,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   private class _StorageClass: SwiftProtobuf.ExtensibleMessageStorage {
     typealias ExtendedMessage = ProtobufUnittest_TestOptimizedForSize
     var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _i: Int32? = nil
     var _msg: ProtobufUnittest_ForeignMessage? = nil
     var _foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo?
@@ -108,21 +108,21 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
       try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
       if _i != other._i {return false}
       if _msg != other._msg {return false}
       if _foo != other._foo {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       if extensionFieldValues != other.extensionFieldValues {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone.extensionFieldValues = extensionFieldValues
       clone._i = _i
       clone._msg = _msg
@@ -133,9 +133,9 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   enum OneOf_Foo: Equatable {
@@ -308,7 +308,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
     1: .same(proto: "x"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   private var _x: Int32? = nil
   var x: Int32 {
@@ -344,12 +344,12 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
     if let v = _x {
       try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
     }
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOptimizedForSize) -> Bool {
     if _x != other._x {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -363,7 +363,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
 
   private class _StorageClass {
     typealias ExtendedMessage = ProtobufUnittest_TestOptionalOptimizedForSize
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
 
     var isInitialized: Bool {
@@ -388,18 +388,18 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
       if let v = _o {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
       if _o != other._o {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
 
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknown = unknown
+      clone.unknownFields = unknownFields
       clone._o = _o
       return clone
     }
@@ -407,9 +407,9 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
 
   private var _storage = _StorageClass()
 
-  var unknown: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknown}
-    set {_storage.unknown = newValue}
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get {return _storage.unknownFields}
+    set {_storage.unknownFields = newValue}
   }
 
   var o: ProtobufUnittest_TestRequiredOptimizedForSize {

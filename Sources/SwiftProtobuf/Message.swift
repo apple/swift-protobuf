@@ -82,14 +82,14 @@ public protocol Message: CustomDebugStringConvertible {
   //
   // Protobuf Binary decoding
   //
-  mutating func decodeProtobuf(from: UnsafePointer<UInt8>,
-                               count: Int,
-                               extensions: ExtensionSet?) throws
+  mutating func decodeBinary(from: UnsafePointer<UInt8>,
+                             count: Int,
+                             extensions: ExtensionSet?) throws
 
   //
   // Protobuf Text decoding
   //
-  mutating func decodeText(from: inout TextDecoder) throws
+  mutating func decodeTextFormat(from: inout TextDecoder) throws
 
   //
   // google.protobuf.Any support
@@ -103,14 +103,14 @@ public protocol Message: CustomDebugStringConvertible {
   ///
   /// For generated message types, this generates the same JSON object as
   /// `serializeJSON()` except it adds an additional `@type` field.
-  func serializeAnyJSON() throws -> String
+  func anyJSONString() throws -> String
 
   //
   // JSON encoding/decoding support
   //
 
   /// Overridden by well-known-types with custom JSON requirements.
-  func serializeJSON() throws -> String
+  func jsonString() throws -> String
 
   mutating func decodeJSON(from: inout JSONDecoder) throws
 
@@ -144,7 +144,7 @@ public extension Message {
     //   )
     let className = String(reflecting: type(of: self))
     var result = "\(className):\n"
-    if let textFormat = try? serializeText() {
+    if let textFormat = try? textFormatString() {
       result += textFormat
     } else {
       result += "<internal error>"
@@ -192,7 +192,7 @@ public extension Message {
 /// a proto2 source file.
 ///
 public protocol Proto2Message: Message {
-  var unknown: UnknownStorage { get set }
+  var unknownFields: UnknownStorage { get set }
 }
 
 ///

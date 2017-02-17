@@ -95,7 +95,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         }
     }
 
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.startObject()
         for (k,v) in fields {
@@ -106,8 +106,8 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         return jsonEncoder.result
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
@@ -256,14 +256,14 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         try serializeJSONValue(jsonEncoder: &jsonEncoder)
         return jsonEncoder.result
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
@@ -479,8 +479,8 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             case .numberValue(let v): encoder.putDoubleValue(value: v, quote: false)
             case .stringValue(let v): encoder.putStringValue(value: v)
             case .boolValue(let v): encoder.putBoolValue(value: v, quote: false)
-            case .structValue(let v): encoder.append(text: try v.serializeJSON())
-            case .listValue(let v): encoder.append(text: try v.serializeJSON())
+            case .structValue(let v): encoder.append(text: try v.jsonString())
+            case .listValue(let v): encoder.append(text: try v.jsonString())
             }
         }
 
@@ -562,7 +562,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         set(newValue) {values[index] = newValue}
     }
 
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.append(text: "[")
         var separator = ""
@@ -594,8 +594,8 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         }
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 

@@ -493,7 +493,7 @@ public struct TextDecoder: Decoder {
         }
         let terminator = try scanner.skipObjectStart()
         var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
-        try value!.decodeText(from: &subDecoder)
+        try value!.decodeTextFormat(from: &subDecoder)
         scanner = subDecoder.scanner
     }
 
@@ -513,7 +513,7 @@ public struct TextDecoder: Decoder {
                 var message = M()
                 let terminator = try scanner.skipObjectStart()
                 var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
-                try message.decodeText(from: &subDecoder)
+                try message.decodeTextFormat(from: &subDecoder)
                 scanner = subDecoder.scanner
                 value.append(message)
             }
@@ -521,7 +521,7 @@ public struct TextDecoder: Decoder {
             var message = M()
             let terminator = try scanner.skipObjectStart()
             var subDecoder = try TextDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
-            try message.decodeText(from: &subDecoder)
+            try message.decodeTextFormat(from: &subDecoder)
             scanner = subDecoder.scanner
             value.append(message)
         }

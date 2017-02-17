@@ -120,7 +120,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_O: Equatable {
     case oneofE1(Proto2PreserveUnknownEnumUnittest_MyEnum)
@@ -250,7 +250,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
       try visitor.visitRepeatedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
     try o?.traverse(visitor: visitor, start: 5, end: 7)
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
@@ -259,7 +259,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     if repeatedPackedE != other.repeatedPackedE {return false}
     if repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
     if o != other.o {return false}
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

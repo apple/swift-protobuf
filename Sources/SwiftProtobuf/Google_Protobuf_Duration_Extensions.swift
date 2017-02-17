@@ -121,7 +121,7 @@ public extension Google_Protobuf_Duration {
         (seconds, nanos) = try parseDuration(text: s)
     }
 
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
         } else {
@@ -129,8 +129,8 @@ public extension Google_Protobuf_Duration {
         }
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 }

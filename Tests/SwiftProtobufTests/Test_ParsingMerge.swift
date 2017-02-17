@@ -55,9 +55,9 @@ class Test_ParsingMerge: XCTestCase {
 
         // Encode/decode should merge repeated fields into non-repeated
         do {
-            let encoded = try m.serializeProtobuf()
+            let encoded = try m.serializedData()
             do {
-                let decoded = try ProtobufUnittest_TestParsingMerge(protobuf: encoded)
+                let decoded = try ProtobufUnittest_TestParsingMerge(serializedData: encoded)
 
                 // requiredAllTypes <== merge of field1
                 let field1 = decoded.requiredAllTypes

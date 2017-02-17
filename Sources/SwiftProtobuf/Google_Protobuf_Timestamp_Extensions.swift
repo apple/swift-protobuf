@@ -208,7 +208,7 @@ public extension Google_Protobuf_Timestamp {
         (seconds, nanos) = try parseTimestamp(s: s)
     }
 
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
         } else {
@@ -216,8 +216,8 @@ public extension Google_Protobuf_Timestamp {
         }
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 }

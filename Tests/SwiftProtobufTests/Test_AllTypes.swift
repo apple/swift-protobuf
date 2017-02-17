@@ -27,9 +27,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
         do {
             // Make sure unknown fields are preserved by empty message decode/encode
-            let empty = try ProtobufUnittest_TestEmptyMessage(protobufBytes: bytes)
+            let empty = try ProtobufUnittest_TestEmptyMessage(serializedBytes: bytes)
             do {
-                let newBytes = try empty.serializeProtobufBytes()
+                let newBytes = try empty.serializedBytes()
                 XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match", file: file, line: line)
             } catch let e {
                 XCTFail("Reserializing empty threw an error: \(e)", file: file, line: line)
@@ -763,10 +763,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [146, 1, 2, 8, 1, // nested message with bb=1
                               208, 41, 0] // Unknown field 666 with varint 0
         do {
-            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            let m = try MessageTestType(serializedData: Data(bytes: bytes))
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             do {
-                let recoded = try m.serializeProtobuf()
+                let recoded = try m.serializedData()
                 XCTAssertEqual(recoded, Data(bytes: bytes))
             } catch let e {
                 XCTFail("Failed to recode: \(e)")
@@ -781,10 +781,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [208, 41, 0, // Unknown 666 with varint 0
                               146, 1, 2, 8, 1] // Nested msg with bb=1
         do {
-            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            let m = try MessageTestType(serializedData: Data(bytes: bytes))
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             do {
-                let recoded = try m.serializeProtobuf()
+                let recoded = try m.serializedData()
                 // Unknown field gets reserialized at end
                 let expectedBytes: [UInt8] = [146, 1, 2, 8, 1, 208, 41, 0]
                 XCTAssertEqual(recoded, Data(bytes: expectedBytes))
@@ -803,11 +803,11 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99,
                               208, 41, 0]
         do {
-            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            let m = try MessageTestType(serializedData: Data(bytes: bytes))
             XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.optionalNestedMessage.bb, 1)
             do {
-                let recoded = try m.serializeProtobuf()
+                let recoded = try m.serializedData()
                 XCTAssertEqual(recoded, Data(bytes: bytes))
             } catch let e {
                 XCTFail("Failed to recode: \(e)")
@@ -823,11 +823,11 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         // first in outer and inner message
         let bytes: [UInt8] = [208, 41, 0, 146, 1, 5, 208, 41, 99, 8, 1]
         do {
-            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            let m = try MessageTestType(serializedData: Data(bytes: bytes))
             XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.optionalNestedMessage.bb, 1)
             do {
-                let recoded = try m.serializeProtobuf()
+                let recoded = try m.serializedData()
                 // Reserializing moves unknown fields to end
                 let expectedBytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99, 208, 41, 0]
                 XCTAssertEqual(recoded, Data(bytes: expectedBytes))
@@ -902,9 +902,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
 
         // The out-of-range enum value should be preserved as an unknown field
-        let decoded = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [168, 1, 128, 1]))
+        let decoded = try ProtobufUnittest_TestAllTypes(serializedData: Data(bytes: [168, 1, 128, 1]))
         XCTAssertFalse(decoded.hasOptionalNestedEnum)
-        let recoded = try decoded.serializeProtobufBytes()
+        let recoded = try decoded.serializedBytes()
         XCTAssertEqual(recoded, [168, 1, 128, 1])
     }
 
@@ -1423,7 +1423,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         ]
 
         do {
-            let m = try MessageTestType(protobuf: Data(bytes: bytes))
+            let m = try MessageTestType(serializedData: Data(bytes: bytes))
             XCTAssertEqual(m.repeatedNestedMessage.count, 2)
             XCTAssertNotEqual(m.repeatedNestedMessage[0], MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.repeatedNestedMessage[0].bb, 1)
@@ -1438,7 +1438,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
                     208, 41, 1,
                     208, 41, 2
                 ]
-                let recoded = try m.serializeProtobuf()
+                let recoded = try m.serializedData()
                 XCTAssertEqual(recoded, Data(bytes: expectedBytes))
             } catch let e {
                 XCTFail("Failed to recode: \(e)")
@@ -1461,9 +1461,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // The out-of-range enum value should be preserved as an unknown field
         do {
-            let decoded1 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [152, 3, 1, 152, 3, 128, 1]))
+            let decoded1 = try ProtobufUnittest_TestAllTypes(serializedData: Data(bytes: [152, 3, 1, 152, 3, 128, 1]))
             XCTAssertEqual(decoded1.repeatedNestedEnum, [.foo])
-            let recoded1 = try decoded1.serializeProtobufBytes()
+            let recoded1 = try decoded1.serializedBytes()
             XCTAssertEqual(recoded1, [152, 3, 1, 152, 3, 128, 1])
         } catch let e {
             XCTFail("Decode failed: \(e)")
@@ -1471,9 +1471,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // Unknown fields always get reserialized last, which trashes order here:
         do {
-            let decoded2 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [152, 3, 128, 1, 152, 3, 2]))
+            let decoded2 = try ProtobufUnittest_TestAllTypes(serializedData: Data(bytes: [152, 3, 128, 1, 152, 3, 2]))
             XCTAssertEqual(decoded2.repeatedNestedEnum, [.bar])
-            let recoded2 = try decoded2.serializeProtobufBytes()
+            let recoded2 = try decoded2.serializedBytes()
             XCTAssertEqual(recoded2, [152, 3, 2, 152, 3, 128, 1])
         } catch let e {
             XCTFail("Decode failed: \(e)")
@@ -1481,9 +1481,9 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // Unknown enums within packed behave as if it were plain repeated
         do {
-            let decoded3 = try ProtobufUnittest_TestAllTypes(protobuf: Data(bytes: [154, 3, 3, 128, 1, 2]))
+            let decoded3 = try ProtobufUnittest_TestAllTypes(serializedData: Data(bytes: [154, 3, 3, 128, 1, 2]))
             XCTAssertEqual(decoded3.repeatedNestedEnum, [.bar])
-            let recoded3 = try decoded3.serializeProtobufBytes()
+            let recoded3 = try decoded3.serializedBytes()
             XCTAssertEqual(recoded3, [152, 3, 2, 154, 3, 2, 128, 1])
         } catch let e {
             XCTFail("Decode failed: \(e)")
@@ -1506,8 +1506,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultInt32 = 41
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([232, 3, 41], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultInt32\":41}", try a.serializeJSON())
+        XCTAssertEqual([232, 3, 41], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultInt32\":41}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1522,7 +1522,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertEqual(t.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\n")
 
         // The default is still not serialized
-        let s = try t.serializeProtobufBytes()
+        let s = try t.serializedBytes()
         XCTAssertEqual([], s)
 
         assertDecodeSucceeds([]) {$0.defaultInt32 == 41}
@@ -1535,12 +1535,12 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultInt64() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultInt64, 42)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
-        XCTAssertEqual(try empty.serializeJSON(), "{}")
+        XCTAssertEqual(try empty.serializedBytes(), [])
+        XCTAssertEqual(try empty.jsonString(), "{}")
         var m = MessageTestType()
         m.defaultInt64 = 1
         XCTAssertEqual(m.defaultInt64, 1)
-        XCTAssertEqual(try m.serializeProtobufBytes(), [240, 3, 1])
+        XCTAssertEqual(try m.serializedBytes(), [240, 3, 1])
 
         // Writing a value equal to the default compares as not equal to an unset field
         // But it gets serialized since it was explicitly set
@@ -1548,8 +1548,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultInt64 = 42
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([240, 3, 42], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultInt64\":\"42\"}", try a.serializeJSON())
+        XCTAssertEqual([240, 3, 42], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultInt64\":\"42\"}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1564,15 +1564,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultUint32() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultUint32, 43)
-        XCTAssertEqual(try empty.serializeProtobuf(), Data())
+        XCTAssertEqual(try empty.serializedData(), Data())
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultUint32 = 43
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([248, 3, 43], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultUint32\":43}", try a.serializeJSON())
+        XCTAssertEqual([248, 3, 43], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultUint32\":43}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1587,15 +1587,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultUint64() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultUint64, 44)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultUint64 = 44
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([128, 4, 44], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultUint64\":\"44\"}", try a.serializeJSON())
+        XCTAssertEqual([128, 4, 44], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultUint64\":\"44\"}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1610,15 +1610,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultSint32() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultSint32, -45)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultSint32 = -45
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([136, 4, 89], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultSint32\":-45}", try a.serializeJSON())
+        XCTAssertEqual([136, 4, 89], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultSint32\":-45}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1634,15 +1634,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultSint64() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultSint64, 46)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultSint64 = 46
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([144, 4, 92], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultSint64\":\"46\"}", try a.serializeJSON())
+        XCTAssertEqual([144, 4, 92], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultSint64\":\"46\"}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1657,15 +1657,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultFixed32() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultFixed32, 47)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultFixed32 = 47
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([157, 4, 47, 0, 0, 0], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultFixed32\":47}", try a.serializeJSON())
+        XCTAssertEqual([157, 4, 47, 0, 0, 0], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultFixed32\":47}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1680,15 +1680,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultFixed64() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultFixed64, 48)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultFixed64 = 48
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([161, 4, 48, 0, 0, 0, 0, 0, 0, 0], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultFixed64\":\"48\"}", try a.serializeJSON())
+        XCTAssertEqual([161, 4, 48, 0, 0, 0, 0, 0, 0, 0], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultFixed64\":\"48\"}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1703,15 +1703,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultSfixed32() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultSfixed32, 49)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultSfixed32 = 49
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual(Data(bytes: [173, 4, 49, 0, 0, 0]), try a.serializeProtobuf())
-        XCTAssertEqual("{\"defaultSfixed32\":49}", try a.serializeJSON())
+        XCTAssertEqual(Data(bytes: [173, 4, 49, 0, 0, 0]), try a.serializedData())
+        XCTAssertEqual("{\"defaultSfixed32\":49}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1726,15 +1726,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultSfixed64() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultSfixed64, -50)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultSfixed64 = -50
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([177, 4, 206, 255, 255, 255, 255, 255, 255, 255], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultSfixed64\":\"-50\"}", try a.serializeJSON())
+        XCTAssertEqual([177, 4, 206, 255, 255, 255, 255, 255, 255, 255], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultSfixed64\":\"-50\"}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1749,15 +1749,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultFloat() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultFloat, 51.5)
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         // Writing a value equal to the default compares as not equal to an unset field
         var a = MessageTestType()
         a.defaultFloat = 51.5
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([189, 4, 0, 0, 78, 66], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultFloat\":51.5}", try a.serializeJSON())
+        XCTAssertEqual([189, 4, 0, 0, 78, 66], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultFloat\":51.5}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1778,8 +1778,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultDouble = 52e3
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([193, 4, 0, 0, 0, 0, 0, 100, 233, 64], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultDouble\":52000}", try a.serializeJSON())
+        XCTAssertEqual([193, 4, 0, 0, 0, 0, 0, 100, 233, 64], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultDouble\":52000}", try a.jsonString())
 
         var b = MessageTestType()
         b.optionalInt32 = 1
@@ -1800,8 +1800,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultBool = true
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual(try a.serializeProtobufBytes(), [200, 4, 1])
-        XCTAssertEqual(try a.serializeJSON(), "{\"defaultBool\":true}")
+        XCTAssertEqual(try a.serializedBytes(), [200, 4, 1])
+        XCTAssertEqual(try a.jsonString(), "{\"defaultBool\":true}")
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1826,8 +1826,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultString = "hello"
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([210, 4, 5, 104, 101, 108, 108, 111], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultString\":\"hello\"}", try a.serializeJSON())
+        XCTAssertEqual([210, 4, 5, 104, 101, 108, 108, 111], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultString\":\"hello\"}", try a.jsonString())
 
         var b = MessageTestType()
         a.optionalInt32 = 1
@@ -1847,8 +1847,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultBytes = Data(bytes: [119, 111, 114, 108, 100])
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([218, 4, 5, 119, 111, 114, 108, 100], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultBytes\":\"d29ybGQ=\"}", try a.serializeJSON())
+        XCTAssertEqual([218, 4, 5, 119, 111, 114, 108, 100], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultBytes\":\"d29ybGQ=\"}", try a.jsonString())
 
         var b = MessageTestType()
         b.optionalInt32 = 1
@@ -1868,8 +1868,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultNestedEnum = .bar
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([136, 5, 2], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultNestedEnum\":\"BAR\"}", try a.serializeJSON())
+        XCTAssertEqual([136, 5, 2], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultNestedEnum\":\"BAR\"}", try a.jsonString())
 
         var b = MessageTestType()
         b.optionalInt32 = 1
@@ -1889,8 +1889,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         a.defaultForeignEnum = .foreignBar
         XCTAssertNotEqual(a, empty)
 
-        XCTAssertEqual([144, 5, 5], try a.serializeProtobufBytes())
-        XCTAssertEqual("{\"defaultForeignEnum\":\"FOREIGN_BAR\"}", try a.serializeJSON())
+        XCTAssertEqual([144, 5, 5], try a.serializedBytes())
+        XCTAssertEqual("{\"defaultForeignEnum\":\"FOREIGN_BAR\"}", try a.jsonString())
 
         var b = MessageTestType()
         b.optionalInt32 = 1
@@ -1912,21 +1912,21 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_defaultStringPiece() throws {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultStringPiece, "abc")
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         var a = empty
         a.defaultStringPiece = "abc"
-        XCTAssertEqual([162, 5, 3, 97, 98, 99], try a.serializeProtobufBytes())
+        XCTAssertEqual([162, 5, 3, 97, 98, 99], try a.serializedBytes())
     }
 
     func testEncoding_defaultCord() {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultCord, "123")
-        XCTAssertEqual(try empty.serializeProtobufBytes(), [])
+        XCTAssertEqual(try empty.serializedBytes(), [])
 
         var a = empty
         a.defaultCord = "123"
-        XCTAssertEqual([170, 5, 3, 49, 50, 51], try a.serializeProtobufBytes())
+        XCTAssertEqual([170, 5, 3, 49, 50, 51], try a.serializedBytes())
     }
 
     func testEncoding_oneofUint32() throws {

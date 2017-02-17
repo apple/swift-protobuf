@@ -131,7 +131,7 @@ public extension Google_Protobuf_FieldMask {
     }
 
     // Custom hand-rolled JSON serializer
-    public func serializeJSON() throws -> String {
+    public func jsonString() throws -> String {
         // Note:  Proto requires alphanumeric field names, so there
         // cannot be a ',' or '"' character to mess up this formatting.
         var jsonPaths = [String]()
@@ -145,8 +145,8 @@ public extension Google_Protobuf_FieldMask {
         return "\"" + jsonPaths.joined(separator: ",") + "\""
     }
 
-    public func serializeAnyJSON() throws -> String {
-        let value = try serializeJSON()
+    public func anyJSONString() throws -> String {
+        let value = try jsonString()
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 }

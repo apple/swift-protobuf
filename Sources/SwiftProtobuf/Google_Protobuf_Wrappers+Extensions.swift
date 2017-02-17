@@ -74,7 +74,7 @@ extension Google_Protobuf_DoubleValue:
     self.init(floatLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -100,7 +100,7 @@ extension Google_Protobuf_FloatValue:
     self.init(floatLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -126,7 +126,7 @@ extension Google_Protobuf_Int64Value:
     self.init(integerLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -152,7 +152,7 @@ extension Google_Protobuf_UInt64Value:
     self.init(integerLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -178,7 +178,7 @@ extension Google_Protobuf_Int32Value:
     self.init(integerLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -204,7 +204,7 @@ extension Google_Protobuf_UInt32Value:
     self.init(integerLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -230,7 +230,7 @@ extension Google_Protobuf_BoolValue:
     self.init(booleanLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -266,7 +266,7 @@ extension Google_Protobuf_StringValue:
     self.init(unicodeScalarLiteral)
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 
@@ -286,7 +286,7 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
     self.value = value
   }
 
-  public func serializeJSON() throws -> String {
+  public func jsonString() throws -> String {
     return try serializeWrapperJSON()
   }
 

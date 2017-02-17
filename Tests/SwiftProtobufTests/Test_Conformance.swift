@@ -26,8 +26,8 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             return (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
         }
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
-            let recoded = try decoded.serializeJSON()
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json)
+            let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
         } catch let e {
             XCTFail("Could not decode? Error: \(e)")
@@ -41,8 +41,8 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             return (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
         }
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
-            let recoded = try decoded.serializeJSON()
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json)
+            let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
         } catch let e {
             XCTFail("Could not decode? Error: \(e)")
@@ -58,8 +58,8 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
     func testInt32_min_roundtrip() throws {
         let json = "{\"optionalInt32\": -2147483648}"
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(json: json)
-            let recoded = try decoded.serializeJSON()
+            let decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json)
+            let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"optionalInt32\":-2147483648}")
         } catch {
             XCTFail("Could not decode")

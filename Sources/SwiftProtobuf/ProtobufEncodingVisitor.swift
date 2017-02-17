@@ -97,7 +97,7 @@ final class ProtobufEncodingVisitor: Visitor {
 
   func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
-    let t = try value.serializeProtobuf()
+    let t = try value.serializedData()
     encoder.startField(fieldNumber: fieldNumber,
                        wireFormat: .lengthDelimited)
     encoder.putBytesValue(value: t)
@@ -106,7 +106,7 @@ final class ProtobufEncodingVisitor: Visitor {
   func visitRepeatedMessageField<M: Message>(value: [M],
                                              fieldNumber: Int) throws {
     for v in value {
-      let t = try v.serializeProtobuf()
+      let t = try v.serializedData()
       encoder.startField(fieldNumber: fieldNumber,
                          wireFormat: .lengthDelimited)
       encoder.putBytesValue(value: t)
@@ -183,14 +183,14 @@ final class ProtobufEncodingVisitor: Visitor {
       let keyValueSize = try KeyType.encodedSizeWithoutTag(of: k)
       let valueTagSize =
         Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
-      let messageSize = try v.serializedProtobufSize()
+      let messageSize = try v.serializedDataSize()
       let valueValueSize = Varint.encodedSize(of: Int64(messageSize)) + messageSize
       let entrySize = keyTagSize + keyValueSize + valueTagSize + valueValueSize
       encoder.putVarInt(value: entrySize)
       encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
       KeyType.serializeProtobufValue(encoder: &encoder, value: k)
       encoder.startField(fieldNumber: 2, wireFormat: .lengthDelimited)
-      let messageBytes = try! v.serializeProtobuf()
+      let messageBytes = try! v.serializedData()
       encoder.putBytesValue(value: messageBytes)
     }
   }

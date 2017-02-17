@@ -40,7 +40,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
 
-  var unknown = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
@@ -52,7 +52,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
 
     private class _StorageClass {
       typealias ExtendedMessage = ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage
-      var unknown = SwiftProtobuf.UnknownStorage()
+      var unknownFields = SwiftProtobuf.UnknownStorage()
       var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
       var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil
 
@@ -77,19 +77,19 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         if let v = _optionalEnum {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
         }
-        unknown.traverse(visitor: visitor)
+        unknownFields.traverse(visitor: visitor)
       }
 
       func isEqualTo(other: _StorageClass) -> Bool {
         if _message != other._message {return false}
         if _optionalEnum != other._optionalEnum {return false}
-        if unknown != other.unknown {return false}
+        if unknownFields != other.unknownFields {return false}
         return true
       }
 
       func copy() -> _StorageClass {
         let clone = _StorageClass()
-        clone.unknown = unknown
+        clone.unknownFields = unknownFields
         clone._message = _message
         clone._optionalEnum = _optionalEnum
         return clone
@@ -98,9 +98,9 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
 
     private var _storage = _StorageClass()
 
-    var unknown: SwiftProtobuf.UnknownStorage {
-      get {return _storage.unknown}
-      set {_storage.unknown = newValue}
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get {return _storage.unknownFields}
+      set {_storage.unknownFields = newValue}
     }
 
     enum Enum: SwiftProtobuf.Enum {
@@ -205,7 +205,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       17: .unique(proto: "optional_enum", json: "optionalEnum"),
     ]
 
-    var unknown = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int
@@ -283,12 +283,12 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
       if let v = _optionalEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
       }
-      unknown.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
       if _optionalEnum != other._optionalEnum {return false}
-      if unknown != other.unknown {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -303,11 +303,11 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknown.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault) -> Bool {
-    if unknown != other.unknown {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

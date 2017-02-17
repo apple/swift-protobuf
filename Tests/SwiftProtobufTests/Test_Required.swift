@@ -230,8 +230,8 @@ class Test_Required: XCTestCase, PBTestHelpers {
         // Because we always encode required fields, we get a non-trivial
         // output even for a bare object.
         let o = MessageTestType()
-        XCTAssertEqual(try o.serializeProtobufBytes(), expected)
-        XCTAssertEqual(try o.serializeJSON(), expectedJSON)
+        XCTAssertEqual(try o.serializedBytes(), expected)
+        XCTAssertEqual(try o.jsonString(), expectedJSON)
     }
 
     func DISABLED_test_requiredInt32() {

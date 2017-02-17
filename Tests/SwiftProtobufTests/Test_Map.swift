@@ -24,7 +24,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
-            let encoded = try configured.serializeProtobufBytes()
+            let encoded = try configured.serializedBytes()
             // Reorder the provided blocks to match what we were given
             var t = encoded[0..<encoded.count]
             var availableBlocks = expectedBlocks
@@ -48,7 +48,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
             }
             XCTAssert(availableBlocks.isEmpty && t.isEmpty, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType(protobufBytes: encoded)
+                let decoded = try MessageTestType(serializedBytes: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object", file: file, line: line)
             } catch let e {
                 XCTFail("Encode/decode cycle should not fail: \(e)", file: file, line: line)

@@ -203,28 +203,29 @@ public extension ProtobufBytes {
 /// Messages
 ///
 public extension Message {
-    func serializeJSON() throws -> String {
+    func jsonString() throws -> String {
         return try JSONEncodingVisitor(message: self).result
     }
 
-    func serializeAnyJSON() throws -> String {
+    func anyJSONString() throws -> String {
         return try JSONEncodingVisitor(message: self, anyTypeURL: type(of: self).anyTypeURL).result
     }
 
     static func serializeJSONValue(encoder: inout JSONEncoder, value: Self) throws {
-        let json = try value.serializeJSON()
+        let json = try value.jsonString()
         encoder.append(text: json)
     }
 
-    public init(json: String) throws {
-        let data = json.data(using: String.Encoding.utf8)!
-        try self.init(jsonUTF8: data)
+    public init(jsonString: String) throws {
+        let data = jsonString.data(using: String.Encoding.utf8)!
+        try self.init(jsonUTF8Data: data)
     }
 
-    public init(jsonUTF8: Data) throws {
+    public init(jsonUTF8Data: Data) throws {
         self.init()
-        try jsonUTF8.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-            var decoder = JSONDecoder(utf8Pointer: bytes, count: jsonUTF8.count)
+        try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+            var decoder = JSONDecoder(utf8Pointer: bytes,
+                                      count: jsonUTF8Data.count)
             if !decoder.scanner.skipOptionalNull() {
                 try self.decodeJSON(from: &decoder)
             }

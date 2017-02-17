@@ -155,22 +155,24 @@ public extension ProtobufBytes {
 /// Messages
 ///
 public extension Message {
-    public func serializeText() throws -> String {
+    public func textFormatString() throws -> String {
         let visitor = TextEncodingVisitor(message: self)
         try traverse(visitor: visitor)
         return visitor.result
     }
 
-    public init(text: String, extensions: ExtensionSet? = nil) throws {
+    public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
         self.init()
-        var textDecoder = try TextDecoder(messageType: Self.self, text: text, extensions: extensions)
-        try decodeText(from: &textDecoder)
+        var textDecoder = try TextDecoder(messageType: Self.self,
+                                          text: textFormatString,
+                                          extensions: extensions)
+        try decodeTextFormat(from: &textDecoder)
         if !textDecoder.complete {
             throw TextDecodingError.trailingGarbage
         }
     }
 
-    public mutating func decodeText(from decoder: inout TextDecoder) throws {
+    public mutating func decodeTextFormat(from decoder: inout TextDecoder) throws {
         try decodeMessage(decoder: &decoder)
     }
 }

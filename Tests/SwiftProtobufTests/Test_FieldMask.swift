@@ -74,23 +74,23 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
     // Make sure field mask works correctly when stored in a field
     func testJSON_field() throws {
         do {
-            let valid = try ProtobufTestMessages_Proto3_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,barBaz\"}")
+            let valid = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}")
             XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
         } catch {
             XCTFail("Should have decoded correctly")
         }
 
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(json: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
     }
 
     func testSerializationFailure() {
         // If the proto fieldname can't be converted to a JSON field name,
         // then JSON serialization should fail:
         let m1 = Google_Protobuf_FieldMask(protoPaths: "foo_3_bar")
-        XCTAssertThrowsError(try m1.serializeJSON())
+        XCTAssertThrowsError(try m1.jsonString())
         let m2 = Google_Protobuf_FieldMask(protoPaths: "foo__bar")
-        XCTAssertThrowsError(try m2.serializeJSON())
+        XCTAssertThrowsError(try m2.jsonString())
         let m3 = Google_Protobuf_FieldMask(protoPaths: "fooBar")
-        XCTAssertThrowsError(try m3.serializeJSON())
+        XCTAssertThrowsError(try m3.jsonString())
     }
 }

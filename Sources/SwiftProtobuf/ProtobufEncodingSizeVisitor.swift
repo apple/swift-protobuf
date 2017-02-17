@@ -105,7 +105,7 @@ final class ProtobufEncodingSizeVisitor: Visitor {
                                              fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .lengthDelimited).encodedSize
-    let messageSize = try value.serializedProtobufSize()
+    let messageSize = try value.serializedDataSize()
     serializedSize +=
       tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
   }
@@ -116,7 +116,7 @@ final class ProtobufEncodingSizeVisitor: Visitor {
                            wireFormat: .lengthDelimited).encodedSize
     serializedSize += value.count * tagSize
     for v in value {
-      let messageSize = try v.serializedProtobufSize()
+      let messageSize = try v.serializedDataSize()
       serializedSize +=
         Varint.encodedSize(of: UInt64(messageSize)) + messageSize
     }
@@ -192,7 +192,7 @@ final class ProtobufEncodingSizeVisitor: Visitor {
       fieldNumber: 2, wireFormat: .lengthDelimited).encodedSize
     for (k,v) in value {
       let keyValueSize = try KeyType.encodedSizeWithoutTag(of: k)
-      let messageSize = try v.serializedProtobufSize()
+      let messageSize = try v.serializedDataSize()
       let valueValueSize = Varint.encodedSize(of: Int64(messageSize)) + messageSize
       let entrySize = keyTagSize + keyValueSize + valueTagSize + valueValueSize
       serializedSize += entrySize + Varint.encodedSize(of: Int64(entrySize))

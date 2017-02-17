@@ -141,7 +141,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         self.measure {
             do {
                 for _ in 0..<1000 {
-                    let _ = try m.serializeJSON()
+                    let _ = try m.jsonString()
                 }
             } catch {
             }
@@ -150,11 +150,11 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testDecodePerf() throws {
         let m = MessageTestType.with(configureLargeObject)
-        let json = try m.serializeJSON()
+        let json = try m.jsonString()
         self.measure {
             do {
                 for _ in 0..<1000 {
-                    let _ = try MessageTestType(json: json)
+                    let _ = try MessageTestType(jsonString: json)
                 }
             } catch {
             }
@@ -163,7 +163,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testDecodePerf_FoundationCompare() throws {
         let m = MessageTestType.with(configureLargeObject)
-        let json = try m.serializeJSON()
+        let json = try m.jsonString()
         self.measure {
             do {
                 for _ in 0..<1000 {
@@ -316,7 +316,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         // 0 is default, so proto3 omits it
         var a = MessageTestType()
         a.singleInt64 = 0
-        XCTAssertEqual(try a.serializeJSON(), "{}")
+        XCTAssertEqual(try a.jsonString(), "{}")
 
         // Decode should work even with unquoted large numbers
         assertJSONDecodeSucceeds("{\"singleInt64\":9223372036854775807}") {$0.singleInt64 == Int64.max}
@@ -439,9 +439,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         // The helper functions don't work with NaN because NaN != NaN
         var o = Proto3TestAllTypes()
         o.singleDouble = Double.nan
-        let encoded = try o.serializeJSON()
+        let encoded = try o.jsonString()
         XCTAssertEqual(encoded, "{\"singleDouble\":\"NaN\"}")
-        let o2 = try Proto3TestAllTypes(json: encoded)
+        let o2 = try Proto3TestAllTypes(jsonString: encoded)
         XCTAssert(o2.singleDouble.isNaN == .some(true))
     }
 
@@ -449,10 +449,10 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         // The helper functions don't work with NaN because NaN != NaN
         var o = Proto3TestAllTypes()
         o.singleFloat = Float.nan
-        let encoded = try o.serializeJSON()
+        let encoded = try o.jsonString()
         XCTAssertEqual(encoded, "{\"singleFloat\":\"NaN\"}")
         do {
-            let o2 = try Proto3TestAllTypes(json: encoded)
+            let o2 = try Proto3TestAllTypes(jsonString: encoded)
             XCTAssert(o2.singleFloat.isNaN == .some(true))
         } catch let e {
             XCTFail("Couldn't decode: \(e) -- \(encoded)")
@@ -467,7 +467,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         // False is default, so should not serialize in proto3
         var o = MessageTestType()
         o.singleBool = false
-        XCTAssertEqual(try o.serializeJSON(), "{}")
+        XCTAssertEqual(try o.jsonString(), "{}")
     }
 
     func testSingleString() {
@@ -499,7 +499,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         // Empty string is default, so proto3 omits it
         var a = MessageTestType()
         a.singleString = ""
-        XCTAssertEqual(try a.serializeJSON(), "{}")
+        XCTAssertEqual(try a.jsonString(), "{}")
 
         // Example from RFC 7159:  G clef coded as escaped surrogate pair
         assertJSONDecodeSucceeds("{\"singleString\":\"\\uD834\\uDD1E\"}") {$0.singleString == "𝄞"}
@@ -518,7 +518,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         // Empty bytes is default, so proto3 omits it
         var a = MessageTestType()
         a.singleBytes = Data()
-        XCTAssertEqual(try a.serializeJSON(), "{}")
+        XCTAssertEqual(try a.jsonString(), "{}")
 
         assertJSONEncode("{\"singleBytes\":\"AA==\"}") {(o: inout MessageTestType) in
             o.singleBytes = Data(bytes: [0])

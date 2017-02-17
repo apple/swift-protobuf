@@ -25,10 +25,10 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
         configured.anyField = Google_Protobuf_Any(message: message)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
-            let encoded = try configured.serializeText()
+            let encoded = try configured.textFormatString()
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType(text: encoded)
+                let decoded = try MessageTestType(textFormatString: encoded)
                 let decodedMessage = try M(any: decoded.anyField)
                 let r = (message == decodedMessage)
                 XCTAssert(r, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -52,10 +52,10 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
         let a = ProtobufUnittest_TestWellKnownTypes.with {
             $0.anyField = Google_Protobuf_Any(message: Google_Protobuf_Any(message: Google_Protobuf_Duration(seconds: 123, nanos: 234567890)))
         }
-        let a_encoded = try a.serializeText()
+        let a_encoded = try a.textFormatString()
         XCTAssertEqual(a_encoded, "any_field {\n  type_url: \"type.googleapis.com/google.protobuf.Any\"\n  value: \"\\n,type.googleapis.com/google.protobuf.Duration\\022\\007\\b{\\020\\322\\361\\354o\"\n}\n")
 
-        let a_decoded = try ProtobufUnittest_TestWellKnownTypes(text: a_encoded)
+        let a_decoded = try ProtobufUnittest_TestWellKnownTypes(textFormatString: a_encoded)
         let a_decoded_any = a_decoded.anyField
         let a_decoded_any_any = try Google_Protobuf_Any(any: a_decoded_any)
         let a_decoded_any_any_duration = try Google_Protobuf_Duration(any: a_decoded_any_any)
@@ -68,7 +68,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     func testAny_verbose() {
         let a: ProtobufUnittest_TestWellKnownTypes
         do {
-            a = try ProtobufUnittest_TestWellKnownTypes(text: "any_field {[type.googleapis.com/google.protobuf.Duration] {seconds:77,nanos:123456789}}")
+            a = try ProtobufUnittest_TestWellKnownTypes(textFormatString: "any_field {[type.googleapis.com/google.protobuf.Duration] {seconds:77,nanos:123456789}}")
         } catch let e {
             XCTFail("Decoding failed: \(e)")
             return
@@ -85,7 +85,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
         // Nested Any is a particularly tricky decode problem
         let b: ProtobufUnittest_TestWellKnownTypes
         do {
-            b = try ProtobufUnittest_TestWellKnownTypes(text: "any_field {[type.googleapis.com/google.protobuf.Any]{[type.googleapis.com/google.protobuf.Duration] {seconds:88,nanos:987654321}}}")
+            b = try ProtobufUnittest_TestWellKnownTypes(textFormatString: "any_field {[type.googleapis.com/google.protobuf.Any]{[type.googleapis.com/google.protobuf.Duration] {seconds:88,nanos:987654321}}}")
         } catch let e {
             XCTFail("Decoding failed: \(e)")
             return
