@@ -78,8 +78,8 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Append an array of extensions
         extensions.insert(contentsOf:
             [
-                Extensions_repeatedExtensionGroup,
-                Extensions_extensionGroup
+                Extensions_RepeatedExtensionGroup,
+                Extensions_ExtensionGroup
             ]
         )
     }
@@ -123,8 +123,8 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // An extension set with two extensions for field #5, but for
         // different messages and with different types
         var extensions = ExtensionSet()
-        extensions.insert(ProtobufUnittest_Extensions_optionalSint32Extension)
-        extensions.insert(ProtobufUnittest_Extensions_myExtensionInt)
+        extensions.insert(ProtobufUnittest_Extensions_optional_sint32_extension)
+        extensions.insert(ProtobufUnittest_Extensions_my_extension_int)
 
         // This should decode with optionalSint32Extension
         let m1 = try ProtobufUnittest_TestAllExtensions(serializedData: Data(bytes: [40, 1]), extensions: extensions)

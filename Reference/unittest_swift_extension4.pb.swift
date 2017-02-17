@@ -100,7 +100,7 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftP
       defaultValue: ""
     )
 
-    static let c = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+    static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       fieldNumber: 411,
       fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.C"),
       defaultValue: Ext4MyMessage.C()
@@ -180,7 +180,7 @@ let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<Swi
   defaultValue: ""
 )
 
-let Ext4Extensions_c = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   fieldNumber: 421,
   fieldNames: .same(proto: "protobuf_unittest.extend4.C"),
   defaultValue: Ext4C()
@@ -201,14 +201,14 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_c: Ext4MyMessage.C {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.c) ?? Ext4MyMessage.C()}
-    set {setExtensionValue(ext: Ext4MyMessage.Extensions.c, value: newValue)}
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.C) ?? Ext4MyMessage.C()}
+    set {setExtensionValue(ext: Ext4MyMessage.Extensions.C, value: newValue)}
   }
   var hasExt4MyMessage_c: Bool {
-    return hasExtensionValue(ext: Ext4MyMessage.Extensions.c)
+    return hasExtensionValue(ext: Ext4MyMessage.Extensions.C)
   }
   mutating func clearExt4MyMessage_c() {
-    clearExtensionValue(ext: Ext4MyMessage.Extensions.c)
+    clearExtensionValue(ext: Ext4MyMessage.Extensions.C)
   }
 }
 
@@ -227,20 +227,20 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4c: Ext4C {
-    get {return getExtensionValue(ext: Ext4Extensions_c) ?? Ext4C()}
-    set {setExtensionValue(ext: Ext4Extensions_c, value: newValue)}
+    get {return getExtensionValue(ext: Ext4Extensions_C) ?? Ext4C()}
+    set {setExtensionValue(ext: Ext4Extensions_C, value: newValue)}
   }
   var hasExt4c: Bool {
-    return hasExtensionValue(ext: Ext4Extensions_c)
+    return hasExtensionValue(ext: Ext4Extensions_C)
   }
   mutating func clearExt4c() {
-    clearExtensionValue(ext: Ext4Extensions_c)
+    clearExtensionValue(ext: Ext4Extensions_C)
   }
 }
 
 let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.ExtensionSet = [
   Ext4Extensions_b,
-  Ext4Extensions_c,
+  Ext4Extensions_C,
   Ext4MyMessage.Extensions.b,
-  Ext4MyMessage.Extensions.c
+  Ext4MyMessage.Extensions.C
 ]

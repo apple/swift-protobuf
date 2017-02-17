@@ -40,3 +40,21 @@ extend Foo.Bar.Baz.C {
    optional bool d = 12;
 }
 */
+
+// If this compiles then it means we deal with unique proto names that
+// could end up with naming collisions when remapped to Swifty names.
+
+message Msg1 {
+  extensions 1 to 1000;
+}
+message Msg2 {
+  extensions 1 to 1000;
+}
+
+extend Msg1 {
+  optional int32 a_b = 1;
+}
+
+extend Msg2 {
+  optional int32 aB = 1;
+}
