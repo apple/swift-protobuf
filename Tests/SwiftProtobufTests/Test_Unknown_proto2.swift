@@ -15,6 +15,7 @@
 
 import Foundation
 import XCTest
+import SwiftProtobuf
 
 /*
  * Verify that unknown fields are correctly preserved by
@@ -124,4 +125,99 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"unknown\": qqq }")
         assertJSONDecodeFails("{\"unknown\": { }")
     }
+
+
+    func assertUnknownFields(_ message: Proto2Message, _ bytes: [UInt8], line: UInt = #line) {
+        let collector = UnknownCollector()
+        message.unknownFields.traverse(visitor: collector)
+        XCTAssertEqual(collector.collected, [Data(bytes: bytes)], line: line)
+    }
+
+    func test_MessageNoStorageClass() {
+        // Reusing message class from unittest_swift_extension.proto that were crafted
+        // for forcing/avoiding _StorageClass usage.
+        var msg1 = ProtobufUnittest_Extend_MsgNoStorage()
+        assertUnknownFields(msg1, [])
+
+        msg1.unknownFields.append(protobufData: Data(bytes: [1, 2]))
+        assertUnknownFields(msg1, [1, 2])
+
+        var msg2 = msg1
+        assertUnknownFields(msg2, [1, 2])
+        assertUnknownFields(msg1, [1, 2])
+
+        msg2.unknownFields.append(protobufData: Data([3, 4]))
+        assertUnknownFields(msg2, [1, 2, 3, 4])
+        assertUnknownFields(msg1, [1, 2])
+
+        msg1.unknownFields.append(protobufData: Data([5, 6]))
+        assertUnknownFields(msg2, [1, 2, 3, 4])
+        assertUnknownFields(msg1, [1, 2, 5, 6])
+    }
+
+    func test_MessageUsingStorageClass() {
+        // Reusing message class from unittest_swift_extension.proto that were crafted
+        // for forcing/avoiding _StorageClass usage.
+        var msg1 = ProtobufUnittest_Extend_MsgUsesStorage()
+        assertUnknownFields(msg1, [])
+
+        msg1.unknownFields.append(protobufData: Data(bytes: [1, 2]))
+        assertUnknownFields(msg1, [1, 2])
+
+        var msg2 = msg1
+        assertUnknownFields(msg2, [1, 2])
+        assertUnknownFields(msg1, [1, 2])
+
+        msg2.unknownFields.append(protobufData: Data([3, 4]))
+        assertUnknownFields(msg2, [1, 2, 3, 4])
+        assertUnknownFields(msg1, [1, 2])
+
+        msg1.unknownFields.append(protobufData: Data([5, 6]))
+        assertUnknownFields(msg2, [1, 2, 3, 4])
+        assertUnknownFields(msg1, [1, 2, 5, 6])
+    }
+}
+
+// Helper visitor class that ignores everything, but collects the
+// things passed to visitUnknown.
+final class UnknownCollector: Visitor {
+    var collected: [Data] = []
+
+    func visitUnknown(bytes: Data) {
+        collected.append(bytes)
+    }
+
+    func visitSingularField<S: FieldType>(fieldType: S.Type,
+                            value: S.BaseType,
+                            fieldNumber: Int) throws {}
+
+    func visitRepeatedField<S: FieldType>(fieldType: S.Type,
+                            value: [S.BaseType],
+                            fieldNumber: Int) throws {}
+
+    func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {}
+
+    func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {}
+
+    func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {}
+
+    func visitRepeatedMessageField<M: Message>(value: [M],
+                                   fieldNumber: Int) throws {}
+
+    func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+      fieldType: ProtobufMap<KeyType, ValueType>.Type,
+      value: ProtobufMap<KeyType, ValueType>.BaseType,
+      fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
+
+    func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+      fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
+      value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+      fieldNumber: Int) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {}
+
+    func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+      fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
+      value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+      fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
+
+    func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {}
 }

@@ -558,7 +558,7 @@ class MessageGenerator {
             } else {
                 p.print("\(generatorOptions.visibilitySourceSnippet)var unknownFields: SwiftProtobuf.UnknownStorage {\n")
                 p.print("  get {return _storage.unknownFields}\n")
-                p.print("  set {_storage.unknownFields = newValue}\n")
+                p.print("  set {_uniqueStorage().unknownFields = newValue}\n")
                 p.print("}\n")
             }
         }
