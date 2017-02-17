@@ -116,8 +116,8 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestAllTypes"}
-  var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
+  static let protoMessageName: String = "TestAllTypes"
+  static let protoPackageName: String = "proto2_nofieldpresence_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -533,7 +533,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
   private var _storage = _StorageClass()
 
 
-  enum OneOf_OneofField: SwiftProtobuf.OneofEnum {
+  enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -549,7 +549,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 111:
         var value = UInt32()
@@ -579,7 +579,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofUint32(let v):
         if start <= 111 && 111 < end {
@@ -664,8 +664,8 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage"}
-    var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "proto2_nofieldpresence_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       1: .same(proto: "bb"),
     ]
@@ -1039,8 +1039,8 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
 }
 
 struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestProto2Required"}
-  var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
+  static let protoMessageName: String = "TestProto2Required"
+  static let protoPackageName: String = "proto2_nofieldpresence_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "proto2"),
   ]
@@ -1130,8 +1130,8 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ForeignMessage"}
-  var protoPackageName: String {return "proto2_nofieldpresence_unittest"}
+  static let protoMessageName: String = "ForeignMessage"
+  static let protoPackageName: String = "proto2_nofieldpresence_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "c"),
   ]

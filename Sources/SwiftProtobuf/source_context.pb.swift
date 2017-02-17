@@ -51,8 +51,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
 public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "SourceContext"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "SourceContext"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "file_name", json: "fileName"),
   ]

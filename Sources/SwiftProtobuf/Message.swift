@@ -36,10 +36,10 @@ public protocol Message: CustomDebugStringConvertible {
   // Metadata
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
-  var protoMessageName: String { get }
-  var protoPackageName: String { get }
-  var anyTypePrefix: String { get }
-  var anyTypeURL: String { get }
+  static var protoMessageName: String { get }
+  static var protoPackageName: String { get }
+  static var anyTypePrefix: String { get }
+  static var anyTypeURL: String { get }
 
   /// Check if all required fields (if any) have values set on this message
   /// on any messages withing this message.
@@ -152,13 +152,8 @@ public extension Message {
     return result
   }
 
-  // TODO: Add an option to the generator to override this in particular
-  // messages.
-  // TODO: It would be nice if this could default to "" instead; that would save
-  // ~20 bytes on every serialized Any.
-  var anyTypePrefix: String { return "type.googleapis.com" }
-
-  var anyTypeURL: String {
+  static var anyTypePrefix: String { return "type.googleapis.com" }
+  static var anyTypeURL: String {
     var url = anyTypePrefix
     if anyTypePrefix == "" || anyTypePrefix.characters.last! != "/" {
       url += "/"

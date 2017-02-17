@@ -36,8 +36,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestFieldOrderings"}
-  var protoPackageName: String {return "swift.protobuf"}
+  static let protoMessageName: String = "TestFieldOrderings"
+  static let protoPackageName: String = "swift.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
     11: .unique(proto: "my_string", json: "myString"),
     1: .unique(proto: "my_int", json: "myInt"),
@@ -139,7 +139,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     set {_storage.unknownFields = newValue}
   }
 
-  enum OneOf_Options: SwiftProtobuf.OneofEnum {
+  enum OneOf_Options: Equatable {
     case oneofInt64(Int64)
     case oneofBool(Bool)
     case oneofString(String)
@@ -155,7 +155,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 9:
         var value: Bool?
@@ -191,7 +191,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofBool(let v):
         if start <= 9 && 9 < end {
@@ -214,8 +214,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage"}
-    var protoPackageName: String {return "swift.protobuf"}
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "swift.protobuf"
     static let _protobuf_fieldNames: FieldNameMap = [
       2: .same(proto: "oo"),
       1: .same(proto: "bb"),

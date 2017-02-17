@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ImportNoArenaNestedMessage"}
-  var protoPackageName: String {return "proto2_arena_unittest"}
+  static let protoMessageName: String = "ImportNoArenaNestedMessage"
+  static let protoPackageName: String = "proto2_arena_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "d"),
   ]

@@ -48,8 +48,8 @@ public enum Google_Protobuf_NullValue: Enum {
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
 public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, ProtoNameProviding {
-    public var protoMessageName: String {return "Struct"}
-    public var protoPackageName: String {return "google.protobuf"}
+    public static let protoMessageName: String = "Struct"
+    public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [
         1: .same(proto: "fields"),
     ]
@@ -108,7 +108,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 
     public func anyJSONString() throws -> String {
         let value = try jsonString()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
@@ -144,8 +144,8 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 ///
 ///   The JSON representation for `Value` is JSON value.
 public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, ProtoNameProviding {
-    public var protoMessageName: String {return "Value"}
-    public var protoPackageName: String {return "google.protobuf"}
+    public static let protoMessageName: String = "Value"
+    public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [
         1: .unique(proto: "null_value", json: "nullValue"),
         2: .unique(proto: "number_value", json: "numberValue"),
@@ -264,7 +264,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 
     public func anyJSONString() throws -> String {
         let value = try jsonString()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     fileprivate func serializeJSONValue(jsonEncoder: inout JSONEncoder) throws {
@@ -415,7 +415,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    public enum OneOf_Kind: OneofEnum {
+    public enum OneOf_Kind: Equatable {
         case nullValue(Google_Protobuf_NullValue)
         case numberValue(Double)
         case stringValue(String)
@@ -423,7 +423,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         case structValue(Google_Protobuf_Struct)
         case listValue(Google_Protobuf_ListValue)
 
-        public init?<T: Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+        fileprivate init?<T: Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
             switch fieldNumber {
             case 1:
                 var value: Google_Protobuf_NullValue?
@@ -484,7 +484,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
             }
         }
 
-        public func traverse(visitor: Visitor, start: Int, end: Int) throws {
+        fileprivate func traverse(visitor: Visitor, start: Int, end: Int) throws {
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {
@@ -530,8 +530,8 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 ///
 ///   The JSON representation for `ListValue` is JSON array.
 public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImplementationBase, ExpressibleByArrayLiteral, ProtoNameProviding {
-    public var protoMessageName: String {return "ListValue"}
-    public var protoPackageName: String {return "google.protobuf"}
+    public static let protoMessageName: String = "ListValue"
+    public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_fieldNames: FieldNameMap = [
         1: .same(proto: "values"),
     ]
@@ -596,7 +596,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
 
     public func anyJSONString() throws -> String {
         let value = try jsonString()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     public init(any: Google_Protobuf_Any) throws {

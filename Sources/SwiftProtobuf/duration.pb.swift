@@ -95,8 +95,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       duration = Duration()
 ///       duration.FromTimedelta(td)
 public struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  public var protoMessageName: String {return "Duration"}
-  public var protoPackageName: String {return "google.protobuf"}
+  public static let protoMessageName: String = "Duration"
+  public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),

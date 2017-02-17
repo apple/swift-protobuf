@@ -218,7 +218,7 @@ public extension Google_Protobuf_Timestamp {
 
     public func anyJSONString() throws -> String {
         let value = try jsonString()
-        return "{\"@type\":\"\(anyTypeURL)\",\"value\":\(value)}"
+        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 }
 

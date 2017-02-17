@@ -57,8 +57,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 //  within a single proto file.
 
 struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "CycleFoo"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "CycleFoo"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "a_foo", json: "aFoo"),
     2: .unique(proto: "a_bar", json: "aBar"),
@@ -183,8 +183,8 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 }
 
 struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "CycleBar"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "CycleBar"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "a_bar", json: "aBar"),
     2: .unique(proto: "a_baz", json: "aBaz"),
@@ -309,8 +309,8 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 }
 
 struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "CycleBaz"}
-  var protoPackageName: String {return "protobuf_unittest"}
+  static let protoMessageName: String = "CycleBaz"
+  static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "a_baz", json: "aBaz"),
     2: .unique(proto: "a_foo", json: "aFoo"),

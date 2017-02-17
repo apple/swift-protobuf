@@ -133,7 +133,6 @@ private let reservedFieldNames: Set<String> = [
             "UInt",
             "UInt32",
             "UInt64",
-            "anyTypeURL",
             "as",
             "break",
             "case",
@@ -169,9 +168,6 @@ private let reservedFieldNames: Set<String> = [
             "nil",
             "operator",
             "private",
-            "protoFielNames",
-            "protoMessageName",
-            "protoPackageName",
             "protocol",
             "public",
             "repeat",
@@ -197,15 +193,20 @@ private let reservedFieldNames: Set<String> = [
 /// this before going into the source code.
 /// It appends "_p" to any name that can't be
 /// used as a field name in Swift source code.
-func sanitizeFieldName(_ s: String) -> String {
-    if reservedFieldNames.contains(s) {
+func sanitizeFieldName(_ s: String, basedOn: String) -> String {
+    if reservedFieldNames.contains(basedOn) {
         return s + "_p"
-    } else if isAllUnderscore(s) {
+    } else if isAllUnderscore(basedOn) {
         return s + "__"
     } else {
         return s
     }
 }
+
+func sanitizeFieldName(_ s: String) -> String {
+  return sanitizeFieldName(s, basedOn: s)
+}
+
 
 /*
  * Many Swift reserved words can be used as enum cases if we put

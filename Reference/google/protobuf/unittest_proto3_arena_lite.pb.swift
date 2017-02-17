@@ -120,8 +120,8 @@ enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestAllTypes"}
-  var protoPackageName: String {return "proto3_arena_lite_unittest"}
+  static let protoMessageName: String = "TestAllTypes"
+  static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -545,7 +545,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   private var _storage = _StorageClass()
 
 
-  enum OneOf_OneofField: SwiftProtobuf.OneofEnum {
+  enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -561,7 +561,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
       switch fieldNumber {
       case 111:
         var value = UInt32()
@@ -591,7 +591,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       return nil
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
       switch self {
       case .oneofUint32(let v):
         if start <= 111 && 111 < end {
@@ -690,8 +690,8 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage"}
-    var protoPackageName: String {return "proto3_arena_lite_unittest"}
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "proto3_arena_lite_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
       1: .same(proto: "bb"),
     ]
@@ -1097,8 +1097,8 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 //  Test messages for packed fields
 
 struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestPackedTypes"}
-  var protoPackageName: String {return "proto3_arena_lite_unittest"}
+  static let protoMessageName: String = "TestPackedTypes"
+  static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     90: .unique(proto: "packed_int32", json: "packedInt32"),
     91: .unique(proto: "packed_int64", json: "packedInt64"),
@@ -1237,8 +1237,8 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProt
 
 ///   Explicitly set packed to false
 struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestUnpackedTypes"}
-  var protoPackageName: String {return "proto3_arena_lite_unittest"}
+  static let protoMessageName: String = "TestUnpackedTypes"
+  static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .unique(proto: "repeated_int32", json: "repeatedInt32"),
     2: .unique(proto: "repeated_int64", json: "repeatedInt64"),
@@ -1377,8 +1377,8 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftPr
 
 ///   This proto includes a recusively nested message.
 struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "NestedTestAllTypes"}
-  var protoPackageName: String {return "proto3_arena_lite_unittest"}
+  static let protoMessageName: String = "NestedTestAllTypes"
+  static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
@@ -1478,8 +1478,8 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftP
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "ForeignMessage"}
-  var protoPackageName: String {return "proto3_arena_lite_unittest"}
+  static let protoMessageName: String = "ForeignMessage"
+  static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "c"),
   ]
@@ -1514,8 +1514,8 @@ struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProto
 
 ///   TestEmptyMessage is used to test behavior of unknown fields.
 struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "TestEmptyMessage"}
-  var protoPackageName: String {return "proto3_arena_lite_unittest"}
+  static let protoMessageName: String = "TestEmptyMessage"
+  static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
 

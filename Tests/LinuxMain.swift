@@ -639,6 +639,26 @@ extension Test_Map_JSON {
     }
 }
 
+extension Test_FieldNamingInitials {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testLowers", {try run_test(test:($0 as! Test_FieldNamingInitials).testLowers)}),
+            ("testUppers", {try run_test(test:($0 as! Test_FieldNamingInitials).testUppers)}),
+            ("testWordCase", {try run_test(test:($0 as! Test_FieldNamingInitials).testWordCase)})
+        ]
+    }
+}
+
+extension Test_ExtensionNamingInitials_MessageScoped {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testLowers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_MessageScoped).testLowers)}),
+            ("testUppers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_MessageScoped).testUppers)}),
+            ("testWordCase", {try run_test(test:($0 as! Test_ExtensionNamingInitials_MessageScoped).testWordCase)})
+        ]
+    }
+}
+
 extension Test_OneofFields_Access_Proto2 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -766,7 +786,9 @@ extension Test_SmallRequired {
 extension Test_Reserved {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Reserved).testEnumPrefix)})
+            ("testEnumNaming", {try run_test(test:($0 as! Test_Reserved).testEnumNaming)}),
+            ("testMessageNames", {try run_test(test:($0 as! Test_Reserved).testMessageNames)}),
+            ("testFieldNamesMatchingMetadata", {try run_test(test:($0 as! Test_Reserved).testFieldNamesMatchingMetadata)})
         ]
     }
 }
@@ -1008,6 +1030,8 @@ XCTMain(
         (testCaseClass: Test_MapFields_Access_Proto2.self, allTests: Test_MapFields_Access_Proto2.allTests),
         (testCaseClass: Test_MapFields_Access_Proto3.self, allTests: Test_MapFields_Access_Proto3.allTests),
         (testCaseClass: Test_Map_JSON.self, allTests: Test_Map_JSON.allTests),
+        (testCaseClass: Test_FieldNamingInitials.self, allTests: Test_FieldNamingInitials.allTests),
+        (testCaseClass: Test_ExtensionNamingInitials_MessageScoped.self, allTests: Test_ExtensionNamingInitials_MessageScoped.allTests),
         (testCaseClass: Test_OneofFields_Access_Proto2.self, allTests: Test_OneofFields_Access_Proto2.allTests),
         (testCaseClass: Test_OneofFields_Access_Proto3.self, allTests: Test_OneofFields_Access_Proto3.allTests),
         (testCaseClass: Test_Packed.self, allTests: Test_Packed.allTests),

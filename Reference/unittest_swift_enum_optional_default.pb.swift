@@ -36,15 +36,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-  var protoMessageName: String {return "EnumOptionalDefault"}
-  var protoPackageName: String {return "protobuf_unittest.extend"}
+  static let protoMessageName: String = "EnumOptionalDefault"
+  static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage"}
-    var protoPackageName: String {return "protobuf_unittest.extend"}
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "protobuf_unittest.extend"
     static let _protobuf_fieldNames: FieldNameMap = [
       1: .same(proto: "message"),
       17: .unique(proto: "optional_enum", json: "optionalEnum"),
@@ -199,8 +199,8 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   }
 
   struct NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
-    var protoMessageName: String {return "NestedMessage2"}
-    var protoPackageName: String {return "protobuf_unittest.extend"}
+    static let protoMessageName: String = "NestedMessage2"
+    static let protoPackageName: String = "protobuf_unittest.extend"
     static let _protobuf_fieldNames: FieldNameMap = [
       17: .unique(proto: "optional_enum", json: "optionalEnum"),
     ]

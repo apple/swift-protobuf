@@ -208,7 +208,7 @@ public extension Message {
     }
 
     func anyJSONString() throws -> String {
-        return try JSONEncodingVisitor(message: self, anyTypeURL: anyTypeURL).result
+        return try JSONEncodingVisitor(message: self, anyTypeURL: type(of: self).anyTypeURL).result
     }
 
     static func serializeJSONValue(encoder: inout JSONEncoder, value: Self) throws {

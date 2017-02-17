@@ -30,7 +30,34 @@ message SwiftReservedTest {
 
     enum Protocol { a = 1; }
 
-    message class {}
+    message class {
+      extensions 1000 to 2000;
+    }
     message Type {}
     message isEqual {}
+
+    // static r/o properties on Message, ensure they still work as fields.
+    optional int32 proto_message_name = 10;
+    optional int32 proto_package_name = 11;
+    optional int32 any_type_prefix = 12;
+    optional int32 any_type_url = 13;
+
+    // r/o properties on Message, ensure it gets remapped.
+    optional string is_initialized = 20;
+    optional string hash_value = 21;
+    optional int32 debug_description = 22;
+}
+
+extend SwiftReservedTest.class {
+    // Won't get _p added because it is fully qualified.
+    optional bool debug_description = 1000;
+}
+
+message SwiftReservedTestExt {
+    extend SwiftReservedTest.class {
+        // Even though it is a raw name in the Extensions struct for the
+        // Message (SwiftReservedTestExt), the generation controls what
+        // that struct has to conform to, so collisions there don't matter.
+        optional bool hash_value = 1001;
+    }
 }
