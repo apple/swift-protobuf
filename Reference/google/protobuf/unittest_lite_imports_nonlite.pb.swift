@@ -61,7 +61,6 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestLiteImportsNonlite
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _message: ProtobufUnittest_TestAllTypes? = nil
 

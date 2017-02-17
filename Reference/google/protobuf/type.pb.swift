@@ -123,7 +123,6 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_Type
     var _name: String = ""
     var _fields: [Google_Protobuf_Field] = []
     var _oneofs: [String] = []
@@ -668,7 +667,6 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_Enum
     var _name: String = ""
     var _enumvalue: [Google_Protobuf_EnumValue] = []
     var _options: [Google_Protobuf_Option] = []
@@ -859,7 +857,6 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_Option
     var _name: String = ""
     var _value: Google_Protobuf_Any? = nil
 

@@ -143,7 +143,6 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestMap
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -409,7 +408,6 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestMapSubmessage
     var _testMap: Proto3TestMap? = nil
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

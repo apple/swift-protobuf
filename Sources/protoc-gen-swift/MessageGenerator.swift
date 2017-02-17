@@ -120,8 +120,8 @@ class StorageClassGenerator {
         }
         p.indent()
 
-        p.print("typealias ExtendedMessage = \(messageSwiftName)\n")
         if isExtensible {
+            p.print("typealias ExtendedMessage = \(messageSwiftName)\n")
             p.print("var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
         }
         if !isProto3 {

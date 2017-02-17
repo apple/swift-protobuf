@@ -167,7 +167,6 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_Value
     var _kind: Google_Protobuf_Value.OneOf_Kind?
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

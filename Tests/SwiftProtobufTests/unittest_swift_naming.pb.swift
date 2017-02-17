@@ -1605,7 +1605,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = SwiftUnittest_Names_FieldNames
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _string: Int32? = nil
     var _int: Int32? = nil

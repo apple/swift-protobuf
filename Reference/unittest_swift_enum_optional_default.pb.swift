@@ -51,7 +51,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
     ]
 
     private class _StorageClass {
-      typealias ExtendedMessage = ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage
       var unknownFields = SwiftProtobuf.UnknownStorage()
       var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
       var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil

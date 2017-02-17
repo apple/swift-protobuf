@@ -172,7 +172,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto2NofieldpresenceUnittest_TestAllTypes
     var _optionalInt32: Int32 = 0
     var _optionalInt64: Int64 = 0
     var _optionalUint32: UInt32 = 0
@@ -1046,7 +1045,6 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto2NofieldpresenceUnittest_TestProto2Required
     var _proto2: ProtobufUnittest_TestRequired? = nil
 
     var isInitialized: Bool {

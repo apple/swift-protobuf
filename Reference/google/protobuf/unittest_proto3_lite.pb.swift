@@ -177,7 +177,6 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Pro
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3LiteUnittest_TestAllTypes
     var _optionalInt32: Int32 = 0
     var _optionalInt64: Int64 = 0
     var _optionalUint32: UInt32 = 0
@@ -1385,7 +1384,6 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3LiteUnittest_NestedTestAllTypes
     var _child: Proto3LiteUnittest_NestedTestAllTypes? = nil
     var _payload: Proto3LiteUnittest_TestAllTypes? = nil
 

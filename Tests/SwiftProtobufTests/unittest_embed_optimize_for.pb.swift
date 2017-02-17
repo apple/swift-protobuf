@@ -64,7 +64,6 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestEmbedOptimizedForSize
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
     var _repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []

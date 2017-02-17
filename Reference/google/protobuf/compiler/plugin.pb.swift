@@ -182,7 +182,6 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_Compiler_CodeGeneratorRequest
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _fileToGenerate: [String] = []
     var _parameter: String? = nil

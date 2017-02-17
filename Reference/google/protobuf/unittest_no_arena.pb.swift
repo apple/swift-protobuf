@@ -201,7 +201,6 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittestNoArena_TestAllTypes
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _optionalInt32: Int32? = nil
     var _optionalInt64: Int64? = nil
@@ -1830,7 +1829,6 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittestNoArena_TestNoArenaMessage
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _arenaMessage: Proto2ArenaUnittest_ArenaMessage? = nil
 
