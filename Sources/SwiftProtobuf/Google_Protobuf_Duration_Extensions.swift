@@ -14,8 +14,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 private let minDurationSeconds: Int64 = -maxDurationSeconds
 private let maxDurationSeconds: Int64 = 315576000000
 

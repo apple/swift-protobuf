@@ -15,8 +15,6 @@
 // TODO: It would be nice if coding/decoding errors could include the name
 // of the specific field where the error was detected.
 
-import Swift
-
 public enum EncodingError: Error {
     /// An unspecified encoding failure
     case failure

@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 /// Encapsulates the number and wire format of a field, which together form the
 /// "tag".
 ///

@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 public struct ProtobufMap<KeyType: MapKeyType, ValueType: FieldType>
     where KeyType.BaseType: Hashable

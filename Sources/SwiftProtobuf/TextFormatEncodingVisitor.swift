@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/TextEncodingVisitor.swift - Text format encoding support
+// Sources/SwiftProtobuf/TextFormatEncodingVisitor.swift - Text format encoding support
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -15,9 +15,9 @@
 import Foundation
 
 /// Visitor that serializes a message into protobuf text format.
-final class TextEncodingVisitor: Visitor {
+final class TextFormatEncodingVisitor: Visitor {
 
-  private var encoder: TextEncoder
+  private var encoder: TextFormatEncoder
   private var inExtension = false
   private var nameResolver: (Int) -> String?
 
@@ -29,12 +29,12 @@ final class TextEncodingVisitor: Visitor {
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format.
   convenience init(message: Message) {
-    self.init(message: message, encoder: TextEncoder())
+    self.init(message: message, encoder: TextFormatEncoder())
   }
 
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format, using an existing encoder.
-  init(message: Message, encoder: TextEncoder) {
+  init(message: Message, encoder: TextFormatEncoder) {
     self.encoder = encoder
     self.nameResolver = ProtoNameResolvers.protoFieldNameResolver(for: message)
   }
@@ -118,7 +118,7 @@ final class TextEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     encoder.startMessageField(name: protoFieldName)
     encoder.startObject()
-    let visitor = TextEncodingVisitor(message: value, encoder: encoder)
+    let visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
     try value.traverse(visitor: visitor)
     encoder.endObject()
     encoder.endField()
@@ -130,7 +130,7 @@ final class TextEncodingVisitor: Visitor {
     for v in value {
       encoder.startMessageField(name: protoFieldName)
       encoder.startObject()
-      let visitor = TextEncodingVisitor(message: v, encoder: encoder)
+      let visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
       try v.traverse(visitor: visitor)
       encoder.endObject()
       encoder.endField()
@@ -191,7 +191,7 @@ final class TextEncodingVisitor: Visitor {
       encoder.endField()
       encoder.startField(name: "value")
       encoder.startObject()
-      let visitor = TextEncodingVisitor(message: v, encoder: encoder)
+      let visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
       try v.traverse(visitor: visitor)
       encoder.endObject()
       encoder.endField()

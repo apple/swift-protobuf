@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 public struct JSONDecoder: Decoder {
     internal var scanner: JSONScanner

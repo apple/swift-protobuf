@@ -13,8 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 private let minTimestampSeconds: Int64 = -62135596800  // 0001-01-01T00:00:00Z
 private let maxTimestampSeconds: Int64 = 253402300799  // 9999-12-31T23:59:59Z
 

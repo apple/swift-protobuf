@@ -14,7 +14,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
 import Foundation
 
 /// This is the abstract protocol used by the generated code

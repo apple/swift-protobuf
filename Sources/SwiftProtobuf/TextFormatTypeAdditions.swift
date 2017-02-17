@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/TextTypeAdditions.swift - Text format primitive types
+// Sources/SwiftProtobuf/TextFormatTypeAdditions.swift - Text format primitive types
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -14,13 +14,12 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 ///
 /// Float traits
 ///
 public extension ProtobufFloat {
-    public static func serializeTextValue(encoder: TextEncoder, value: Float) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Float) {
         encoder.putDoubleValue(value: Double(value))
     }
 }
@@ -29,7 +28,7 @@ public extension ProtobufFloat {
 /// Double traits
 ///
 public extension ProtobufDouble {
-    public static func serializeTextValue(encoder: TextEncoder, value: Double) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Double) {
         encoder.putDoubleValue(value: value)
     }
 }
@@ -38,7 +37,7 @@ public extension ProtobufDouble {
 /// Int32 traits
 ///
 public extension ProtobufInt32 {
-    public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value))
     }
 }
@@ -47,7 +46,7 @@ public extension ProtobufInt32 {
 /// Int64 traits
 ///
 public extension ProtobufInt64 {
-    public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Int64) {
         encoder.putInt64(value: value)
     }
 }
@@ -56,7 +55,7 @@ public extension ProtobufInt64 {
 /// UInt32 traits
 ///
 public extension ProtobufUInt32 {
-    public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value))
     }
 }
@@ -65,7 +64,7 @@ public extension ProtobufUInt32 {
 /// UInt64 traits
 ///
 public extension ProtobufUInt64 {
-    public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: UInt64) {
         encoder.putUInt64(value: value)
     }
 }
@@ -74,7 +73,7 @@ public extension ProtobufUInt64 {
 /// SInt32 traits
 ///
 public extension ProtobufSInt32 {
-    public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value))
     }
 }
@@ -83,7 +82,7 @@ public extension ProtobufSInt32 {
 /// SInt64 traits
 ///
 public extension ProtobufSInt64 {
-    public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Int64) {
         encoder.putInt64(value: value)
     }
 }
@@ -92,7 +91,7 @@ public extension ProtobufSInt64 {
 /// Fixed32 traits
 ///
 public extension ProtobufFixed32 {
-    public static func serializeTextValue(encoder: TextEncoder, value: UInt32) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: UInt32) {
         encoder.putUInt64(value: UInt64(value))
     }
 }
@@ -101,7 +100,7 @@ public extension ProtobufFixed32 {
 /// Fixed64 traits
 ///
 public extension ProtobufFixed64 {
-    public static func serializeTextValue(encoder: TextEncoder, value: UInt64) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: UInt64) {
         encoder.putUInt64(value: value)
     }
 }
@@ -110,7 +109,7 @@ public extension ProtobufFixed64 {
 /// SFixed32 traits
 ///
 public extension ProtobufSFixed32 {
-    public static func serializeTextValue(encoder: TextEncoder, value: Int32) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Int32) {
         encoder.putInt64(value: Int64(value))
     }
 }
@@ -119,7 +118,7 @@ public extension ProtobufSFixed32 {
 /// SFixed64 traits
 ///
 public extension ProtobufSFixed64 {
-    public static func serializeTextValue(encoder: TextEncoder, value: Int64) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Int64) {
         encoder.putInt64(value: value)
     }
 }
@@ -128,7 +127,7 @@ public extension ProtobufSFixed64 {
 /// Bool traits
 ///
 public extension ProtobufBool {
-    public static func serializeTextValue(encoder: TextEncoder, value: Bool) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Bool) {
         encoder.putBoolValue(value: value)
     }
 }
@@ -137,7 +136,7 @@ public extension ProtobufBool {
 /// String traits
 ///
 public extension ProtobufString {
-    public static func serializeTextValue(encoder: TextEncoder, value: String) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: String) {
         encoder.putStringValue(value: value)
     }
 }
@@ -146,7 +145,7 @@ public extension ProtobufString {
 /// Bytes traits
 ///
 public extension ProtobufBytes {
-    public static func serializeTextValue(encoder: TextEncoder, value: Data) {
+    public static func serializeTextValue(encoder: TextFormatEncoder, value: Data) {
         encoder.putBytesValue(value: value)
     }
 }
@@ -156,23 +155,23 @@ public extension ProtobufBytes {
 ///
 public extension Message {
     public func textFormatString() throws -> String {
-        let visitor = TextEncodingVisitor(message: self)
+        let visitor = TextFormatEncodingVisitor(message: self)
         try traverse(visitor: visitor)
         return visitor.result
     }
 
     public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
         self.init()
-        var textDecoder = try TextDecoder(messageType: Self.self,
-                                          text: textFormatString,
-                                          extensions: extensions)
+        var textDecoder = try TextFormatDecoder(messageType: Self.self,
+                                                text: textFormatString,
+                                                extensions: extensions)
         try decodeTextFormat(from: &textDecoder)
         if !textDecoder.complete {
-            throw TextDecodingError.trailingGarbage
+            throw TextFormatDecodingError.trailingGarbage
         }
     }
 
-    public mutating func decodeTextFormat(from decoder: inout TextDecoder) throws {
+    public mutating func decodeTextFormat(from decoder: inout TextFormatDecoder) throws {
         try decodeMessage(decoder: &decoder)
     }
 }

@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/TextEncoder.swift - Text format encoding support
+// Sources/SwiftProtobuf/TextFormatEncoder.swift - Text format encoding support
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -14,8 +14,8 @@
 
 import Foundation
 
-/// TextEncoder has no public members.
-public class TextEncoder {
+/// TextFormatEncoder has no public members.
+public final class TextFormatEncoder {
     var text: String = ""
     private var tabLevel = 0
     var result: String { return text }

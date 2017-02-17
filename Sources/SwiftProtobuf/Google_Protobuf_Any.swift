@@ -16,7 +16,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 /// Any objects can be parsed from Protobuf Binary, Protobuf Text, or JSON.
 /// The contents are not parsed immediately; the raw data is held in the Any
@@ -275,7 +274,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public mutating func decodeTextFormat(from decoder: inout TextDecoder) throws {
+    public mutating func decodeTextFormat(from decoder: inout TextFormatDecoder) throws {
         // First, check if this uses the "verbose" Any encoding.
         // If it does, and we have the type available, we can
         // eagerly decode the contained Message object.
@@ -288,18 +287,18 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 ?? Google_Protobuf_Any.knownTypes[messageTypeName]) {
                 _message = messageType.init()
                 let terminator = try decoder.scanner.skipObjectStart()
-                var subDecoder = try TextDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+                var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
                 try _message!.decodeTextFormat(from: &subDecoder)
                 decoder.scanner = subDecoder.scanner
                 if let _ = try decoder.nextFieldNumber() {
                     // Verbose any can never have additional keys
-                    throw TextDecodingError.malformedText
+                    throw TextFormatDecodingError.malformedText
                 }
                 return
             }
             // TODO: If we don't know the type, we should consider deferring the
             // decode as we do for JSON and Protobuf binary.
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
 
         // This is not using the specialized encoding, so we can use the

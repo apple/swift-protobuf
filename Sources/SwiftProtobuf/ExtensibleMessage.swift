@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 // Messages that support extensions implement this protocol
 public protocol ExtensibleMessage: Message {
     mutating func setExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>, value: F.ValueType)

@@ -13,8 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 // TODO: We should have utilities to apply a fieldmask to an arbitrary
 // message, intersect two fieldmasks, etc.
 

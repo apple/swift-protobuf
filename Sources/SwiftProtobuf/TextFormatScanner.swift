@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/TextScanner.swift - Text format decoding
+// Sources/SwiftProtobuf/TextFormatScanner.swift - Text format decoding
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 private let asciiBell = UInt8(7)
 private let asciiBackspace = UInt8(8)
@@ -257,9 +256,9 @@ private func decodeString(_ s: String) -> String? {
 }
 
 ///
-/// TextScanner has no public members.
+/// TextFormatScanner has no public members.
 ///
-public struct TextScanner {
+internal struct TextFormatScanner {
     internal var extensions: ExtensionSet?
     private var utf8: String.UTF8View
     private var index: String.UTF8View.Index
@@ -406,7 +405,7 @@ public struct TextScanner {
     internal mutating func nextUInt() throws -> UInt64 {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw TextDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         let c = utf8[index]
         index = utf8.index(after: index)
@@ -431,7 +430,7 @@ public struct TextScanner {
                         return n
                     }
                     if n > UInt64.max / 16 {
-                        throw TextDecodingError.malformedNumber
+                        throw TextFormatDecodingError.malformedNumber
                     }
                     index = utf8.index(after: index)
                     n = n * 16 + val
@@ -450,7 +449,7 @@ public struct TextScanner {
                     }
                     let val = UInt64(digit - asciiZero)
                     if n > UInt64.max / 8 {
-                        throw TextDecodingError.malformedNumber
+                        throw TextFormatDecodingError.malformedNumber
                     }
                     index = utf8.index(after: index)
                     n = n * 8 + val
@@ -471,7 +470,7 @@ public struct TextScanner {
                 let val = UInt64(digit - asciiZero)
                 if n >= UInt64.max / 10 {
                     if n > UInt64.max / 10 || val > UInt64.max % 10 {
-                        throw TextDecodingError.malformedNumber
+                        throw TextFormatDecodingError.malformedNumber
                     }
                 }
                 index = utf8.index(after: index)
@@ -479,13 +478,13 @@ public struct TextScanner {
             }
             return n
         }
-        throw TextDecodingError.malformedNumber
+        throw TextFormatDecodingError.malformedNumber
     }
 
     internal mutating func nextSInt() throws -> Int64 {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw TextDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         let c = utf8[index]
         if c == asciiMinus { // -
@@ -493,13 +492,13 @@ public struct TextScanner {
             // character after '-' must be digit
             let digit = utf8[index]
             if digit < asciiZero || digit > asciiNine {
-                throw TextDecodingError.malformedNumber
+                throw TextFormatDecodingError.malformedNumber
             }
             let n = try nextUInt()
             if n >= 0x8000000000000000 { // -Int64.min
                 if n > 0x8000000000000000 {
                     // Too large negative number
-                    throw TextDecodingError.malformedNumber
+                    throw TextFormatDecodingError.malformedNumber
                 } else {
                     return Int64.min // Special case for Int64.min
                 }
@@ -508,7 +507,7 @@ public struct TextScanner {
         } else {
             let n = try nextUInt()
             if n > UInt64(bitPattern: Int64.max) {
-                throw TextDecodingError.malformedNumber
+                throw TextFormatDecodingError.malformedNumber
             }
             return Int64(bitPattern: n)
         }
@@ -518,17 +517,17 @@ public struct TextScanner {
         var result: String
         skipWhitespace()
         if index == utf8.endIndex {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         let c = utf8[index]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         index = utf8.index(after: index)
         if let s = parseStringSegment(terminator: c) {
             result = s
         } else {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
 
         while true {
@@ -544,7 +543,7 @@ public struct TextScanner {
             if let s = parseStringSegment(terminator: c) {
                 result.append(s)
             } else {
-                throw TextDecodingError.malformedText
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -553,17 +552,17 @@ public struct TextScanner {
         var result: Data
         skipWhitespace()
         if index == utf8.endIndex {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         let c = utf8[index]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         index = utf8.index(after: index)
         if let s = parseQuotedString(terminator: c), let b = decodeBytes(s) {
             result = b
         } else {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
 
         while true {
@@ -580,7 +579,7 @@ public struct TextScanner {
                let b = decodeBytes(s) {
                 result.append(b)
             } else {
-                throw TextDecodingError.malformedText
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -719,7 +718,7 @@ public struct TextScanner {
         if let inf = skipOptionalInfinity() {
             return inf
         }
-        throw TextDecodingError.malformedNumber
+        throw TextFormatDecodingError.malformedNumber
     }
 
     internal mutating func nextDouble() throws -> Double {
@@ -734,13 +733,13 @@ public struct TextScanner {
         if let inf = skipOptionalInfinity() {
             return Double(inf)
         }
-        throw TextDecodingError.malformedNumber
+        throw TextFormatDecodingError.malformedNumber
     }
 
     internal mutating func nextBool() throws -> Bool {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         let c = utf8[index]
         switch c {
@@ -762,13 +761,13 @@ public struct TextScanner {
                 }
             }
         }
-        throw TextDecodingError.malformedText
+        throw TextFormatDecodingError.malformedText
     }
 
     internal mutating func nextOptionalEnumName() throws -> String? {
         skipWhitespace()
         if index == utf8.endIndex {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         let c = utf8[index]
         let start = index
@@ -810,14 +809,14 @@ public struct TextScanner {
             index = utf8.index(after: index)
             if let s = parseExtensionKey() {
                 if index == utf8.endIndex || utf8[index] != asciiCloseSquareBracket {
-                    throw TextDecodingError.malformedText
+                    throw TextFormatDecodingError.malformedText
                 }
                 // Skip ]
                 index = utf8.index(after: index)
                 return s
             } else {
                 print("Error parsing extension identifier")
-                throw TextDecodingError.malformedText
+                throw TextFormatDecodingError.malformedText
             }
         }
         return nil
@@ -838,16 +837,16 @@ public struct TextScanner {
         let c = utf8[index]
         switch c {
         case asciiOpenSquareBracket: // [
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         case asciiLowerA...asciiLowerZ,
              asciiUpperA...asciiUpperZ: // a...z, A...Z
             if let s = parseIdentifier() {
                 return s
             } else {
-                throw TextDecodingError.malformedText
+                throw TextFormatDecodingError.malformedText
             }
         default:
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
     }
 
@@ -889,13 +888,13 @@ public struct TextScanner {
                 if let fieldNumber = names.fieldNumber(forProtoName: buff) {
                     return fieldNumber
                 } else {
-                    throw TextDecodingError.unknownField
+                    throw TextFormatDecodingError.unknownField
                 }
             }
         default:
             break
         }
-        throw TextDecodingError.malformedText
+        throw TextFormatDecodingError.malformedText
     }
 
     private mutating func skipRequiredCharacter(_ c: UInt8) throws {
@@ -903,7 +902,7 @@ public struct TextScanner {
         if index != utf8.endIndex && utf8[index] == c {
             index = utf8.index(after: index)
         } else {
-            throw TextDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
     }
 
@@ -966,6 +965,6 @@ public struct TextScanner {
                 break
             }
         }
-        throw TextDecodingError.malformedText
+        throw TextFormatDecodingError.malformedText
     }
 }

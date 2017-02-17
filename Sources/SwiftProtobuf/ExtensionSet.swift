@@ -14,8 +14,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
-
 // TODO: Make this more Set-like
 // Note: The generated code only relies on ExpressibleByArrayLiteral
 public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLiteral {
