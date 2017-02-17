@@ -68,6 +68,8 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 
+    init() {}
+
     var isInitialized: Bool {
       if let v = _messageSet, !v.isInitialized {return false}
       return true
@@ -124,6 +126,8 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
   mutating func clearMessageSet() {
     return _storage._messageSet = nil
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     return _storage.isInitialized
@@ -183,6 +187,8 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
     return _i = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -239,6 +245,8 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
   mutating func clearStr() {
     return _str = nil
   }
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -322,6 +330,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
       return _message = nil
     }
 
+    init() {}
+
     public var isInitialized: Bool {
       if _typeId == nil {return false}
       if _message == nil {return false}
@@ -361,6 +371,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 
   var item: [ProtobufUnittest_RawMessageSet.Item] = []
+
+  init() {}
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(item) {return false}

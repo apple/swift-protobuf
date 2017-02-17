@@ -162,6 +162,8 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
     var _mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
 
+    init() {}
+
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -377,6 +379,8 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftP
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -411,6 +415,8 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
   private class _StorageClass {
     typealias ExtendedMessage = Proto3TestMapSubmessage
     var _testMap: Proto3TestMap? = nil
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -457,6 +463,8 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
     return _storage._testMap = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -490,6 +498,8 @@ struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 
 
   var mapInt32Message: Dictionary<Int32,Proto3TestAllTypes> = [:]
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -529,6 +539,8 @@ struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   var map1: Dictionary<Int32,Int32> = [:]
 
   var map2: Dictionary<Int32,Int32> = [:]
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -611,6 +623,8 @@ struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
   var mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
 
   var mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -769,6 +783,8 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtob
 
   var type: Dictionary<Int32,Proto3MessageContainingEnumCalledType> = [:]
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -804,6 +820,8 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtob
 
 
   var entry: Dictionary<Int32,Int32> = [:]
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

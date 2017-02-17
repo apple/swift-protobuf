@@ -69,6 +69,8 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
     var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
     var _repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []
 
+    init() {}
+
     var isInitialized: Bool {
       if let v = _optionalMessage, !v.isInitialized {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_repeatedMessage) {return false}
@@ -139,6 +141,8 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
     get {return _storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     return _storage.isInitialized

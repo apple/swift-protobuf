@@ -143,6 +143,12 @@ class StorageClassGenerator {
             }
         }
 
+        // Generate the default initializer. If we don't, Swift seems to sometimes
+        // generate it along with others that can take public proprerties. When it
+        // generates the others doesn't seem to be documented.
+        p.print("\n")
+        p.print("init() {}\n")
+
         generateIsInitialized(printer: &p)
 
         // decodeField
@@ -611,14 +617,11 @@ class MessageGenerator {
             }
         }
 
-        // Every property is defaulted and Swift's Default Initializers are internal by
-        // default, so there is no need to explicity generate the code (the compiler will
-        // still do its checks, so only generated the Default Initializer when it needs
-        // an explicit visibility.
-        if generatorOptions.visibility != .Internal {
-            p.print("\n")
-            p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
-        }
+        // Generate the default initializer. If we don't, Swift seems to sometimes
+        // generate it along with others that can take public proprerties. When it
+        // generates the others doesn't seem to be documented.
+        p.print("\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)init() {}\n")
 
         // isInitialized
         generateIsInitialized(printer:&p)

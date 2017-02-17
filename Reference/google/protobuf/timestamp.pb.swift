@@ -119,6 +119,8 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   ///   inclusive.
   var nanos: Int32 = 0
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

@@ -373,6 +373,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     var _oneofField: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField?
     var _deceptivelyNamedList: Int32? = nil
 
+    init() {}
+
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1028,6 +1030,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       return _cc = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1081,6 +1085,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
       return _a = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1128,6 +1134,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     mutating func clearA() {
       return _a = nil
     }
+
+    init() {}
 
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1870,6 +1878,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
     }
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1914,6 +1924,8 @@ struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf
   mutating func clearC() {
     return _c = nil
   }
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1991,6 +2003,8 @@ struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobu
   var packedBool: [Bool] = []
 
   var packedEnum: [ProtobufUnittest_ForeignEnumLite] = []
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2091,6 +2105,8 @@ struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProto
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
     return true
@@ -2165,6 +2181,8 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, Swi
     return _a = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2213,6 +2231,8 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, Swi
     return _a = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2246,6 +2266,8 @@ struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftPr
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
@@ -2316,6 +2338,8 @@ struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftPro
     )
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2357,6 +2381,8 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf
   mutating func clearDeprecatedField() {
     return _deprecatedField = nil
   }
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2406,6 +2432,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     var _repeatedAllTypes: [ProtobufUnittest_TestAllTypesLite] = []
     var _optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup? = nil
     var _repeatedGroup: [ProtobufUnittest_TestParsingMergeLite.RepeatedGroup] = []
+
+    init() {}
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
@@ -2510,6 +2538,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         var unknownFields = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypesLite? = nil
 
+        init() {}
+
         func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
           while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2562,6 +2592,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         return _storage._field1 = nil
       }
 
+      init() {}
+
       mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         try _uniqueStorage().decodeMessage(decoder: &decoder)
       }
@@ -2597,6 +2629,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2
         var unknownFields = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypesLite? = nil
+
+        init() {}
 
         func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
           while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2650,6 +2684,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         return _storage._field1 = nil
       }
 
+      init() {}
+
       mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         try _uniqueStorage().decodeMessage(decoder: &decoder)
       }
@@ -2687,6 +2723,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     var ext1: [ProtobufUnittest_TestAllTypesLite] = []
 
     var ext2: [ProtobufUnittest_TestAllTypesLite] = []
+
+    init() {}
 
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2757,6 +2795,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       var unknownFields = SwiftProtobuf.UnknownStorage()
       var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
 
+      init() {}
+
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2809,6 +2849,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       return _storage._optionalGroupAllTypes = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       try _uniqueStorage().decodeMessage(decoder: &decoder)
     }
@@ -2844,6 +2886,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.RepeatedGroup
       var unknownFields = SwiftProtobuf.UnknownStorage()
       var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
+
+      init() {}
 
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2896,6 +2940,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     mutating func clearRepeatedGroupAllTypes() {
       return _storage._repeatedGroupAllTypes = nil
     }
+
+    init() {}
 
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       try _uniqueStorage().decodeMessage(decoder: &decoder)
@@ -2979,6 +3025,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     return _storage.isInitialized
   }
@@ -3034,6 +3082,8 @@ struct ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtob
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3061,6 +3111,8 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Messag
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
@@ -3149,6 +3201,8 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
     return _enumField = nil
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     if _intField == nil {return false}
     return true
@@ -3219,6 +3273,8 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf.Prot
   mutating func clearEnumField() {
     return _enumField = nil
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     if _intField == nil {return false}
@@ -3292,6 +3348,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup? = nil
     var _stringStringMap: Dictionary<String,String> = [:]
     var _oneofField: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField?
+
+    init() {}
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
@@ -3501,6 +3559,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       return _groupA = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3674,6 +3734,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       _uniqueStorage()._oneofField = newValue
     }
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     return _storage.isInitialized

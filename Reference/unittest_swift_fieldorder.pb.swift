@@ -59,6 +59,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     var _options: Swift_Protobuf_TestFieldOrderings.OneOf_Options?
     var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
 
+    init() {}
+
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
       return true
@@ -247,6 +249,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       return _bb = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -377,6 +381,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       _uniqueStorage()._options = newValue
     }
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     return _storage.isInitialized

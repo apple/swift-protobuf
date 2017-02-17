@@ -72,6 +72,8 @@ struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message, Sw
     return _e = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

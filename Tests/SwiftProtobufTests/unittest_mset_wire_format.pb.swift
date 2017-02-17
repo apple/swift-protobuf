@@ -63,6 +63,8 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
     return true
@@ -128,6 +130,8 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 
+    init() {}
+
     var isInitialized: Bool {
       if let v = _messageSet, !v.isInitialized {return false}
       return true
@@ -184,6 +188,8 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
   mutating func clearMessageSet() {
     return _storage._messageSet = nil
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     return _storage.isInitialized
