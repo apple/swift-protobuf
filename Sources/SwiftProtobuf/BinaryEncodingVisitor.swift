@@ -16,7 +16,7 @@
 import Foundation
 
 /// Visitor that encodes a message graph in the protobuf binary wire format.
-final class BinaryEncodingVisitor: Visitor {
+internal struct BinaryEncodingVisitor: Visitor {
 
   private var encoder: BinaryEncoder
 
@@ -30,60 +30,222 @@ final class BinaryEncodingVisitor: Visitor {
     encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
-  func visitUnknown(bytes: Data) {
+  mutating func visitUnknown(bytes: Data) {
     encoder.appendUnknown(data: bytes)
   }
 
-  func visitSingularField<S: FieldType>(fieldType: S.Type,
-                                        value: S.BaseType,
-                                        fieldNumber: Int) throws {
-    encoder.startField(fieldNumber: fieldNumber,
-                       wireFormat: S.protobufWireFormat)
-    S.serializeProtobufValue(encoder: &encoder, value: value)
+  mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed32)
+    encoder.putFloatValue(value: value)
   }
 
-  func visitRepeatedField<S: FieldType>(fieldType: S.Type,
-                                        value: [S.BaseType],
-                                        fieldNumber: Int) throws {
+  mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed64)
+    encoder.putDoubleValue(value: value)
+  }
+
+  mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+    try visitSingularUInt64Field(value: UInt64(bitPattern: value), fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
+    encoder.putVarInt(value: value)
+  }
+
+  mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
+    try visitSingularSInt64Field(value: Int64(value), fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
+    try visitSingularUInt64Field(value: ZigZag.encoded(value), fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed32)
+    encoder.putFixedUInt32(value: value)
+  }
+
+  mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed64)
+    encoder.putFixedUInt64(value: value)
+  }
+
+  mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
+    try visitSingularFixed32Field(value: UInt32(bitPattern: value), fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
+    try visitSingularFixed64Field(value: UInt64(bitPattern: value), fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+    try visitSingularUInt64Field(value: value ? 1 : 0, fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putStringValue(value: value)
+  }
+
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putBytesValue(value: value)
+  }
+
+  mutating func visitSingularEnumField<E: Enum>(value: E,
+                                                fieldNumber: Int) throws {
+    try visitSingularUInt64Field(value: UInt64(bitPattern: Int64(value.rawValue)),
+                                 fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularMessageField<M: Message>(value: M,
+                                             fieldNumber: Int) throws {
+    let t = try value.serializedData()
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putBytesValue(value: t)
+  }
+
+  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
+    try value.traverse(visitor: &self)
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
+  }
+
+  // Repeated fields are handled by the default implementations in Visitor.swift
+
+
+  // Packed Fields
+
+  mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putVarInt(value: value.count * MemoryLayout<Float>.size)
     for v in value {
-      encoder.startField(fieldNumber: fieldNumber,
-                         wireFormat: S.protobufWireFormat)
-      S.serializeProtobufValue(encoder: &encoder, value: v)
+      encoder.putFloatValue(value: v)
     }
   }
 
-  func visitPackedField<S: FieldType>(fieldType: S.Type,
-                                      value: [S.BaseType],
-                                      fieldNumber: Int) throws {
+  mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putVarInt(value: value.count * MemoryLayout<Double>.size)
+    for v in value {
+      encoder.putDoubleValue(value: v)
+    }
+  }
+
+  mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     var packedSize = 0
     for v in value {
-      packedSize += try S.encodedSizeWithoutTag(of: v)
+        packedSize += Varint.encodedSize(of: v)
     }
     encoder.putVarInt(value: packedSize)
     for v in value {
-      S.serializeProtobufValue(encoder: &encoder, value: v)
+        encoder.putVarInt(value: Int64(v))
     }
   }
 
-  func visitSingularEnumField<E: Enum>(value: E,
-                                       fieldNumber: Int) throws {
-    encoder.startField(fieldNumber: fieldNumber,
-                       wireFormat: .varint)
-    encoder.putVarInt(value: value.rawValue)
-  }
-
-  func visitRepeatedEnumField<E: Enum>(value: [E],
-                                   fieldNumber: Int) throws {
+  mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    var packedSize = 0
     for v in value {
-      encoder.startField(fieldNumber: fieldNumber,
-                         wireFormat: .varint)
-      encoder.putVarInt(value: v.rawValue)
+        packedSize += Varint.encodedSize(of: v)
+    }
+    encoder.putVarInt(value: packedSize)
+    for v in value {
+        encoder.putVarInt(value: v)
     }
   }
 
-  func visitPackedEnumField<E: Enum>(value: [E],
-                                 fieldNumber: Int) throws {
+  mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    var packedSize = 0
+    for v in value {
+        packedSize += Varint.encodedSize(of: ZigZag.encoded(v))
+    }
+    encoder.putVarInt(value: packedSize)
+    for v in value {
+        encoder.putZigZagVarInt(value: Int64(v))
+    }
+  }
+
+  mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    var packedSize = 0
+    for v in value {
+        packedSize += Varint.encodedSize(of: ZigZag.encoded(v))
+    }
+    encoder.putVarInt(value: packedSize)
+    for v in value {
+        encoder.putZigZagVarInt(value: v)
+    }
+  }
+
+  mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    var packedSize = 0
+    for v in value {
+        packedSize += Varint.encodedSize(of: v)
+    }
+    encoder.putVarInt(value: packedSize)
+    for v in value {
+        encoder.putVarInt(value: UInt64(v))
+    }
+  }
+
+  mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    var packedSize = 0
+    for v in value {
+        packedSize += Varint.encodedSize(of: v)
+    }
+    encoder.putVarInt(value: packedSize)
+    for v in value {
+        encoder.putVarInt(value: v)
+    }
+  }
+
+  mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putVarInt(value: value.count * MemoryLayout<UInt32>.size)
+    for v in value {
+      encoder.putFixedUInt32(value: v)
+    }
+  }
+
+  mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putVarInt(value: value.count * MemoryLayout<UInt64>.size)
+    for v in value {
+      encoder.putFixedUInt64(value: v)
+    }
+  }
+
+  mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putVarInt(value: value.count * MemoryLayout<Int32>.size)
+    for v in value {
+       encoder.putFixedUInt32(value: UInt32(bitPattern: v))
+    }
+  }
+
+  mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putVarInt(value: value.count * MemoryLayout<Int64>.size)
+    for v in value {
+      encoder.putFixedUInt64(value: UInt64(bitPattern: v))
+    }
+  }
+
+  mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
+    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+    encoder.putVarInt(value: value.count)
+    for v in value {
+      encoder.putVarInt(value: v ? 1 : 0)
+    }
+  }
+
+  mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     var packedSize = 0
     for v in value {
@@ -95,108 +257,59 @@ final class BinaryEncodingVisitor: Visitor {
     }
   }
 
-  func visitSingularMessageField<M: Message>(value: M,
-                                             fieldNumber: Int) throws {
-    let t = try value.serializedData()
-    encoder.startField(fieldNumber: fieldNumber,
-                       wireFormat: .lengthDelimited)
-    encoder.putBytesValue(value: t)
-  }
-
-  func visitRepeatedMessageField<M: Message>(value: [M],
-                                             fieldNumber: Int) throws {
-    for v in value {
-      let t = try v.serializedData()
-      encoder.startField(fieldNumber: fieldNumber,
-                         wireFormat: .lengthDelimited)
-      encoder.putBytesValue(value: t)
-    }
-  }
-
-  func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
-    encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
-    try value.traverse(visitor: self)
-    encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
-  }
-
-  func visitRepeatedGroupField<G: Message>(value: [G],
-                                           fieldNumber: Int) throws {
-    for v in value {
-      encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
-      try v.traverse(visitor: self)
-      encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
-    }
-  }
-
-  func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
     fieldType: ProtobufMap<KeyType, ValueType>.Type,
     value: ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where KeyType.BaseType: Hashable {
     for (k,v) in value {
       encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-      let keyTagSize =
-        Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
-      let valueTagSize =
-        Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
-      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
-        valueTagSize + ValueType.encodedSizeWithoutTag(of: v)
+      var sizer = BinaryEncodingSizeVisitor()
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
+      try ValueType.visitSingular(value: v, fieldNumber: 2, with: &sizer)
+      let entrySize = sizer.serializedSize
       encoder.putVarInt(value: entrySize)
-      encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
-      KeyType.serializeProtobufValue(encoder: &encoder, value: k)
-      encoder.startField(fieldNumber: 2,
-                         wireFormat: ValueType.protobufWireFormat)
-      ValueType.serializeProtobufValue(encoder: &encoder, value: v)
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &self)
+      try ValueType.visitSingular(value: v, fieldNumber: 2, with: &self)
     }
   }
 
-  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
     fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
     value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
     for (k,v) in value {
       encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-      let keyTagSize =
-        Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
-      let valueTagSize =
-        Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
-      let entrySize = try keyTagSize + KeyType.encodedSizeWithoutTag(of: k) +
-        valueTagSize + Varint.encodedSize(of: Int32(truncatingBitPattern: v.rawValue))
+      var sizer = BinaryEncodingSizeVisitor()
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
+      try sizer.visitSingularEnumField(value: v, fieldNumber: 2)
+      let entrySize = sizer.serializedSize
       encoder.putVarInt(value: entrySize)
-      encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
-      KeyType.serializeProtobufValue(encoder: &encoder, value: k)
-      encoder.startField(fieldNumber: 2, wireFormat: .varint)
-      encoder.putVarInt(value: v.rawValue)
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &self)
+      try visitSingularEnumField(value: v, fieldNumber: 2)
     }
   }
 
-  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(
     fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
     value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where KeyType.BaseType: Hashable {
     for (k,v) in value {
       encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-      let keyTagSize =
-        Varint.encodedSize(of: UInt32(truncatingBitPattern: 1 << 3))
-      let keyValueSize = try KeyType.encodedSizeWithoutTag(of: k)
-      let valueTagSize =
-        Varint.encodedSize(of: UInt32(truncatingBitPattern: 2 << 3))
-      let messageSize = try v.serializedDataSize()
-      let valueValueSize = Varint.encodedSize(of: Int64(messageSize)) + messageSize
-      let entrySize = keyTagSize + keyValueSize + valueTagSize + valueValueSize
+      var sizer = BinaryEncodingSizeVisitor()
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
+      try sizer.visitSingularMessageField(value: v, fieldNumber: 2)
+      let entrySize = sizer.serializedSize
       encoder.putVarInt(value: entrySize)
-      encoder.startField(fieldNumber: 1, wireFormat: KeyType.protobufWireFormat)
-      KeyType.serializeProtobufValue(encoder: &encoder, value: k)
-      encoder.startField(fieldNumber: 2, wireFormat: .lengthDelimited)
-      let messageBytes = try! v.serializedData()
-      encoder.putBytesValue(value: messageBytes)
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &self)
+      try visitSingularMessageField(value: v, fieldNumber: 2)
     }
   }
 
   /// Called for each extension range.
-  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-    try fields.traverse(visitor: self, start: start, end: end)
+  mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: &self, start: start, end: end)
   }
 }

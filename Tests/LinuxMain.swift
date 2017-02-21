@@ -507,6 +507,7 @@ extension Test_JSON {
             ("testSingleNestedMessage", {try run_test(test:($0 as! Test_JSON).testSingleNestedMessage)}),
             ("testSingleNestedEnum", {try run_test(test:($0 as! Test_JSON).testSingleNestedEnum)}),
             ("testRepeatedInt32", {try run_test(test:($0 as! Test_JSON).testRepeatedInt32)}),
+            ("testRepeatedString", {try run_test(test:($0 as! Test_JSON).testRepeatedString)}),
             ("testRepeatedNestedMessage", {try run_test(test:($0 as! Test_JSON).testRepeatedNestedMessage)}),
             ("testOneof", {try run_test(test:($0 as! Test_JSON).testOneof)})
         ]
@@ -516,7 +517,19 @@ extension Test_JSON {
 extension Test_JSONPacked {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("testPackedInt32", {try run_test(test:($0 as! Test_JSONPacked).testPackedInt32)})
+            ("testPackedFloat", {try run_test(test:($0 as! Test_JSONPacked).testPackedFloat)}),
+            ("testPackedDouble", {try run_test(test:($0 as! Test_JSONPacked).testPackedDouble)}),
+            ("testPackedInt32", {try run_test(test:($0 as! Test_JSONPacked).testPackedInt32)}),
+            ("testPackedInt64", {try run_test(test:($0 as! Test_JSONPacked).testPackedInt64)}),
+            ("testPackedUInt32", {try run_test(test:($0 as! Test_JSONPacked).testPackedUInt32)}),
+            ("testPackedUInt64", {try run_test(test:($0 as! Test_JSONPacked).testPackedUInt64)}),
+            ("testPackedSInt32", {try run_test(test:($0 as! Test_JSONPacked).testPackedSInt32)}),
+            ("testPackedSInt64", {try run_test(test:($0 as! Test_JSONPacked).testPackedSInt64)}),
+            ("testPackedFixed32", {try run_test(test:($0 as! Test_JSONPacked).testPackedFixed32)}),
+            ("testPackedFixed64", {try run_test(test:($0 as! Test_JSONPacked).testPackedFixed64)}),
+            ("testPackedSFixed32", {try run_test(test:($0 as! Test_JSONPacked).testPackedSFixed32)}),
+            ("testPackedSFixed64", {try run_test(test:($0 as! Test_JSONPacked).testPackedSFixed64)}),
+            ("testPackedBool", {try run_test(test:($0 as! Test_JSONPacked).testPackedBool)})
         ]
     }
 }

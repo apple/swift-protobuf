@@ -14,34 +14,110 @@
 
 import Foundation
 
-public struct JSONEncoder {
-    fileprivate var json: [String] = []
-    private var separator: String = ""
-    public init() {}
-    public var result: String { return json.joined(separator: "") }
+private let asciiZero = UInt8(ascii: "0")
+private let asciiOne = UInt8(ascii: "1")
+private let asciiTwo = UInt8(ascii: "2")
+private let asciiThree = UInt8(ascii: "3")
+private let asciiFour = UInt8(ascii: "4")
+private let asciiFive = UInt8(ascii: "5")
+private let asciiSix = UInt8(ascii: "6")
+private let asciiSeven = UInt8(ascii: "7")
+private let asciiEight = UInt8(ascii: "8")
+private let asciiNine = UInt8(ascii: "9")
+private let asciiMinus = UInt8(ascii: "-")
+private let asciiColon = UInt8(ascii: ":")
+private let asciiComma = UInt8(ascii: ",")
+private let asciiDoubleQuote = UInt8(ascii: "\"")
+private let asciiBackslash = UInt8(ascii: "\\")
+private let asciiOpenCurlyBracket = UInt8(ascii: "{")
+private let asciiCloseCurlyBracket = UInt8(ascii: "}")
+private let asciiLowerA = UInt8(ascii: "a")
+private let asciiUpperA = UInt8(ascii: "A")
+private let asciiUpperB = UInt8(ascii: "B")
+private let asciiLowerB = UInt8(ascii: "b")
+private let asciiUpperC = UInt8(ascii: "C")
+private let asciiUpperD = UInt8(ascii: "D")
+private let asciiUpperE = UInt8(ascii: "E")
+private let asciiLowerE = UInt8(ascii: "e")
+private let asciiUpperF = UInt8(ascii: "F")
+private let asciiLowerF = UInt8(ascii: "f")
+private let asciiUpperI = UInt8(ascii: "I")
+private let asciiLowerL = UInt8(ascii: "l")
+private let asciiLowerN = UInt8(ascii: "n")
+private let asciiUpperN = UInt8(ascii: "N")
+private let asciiLowerR = UInt8(ascii: "r")
+private let asciiLowerS = UInt8(ascii: "s")
+private let asciiLowerT = UInt8(ascii: "t")
+private let asciiLowerU = UInt8(ascii: "u")
 
-    mutating func append(text: String) {
-        json.append(text)
+
+// Although JSONEncoder itself is public, it has no public members.
+// It is only public because FieldType is public and we're currently
+// implementing JSON maps by reflecting JSONEncoders through the FieldTypes.
+
+// This problem doesn't arise for other formats because they don't
+// use map keys as field names.
+
+public struct JSONEncoder {
+    private var data = [UInt8]()
+    private var separator: UInt8?
+    internal var isMapKey = false
+
+    internal init() {}
+
+    internal var dataResult: Data { return Data(bytes: data) }
+
+    internal var stringResult: String {
+        get {
+            return String(bytes: data, encoding: String.Encoding.utf8)!
+        }
     }
-    mutating func startField(name: String) {
-        append(text: separator + "\"" + name + "\":")
-        separator = ","
+
+    internal mutating func append(text: String) {
+        data.append(contentsOf: text.utf8)
     }
-    public mutating func startObject() {
-        append(text: "{")
-        separator = ""
+
+    internal mutating func startField(name: StaticString) {
+        if let s = separator {
+            data.append(s)
+        }
+        data.append(asciiDoubleQuote)
+        // Append the StaticString's utf8 contents directly
+        let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
+        data.append(contentsOf: buff)
+        data.append(asciiDoubleQuote)
+        data.append(asciiColon)
+        separator = asciiComma
     }
-    public mutating func endObject() {
-        append(text: "}")
-        separator = ","
+
+    internal mutating func startField(name: String) {
+        if let s = separator {
+            data.append(s)
+        }
+        data.append(asciiDoubleQuote)
+        // Can avoid overhead of putStringValue, since
+        // the JSON field names are always clean ASCII.
+        data.append(contentsOf: name.utf8)
+        data.append(asciiDoubleQuote)
+        data.append(asciiColon)
+        separator = asciiComma
     }
-    mutating func putNullValue() {
-        append(text: "null")
+
+    internal mutating func startObject() {
+        data.append(asciiOpenCurlyBracket)
+        separator = nil
     }
-    mutating func putFloatValue(value: Float, quote: Bool) {
-        putDoubleValue(value: Double(value), quote: quote)
+    internal mutating func endObject() {
+        data.append(asciiCloseCurlyBracket)
+        separator = asciiComma
     }
-    mutating func putDoubleValue(value: Double, quote: Bool) {
+    internal mutating func putNullValue() {
+        data.append(contentsOf: [asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL])
+    }
+    internal mutating func putFloatValue(value: Float) {
+        putDoubleValue(value: Double(value))
+    }
+    internal mutating func putDoubleValue(value: Double) {
         if value.isNaN {
             append(text: "\"NaN\"")
         } else if !value.isFinite {
@@ -53,68 +129,116 @@ public struct JSONEncoder {
         } else {
             // TODO: Be smarter here about choosing significant digits
             // See: protoc source has C++ code for this with interesting ideas
-            let s: String
-            if value < Double(Int64.max) && value > Double(Int64.min) && value == Double(Int64(value)) {
-                s = String(Int64(value))
+            if let v = Int64(exactly: value) {
+                appendInt(value: v)
             } else {
-                s = String(value)
-            }
-            if quote {
-                append(text: "\"" + s + "\"")
-            } else {
+                let s = String(value)
                 append(text: s)
             }
         }
     }
-    mutating func putInt64(value: Int64, quote: Bool) {
-        // Always quote integers with abs value > 2^53
-        if quote || value > 0x1FFFFFFFFFFFFF || value < -0x1FFFFFFFFFFFFF {
-            append(text: "\"" + String(value) + "\"")
+    private mutating func appendUInt(value: UInt64) {
+        if value >= 10 {
+            appendUInt(value: value / 10)
+        }
+        data.append(asciiZero + UInt8(value % 10))
+    }
+    private mutating func appendInt(value: Int64) {
+        if value < 0 {
+            data.append(asciiMinus)
+            // This is the twos-complement negation of value,
+            // computed in a way that won't overflow a 64-bit
+            // signed integer.
+            appendUInt(value: 1 + ~UInt64(bitPattern: value))
         } else {
-            append(text: String(value))
+            appendUInt(value: UInt64(bitPattern: value))
         }
     }
-    mutating func putUInt64(value: UInt64, quote: Bool) {
-        if quote || value > 0x1FFFFFFFFFFFFF { // 2^53 - 1
-            append(text: "\"" + String(value) + "\"")
+    internal mutating func putEnumInt(value: Int) {
+        appendInt(value: Int64(value))
+    }
+    internal mutating func putInt64(value: Int64) {
+        data.append(asciiDoubleQuote)
+        appendInt(value: value)
+        data.append(asciiDoubleQuote)
+    }
+    internal mutating func putInt32(value: Int32) {
+        if isMapKey {
+            data.append(asciiDoubleQuote)
+            appendInt(value: Int64(value))
+            data.append(asciiDoubleQuote)
         } else {
-            append(text: String(value))
+            appendInt(value: Int64(value))
         }
     }
 
-    mutating func putBoolValue(value: Bool, quote: Bool) {
-        if quote {
-            append(text: value ? "\"true\"" : "\"false\"")
+    internal mutating func putUInt64(value: UInt64) {
+        data.append(asciiDoubleQuote)
+        appendUInt(value: value)
+        data.append(asciiDoubleQuote)
+    }
+
+    internal mutating func putUInt32(value: UInt32) {
+        if isMapKey {
+            data.append(asciiDoubleQuote)
+            appendUInt(value: UInt64(value))
+            data.append(asciiDoubleQuote)
         } else {
-            append(text: value ? "true" : "false")
+            appendUInt(value: UInt64(value))
         }
     }
-    mutating func putStringValue(value: String) {
-        let hexDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-        append(text: "\"")
+
+    internal mutating func putBoolValue(value: Bool) {
+        if isMapKey {
+            data.append(asciiDoubleQuote)
+        }
+        if value {
+            data.append(contentsOf: [asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE])
+        } else {
+            data.append(contentsOf: [asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE])
+        }
+        if isMapKey {
+            data.append(asciiDoubleQuote)
+        }
+    }
+    internal mutating func putStringValue(value: String) {
+        let hexDigits = [asciiZero, asciiOne, asciiTwo, asciiThree, asciiFour, asciiFive, asciiSix, asciiSeven,
+                         asciiEight, asciiNine, asciiUpperA, asciiUpperB, asciiUpperC, asciiUpperD, asciiUpperE, asciiUpperF];
+        data.append(asciiDoubleQuote)
         for c in value.unicodeScalars {
             switch c.value {
             // Special two-byte escapes
-            case 8: append(text: "\\b")
-            case 9: append(text: "\\t")
-            case 10: append(text: "\\n")
-            case 12: append(text: "\\f")
-            case 13: append(text: "\\r")
-            case 34: append(text: "\\\"")
-            case 92: append(text: "\\\\")
-            case 0...31, 127...159: // Hex form for C0 and C1 control chars
-                let digit1 = hexDigits[Int(c.value / 16)]
-                let digit2 = hexDigits[Int(c.value & 15)]
-                append(text: "\\u00\(digit1)\(digit2)")
-            case 0...127:  // ASCII
-                append(text: String(c))
-            default: // Non-ASCII
-                append(text: String(c))
+            case 8: data.append(contentsOf: [asciiBackslash, asciiLowerB])
+            case 9: data.append(contentsOf: [asciiBackslash, asciiLowerT])
+            case 10: data.append(contentsOf: [asciiBackslash, asciiLowerN])
+            case 12: data.append(contentsOf: [asciiBackslash, asciiLowerF])
+            case 13: data.append(contentsOf: [asciiBackslash, asciiLowerR])
+            case 34: data.append(contentsOf: [asciiBackslash, asciiDoubleQuote])
+            case 92: data.append(contentsOf: [asciiBackslash, asciiBackslash])
+            case 0...31, 127...159: // Hex form for C0 control chars
+                data.append(contentsOf: [asciiBackslash, asciiLowerU, asciiZero, asciiZero])
+                data.append(hexDigits[Int(c.value / 16)])
+                data.append(hexDigits[Int(c.value & 15)])
+            case 23...126:
+                data.append(UInt8(truncatingBitPattern: c.value))
+            case 0x80...0x7ff:
+                data.append(0xc0 + UInt8(truncatingBitPattern: c.value >> 6))
+                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+            case 0x800...0xffff:
+                data.append(0xe0 + UInt8(truncatingBitPattern: c.value >> 12))
+                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+            default:
+                data.append(0xf0 + UInt8(truncatingBitPattern: c.value >> 18))
+                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 12) & 0x3f))
+                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
             }
         }
-        append(text: "\"")
+        data.append(asciiDoubleQuote)
     }
-    mutating func putBytesValue(value: Data) {
+
+    internal mutating func putBytesValue(value: Data) {
         var out: String = ""
         if value.count > 0 {
             let digits: [Character] = ["A", "B", "C", "D", "E", "F",

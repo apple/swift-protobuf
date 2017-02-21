@@ -25,75 +25,18 @@ private let i_16777619 = Int(16777619)
 /// dictionary keys or set members should override `hashValue` in an extension
 /// and provide a more efficient implementation by examining only a subset of
 /// key fields.
-final class HashVisitor: Visitor {
+internal struct HashVisitor: Visitor {
 
   // Roughly based on FNV hash: http://tools.ietf.org/html/draft-eastlake-fnv-03
   private(set) var hashValue = i_2166136261
 
-  private func mix(_ hash: Int) {
+  private mutating func mix(_ hash: Int) {
     hashValue = (hashValue ^ hash) &* i_16777619
   }
 
-  init() {}
-
-  func visitUnknown(bytes: Data) {
-    if bytes.count > 0 { // Workaround for Linux Foundation bug
-      mix(bytes.hashValue)
-    }
-  }
-
-  func visitSingularField<S: FieldType>(fieldType: S.Type,
-                                        value: S.BaseType,
-                                        fieldNumber: Int) {
-    mix(fieldNumber)
-    mix(value.hashValue)
-  }
-
-  func visitRepeatedField<S: FieldType>(fieldType: S.Type,
-                                        value: [S.BaseType],
-                                        fieldNumber: Int) {
-    mix(fieldNumber)
-    for v in value {
-      mix(v.hashValue)
-    }
-  }
-
-  func visitSingularEnumField<E: Enum>(value: E,
-                                   fieldNumber: Int) {
-    mix(fieldNumber)
-    mix(value.hashValue)
-  }
-
-  func visitRepeatedEnumField<E: Enum>(value: [E],
-                                       fieldNumber: Int) {
-    mix(fieldNumber)
-    for v in value {
-      mix(v.hashValue)
-    }
-  }
-
-  func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
-    mix(fieldNumber)
-    mix(value.hashValue)
-  }
-
-  func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) {
-    mix(fieldNumber)
-    for v in value {
-      mix(v.hashValue)
-    }
-  }
-
-  func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
-    fieldType: ProtobufMap<KeyType, ValueType>.Type,
-    value: ProtobufMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int
-  ) where KeyType.BaseType: Hashable {
-    mix(fieldNumber)
-    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
-    // simplify to mix(value.hashValue).
+  private mutating func mixMap<K: Hashable, V: Hashable>(map: Dictionary<K,V>) {
     var mapHash = 0
-    for (k, v) in value {
+    for (k, v) in map {
       // Note: This calculation cannot depend on the order of the items.
       mapHash = mapHash &+ (k.hashValue ^ v.hashValue)
     }
@@ -101,41 +44,86 @@ final class HashVisitor: Visitor {
   }
 
 
-  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+  init() {}
+
+  mutating func visitUnknown(bytes: Data) {
+    if bytes.count > 0 { // Workaround for Linux Foundation bug
+      mix(bytes.hashValue)
+    }
+  }
+
+  public mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  public mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  public mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  public mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  public mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  public mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  mutating func visitSingularEnumField<E: Enum>(value: E,
+                                   fieldNumber: Int) {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
+    mix(fieldNumber)
+    mix(value.hashValue)
+  }
+
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+    fieldType: ProtobufMap<KeyType, ValueType>.Type,
+    value: ProtobufMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) where KeyType.BaseType: Hashable {
+    mix(fieldNumber)
+    mixMap(map: value)
+  }
+
+
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
     fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
     value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
     mix(fieldNumber)
-    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
-    // simplify to mix(value.hashValue).
-    var mapHash = 0
-    for (k, v) in value {
-      // Note: This calculation cannot depend on the order of the items.
-      mapHash += k.hashValue ^ v.hashValue
-    }
-    mix(mapHash)
+    mixMap(map: value)
   }
 
 
-  func visitMapField<KeyType: MapKeyType, ValueType: Message>(
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(
     fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
     value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) where KeyType.BaseType: Hashable {
     mix(fieldNumber)
-    // Note: When ProtobufMap<Hashable, Hashable> is Hashable, this will
-    // simplify to mix(value.hashValue).
-    var mapHash = 0
-    for (k, v) in value {
-      // Note: This calculation cannot depend on the order of the items.
-      mapHash += k.hashValue ^ v.hashValue
-    }
-    mix(mapHash)
+    mixMap(map: value)
   }
 
   /// Called for each extension range.
-  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-    try fields.traverse(visitor: self, start: start, end: end)
+  mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: &self, start: start, end: end)
   }
 }

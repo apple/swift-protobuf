@@ -628,7 +628,7 @@ public struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: Message>(mapType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: Message & Hashable>(mapType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -655,7 +655,7 @@ public struct TextFormatDecoder: Decoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true

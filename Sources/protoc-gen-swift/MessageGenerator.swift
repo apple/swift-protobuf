@@ -662,7 +662,7 @@ class MessageGenerator {
 
         // Traversal method
         p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
         p.indent()
         let possibleStoragePrefix: String
         // TODO: Lift extensionFieldValues and unknownFields into the Message
@@ -694,7 +694,7 @@ class MessageGenerator {
                 oneofEnd = f.number + 1
             } else {
                 if let oneof = currentOneof {
-                    p.print("try \(possibleStoragePrefix)\(oneof.swiftFieldName)?.traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+                    p.print("try \(possibleStoragePrefix)\(oneof.swiftFieldName)?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
                     currentOneof = nil
                 }
                 if let newOneof = f.oneof {
@@ -707,14 +707,14 @@ class MessageGenerator {
             }
         }
         if let oneof = currentOneof {
-            p.print("try \(possibleStoragePrefix)\(oneof.swiftFieldName)?.traverse(visitor: visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+            p.print("try \(possibleStoragePrefix)\(oneof.swiftFieldName)?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
         }
         while nextRange != nil {
             p.print("try visitor.visitExtensionFields(fields: \(extensionFieldValuesName), start: \(nextRange!.start), end: \(nextRange!.end))\n")
             nextRange = ranges.next()
         }
         if !file.isProto3 {
-            p.print("\(unknownFieldsName).traverse(visitor: visitor)\n")
+            p.print("\(unknownFieldsName).traverse(visitor: &visitor)\n")
         }
 
         if storage != nil {

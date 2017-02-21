@@ -284,7 +284,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
 
         let structValue = try Google_Protobuf_Value(jsonString: "{\"a\":1.0}")
         let d = structValue.debugDescription
-        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value: {\n      number_value: 1\n    }\n  }\n}\n")
+        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value {\n      number_value: 1\n    }\n  }\n}\n")
     }
 
     func testValue_list() throws {

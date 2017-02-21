@@ -82,9 +82,9 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularDoubleField(value: value, fieldNumber: 1)
     }
   }
 
@@ -123,9 +123,9 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.P
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularFloatField(value: value, fieldNumber: 1)
     }
   }
 
@@ -164,9 +164,9 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.P
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularInt64Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -205,9 +205,9 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularUInt64Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -246,9 +246,9 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.P
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -287,9 +287,9 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularUInt32Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -328,9 +328,9 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != false {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularBoolField(value: value, fieldNumber: 1)
     }
   }
 
@@ -369,9 +369,9 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    if value != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: value, fieldNumber: 1)
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !value.isEmpty {
+      try visitor.visitSingularStringField(value: value, fieldNumber: 1)
     }
   }
 
@@ -410,9 +410,9 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.P
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != Data() {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularBytesField(value: value, fieldNumber: 1)
     }
   }
 

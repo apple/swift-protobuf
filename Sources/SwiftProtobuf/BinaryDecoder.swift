@@ -926,7 +926,7 @@ struct BinaryDecoder: Decoder {
         }
     }
 
-    internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         var k: KeyType.BaseType?
         var v: ValueType?
         var count: Int = 0

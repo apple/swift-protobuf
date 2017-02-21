@@ -101,7 +101,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
             try v.serializeJSONValue(jsonEncoder: &jsonEncoder)
         }
         jsonEncoder.endObject()
-        return jsonEncoder.result
+        return jsonEncoder.stringResult
     }
 
     public func anyJSONString() throws -> String {
@@ -123,7 +123,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         }
     }
 
-    public func _protoc_generated_traverse(visitor: Visitor) throws {
+    public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !fields.isEmpty {
             try visitor.visitMapField(fieldType: ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
         }
@@ -257,7 +257,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
     public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         try serializeJSONValue(jsonEncoder: &jsonEncoder)
-        return jsonEncoder.result
+        return jsonEncoder.stringResult
     }
 
     public func anyJSONString() throws -> String {
@@ -304,8 +304,8 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         try any.unpackTo(target: &self)
     }
 
-    public func _protoc_generated_traverse(visitor: Visitor) throws {
-        try kind?.traverse(visitor: visitor, start:1, end: 7)
+    public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        try kind?.traverse(visitor: &visitor, start:1, end: 7)
     }
 
     // Storage ivars
@@ -474,15 +474,15 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         fileprivate func serializeJSONField(encoder: inout JSONEncoder) throws {
             switch self {
             case .nullValue(_): encoder.putNullValue()
-            case .numberValue(let v): encoder.putDoubleValue(value: v, quote: false)
+            case .numberValue(let v): encoder.putDoubleValue(value: v)
             case .stringValue(let v): encoder.putStringValue(value: v)
-            case .boolValue(let v): encoder.putBoolValue(value: v, quote: false)
+            case .boolValue(let v): encoder.putBoolValue(value: v)
             case .structValue(let v): encoder.append(text: try v.jsonString())
             case .listValue(let v): encoder.append(text: try v.jsonString())
             }
         }
 
-        fileprivate func traverse(visitor: Visitor, start: Int, end: Int) throws {
+        fileprivate func traverse<V: Visitor>(visitor: inout V, start: Int, end: Int) throws {
             switch self {
             case .nullValue(let v):
                 if start <= 1 && 1 < end {
@@ -490,15 +490,15 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
                 }
             case .numberValue(let v):
                 if start <= 2 && 2 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufDouble.self, value: v, fieldNumber: 2)
+                    try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
                 }
             case .stringValue(let v):
                 if start <= 3 && 3 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufString.self, value: v, fieldNumber: 3)
+                    try visitor.visitSingularStringField(value: v, fieldNumber: 3)
                 }
             case .boolValue(let v):
                 if start <= 4 && 4 < end {
-                    try visitor.visitSingularField(fieldType: ProtobufBool.self, value: v, fieldNumber: 4)
+                    try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
                 }
             case .structValue(let v):
                 if start <= 5 && 5 < end {
@@ -570,7 +570,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
             separator = ","
         }
         jsonEncoder.append(text: "]")
-        return jsonEncoder.result
+        return jsonEncoder.stringResult
     }
 
     public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -614,7 +614,7 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         }
     }
 
-    public func _protoc_generated_traverse(visitor: Visitor) throws {
+    public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !values.isEmpty {
             try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
         }

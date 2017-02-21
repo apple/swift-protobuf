@@ -319,6 +319,7 @@ struct MessageFieldGenerator {
     var isMap: Bool {return descriptor.getIsMap(context: context)}
     var isMessage: Bool {return descriptor.isMessage}
     var isEnum: Bool {return descriptor.type == .enum}
+    var isString: Bool {return descriptor.type == .string}
     var isPacked: Bool {return descriptor.isPackable &&
         (descriptor.options.hasPacked ? descriptor.options.packed : isProto3)}
     var isRepeated: Bool {return descriptor.isRepeated}
@@ -528,9 +529,11 @@ struct MessageFieldGenerator {
         }
 
         let visitMethod: String
+        let fieldTypeArg: String
         if isMap {
             visitMethod = "visitMapField"
-        } else {
+            fieldTypeArg = "fieldType: \(traitsType).self, "
+        } else if isGroup || isMessage || isEnum {
             let modifier = (isPacked ? "Packed"
                          : isRepeated ? "Repeated"
                          : "Singular")
@@ -539,14 +542,19 @@ struct MessageFieldGenerator {
                          : isEnum ? "Enum"
                          : ""
             visitMethod = "visit\(modifier)\(special)Field"
-        }
-
-        let fieldTypeArg: String
-        if isMap || (!isGroup && !isMessage && !isEnum) {
-            fieldTypeArg = "fieldType: \(traitsType).self, "
+            fieldTypeArg = ""
+        } else if !isRepeated && descriptor.type == .int64 {
+            visitMethod = "visitSingularInt64Field"
+            fieldTypeArg = ""
         } else {
+            let modifier = (isPacked ? "Packed"
+                         : isRepeated ? "Repeated"
+                                      : "Singular")
+            let protoType = descriptor.getProtoTypeName(context: context)
+            visitMethod = "visit\(modifier)\(protoType)Field"
             fieldTypeArg = ""
         }
+
 
         let varName: String
         let conditional: String
@@ -559,7 +567,11 @@ struct MessageFieldGenerator {
         } else {
             assert(isProto3)
             varName = prefix + swiftName
-            conditional = ("\(varName) != \(swiftDefaultValue)")
+            if isString {
+                conditional = ("!\(varName).isEmpty")
+            } else {
+                conditional = ("\(varName) != \(swiftDefaultValue)")
+            }
         }
 
         p.print("if \(conditional) {\n")

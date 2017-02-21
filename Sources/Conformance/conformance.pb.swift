@@ -175,15 +175,15 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
       return nil
     }
 
-    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
       switch self {
       case .protobufPayload(let v):
         if start <= 1 && 1 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 1)
+          try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
         }
       case .jsonPayload(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 2)
         }
       }
     }
@@ -238,8 +238,8 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf.Prot
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try payload?.traverse(visitor: visitor, start: 1, end: 3)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try payload?.traverse(visitor: &visitor, start: 1, end: 3)
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
       try visitor.visitSingularEnumField(value: requestedOutputFormat, fieldNumber: 3)
     }
@@ -324,31 +324,31 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
       return nil
     }
 
-    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
       switch self {
       case .parseError(let v):
         if start <= 1 && 1 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 1)
         }
       case .runtimeError(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 2)
         }
       case .protobufPayload(let v):
         if start <= 3 && 3 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 3)
+          try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
         }
       case .jsonPayload(let v):
         if start <= 4 && 4 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 4)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 4)
         }
       case .skipped(let v):
         if start <= 5 && 5 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 5)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 5)
         }
       case .serializeError(let v):
         if start <= 6 && 6 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 6)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 6)
         }
       }
     }
@@ -464,8 +464,8 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.Pro
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try result?.traverse(visitor: visitor, start: 1, end: 7)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try result?.traverse(visitor: &visitor, start: 1, end: 7)
   }
 
   func _protoc_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
