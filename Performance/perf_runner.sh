@@ -209,9 +209,6 @@ cp "$script_dir/../.build/release/protoc-gen-swift" \
 mkdir -p "$script_dir/_generated"
 mkdir -p "$script_dir/_results"
 
-# Build a dynamic library to use in the tests
-swiftc -emit-library -o "$script_dir/_generated/libSwiftProtobufDynamic.dylib" "$script_dir/../.build/release/SwiftProtobuf.build/"*.swift.o
-
 # If the visualization results file isn't there, copy it from the template so
 # that the harnesses can populate it.
 results_js="$script_dir/_results/results.js"

@@ -65,26 +65,26 @@ extension Harness {
 
       // Exercise binary serialization.
       let data = try measureSubtask("Encode binary") {
-        return try message.serializeProtobuf()
+        return try message.serializedData()
       }
       message = try measureSubtask("Decode binary") {
-        return try PerfMessage(protobuf: data)
+        return try PerfMessage(serializedData: data)
       }
 
       // Exercise JSON serialization.
       let json = try measureSubtask("Encode JSON") {
-        return try message.serializeJSON()
+        return try message.jsonString()
       }
       let jsonDecodedMessage = try measureSubtask("Decode JSON") {
-        return try PerfMessage(json: json)
+        return try PerfMessage(jsonString: json)
       }
 
       // Exercise text serialization.
       let text = try measureSubtask("Encode text") {
-        return try message.serializeText()
+        return try message.textFormatString()
       }
       _ = try measureSubtask("Decode text") {
-        return try PerfMessage(text: text)
+        return try PerfMessage(textFormatString: text)
       }
 
       // Exercise equality.
@@ -116,12 +116,19 @@ function run_swift_harness() {
   gen_harness_path="$script_dir/_generated/Harness+Generated.swift"
   generate_swift_harness "$field_count" "$field_type"
 
+  # Build the dynamic library to use in the tests from the .o files that were
+  # already built for the plug-in.
+  echo "Building SwiftProtobuf dynamic library..."
+  swiftc -emit-library -O -wmo -target x86_64-apple-macosx10.10 \
+      -o "$script_dir/_generated/libSwiftProtobuf.dylib" \
+      "$script_dir/../Sources/SwiftProtobuf/"*.swift
+
   echo "Building Swift test harness..."
   time ( swiftc -O -target x86_64-apple-macosx10.10 \
       -o "$harness" \
       -I "$script_dir/../.build/release" \
       -L "$script_dir/_generated" \
-      -lSwiftProtobufDynamic \
+      -lSwiftProtobuf \
       "$gen_harness_path" \
       "$script_dir/Harness.swift" \
       "$script_dir/_generated/message.pb.swift" \
@@ -129,7 +136,7 @@ function run_swift_harness() {
   )
   echo
 
-  dylib="$script_dir/_generated/libSwiftProtobufDynamic.dylib"
+  dylib="$script_dir/_generated/libSwiftProtobuf.dylib"
   echo "Swift dylib size before stripping: $(stat -f "%z" "$dylib") bytes"
   cp "$dylib" "${dylib}_stripped"
   strip -u -r "${dylib}_stripped"
